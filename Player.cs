@@ -3,7 +3,7 @@ using System;
 
 public class Player : VehicleBody
 {
-    
+    [Export] public float brake;''
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
