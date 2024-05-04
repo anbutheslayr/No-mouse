@@ -1,4 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Follow.cs" type="Script" id=1]
+[ext_resource path="res://Movement.cs" type="Script" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "plastic"
@@ -173,9 +176,16 @@ surfaces/1 = {
 "vertex_count": 408
 }
 
+[sub_resource type="PhysicsMaterial" id=12]
+bounce = 0.2
+
 [sub_resource type="SphereShape" id=11]
 
 [node name="taxi" type="Spatial"]
+script = ExtResource( 2 )
+Ball_path = "Ball"
+Car_mesh_path = "Spatial"
+rayCast_path = "Spatial/RayCast"
 
 [node name="Spatial" type="MeshInstance" parent="."]
 
@@ -205,11 +215,18 @@ mesh = SubResource( 10 )
 skeleton = NodePath("../..")
 
 [node name="RayCast" type="RayCast" parent="Spatial"]
+enabled = true
 
-[node name="RigidBody" type="RigidBody" parent="."]
+[node name="Ball" type="RigidBody" parent="."]
+physics_material_override = SubResource( 12 )
+gravity_scale = 10.0
+angular_damp = 5.0
 
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Ball"]
 shape = SubResource( 11 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.704027, 0.710173, 0, -0.710173, 0.704027, 0, 7, 6 )
+script = ExtResource( 1 )
+target_PATH = "Ball"
+offset = Vector3( 0, 7, 6 )

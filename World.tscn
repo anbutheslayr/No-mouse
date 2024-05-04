@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
+[ext_resource path="res://World.cs" type="Script" id=1]
 [ext_resource path="res://Materials/Tiles131_1K-JPG_NormalDX.jpg" type="Texture" id=2]
 [ext_resource path="res://Materials/Tiles131_1K-JPG_Roughness.jpg" type="Texture" id=4]
 [ext_resource path="res://Materials/Tiles131_1K-JPG_Color.jpg" type="Texture" id=5]
@@ -29,6 +30,8 @@ glow_strength = 1.16
 glow_bloom = 0.04
 
 [node name="World" type="Spatial"]
+script = ExtResource( 1 )
+car_scene_path = "res://taxi.tscn"
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
 use_collision = true
