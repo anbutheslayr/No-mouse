@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Tiles131_1K-JPG_Displacement.jpg-5242654cb95299ff75ad83e1eed2cf2a.s3tc.stex"
-path.etc2="res://.import/Tiles131_1K-JPG_Displacement.jpg-5242654cb95299ff75ad83e1eed2cf2a.etc2.stex"
+path.s3tc="res://.import/Tiles131_1K-JPG_Color.jpg-f0e25417e9b44394d535c24f86934c87.s3tc.stex"
+path.etc2="res://.import/Tiles131_1K-JPG_Color.jpg-f0e25417e9b44394d535c24f86934c87.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Tiles131_1K-JPG_Displacement.jpg"
-dest_files=[ "res://.import/Tiles131_1K-JPG_Displacement.jpg-5242654cb95299ff75ad83e1eed2cf2a.s3tc.stex", "res://.import/Tiles131_1K-JPG_Displacement.jpg-5242654cb95299ff75ad83e1eed2cf2a.etc2.stex" ]
+source_file="res://Materials/Tiles131_1K-JPG_Color.jpg"
+dest_files=[ "res://.import/Tiles131_1K-JPG_Color.jpg-f0e25417e9b44394d535c24f86934c87.s3tc.stex", "res://.import/Tiles131_1K-JPG_Color.jpg-f0e25417e9b44394d535c24f86934c87.etc2.stex" ]
 
 [params]
 
@@ -25,7 +25,7 @@ flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

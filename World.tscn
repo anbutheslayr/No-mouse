@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://sedan.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Tiles131_1K-JPG_NormalDX.jpg" type="Texture" id=2]
-[ext_resource path="res://Tiles131_1K-JPG_Roughness.jpg" type="Texture" id=4]
-[ext_resource path="res://Tiles131_1K-JPG_Color.jpg" type="Texture" id=5]
+[ext_resource path="res://Materials/Tiles131_1K-JPG_NormalDX.jpg" type="Texture" id=2]
+[ext_resource path="res://Materials/Tiles131_1K-JPG_Roughness.jpg" type="Texture" id=4]
+[ext_resource path="res://Materials/Tiles131_1K-JPG_Color.jpg" type="Texture" id=5]
 
 [sub_resource type="SpatialMaterial" id=3]
 
@@ -47,6 +46,3 @@ environment = SubResource( 5 )
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.984877, 0, 0.173253, 0.127494, 0.677107, 0.724756, -0.117311, 0.735884, -0.666868, 0, 5.43877, 0 )
 shadow_enabled = true
-
-[node name="sedan" parent="." instance=ExtResource( 1 )]
-mass = 30.0

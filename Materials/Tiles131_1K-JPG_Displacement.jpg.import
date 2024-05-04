@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Tiles131_1K-JPG_Roughness.jpg-d784cd619f24abd80203b844f8afd7fe.s3tc.stex"
-path.etc2="res://.import/Tiles131_1K-JPG_Roughness.jpg-d784cd619f24abd80203b844f8afd7fe.etc2.stex"
+path.s3tc="res://.import/Tiles131_1K-JPG_Displacement.jpg-d3f430f9db1d6b3724e3f2cc682fd8fb.s3tc.stex"
+path.etc2="res://.import/Tiles131_1K-JPG_Displacement.jpg-d3f430f9db1d6b3724e3f2cc682fd8fb.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Tiles131_1K-JPG_Roughness.jpg"
-dest_files=[ "res://.import/Tiles131_1K-JPG_Roughness.jpg-d784cd619f24abd80203b844f8afd7fe.s3tc.stex", "res://.import/Tiles131_1K-JPG_Roughness.jpg-d784cd619f24abd80203b844f8afd7fe.etc2.stex" ]
+source_file="res://Materials/Tiles131_1K-JPG_Displacement.jpg"
+dest_files=[ "res://.import/Tiles131_1K-JPG_Displacement.jpg-d3f430f9db1d6b3724e3f2cc682fd8fb.s3tc.stex", "res://.import/Tiles131_1K-JPG_Displacement.jpg-d3f430f9db1d6b3724e3f2cc682fd8fb.etc2.stex" ]
 
 [params]
 
