@@ -10,7 +10,7 @@ public class Movement : Spatial
 	[Export] public string Ball_path;
 	[Export] public string Car_mesh_path;
 	[Export] public string rayCast_path; 
-	[Export] public Vector3 sphere_offset = new Vector3(0, 7, 6);
+	[Export] public Vector3 sphere_offset = new Vector3(0, -1, 0);
 	[Export] public float acceleration = 50;
 	[Export] public float steering = 21;
 	[Export] public float turn_speed = 5;
@@ -29,22 +29,26 @@ public class Movement : Spatial
 	public override void _PhysicsProcess(float delta)
 	{
 		// align te mesh with sphere
-		var transform = ball.Transform;
+		var transform = Car_mesh.Transform;
 		transform.origin = ball.Transform.origin + sphere_offset;
 		Car_mesh.Transform = transform;
 		//Accelerate
-		ball.AddCentralForce(-transform.basis.z * speed_input);
+		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z * speed_input);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
 		// Acceleration
-		speed_input = Input.GetActionStrength("ui_up") - Input.GetActionStrength("ui_down");
+		speed_input = 0;
+		speed_input += Input.GetActionStrength("ui_up");
+		speed_input -=  Input.GetActionStrength("ui_down");
 		speed_input *= acceleration;
-		// Steering
-		steering_input = Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left");
-		steering_input = Mathf.Deg2Rad(steering);
+		//Steering 
+		steering_input = 0;
+		steering_input -= Input.GetActionStrength("ui_right");
+		steering_input += Input.GetActionStrength("ui_left");
+		steering_input *= Mathf.Deg2Rad(steering);
 		// Apply steering
 		if(ball.LinearVelocity.Length() > turn_stop_limit)
 		{
