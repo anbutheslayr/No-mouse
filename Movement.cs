@@ -71,6 +71,17 @@ public class Movement : Spatial
 			transform.basis = Car_mesh.GlobalTransform.basis.Slerp(new_basis, turn_speed * delta);
 			Car_mesh.GlobalTransform = transform.Orthonormalized();
 		}
+		// Align with surface
+		var n = rayCast.GetCollisionNormal().Normalized();
+		var xform = Alignwithsurface(Car_mesh.GlobalTransform ,n);
+		Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , 0.2f);
 
+	}
+	public Transform Alignwithsurface(Transform xform ,Vector3 new_y)
+	{
+		xform.basis.y = new_y;
+		xform.basis.x = xform.basis.z.Cross(new_y);
+		xform.basis = xform.basis.Orthonormalized();
+		return xform;
 	}
 }

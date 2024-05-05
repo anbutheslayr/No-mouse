@@ -55,3 +55,10 @@ width = 300.0
 height = 0.1
 depth = 300.0
 material = SubResource( 6 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.89301, 0.450036, 0, -0.450036, 0.89301, 0, 2.32945, 8.02777 )
+use_collision = true
+width = 5.0
+height = 3.0
+depth = 17.3655
