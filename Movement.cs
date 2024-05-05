@@ -17,6 +17,10 @@ public class Movement : Spatial
 	[Export] public float turn_stop_limit = 0.75f;
 	public float speed_input;
 	public float steering_input;
+	[Export] public string left_wheel_path;
+	[Export] public string right_wheel_path;
+	public MeshInstance left_wheel;
+	public MeshInstance right_wheel;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -24,6 +28,8 @@ public class Movement : Spatial
 		Car_mesh = GetNode<MeshInstance>(Car_mesh_path);
 		rayCast = GetNode<RayCast>(rayCast_path);
 		rayCast.AddException(ball);
+		left_wheel = GetNode<MeshInstance>(left_wheel_path);
+		right_wheel = GetNode<MeshInstance>(right_wheel_path);
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -49,6 +55,13 @@ public class Movement : Spatial
 		steering_input -= Input.GetActionStrength("ui_right");
 		steering_input += Input.GetActionStrength("ui_left");
 		steering_input *= Mathf.Deg2Rad(steering);
+		// turning wheels
+		var left_rotation = left_wheel.Rotation;
+		var right_rotation = right_wheel.Rotation;
+		left_rotation.y = steering_input ;
+		right_rotation.y = steering_input;
+		left_wheel.Rotation = left_rotation;
+		right_wheel.Rotation = right_rotation;
 		// Apply steering
 		if(ball.LinearVelocity.Length() > turn_stop_limit)
 		{
