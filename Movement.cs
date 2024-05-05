@@ -12,7 +12,7 @@ public class Movement : Spatial
 	[Export] public string rayCast_path; 
 	[Export] public Vector3 sphere_offset = new Vector3(0, -1, 0);
 	[Export] public float acceleration = 50;
-	[Export] public float steering = 21;
+	[Export] public float steering = 50;
 	[Export] public float turn_speed = 5;
 	[Export] public float turn_stop_limit = 0.75f;
 	public float speed_input;
@@ -56,12 +56,13 @@ public class Movement : Spatial
 		steering_input += Input.GetActionStrength("ui_left");
 		steering_input *= Mathf.Deg2Rad(steering);
 		// turning wheels
+		
+		var right_rotation = right_wheel.Rotation;
+		right_rotation.y = steering_input;
 		var left_rotation = left_wheel.Rotation;
-		left_rotation.y = steering_input ;
+		left_rotation.y = 3.141593f + steering_input;
 		left_wheel.Rotation = left_rotation;
-		// var right_rotation = right_wheel.Rotation;
-		// right_rotation.y = steering_input;
-		// right_wheel.Rotation = right_rotation;
+		right_wheel.Rotation = right_rotation;
 		// Apply steering
 		if(ball.LinearVelocity.Length() > turn_stop_limit)
 		{
