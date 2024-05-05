@@ -57,11 +57,11 @@ public class Movement : Spatial
 		steering_input *= Mathf.Deg2Rad(steering);
 		// turning wheels
 		var left_rotation = left_wheel.Rotation;
-		var right_rotation = right_wheel.Rotation;
 		left_rotation.y = steering_input ;
-		right_rotation.y = steering_input;
 		left_wheel.Rotation = left_rotation;
-		right_wheel.Rotation = right_rotation;
+		// var right_rotation = right_wheel.Rotation;
+		// right_rotation.y = steering_input;
+		// right_wheel.Rotation = right_rotation;
 		// Apply steering
 		if(ball.LinearVelocity.Length() > turn_stop_limit)
 		{

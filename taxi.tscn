@@ -208,7 +208,7 @@ mesh = SubResource( 10 )
 skeleton = NodePath("../..")
 
 [node name="wheel_frontLeft" type="MeshInstance" parent="Spatial"]
-transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.3, 0.3, -0.76 )
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.341157, 0.3, -0.76 )
 mesh = SubResource( 10 )
 skeleton = NodePath("../..")
 
