@@ -8,6 +8,7 @@ public class Movement : Spatial
 	public MeshInstance Car_mesh;
 	public RayCast rayCast;
 	[Export] public string Ball_path;
+	[Export] public string car_mesh_body_path;
 	[Export] public string Car_mesh_path;
 	[Export] public string rayCast_path; 
 	[Export] public Vector3 sphere_offset = new Vector3(0, -1, 0);
@@ -20,6 +21,7 @@ public class Movement : Spatial
 	public float steering_input;
 	[Export] public string left_wheel_path;
 	[Export] public string right_wheel_path;
+	public MeshInstance car_mesh_body;
 	public MeshInstance left_wheel;
 	public MeshInstance right_wheel;
 	// Called when the node enters the scene tree for the first time.
@@ -31,6 +33,7 @@ public class Movement : Spatial
 		rayCast.AddException(ball);
 		left_wheel = GetNode<MeshInstance>(left_wheel_path);
 		right_wheel = GetNode<MeshInstance>(right_wheel_path);
+		car_mesh_body = GetNode<MeshInstance>(car_mesh_body_path);
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -78,7 +81,9 @@ public class Movement : Spatial
 			Car_mesh.GlobalTransform = transform.Orthonormalized();
 			// Applying tilt
 			var t = -steering_input * ball.LinearVelocity.Length() / tilt;
-			Car_mesh.Rotation.z = Mathf.Lerp(Car_mesh.Rotation.z , t , 10 * delta);
+			var rotation = car_mesh_body.Rotation;
+			rotation.z = Mathf.Lerp(rotation.z , t , 10 * delta);
+			car_mesh_body.Rotation = rotation;
 		}
 		// Align with surface
 		var n = rayCast.GetCollisionNormal().Normalized();
