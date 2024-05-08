@@ -45,9 +45,10 @@ target_PATH = "taxi/Spatial"
 offset = Vector3( 0, 3, 4 )
 
 [node name="taxi" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60185, 5.41417, 4.45315 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60185, 0.171139, -3.37343 )
 acceleration = 75.0
 steering = 30.0
+turn_stop_limit = 1.25
 
 [node name="CSGBox" type="CSGBox" parent="."]
 use_collision = true
@@ -59,6 +60,6 @@ material = SubResource( 6 )
 [node name="CSGBox2" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.89301, 0.450036, 0, -0.450036, 0.89301, 0, 2.32945, 8.02777 )
 use_collision = true
-width = 5.0
+width = 10.0
 height = 3.0
 depth = 17.3655

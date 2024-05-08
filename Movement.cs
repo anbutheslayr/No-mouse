@@ -40,6 +40,7 @@ public class Movement : Spatial
 		Car_mesh.Transform = transform;
 		//Accelerate
 		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z * speed_input);
+		GD.Print(speed_input);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -66,6 +67,10 @@ public class Movement : Spatial
 		// Apply steering
 		if(ball.LinearVelocity.Length() > turn_stop_limit)
 		{
+			if(speed_input < 0)
+			{
+				steering_input = -steering_input;
+			}
 			var new_basis = Car_mesh.GlobalTransform.basis.Rotated(Car_mesh.GlobalTransform.basis.y ,steering_input );
 			var transform = Car_mesh.GlobalTransform;
 			transform.basis = Car_mesh.GlobalTransform.basis.Slerp(new_basis, turn_speed * delta);
@@ -74,13 +79,13 @@ public class Movement : Spatial
 		// Align with surface
 		var n = rayCast.GetCollisionNormal().Normalized();
 		var xform = Alignwithsurface(Car_mesh.GlobalTransform ,n);
-		Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , 0.2f);
+		Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , (turn_speed*2) * delta);
 
 	}
 	public Transform Alignwithsurface(Transform xform ,Vector3 new_y)
 	{
 		xform.basis.y = new_y;
-		xform.basis.x = xform.basis.z.Cross(new_y);
+		xform.basis.x = -xform.basis.z.Cross(new_y);
 		xform.basis = xform.basis.Orthonormalized();
 		return xform;
 	}
