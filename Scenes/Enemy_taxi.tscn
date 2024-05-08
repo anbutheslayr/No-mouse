@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Movement.cs" type="Script" id=2]
-[ext_resource path="res://taxi.tres" type="ArrayMesh" id=3]
-[ext_resource path="res://Smoke.tscn" type="PackedScene" id=4]
+[ext_resource path="res://taxi.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://Scripts/Enemy_movement.cs" type="Script" id=2]
+[ext_resource path="res://Scenes/Smoke.tscn" type="PackedScene" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "plastic"
@@ -173,27 +173,16 @@ bounce = 0.1
 [node name="taxi" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60185, 4.09071, 4.45315 )
 script = ExtResource( 2 )
-Ball_path = "Ball"
-car_mesh_body_path = "Spatial/body"
-Car_mesh_path = "Spatial"
-rayCast_path = "Spatial/RayCast"
-acceleration = 100.0
-turn_speed = 4.0
-tilt = 65.0
-left_wheel_path = "Spatial/wheel_frontLeft"
-right_wheel_path = "Spatial/wheel_frontRight"
-B_L_particles = "Spatial/Backleft/CPUParticles"
-B_R_particles = "Spatial/Backright/CPUParticles"
 
 [node name="Spatial" type="MeshInstance" parent="."]
 
-[node name="Backright" parent="Spatial" instance=ExtResource( 4 )]
+[node name="Backright" parent="Spatial" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428421, 0.0363879, 0.811293 )
 
 [node name="CPUParticles" parent="Spatial/Backright" index="0"]
 emitting = false
 
-[node name="Backleft" parent="Spatial" instance=ExtResource( 4 )]
+[node name="Backleft" parent="Spatial" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546473, 0.0306792, 0.851717 )
 
 [node name="CPUParticles" parent="Spatial/Backleft" index="0"]
@@ -207,22 +196,22 @@ skeleton = NodePath("../..")
 
 [node name="wheel_backRight" type="MeshInstance" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, 0.76 )
-mesh = ExtResource( 3 )
+mesh = ExtResource( 1 )
 skeleton = NodePath("../..")
 
 [node name="wheel_frontLeft" type="MeshInstance" parent="Spatial"]
 transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.341157, 0.3, -0.746651 )
-mesh = ExtResource( 3 )
+mesh = ExtResource( 1 )
 skeleton = NodePath("../..")
 
 [node name="wheel_frontRight" type="MeshInstance" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, -0.76 )
-mesh = ExtResource( 3 )
+mesh = ExtResource( 1 )
 skeleton = NodePath("../..")
 
 [node name="wheel_backLeft" type="MeshInstance" parent="Spatial"]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.3, 0.3, 0.76 )
-mesh = ExtResource( 3 )
+mesh = ExtResource( 1 )
 skeleton = NodePath("../..")
 
 [node name="RayCast" type="RayCast" parent="Spatial"]
