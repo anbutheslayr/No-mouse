@@ -15,7 +15,8 @@ public class Movement : Spatial
 	[Export] public float steering = 50;
 	[Export] public float turn_speed = 5;
 	[Export] public float turn_stop_limit = 0.75f;
-	public float speed_input;
+	[Export] public float tilt = 35;
+ 	public float speed_input;
 	public float steering_input;
 	[Export] public string left_wheel_path;
 	[Export] public string right_wheel_path;
@@ -75,6 +76,9 @@ public class Movement : Spatial
 			var transform = Car_mesh.GlobalTransform;
 			transform.basis = Car_mesh.GlobalTransform.basis.Slerp(new_basis, turn_speed * delta);
 			Car_mesh.GlobalTransform = transform.Orthonormalized();
+			// Applying tilt
+			var t = -steering_input * ball.LinearVelocity.Length() / tilt;
+			Car_mesh.Rotation.z = Mathf.Lerp(Car_mesh.Rotation.z , t , 10 * delta);
 		}
 		// Align with surface
 		var n = rayCast.GetCollisionNormal().Normalized();
