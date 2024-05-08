@@ -24,6 +24,10 @@ public class Movement : Spatial
 	public MeshInstance car_mesh_body;
 	public MeshInstance left_wheel;
 	public MeshInstance right_wheel;
+	[Export] public string B_L_particles;
+	[Export] public string B_R_particles;
+	public CPUParticles B_L;
+	public CPUParticles B_R;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -34,17 +38,43 @@ public class Movement : Spatial
 		left_wheel = GetNode<MeshInstance>(left_wheel_path);
 		right_wheel = GetNode<MeshInstance>(right_wheel_path);
 		car_mesh_body = GetNode<MeshInstance>(car_mesh_body_path);
+		B_L = GetNode<CPUParticles>(B_L_particles);
+		B_R = GetNode<CPUParticles>(B_R_particles);
 	}
 
 	public override void _PhysicsProcess(float delta)
 	{
-		// align te mesh with sphere
+		// align mesh with sphere
 		var transform = Car_mesh.Transform;
 		transform.origin = ball.Transform.origin + sphere_offset;
 		Car_mesh.Transform = transform;
 		//Accelerate
 		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z * speed_input);
 		GD.Print(speed_input);
+		// Smoke
+		var ball_velocity = ball.LinearVelocity.Normalized();
+		var car_mesh_forward = Car_mesh.GlobalTransform.basis.z.Normalized();
+		var dot_product = ball_velocity.Dot(car_mesh_forward);
+		
+		if(rayCast.IsColliding() && ball.LinearVelocity.Length() >16.5)
+		{
+			if(dot_product > 0)
+			{
+				B_L.Emitting = false;
+				B_R.Emitting = false;
+			}
+			else 
+			{
+				B_L.Emitting = true;
+				B_R.Emitting = true;
+			}
+			
+		}
+		else
+		{
+			B_L.Emitting = false;
+			B_R.Emitting = false;
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -88,7 +118,7 @@ public class Movement : Spatial
 		// Align with surface
 		var n = rayCast.GetCollisionNormal().Normalized();
 		var xform = Alignwithsurface(Car_mesh.GlobalTransform ,n);
-		Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , (turn_speed*2) * delta);
+		Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , turn_speed * 2 * delta);
 
 	}
 	public Transform Alignwithsurface(Transform xform ,Vector3 new_y)

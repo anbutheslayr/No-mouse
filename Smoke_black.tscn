@@ -3,7 +3,7 @@
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.0666667, 0.0627451, 0.0627451, 1 )
 emission_enabled = true
-emission = Color( 0.333333, 0.32549, 0.32549, 1 )
+emission = Color( 0.788235, 0.713726, 0.713726, 1 )
 emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
@@ -17,7 +17,7 @@ rings = 9
 
 [sub_resource type="Curve" id=2]
 max_value = 2.0
-_data = [ Vector2( 0.011745, 0.190184 ), 0.0, 0.461866, 0, 0, Vector2( 0.360738, 0.95092 ), 1.10086, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.226994 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.11043 ), 1.10086, 0.0, 0, 0 ]
 
 [sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0, 0.537879, 1 )
@@ -26,8 +26,9 @@ colors = PoolColorArray( 0, 0, 0, 1, 0.529412, 0.529412, 0.529412, 1, 1, 1, 1, 1
 [node name="Spatial" type="Spatial"]
 
 [node name="CPUParticles" type="CPUParticles" parent="."]
-amount = 25
-lifetime = 0.3
+amount = 20
+lifetime = 0.25
+randomness = 0.5
 local_coords = false
 mesh = SubResource( 1 )
 spread = 50.0

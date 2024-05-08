@@ -46,7 +46,7 @@ offset = Vector3( 0, 3, 4 )
 
 [node name="taxi" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60185, 0.171139, -3.37343 )
-acceleration = 75.0
+acceleration = 65.0
 steering = 30.0
 turn_stop_limit = 1.25
 
