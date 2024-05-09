@@ -173,6 +173,19 @@ bounce = 0.1
 [node name="taxi" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60185, 4.09071, 4.45315 )
 script = ExtResource( 2 )
+Ball_path = "Ball"
+car_mesh_body_path = "Spatial/body"
+Car_mesh_path = "Spatial"
+rayCast_path = "Spatial/RayCast"
+acceleration = 75.0
+tilt = 65.0
+left_wheel_path = "Spatial/wheel_frontLeft"
+right_wheel_path = "Spatial/wheel_frontRight"
+B_L_particles = "Spatial/Backleft/CPUParticles"
+B_R_particles = "Spatial/Backright/CPUParticles"
+player_mesh_path = "taxi/Spatial"
+avoidance_strength = 50.0
+player_collider_path = "Spatial/Player_collider"
 
 [node name="Spatial" type="MeshInstance" parent="."]
 
@@ -216,6 +229,10 @@ skeleton = NodePath("../..")
 
 [node name="RayCast" type="RayCast" parent="Spatial"]
 enabled = true
+
+[node name="Player_collider" type="RayCast" parent="Spatial"]
+enabled = true
+cast_to = Vector3( 0, 0, 0 )
 
 [node name="Ball" type="RigidBody" parent="."]
 physics_material_override = SubResource( 12 )

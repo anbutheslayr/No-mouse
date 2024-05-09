@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.ComponentModel;
 
 public class Enemy_movement : Spatial
 {
@@ -29,7 +30,26 @@ public class Enemy_movement : Spatial
 	public CPUParticles B_R;
 
 
-    // AI variables
+    // AI components
+	public MeshInstance player_mesh;
+	[Export] public string player_mesh_path;
+	[Export] public float avoidance_strength = 1;
+	[Export] public string player_collider_path;
+	public Vector3 direction;
+	public RayCast player_collider;
+	// public Vector3 Calculate_Avoidance_vector(Vector3 car_pos , Vector3 obstacle_pos)
+	// {
+	// 	// Calculate the vector from the car to the obstacle
+	// 	var to_vector = car_pos - obstacle_pos;
+	// 	// calculate the perpendicular vector for avoidance
+	// 	var perp_vector = to_vector.Cross(Vector3.Up).Normalized();
+	// 	// scaling the perpendicular vector(Changes required)
+	// 	perp_vector *= avoidance_strength;
+	// 	// return the perpendicular vector
+	// 	return perp_vector;
+
+	// }
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -42,7 +62,11 @@ public class Enemy_movement : Spatial
 		car_mesh_body = GetNode<MeshInstance>(car_mesh_body_path);
 		B_L = GetNode<CPUParticles>(B_L_particles);
 		B_R = GetNode<CPUParticles>(B_R_particles);
-		
+		player_mesh = GetParent().GetNode<MeshInstance>(player_mesh_path);
+		player_collider = GetNode<RayCast>(player_collider_path);
+		player_collider.Enabled = true;
+		player_collider.AddException(ball);
+		player_collider.AddException(player_mesh);
 	}
 	// public override void _Input(InputEvent @event)
 	// {
@@ -92,24 +116,7 @@ public class Enemy_movement : Spatial
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
-		// Acceleration
-		// speed_input = 0;
-		// speed_input += Input.GetActionStrength("ui_up");
-		// speed_input -=  Input.GetActionStrength("ui_down");
-		// speed_input = -Input.GetAccelerometer().Normalized().y;
-		// speed_input *= acceleration;
-
-
-
-
-
-
-
-		//Steering 
-		// steering_input -= Input.GetActionStrength("ui_right");
-		// steering_input += Input.GetActionStrength("ui_left");
-		steering_input = -Input.GetAccelerometer().Normalized().x;
-		steering_input *= Mathf.Deg2Rad(steering);
+		
 		// turning wheels
 		
 		var right_rotation = right_wheel.Rotation;
@@ -139,7 +146,69 @@ public class Enemy_movement : Spatial
 		var n = rayCast.GetCollisionNormal().Normalized();
 		var xform = Alignwithsurface(Car_mesh.GlobalTransform ,n);
 		Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , turn_speed * 2 * delta);
+		// AI
+		direction = player_mesh.Transform.origin - Car_mesh.GlobalTransform.origin;
+		var new_direction = direction;
+		// GD.Print(new_direction);
+		player_collider.CastTo = direction;
+		// if(player_collider.IsColliding())
+		// {
+		// 	var avoidance_vector = Calculate_Avoidance_vector(ball.GlobalTransform.origin , player_ball.GlobalTransform.origin);
+		// 	new_direction += avoidance_vector;
+		// }
+		// else
+		// {
+		// 	new_direction = direction;
+		// }
+		// Calculate angle
+		var angle = Calculate_Angle(new_direction);
+		GD.Print("Angle : " + angle);
+		if(angle > -10)
+		{
+			steering_input = 0.5f;
+		}
+		else if(angle < -10)
+		{
+			steering_input = -0.5f;
+		}
+		else
+		{
+			steering_input = 0;
+		}
+		
+		//Steering 
+		// steering_input -= Input.GetActionStrength("ui_right");
+		// steering_input += Input.GetActionStrength("ui_left");
+		// steering_input = -Input.GetAccelerometer().Normalized().x;
+		steering_input *= Mathf.Deg2Rad(steering);
+		// Acceleration
+		// speed_input = 0;
+		// speed_input += Input.GetActionStrength("ui_up");
+		// speed_input -=  Input.GetActionStrength("ui_down");
+		// speed_input = -Input.GetAccelerometer().Normalized().y;
+		
+		var distance = new_direction.Length();
+		if(distance > 5)
+		{
+			speed_input = .75f;
+		}
+		else
+		{
+			speed_input = 0;
+		}
+		speed_input = Mathf.Lerp(speed_input , speed_input*acceleration , delta * 25);
+	}
+	
+	public float Calculate_Angle(Vector3 direction)
+	{
+		// magnitude
+		var distance = direction.Length();
+		// calculating dot product
+		var dot_product = direction.Dot(Vector3.Up);
+		// calculate angle
+		var angle = Mathf.Rad2Deg(Mathf.Asin(dot_product / distance));
 
+		return angle;
 	}
 	public Transform Alignwithsurface(Transform xform ,Vector3 new_y)
 	{

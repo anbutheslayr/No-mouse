@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/taxi.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Materials/Tiles131_1K-JPG_Roughness.jpg" type="Texture" id=2]
 [ext_resource path="res://Scripts/Follow.cs" type="Script" id=3]
 [ext_resource path="res://Materials/Tiles131_1K-JPG_NormalDX.jpg" type="Texture" id=4]
 [ext_resource path="res://Materials/Tiles131_1K-JPG_Color.jpg" type="Texture" id=5]
+[ext_resource path="res://Scenes/Enemy_taxi.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ProceduralSky" id=4]
 
@@ -56,22 +57,33 @@ keep_pressed_outside = true
 text = "Accelerate"
 
 [node name="taxi" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60185, 1.30724, -12.8663 )
+transform = Transform( -0.15671, 0, -0.987645, 0, 1, 0, 0.987645, 0, -0.15671, -24.1707, 1, -8.488 )
 acceleration = 65.0
 steering = 30.0
 turn_stop_limit = 1.25
-button_path = "Camera/Button"
 
-[node name="CSGBox" type="CSGBox" parent="."]
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
 use_collision = true
 width = 300.0
 height = 0.1
 depth = 300.0
 material = SubResource( 6 )
 
-[node name="CSGBox2" type="CSGBox" parent="."]
+[node name="CSGBox2" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 0.89301, 0.450036, 0, -0.450036, 0.89301, 0, 2.32945, 8.02777 )
 use_collision = true
 width = 10.0
 height = 3.0
 depth = 17.3655
+
+[node name="CSGBox3" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.94181, -27.4641 )
+width = 13.3113
+height = 16.0265
+depth = 15.4232
+
+[node name="taxi2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.230882, 0, 0.972982, 0, 1, 0, -0.972982, 0, 0.230882, -1.71525, 0.0500002, -3.97179 )
