@@ -57,7 +57,7 @@ keep_pressed_outside = true
 text = "Accelerate"
 
 [node name="taxi" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.15671, 0, -0.987645, 0, 1, 0, 0.987645, 0, -0.15671, -24.1707, 1, -8.488 )
+transform = Transform( 0.953764, 0, -0.300556, 0, 1, 0, 0.300556, 0, 0.953764, -2.9971, 1, -8.488 )
 acceleration = 65.0
 steering = 30.0
 turn_stop_limit = 1.25
@@ -86,4 +86,5 @@ height = 16.0265
 depth = 15.4232
 
 [node name="taxi2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.230882, 0, 0.972982, 0, 1, 0, -0.972982, 0, 0.230882, -1.71525, 0.0500002, -3.97179 )
+transform = Transform( 0.230882, 0, 0.972982, 0, 1, 0, -0.972982, 0, 0.230882, -1.71525, 0.0500002, -45.0909 )
+acceleration = 100.0

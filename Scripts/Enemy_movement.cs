@@ -37,18 +37,18 @@ public class Enemy_movement : Spatial
 	[Export] public string player_collider_path;
 	public Vector3 direction;
 	public RayCast player_collider;
-	// public Vector3 Calculate_Avoidance_vector(Vector3 car_pos , Vector3 obstacle_pos)
-	// {
-	// 	// Calculate the vector from the car to the obstacle
-	// 	var to_vector = car_pos - obstacle_pos;
-	// 	// calculate the perpendicular vector for avoidance
-	// 	var perp_vector = to_vector.Cross(Vector3.Up).Normalized();
-	// 	// scaling the perpendicular vector(Changes required)
-	// 	perp_vector *= avoidance_strength;
-	// 	// return the perpendicular vector
-	// 	return perp_vector;
+	public Vector3 Calculate_Avoidance_vector(Vector3 car_pos , Vector3 obstacle_pos)
+	{
+		// Calculate the vector from the car to the obstacle
+		var to_vector = car_pos - obstacle_pos;
+		// calculate the perpendicular vector for avoidance
+		var perp_vector = to_vector.Cross(Vector3.Up).Normalized();
+		// scaling the perpendicular vector(Changes required)
+		perp_vector *= avoidance_strength;
+		// return the perpendicular vector
+		return perp_vector;
 
-	// }
+	}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -147,29 +147,30 @@ public class Enemy_movement : Spatial
 		var xform = Alignwithsurface(Car_mesh.GlobalTransform ,n);
 		Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , turn_speed * 2 * delta);
 		// AI
-		direction = player_mesh.Transform.origin - Car_mesh.GlobalTransform.origin;
+		direction = player_mesh.GlobalTransform.origin - car_mesh_body.GlobalTransform.origin;
 		var new_direction = direction;
 		// GD.Print(new_direction);
 		player_collider.CastTo = direction;
-		// if(player_collider.IsColliding())
-		// {
-		// 	var avoidance_vector = Calculate_Avoidance_vector(ball.GlobalTransform.origin , player_ball.GlobalTransform.origin);
-		// 	new_direction += avoidance_vector;
-		// }
-		// else
-		// {
-		// 	new_direction = direction;
-		// }
+		if(player_collider.IsColliding())
+		{
+			var avoidance_vector = Calculate_Avoidance_vector(Car_mesh.GlobalTransform.origin , player_mesh.GlobalTransform.origin);
+			new_direction += avoidance_vector;
+			GD.Print(player_collider.GetCollider());
+		}
+		else
+		{
+			new_direction = direction;
+		}
 		// Calculate angle
 		var angle = Calculate_Angle(new_direction);
 		GD.Print("Angle : " + angle);
-		if(angle > -10)
+		if(angle > 10)
 		{
-			steering_input = 0.5f;
+			steering_input = Mathf.Lerp(steering_input , 1, delta*10 );
 		}
 		else if(angle < -10)
 		{
-			steering_input = -0.5f;
+			steering_input = Mathf.Lerp(steering_input , -1 , delta*10 );
 		}
 		else
 		{
@@ -188,9 +189,9 @@ public class Enemy_movement : Spatial
 		// speed_input = -Input.GetAccelerometer().Normalized().y;
 		
 		var distance = new_direction.Length();
-		if(distance > 5)
+		if(distance > 10)
 		{
-			speed_input = .75f;
+			speed_input = 1;
 		}
 		else
 		{
@@ -201,13 +202,25 @@ public class Enemy_movement : Spatial
 	
 	public float Calculate_Angle(Vector3 direction)
 	{
-		// magnitude
-		var distance = direction.Length();
-		// calculating dot product
-		var dot_product = direction.Dot(Vector3.Up);
-		// calculate angle
-		var angle = Mathf.Rad2Deg(Mathf.Asin(dot_product / distance));
-
+		// // defining points
+		// Vector2 p1 = new Vector2(Car_mesh.GlobalTransform.origin.x , Car_mesh.GlobalTransform.origin.z);
+		// Vector2 p2 = new Vector2(direction.x , direction.z);
+		// var l1 = p1.Length();
+		// var l2 = p2.Length();
+		// // calculating dot product
+		// var dot_product = p1.Dot(p2);
+		// var cos = dot_product / (l1 * l2);
+		// // calculating cross product
+		// var cross_product = p1.Cross(p2);
+		// var sin = cross_product / (l1 * l2);
+		// // calculating angle
+		// var angle = Mathf.Rad2Deg(Mathf.Acos(cos));
+		// if(sin < 0)
+		// {
+		// 	angle = -angle;
+		// }
+		var angle = -car_mesh_body.GlobalTransform.basis.z.SignedAngleTo(direction , Vector3.Up);
+		angle = Mathf.Rad2Deg(angle);
 		return angle;
 	}
 	public Transform Alignwithsurface(Transform xform ,Vector3 new_y)
