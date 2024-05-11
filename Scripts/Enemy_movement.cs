@@ -37,12 +37,10 @@ public class Enemy_movement : Spatial
 	[Export] public string player_collider_path;
 	public Vector3 direction;
 	public RayCast player_collider;
-	public Vector3 Calculate_Avoidance_vector(Vector3 car_pos , Vector3 obstacle_pos)
+	public Vector3 Calculate_Avoidance_vector(Vector3 direction)
 	{
-		// Calculate the vector from the car to the obstacle
-		var to_vector = car_pos - obstacle_pos;
 		// calculate the perpendicular vector for avoidance
-		var perp_vector = to_vector.Cross(Vector3.Up).Normalized();
+		var perp_vector = direction.Cross(Vector3.Up).Normalized();
 		// scaling the perpendicular vector(Changes required)
 		perp_vector *= avoidance_strength;
 		// return the perpendicular vector
@@ -117,14 +115,7 @@ public class Enemy_movement : Spatial
 	public override void _Process(float delta)
 	{
 		
-		// turning wheels
 		
-		var right_rotation = right_wheel.Rotation;
-		right_rotation.y = steering_input;
-		var left_rotation = left_wheel.Rotation;
-		left_rotation.y = 3.141593f + steering_input;
-		left_wheel.Rotation = left_rotation;
-		right_wheel.Rotation = right_rotation;
 		// Apply steering
 		if(ball.LinearVelocity.Length() > turn_stop_limit)
 		{
@@ -141,6 +132,14 @@ public class Enemy_movement : Spatial
 			var rotation = car_mesh_body.Rotation;
 			rotation.z = Mathf.Lerp(rotation.z , t , 10 * delta);
 			car_mesh_body.Rotation = rotation;
+			// turning wheels
+		
+			var right_rotation = right_wheel.Rotation;
+			right_rotation.y = steering_input;
+			var left_rotation = left_wheel.Rotation;
+			left_rotation.y = 3.141593f + steering_input;
+			left_wheel.Rotation = left_rotation;
+			right_wheel.Rotation = right_rotation;
 		}
 		// Align with surface
 		var n = rayCast.GetCollisionNormal().Normalized();
@@ -150,10 +149,12 @@ public class Enemy_movement : Spatial
 		direction = player_mesh.GlobalTransform.origin - car_mesh_body.GlobalTransform.origin;
 		var new_direction = direction;
 		// GD.Print(new_direction);
-		player_collider.CastTo = direction;
+		player_collider.Visible  = true;
+		var dir_for_collider = new Vector3(new_direction.x , 0 , new_direction.y);
+		player_collider.CastTo = dir_for_collider;
 		if(player_collider.IsColliding())
 		{
-			var avoidance_vector = Calculate_Avoidance_vector(Car_mesh.GlobalTransform.origin , player_mesh.GlobalTransform.origin);
+			var avoidance_vector = Calculate_Avoidance_vector(direction);
 			new_direction += avoidance_vector;
 			GD.Print(player_collider.GetCollider());
 		}
@@ -164,11 +165,11 @@ public class Enemy_movement : Spatial
 		// Calculate angle
 		var angle = Calculate_Angle(new_direction);
 		GD.Print("Angle : " + angle);
-		if(angle > 10)
+		if(angle > 20)
 		{
 			steering_input = Mathf.Lerp(steering_input , 1, delta*10 );
 		}
-		else if(angle < -10)
+		else if(angle < -20)
 		{
 			steering_input = Mathf.Lerp(steering_input , -1 , delta*10 );
 		}
@@ -189,9 +190,9 @@ public class Enemy_movement : Spatial
 		// speed_input = -Input.GetAccelerometer().Normalized().y;
 		
 		var distance = new_direction.Length();
-		if(distance > 10)
+		if(distance > 2)
 		{
-			speed_input = 1;
+			speed_input = 1.5f;
 		}
 		else
 		{

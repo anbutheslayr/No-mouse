@@ -37,7 +37,6 @@ environment = SubResource( 5 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.984877, 0, 0.173253, 0.127494, 0.677107, 0.724756, -0.117311, 0.735884, -0.666868, 0, 5.43877, 0 )
-visible = false
 shadow_enabled = true
 
 [node name="Camera" type="Camera" parent="."]
@@ -57,34 +56,69 @@ keep_pressed_outside = true
 text = "Accelerate"
 
 [node name="taxi" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.953764, 0, -0.300556, 0, 1, 0, 0.300556, 0, 0.953764, -2.9971, 1, -8.488 )
+transform = Transform( -0.999956, 0, 0.0093374, 0, 1, 0, -0.0093374, 0, -0.999956, 3.06284, 1, -81.8954 )
 acceleration = 65.0
 steering = 30.0
 turn_stop_limit = 1.25
 
-[node name="CSGCombiner" type="CSGCombiner" parent="."]
-use_collision = true
-
-[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+[node name="Ground" type="CSGBox" parent="."]
 use_collision = true
 width = 300.0
 height = 0.1
 depth = 300.0
 material = SubResource( 6 )
 
-[node name="CSGBox2" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 0.89301, 0.450036, 0, -0.450036, 0.89301, 0, 2.32945, 8.02777 )
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.89301, 0.450036, 0, -0.450036, 0.89301, 0, 2.44185, 8.02777 )
 use_collision = true
 width = 10.0
 height = 3.0
 depth = 17.3655
 
-[node name="CSGBox3" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.94181, -27.4641 )
-width = 13.3113
-height = 16.0265
-depth = 15.4232
-
 [node name="taxi2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.230882, 0, 0.972982, 0, 1, 0, -0.972982, 0, 0.230882, -1.71525, 0.0500002, -45.0909 )
-acceleration = 100.0
+transform = Transform( -0.945257, 0, -0.326327, 0, 1, 0, 0.326327, 0, -0.945257, 3.92301, 0.0500002, -26.8503 )
+acceleration = 65.0
+turn_stop_limit = 1.25
+avoidance_strength = 20.0
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.6458, -37.6213 )
+use_collision = true
+height = 20.0471
+depth = 28.7285
+
+[node name="CSGBox4" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7391, 9.6458, -37.6213 )
+use_collision = true
+height = 20.0471
+depth = 28.7285
+
+[node name="CSGBox8" type="CSGBox" parent="."]
+transform = Transform( 0.0103321, 0, -0.999947, 0, 1, 0, 0.999947, 0, 0.0103321, 6.72245, 9.6458, -23.0271 )
+use_collision = true
+height = 20.0471
+depth = 16.8848
+
+[node name="CSGBox3" type="CSGBox" parent="."]
+transform = Transform( 0.68762, 0, 0.726071, 0, 1, 0, -0.726071, 0, 0.68762, 8.88626, 9.728, -57.2763 )
+use_collision = true
+height = 20.0471
+depth = 13.8388
+
+[node name="CSGBox5" type="CSGBox" parent="."]
+transform = Transform( 0.960522, 0, -0.278203, 0, 1, 0, 0.278203, 0, 0.960522, -8.30887, 9.728, -67.6877 )
+use_collision = true
+height = 20.0471
+depth = 13.8388
+
+[node name="CSGBox7" type="CSGBox" parent="."]
+transform = Transform( 0.960522, 0, -0.278203, 0, 1, 0, 0.278203, 0, 0.960522, 6.80089, 9.728, -67.6877 )
+use_collision = true
+height = 20.0471
+depth = 13.8388
+
+[node name="CSGBox6" type="CSGBox" parent="."]
+transform = Transform( 0.68762, 0, 0.726071, 0, 1, 0, -0.726071, 0, 0.68762, -5.10602, 9.728, -55.5803 )
+use_collision = true
+height = 20.0471
+depth = 13.8388
