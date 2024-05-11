@@ -45,15 +45,6 @@ public class Movement : Spatial
 		// button = GetParent().GetNode<Button>(button_path);
 		
 	}
-	// public override void _Input(InputEvent @event)
-	// {
-	// 	if (@event is InputEventScreenTouch touch && touch.Pressed)
-	// 	{
-	// 		speed_input = 1;
-	// 		speed_input *= acceleration;
-	// 	}
-		
-	// }
 
 	public override void _PhysicsProcess(float delta)
 	{

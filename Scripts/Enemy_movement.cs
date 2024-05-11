@@ -66,15 +66,6 @@ public class Enemy_movement : Spatial
 		player_collider.AddException(ball);
 		player_collider.AddException(player_mesh);
 	}
-	// public override void _Input(InputEvent @event)
-	// {
-	// 	if (@event is InputEventScreenTouch touch && touch.Pressed)
-	// 	{
-	// 		speed_input = 1;
-	// 		speed_input *= acceleration;
-	// 	}
-		
-	// }
 
 	public override void _PhysicsProcess(float delta)
 	{
@@ -203,23 +194,7 @@ public class Enemy_movement : Spatial
 	
 	public float Calculate_Angle(Vector3 direction)
 	{
-		// // defining points
-		// Vector2 p1 = new Vector2(Car_mesh.GlobalTransform.origin.x , Car_mesh.GlobalTransform.origin.z);
-		// Vector2 p2 = new Vector2(direction.x , direction.z);
-		// var l1 = p1.Length();
-		// var l2 = p2.Length();
-		// // calculating dot product
-		// var dot_product = p1.Dot(p2);
-		// var cos = dot_product / (l1 * l2);
-		// // calculating cross product
-		// var cross_product = p1.Cross(p2);
-		// var sin = cross_product / (l1 * l2);
-		// // calculating angle
-		// var angle = Mathf.Rad2Deg(Mathf.Acos(cos));
-		// if(sin < 0)
-		// {
-		// 	angle = -angle;
-		// }
+		// Calculate angle
 		var angle = -car_mesh_body.GlobalTransform.basis.z.SignedAngleTo(direction , Vector3.Up);
 		angle = Mathf.Rad2Deg(angle);
 		return angle;
