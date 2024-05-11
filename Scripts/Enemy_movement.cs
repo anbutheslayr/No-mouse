@@ -100,42 +100,7 @@ public class Enemy_movement : Spatial
 			B_L.Emitting = false;
 			B_R.Emitting = false;
 		}
-	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(float delta)
-	{
-		
-		
-		// Apply steering
-		if(ball.LinearVelocity.Length() > turn_stop_limit)
-		{
-			if(speed_input < 0)
-			{
-				steering_input = -steering_input;
-			}
-			var new_basis = Car_mesh.GlobalTransform.basis.Rotated(Car_mesh.GlobalTransform.basis.y ,steering_input );
-			var transform = Car_mesh.GlobalTransform;
-			transform.basis = Car_mesh.GlobalTransform.basis.Slerp(new_basis, turn_speed * delta);
-			Car_mesh.GlobalTransform = transform.Orthonormalized();
-			// Applying tilt
-			var t = -steering_input * ball.LinearVelocity.Length() / tilt;
-			var rotation = car_mesh_body.Rotation;
-			rotation.z = Mathf.Lerp(rotation.z , t , 10 * delta);
-			car_mesh_body.Rotation = rotation;
-			// turning wheels
-		
-			var right_rotation = right_wheel.Rotation;
-			right_rotation.y = steering_input;
-			var left_rotation = left_wheel.Rotation;
-			left_rotation.y = 3.141593f + steering_input;
-			left_wheel.Rotation = left_rotation;
-			right_wheel.Rotation = right_rotation;
-		}
-		// Align with surface
-		var n = rayCast.GetCollisionNormal().Normalized();
-		var xform = Alignwithsurface(Car_mesh.GlobalTransform ,n);
-		Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , turn_speed * 2 * delta);
 		// AI
 		direction = player_mesh.GlobalTransform.origin - car_mesh_body.GlobalTransform.origin;
 		var new_direction = direction;
@@ -190,6 +155,43 @@ public class Enemy_movement : Spatial
 			speed_input = 0;
 		}
 		speed_input = Mathf.Lerp(speed_input , speed_input*acceleration , delta * 25);
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(float delta)
+	{
+		
+		
+		// Apply steering
+		if(ball.LinearVelocity.Length() > turn_stop_limit)
+		{
+			if(speed_input < 0)
+			{
+				steering_input = -steering_input;
+			}
+			var new_basis = Car_mesh.GlobalTransform.basis.Rotated(Car_mesh.GlobalTransform.basis.y ,steering_input );
+			var transform = Car_mesh.GlobalTransform;
+			transform.basis = Car_mesh.GlobalTransform.basis.Slerp(new_basis, turn_speed * delta);
+			Car_mesh.GlobalTransform = transform.Orthonormalized();
+			// Applying tilt
+			var t = -steering_input * ball.LinearVelocity.Length() / tilt;
+			var rotation = car_mesh_body.Rotation;
+			rotation.z = Mathf.Lerp(rotation.z , t , 10 * delta);
+			car_mesh_body.Rotation = rotation;
+			// turning wheels
+		
+			var right_rotation = right_wheel.Rotation;
+			right_rotation.y = steering_input;
+			var left_rotation = left_wheel.Rotation;
+			left_rotation.y = 3.141593f + steering_input;
+			left_wheel.Rotation = left_rotation;
+			right_wheel.Rotation = right_rotation;
+		}
+		// Align with surface
+		var n = rayCast.GetCollisionNormal().Normalized();
+		var xform = Alignwithsurface(Car_mesh.GlobalTransform ,n);
+		Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , turn_speed * 2 * delta);
+		
 	}
 	
 	public float Calculate_Angle(Vector3 direction)

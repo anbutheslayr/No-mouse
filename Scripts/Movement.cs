@@ -28,8 +28,8 @@ public class Movement : Spatial
 	[Export] public string B_R_particles;
 	public CPUParticles B_L;
 	public CPUParticles B_R;
-	// [Export] public string button_path;
-	// public Button button;
+	[Export] public string button_path;
+	public Button button;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -42,7 +42,7 @@ public class Movement : Spatial
 		car_mesh_body = GetNode<MeshInstance>(car_mesh_body_path);
 		B_L = GetNode<CPUParticles>(B_L_particles);
 		B_R = GetNode<CPUParticles>(B_R_particles);
-		// button = GetParent().GetNode<Button>(button_path);
+		button = GetParent().GetNode<Button>(button_path);
 		
 	}
 
@@ -52,6 +52,30 @@ public class Movement : Spatial
 		var transform = Car_mesh.Transform;
 		transform.origin = ball.Transform.origin + sphere_offset;
 		Car_mesh.Transform = transform;
+		// Acceleration
+		speed_input = 0;
+		speed_input += Input.GetActionStrength("ui_up");
+		speed_input -=  Input.GetActionStrength("ui_down");
+		// speed_input = -Input.GetAccelerometer().Normalized().y;
+		
+		// if (button.Pressed)
+		// {
+		// 	speed_input = 1;
+			
+		// }
+		// else
+		// {
+		// 	speed_input = 0;
+		// }
+		speed_input = Mathf.Lerp(speed_input , speed_input*acceleration , delta * 25);
+
+		//Steering 
+		steering_input = 0;
+		steering_input -= Input.GetActionStrength("ui_right");
+		steering_input += Input.GetActionStrength("ui_left");
+		// steering_input = -Input.GetAccelerometer().Normalized().x;
+		steering_input *= Mathf.Deg2Rad(steering);
+
 		//Accelerate
 		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z * speed_input);
 		// Smoke
@@ -83,31 +107,12 @@ public class Movement : Spatial
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
-		// Acceleration
-		speed_input = 0;
-		speed_input += Input.GetActionStrength("ui_up");
-		speed_input -=  Input.GetActionStrength("ui_down");
-		// speed_input = -Input.GetAccelerometer().Normalized().y;
-		speed_input *= acceleration;
-		// if (button.Pressed)
-		// {
-		// 	speed_input = 1;
-		// 	speed_input = Mathf.Lerp(speed_input , speed_input*acceleration , delta * 30);
-		// }
-		// else
-		// {
-		// 	speed_input = 0;
-		// }
+		
 
 		// set button pos
-		// var screen_size = OS.GetScreenSize();
-		// button.RectPosition = new Vector2(screen_size.x - button.RectSize.x - 150, screen_size.y - button.RectSize.y - 150);
-		//Steering 
-		steering_input = 0;
-		steering_input -= Input.GetActionStrength("ui_right");
-		steering_input += Input.GetActionStrength("ui_left");
-		// steering_input = -Input.GetAccelerometer().Normalized().x;
-		steering_input *= Mathf.Deg2Rad(steering);
+		var screen_size = OS.GetScreenSize();
+		button.RectPosition = new Vector2(screen_size.x - button.RectSize.x - 150, screen_size.y - button.RectSize.y - 150);
+		
 		// turning wheels
 		
 		var right_rotation = right_wheel.Rotation;

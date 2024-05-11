@@ -37,6 +37,7 @@ environment = SubResource( 5 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.984877, 0, 0.173253, 0.127494, 0.677107, 0.724756, -0.117311, 0.735884, -0.666868, 0, 5.43877, 0 )
+visible = false
 shadow_enabled = true
 
 [node name="Camera" type="Camera" parent="."]
@@ -57,15 +58,16 @@ text = "Accelerate"
 
 [node name="taxi" parent="." instance=ExtResource( 1 )]
 transform = Transform( -0.999956, 0, 0.0093374, 0, 1, 0, -0.0093374, 0, -0.999956, 3.06284, 1, -81.8954 )
-acceleration = 65.0
+acceleration = 150.0
 steering = 30.0
 turn_stop_limit = 1.25
+button_path = "Camera/Button"
 
 [node name="Ground" type="CSGBox" parent="."]
 use_collision = true
-width = 300.0
+width = 500.0
 height = 0.1
-depth = 300.0
+depth = 500.0
 material = SubResource( 6 )
 
 [node name="CSGBox2" type="CSGBox" parent="."]
@@ -76,10 +78,40 @@ height = 3.0
 depth = 17.3655
 
 [node name="taxi2" parent="." instance=ExtResource( 6 )]
-transform = Transform( -0.945257, 0, -0.326327, 0, 1, 0, 0.326327, 0, -0.945257, 3.92301, 0.0500002, -26.8503 )
-acceleration = 65.0
+transform = Transform( 0.929841, 0, -0.367962, 0, 1, 0, 0.367962, 0, 0.929841, 3.92301, 0.0500002, -26.8503 )
+acceleration = 123.0
 turn_stop_limit = 1.25
-avoidance_strength = 20.0
+avoidance_strength = 2.0
+
+[node name="taxi5" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.929841, 0, -0.367962, 0, 1, 0, 0.367962, 0, 0.929841, 3.92301, 0.0500002, -40.4724 )
+acceleration = 123.0
+turn_stop_limit = 1.25
+avoidance_strength = 2.0
+
+[node name="taxi6" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.929841, 0, -0.367962, 0, 1, 0, 0.367962, 0, 0.929841, 6.247, 0.0500002, -40.4724 )
+acceleration = 123.0
+turn_stop_limit = 1.25
+avoidance_strength = 2.0
+
+[node name="taxi7" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.929841, 0, -0.367962, 0, 1, 0, 0.367962, 0, 0.929841, -32.9521, 0.0500002, -33.8538 )
+acceleration = 123.0
+turn_stop_limit = 1.25
+avoidance_strength = 2.0
+
+[node name="taxi3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.865624, 0, 0.500695, 0, 1, 0, -0.500695, 0, 0.865624, 10.3456, 0.0500002, -26.8503 )
+acceleration = 123.0
+turn_stop_limit = 1.25
+avoidance_strength = 2.0
+
+[node name="taxi4" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.752898, 0, 0.658138, 0, 1, 0, -0.658138, 0, 0.752898, 10.3456, 0.0500002, -40.7333 )
+acceleration = 123.0
+turn_stop_limit = 1.25
+avoidance_strength = 2.0
 
 [node name="CSGBox" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.6458, -37.6213 )
@@ -92,12 +124,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7391, 9.6458, -37.6213 )
 use_collision = true
 height = 20.0471
 depth = 28.7285
-
-[node name="CSGBox8" type="CSGBox" parent="."]
-transform = Transform( 0.0103321, 0, -0.999947, 0, 1, 0, 0.999947, 0, 0.0103321, 6.72245, 9.6458, -23.0271 )
-use_collision = true
-height = 20.0471
-depth = 16.8848
 
 [node name="CSGBox3" type="CSGBox" parent="."]
 transform = Transform( 0.68762, 0, 0.726071, 0, 1, 0, -0.726071, 0, 0.68762, 8.88626, 9.728, -57.2763 )
@@ -120,5 +146,6 @@ depth = 13.8388
 [node name="CSGBox6" type="CSGBox" parent="."]
 transform = Transform( 0.68762, 0, 0.726071, 0, 1, 0, -0.726071, 0, 0.68762, -5.10602, 9.728, -55.5803 )
 use_collision = true
+width = 2.97682
 height = 20.0471
 depth = 13.8388
