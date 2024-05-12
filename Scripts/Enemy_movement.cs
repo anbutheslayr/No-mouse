@@ -29,7 +29,6 @@ public class Enemy_movement : Spatial
 	public CPUParticles B_L;
 	public CPUParticles B_R;
 
-
     // AI components
 	public MeshInstance player_mesh;
 	[Export] public string player_mesh_path;
@@ -47,7 +46,6 @@ public class Enemy_movement : Spatial
 		return perp_vector;
 
 	}
-
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -66,7 +64,6 @@ public class Enemy_movement : Spatial
 		player_collider.AddException(ball);
 		player_collider.AddException(player_mesh);
 	}
-
 	public override void _PhysicsProcess(float delta)
 	{
 		// align mesh with sphere
@@ -75,7 +72,7 @@ public class Enemy_movement : Spatial
 		Car_mesh.Transform = transform;
 		//Accelerate
 		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z * speed_input);
-		GD.Print(speed_input);
+		// GD.Print(speed_input);
 		// Smoke
 		var ball_velocity = ball.LinearVelocity.Normalized();
 		var car_mesh_forward = Car_mesh.GlobalTransform.basis.z.Normalized();
@@ -112,7 +109,7 @@ public class Enemy_movement : Spatial
 		{
 			var avoidance_vector = Calculate_Avoidance_vector(direction);
 			new_direction += avoidance_vector;
-			GD.Print(player_collider.GetCollider());
+			// GD.Print(player_collider.GetCollider());
 		}
 		else
 		{
@@ -120,7 +117,7 @@ public class Enemy_movement : Spatial
 		}
 		// Calculate angle
 		var angle = Calculate_Angle(new_direction);
-		GD.Print("Angle : " + angle);
+		// GD.Print("Angle : " + angle);
 		if(angle > 20)
 		{
 			steering_input = Mathf.Lerp(steering_input , 1, delta*10 );
