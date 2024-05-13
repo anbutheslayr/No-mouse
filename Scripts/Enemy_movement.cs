@@ -115,8 +115,9 @@ public class Enemy_movement : Spatial
 		{
 			new_direction = direction;
 		}
+		direction = new_direction;
 		// Calculate angle
-		var angle = Calculate_Angle(new_direction);
+		var angle = Calculate_Angle(direction);
 		// GD.Print("Angle : " + angle);
 		if(angle > 20)
 		{
