@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/taxi.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Materials/Tiles131_1K-JPG_Roughness.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Models/Road_curve.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Follow.cs" type="Script" id=3]
-[ext_resource path="res://Materials/Tiles131_1K-JPG_NormalDX.jpg" type="Texture" id=4]
-[ext_resource path="res://Materials/Tiles131_1K-JPG_Color.jpg" type="Texture" id=5]
+[ext_resource path="res://Assets/Models/Road_curve_intersection.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Models/Road_roundabout.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Enemy_taxi.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Models/Road_bend.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Models/Road_ slant_curve.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Models/Road_split.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ProceduralSky" id=4]
 
@@ -17,18 +20,9 @@ fog_color = Color( 0.976471, 0.129412, 0.803922, 1 )
 fog_sun_color = Color( 0.807843, 0.133333, 0.372549, 1 )
 fog_sun_amount = 0.5
 dof_blur_far_distance = 20.0
-glow_enabled = true
 glow_intensity = 1.87
 glow_strength = 1.16
 glow_bloom = 0.04
-
-[sub_resource type="SpatialMaterial" id=6]
-albedo_texture = ExtResource( 5 )
-roughness_texture = ExtResource( 2 )
-normal_enabled = true
-normal_scale = 1.0
-normal_texture = ExtResource( 4 )
-uv1_triplanar = true
 
 [node name="World" type="Spatial"]
 
@@ -56,7 +50,7 @@ keep_pressed_outside = true
 text = "Accelerate"
 
 [node name="taxi" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.999956, 0, 0.0093374, 0, 1, 0, -0.0093374, 0, -0.999956, 3.06284, 1, -81.8954 )
+transform = Transform( -0.999956, 0, 0.0093374, 0, 1, 0, -0.0093374, 0, -0.999956, 36.0433, 1, -36.1574 )
 acceleration = 155.0
 steering = 30.0
 turn_stop_limit = 1.25
@@ -67,84 +61,27 @@ use_collision = true
 width = 500.0
 height = 0.1
 depth = 500.0
-material = SubResource( 6 )
-
-[node name="CSGBox2" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.89301, 0.450036, 0, -0.450036, 0.89301, 0, 2.44185, 8.02777 )
-use_collision = true
-width = 10.0
-height = 3.0
-depth = 17.3655
 
 [node name="taxi2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.929841, 0, -0.367962, 0, 1, 0, 0.367962, 0, 0.929841, 3.92301, 0.0500002, -26.8503 )
-acceleration = 123.0
+transform = Transform( 0.86395, 0, 0.503578, 0, 1, 0, -0.503578, 0, 0.86395, -6.31134, 0.0500002, -25.3112 )
+acceleration = 100.0
 turn_stop_limit = 1.25
 avoidance_strength = 2.0
 
-[node name="taxi5" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.929841, 0, -0.367962, 0, 1, 0, 0.367962, 0, 0.929841, 3.92301, 0.0500002, -40.4724 )
-acceleration = 123.0
-turn_stop_limit = 1.25
-avoidance_strength = 2.0
+[node name="Road_bend" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.05, -17.609 )
 
-[node name="taxi6" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.929841, 0, -0.367962, 0, 1, 0, 0.367962, 0, 0.929841, 6.247, 0.0500002, -40.4724 )
-acceleration = 123.0
-turn_stop_limit = 1.25
-avoidance_strength = 2.0
+[node name="Road_curve" parent="." instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.879, 0.05, -11.619 )
 
-[node name="taxi7" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.929841, 0, -0.367962, 0, 1, 0, 0.367962, 0, 0.929841, -32.9521, 0.0500002, -33.8538 )
-acceleration = 123.0
-turn_stop_limit = 1.25
-avoidance_strength = 2.0
+[node name="Road_curve_intersection" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18.868, 0.05, 12.241 )
 
-[node name="taxi3" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.865624, 0, 0.500695, 0, 1, 0, -0.500695, 0, 0.865624, 10.3456, 0.0500002, -26.8503 )
-acceleration = 123.0
-turn_stop_limit = 1.25
-avoidance_strength = 2.0
+[node name="Road_roundabout" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.869, 0.05, 18.23 )
 
-[node name="taxi4" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.752898, 0, 0.658138, 0, 1, 0, -0.658138, 0, 0.752898, 10.3456, 0.0500002, -40.7333 )
-acceleration = 123.0
-turn_stop_limit = 1.25
-avoidance_strength = 2.0
+[node name="Road_ slant_curve" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.87, 0.05, 48.229 )
 
-[node name="CSGBox" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.6458, -37.6213 )
-use_collision = true
-height = 20.0471
-depth = 28.7285
-
-[node name="CSGBox4" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7391, 9.6458, -37.6213 )
-use_collision = true
-height = 20.0471
-depth = 28.7285
-
-[node name="CSGBox3" type="CSGBox" parent="."]
-transform = Transform( 0.68762, 0, 0.726071, 0, 1, 0, -0.726071, 0, 0.68762, 8.88626, 9.728, -57.2763 )
-use_collision = true
-height = 20.0471
-depth = 13.8388
-
-[node name="CSGBox5" type="CSGBox" parent="."]
-transform = Transform( 0.960522, 0, -0.278203, 0, 1, 0, 0.278203, 0, 0.960522, -8.30887, 9.728, -67.6877 )
-use_collision = true
-height = 20.0471
-depth = 13.8388
-
-[node name="CSGBox7" type="CSGBox" parent="."]
-transform = Transform( 0.960522, 0, -0.278203, 0, 1, 0, 0.278203, 0, 0.960522, 6.80089, 9.728, -67.6877 )
-use_collision = true
-height = 20.0471
-depth = 13.8388
-
-[node name="CSGBox6" type="CSGBox" parent="."]
-transform = Transform( 0.68762, 0, 0.726071, 0, 1, 0, -0.726071, 0, 0.68762, -5.10602, 9.728, -55.5803 )
-use_collision = true
-width = 2.97682
-height = 20.0471
-depth = 13.8388
+[node name="Road_split" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72.858, 0.05, 18.222 )

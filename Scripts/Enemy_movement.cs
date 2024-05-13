@@ -36,16 +36,7 @@ public class Enemy_movement : Spatial
 	[Export] public string player_collider_path;
 	public Vector3 direction;
 	public RayCast player_collider;
-	public Vector3 Calculate_Avoidance_vector(Vector3 direction)
-	{
-		// calculate the perpendicular vector for avoidance
-		var perp_vector = direction.Cross(Vector3.Up).Normalized();
-		// scaling the perpendicular vector(Changes required)
-		perp_vector *= avoidance_strength;
-		// return the perpendicular vector
-		return perp_vector;
-
-	}
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -63,6 +54,7 @@ public class Enemy_movement : Spatial
 		player_collider.Enabled = true;
 		player_collider.AddException(ball);
 		player_collider.AddException(player_mesh);
+		player_collider.CastTo = player_mesh.GlobalTransform.origin;
 	}
 	public override void _PhysicsProcess(float delta)
 	{
@@ -100,22 +92,17 @@ public class Enemy_movement : Spatial
 
 		// AI
 		direction = player_mesh.GlobalTransform.origin - car_mesh_body.GlobalTransform.origin;
-		var new_direction = direction;
 		// GD.Print(new_direction);
 		player_collider.Visible  = true;
-		var dir_for_collider = new Vector3(new_direction.x , 0 , new_direction.y);
+		var dir_for_collider = new Vector3(direction.x , 0 , direction.y);
 		player_collider.CastTo = dir_for_collider;
 		if(player_collider.IsColliding())
 		{
 			var avoidance_vector = Calculate_Avoidance_vector(direction);
-			new_direction += avoidance_vector;
-			// GD.Print(player_collider.GetCollider());
+			GD.Print("Avoidance vector : " + avoidance_vector);
+			direction += avoidance_vector;
+			GD.Print(player_collider.GetCollider());
 		}
-		else
-		{
-			new_direction = direction;
-		}
-		direction = new_direction;
 		// Calculate angle
 		var angle = Calculate_Angle(direction);
 		// GD.Print("Angle : " + angle);
@@ -143,7 +130,7 @@ public class Enemy_movement : Spatial
 		// speed_input -=  Input.GetActionStrength("ui_down");
 		// speed_input = -Input.GetAccelerometer().Normalized().y;
 		
-		var distance = new_direction.Length();
+		var distance = direction.Length();
 		if(distance > 2)
 		{
 			speed_input = 1.5f;
@@ -153,6 +140,17 @@ public class Enemy_movement : Spatial
 			speed_input = 0;
 		}
 		speed_input = Mathf.Lerp(speed_input , speed_input*acceleration , delta * 25);
+	}
+	public Vector3 Calculate_Avoidance_vector(Vector3 direction)
+	{
+		// calculate the perpendicular vector for avoidance
+		var perp_vector = direction.Cross(Vector3.Up).Normalized();
+		GD.Print(perp_vector);
+		// scaling the perpendicular vector(Changes required)
+		perp_vector *= avoidance_strength;
+		// return the perpendicular vector
+		return perp_vector;
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
