@@ -148,3 +148,4 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.89,
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 1, 13 )
 acceleration = 110.0
 avoidance_strength = 2.2
+attractionStrength = 2.0

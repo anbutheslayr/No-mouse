@@ -37,6 +37,8 @@ public class Enemy_taxi_new : Spatial
 	public RayCast player_collider;
 	public float stuck_time;
 	public float stuck_limit = 1;
+	[Export] public float attractionStrength = 1.0f;
+    [Export] public float repulsionStrength = 1.0f;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -106,25 +108,25 @@ public class Enemy_taxi_new : Spatial
 
 		// AI
 		direction = player_mesh.GlobalTransform.origin - car_mesh_body.GlobalTransform.origin;
-		var new_direction = direction;
-		// GD.Print(new_direction);
-		player_collider.Visible  = true;
-		// var dir_for_collider = new Vector3(Mathf.Clamp(direction.x , -20 ,20 ), 0 , Mathf.Clamp(direction.y , -20 , 20));
-		var dir_for_collider = new Vector3(direction.x , 0 , direction.y );
+        // GD.Print(new_direction);
+        player_collider.Visible = true;
+        // var dir_for_collider = new Vector3(Mathf.Clamp(direction.x , -20 ,20 ), 0 , Mathf.Clamp(direction.y , -20 , 20));
+        var dir_for_collider = new Vector3(direction.x , 0 , direction.y );
 		player_collider.CastTo = dir_for_collider;
-		if(player_collider.IsColliding() && Car_mesh.GlobalTransform.origin.DistanceTo(player_collider.GetCollisionPoint()) > 3)
-		{
-			var avoidance_vector = Calculate_Avoidance_vector(car_mesh_body.GlobalTransform.origin - player_collider.GetCollisionPoint());
-			// GD.Print("Avoidance vector : " + avoidance_vector);
-			new_direction = avoidance_vector;
-			// GD.Print(player_collider.GetCollider());
-		}
-		else
-		{
-			new_direction = direction;
-		}
-		// Calculate angle
-		var angle = Calculate_Angle(new_direction);
+        Vector3 new_direction;
+        if (player_collider.IsColliding())
+        {
+            var avoidance_vector = Calculate_Avoidance_vector(player_collider.GetCollisionPoint());
+            // GD.Print("Avoidance vector : " + avoidance_vector);
+            new_direction = avoidance_vector;
+            // GD.Print(player_collider.GetCollider());
+        }
+        else
+        {
+            new_direction = direction;
+        }
+        // Calculate angle
+        var angle = Calculate_Angle(new_direction);
 		// GD.Print("Angle : " + angle);
 		if(angle > 20)
 		{
@@ -161,16 +163,16 @@ public class Enemy_taxi_new : Spatial
 		}
 		speed_input = Mathf.Lerp(speed_input , speed_input*acceleration , delta * 25);
 	}
-	public Vector3 Calculate_Avoidance_vector(Vector3 direction)
+	public Vector3 Calculate_Avoidance_vector( Vector3 Obstacle_position)
 	{
-		// calculate the perpendicular vector for avoidance
-		var perp_vector = direction.Cross(Vector3.Up).Normalized();
-		// GD.Print(perp_vector);
-		// scaling the perpendicular vector(Changes required)
-		perp_vector *= avoidance_strength;
-		// return the perpendicular vector
-		return perp_vector;
-
+		Vector3 attraction_force = (player_mesh.GlobalTransform.origin - Car_mesh.GlobalTransform.origin).Normalized()*attractionStrength;
+		Vector3 repulsion_force = Vector3.Zero;
+		Vector3 to_vehicle = Car_mesh.GlobalTransform.origin - Obstacle_position;
+		float distance = to_vehicle.Length();
+		// calculate repulsion force
+		repulsion_force += to_vehicle.Normalized()*(1.0f/distance) * repulsionStrength;
+		Vector3 total_force = attraction_force + repulsion_force;
+		return total_force;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
