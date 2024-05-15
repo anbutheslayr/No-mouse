@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/taxi.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Models/Road_curve.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Models/Road_bend.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Models/Road_ slant_curve.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Models/Road_split.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Models/Road_straight.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ProceduralSky" id=4]
 
@@ -20,9 +21,10 @@ fog_color = Color( 0.976471, 0.129412, 0.803922, 1 )
 fog_sun_color = Color( 0.807843, 0.133333, 0.372549, 1 )
 fog_sun_amount = 0.5
 dof_blur_far_distance = 20.0
-glow_intensity = 1.87
-glow_strength = 1.16
-glow_bloom = 0.04
+glow_enabled = true
+glow_intensity = 1.15
+glow_strength = 1.03
+glow_bloom = 0.25
 
 [node name="World" type="Spatial"]
 
@@ -63,10 +65,19 @@ height = 0.1
 depth = 500.0
 
 [node name="taxi2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.86395, 0, 0.503578, 0, 1, 0, -0.503578, 0, 0.86395, -6.31134, 0.0500002, -25.3112 )
+transform = Transform( 0.86395, 0, 0.503578, 0, 1, 0, -0.503578, 0, 0.86395, -44.3113, 0.293472, 11.6888 )
 acceleration = 100.0
 turn_stop_limit = 1.25
-avoidance_strength = 2.0
+avoidance_strength = 3.0
+
+[node name="Road_straight" parent="." instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.872, 0.05, -5.768 )
+
+[node name="Road_straight2" parent="." instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.872, 0.05, -17.768 )
+
+[node name="Road_straight3" parent="." instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.872, 0.05, -29.768 )
 
 [node name="Road_bend" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.05, -17.609 )
