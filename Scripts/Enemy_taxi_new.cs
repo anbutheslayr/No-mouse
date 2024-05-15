@@ -1,8 +1,7 @@
 using Godot;
 using System;
-using System.ComponentModel;
 
-public class Enemy_movement : Spatial
+public class Enemy_taxi_new : Spatial
 {
 	public RigidBody ball;
 	public MeshInstance Car_mesh;
@@ -226,4 +225,3 @@ public class Enemy_movement : Spatial
 		return xform;
 	}
 }
-

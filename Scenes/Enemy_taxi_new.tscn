@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://taxi.tres" type="ArrayMesh" id=1]
-[ext_resource path="res://Scripts/Enemy_movement.cs" type="Script" id=2]
+[ext_resource path="res://Scripts/Enemy_taxi_new.cs" type="Script" id=2]
 [ext_resource path="res://Scenes/Smoke.tscn" type="PackedScene" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]
@@ -184,7 +184,7 @@ right_wheel_path = "Spatial/wheel_frontRight"
 B_L_particles = "Spatial/Backleft/CPUParticles"
 B_R_particles = "Spatial/Backright/CPUParticles"
 player_mesh_path = "taxi/Spatial"
-avoidance_strength = 50.0
+avoidance_strength = 4.0
 player_collider_path = "Spatial/Player_collider"
 
 [node name="Spatial" type="MeshInstance" parent="."]

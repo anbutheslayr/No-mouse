@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/taxi.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Models/Road_curve.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Assets/Models/Road_ slant_curve.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Models/Road_split.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Models/Road_straight.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Models/Road_intersection.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Enemy_taxi_new.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ProceduralSky" id=4]
 
@@ -52,7 +54,7 @@ keep_pressed_outside = true
 text = "Accelerate"
 
 [node name="taxi" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.999956, 0, 0.0093374, 0, 1, 0, -0.0093374, 0, -0.999956, 36.0433, 1, -36.1574 )
+transform = Transform( 0.626549, 0, 0.779381, 0, 1, 0, -0.779381, 0, 0.626549, -51.6533, 1, 4.73092 )
 acceleration = 155.0
 steering = 30.0
 turn_stop_limit = 1.25
@@ -65,22 +67,46 @@ height = 0.1
 depth = 500.0
 
 [node name="taxi2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.86395, 0, 0.503578, 0, 1, 0, -0.503578, 0, 0.86395, -44.3113, 0.293472, 11.6888 )
-acceleration = 100.0
+transform = Transform( 0.86395, 0, 0.503578, 0, 1, 0, -0.503578, 0, 0.86395, -49.3113, 0.293472, 17.6888 )
+acceleration = 115.0
 turn_stop_limit = 1.25
-avoidance_strength = 3.0
+avoidance_strength = 2.2
 
 [node name="Road_straight" parent="." instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.872, 0.05, -5.768 )
 
+[node name="Road_straight4" parent="." instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.857, 0.05, 30.242 )
+
 [node name="Road_straight2" parent="." instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.872, 0.05, -17.768 )
+
+[node name="Road_straight8" parent="." instance=ExtResource( 10 )]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -72.872, 0.05, -41.768 )
+
+[node name="Road_straight5" parent="." instance=ExtResource( 10 )]
+transform = Transform( -4.43224e-08, 0, -1, 0, 1, 0, 1.01398, 0, -4.37114e-08, 23.061, 0.05, -17.689 )
 
 [node name="Road_straight3" parent="." instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.872, 0.05, -29.768 )
 
+[node name="Road_straight6" parent="." instance=ExtResource( 10 )]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -60.872, 0.05, -41.768 )
+
+[node name="Road_straight7" parent="." instance=ExtResource( 10 )]
+transform = Transform( -6.81898e-08, 0, -1, 0, 1, 0, 1.56, 0, -4.37114e-08, -96.872, 0.05, -14.768 )
+
 [node name="Road_bend" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.05, -17.609 )
+
+[node name="Road_bend3" parent="." instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 11.045, 0.05, -5.609 )
+
+[node name="Road_bend4" parent="." instance=ExtResource( 7 )]
+transform = Transform( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, 23.046, 0.05, -5.609 )
+
+[node name="Road_bend5" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 23.118, 0.05, -29.762 )
 
 [node name="Road_curve" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.879, 0.05, -11.619 )
@@ -96,3 +122,29 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.87,
 
 [node name="Road_split" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72.858, 0.05, 18.222 )
+
+[node name="Road_intersection" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.878, 0.05, -41.765 )
+
+[node name="Road_curve2" parent="." instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -30.878, 0.05, -47.763 )
+
+[node name="Road_curve5" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -90.855, 0.05, 6.235 )
+
+[node name="Road_curve6" parent="." instance=ExtResource( 2 )]
+transform = Transform( 7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -90.855, 0.05, -35.765 )
+
+[node name="Road_curve4" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.122, 0.05, -35.763 )
+
+[node name="Road_curve3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.892, 0.05, -59.756 )
+
+[node name="Road_bend2" parent="." instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.89, 0.05, -65.756 )
+
+[node name="taxi3" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 1, 13 )
+acceleration = 110.0
+avoidance_strength = 2.2
