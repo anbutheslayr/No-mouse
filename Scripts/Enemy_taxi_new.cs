@@ -31,14 +31,14 @@ public class Enemy_taxi_new : Spatial
     // AI components
 	public MeshInstance player_mesh;
 	[Export] public string player_mesh_path;
-	[Export] public float avoidance_strength = 1;
-	[Export] public string player_collider_path;
-	public Vector3 direction;
-	public RayCast player_collider;
-	public float stuck_time;
-	public float stuck_limit = 1;
 	[Export] public float attractionStrength = 1.0f;
     [Export] public float repulsionStrength = 1.0f;
+	public NavigationAgent nav_agent;
+	[Export] public string Nav_agent_path;
+	public Navigation navigation;
+	[Export] public string Navigation_path;
+	public Vector3 next_point;
+
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -53,11 +53,10 @@ public class Enemy_taxi_new : Spatial
 		B_L = GetNode<CPUParticles>(B_L_particles);
 		B_R = GetNode<CPUParticles>(B_R_particles);
 		player_mesh = GetParent().GetNode<MeshInstance>(player_mesh_path);
-		player_collider = GetNode<RayCast>(player_collider_path);
-		player_collider.Enabled = true;
-		player_collider.AddException(ball);
-		player_collider.AddException(player_mesh);
-		player_collider.CastTo = player_mesh.GlobalTransform.origin;
+		nav_agent = GetNode<NavigationAgent>(Nav_agent_path);
+		navigation = GetParent().GetNode<Navigation>(Navigation_path);
+		nav_agent.SetTargetLocation(player_mesh.GlobalTransform.origin);
+		nav_agent.SetNavigation(navigation);
 	}
 	public override void _PhysicsProcess(float delta)
 	{
@@ -66,19 +65,6 @@ public class Enemy_taxi_new : Spatial
 		transform.origin = ball.Transform.origin + sphere_offset;
 		Car_mesh.Transform = transform;
 		//Accelerate
-		if(ball.LinearVelocity.Length() < 1)
-		{
-			stuck_time += delta;
-		}
-		else
-		{
-			stuck_time = 0;
-		}
-		if(stuck_time >= stuck_limit)
-		{
-			ball.AddCentralForce(Car_mesh.GlobalTransform.basis.z * speed_input * 20);
-		}
-		
 		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z * speed_input);
 		// GD.Print(speed_input);
 		// Smoke
@@ -107,32 +93,16 @@ public class Enemy_taxi_new : Spatial
 		}
 
 		// AI
-		direction = player_mesh.GlobalTransform.origin - car_mesh_body.GlobalTransform.origin;
-        // GD.Print(new_direction);
-        player_collider.Visible = true;
-        // var dir_for_collider = new Vector3(Mathf.Clamp(direction.x , -20 ,20 ), 0 , Mathf.Clamp(direction.y , -20 , 20));
-        var dir_for_collider = new Vector3(direction.x , 0 , direction.y );
-		player_collider.CastTo = dir_for_collider;
-        Vector3 new_direction;
-        if (player_collider.IsColliding())
-        {
-            var avoidance_vector = Calculate_Avoidance_vector(player_collider.GetCollisionPoint());
-            // GD.Print("Avoidance vector : " + avoidance_vector);
-            new_direction = avoidance_vector;
-            // GD.Print(player_collider.GetCollider());
-        }
-        else
-        {
-            new_direction = direction;
-        }
-        // Calculate angle
-        var angle = Calculate_Angle(new_direction);
+		nav_agent.SetTargetLocation(player_mesh.GlobalTransform.origin);
+		var next_point = nav_agent.GetNextLocation();
+		var direction = next_point - Car_mesh.GlobalTransform.origin;
+        var angle = Calculate_Angle(direction);
 		// GD.Print("Angle : " + angle);
-		if(angle > 20)
+		if(angle > 10)
 		{
 			steering_input = Mathf.Lerp(steering_input , 1, delta*10 );
 		}
-		else if(angle < -20)
+		else if(angle < -10)
 		{
 			steering_input = Mathf.Lerp(steering_input , -1 , delta*10 );
 		}
@@ -152,7 +122,7 @@ public class Enemy_taxi_new : Spatial
 		// speed_input -=  Input.GetActionStrength("ui_down");
 		// speed_input = -Input.GetAccelerometer().Normalized().y;
 		
-		var distance = direction.Length();
+		var distance = (player_mesh.GlobalTransform.origin - Car_mesh.GlobalTransform.origin).Length();
 		if(distance > 2)
 		{
 			speed_input = 1.5f;
