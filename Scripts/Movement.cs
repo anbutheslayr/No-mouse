@@ -33,7 +33,7 @@ public class Movement : Spatial
 	public Button button;
 	[Export] public float health = 100;
 	public bool Is_on_ramp = false;
-	[Export] public float ramp_speed = 5;
+	[Export] public float ramp_speed = 3;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

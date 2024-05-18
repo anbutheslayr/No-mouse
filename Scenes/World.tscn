@@ -68,7 +68,6 @@ steering = 30.0
 turn_stop_limit = 1.25
 button_path = "Camera/Button"
 damage_multiplier = 0.7
-ramp_speed = 3.0
 
 [node name="taxi3" parent="." instance=ExtResource( 12 )]
 transform = Transform( 0.999925, 0, 0.012252, 0, 1, 0, -0.012252, 0, 0.999925, -50, 2.60723, 42.422 )

@@ -37,6 +37,8 @@ public class Enemy_taxi_new : Spatial
 	public Navigation navigation;
 	[Export] public string Navigation_path;
 	public Vector3 next_point;
+	public bool Is_on_ramp = false;
+	[Export] public float ramp_speed = 3;
 
 	
 	// Called when the node enters the scene tree for the first time.
@@ -64,6 +66,10 @@ public class Enemy_taxi_new : Spatial
 		transform.origin = ball.Transform.origin + sphere_offset;
 		Car_mesh.Transform = transform;
 		//Accelerate
+		if(Is_on_ramp)
+		{
+			speed_input *= ramp_speed;
+		}
 		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z * speed_input);
 		// GD.Print(speed_input);
 		// Smoke
@@ -178,6 +184,21 @@ public class Enemy_taxi_new : Spatial
 		var angle = -car_mesh_body.GlobalTransform.basis.z.SignedAngleTo(direction , Vector3.Up);
 		angle = Mathf.Rad2Deg(angle);
 		return angle;
+	}
+	public void On_collision(Node body)
+	{
+		if(body.IsInGroup("Ramp"))
+		{
+			Is_on_ramp = true;
+			GD.Print("Ramp");
+		}
+	}
+	public void On_leaving(Node body)
+	{
+		if(body.IsInGroup("Ramp"))
+		{
+			Is_on_ramp = false;
+		}
 	}
 	public Transform Alignwithsurface(Transform xform ,Vector3 new_y)
 	{
