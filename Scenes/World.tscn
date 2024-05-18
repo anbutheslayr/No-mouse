@@ -68,16 +68,15 @@ steering = 30.0
 turn_stop_limit = 1.25
 button_path = "Camera/Button"
 damage_multiplier = 0.7
+ramp_speed = 3.0
 
 [node name="taxi3" parent="." instance=ExtResource( 12 )]
 transform = Transform( 0.999925, 0, 0.012252, 0, 1, 0, -0.012252, 0, 0.999925, -50, 2.60723, 42.422 )
 acceleration = 110.0
-attractionStrength = 2.0
 
 [node name="taxi4" parent="." instance=ExtResource( 12 )]
 transform = Transform( 0.999925, 0, 0.012252, 0, 1, 0, -0.012252, 0, 0.999925, -50, 1.20997, 1.85107 )
 acceleration = 110.0
-attractionStrength = 2.0
 
 [node name="Navigation" type="Navigation" parent="."]
 
@@ -126,7 +125,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18.868
 [node name="Road_roundabout" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.869, 0.05, 18.23 )
 
-[node name="Road_ slant_curve" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 8 )]
+[node name="Road_ slant_curve" parent="Navigation/NavigationMeshInstance" groups=["Ground", "Ramp"] instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.87, 0.05, 48.229 )
 
 [node name="Road_split" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 9 )]

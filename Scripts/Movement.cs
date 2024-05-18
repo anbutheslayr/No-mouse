@@ -32,6 +32,8 @@ public class Movement : Spatial
 	[Export] public float damage_multiplier = 1;
 	public Button button;
 	[Export] public float health = 100;
+	public bool Is_on_ramp = false;
+	[Export] public float ramp_speed = 5;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -79,6 +81,10 @@ public class Movement : Spatial
 		steering_input *= Mathf.Deg2Rad(steering);
 
 		//Accelerate
+		if(Is_on_ramp)
+		{
+			speed_input *= ramp_speed;
+		}
 		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z * speed_input);
 		// Smoke
 		var ball_velocity = ball.LinearVelocity.Normalized();
@@ -87,6 +93,7 @@ public class Movement : Spatial
 		
 		if(rayCast.IsColliding() && ball.LinearVelocity.Length() >16)
 		{
+			
 			if(dot_product > 0)
 			{
 				B_L.Emitting = false;
@@ -156,6 +163,10 @@ public class Movement : Spatial
 	}
 	public void On_collision(Node body)
 	{
+		if(body.IsInGroup("Ramp"))
+		{
+			Is_on_ramp = true;
+		}
 		if(body is RigidBody)	
 		{
 			// get relative velocity
@@ -166,6 +177,13 @@ public class Movement : Spatial
 			// Applying damage
 			var damage = Calculate_Damage(Impact_magnitude);
 			Apply_Damage(damage);
+		}
+	}
+	public void On_leaving(Node body)
+	{
+		if(body.IsInGroup("Ramp"))
+		{
+			Is_on_ramp = false;
 		}
 	}
 	public void Apply_Damage(float damage)

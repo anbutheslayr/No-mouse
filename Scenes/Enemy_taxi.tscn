@@ -167,6 +167,7 @@ surfaces/7 = {
 
 [sub_resource type="PhysicsMaterial" id=12]
 bounce = 0.1
+absorbent = true
 
 [sub_resource type="SphereShape" id=11]
 
@@ -178,7 +179,6 @@ car_mesh_body_path = "Spatial/body"
 Car_mesh_path = "Spatial"
 rayCast_path = "Spatial/RayCast"
 acceleration = 75.0
-tilt = 65.0
 left_wheel_path = "Spatial/wheel_frontLeft"
 right_wheel_path = "Spatial/wheel_frontRight"
 B_L_particles = "Spatial/Backleft/CPUParticles"

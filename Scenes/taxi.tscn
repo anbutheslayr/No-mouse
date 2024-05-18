@@ -166,6 +166,7 @@ surfaces/7 = {
 }
 
 [sub_resource type="PhysicsMaterial" id=12]
+absorbent = true
 
 [sub_resource type="SphereShape" id=11]
 
@@ -238,6 +239,7 @@ angular_damp = 10.0
 shape = SubResource( 11 )
 
 [connection signal="body_entered" from="Ball" to="." method="On_collision"]
+[connection signal="body_exited" from="Ball" to="." method="On_leaving"]
 
 [editable path="Spatial/Backright"]
 [editable path="Spatial/Backleft"]

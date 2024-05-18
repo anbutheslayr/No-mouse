@@ -123,7 +123,8 @@ public class Enemy_taxi_new : Spatial
 		
 		var distance = (player_mesh.GlobalTransform.origin - Car_mesh.GlobalTransform.origin).Length();
 		if(distance > 2)
-		{
+		{ 	
+			
 			speed_input = 1.5f;
 		}
 		else
