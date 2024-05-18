@@ -11,11 +11,11 @@ public class Enemy_taxi_new : Spatial
 	[Export] public string Car_mesh_path;
 	[Export] public string rayCast_path; 
 	[Export] public Vector3 sphere_offset = new Vector3(0, -1, 0);
-	[Export] public float acceleration = 50;
-	[Export] public float steering = 50;
+	[Export] public float acceleration = 110;
+	[Export] public float steering = 60;
 	[Export] public float turn_speed = 5;
 	[Export] public float turn_stop_limit = 0.75f;
-	[Export] public float tilt = 35;
+	[Export] public float tilt = 65;
  	public float speed_input;
 	public float steering_input;
 	[Export] public string left_wheel_path;
@@ -31,8 +31,7 @@ public class Enemy_taxi_new : Spatial
     // AI components
 	public MeshInstance player_mesh;
 	[Export] public string player_mesh_path;
-	[Export] public float attractionStrength = 1.0f;
-    [Export] public float repulsionStrength = 1.0f;
+
 	public NavigationAgent nav_agent;
 	[Export] public string Nav_agent_path;
 	public Navigation navigation;
@@ -133,17 +132,6 @@ public class Enemy_taxi_new : Spatial
 		}
 		speed_input = Mathf.Lerp(speed_input , speed_input*acceleration , delta * 25);
 	}
-	public Vector3 Calculate_Avoidance_vector( Vector3 Obstacle_position)
-	{
-		Vector3 attraction_force = (player_mesh.GlobalTransform.origin - Car_mesh.GlobalTransform.origin).Normalized()*attractionStrength;
-		Vector3 repulsion_force = Vector3.Zero;
-		Vector3 to_vehicle = Car_mesh.GlobalTransform.origin - Obstacle_position;
-		float distance = to_vehicle.Length();
-		// calculate repulsion force
-		repulsion_force += to_vehicle.Normalized()*(1.0f/distance) * repulsionStrength;
-		Vector3 total_force = attraction_force + repulsion_force;
-		return total_force;
-	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
@@ -157,6 +145,7 @@ public class Enemy_taxi_new : Spatial
 			{
 				steering_input = -steering_input;
 			}
+			// turning mesh
 			var new_basis = Car_mesh.GlobalTransform.basis.Rotated(Car_mesh.GlobalTransform.basis.y ,steering_input );
 			var transform = Car_mesh.GlobalTransform;
 			transform.basis = Car_mesh.GlobalTransform.basis.Slerp(new_basis, turn_speed * delta);

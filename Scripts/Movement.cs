@@ -29,7 +29,9 @@ public class Movement : Spatial
 	public CPUParticles B_L;
 	public CPUParticles B_R;
 	[Export] public string button_path;
+	[Export] public float damage_multiplier = 1;
 	public Button button;
+	[Export] public float health = 100;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -150,5 +152,35 @@ public class Movement : Spatial
 		xform.basis.x = -xform.basis.z.Cross(new_y);
 		xform.basis = xform.basis.Orthonormalized();
 		return xform;
+		
+	}
+	public void On_collision(Node body)
+	{
+		if(body is RigidBody)	
+		{
+			// get relative velocity
+			var col_body = body as RigidBody;
+			var relative_velocity = col_body.LinearVelocity - ball.LinearVelocity;
+			var Impact_magnitude = relative_velocity.Length();
+
+			// Applying damage
+			var damage = Calculate_Damage(Impact_magnitude);
+			Apply_Damage(damage);
+		}
+	}
+	public void Apply_Damage(float damage)
+	{
+		GD.Print("damage = " + damage);
+		GD.Print("health = " + health);
+		health -= damage;
+		if(health <= 0)
+		{
+			GD.Print("DEAD");
+		}
+	}
+	public float Calculate_Damage(float impact_magnitude)
+	{
+		var damage = Mathf.RoundToInt(impact_magnitude * damage_multiplier);
+		return damage;
 	}
 }

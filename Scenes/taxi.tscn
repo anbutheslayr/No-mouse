@@ -237,5 +237,7 @@ angular_damp = 10.0
 [node name="CollisionShape" type="CollisionShape" parent="Ball"]
 shape = SubResource( 11 )
 
+[connection signal="body_entered" from="Ball" to="." method="On_collision"]
+
 [editable path="Spatial/Backright"]
 [editable path="Spatial/Backleft"]
