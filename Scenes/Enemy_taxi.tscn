@@ -171,7 +171,7 @@ absorbent = true
 
 [sub_resource type="SphereShape" id=11]
 
-[node name="taxi" type="Spatial" groups=["Enemy"]]
+[node name="taxi" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60185, 4.09071, 4.45315 )
 script = ExtResource( 2 )
 Ball_path = "Ball"
@@ -232,7 +232,7 @@ enabled = true
 
 [node name="NavigationAgent" type="NavigationAgent" parent="Spatial"]
 
-[node name="Ball" type="RigidBody" parent="."]
+[node name="Ball" type="RigidBody" parent="." groups=["Enemy"]]
 physics_material_override = SubResource( 12 )
 gravity_scale = 10.0
 contacts_reported = 3

@@ -1,15 +1,13 @@
 using Godot;
 using System.Collections.Generic;
 
-public class Machine_gun : Spatial
+public class Gun : Spatial
 {
-    [Export] public string Det_area_path;
-    public Area Det_area;
     public List<Spatial> enemies = new List<Spatial>();
 
     public override void _Ready()
     {
-        Det_area = GetNode<Area>(Det_area_path);
+        
     }
 
     public void OnDetection(Node body)
@@ -17,6 +15,7 @@ public class Machine_gun : Spatial
         if(body.IsInGroup("Enemy"))
         {
             enemies.Add(body as Spatial);
+            GD.Print(enemies);
         }
     }
     public void OnExit(Node body)

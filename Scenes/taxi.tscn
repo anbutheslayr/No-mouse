@@ -243,6 +243,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.33314 )
 [node name="CollisionShape" type="CollisionShape" parent="Spatial/DetectionArea"]
 shape = SubResource( 17 )
 
+[node name="MachineGun" parent="Spatial" instance=ExtResource( 5 )]
+transform = Transform( -0.999802, 0, 0.0198955, 0, 1, 0, -0.0198955, 0, -0.999802, -0.0224524, 1.91628, 0.28334 )
+
 [node name="Ball" type="RigidBody" parent="."]
 physics_material_override = SubResource( 12 )
 gravity_scale = 10.0
@@ -253,11 +256,8 @@ angular_damp = 10.0
 [node name="CollisionShape" type="CollisionShape" parent="Ball"]
 shape = SubResource( 11 )
 
-[node name="MachineGun" parent="." instance=ExtResource( 5 )]
-transform = Transform( -0.999802, 0, 0.0198955, 0, 1, 0, -0.0198955, 0, -0.999802, -0.0224524, 1.91628, 0.28334 )
-
-[connection signal="body_entered" from="Spatial/DetectionArea" to="MachineGun" method="OnDetection"]
-[connection signal="body_exited" from="Spatial/DetectionArea" to="MachineGun" method="OnExit"]
+[connection signal="body_entered" from="Spatial/DetectionArea" to="Spatial/MachineGun" method="OnDetection"]
+[connection signal="body_exited" from="Spatial/DetectionArea" to="Spatial/MachineGun" method="OnExit"]
 [connection signal="body_entered" from="Ball" to="." method="On_collision"]
 [connection signal="body_exited" from="Ball" to="." method="On_leaving"]
 
