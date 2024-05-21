@@ -171,7 +171,7 @@ absorbent = true
 
 [sub_resource type="SphereShape" id=11]
 
-[node name="taxi" type="Spatial"]
+[node name="taxi" type="Spatial" groups=["Enemy"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60185, 4.09071, 4.45315 )
 script = ExtResource( 2 )
 Ball_path = "Ball"

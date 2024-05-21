@@ -256,6 +256,8 @@ shape = SubResource( 11 )
 [node name="MachineGun" parent="." instance=ExtResource( 5 )]
 transform = Transform( -0.999802, 0, 0.0198955, 0, 1, 0, -0.0198955, 0, -0.999802, -0.0224524, 1.91628, 0.28334 )
 
+[connection signal="body_entered" from="Spatial/DetectionArea" to="MachineGun" method="OnDetection"]
+[connection signal="body_exited" from="Spatial/DetectionArea" to="MachineGun" method="OnExit"]
 [connection signal="body_entered" from="Ball" to="." method="On_collision"]
 [connection signal="body_exited" from="Ball" to="." method="On_leaving"]
 
