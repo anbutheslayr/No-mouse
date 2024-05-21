@@ -21,9 +21,9 @@ public class Healthbar3d : Spatial
 	public void Change_Health(int health)
 	{
 		texture_progress.Value = health;
-        tween.InterpolateProperty(texture_progress , "value" , texture_progress.Value , health, 0.2f, Tween.TransitionType.Elastic, Tween.EaseType.In);
+        tween.InterpolateProperty(texture_progress , "value" , texture_progress.Value , health, 0.15f, Tween.TransitionType.Elastic, Tween.EaseType.In);
         tween.Start();
-        tween.InterpolateProperty(texture_progress_under , "value" , texture_progress_under.Value , health, 0.5f, Tween.TransitionType.Cubic, Tween.EaseType.Out);
+        tween.InterpolateProperty(texture_progress_under , "value" , texture_progress_under.Value , health, 0.55f, Tween.TransitionType.Cubic, Tween.EaseType.Out);
         tween.Start();
 	}
 }

@@ -209,6 +209,10 @@ public class Movement : Spatial
 	public float Calculate_Damage(float impact_magnitude)
 	{
 		var damage = Mathf.RoundToInt(impact_magnitude * damage_multiplier);
+		if(damage <= 3)
+		{
+			damage = 0;
+		}
 		return damage;
 	}
 }

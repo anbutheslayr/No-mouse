@@ -185,7 +185,6 @@ left_wheel_path = "Spatial/wheel_frontLeft"
 right_wheel_path = "Spatial/wheel_frontRight"
 B_L_particles = "Spatial/Backleft/CPUParticles"
 B_R_particles = "Spatial/Backright/CPUParticles"
-damage_multiplier = 2.0
 health_bar_path = "Spatial/Healthbar"
 
 [node name="Spatial" type="MeshInstance" parent="."]
