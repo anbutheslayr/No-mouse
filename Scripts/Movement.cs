@@ -202,7 +202,6 @@ public class Movement : Spatial
 		{
 			health = 0;
 			GD.Print("DEAD");
-			QueueFree();
 		}
 		EmitSignal("Change_Health", health);
 	}
