@@ -174,6 +174,7 @@ public class Movement : Spatial
 		}
 		if(body is RigidBody)	
 		{
+
 			// get relative velocity
 			var col_body = body as RigidBody;
 			var relative_velocity = col_body.LinearVelocity - ball.LinearVelocity;
@@ -202,6 +203,7 @@ public class Movement : Spatial
 		{
 			health = 0;
 			GD.Print("DEAD");
+			Engine.TimeScale = .3f;
 		}
 		EmitSignal("Change_Health", health);
 	}

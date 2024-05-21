@@ -22,7 +22,6 @@ public class Healthbar3d : Spatial
 	{
 		texture_progress.Value = health;
         tween.InterpolateProperty(texture_progress , "value" , texture_progress.Value , health, 0.15f, Tween.TransitionType.Elastic, Tween.EaseType.In);
-        tween.Start();
         tween.InterpolateProperty(texture_progress_under , "value" , texture_progress_under.Value , health, 0.7f, Tween.TransitionType.Cubic, Tween.EaseType.In);
         tween.Start();
 	}

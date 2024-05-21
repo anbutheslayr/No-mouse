@@ -14,6 +14,10 @@ config/name="No mouse"
 run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot_sfxr/plugin.cfg", "res://addons/jc.godot.universal-sky/plugin.cfg" )
+
 [global]
 
 external=false
