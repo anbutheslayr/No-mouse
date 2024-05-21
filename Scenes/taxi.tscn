@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
+[ext_resource path="res://Healthbar3d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Movement.cs" type="Script" id=2]
 [ext_resource path="res://taxi.tres" type="ArrayMesh" id=3]
 [ext_resource path="res://Scenes/Smoke.tscn" type="PackedScene" id=4]
@@ -184,6 +185,8 @@ left_wheel_path = "Spatial/wheel_frontLeft"
 right_wheel_path = "Spatial/wheel_frontRight"
 B_L_particles = "Spatial/Backleft/CPUParticles"
 B_R_particles = "Spatial/Backright/CPUParticles"
+damage_multiplier = 2.0
+health_bar_path = "Spatial/Healthbar"
 
 [node name="Spatial" type="MeshInstance" parent="."]
 
@@ -227,6 +230,9 @@ skeleton = NodePath("../..")
 
 [node name="RayCast" type="RayCast" parent="Spatial"]
 enabled = true
+
+[node name="Healthbar" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, 0 )
 
 [node name="Ball" type="RigidBody" parent="."]
 physics_material_override = SubResource( 12 )

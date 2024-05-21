@@ -34,6 +34,9 @@ public class Movement : Spatial
 	[Export] public float health = 100;
 	public bool Is_on_ramp = false;
 	[Export] public float ramp_speed = 3;
+	[Signal] delegate void Change_Health(int health);
+	[Export] public string health_bar_path;
+	public Spatial health_bar;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -47,7 +50,8 @@ public class Movement : Spatial
 		B_L = GetNode<CPUParticles>(B_L_particles);
 		B_R = GetNode<CPUParticles>(B_R_particles);
 		button = GetParent().GetNode<Button>(button_path);
-		
+		health_bar = GetNode<Spatial>(health_bar_path);
+		Connect("Change_Health", health_bar, nameof(Change_Health));
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -189,13 +193,18 @@ public class Movement : Spatial
 	}
 	public void Apply_Damage(float damage)
 	{
+		
 		GD.Print("damage = " + damage);
 		GD.Print("health = " + health);
+		
 		health -= damage;
 		if(health <= 0)
 		{
+			health = 0;
 			GD.Print("DEAD");
+			QueueFree();
 		}
+		EmitSignal("Change_Health", health);
 	}
 	public float Calculate_Damage(float impact_magnitude)
 	{
