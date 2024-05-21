@@ -185,21 +185,22 @@ public class Enemy_taxi_new : Spatial
 		angle = Mathf.Rad2Deg(angle);
 		return angle;
 	}
-	public void On_collision(Node body)
+	private void OnCollision(Node node)
 	{
-		if(body.IsInGroup("Ramp"))
+		if(node.IsInGroup("Ramp"))
 		{
 			Is_on_ramp = true;
 			GD.Print("Ramp");
 		}
 	}
-	public void On_leaving(Node body)
+	private void OnLeaving(Node node)
 	{
-		if(body.IsInGroup("Ramp"))
+		if(node.IsInGroup("Ramp"))
 		{
 			Is_on_ramp = false;
 		}
 	}
+	
 	public Transform Alignwithsurface(Transform xform ,Vector3 new_y)
 	{
 		xform.basis.y = new_y;

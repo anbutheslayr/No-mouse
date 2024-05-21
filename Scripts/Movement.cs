@@ -161,8 +161,9 @@ public class Movement : Spatial
 		return xform;
 		
 	}
-	public void On_collision(Node body)
+	private void On_collision(Node body)
 	{
+		
 		if(body.IsInGroup("Ramp"))
 		{
 			Is_on_ramp = true;

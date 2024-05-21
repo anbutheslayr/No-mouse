@@ -230,22 +230,20 @@ skeleton = NodePath("../..")
 [node name="RayCast" type="RayCast" parent="Spatial"]
 enabled = true
 
-[node name="Player_collider" type="RayCast" parent="Spatial"]
-enabled = true
-cast_to = Vector3( 0, 0, -3 )
-
 [node name="NavigationAgent" type="NavigationAgent" parent="Spatial"]
 
 [node name="Ball" type="RigidBody" parent="."]
 physics_material_override = SubResource( 12 )
 gravity_scale = 10.0
+contacts_reported = 3
+contact_monitor = true
 angular_damp = 10.0
 
 [node name="CollisionShape" type="CollisionShape" parent="Ball"]
 shape = SubResource( 11 )
 
-[connection signal="body_entered" from="Ball" to="." method="On_collision"]
-[connection signal="body_exited" from="Ball" to="." method="On_leaving"]
+[connection signal="body_entered" from="Ball" to="." method="OnCollision"]
+[connection signal="body_exited" from="Ball" to="." method="OnLeaving"]
 
 [editable path="Spatial/Backright"]
 [editable path="Spatial/Backleft"]
