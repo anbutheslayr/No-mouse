@@ -39,6 +39,10 @@ public class Enemy_taxi_new : Spatial
 	public Vector3 next_point;
 	public bool Is_on_ramp = false;
 	[Export] public float ramp_speed = 3;
+	public float health = 100;
+	[Signal] delegate void Change_Health(int health);
+	public Spatial health_bar;
+	[Export] public string health_bar_path;
 
 	
 	// Called when the node enters the scene tree for the first time.
@@ -58,6 +62,8 @@ public class Enemy_taxi_new : Spatial
 		navigation = GetParent().GetNode<Navigation>(Navigation_path);
 		nav_agent.SetTargetLocation(player_mesh.GlobalTransform.origin);
 		nav_agent.SetNavigation(navigation);
+		health_bar = GetNode<Spatial>(health_bar_path);
+		Connect("Change_Health", health_bar, nameof(Change_Health));
 	}
 	public override void _PhysicsProcess(float delta)
 	{
@@ -199,6 +205,16 @@ public class Enemy_taxi_new : Spatial
 		{
 			Is_on_ramp = false;
 		}
+	}
+	public void Calculate_Health(float damage)
+	{
+		health -= damage;
+		if(health <= 0)
+		{
+			health = 0;
+			QueueFree();
+		}
+		EmitSignal("Change_Health", health);
 	}
 	
 	public Transform Alignwithsurface(Transform xform ,Vector3 new_y)

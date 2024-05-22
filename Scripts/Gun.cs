@@ -15,6 +15,9 @@ public class Gun : Spatial
     [Export] public string decal_path;
     public Random random;
     [Export] public float offsetRange = 1f;
+    [Export] public string Enemy_healthbar;
+    [Signal] delegate void Calculate_Health(int damage);
+    [Export] public int gun_damage = 5;
     public override void _Ready()
     {
         ray_cast = GetNode<RayCast>(RayCastPath);
@@ -77,22 +80,32 @@ public class Gun : Spatial
         (float)(random.NextDouble() * 2 - 1) * offsetRange);
 
         Vector3 direction = target - GlobalTransform.origin;
-        
+
         return GlobalTransform.origin - (direction+offset); ;
     }
     private void OnShoot()
     {
-        if( ray_cast.IsColliding() )
+        if(ray_cast.IsColliding())
         {
-            GD.Print("Shot");
-            GD.Print(ray_cast.GetCollider());
             var b = decal.Instance() as Spatial;
             (ray_cast.GetCollider() as Node).AddChild(b);
             var transform = b.GlobalTransform;
             transform.origin = ray_cast.GetCollisionPoint();
             b.GlobalTransform = transform;
             b.LookAt(ray_cast.GetCollisionPoint() + ray_cast.GetCollisionNormal(), Vector3.Up);
+            if( (ray_cast.GetCollider() as Node).IsInGroup("Enemy_Body"))
+            {
+                
+                var enemy =(ray_cast.GetCollider() as Node).GetParent().GetParent().GetParent() as Spatial;
+                Connect("Calculate_Health", enemy, nameof(Calculate_Health));
+                EmitSignal("Calculate_Health",gun_damage);
+                // Connect("Calculate_Health", health_bar, nameof(Calculate_Health));
+                // EmitSignal("Calculate_Health",gun_damage);
+                // GD.Print("damage = " + gun_damage);
+
+            }
         }
+        
 
     }
 }

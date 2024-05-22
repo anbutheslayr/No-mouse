@@ -586,6 +586,7 @@ RayCastPath = "Gun/RayCast"
 AnimPath = "Spatial/AnimationPlayer"
 gun_path = "Gun"
 decal_path = "res://Scenes/Decal.tscn"
+Enemy_healthbar = "Healthbar"
 
 [node name="Gun" type="MeshInstance" parent="."]
 transform = Transform( -10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, 0, 0 )

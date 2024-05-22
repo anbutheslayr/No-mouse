@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://taxi.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://Scripts/Enemy_taxi_new.cs" type="Script" id=2]
 [ext_resource path="res://Scenes/Smoke.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/EnemyHealthbar.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "plastic"
@@ -189,6 +190,7 @@ B_R_particles = "Spatial/Backright/CPUParticles"
 player_mesh_path = "taxi/Spatial"
 Nav_agent_path = "Spatial/NavigationAgent"
 Navigation_path = "Navigation"
+health_bar_path = "Spatial/Healthbar"
 
 [node name="Spatial" type="MeshInstance" parent="."]
 
@@ -241,6 +243,8 @@ skeleton = NodePath("../..")
 enabled = true
 
 [node name="NavigationAgent" type="NavigationAgent" parent="Spatial"]
+
+[node name="Healthbar" parent="Spatial" instance=ExtResource( 4 )]
 
 [node name="Ball" type="RigidBody" parent="." groups=["Enemy"]]
 physics_material_override = SubResource( 12 )
