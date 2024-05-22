@@ -99,8 +99,6 @@ public class Gun : Spatial
                 var enemy =(ray_cast.GetCollider() as Node).GetParent().GetParent().GetParent() as Spatial;
                 Connect("Calculate_Health", enemy, nameof(Calculate_Health));
                 EmitSignal("Calculate_Health",gun_damage);
-                // Connect("Calculate_Health", health_bar, nameof(Calculate_Health));
-                // EmitSignal("Calculate_Health",gun_damage);
                 // GD.Print("damage = " + gun_damage);
 
             }
