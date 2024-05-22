@@ -85,84 +85,138 @@ navmesh = SubResource( 6 )
 
 [node name="Road_straight" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.872, 0.05, -5.768 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_straight4" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.857, 0.05, 30.242 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_straight2" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.872, 0.05, -17.768 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_straight8" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 10 )]
 transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -72.872, 0.05, -41.768 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_straight5" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 10 )]
 transform = Transform( -4.43224e-08, 0, -1, 0, 1, 0, 1.01398, 0, -4.37114e-08, 23.061, 0.05, -17.689 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_straight3" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.872, 0.05, -29.768 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_straight6" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 10 )]
 transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -60.872, 0.05, -41.768 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_bend" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.05, -17.609 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_bend3" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 7 )]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 11.045, 0.05, -5.609 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_bend4" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 7 )]
 transform = Transform( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, 23.046, 0.05, -5.609 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_bend5" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 23.118, 0.05, -29.762 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_curve" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.879, 0.05, -11.619 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_curve_intersection" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18.868, 0.05, 12.241 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_roundabout" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.869, 0.05, 18.23 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_ slant_curve" parent="Navigation/NavigationMeshInstance" groups=["Ground", "Ramp"] instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.87, 0.05, 48.229 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_split" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72.858, 0.05, 18.222 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_intersection" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.878, 0.05, -41.765 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_curve2" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -30.878, 0.05, -47.763 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_curve5" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 2 )]
 transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -90.855, 0.05, 6.235 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_curve6" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 2 )]
 transform = Transform( 7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -90.855, 0.05, -35.765 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_curve4" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.122, 0.05, -35.763 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_curve3" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.892, 0.05, -59.756 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_bend2" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 7 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.89, 0.05, -65.756 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Ground" type="CSGBox" parent="Navigation/NavigationMeshInstance" groups=["Ground"]]
 use_collision = true
+collision_layer = 5
+collision_mask = 5
 width = 500.0
 height = 0.1
 depth = 500.0
 
 [node name="Road_straight7" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -96.854, 0.05, -11.555 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_straight9" parent="Navigation/NavigationMeshInstance" groups=["Ground"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -96.842, 0.05, -18.499 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Road_slant" parent="Navigation/NavigationMeshInstance" groups=["Ramp"] instance=ExtResource( 6 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -84.847, 0.05, 24.222 )
+collision_layer = 5
+collision_mask = 5

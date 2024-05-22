@@ -13,6 +13,8 @@ public class Gun : Spatial
     public List<Spatial> enemies = new List<Spatial>();
     public PackedScene decal;
     [Export] public string decal_path;
+    public Random random;
+    [Export] public float offsetRange = 1f;
     public override void _Ready()
     {
         ray_cast = GetNode<RayCast>(RayCastPath);
@@ -20,6 +22,7 @@ public class Gun : Spatial
         anim = GetParent().GetNode<AnimationPlayer>(AnimPath);
         gun = GetNode<MeshInstance>(gun_path);
         decal = GD.Load<PackedScene>(decal_path);
+        random = new Random();
     }
 
     public void OnDetection(Node body)
@@ -68,19 +71,23 @@ public class Gun : Spatial
     }
     private Vector3 AimAt(Vector3 target)
     {
-        
+        Vector3 offset = new Vector3
+        ((float)(random.NextDouble() * 2 - 1) * offsetRange,
+        (float)(random.NextDouble() * 2 - 1) * offsetRange,
+        (float)(random.NextDouble() * 2 - 1) * offsetRange);
+
         Vector3 direction = target - GlobalTransform.origin;
-        return GlobalTransform.origin - direction;
+        
+        return GlobalTransform.origin - (direction+offset); ;
     }
     private void OnShoot()
     {
         if( ray_cast.IsColliding() )
         {
-            var random = new Random();
             GD.Print("Shot");
             GD.Print(ray_cast.GetCollider());
             var b = decal.Instance() as Spatial;
-            (ray_cast.GetCollider() as Area).AddChild(b);
+            (ray_cast.GetCollider() as Node).AddChild(b);
             var transform = b.GlobalTransform;
             transform.origin = ray_cast.GetCollisionPoint();
             b.GlobalTransform = transform;
