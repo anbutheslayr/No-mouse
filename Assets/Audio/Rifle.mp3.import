@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Rifle.mp3-9a469703f7641eb40b7f52ec9042548a.mp3str" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

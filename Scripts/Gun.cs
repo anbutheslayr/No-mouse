@@ -16,8 +16,10 @@ public class Gun : Spatial
     public Random random;
     [Export] public float offsetRange = 1f;
     [Export] public string Enemy_healthbar;
-    [Signal] delegate void Calculate_Health(int damage);
     [Export] public int gun_damage = 5;
+    [Export] public float Aim_speed = 5f;
+    public Spatial Marker;
+    public AudioStreamPlayer audioStreamPlayer;
     public override void _Ready()
     {
         ray_cast = GetNode<RayCast>(RayCastPath);
@@ -26,12 +28,8 @@ public class Gun : Spatial
         gun = GetNode<MeshInstance>(gun_path);
         decal = GD.Load<PackedScene>(decal_path);
         random = new Random();
-        var enemy = GetTree().GetNodesInGroup("Enemy_Control");
-        foreach(Spatial e in enemy)
-        {
-            Connect("Calculate_Health", e, nameof(Calculate_Health));
-        }
-
+        audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+        Marker = GetNode<Spatial>("Marker");
     }
 
     public void OnDetection(Node body)
@@ -55,10 +53,19 @@ public class Gun : Spatial
         if(enemies.Count > 0 && GetClosestEnemy() != null)
         {
             Spatial closest_enemy = GetClosestEnemy();
-            
+            var direction = closest_enemy.GlobalTransform.origin - GlobalTransform.origin;
+            // var offset = new Vector3
+            // (
+            //     (float)(random.NextDouble() * 2 - 1) * offsetRange,
+            //     (float)(random.NextDouble() * 2 - 1) * offsetRange,
+            //     (float)(random.NextDouble() * 2 - 1) * offsetRange
+            // );
+
+            gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , Aim_speed),Vector3.Up);
+
                 if(anim.CurrentAnimation != "Shoot")
                 {
-                    gun.LookAt(AimAt(closest_enemy.GlobalTransform.origin), Vector3.Up);
+                    
                     anim.Play("Shoot");
                 }
         }
@@ -87,7 +94,7 @@ public class Gun : Spatial
 
         Vector3 direction = target - GlobalTransform.origin;
 
-        return GlobalTransform.origin - (direction+offset); ;
+        return Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - (direction+offset) , Aim_speed);
     }
     private void OnShoot()
     {
@@ -104,7 +111,8 @@ public class Gun : Spatial
             }
             if( (ray_cast.GetCollider() as Node).IsInGroup("Enemy_Body"))
             {
-                EmitSignal("Calculate_Health",gun_damage);
+                var enemy =(ray_cast.GetCollider() as Node).GetParent().GetParent().GetParent() as Spatial;
+                enemy.Call("Calculate_Health" , gun_damage);
                 // GD.Print("damage = " + gun_damage);
             }
         }
