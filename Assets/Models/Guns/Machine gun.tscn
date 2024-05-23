@@ -584,7 +584,7 @@ surfaces/43 = {
 [sub_resource type="ParticlesMaterial" id=2]
 direction = Vector3( 0, 0.3, 0 )
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 0.1
+initial_velocity = 0.5
 
 [sub_resource type="SpatialMaterial" id=3]
 flags_transparent = true

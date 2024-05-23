@@ -55,6 +55,7 @@ public class Gun : Spatial
         {
             Spatial closest_enemy = GetClosestEnemy();
             var direction = closest_enemy.GlobalTransform.origin - GlobalTransform.origin;
+            
             if( gun.GlobalTransform.origin.DistanceTo(closest_enemy.GlobalTransform.origin) > Range)
             {
                 gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , Aim_speed * delta),Vector3.Up);
