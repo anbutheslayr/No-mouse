@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Materials/FrontColor.material" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/Gray6.material" type="Material" id=2]
 [ext_resource path="res://Assets/Materials/Gray8.material" type="Material" id=3]
 [ext_resource path="res://Assets/Materials/Gray5.material" type="Material" id=4]
 [ext_resource path="res://Scripts/Gun.cs" type="Script" id=5]
+[ext_resource path="res://Materials/Muzzle.png" type="Texture" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {
@@ -580,6 +581,29 @@ surfaces/43 = {
 "vertex_count": 7
 }
 
+[sub_resource type="ParticlesMaterial" id=2]
+direction = Vector3( 0, 0.3, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.1
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 6 )
+emission_enabled = true
+emission = Color( 0, 0, 0, 1 )
+emission_energy = 3.0
+emission_operator = 0
+emission_on_uv2 = false
+emission_texture = ExtResource( 6 )
+
+[sub_resource type="QuadMesh" id=4]
+material = SubResource( 3 )
+size = Vector2( 0.3, 0.22 )
+
 [node name="MachineGun" type="Spatial"]
 script = ExtResource( 5 )
 RayCastPath = "Gun/RayCast"
@@ -599,4 +623,18 @@ collision_mask = 6
 collide_with_areas = true
 
 [node name="Marker" type="Spatial" parent="Gun"]
-transform = Transform( -0.1, 0, 8.74228e-09, 0, 0.1, 0, -8.74228e-09, 0, -0.1, -8.47506e-09, 0.00669281, 0.0969433 )
+transform = Transform( -0.1, 0, 8.74228e-09, 0, 0.1, 0, -8.74228e-09, 0, -0.1, -4.24016e-09, 0.00588375, 0.0485018 )
+
+[node name="Particles" type="Particles" parent="Gun/Marker"]
+emitting = false
+lifetime = 0.05
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 2 )
+draw_pass_1 = SubResource( 4 )
+
+[node name="OmniLight" type="OmniLight" parent="Gun/Marker/Particles"]
+visible = false
+light_color = Color( 0.956863, 0.803922, 0.2, 1 )
+light_energy = 5.0
+shadow_enabled = true

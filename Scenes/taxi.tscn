@@ -210,6 +210,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector3( 0, -180, 0 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("MachineGun/Gun/Marker/Particles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.001 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MachineGun/Gun/Marker/Particles/OmniLight:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=19]
 resource_name = "Shoot"
@@ -263,6 +287,30 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -180, 0 ), Vector3( -26.162, -180, 0 ), Vector3( 0, -180, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MachineGun/Gun/Marker/Particles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MachineGun/Gun/Marker/Particles/OmniLight:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.0295403 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="PhysicsMaterial" id=12]
@@ -341,15 +389,18 @@ shape = SubResource( 17 )
 transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.0224524, 1.91628, 0.28334 )
 AnimPath = "AnimationPlayer"
 offsetRange = 0.0
-Aim_speed = 0.3
+Aim_speed = 15.0
 
 [node name="Gun" parent="Spatial/MachineGun" index="0"]
 transform = Transform( -10, 0, 8.74228e-07, 0, 10, 0, -8.74228e-07, 0, -10, 0, 0, 0 )
 
+[node name="Particles" parent="Spatial/MachineGun/Gun/Marker" index="0"]
+emitting = true
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial/MachineGun"]
 stream = ExtResource( 6 )
 volume_db = -5.0
-pitch_scale = 2.0
+pitch_scale = 3.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Spatial"]
 anims/RESET = SubResource( 18 )

@@ -18,6 +18,7 @@ public class Gun : Spatial
     [Export] public string Enemy_healthbar;
     [Export] public int gun_damage = 5;
     [Export] public float Aim_speed = 5f;
+    [Export] public int Range = 3;
     public Spatial Marker;
     public AudioStreamPlayer audioStreamPlayer;
     public override void _Ready()
@@ -54,18 +55,11 @@ public class Gun : Spatial
         {
             Spatial closest_enemy = GetClosestEnemy();
             var direction = closest_enemy.GlobalTransform.origin - GlobalTransform.origin;
-            // var offset = new Vector3
-            // (
-            //     (float)(random.NextDouble() * 2 - 1) * offsetRange,
-            //     (float)(random.NextDouble() * 2 - 1) * offsetRange,
-            //     (float)(random.NextDouble() * 2 - 1) * offsetRange
-            // );
-            if( gun.GlobalTransform.origin.DistanceTo(closest_enemy.GlobalTransform.origin) > 3)
+            if( gun.GlobalTransform.origin.DistanceTo(closest_enemy.GlobalTransform.origin) > Range)
             {
-                gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , Aim_speed),Vector3.Up);
+                gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , Aim_speed * delta),Vector3.Up);
                 if(anim.CurrentAnimation != "Shoot")
                 {
-                    
                     anim.Play("Shoot");
                 }
             }
