@@ -48,6 +48,7 @@ shadow_enabled = true
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -8.14813, 13.9851, 2.37051 )
+keep_aspect = 0
 script = ExtResource( 3 )
 lerp_speed = 5.0
 target_PATH = "taxi/Spatial"
@@ -63,7 +64,7 @@ keep_pressed_outside = true
 text = "Accelerate"
 
 [node name="taxi" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.914987, 0, 0.403481, 0, 1, 0, -0.403481, 0, -0.914987, -3.6533, 1, -48.2691 )
+transform = Transform( -0.914987, 0, 0.403481, 0, 1, 0, -0.403481, 0, -0.914987, -14.714, 0.676524, 22.3324 )
 acceleration = 155.0
 steering = 30.0
 turn_stop_limit = 1.25

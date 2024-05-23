@@ -29,7 +29,7 @@ texture_progress = ExtResource( 4 )
 [node name="TextureProgress" type="TextureProgress" parent="Viewport"]
 margin_right = 450.0
 margin_bottom = 50.0
-value = 87.0
+value = 100.0
 texture_over = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 

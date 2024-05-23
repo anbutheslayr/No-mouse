@@ -29,7 +29,7 @@ public class Gun : Spatial
         decal = GD.Load<PackedScene>(decal_path);
         random = new Random();
         audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-        Marker = GetNode<Spatial>("Marker");
+        Marker = GetNode<Spatial>("Gun/Marker");
     }
 
     public void OnDetection(Node body)
@@ -60,14 +60,17 @@ public class Gun : Spatial
             //     (float)(random.NextDouble() * 2 - 1) * offsetRange,
             //     (float)(random.NextDouble() * 2 - 1) * offsetRange
             // );
-
-            gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , Aim_speed),Vector3.Up);
-
+            if( gun.GlobalTransform.origin.DistanceTo(closest_enemy.GlobalTransform.origin) > 3)
+            {
+                gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , Aim_speed),Vector3.Up);
                 if(anim.CurrentAnimation != "Shoot")
                 {
                     
                     anim.Play("Shoot");
                 }
+            }
+
+                
         }
     }
     public Spatial GetClosestEnemy()
@@ -84,17 +87,6 @@ public class Gun : Spatial
             }
         }
         return closest_enemy;
-    }
-    private Vector3 AimAt(Vector3 target)
-    {
-        Vector3 offset = new Vector3
-        ((float)(random.NextDouble() * 2 - 1) * offsetRange,
-        (float)(random.NextDouble() * 2 - 1) * offsetRange,
-        (float)(random.NextDouble() * 2 - 1) * offsetRange);
-
-        Vector3 direction = target - GlobalTransform.origin;
-
-        return Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - (direction+offset) , Aim_speed);
     }
     private void OnShoot()
     {

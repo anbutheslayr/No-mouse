@@ -13,7 +13,6 @@ public class Healthbar3d : Spatial
 	{
 		texture_progress = GetNode<TextureProgress>(texture_progress_path);
         texture_progress_under = GetNode<TextureProgress>(texture_progress_under_path);
-		texture_progress.Value = 100;
         tween = GetNode<Tween>(tween_path);
 	}
 

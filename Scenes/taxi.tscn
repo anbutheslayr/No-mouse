@@ -213,7 +213,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=19]
 resource_name = "Shoot"
-length = 0.3
+length = 0.15
 tracks/0/type = "method"
 tracks/0/path = NodePath("MachineGun")
 tracks/0/interp = 1
@@ -247,10 +247,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.0186799, 0.0369254 ),
+"times": PoolRealArray( 0.0026065, 0.0288976, 0.094381 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.0783567, 0.118456 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0.0935564 ), Vector3( 0, 0, 0 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("MachineGun/Gun:rotation_degrees")
@@ -259,10 +259,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.0186799, 0.0369254 ),
+"times": PoolRealArray( 0.0026065, 0.0291059, 0.0941803 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, -180, 0 ), Vector3( -12.605, -180, 0 ), Vector3( 0, -180, 0 ) ]
+"values": [ Vector3( 0, -180, 0 ), Vector3( -26.162, -180, 0 ), Vector3( 0, -180, 0 ) ]
 }
 
 [sub_resource type="PhysicsMaterial" id=12]
@@ -341,14 +341,15 @@ shape = SubResource( 17 )
 transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.0224524, 1.91628, 0.28334 )
 AnimPath = "AnimationPlayer"
 offsetRange = 0.0
-Aim_speed = 0.45
+Aim_speed = 0.3
 
 [node name="Gun" parent="Spatial/MachineGun" index="0"]
-transform = Transform( -10, 0, -1.50996e-06, 0, 10, 0, 1.50996e-06, 0, -10, 0, 0, 0 )
+transform = Transform( -10, 0, 8.74228e-07, 0, 10, 0, -8.74228e-07, 0, -10, 0, 0, 0 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial/MachineGun"]
 stream = ExtResource( 6 )
 volume_db = -5.0
+pitch_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Spatial"]
 anims/RESET = SubResource( 18 )
