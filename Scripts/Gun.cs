@@ -26,6 +26,12 @@ public class Gun : Spatial
         gun = GetNode<MeshInstance>(gun_path);
         decal = GD.Load<PackedScene>(decal_path);
         random = new Random();
+        var enemy = GetTree().GetNodesInGroup("Enemy_Control");
+        foreach(Spatial e in enemy)
+        {
+            Connect("Calculate_Health", e, nameof(Calculate_Health));
+        }
+
     }
 
     public void OnDetection(Node body)
@@ -92,15 +98,14 @@ public class Gun : Spatial
             var transform = b.GlobalTransform;
             transform.origin = ray_cast.GetCollisionPoint();
             b.GlobalTransform = transform;
-            b.LookAt(ray_cast.GetCollisionPoint() + ray_cast.GetCollisionNormal(), Vector3.Up);
+            if(ray_cast.GetCollisionNormal() != Vector3.Up)
+            {
+                b.LookAt(ray_cast.GetCollisionPoint() + ray_cast.GetCollisionNormal(), Vector3.Up);
+            }
             if( (ray_cast.GetCollider() as Node).IsInGroup("Enemy_Body"))
             {
-                
-                var enemy =(ray_cast.GetCollider() as Node).GetParent().GetParent().GetParent() as Spatial;
-                Connect("Calculate_Health", enemy, nameof(Calculate_Health));
                 EmitSignal("Calculate_Health",gun_damage);
                 // GD.Print("damage = " + gun_damage);
-
             }
         }
         

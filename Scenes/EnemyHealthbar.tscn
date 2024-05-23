@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Materials/Yellow.png" type="Texture" id=1]
-[ext_resource path="res://Materials/Grey.png" type="Texture" id=2]
+[ext_resource path="res://Materials/Red.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Healthbar3d.cs" type="Script" id=3]
 [ext_resource path="res://Materials/pngegg.png" type="Texture" id=4]
 

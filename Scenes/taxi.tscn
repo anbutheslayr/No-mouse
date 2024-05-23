@@ -328,6 +328,7 @@ shape = SubResource( 17 )
 [node name="MachineGun" parent="Spatial" instance=ExtResource( 5 )]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.0224524, 1.91628, 0.28334 )
 AnimPath = "AnimationPlayer"
+offsetRange = 2.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Spatial/MachineGun"]
 stream = ExtResource( 6 )
