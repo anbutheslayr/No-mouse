@@ -56,11 +56,11 @@ public class Gun : Spatial
         
         if(enemies.Count > 0 && GetClosestEnemy() != null)
         {
-            if(entered == false)
+            if(entered == false && anim.CurrentAnimation != "Gun_descend")
             {
                 anim.Play("Gun_rise");
+                entered = true;
             }
-            entered = true;
             Spatial closest_enemy = GetClosestEnemy();
             var direction = closest_enemy.GlobalTransform.origin - GlobalTransform.origin;
             
@@ -75,16 +75,16 @@ public class Gun : Spatial
 
                 
         }
-        else if(entered == true)
+        else if(entered == true && anim.CurrentAnimation != "Gun_rise")
         {
             anim.Play("Gun_descend");
             entered = false;
         }
-        if(GetTree().GetNodesInGroup("Enemy").Count == 0 && !win)
-        {
-            anim.Play("Gun_descend");
-            win = true;
-        }
+        // if(GetTree().GetNodesInGroup("Enemy").Count == 0 && !win)
+        // {
+        //     anim.Play("Gun_descend");
+        //     win = true;
+        // }
        
     }
     public Spatial GetClosestEnemy()

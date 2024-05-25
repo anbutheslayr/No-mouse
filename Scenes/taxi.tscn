@@ -231,6 +231,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector3( 0, -0.62009, 0.0648999 ), Vector3( 0, -1.62987, 0.0648999 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=22]
 resource_name = "Gun_rise"
@@ -282,6 +294,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector3( 0, -1.62987, 0.0648999 ), Vector3( 0, -0.62009, 0.0648999 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=18]
 length = 0.001
@@ -307,7 +331,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, -0.970469, 4.76837e-07 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("body/MachineGun/Gun:rotation_degrees")
@@ -319,7 +343,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, -180, 0 ) ]
+"values": [ Vector3( -90, 180, 0 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("body/MachineGun/Gun/Marker/Particles:emitting")
@@ -497,10 +521,7 @@ Aim_speed = 12.0
 Range = 2
 
 [node name="Gun" parent="Spatial/body/MachineGun" index="0"]
-transform = Transform( -10, 0, 8.74228e-07, 0, 10, 0, -8.74228e-07, 0, -10, 0, 0, 0 )
-
-[node name="Particles" parent="Spatial/body/MachineGun/Gun/Marker" index="0"]
-emitting = true
+transform = Transform( -10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07 )
 
 [node name="Stand" type="MeshInstance" parent="Spatial/body/MachineGun"]
 transform = Transform( -10, 0, 1.50996e-06, 0, 10, 0, -1.50996e-06, 0, -10, 0, -1.3908, 0.0648999 )
@@ -551,7 +572,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.33314 )
 shape = SubResource( 17 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Spatial"]
-autoplay = "Gun_rise"
 anims/Gun_descend = SubResource( 23 )
 anims/Gun_rise = SubResource( 22 )
 anims/RESET = SubResource( 18 )
