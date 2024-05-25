@@ -36,6 +36,7 @@ public class Movement : Spatial
 	[Export] public float ramp_speed = 3;
 	[Signal] delegate void Change_Health(int health);
 	[Export] public string health_bar_path;
+	public AudioStreamPlayer audioStreamPlayer;
 	public Spatial health_bar;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -52,6 +53,7 @@ public class Movement : Spatial
 		button = GetParent().GetNode<Button>(button_path);
 		health_bar = GetNode<Spatial>(health_bar_path);
 		Connect("Change_Health", health_bar, nameof(Change_Health));
+		audioStreamPlayer = GetNode<AudioStreamPlayer>("Ball/Oncollision");
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -209,10 +211,15 @@ public class Movement : Spatial
 	}
 	public float Calculate_Damage(float impact_magnitude)
 	{
+		TODO
 		var damage = Mathf.RoundToInt(impact_magnitude * damage_multiplier);
 		if(damage <= 3)
 		{
 			damage = 0;
+		}
+		else
+		{
+			audioStreamPlayer.Play();
 		}
 		return damage;
 	}

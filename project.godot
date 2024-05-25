@@ -14,9 +14,17 @@ config/name="No mouse"
 run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/height=768
+window/size/fullscreen=true
+window/tablet_driver=""
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/Todo_Manager/plugin.cfg" )
 
 [global]
 

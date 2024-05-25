@@ -25,7 +25,7 @@ public class Gun : Spatial
     {
         ray_cast = GetNode<RayCast>(RayCastPath);
         ray_cast.Enabled = true;
-        anim = GetParent().GetNode<AnimationPlayer>(AnimPath);
+        anim = GetParent().GetParent().GetNode<AnimationPlayer>(AnimPath);
         gun = GetNode<MeshInstance>(gun_path);
         decal = GD.Load<PackedScene>(decal_path);
         random = new Random();

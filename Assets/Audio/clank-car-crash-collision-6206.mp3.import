@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/clank-car-crash-collision-6206.mp3-850bf0e83363e578e6876d7e0ab6ed23.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/clank-car-crash-collision-6206.mp3"
+dest_files=[ "res://.import/clank-car-crash-collision-6206.mp3-850bf0e83363e578e6876d7e0ab6ed23.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

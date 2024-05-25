@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/drift.mp3-db786b1df87696c0a5550bf49a0e3504.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/drift.mp3"
+dest_files=[ "res://.import/drift.mp3-db786b1df87696c0a5550bf49a0e3504.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
