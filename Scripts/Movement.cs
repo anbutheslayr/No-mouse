@@ -38,6 +38,7 @@ public class Movement : Spatial
 	[Export] public string health_bar_path;
 	public AudioStreamPlayer audioStreamPlayer;
 	public Spatial health_bar;
+	public AudioStreamPlayer drift;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -54,6 +55,7 @@ public class Movement : Spatial
 		health_bar = GetNode<Spatial>(health_bar_path);
 		Connect("Change_Health", health_bar, nameof(Change_Health));
 		audioStreamPlayer = GetNode<AudioStreamPlayer>("Ball/Oncollision");
+		drift = GetNode<AudioStreamPlayer>("Ball/Ondrift");
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -95,27 +97,24 @@ public class Movement : Spatial
 		// Smoke
 		var ball_velocity = ball.LinearVelocity.Normalized();
 		var car_mesh_forward = Car_mesh.GlobalTransform.basis.z.Normalized();
-		var dot_product = ball_velocity.Dot(car_mesh_forward);
+		var dot_product = -ball_velocity.Dot(car_mesh_forward);
 		
-		if(rayCast.IsColliding() && ball.LinearVelocity.Length() >16)
+		if(rayCast.IsColliding() && ball.LinearVelocity.Length() >13 && dot_product < 0.85 && dot_product > 0)
 		{
-			
-			if(dot_product > 0)
+			GD.Print(dot_product);
+			B_L.Emitting = true;
+			B_R.Emitting = true;
+			if(!drift.Playing)
 			{
-				B_L.Emitting = false;
-				B_R.Emitting = false;
+				//FIXME: Audio needs to be updated
+				drift.Playing = true;
 			}
-			else 
-			{
-				B_L.Emitting = true;
-				B_R.Emitting = true;
-			}
-			
 		}
 		else
 		{
 			B_L.Emitting = false;
 			B_R.Emitting = false;
+			drift.Playing = false;
 		}
 	}
 
@@ -211,7 +210,7 @@ public class Movement : Spatial
 	}
 	public float Calculate_Damage(float impact_magnitude)
 	{
-		TODO
+		
 		var damage = Mathf.RoundToInt(impact_magnitude * damage_multiplier);
 		if(damage <= 3)
 		{

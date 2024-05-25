@@ -80,22 +80,13 @@ public class Enemy_taxi_new : Spatial
 		// GD.Print(speed_input);
 		// Smoke
 		var ball_velocity = ball.LinearVelocity.Normalized();
-		var car_mesh_forward = Car_mesh.GlobalTransform.basis.z.Normalized();
+		var car_mesh_forward = -Car_mesh.GlobalTransform.basis.z.Normalized();
 		var dot_product = ball_velocity.Dot(car_mesh_forward);
 		
-		if(rayCast.IsColliding() && ball.LinearVelocity.Length() >16)
+		if(rayCast.IsColliding() && ball.LinearVelocity.Length() >13 && dot_product < 0.85 && dot_product > 0)
 		{
-			if(dot_product > 0)
-			{
-				B_L.Emitting = false;
-				B_R.Emitting = false;
-			}
-			else 
-			{
-				B_L.Emitting = true;
-				B_R.Emitting = true;
-			}
-			
+			B_L.Emitting = true;
+			B_R.Emitting = true;
 		}
 		else
 		{
@@ -193,6 +184,9 @@ public class Enemy_taxi_new : Spatial
 	}
 	private void OnCollision(Node node)
 	{
+		//TODO : Add damage
+
+		//TODO : Add Sound Oncollision
 		if(node.IsInGroup("Ramp"))
 		{
 			Is_on_ramp = true;

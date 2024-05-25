@@ -246,7 +246,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id=19]
 resource_name = "Shoot"
-length = 0.15
+length = 0.1
 tracks/0/type = "method"
 tracks/0/path = NodePath("body/MachineGun")
 tracks/0/interp = 1
@@ -280,7 +280,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.0026065, 0.0109223, 0.040353 ),
+"times": PoolRealArray( 0.0026065, 0.029532, 0.040353 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0.0935564 ), Vector3( 0, 0, 0 ) ]
@@ -292,7 +292,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.0026065, 0.0108571, 0.0407526 ),
+"times": PoolRealArray( 0.0026065, 0.0291666, 0.0407526 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -180, 0 ), Vector3( -26.162, -180, 0 ), Vector3( 0, -180, 0 ) ]
@@ -372,6 +372,9 @@ Range = 2
 
 [node name="Gun" parent="Spatial/body/MachineGun" index="0"]
 transform = Transform( -10, 0, 8.74228e-07, 0, 10, 0, -8.74228e-07, 0, -10, 0, 0, 0 )
+
+[node name="Particles" parent="Spatial/body/MachineGun/Gun/Marker" index="0"]
+emitting = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Spatial/body/MachineGun"]
 transform = Transform( -10, 0, 1.50996e-06, 0, 10, 0, -1.50996e-06, 0, -10, 0, -0.420333, 0.0648999 )
