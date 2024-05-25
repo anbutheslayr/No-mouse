@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scenes/Healthbar3d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Movement.cs" type="Script" id=2]
@@ -181,6 +181,108 @@ size = Vector3( -0.012, 0.087, -0.018 )
 height = 2.28552
 radius = 8.0
 
+[sub_resource type="Animation" id=23]
+resource_name = "Gun_descend"
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/MachineGun/Gun:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00407523, 0.908774 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.146015, 4.76837e-07 ), Vector3( 0, -0.970469, 4.76837e-07 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/MachineGun/Gun:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.00407523, 0.201724, 0.625547, 0.908774 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ), Vector3( -38.1986, -159.914, -30.5963 ), Vector3( -90, -179.999, 0 ), Vector3( -90, -179.999, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/MachineGun/Stand:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.0030297, 0.908774 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.172817, 0.0648999 ), Vector3( 0, -1.3908, 0.0648999 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/MachineGun/Base:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.000640213, 0.91285 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.62009, 0.0648999 ), Vector3( 0, -1.62987, 0.0648999 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "Gun_rise"
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/MachineGun/Gun:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.939339 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.970469, 4.76837e-07 ), Vector3( 0, 0, 0.0546631 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/MachineGun/Gun:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.256739, 0.615359, 0.935263 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -90, -179.999, 0 ), Vector3( -90, -179.999, 0 ), Vector3( -38.1986, -159.914, -30.5963 ), Vector3( 0, -180, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/MachineGun/Stand:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.941376 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.3908, 0.0648999 ), Vector3( 0, -0.3439, 0.0648999 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/MachineGun/Base:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.903302 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.62987, 0.0648999 ), Vector3( 0, -0.62009, 0.0648999 ) ]
+}
+
 [sub_resource type="Animation" id=18]
 length = 0.001
 tracks/0/type = "value"
@@ -243,10 +345,34 @@ tracks/4/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/MachineGun/Stand:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.3908, 0.0648999 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("body/MachineGun/Base:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.62987, 0.0648999 ) ]
+}
 
 [sub_resource type="Animation" id=19]
 resource_name = "Shoot"
-length = 0.1
+length = 0.08
 tracks/0/type = "method"
 tracks/0/path = NodePath("body/MachineGun")
 tracks/0/interp = 1
@@ -376,21 +502,21 @@ transform = Transform( -10, 0, 8.74228e-07, 0, 10, 0, -8.74228e-07, 0, -10, 0, 0
 [node name="Particles" parent="Spatial/body/MachineGun/Gun/Marker" index="0"]
 emitting = true
 
-[node name="MeshInstance" type="MeshInstance" parent="Spatial/body/MachineGun"]
-transform = Transform( -10, 0, 1.50996e-06, 0, 10, 0, -1.50996e-06, 0, -10, 0, -0.420333, 0.0648999 )
+[node name="Stand" type="MeshInstance" parent="Spatial/body/MachineGun"]
+transform = Transform( -10, 0, 1.50996e-06, 0, 10, 0, -1.50996e-06, 0, -10, 0, -1.3908, 0.0648999 )
 mesh = SubResource( 20 )
 skeleton = NodePath("../Gun")
 material/0 = ExtResource( 7 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="Spatial/body/MachineGun"]
-transform = Transform( -7.34807, 0, 1.10953e-06, 0, 10, 0, -1.10953e-06, 0, -7.34807, 0, -0.6594, 0.0648999 )
+[node name="Base" type="MeshInstance" parent="Spatial/body/MachineGun"]
+transform = Transform( -7.34807, 0, 1.10953e-06, 0, 10, 0, -1.10953e-06, 0, -7.34807, 0, -1.62987, 0.0648999 )
 mesh = SubResource( 21 )
 skeleton = NodePath("../Gun")
 material/0 = ExtResource( 7 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial/body/MachineGun"]
 stream = ExtResource( 8 )
-volume_db = -5.0
+volume_db = -10.0
 pitch_scale = 3.5
 
 [node name="wheel_backRight" type="MeshInstance" parent="Spatial"]
@@ -425,6 +551,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.33314 )
 shape = SubResource( 17 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Spatial"]
+autoplay = "Gun_rise"
+anims/Gun_descend = SubResource( 23 )
+anims/Gun_rise = SubResource( 22 )
 anims/RESET = SubResource( 18 )
 anims/Shoot = SubResource( 19 )
 
@@ -440,11 +569,12 @@ shape = SubResource( 11 )
 
 [node name="Oncollision" type="AudioStreamPlayer" parent="Ball"]
 stream = ExtResource( 6 )
-volume_db = 3.0
+volume_db = -5.0
 pitch_scale = 3.0
 
 [node name="Ondrift" type="AudioStreamPlayer" parent="Ball"]
 stream = ExtResource( 9 )
+volume_db = -10.0
 
 [connection signal="body_entered" from="Spatial/DetectionArea" to="Spatial/body/MachineGun" method="OnDetection"]
 [connection signal="body_exited" from="Spatial/DetectionArea" to="Spatial/body/MachineGun" method="OnExit"]

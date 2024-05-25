@@ -21,6 +21,7 @@ public class Gun : Spatial
     [Export] public int Range = 3;
     public Spatial Marker;
     public AudioStreamPlayer audioStreamPlayer;
+    public bool win = false;
     public override void _Ready()
     {
         ray_cast = GetNode<RayCast>(RayCastPath);
@@ -51,6 +52,7 @@ public class Gun : Spatial
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
+        
         if(enemies.Count > 0 && GetClosestEnemy() != null)
         {
             Spatial closest_enemy = GetClosestEnemy();
@@ -67,6 +69,12 @@ public class Gun : Spatial
 
                 
         }
+        if(GetTree().GetNodesInGroup("Enemy").Count == 0 && !win)
+        {
+            anim.Play("Gun_descend");
+            win = true;
+        }
+       
     }
     public Spatial GetClosestEnemy()
     {
