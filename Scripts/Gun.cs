@@ -22,6 +22,7 @@ public class Gun : Spatial
     public Spatial Marker;
     public AudioStreamPlayer audioStreamPlayer;
     public bool win = false;
+    public bool entered = false;
     public override void _Ready()
     {
         ray_cast = GetNode<RayCast>(RayCastPath);
@@ -55,19 +56,29 @@ public class Gun : Spatial
         
         if(enemies.Count > 0 && GetClosestEnemy() != null)
         {
+            if(entered == false)
+            {
+                anim.Play("Gun_rise");
+            }
+            entered = true;
             Spatial closest_enemy = GetClosestEnemy();
             var direction = closest_enemy.GlobalTransform.origin - GlobalTransform.origin;
             
             if( gun.GlobalTransform.origin.DistanceTo(closest_enemy.GlobalTransform.origin) > Range)
             {
                 gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , Aim_speed * delta),Vector3.Up);
-                if(anim.CurrentAnimation != "Shoot")
+                if(anim.CurrentAnimation != "Shoot" && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Gun_descend")
                 {
                     anim.Play("Shoot");
                 }
             }
 
                 
+        }
+        else if(entered == true)
+        {
+            anim.Play("Gun_descend");
+            entered = false;
         }
         if(GetTree().GetNodesInGroup("Enemy").Count == 0 && !win)
         {
