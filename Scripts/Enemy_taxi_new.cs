@@ -184,9 +184,7 @@ public class Enemy_taxi_new : Spatial
 	}
 	private void OnCollision(Node node)
 	{
-		//TODO : Add damage
 
-		//TODO : Add Sound Oncollision
 		if(node.IsInGroup("Ramp"))
 		{
 			Is_on_ramp = true;

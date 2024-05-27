@@ -66,10 +66,11 @@ public class Movement : Spatial
 		Car_mesh.Transform = transform;
 		// Acceleration
 		speed_input = 0;
-		speed_input += Input.GetActionStrength("ui_up");
-		speed_input -=  Input.GetActionStrength("ui_down");
-		// speed_input = -Input.GetAccelerometer().Normalized().y;
-		
+		speed_input = -Input.GetAccelerometer().Normalized().y;
+		speed_input += Input.GetActionStrength("Up");
+		speed_input -=  Input.GetActionStrength("Down");
+
+		//TODO: Add button for deceleration/Brake
 		// if (button.Pressed)
 		// {
 		// 	speed_input = 1;
@@ -82,10 +83,11 @@ public class Movement : Spatial
 		speed_input = Mathf.Lerp(speed_input , speed_input*acceleration , delta * 25);
 
 		//Steering 
+		// TODO: Add buttons for steering
 		steering_input = 0;
-		steering_input -= Input.GetActionStrength("ui_right");
-		steering_input += Input.GetActionStrength("ui_left");
-		// steering_input = -Input.GetAccelerometer().Normalized().x;
+		steering_input = -Input.GetAccelerometer().Normalized().x;
+		steering_input -= Input.GetActionStrength("Right");
+		steering_input += Input.GetActionStrength("Left");
 		steering_input *= Mathf.Deg2Rad(steering);
 
 		//Accelerate
@@ -104,6 +106,7 @@ public class Movement : Spatial
 			GD.Print(dot_product);
 			B_L.Emitting = true;
 			B_R.Emitting = true;
+			
 			if(!drift.Playing)
 			{
 				//FIXME: Audio needs to be updated
@@ -183,7 +186,7 @@ public class Movement : Spatial
 
 			// Applying damage
 			var damage = Calculate_Damage(Impact_magnitude);
-			Apply_Damage(damage);
+			Apply_Damage(damage , body);
 		}
 	}
 	public void On_leaving(Node body)
@@ -193,7 +196,7 @@ public class Movement : Spatial
 			Is_on_ramp = false;
 		}
 	}
-	public void Apply_Damage(float damage)
+	public void Apply_Damage(float damage , Node body)
 	{
 		
 		GD.Print("damage = " + damage);
@@ -207,6 +210,7 @@ public class Movement : Spatial
 			Engine.TimeScale = .3f;
 		}
 		EmitSignal("Change_Health", health);
+		body.GetParent().Call("Calculate_Health", damage);
 	}
 	public float Calculate_Damage(float impact_magnitude)
 	{

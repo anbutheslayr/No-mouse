@@ -23,6 +23,9 @@ public class Gun : Spatial
     public AudioStreamPlayer audioStreamPlayer;
     public bool win = false;
     public bool entered = false;
+    [Export] public int Ammo;
+    public int cur_ammo;
+    public RichTextLabel ammo_text;
     public override void _Ready()
     {
         ray_cast = GetNode<RayCast>(RayCastPath);
@@ -33,6 +36,8 @@ public class Gun : Spatial
         random = new Random();
         audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
         Marker = GetNode<Spatial>("Gun/Marker");
+        ammo_text = GetNode<RichTextLabel>("Ammo_text");
+        cur_ammo = Ammo;
     }
 
     public void OnDetection(Node body)
@@ -53,8 +58,8 @@ public class Gun : Spatial
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        
-        if(enemies.Count > 0 && GetClosestEnemy() != null)
+        ammo_text.Text = "Ammo = " + Ammo + " / " + cur_ammo;
+        if(enemies.Count > 0 && GetClosestEnemy() != null && cur_ammo > 0)
         {
             if(entered == false && anim.CurrentAnimation != "Gun_descend")
             {
@@ -64,7 +69,7 @@ public class Gun : Spatial
             Spatial closest_enemy = GetClosestEnemy();
             var direction = closest_enemy.GlobalTransform.origin - GlobalTransform.origin;
             
-            if( gun.GlobalTransform.origin.DistanceTo(closest_enemy.GlobalTransform.origin) > Range)
+            if( gun.GlobalTransform.origin.DistanceTo(closest_enemy.GlobalTransform.origin) > Range )
             {
                 gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , Aim_speed * delta),Vector3.Up);
                 if(anim.CurrentAnimation != "Shoot" && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Gun_descend")
@@ -104,7 +109,8 @@ public class Gun : Spatial
     }
     private void OnShoot()
     {
-        if(ray_cast.IsColliding())
+        
+        if(ray_cast.IsColliding() && cur_ammo > 0)
         {
             var b = decal.Instance() as Spatial;
             (ray_cast.GetCollider() as Node).AddChild(b);
@@ -122,7 +128,11 @@ public class Gun : Spatial
                 // GD.Print("damage = " + gun_damage);
             }
         }
-        
+        else if(cur_ammo <= 0)
+        {
+            cur_ammo = 1;
+        }
+        cur_ammo--;
 
     }
 }

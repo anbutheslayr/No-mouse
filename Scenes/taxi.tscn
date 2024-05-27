@@ -179,7 +179,7 @@ size = Vector3( -0.012, 0.087, -0.018 )
 
 [sub_resource type="CylinderShape" id=17]
 height = 2.28552
-radius = 8.0
+radius = 10.0
 
 [sub_resource type="Animation" id=23]
 resource_name = "Gun_descend"
@@ -396,7 +396,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id=19]
 resource_name = "Shoot"
-length = 0.08
+length = 0.15
 tracks/0/type = "method"
 tracks/0/path = NodePath("body/MachineGun")
 tracks/0/interp = 1
@@ -517,11 +517,16 @@ skeleton = NodePath("../..")
 transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.000339031, 1.71628, 0.38334 )
 AnimPath = "AnimationPlayer"
 offsetRange = 0.0
+gun_damage = 2
 Aim_speed = 12.0
 Range = 2
+Ammo = 30
 
 [node name="Gun" parent="Spatial/body/MachineGun" index="0"]
 transform = Transform( -10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07 )
+
+[node name="Particles" parent="Spatial/body/MachineGun/Gun/Marker" index="0"]
+emitting = true
 
 [node name="Stand" type="MeshInstance" parent="Spatial/body/MachineGun"]
 transform = Transform( -10, 0, 1.50996e-06, 0, 10, 0, -1.50996e-06, 0, -10, 0, -1.3908, 0.0648999 )
@@ -577,7 +582,7 @@ anims/Gun_rise = SubResource( 22 )
 anims/RESET = SubResource( 18 )
 anims/Shoot = SubResource( 19 )
 
-[node name="Ball" type="RigidBody" parent="."]
+[node name="Ball" type="RigidBody" parent="." groups=["Ball"]]
 physics_material_override = SubResource( 12 )
 gravity_scale = 10.0
 contacts_reported = 3
