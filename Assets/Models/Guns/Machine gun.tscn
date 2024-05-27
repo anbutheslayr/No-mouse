@@ -606,7 +606,7 @@ material = SubResource( 3 )
 size = Vector2( 0.3, 0.22 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 36
+size = 22
 font_data = ExtResource( 7 )
 
 [node name="MachineGun" type="Spatial"]

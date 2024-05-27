@@ -14,14 +14,11 @@ public class Gun : Spatial
     public PackedScene decal;
     [Export] public string decal_path;
     public Random random;
-    [Export] public float offsetRange = 1f;
-    [Export] public string Enemy_healthbar;
     [Export] public int gun_damage = 5;
     [Export] public float Aim_speed = 5f;
     [Export] public int Range = 3;
     public Spatial Marker;
     public AudioStreamPlayer audioStreamPlayer;
-    public bool win = false;
     public bool entered = false;
     [Export] public int Ammo;
     public int cur_ammo;
@@ -59,7 +56,11 @@ public class Gun : Spatial
     public override void _Process(float delta)
     {
         ammo_text.Text = "Ammo = " + Ammo + " / " + cur_ammo;
-        if(enemies.Count > 0 && GetClosestEnemy() != null && cur_ammo > 0)
+        if(anim.CurrentAnimation == "Reload")
+        {
+            ammo_text.Text = "Reloading...";
+        }
+        if(enemies.Count > 0 && GetClosestEnemy() != null && cur_ammo > 0 && anim.CurrentAnimation != "Reload")
         {
             if(entered == false && anim.CurrentAnimation != "Gun_descend")
             {
@@ -80,17 +81,17 @@ public class Gun : Spatial
 
                 
         }
-        else if(entered == true && anim.CurrentAnimation != "Gun_rise")
+        else if(cur_ammo <= 0)
+        {
+            anim.Play("Reload");
+            cur_ammo = Ammo;
+        }
+        else if(entered == true && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Reload")
         {
             anim.Play("Gun_descend");
             entered = false;
         }
-        // if(GetTree().GetNodesInGroup("Enemy").Count == 0 && !win)
-        // {
-        //     anim.Play("Gun_descend");
-        //     win = true;
-        // }
-       
+        
     }
     public Spatial GetClosestEnemy()
     {
@@ -133,6 +134,5 @@ public class Gun : Spatial
             cur_ammo = 1;
         }
         cur_ammo--;
-
     }
 }

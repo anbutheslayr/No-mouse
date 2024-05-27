@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scenes/Healthbar3d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Movement.cs" type="Script" id=2]
@@ -394,6 +394,22 @@ tracks/6/keys = {
 "values": [ Vector3( 0, -1.62987, 0.0648999 ) ]
 }
 
+[sub_resource type="Animation" id=24]
+resource_name = "Reload"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/MachineGun/Gun:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.0163009, 0.458857, 0.649365, 0.8386, 1.27103 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ), Vector3( -180, -180, 0 ), Vector3( -154.615, -180, 0 ), Vector3( -180, -180, 0 ), Vector3( 0, -180, 0 ) ]
+}
+
 [sub_resource type="Animation" id=19]
 resource_name = "Shoot"
 length = 0.15
@@ -516,7 +532,6 @@ skeleton = NodePath("../..")
 [node name="MachineGun" parent="Spatial/body" instance=ExtResource( 5 )]
 transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.000339031, 1.71628, 0.38334 )
 AnimPath = "AnimationPlayer"
-offsetRange = 0.0
 gun_damage = 2
 Aim_speed = 12.0
 Range = 2
@@ -580,6 +595,7 @@ shape = SubResource( 17 )
 anims/Gun_descend = SubResource( 23 )
 anims/Gun_rise = SubResource( 22 )
 anims/RESET = SubResource( 18 )
+anims/Reload = SubResource( 24 )
 anims/Shoot = SubResource( 19 )
 
 [node name="Ball" type="RigidBody" parent="." groups=["Ball"]]
