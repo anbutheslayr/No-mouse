@@ -21,6 +21,8 @@ public class Gun : Spatial
     public AudioStreamPlayer audioStreamPlayer;
     public bool entered = false;
     [Export] public int Ammo;
+    [Export] public int start_magazines = 1;
+    public int cur_magazines;
     public int cur_ammo;
     public RichTextLabel ammo_text;
     public override void _Ready()
@@ -35,6 +37,7 @@ public class Gun : Spatial
         Marker = GetNode<Spatial>("Gun/Marker");
         ammo_text = GetNode<RichTextLabel>("Ammo_text");
         cur_ammo = Ammo;
+        cur_magazines = start_magazines;
     }
 
     public void OnDetection(Node body)
@@ -55,7 +58,7 @@ public class Gun : Spatial
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        ammo_text.Text = "Ammo = " + Ammo + " / " + cur_ammo;
+        ammo_text.Text = "Ammo = " + cur_ammo + "/" + Ammo + "(" + cur_magazines + ")";
         if(anim.CurrentAnimation == "Reload")
         {
             ammo_text.Text = "Reloading...";
@@ -81,10 +84,11 @@ public class Gun : Spatial
 
                 
         }
-        else if(cur_ammo <= 0)
+        else if(cur_ammo <= 0 && cur_magazines > 0)
         {
             anim.Play("Reload");
             cur_ammo = Ammo;
+            cur_magazines--;
         }
         else if(entered == true && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Reload")
         {
@@ -134,5 +138,9 @@ public class Gun : Spatial
             cur_ammo = 1;
         }
         cur_ammo--;
+    }
+    public void Add_ammo()
+    {
+        cur_magazines++;
     }
 }

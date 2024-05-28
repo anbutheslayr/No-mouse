@@ -212,6 +212,7 @@ public class Movement : Spatial
 		EmitSignal("Change_Health", health);
 		body.GetParent().Call("Calculate_Health", damage);
 	}
+	
 	public float Calculate_Damage(float impact_magnitude)
 	{
 		

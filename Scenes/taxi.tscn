@@ -532,10 +532,10 @@ skeleton = NodePath("../..")
 [node name="MachineGun" parent="Spatial/body" instance=ExtResource( 5 )]
 transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.000339031, 1.71628, 0.38334 )
 AnimPath = "AnimationPlayer"
-gun_damage = 2
 Aim_speed = 12.0
 Range = 2
-Ammo = 30
+Ammo = 10
+start_magazines = 3
 
 [node name="Gun" parent="Spatial/body/MachineGun" index="0"]
 transform = Transform( -10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07 )
@@ -586,7 +586,7 @@ enabled = true
 [node name="Healthbar" parent="Spatial" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.33314 )
 
-[node name="DetectionArea" type="Area" parent="Spatial"]
+[node name="DetectionArea" type="Area" parent="Spatial" groups=["Player_body"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="Spatial/DetectionArea"]
 shape = SubResource( 17 )
