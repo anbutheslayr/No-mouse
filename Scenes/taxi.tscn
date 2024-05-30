@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scenes/Healthbar3d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Movement.cs" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Materials/Gray8.material" type="Material" id=7]
 [ext_resource path="res://Assets/Audio/Rifle.mp3" type="AudioStream" id=8]
 [ext_resource path="res://Assets/Audio/drift.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "plastic"
@@ -617,6 +618,8 @@ pitch_scale = 3.0
 stream = ExtResource( 9 )
 volume_db = -10.0
 
+[node name="Interface" parent="." instance=ExtResource( 10 )]
+
 [connection signal="body_entered" from="Spatial/DetectionArea" to="Spatial/body/MachineGun" method="OnDetection"]
 [connection signal="body_exited" from="Spatial/DetectionArea" to="Spatial/body/MachineGun" method="OnExit"]
 [connection signal="body_entered" from="Ball" to="." method="On_collision"]
@@ -625,3 +628,4 @@ volume_db = -10.0
 [editable path="Spatial/Backright"]
 [editable path="Spatial/Backleft"]
 [editable path="Spatial/body/MachineGun"]
+[editable path="Interface"]

@@ -103,7 +103,7 @@ public class Movement : Spatial
 		
 		if(rayCast.IsColliding() && ball.LinearVelocity.Length() >13 && dot_product < 0.85 && dot_product > 0)
 		{
-			GD.Print(dot_product);
+			// GD.Print(dot_product);
 			B_L.Emitting = true;
 			B_R.Emitting = true;
 			
@@ -199,14 +199,14 @@ public class Movement : Spatial
 	public void Apply_Damage(float damage , Node body)
 	{
 		
-		GD.Print("damage = " + damage);
-		GD.Print("health = " + health);
+		// GD.Print("damage = " + damage);
+		// GD.Print("health = " + health);
 		
 		health -= damage;
 		if(health <= 0)
 		{
 			health = 0;
-			GD.Print("DEAD");
+			// GD.Print("DEAD");
 			Engine.TimeScale = .3f;
 		}
 		EmitSignal("Change_Health", health);

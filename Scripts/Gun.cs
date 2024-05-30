@@ -35,7 +35,7 @@ public class Gun : Spatial
         random = new Random();
         audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
         Marker = GetNode<Spatial>("Gun/Marker");
-        ammo_text = GetNode<RichTextLabel>("Ammo_text");
+        ammo_text = GetParent().GetParent().GetParent().GetNode<RichTextLabel>("Interface/Ammo_text");
         cur_ammo = Ammo;
         cur_magazines = start_magazines;
     }
@@ -45,7 +45,7 @@ public class Gun : Spatial
         if(body.IsInGroup("Enemy"))
         {
             enemies.Add(body as Spatial);
-            GD.Print(enemies);
+            // GD.Print(enemies);
         }
     }
     public void OnExit(Node body)

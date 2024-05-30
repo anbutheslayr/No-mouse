@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Materials/FrontColor.material" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/Gray6.material" type="Material" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Assets/Materials/Gray5.material" type="Material" id=4]
 [ext_resource path="res://Scripts/Gun.cs" type="Script" id=5]
 [ext_resource path="res://Materials/Muzzle.png" type="Texture" id=6]
-[ext_resource path="res://GOUDYSTO.TTF" type="DynamicFontData" id=7]
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {
@@ -605,10 +604,6 @@ emission_texture = ExtResource( 6 )
 material = SubResource( 3 )
 size = Vector2( 0.3, 0.22 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 22
-font_data = ExtResource( 7 )
-
 [node name="MachineGun" type="Spatial"]
 script = ExtResource( 5 )
 RayCastPath = "Gun/RayCast"
@@ -643,12 +638,3 @@ light_color = Color( 0.956863, 0.803922, 0.2, 1 )
 light_energy = 5.0
 shadow_enabled = true
 omni_range = 10.0
-
-[node name="Ammo_text" type="RichTextLabel" parent="."]
-margin_left = 2.0
-margin_top = 36.0
-margin_right = 550.0
-margin_bottom = 116.0
-custom_fonts/normal_font = SubResource( 5 )
-text = "Ammo"
-fit_content_height = true
