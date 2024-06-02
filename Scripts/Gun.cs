@@ -38,6 +38,8 @@ public class Gun : Spatial
         ammo_text = GetParent().GetParent().GetParent().GetNode<RichTextLabel>("Interface/Ammo_text");
         cur_ammo = Ammo;
         cur_magazines = start_magazines;
+        ProjectSettings.SetSetting("display/window/stretch/mode" , "disabled");
+        GD.Print(ProjectSettings.GetSetting("display/window/stretch/mode"));
     }
 
     public void OnDetection(Node body)

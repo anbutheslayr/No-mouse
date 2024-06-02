@@ -18,7 +18,7 @@ config/windows_native_icon="res://ICO.ico"
 
 [display]
 
-window/size/width=1366
+window/size/width=1360
 window/size/height=768
 window/size/fullscreen=true
 window/tablet_driver=""
