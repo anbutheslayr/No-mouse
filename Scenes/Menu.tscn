@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://GOUDYSTO.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/Menu.cs" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=42]
 size = 64
@@ -18,6 +19,7 @@ font_data = ExtResource( 2 )
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -69,7 +71,7 @@ margin_top = 217.0
 margin_right = 367.0
 margin_bottom = 217.0
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 margin_top = 237.0
 margin_right = 367.0
 margin_bottom = 307.0
@@ -83,7 +85,7 @@ margin_top = 327.0
 margin_right = 367.0
 margin_bottom = 327.0
 
-[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 margin_top = 347.0
 margin_right = 367.0
 margin_bottom = 417.0
@@ -97,7 +99,7 @@ margin_top = 437.0
 margin_right = 367.0
 margin_bottom = 437.0
 
-[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 margin_top = 457.0
 margin_right = 367.0
 margin_bottom = 527.0
@@ -105,3 +107,7 @@ theme = ExtResource( 1 )
 custom_fonts/font = SubResource( 41 )
 keep_pressed_outside = true
 text = "QUIT"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Play" to="." method="OnPlayPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Settings" to="." method="OnSettingsPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="OnQuitPressed"]
