@@ -28,14 +28,17 @@ public class Movement : Spatial
 	[Export] public string B_R_particles;
 	public CPUParticles B_L;
 	public CPUParticles B_R;
-	[Export] public string button_path;
+	[Export] public string Accelerate_button_path;
 	[Export] public float damage_multiplier = 1;
-	public Button button;
+	public TouchScreenButton Accelerate_button;
 	[Export] public float health = 100;
 	public bool Is_on_ramp = false;
 	[Export] public float ramp_speed = 3;
 	[Signal] delegate void Change_Health(int health);
 	[Export] public string health_bar_path;
+	public TouchScreenButton Left;
+	public TouchScreenButton Right;
+	public TouchScreenButton Brake;
 	public AudioStreamPlayer audioStreamPlayer;
 	public Spatial health_bar;
 	public AudioStreamPlayer drift;
@@ -51,11 +54,14 @@ public class Movement : Spatial
 		car_mesh_body = GetNode<MeshInstance>(car_mesh_body_path);
 		B_L = GetNode<CPUParticles>(B_L_particles);
 		B_R = GetNode<CPUParticles>(B_R_particles);
-		button = GetParent().GetNode<Button>(button_path);
+		Accelerate_button = GetNode<TouchScreenButton>(Accelerate_button_path);
 		health_bar = GetNode<Spatial>(health_bar_path);
 		Connect("Change_Health", health_bar, nameof(Change_Health));
 		audioStreamPlayer = GetNode<AudioStreamPlayer>("Ball/Oncollision");
 		drift = GetNode<AudioStreamPlayer>("Ball/Ondrift");
+		Left = GetNode<TouchScreenButton>("Interface/Steering/Left");
+		Right = GetNode<TouchScreenButton>("Interface/Steering/Right");
+		Brake = GetNode<TouchScreenButton>("Interface/Acceleration/Brake");
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -66,16 +72,18 @@ public class Movement : Spatial
 		Car_mesh.Transform = transform;
 		// Acceleration
 		speed_input = 0;
-		speed_input = -Input.GetAccelerometer().Normalized().y;
 		speed_input += Input.GetActionStrength("Up");
 		speed_input -=  Input.GetActionStrength("Down");
 
 		//TODO: Add button for deceleration/Brake
-		// if (button.Pressed)
-		// {
-		// 	speed_input = 1;
-			
-		// }
+		if (Accelerate_button.IsPressed())
+		{
+			speed_input = 1;
+		}
+		if(Brake.IsPressed())
+		{
+			speed_input = -1;
+		}
 		// else
 		// {
 		// 	speed_input = 0;
@@ -85,9 +93,16 @@ public class Movement : Spatial
 		//Steering 
 		// TODO: Add buttons for steering
 		steering_input = 0;
-		steering_input = -Input.GetAccelerometer().Normalized().x;
 		steering_input -= Input.GetActionStrength("Right");
 		steering_input += Input.GetActionStrength("Left");
+		if(Left.IsPressed())
+		{
+			steering_input = 1;
+		}
+		if(Right.IsPressed())
+		{
+			steering_input = -1;
+		}
 		steering_input *= Mathf.Deg2Rad(steering);
 
 		//Accelerate
@@ -124,11 +139,6 @@ public class Movement : Spatial
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
-		
-
-		// set button pos
-		var screen_size = OS.GetScreenSize();
-		button.RectPosition = new Vector2(screen_size.x - button.RectSize.x - 150, screen_size.y - button.RectSize.y - 150);
 		
 		// turning wheels
 		
