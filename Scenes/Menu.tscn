@@ -32,16 +32,16 @@ custom_constants/margin_bottom = 12
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 12.0
 margin_top = 12.0
-margin_right = 1348.0
-margin_bottom = 756.0
+margin_right = 1908.0
+margin_bottom = 1068.0
 custom_constants/separation = 70
 
 [node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_right = 1336.0
+margin_right = 1896.0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_top = 70.0
-margin_right = 1336.0
+margin_right = 1896.0
 margin_bottom = 159.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -55,54 +55,54 @@ valign = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 margin_left = 12.0
 margin_top = 12.0
-margin_right = 1348.0
-margin_bottom = 756.0
+margin_right = 1908.0
+margin_bottom = 1068.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 484.0
-margin_right = 851.0
-margin_bottom = 744.0
+margin_left = 764.0
+margin_right = 1131.0
+margin_bottom = 1056.0
 custom_constants/separation = 20
 alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 217.0
+margin_top = 373.0
 margin_right = 367.0
-margin_bottom = 217.0
+margin_bottom = 373.0
 
 [node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 237.0
+margin_top = 393.0
 margin_right = 367.0
-margin_bottom = 307.0
+margin_bottom = 463.0
 theme = ExtResource( 1 )
 custom_fonts/font = SubResource( 41 )
 keep_pressed_outside = true
 text = "PLAY"
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 327.0
+margin_top = 483.0
 margin_right = 367.0
-margin_bottom = 327.0
+margin_bottom = 483.0
 
 [node name="Settings" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 347.0
+margin_top = 503.0
 margin_right = 367.0
-margin_bottom = 417.0
+margin_bottom = 573.0
 theme = ExtResource( 1 )
 custom_fonts/font = SubResource( 41 )
 keep_pressed_outside = true
 text = "SETTINGS"
 
 [node name="Control3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 437.0
+margin_top = 593.0
 margin_right = 367.0
-margin_bottom = 437.0
+margin_bottom = 593.0
 
 [node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 457.0
+margin_top = 613.0
 margin_right = 367.0
-margin_bottom = 527.0
+margin_bottom = 683.0
 theme = ExtResource( 1 )
 custom_fonts/font = SubResource( 41 )
 keep_pressed_outside = true

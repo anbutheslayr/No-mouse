@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scenes/World.tres" type="Environment" id=1]
+[ext_resource path="res://Scenes/Settings.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Models/Guns/Machine gun.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Materials/Gray8.material" type="Material" id=6]
 [ext_resource path="res://taxi.tres" type="ArrayMesh" id=7]
@@ -392,7 +393,7 @@ tracks/1/keys = {
 [node name="Main_menu" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.984485, 0.056458, -0.166139, 0.0237836, 0.895151, 0.445128, 0.17385, -0.442173, 0.87992, 0, 4.52894, 0 )
+transform = Transform( 0.984485, 0.0564577, -0.166139, 0.0237837, 0.895151, 0.445128, 0.17385, -0.442173, 0.87992, 0, 4.52894, 0 )
 fov = 50.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -412,9 +413,6 @@ light_color = Color( 0.972549, 0.882353, 0.666667, 1 )
 shadow_enabled = true
 shadow_bias = 0.0
 directional_shadow_blend_splits = true
-directional_shadow_normal_bias = 0.37
-directional_shadow_depth_range = 1
-directional_shadow_max_distance = 70.0
 
 [node name="taxi" type="Spatial" parent="."]
 transform = Transform( 0.116289, 0, 0.993215, 0, 1, 0, -0.993215, 0, 0.116289, -1.216, 0.05, -6.247 )
@@ -591,5 +589,8 @@ anims/RESET = SubResource( 37 )
 anims/Start = SubResource( 38 )
 
 [node name="Menu" parent="." instance=ExtResource( 12 )]
+
+[node name="Settings" parent="." instance=ExtResource( 2 )]
+visible = false
 
 [editable path="taxi/Spatial/body/MachineGun"]

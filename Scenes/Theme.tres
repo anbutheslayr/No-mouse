@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=2]
+[gd_resource type="Theme" load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/FONT.tres" type="DynamicFont" id=1]
 
@@ -47,8 +47,43 @@ expand_margin_bottom = 5.0
 shadow_color = Color( 0.27451, 0.12549, 0.12549, 0.6 )
 shadow_offset = Vector2( 3, 3 )
 
+[sub_resource type="StyleBoxFlat" id=44]
+bg_color = Color( 0.85098, 0.376471, 0.376471, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=45]
+bg_color = Color( 0.819608, 0.286275, 0.286275, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=42]
+bg_color = Color( 0.886275, 0.470588, 0.470588, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=43]
+bg_color = Color( 0.85098, 0.376471, 0.376471, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [resource]
 default_font = ExtResource( 1 )
 Button/styles/hover = SubResource( 41 )
 Button/styles/normal = SubResource( 39 )
 Button/styles/pressed = SubResource( 40 )
+CheckBox/constants/check_vadjust = 0
+CheckBox/constants/hseparation = 5
+CheckBox/styles/hover = SubResource( 44 )
+CheckBox/styles/normal = SubResource( 44 )
+CheckBox/styles/pressed = SubResource( 45 )
+OptionButton/styles/hover = SubResource( 42 )
+OptionButton/styles/normal = SubResource( 43 )

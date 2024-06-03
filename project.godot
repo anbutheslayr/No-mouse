@@ -18,8 +18,8 @@ config/windows_native_icon="res://ICO.ico"
 
 [display]
 
-window/size/width=1360
-window/size/height=768
+window/size/width=1920
+window/size/height=1080
 window/size/fullscreen=true
 window/tablet_driver=""
 window/stretch/aspect="expand"
@@ -1129,8 +1129,9 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/directional_shadow/size=2048
-quality/shadow_atlas/size=2048
+quality/intended_usage/framebuffer_allocation.mobile=2
 quality/shadows/filter_mode=2
 quality/shadows/filter_mode.mobile=2
+quality/reflections/texture_array_reflections.mobile=true
+quality/reflections/high_quality_ggx.mobile=true
 environment/default_environment="res://default_env.tres"

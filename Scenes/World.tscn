@@ -33,10 +33,19 @@ transform = Transform( -0.727945, -0.496386, 0.472967, 0.065038, 0.63672, 0.7683
 light_color = Color( 0.972549, 0.882353, 0.666667, 1 )
 shadow_enabled = true
 shadow_bias = 0.0
+directional_shadow_split_2 = 0.138
+directional_shadow_split_3 = 0.426
 directional_shadow_blend_splits = true
 directional_shadow_normal_bias = 0.37
-directional_shadow_depth_range = 1
 directional_shadow_max_distance = 70.0
+
+[node name="DirectionalLight2" type="DirectionalLight" parent="."]
+transform = Transform( -0.727945, -0.496386, 0.472967, 0.065038, 0.63672, 0.768348, -0.682544, 0.590075, -0.431213, 0, 5.43877, 0 )
+visible = false
+light_color = Color( 0.972549, 0.882353, 0.666667, 1 )
+shadow_enabled = true
+shadow_bias = 0.0
+directional_shadow_blend_splits = true
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -8.14813, 13.9851, 2.37051 )
