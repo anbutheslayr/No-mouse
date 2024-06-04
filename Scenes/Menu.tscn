@@ -1,20 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://GOUDYSTO.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/Menu.cs" type="Script" id=3]
-
-[sub_resource type="DynamicFont" id=42]
-size = 64
-outline_size = 6
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=41]
-size = 40
-outline_size = 6
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 2 )
+[ext_resource path="res://Scenes/FONT.tres" type="DynamicFont" id=4]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -47,7 +35,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 7
 custom_constants/shadow_offset_y = 7
-custom_fonts/font = SubResource( 42 )
+custom_fonts/font = ExtResource( 4 )
 text = "No mouse"
 align = 1
 valign = 1
@@ -67,44 +55,41 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 373.0
+margin_top = 383.0
 margin_right = 367.0
-margin_bottom = 373.0
+margin_bottom = 383.0
 
 [node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 393.0
+margin_top = 403.0
 margin_right = 367.0
-margin_bottom = 463.0
+margin_bottom = 466.0
 theme = ExtResource( 1 )
-custom_fonts/font = SubResource( 41 )
 keep_pressed_outside = true
 text = "PLAY"
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 483.0
+margin_top = 486.0
 margin_right = 367.0
-margin_bottom = 483.0
+margin_bottom = 486.0
 
 [node name="Settings" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 503.0
+margin_top = 506.0
 margin_right = 367.0
-margin_bottom = 573.0
+margin_bottom = 569.0
 theme = ExtResource( 1 )
-custom_fonts/font = SubResource( 41 )
 keep_pressed_outside = true
 text = "SETTINGS"
 
 [node name="Control3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 593.0
+margin_top = 589.0
 margin_right = 367.0
-margin_bottom = 593.0
+margin_bottom = 589.0
 
 [node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 613.0
+margin_top = 609.0
 margin_right = 367.0
-margin_bottom = 683.0
+margin_bottom = 672.0
 theme = ExtResource( 1 )
-custom_fonts/font = SubResource( 41 )
 keep_pressed_outside = true
 text = "QUIT"
 
