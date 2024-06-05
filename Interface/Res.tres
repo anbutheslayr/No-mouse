@@ -4,4 +4,8 @@
 
 [resource]
 script = ExtResource( 1 )
-res = Vector2( 0, 0 )
+res = Vector2( 1024, 576 )
+res_int = 3
+shadows = true
+ShadowQuality = 0
+Glow = true

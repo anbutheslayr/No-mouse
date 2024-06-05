@@ -18,12 +18,12 @@ public class Settings : Control
     public DynamicFont title_font;
     public override void _Ready()
     {
+        Res = GD.Load<resolution>("res://Interface/Res.tres");
         title_font = GD.Load<DynamicFont>("res://Scenes/FONT.tres");
         theme = GD.Load<Theme>("res://Scenes/Theme.tres");
         Resize(OS.GetScreenSize());
         Reposition(OS.GetScreenSize());
 
-        Res = GD.Load<resolution>("res://Interface/Res.tres");
         OptionButton = GetNode<OptionButton>("MarginContainer/HBoxContainer2/VBoxContainer/OptionButton");
         shadows = GetNode<OptionButton>("MarginContainer/HBoxContainer2/VBoxContainer/Shadow");
         glow = GetNode<CheckBox>("MarginContainer/HBoxContainer2/VBoxContainer/Glow");
@@ -72,6 +72,7 @@ public class Settings : Control
     }
     public void OnEsc()
     {
+        ResourceSaver.Save("res://Interface/Res.tres", Res);
         Hide();
         GetParent().GetNode<Control>("Menu").Show();
     }

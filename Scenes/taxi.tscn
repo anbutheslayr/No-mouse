@@ -545,6 +545,9 @@ transform = Transform( -10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.742
 [node name="Particles" parent="Spatial/body/MachineGun/Gun/Marker" index="0"]
 emitting = true
 
+[node name="OmniLight" parent="Spatial/body/MachineGun/Gun/Marker/Particles" index="0"]
+omni_range = 7.0
+
 [node name="Stand" type="MeshInstance" parent="Spatial/body/MachineGun"]
 transform = Transform( -10, 0, 1.50996e-06, 0, 10, 0, -1.50996e-06, 0, -10, 0, -1.3908, 0.0648999 )
 mesh = SubResource( 20 )
@@ -586,7 +589,7 @@ skeleton = NodePath("../..")
 enabled = true
 
 [node name="Healthbar" parent="Spatial" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.33314 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239 )
 
 [node name="DetectionArea" type="Area" parent="Spatial" groups=["Player_body"]]
 
