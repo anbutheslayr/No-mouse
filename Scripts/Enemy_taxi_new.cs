@@ -43,6 +43,7 @@ public class Enemy_taxi_new : Spatial
 	[Signal] delegate void Change_Health(int health);
 	public Spatial health_bar;
 	[Export] public string health_bar_path;
+	public AudioStreamPlayer3D drift;
 
 	
 	// Called when the node enters the scene tree for the first time.
@@ -57,6 +58,7 @@ public class Enemy_taxi_new : Spatial
 		car_mesh_body = GetNode<MeshInstance>(car_mesh_body_path);
 		B_L = GetNode<CPUParticles>(B_L_particles);
 		B_R = GetNode<CPUParticles>(B_R_particles);
+		drift = GetNode<AudioStreamPlayer3D>("Spatial/Drift");
 		player_mesh = GetParent().GetNode<MeshInstance>(player_mesh_path);
 		nav_agent = GetNode<NavigationAgent>(Nav_agent_path);
 		navigation = GetParent().GetNode<Navigation>(Navigation_path);
@@ -87,11 +89,19 @@ public class Enemy_taxi_new : Spatial
 		{
 			B_L.Emitting = true;
 			B_R.Emitting = true;
+			
+			if(!drift.Playing)
+			{
+				//FIXME: Audio needs to be updated
+				drift.Playing = true;
+			}
 		}
 		else
 		{
 			B_L.Emitting = false;
 			B_R.Emitting = false;
+			drift.Playing = false;
+
 		}
 
 		// AI

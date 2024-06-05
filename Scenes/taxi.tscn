@@ -546,6 +546,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546473, 0.0306792, 0.851717
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.143636, 0, 0 )
 emitting = false
 
+[node name="Drift" type="AudioStreamPlayer3D" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17042, 1 )
+stream = ExtResource( 9 )
+unit_size = 8.0
+max_distance = 30.0
+
 [node name="body" type="MeshInstance" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.1 )
 mesh = SubResource( 9 )

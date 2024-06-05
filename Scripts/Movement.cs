@@ -41,7 +41,7 @@ public class Movement : Spatial
 	public TouchScreenButton Brake;
 	public AudioStreamPlayer audioStreamPlayer;
 	public Spatial health_bar;
-	public AudioStreamPlayer drift;
+	public AudioStreamPlayer3D drift;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -58,7 +58,7 @@ public class Movement : Spatial
 		health_bar = GetNode<Spatial>(health_bar_path);
 		Connect("Change_Health", health_bar, nameof(Change_Health));
 		audioStreamPlayer = GetNode<AudioStreamPlayer>("Ball/Oncollision");
-		drift = GetNode<AudioStreamPlayer>("Ball/Ondrift");
+		drift = GetNode<AudioStreamPlayer3D>("Spatial/Drift");
 		Left = GetNode<TouchScreenButton>("Interface/Steering/Left");
 		Right = GetNode<TouchScreenButton>("Interface/Steering/Right");
 		Brake = GetNode<TouchScreenButton>("Interface/Acceleration/Brake");
@@ -217,7 +217,6 @@ public class Movement : Spatial
 		{
 			health = 0;
 			// GD.Print("DEAD");
-			Engine.TimeScale = .3f;
 		}
 		EmitSignal("Change_Health", health);
 		body.GetParent().Call("Calculate_Health", damage);
