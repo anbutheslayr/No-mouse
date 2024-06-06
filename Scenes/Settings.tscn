@@ -156,8 +156,8 @@ margin_bottom = 1056.0
 [node name="TextureButton" type="TextureButton" parent="."]
 margin_left = 18.0
 margin_top = 26.0
-margin_right = 106.0
-margin_bottom = 119.0
+margin_right = 114.0
+margin_bottom = 122.0
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 5 )
 expand = true

@@ -10,6 +10,7 @@ public class Interface : Control
     public TouchScreenButton Left;
     public TouchScreenButton Right;
     public TextureButton Esc;
+    public resolution Res;
     public override void _Ready()
     {
         Accelerate_button = GetNode<TouchScreenButton>("Acceleration/Accelerate");
@@ -17,39 +18,14 @@ public class Interface : Control
         Left = GetNode<TouchScreenButton>("Steering/Left");
         Right = GetNode<TouchScreenButton>("Steering/Right");
         Esc = GetNode<TextureButton>("Esc");
-        var Res = GD.Load<resolution>("res://Interface/Res.tres");
+        Res = GD.Load<resolution>("res://Interface/Res.tres");
 
         // Setting shadows
         SetShadow(Res.shadows , Res.ShadowQuality);
         //Setting glow
         SetGlow(Res.Glow);
         
-        
-
-        if(Res.res.x == 1280 && Res.res.y == 720 || Res.res.x == 1360 && Res.res.y == 768)
-        {
-            Left.Position = new Vector2(229 , -7);
-            Left.Scale = new Vector2(0.668f , 0.677f);
-            Right.Position = new Vector2(286 , -127);
-            Right.Scale = Left.Scale;
-            Accelerate_button.Position = new Vector2(-171 , -215);
-            Accelerate_button.Scale = new Vector2(0.735f , 0.698f);
-            Brake.Position = new Vector2(-383 , -121);
-            Brake.Scale = Accelerate_button.Scale;
-
-        }
-        else if(Res.res.x == 960 && Res.res.y == 540 || Res.res.x == 1024 && Res.res.y == 576)
-        {
-            Left.Position = new Vector2(170 , 10);
-            Left.Scale = new Vector2(0.521f , 0.536f);
-            Right.Position = new Vector2(214 , -86);
-            Right.Scale = Left.Scale;
-            Accelerate_button.Position = new Vector2(-84 , -143);
-            Accelerate_button.Scale = new Vector2(0.471f , 0.481f);
-            Brake.Position = new Vector2(-226 , -89);
-            Brake.Scale = Accelerate_button.Scale;
-
-        }
+        RepositionAndResize(Res.res);
     }
     
     public void OnEscPressed()
@@ -78,6 +54,25 @@ public class Interface : Control
         {
             GetTree().Root.GetNode<DirectionalLight>("World/DirectionalLight").ShadowEnabled = false;
         }
+    }
+    public void RepositionAndResize(Vector2 res)
+    {
+        // Left.Position = new Vector2(229 , -7);
+        Left.Position = new Vector2(res.x/1920*316 , res.y/1080*10);
+        // Left.Scale = new Vector2(0.668f , 0.677f);
+        Left.Scale = new Vector2(res.x/1920*1.198f , res.y/1080*1.204f);
+        // Right.Position = new Vector2(286 , -127);
+        Right.Position = new Vector2(res.x/1920*340 , res.y/1080*-198);
+        Right.Scale = Left.Scale;
+        // Accelerate_button.Position = new Vector2(-171 , -215);
+        Accelerate_button.Position = new Vector2(res.x/1920*-271 , res.y/1080*-362);
+        // Accelerate_button.Scale = new Vector2(0.735f , 0.698f);
+        Accelerate_button.Scale = new Vector2(res.x/1920*1.271f , res.y/1080*1.232f);
+        // Brake.Position = new Vector2(-383 , -121);
+        Brake.Position = new Vector2(res.x/1920*-573 , res.y/1080*-166);
+        Brake.Scale = Accelerate_button.Scale;
+        Esc.SetSize(new Vector2(res.x/1920*96 , res.x/1920*96));
+        Esc.SetPosition(new Vector2(res.x/1920*1803 , res.y/1080*18));
     }
     public void SetShadowQuality(int index)
     {

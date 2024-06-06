@@ -15,15 +15,17 @@ public class Menu : Control
         Res = GD.Load<resolution>("res://Interface/Res.tres");
         if (Res.res != Vector2.Zero)
         {
-            Resize(Res.res);
             GetTree().SetScreenStretch(SceneTree.StretchMode.Viewport, SceneTree.StretchAspect.Expand, Res.res);
+            GetParent().Call("Resize");
+            Resize(Res.res);
             OS.WindowSize = Res.res;
-            
-            
         }
         else
         {
-            Resize(OS.GetScreenSize());
+            Res.res = OS.GetScreenSize();
+            Res.res_int = 0;
+            GetParent().Call("Resize");
+            Resize(Res.res);
         }
         if(Res.ShadowQuality != 4)
         {
@@ -40,6 +42,7 @@ public class Menu : Control
     
     public void OnPlayPressed()
     {
+        ResourceSaver.Save("res://Interface/Res.tres", Res);
         GetTree().ChangeScene("res://Scenes/World.tscn");
     }
     public void OnSettingsPressed()
@@ -50,18 +53,25 @@ public class Menu : Control
 
     public void OnQuitPressed()
     {
+        ResourceSaver.Save("res://Interface/Res.tres", Res);
         GetTree().Quit();
     }
     public void Resize(Vector2 resolution)
     {
+        theme.DefaultFont.Set("size", (resolution.x/1920)*30);
+        theme.DefaultFont.Set("outline_size", (resolution.x/1920)*4);
+        title_font.Size = (int)(resolution.x/1920*64);
+
         vb1 = GetNode<VBoxContainer>("MarginContainer/VBoxContainer");
         vb1.AddConstantOverride("separation", (int)(resolution.y/1080*70));
         vb2 = GetNode<VBoxContainer>("MarginContainer/HBoxContainer/VBoxContainer");
         vb2.AddConstantOverride("separation", (int)(resolution.y/1080*30));
-
-        theme.DefaultFont.Set("size", (resolution.x/1920)*30);
-        theme.DefaultFont.Set("outline_size", (resolution.x/1920)*4);
-        title_font.Size = (int)(resolution.x/1920*64);
+        GD.Print("Resize : " + resolution);
+        GD.Print("Theme font size : " + theme.DefaultFont.Get("size"));
+        GD.Print("Theme font outline size : " + theme.DefaultFont.Get("outline_size"));
+        GD.Print("Title font size : " + title_font.Size);
+        GD.Print("Vb1 separation : " + vb1.GetConstant("separation"));
+        GD.Print("Vb2 separation : " + vb2.GetConstant("separation"));
     }
     public void SetShadowQuality(int index)
     {

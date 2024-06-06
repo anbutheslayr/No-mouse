@@ -16,8 +16,10 @@ public class Settings : Control
     public VBoxContainer vb3;
     public Label title;
     public DynamicFont title_font;
+    public TextureButton Esc;
     public override void _Ready()
     {
+        Esc = GetNode<TextureButton>("TextureButton");
         Res = GD.Load<resolution>("res://Interface/Res.tres");
         title_font = GD.Load<DynamicFont>("res://Scenes/FONT.tres");
         theme = GD.Load<Theme>("res://Scenes/Theme.tres");
@@ -37,7 +39,7 @@ public class Settings : Control
         OptionButton.AddItem("1280x720", 2);
         OptionButton.AddItem("1024x576",3);
         OptionButton.AddItem("960x540", 4);
-        // OptionButton.AddItem("640x360", 5);
+        OptionButton.AddItem("640x360", 5);
         OptionButton.Selected = Res.res_int;
 
 
@@ -138,13 +140,14 @@ public class Settings : Control
         hb2.AddConstantOverride("separation", (int)(resolution.x/1920*300));
         vb3 = GetNode<VBoxContainer>("MarginContainer/HBoxContainer2/VBoxContainer");
         vb3.AddConstantOverride("separation", (int)(resolution.y/1080*20));
+        Esc.SetPosition(new Vector2(resolution.x/1920*18 , resolution.y/1080*26));
     }
     public void Resize(Vector2 resolution)
     {
         theme.DefaultFont.Set("size", (resolution.x/1920)*30);
         theme.DefaultFont.Set("outline_size", (resolution.x/1920)*4);
-
         title_font.Size = (int)(resolution.x/1920*64);
+        Esc.SetSize(new Vector2(resolution.x/1920*96 , resolution.y/1080*96));
         
     }
 

@@ -644,10 +644,6 @@ stream = ExtResource( 6 )
 volume_db = -5.0
 pitch_scale = 3.0
 
-[node name="Ondrift" type="AudioStreamPlayer" parent="Ball"]
-stream = ExtResource( 9 )
-volume_db = -10.0
-
 [node name="Interface" parent="." instance=ExtResource( 10 )]
 
 [node name="Steering" parent="Interface" index="1"]

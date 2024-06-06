@@ -198,6 +198,10 @@ public class Movement : Spatial
 			var damage = Calculate_Damage(Impact_magnitude);
 			Apply_Damage(damage , body);
 		}
+		if(body.IsInGroup("Obstacle") && ball.LinearVelocity.Length() > 6)
+		{
+			audioStreamPlayer.Play();
+		}
 	}
 	public void On_leaving(Node body)
 	{

@@ -6,7 +6,7 @@ sky_horizon_color = Color( 0.0627451, 0.211765, 0.329412, 1 )
 sky_energy = 4.0
 ground_bottom_color = Color( 0.0627451, 0.211765, 0.329412, 1 )
 ground_horizon_color = Color( 0.968627, 0.458824, 0.545098, 1 )
-sun_color = Color( 0.254902, 0.0705882, 0.282353, 1 )
+sun_color = Color( 0.972549, 0.054902, 0.827451, 1 )
 sun_angle_min = 3.59
 
 [resource]
