@@ -77,6 +77,7 @@ public class Settings : Control
         ResourceSaver.Save("res://Interface/Res.tres", Res);
         Hide();
         GetParent().GetNode<Control>("Menu").Show();
+        GetParent().Call("Resize");
     }
     public void OnShadowSelect(int index)
     {
