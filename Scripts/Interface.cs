@@ -17,6 +17,7 @@ public class Interface : Control
     public int cur_enemies;
     public Label enemy_spawntext;
     public bool dead = false;
+    public float spawn_time;
     public override void _Ready()
     {
         Accelerate_button = GetNode<TouchScreenButton>("Acceleration/Accelerate");
@@ -34,6 +35,7 @@ public class Interface : Control
         timer.Connect("timeout", this, nameof(AddEnemies));
         AddChild(timer);
         timer.Start(10);
+        spawn_time = 26;
 
         // Setting shadows
         SetShadow(Res.shadows , Res.ShadowQuality);
@@ -45,18 +47,24 @@ public class Interface : Control
     
     public void AddEnemies()
     {
-        var enemy = enemy_taxi.Instance() as Spatial;
-        enemy.GlobalTransform = enemyspawner.GlobalTransform;
-        GetParent().GetParent().AddChild(enemy);
-        cur_enemies++;
-        if(cur_enemies < Res.NoOfEnemies)
+        if(dead == false)
         {
-            timer.Start(26);
+            var enemy = enemy_taxi.Instance() as Spatial;
+            enemy.GlobalTransform = enemyspawner.GlobalTransform;
+            GetParent().GetParent().AddChild(enemy);
+            cur_enemies++;
+            if(cur_enemies < Res.NoOfEnemies)
+            {
+                GD.Print(spawn_time);
+                timer.Start(spawn_time);
+                spawn_time -= 2.5f;
+            }
+            else
+            {
+                enemy_spawntext.Text = "All enemies spawned";
+            }
         }
-        else
-        {
-            enemy_spawntext.Text = "All enemies spawned";
-        }
+        
     }
     public void OnEscPressed()
     {
@@ -142,11 +150,11 @@ public class Interface : Control
         }
         if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0)
         {
-            enemy_spawntext.Text = "You Won :)";
+            enemy_spawntext.Text = "You Won :) \n Against " + cur_enemies + " Enemies";
         }
         if(dead)
         {
-            enemy_spawntext.Text = "You Lost :(";
+            enemy_spawntext.Text = "You Lost :( \n To " + cur_enemies + " Enemies \n Try Again";
         }
     }
 }

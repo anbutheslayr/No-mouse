@@ -568,7 +568,7 @@ AnimPath = "AnimationPlayer"
 Aim_speed = 12.0
 Range = 2
 Ammo = 30
-start_magazines = 20
+start_magazines = 0
 
 [node name="Gun" parent="Spatial/body/MachineGun" index="0"]
 transform = Transform( -10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07 )
