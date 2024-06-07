@@ -15,6 +15,7 @@ public class Interface : Control
     public PackedScene enemy_taxi;
     public Timer timer;
     public int cur_enemies;
+    public Label enemy_spawntext;
     public override void _Ready()
     {
         Accelerate_button = GetNode<TouchScreenButton>("Acceleration/Accelerate");
@@ -24,13 +25,14 @@ public class Interface : Control
         Esc = GetNode<TextureButton>("Esc");
         enemyspawner = GetParent().GetParent().GetNode<Spatial>("Enemy_spawner");
         enemy_taxi = GD.Load<PackedScene>("res://Scenes/Enemy_taxi.tscn");
+        enemy_spawntext = GetNode<Label>("Enemy_spawntext");
         Res = GD.Load<resolution>("res://Interface/Res.tres");
         cur_enemies = 0;
         timer = new Timer();
         timer.OneShot = true;
         timer.Connect("timeout", this, nameof(AddEnemies));
         AddChild(timer);
-        timer.Start(5);
+        timer.Start(10);
 
         // Setting shadows
         SetShadow(Res.shadows , Res.ShadowQuality);
@@ -42,13 +44,17 @@ public class Interface : Control
     
     public void AddEnemies()
     {
+        var enemy = enemy_taxi.Instance() as Spatial;
+        enemy.GlobalTransform = enemyspawner.GlobalTransform;
+        GetParent().GetParent().AddChild(enemy);
+        cur_enemies++;
         if(cur_enemies < Res.NoOfEnemies)
         {
-            var enemy = enemy_taxi.Instance() as Spatial;
-            enemy.GlobalTransform = enemyspawner.GlobalTransform;
-            GetParent().GetParent().AddChild(enemy);
-            cur_enemies++;
-            timer.Start(5);
+            timer.Start(26);
+        }
+        else
+        {
+            enemy_spawntext.Text = "All enemies spawned";
         }
     }
     public void OnEscPressed()
@@ -97,8 +103,7 @@ public class Interface : Control
         Esc.RectScale = new Vector2(res.y/1080, res.y/1080);
         // Esc.RectPosition = new Vector2(96-res.y/1080*96 , 96-res.y/1080*96);
         // Esc.SetPosition(new Vector2(OS.GetScreenSize().x - Esc.RectSize.x , 0));
-        
-        
+        enemy_spawntext.MarginTop = res.y/1080*100;
     }
     public void SetShadowQuality(int index)
     {
@@ -121,6 +126,14 @@ public class Interface : Control
                 ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 4864);
                 ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 4864);
                 break;
+        }
+    }
+    public override void _Process(float delta)
+    {
+        enemy_spawntext.Text = "Enemy " + cur_enemies + "/" + Res.NoOfEnemies + " Spawning in " + (int)timer.TimeLeft;
+        if(cur_enemies == Res.NoOfEnemies)
+        {
+            enemy_spawntext.Text = "All" + Res.NoOfEnemies+"/"+Res.NoOfEnemies +" enemies spawned";
         }
     }
 }

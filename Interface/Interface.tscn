@@ -75,4 +75,11 @@ texture_pressed = ExtResource( 8 )
 expand = true
 stretch_mode = 5
 
+[node name="Enemy_spawntext" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 100.0
+theme = ExtResource( 3 )
+text = "Enemy Spawning in"
+align = 1
+
 [connection signal="pressed" from="Esc" to="." method="OnEscPressed"]
