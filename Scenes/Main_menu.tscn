@@ -1002,6 +1002,7 @@ directional_shadow_max_distance = 70.0
 transform = Transform( 0.984485, 0.0564577, -0.166139, 0.0237837, 0.895151, 0.445128, 0.17385, -0.442173, 0.87992, 0, 4.52894, 0 )
 environment = ExtResource( 1 )
 fov = 50.0
+far = 32.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 1 )

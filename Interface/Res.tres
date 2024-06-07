@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource( 1 )
-res = Vector2( 1920, 1080 )
+res = Vector2( 1360, 768 )
 res_int = 0
 shadows = true
 ShadowQuality = 0
 Glow = true
-NoOfEnemies = 4
+NoOfEnemies = 2

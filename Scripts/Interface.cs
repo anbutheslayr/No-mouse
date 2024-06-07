@@ -135,6 +135,10 @@ public class Interface : Control
         {
             enemy_spawntext.Text = "All" + Res.NoOfEnemies+"/"+Res.NoOfEnemies +" enemies spawned";
         }
+        if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0)
+        {
+            enemy_spawntext.Text = "You Won!";
+        }
     }
 }
 
