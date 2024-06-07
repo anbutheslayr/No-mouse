@@ -8,5 +8,6 @@ public class resolution : Resource
     [Export] public bool shadows = true;
     [Export] public int ShadowQuality = 1;
     [Export] public bool Glow = true;
+    [Export] public int NoOfEnemies = 3;
 
 }

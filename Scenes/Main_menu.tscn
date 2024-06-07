@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://World2.tres" type="Environment" id=1]
 [ext_resource path="res://Scenes/Settings.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://taxi.tres" type="ArrayMesh" id=7]
 [ext_resource path="res://Assets/Models/Trees/Tree1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/Main_menu.cs" type="Script" id=9]
+[ext_resource path="res://Assets/Models/Trees/Tree3.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Menu.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpatialMaterial" id=1]
@@ -981,6 +982,11 @@ tracks/1/keys = {
 [node name="Main_menu" type="Spatial"]
 script = ExtResource( 9 )
 
+[node name="Settings" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="Menu" parent="." instance=ExtResource( 12 )]
+
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.313801, 0.717866, -0.621449, 0.065038, 0.63672, 0.768347, 0.947259, -0.281526, 0.153115, 0, 5.43877, 0 )
 light_color = Color( 0.960784, 0.741176, 0.956863, 1 )
@@ -1007,6 +1013,9 @@ collision_mask = 5
 width = 500.0
 height = 0.1
 depth = 500.0
+
+[node name="Tree3" parent="Ground" instance=ExtResource( 10 )]
+transform = Transform( 0.973395, 0, 0.229132, 0, 1, 0, -0.229132, 0, 0.973395, 7.39214, 0.0500002, -9.77011 )
 
 [node name="taxi" type="Spatial" parent="."]
 transform = Transform( 0.116289, 0, 0.993215, 0, 1, 0, -0.993215, 0, 0.116289, -1.216, 0.05, -6.247 )
@@ -1182,13 +1191,11 @@ autoplay = "Start"
 anims/RESET = SubResource( 37 )
 anims/Start = SubResource( 38 )
 
-[node name="Menu" parent="." instance=ExtResource( 12 )]
-
-[node name="Settings" parent="." instance=ExtResource( 2 )]
-visible = false
-
 [node name="Tree1" parent="." instance=ExtResource( 8 )]
 transform = Transform( -0.0328701, 0, 0.688215, 0, 0.689, 0, -0.688215, 0, -0.0328701, -2.69763, 0.0500002, -10.5238 )
 
 [node name="Tree2" parent="." instance=ExtResource( 8 )]
-transform = Transform( -0.461312, 0, 0.0252099, 0, 0.462, 0, -0.0252099, 0, -0.461312, 6.18287, 0.0500002, -4.14881 )
+transform = Transform( 0.423759, 0, -0.184045, 0, 0.462, 0, 0.184045, 0, 0.423759, 5.50852, 0.0500002, -4.14881 )
+
+[node name="Tree3" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.71684, 0, 0.148203, 0, 0.732, 0, -0.148203, 0, -0.71684, 2.23024, 0.0500002, -13.3505 )

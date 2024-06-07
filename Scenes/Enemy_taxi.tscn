@@ -22,6 +22,11 @@ resource_name = "carTire"
 vertex_color_use_as_albedo = true
 albedo_color = Color( 0.239216, 0.239216, 0.239216, 1 )
 metallic = 1.0
+emission_enabled = true
+emission = Color( 0.239216, 0.239216, 0.239216, 1 )
+emission_energy = 0.2
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="SpatialMaterial" id=13]
 resource_name = "paintYellow"
@@ -197,13 +202,11 @@ absorbent = true
 [sub_resource type="SphereShape" id=11]
 
 [node name="taxi" type="Spatial" groups=["Enemy_Control"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60185, 4.09071, 4.45315 )
 script = ExtResource( 2 )
 Ball_path = "Ball"
 car_mesh_body_path = "Spatial/body"
 Car_mesh_path = "Spatial"
 rayCast_path = "Spatial/RayCast"
-acceleration = 75.0
 left_wheel_path = "Spatial/wheel_frontLeft"
 right_wheel_path = "Spatial/wheel_frontRight"
 B_L_particles = "Spatial/Backleft/CPUParticles"
@@ -211,6 +214,7 @@ B_R_particles = "Spatial/Backright/CPUParticles"
 player_mesh_path = "taxi/Spatial"
 Nav_agent_path = "Spatial/NavigationAgent"
 Navigation_path = "Navigation"
+ramp_speed = 1.6
 health_bar_path = "Spatial/Healthbar"
 
 [node name="Spatial" type="MeshInstance" parent="."]

@@ -11,6 +11,10 @@ public class Interface : Control
     public TouchScreenButton Right;
     public TextureButton Esc;
     public resolution Res;
+    public Spatial enemyspawner;
+    public PackedScene enemy_taxi;
+    public Timer timer;
+    public int cur_enemies;
     public override void _Ready()
     {
         Accelerate_button = GetNode<TouchScreenButton>("Acceleration/Accelerate");
@@ -18,7 +22,15 @@ public class Interface : Control
         Left = GetNode<TouchScreenButton>("Steering/Left");
         Right = GetNode<TouchScreenButton>("Steering/Right");
         Esc = GetNode<TextureButton>("Esc");
+        enemyspawner = GetParent().GetParent().GetNode<Spatial>("Enemy_spawner");
+        enemy_taxi = GD.Load<PackedScene>("res://Scenes/Enemy_taxi.tscn");
         Res = GD.Load<resolution>("res://Interface/Res.tres");
+        cur_enemies = 0;
+        timer = new Timer();
+        timer.OneShot = true;
+        timer.Connect("timeout", this, nameof(AddEnemies));
+        AddChild(timer);
+        timer.Start(5);
 
         // Setting shadows
         SetShadow(Res.shadows , Res.ShadowQuality);
@@ -28,6 +40,17 @@ public class Interface : Control
         RepositionAndResize(Res.res);
     }
     
+    public void AddEnemies()
+    {
+        if(cur_enemies < Res.NoOfEnemies)
+        {
+            var enemy = enemy_taxi.Instance() as Spatial;
+            enemy.GlobalTransform = enemyspawner.GlobalTransform;
+            GetParent().GetParent().AddChild(enemy);
+            cur_enemies++;
+            timer.Start(5);
+        }
+    }
     public void OnEscPressed()
     {
         GetTree().ChangeScene("res://Scenes/Main_menu.tscn");
@@ -58,21 +81,24 @@ public class Interface : Control
     public void RepositionAndResize(Vector2 res)
     {
         // Left.Position = new Vector2(229 , -7);
-        Left.Position = new Vector2(res.x/1920*316 , res.y/1080*10);
+        Left.Position = new Vector2(res.y/1080*316 , res.y/1080*10);
         // Left.Scale = new Vector2(0.668f , 0.677f);
-        Left.Scale = new Vector2(res.x/1920*1.198f , res.y/1080*1.204f);
+        Left.Scale = new Vector2(res.y/1080*1.198f , res.y/1080*1.204f);
         // Right.Position = new Vector2(286 , -127);
-        Right.Position = new Vector2(res.x/1920*340 , res.y/1080*-198);
+        Right.Position = new Vector2(res.y/1080*340 , res.y/1080*-198);
         Right.Scale = Left.Scale;
         // Accelerate_button.Position = new Vector2(-171 , -215);
-        Accelerate_button.Position = new Vector2(res.x/1920*-271 , res.y/1080*-362);
+        Accelerate_button.Position = new Vector2(res.y/1080*-271 , res.y/1080*-362);
         // Accelerate_button.Scale = new Vector2(0.735f , 0.698f);
-        Accelerate_button.Scale = new Vector2(res.x/1920*1.271f , res.y/1080*1.232f);
+        Accelerate_button.Scale = new Vector2(res.y/1080*1.271f , res.y/1080*1.232f);
         // Brake.Position = new Vector2(-383 , -121);
-        Brake.Position = new Vector2(res.x/1920*-573 , res.y/1080*-166);
+        Brake.Position = new Vector2(res.y/1080*-573 , res.y/1080*-166);
         Brake.Scale = Accelerate_button.Scale;
-        Esc.SetSize(new Vector2(res.x/1920*96 , res.x/1920*96));
-        Esc.SetPosition(new Vector2(res.x/1920*1803 , res.y/1080*18));
+        Esc.RectScale = new Vector2(res.y/1080, res.y/1080);
+        // Esc.RectPosition = new Vector2(96-res.y/1080*96 , 96-res.y/1080*96);
+        // Esc.SetPosition(new Vector2(OS.GetScreenSize().x - Esc.RectSize.x , 0));
+        
+        
     }
     public void SetShadowQuality(int index)
     {
@@ -88,12 +114,12 @@ public class Interface : Control
                 ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 4096);
                 break;
             case 2:
-                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 6400);
-                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 6400);
+                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 4180);
+                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 4180);
                 break;
             case 3:
-                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 8192);
-                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 8192);
+                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 4864);
+                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 4864);
                 break;
         }
     }

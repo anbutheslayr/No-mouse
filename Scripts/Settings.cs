@@ -17,6 +17,7 @@ public class Settings : Control
     public Label title;
     public DynamicFont title_font;
     public TextureButton Esc;
+    public OptionButton NoOfEnemies;
     public override void _Ready()
     {
         Esc = GetNode<TextureButton>("TextureButton");
@@ -27,6 +28,7 @@ public class Settings : Control
         Reposition(OS.GetScreenSize());
 
         OptionButton = GetNode<OptionButton>("MarginContainer/HBoxContainer2/VBoxContainer/OptionButton");
+        NoOfEnemies = GetNode<OptionButton>("MarginContainer/HBoxContainer2/VBoxContainer/NoOfEnemies");
         shadows = GetNode<OptionButton>("MarginContainer/HBoxContainer2/VBoxContainer/Shadow");
         glow = GetNode<CheckBox>("MarginContainer/HBoxContainer2/VBoxContainer/Glow");
         if(Res.Glow)
@@ -49,6 +51,20 @@ public class Settings : Control
         shadows.AddItem("Ultra Quality", 3);
         shadows.AddItem("Disabled", 4);
         shadows.Selected = Res.ShadowQuality;
+
+
+        NoOfEnemies.AddItem("0" , 0);
+        NoOfEnemies.AddItem("1", 1);
+        NoOfEnemies.AddItem("2", 2);
+        NoOfEnemies.AddItem("3", 3);
+        NoOfEnemies.AddItem("4", 4);
+        NoOfEnemies.AddItem("5", 5);
+        NoOfEnemies.AddItem("6", 6);
+        NoOfEnemies.AddItem("7", 7);
+        NoOfEnemies.AddItem("8", 8);
+        NoOfEnemies.AddItem("9", 9);
+        NoOfEnemies.AddItem("10", 10);
+        NoOfEnemies.Selected = Res.NoOfEnemies;
 
     }
     public void OnOptionSelect(int index)
@@ -120,12 +136,12 @@ public class Settings : Control
                 ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 4096);
                 break;
             case 2:
-                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 6400);
-                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 6400);
+                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 4180);
+                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 4180);
                 break;
             case 3:
-                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 8192);
-                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 8192);
+                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 4864);
+                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 4864);
                 break;
         }
     }
@@ -150,6 +166,10 @@ public class Settings : Control
         title_font.Size = (int)(resolution.x/1920*64);
         Esc.SetSize(new Vector2(resolution.x/1920*96 , resolution.y/1080*96));
         
+    }
+    public void OnNumberSelect(int index)
+    {
+        Res.NoOfEnemies = index;
     }
 
 }

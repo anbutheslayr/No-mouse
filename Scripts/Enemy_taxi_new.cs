@@ -179,10 +179,11 @@ public class Enemy_taxi_new : Spatial
 			right_wheel.Rotation = right_rotation;
 		}
 		// Align with surface
-		var n = rayCast.GetCollisionNormal().Normalized();
-		var xform = Alignwithsurface(Car_mesh.GlobalTransform ,n);
-		Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , turn_speed * 2 * delta);
-		
+		if(rayCast.IsColliding())
+		{
+			var xform = Alignwithsurface(Car_mesh.GlobalTransform ,rayCast.GetCollisionNormal().Normalized());
+			Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , turn_speed * 2 * delta);
+		}
 	}
 	
 	public float Calculate_Angle(Vector3 direction)

@@ -166,9 +166,13 @@ public class Movement : Spatial
 			car_mesh_body.Rotation = rotation;
 		}
 		// Align with surface
-		var n = rayCast.GetCollisionNormal().Normalized();
-		var xform = Alignwithsurface(Car_mesh.GlobalTransform ,n);
-		Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , turn_speed * 2 * delta);
+		if(rayCast.IsColliding())
+		{
+			 ;
+			var xform = Alignwithsurface(Car_mesh.GlobalTransform ,rayCast.GetCollisionNormal().Normalized());
+			Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , turn_speed * 2 * delta);
+		}
+		
 
 	}
 	public Transform Alignwithsurface(Transform xform ,Vector3 new_y)
