@@ -16,6 +16,7 @@ public class Interface : Control
     public Timer timer;
     public int cur_enemies;
     public Label enemy_spawntext;
+    public bool dead = false;
     public override void _Ready()
     {
         Accelerate_button = GetNode<TouchScreenButton>("Acceleration/Accelerate");
@@ -128,16 +129,24 @@ public class Interface : Control
                 break;
         }
     }
+    public void Dead()
+    {
+        dead = true;
+    }
     public override void _Process(float delta)
     {
         enemy_spawntext.Text = "Enemy " + cur_enemies + "/" + Res.NoOfEnemies + " Spawning in " + (int)timer.TimeLeft;
         if(cur_enemies == Res.NoOfEnemies)
         {
-            enemy_spawntext.Text = "All" + Res.NoOfEnemies+"/"+Res.NoOfEnemies +" enemies spawned";
+            enemy_spawntext.Text = "All " + Res.NoOfEnemies+"/"+Res.NoOfEnemies +" enemies spawned";
         }
         if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0)
         {
             enemy_spawntext.Text = "You Won!";
+        }
+        if(dead)
+        {
+            enemy_spawntext.Text = "You Lost ):(";
         }
     }
 }

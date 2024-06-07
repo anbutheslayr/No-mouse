@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Healthbar3d : Spatial
+public class Healthbar3d_enemy : Spatial
 {
 	[Export] public string texture_progress_path;
     [Export] public string tween_path;
@@ -23,9 +23,5 @@ public class Healthbar3d : Spatial
         tween.InterpolateProperty(texture_progress , "value" , texture_progress.Value , health, 0.15f, Tween.TransitionType.Elastic, Tween.EaseType.In);
         tween.InterpolateProperty(texture_progress_under , "value" , texture_progress_under.Value , health, 0.7f, Tween.TransitionType.Cubic, Tween.EaseType.In);
         tween.Start();
-		if(health <= 0)
-		{
-			GetParent().GetParent().GetNode<Control>("Interface").Call("Dead");	
-		}
 	}
 }

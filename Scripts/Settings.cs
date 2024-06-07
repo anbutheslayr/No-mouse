@@ -53,17 +53,16 @@ public class Settings : Control
         shadows.Selected = Res.ShadowQuality;
 
 
-        NoOfEnemies.AddItem("0" , 0);
-        NoOfEnemies.AddItem("1", 1);
-        NoOfEnemies.AddItem("2", 2);
-        NoOfEnemies.AddItem("3", 3);
-        NoOfEnemies.AddItem("4", 4);
-        NoOfEnemies.AddItem("5", 5);
-        NoOfEnemies.AddItem("6", 6);
-        NoOfEnemies.AddItem("7", 7);
-        NoOfEnemies.AddItem("8", 8);
-        NoOfEnemies.AddItem("9", 9);
-        NoOfEnemies.AddItem("10", 10);
+        NoOfEnemies.AddItem("1");
+        NoOfEnemies.AddItem("2");
+        NoOfEnemies.AddItem("3");
+        NoOfEnemies.AddItem("4");
+        NoOfEnemies.AddItem("5");
+        NoOfEnemies.AddItem("6");
+        NoOfEnemies.AddItem("7");
+        NoOfEnemies.AddItem("8");
+        NoOfEnemies.AddItem("9");
+        NoOfEnemies.AddItem("10");
         NoOfEnemies.Selected = Res.NoOfEnemies;
 
     }
@@ -169,7 +168,7 @@ public class Settings : Control
     }
     public void OnNumberSelect(int index)
     {
-        Res.NoOfEnemies = index;
+        Res.NoOfEnemies = index+1;
     }
 
 }
