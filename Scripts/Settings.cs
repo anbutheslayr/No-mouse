@@ -63,7 +63,7 @@ public class Settings : Control
         NoOfEnemies.AddItem("8");
         NoOfEnemies.AddItem("9");
         NoOfEnemies.AddItem("10");
-        NoOfEnemies.Selected = Res.NoOfEnemies;
+        NoOfEnemies.Selected = Res.NoOfEnemies-1;
 
     }
     public void OnOptionSelect(int index)

@@ -142,11 +142,11 @@ public class Interface : Control
         }
         if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0)
         {
-            enemy_spawntext.Text = "You Won!";
+            enemy_spawntext.Text = "You Won :)";
         }
         if(dead)
         {
-            enemy_spawntext.Text = "You Lost ):(";
+            enemy_spawntext.Text = "You Lost :(";
         }
     }
 }
