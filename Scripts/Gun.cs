@@ -12,10 +12,11 @@ public class Gun : Spatial
     public RayCast ray_cast;
     public List<Spatial> enemies = new List<Spatial>();
     public PackedScene decal;
+    public PackedScene Particles;
     [Export] public string decal_path;
     public Random random;
     [Export] public int gun_damage = 5;
-    [Export] public float Aim_speed = 5f;
+    [Export] public float Aim_speed = .25f;
     [Export] public int Range = 3;
     public Spatial Marker;
     public AudioStreamPlayer audioStreamPlayer;
@@ -39,7 +40,7 @@ public class Gun : Spatial
         cur_ammo = Ammo;
         cur_magazines = start_magazines;
         ProjectSettings.SetSetting("display/window/stretch/mode" , "disabled");
-        GD.Print(ProjectSettings.GetSetting("display/window/stretch/mode"));
+        Particles = GD.Load<PackedScene>("res://Scenes/Particles.tscn");
     }
 
     public void OnDetection(Node body)
@@ -77,7 +78,7 @@ public class Gun : Spatial
             
             if( gun.GlobalTransform.origin.DistanceTo(closest_enemy.GlobalTransform.origin) > Range )
             {
-                gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , Aim_speed * delta),Vector3.Up);
+                gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , Aim_speed),Vector3.Up);
                 if(anim.CurrentAnimation != "Shoot" && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Gun_descend")
                 {
                     anim.Play("Shoot");
@@ -119,10 +120,13 @@ public class Gun : Spatial
         
         if(ray_cast.IsColliding() && cur_ammo > 0)
         {
+            var a = Particles.Instance() as Spatial;
             var b = decal.Instance() as Spatial;
+            GetTree().Root.AddChild(a);
             (ray_cast.GetCollider() as Node).AddChild(b);
             var transform = b.GlobalTransform;
             transform.origin = ray_cast.GetCollisionPoint();
+            a.GlobalTransform = transform;
             b.GlobalTransform = transform;
             if(ray_cast.GetCollisionNormal() != Vector3.Up)
             {

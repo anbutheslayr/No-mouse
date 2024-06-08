@@ -199,7 +199,6 @@ public class Enemy_taxi_new : Spatial
 		if(node.IsInGroup("Ramp"))
 		{
 			Is_on_ramp = true;
-			GD.Print("Ramp");
 		}
 	}
 	private void OnLeaving(Node node)

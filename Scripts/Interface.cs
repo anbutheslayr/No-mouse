@@ -55,7 +55,6 @@ public class Interface : Control
             cur_enemies++;
             if(cur_enemies < Res.NoOfEnemies)
             {
-                GD.Print(spawn_time);
                 timer.Start(spawn_time);
                 spawn_time -= 2.5f;
             }

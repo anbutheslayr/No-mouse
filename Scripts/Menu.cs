@@ -66,12 +66,6 @@ public class Menu : Control
         vb1.AddConstantOverride("separation", (int)(resolution.y/1080*70));
         vb2 = GetNode<VBoxContainer>("MarginContainer/HBoxContainer/VBoxContainer");
         vb2.AddConstantOverride("separation", (int)(resolution.y/1080*30));
-        GD.Print("Resize : " + resolution);
-        GD.Print("Theme font size : " + theme.DefaultFont.Get("size"));
-        GD.Print("Theme font outline size : " + theme.DefaultFont.Get("outline_size"));
-        GD.Print("Title font size : " + title_font.Size);
-        GD.Print("Vb1 separation : " + vb1.GetConstant("separation"));
-        GD.Print("Vb2 separation : " + vb2.GetConstant("separation"));
     }
     public void SetShadowQuality(int index)
     {
