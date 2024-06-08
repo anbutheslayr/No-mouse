@@ -12,7 +12,6 @@ viewport_path = NodePath("Viewport")
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 script = ExtResource( 3 )
 texture_progress_path = "Viewport/TextureProgress"
-tween_path = "Tween"
 texture_progress_under_path = "Viewport/TextureProgress_under"
 
 [node name="Viewport" type="Viewport" parent="."]

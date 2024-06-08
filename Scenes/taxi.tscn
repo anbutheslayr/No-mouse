@@ -621,7 +621,6 @@ enabled = true
 
 [node name="Healthbar" parent="Spatial" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239 )
-tween_path = null
 
 [node name="DetectionArea" type="Area" parent="Spatial" groups=["Player_body"]]
 

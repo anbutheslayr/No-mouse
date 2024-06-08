@@ -4,7 +4,6 @@ using System;
 public class Healthbar3d : Spatial
 {
 	[Export] public string texture_progress_path;
-    [Export] public string tween_path;
     [Export] public string texture_progress_under_path;
     public Tween tween;
 	public TextureProgress texture_progress;
@@ -16,7 +15,6 @@ public class Healthbar3d : Spatial
         tween = GetNode<Tween>("Tween");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public void Change_Health(int health)
 	{
 		texture_progress.Value = health;
