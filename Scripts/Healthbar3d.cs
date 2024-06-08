@@ -13,7 +13,7 @@ public class Healthbar3d : Spatial
 	{
 		texture_progress = GetNode<TextureProgress>(texture_progress_path);
         texture_progress_under = GetNode<TextureProgress>(texture_progress_under_path);
-        tween = GetNode<Tween>(tween_path);
+        tween = GetNode<Tween>("Tween");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

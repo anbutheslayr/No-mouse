@@ -8,7 +8,7 @@
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
 
-[node name="Node" type="Spatial"]
+[node name="Healthbar" type="Spatial"]
 script = ExtResource( 1 )
 texture_progress_path = "Viewport/TextureProgress"
 tween_path = "Tween"

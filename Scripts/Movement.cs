@@ -42,6 +42,8 @@ public class Movement : Spatial
 	public AudioStreamPlayer audioStreamPlayer;
 	public Spatial health_bar;
 	public AudioStreamPlayer3D drift;
+	public float col_time = 0;
+	public bool col = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -134,6 +136,21 @@ public class Movement : Spatial
 			B_R.Emitting = false;
 			drift.Playing = false;
 		}
+		if(col)
+		{
+			col_time+=delta;
+			GD.Print(col_time);
+		}
+		else
+		{
+			GD.Print("Left");
+			col_time = 0;
+		}
+		if (col_time >= 0.05f)
+		{
+			health -= delta*5;
+			EmitSignal("Change_Health", (int)health);
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -192,7 +209,7 @@ public class Movement : Spatial
 		}
 		if(body is RigidBody)	
 		{
-
+			col = true;
 			// get relative velocity
 			var col_body = body as RigidBody;
 			var relative_velocity = col_body.LinearVelocity - ball.LinearVelocity;
@@ -212,6 +229,10 @@ public class Movement : Spatial
 		if(body.IsInGroup("Ramp"))
 		{
 			Is_on_ramp = false;
+		}
+		if(body is RigidBody)
+		{
+			col = false;
 		}
 	}
 	public void Apply_Damage(float damage , Node body)

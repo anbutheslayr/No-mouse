@@ -17,7 +17,7 @@ public class Gun : Spatial
     public Random random;
     [Export] public int gun_damage = 5;
     [Export] public float Aim_speed = .25f;
-    [Export] public int Range = 3;
+    [Export] public float Range = 2;
     public Spatial Marker;
     public AudioStreamPlayer audioStreamPlayer;
     public bool entered = false;
