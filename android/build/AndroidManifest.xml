@@ -79,7 +79,7 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
 
                 <!-- Enable access to OpenXR on Oculus mobile devices, no-op on other Android
                 platforms. -->

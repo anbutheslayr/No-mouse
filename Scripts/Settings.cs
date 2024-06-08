@@ -43,6 +43,8 @@ public class Settings : Control
         OptionButton.AddItem("960x540", 4);
         OptionButton.AddItem("640x360", 5);
         OptionButton.Selected = Res.res_int;
+        OptionButton.GrabFocus();
+
 
 
         shadows.AddItem("Low Quality", 0);
@@ -170,5 +172,15 @@ public class Settings : Control
     {
         Res.NoOfEnemies = index+1;
     }
+    public override void _Input(InputEvent @event)
+    {
+        if(@event is InputEventKey && @event.IsActionPressed("ui_cancel"))
+        {
+            OnEsc();
+            GetParent().Call("MenuFocus");
+        }
+    }
+
+
 
 }
