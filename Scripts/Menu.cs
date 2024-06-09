@@ -8,16 +8,8 @@ public class Menu : Control
     public resolution Res;
     public DynamicFont title_font;
     public Theme theme;
-    public int selected = 0;
-    public Button play;
-    public Button settings;
-    public Button quit;
     public override void _Ready()
     {
-        play = GetNode<Button>("MarginContainer/HBoxContainer/VBoxContainer/Play");
-        play.GrabFocus();
-        settings = GetNode<Button>("MarginContainer/HBoxContainer/VBoxContainer/Settings");
-        quit = GetNode<Button>("MarginContainer/HBoxContainer/VBoxContainer/Quit");
         title_font = GD.Load<DynamicFont>("res://Scenes/FONT.tres");
         theme = GD.Load<Theme>("res://Scenes/Theme.tres");
         Res = GD.Load<resolution>("res://Interface/Res.tres");
@@ -57,7 +49,6 @@ public class Menu : Control
     {
         Hide();
         GetParent().GetNode<Control>("Settings").Show();
-        GetParent().Call("SettingsFocus");
     }
 
     public void OnQuitPressed()
@@ -98,13 +89,4 @@ public class Menu : Control
                 break;
         }
     }
-    public override void _Input(InputEvent @event)
-    {
-        if(@event is InputEventKey && @event.IsActionPressed("ui_cancel") && !GetParent().GetNode<Control>("Settings").IsVisibleInTree())
-        {
-            OnQuitPressed();
-        }
-    }
-
-
 }

@@ -1,11 +1,11 @@
-[gd_resource type="Theme" load_steps=8 format=2]
+[gd_resource type="Theme" load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Theme_font.tres" type="DynamicFont" id=1]
 
-[sub_resource type="StyleBoxFlat" id=46]
-bg_color = Color( 0.894118, 0.435294, 0.662745, 1 )
+[sub_resource type="StyleBoxFlat" id=41]
+bg_color = Color( 0.796078, 0.501961, 0.423529, 1 )
 border_width_bottom = 8
-border_color = Color( 0.505882, 0.207843, 0.207843, 1 )
+border_color = Color( 0.337255, 0.0941176, 0.0941176, 1 )
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -49,8 +49,6 @@ shadow_offset = Vector2( 3, 3 )
 
 [sub_resource type="StyleBoxFlat" id=44]
 bg_color = Color( 0.85098, 0.376471, 0.376471, 1 )
-border_width_bottom = 8
-border_color = Color( 0.337255, 0.0941176, 0.0941176, 1 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -63,10 +61,15 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id=42]
+bg_color = Color( 0.886275, 0.470588, 0.470588, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id=43]
 bg_color = Color( 0.85098, 0.376471, 0.376471, 1 )
-border_width_bottom = 8
-border_color = Color( 0.337255, 0.0941176, 0.0941176, 1 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -74,16 +77,13 @@ corner_radius_bottom_left = 5
 
 [resource]
 default_font = ExtResource( 1 )
-Button/styles/focus = SubResource( 46 )
-Button/styles/hover = SubResource( 46 )
+Button/styles/hover = SubResource( 41 )
 Button/styles/normal = SubResource( 39 )
 Button/styles/pressed = SubResource( 40 )
 CheckBox/constants/check_vadjust = 0
 CheckBox/constants/hseparation = 5
-CheckBox/styles/focus = SubResource( 46 )
-CheckBox/styles/hover = SubResource( 46 )
+CheckBox/styles/hover = SubResource( 44 )
 CheckBox/styles/normal = SubResource( 44 )
 CheckBox/styles/pressed = SubResource( 45 )
-OptionButton/styles/focus = SubResource( 46 )
-OptionButton/styles/hover = SubResource( 46 )
+OptionButton/styles/hover = SubResource( 42 )
 OptionButton/styles/normal = SubResource( 43 )

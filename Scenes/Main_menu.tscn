@@ -1200,5 +1200,3 @@ transform = Transform( 0.423759, 0, -0.184045, 0, 0.462, 0, 0.184045, 0, 0.42375
 
 [node name="Tree3" parent="." instance=ExtResource( 8 )]
 transform = Transform( -0.71684, 0, 0.148203, 0, 0.732, 0, -0.148203, 0, -0.71684, 2.23024, 0.0500002, -13.3505 )
-
-[editable path="Settings"]
