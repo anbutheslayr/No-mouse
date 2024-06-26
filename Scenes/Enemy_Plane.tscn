@@ -29,10 +29,11 @@ emission_on_uv2 = false
 [sub_resource type="ConvexPolygonShape" id=7]
 points = PoolVector3Array( -0.263891, -0.25, -0.869281, 0.2645, 0.244301, 0.869297, -0.2645, 0.244866, 0.871284, -0.2645, 0.244866, -0.871284, 0.2645, 0.244301, -0.869297, 0.264495, -0.25, 0.869281, -0.263891, -0.25, 0.869281, 0.264495, -0.25, -0.869281 )
 
-[node name="Plane" type="MeshInstance"]
+[node name="Plane" type="RigidBody"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 script = ExtResource( 1 )
 FollowAltitude = 5.0
+Tilt_amount = 30.0
 FollowSpeed = 15.0
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
