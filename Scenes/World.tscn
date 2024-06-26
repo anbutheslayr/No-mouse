@@ -40,6 +40,12 @@ lerp_speed = 5.0
 target_PATH = "taxi/Spatial"
 offset = Vector3( 0, 5, 10 )
 
+[node name="Plane" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0553, 6.70451, 44.2726 )
+FollowAltitude = 3.0
+FollowSpeed = 0.05
+AvoidanceStrength = 2.0
+
 [node name="taxi" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.999061, 0, -0.0433053, 0, 1, 0, 0.0433053, 0, 0.999061, 23.0508, 0.674384, 22.3283 )
 acceleration = 155.0
@@ -47,13 +53,6 @@ steering = 30.0
 turn_stop_limit = 1.25
 damage_multiplier = 0.7
 ramp_speed = 1.6
-
-[node name="Plane" parent="." instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.455, 6.49879, 72.8403 )
-mass = 0.5
-gravity_scale = 0.0
-FollowAltitude = 4.0
-FollowSpeed = 40.0
 
 [node name="Navigation" type="Navigation" parent="."]
 
