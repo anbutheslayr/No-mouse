@@ -49,7 +49,7 @@ surfaces/1 = {
 "vertex_count": 240
 }
 
-[node name="Tree3" type="StaticBody"]
+[node name="Tree3" type="StaticBody" groups=["Obstacle"]]
 
 [node name="Cube" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )

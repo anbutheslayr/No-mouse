@@ -30,7 +30,7 @@ margin_right = 1896.0
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_top = 70.0
 margin_right = 1896.0
-margin_bottom = 159.0
+margin_bottom = 125.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 7
@@ -48,47 +48,47 @@ margin_bottom = 1068.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 764.0
-margin_right = 1131.0
+margin_left = 582.0
+margin_right = 1313.0
 margin_bottom = 1056.0
 custom_constants/separation = 20
 alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 383.0
-margin_right = 367.0
-margin_bottom = 383.0
+margin_top = 301.0
+margin_right = 731.0
+margin_bottom = 301.0
 
 [node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 403.0
-margin_right = 367.0
-margin_bottom = 466.0
+margin_top = 321.0
+margin_right = 731.0
+margin_bottom = 439.0
 theme = ExtResource( 1 )
 keep_pressed_outside = true
 text = "PLAY"
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 486.0
-margin_right = 367.0
-margin_bottom = 486.0
+margin_top = 459.0
+margin_right = 731.0
+margin_bottom = 459.0
 
 [node name="Settings" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 506.0
-margin_right = 367.0
-margin_bottom = 569.0
+margin_top = 479.0
+margin_right = 731.0
+margin_bottom = 597.0
 theme = ExtResource( 1 )
 keep_pressed_outside = true
 text = "SETTINGS"
 
 [node name="Control3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 589.0
-margin_right = 367.0
-margin_bottom = 589.0
+margin_top = 617.0
+margin_right = 731.0
+margin_bottom = 617.0
 
 [node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 609.0
-margin_right = 367.0
-margin_bottom = 672.0
+margin_top = 637.0
+margin_right = 731.0
+margin_bottom = 755.0
 theme = ExtResource( 1 )
 keep_pressed_outside = true
 text = "QUIT"

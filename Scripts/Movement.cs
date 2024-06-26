@@ -159,10 +159,15 @@ public class Movement : Spatial
 		
 		// turning wheels
 		
+		var left_rotation = left_wheel.Rotation;
 		var right_rotation = right_wheel.Rotation;
 		right_rotation.y = steering_input;
-		var left_rotation = left_wheel.Rotation;
 		left_rotation.y = 3.141593f + steering_input;
+		if(B_L.Emitting)
+		{
+			left_rotation.y = -(3.341593f + steering_input);
+			right_rotation.y = -(steering_input - .3f);
+		}
 		left_wheel.Rotation = left_rotation;
 		right_wheel.Rotation = right_rotation;
 		// Apply steering
