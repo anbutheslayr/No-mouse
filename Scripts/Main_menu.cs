@@ -21,7 +21,16 @@ public class Main_menu : Spatial
         settings.Call("Reposition" , Res.res);
 
     }
-    
+    // public override void _Process(float delta)
+    // {
+    //    if(Input.IsActionJustPressed("Save"))
+	// 	{
+	// 		var image = GetViewport().GetTexture().GetData();
+	// 		image.FlipY();
+	// 		image.SavePng("D:/Godot export/SS/MainMenu.png");
+	// 	}
+    // }
+
 
 
 }

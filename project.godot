@@ -12,8 +12,7 @@ config_version=4
 
 config/name="No mouse"
 run/main_scene="res://Scenes/Main_menu.tscn"
-boot_splash/image="res://splash.png"
-config/icon="res://ICON.png"
+boot_splash/image="res://Splash.png"
 config/windows_native_icon="res://ICO.ico"
 
 [display]
@@ -1120,6 +1119,11 @@ Left={
 Right={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Save={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":80,"unicode":0,"echo":false,"script":null)
  ]
 }
 

@@ -44,6 +44,7 @@ public class Movement : Spatial
 	public AudioStreamPlayer3D drift;
 	public float col_time = 0;
 	public bool col = false;
+	public int im = 0;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -77,7 +78,6 @@ public class Movement : Spatial
 		speed_input += Input.GetActionStrength("Up");
 		speed_input -=  Input.GetActionStrength("Down");
 
-		//TODO: Add button for deceleration/Brake
 		if (Accelerate_button.IsPressed())
 		{
 			speed_input = 1;
@@ -93,7 +93,6 @@ public class Movement : Spatial
 		speed_input = Mathf.Lerp(speed_input , speed_input*acceleration , delta * 25);
 
 		//Steering 
-		// TODO: Add buttons for steering
 		steering_input = 0;
 		steering_input -= Input.GetActionStrength("Right");
 		steering_input += Input.GetActionStrength("Left");
@@ -143,12 +142,11 @@ public class Movement : Spatial
 		}
 		else
 		{
-			GD.Print("Left");
 			col_time = 0;
 		}
-		if (col_time >= 0.05f)
+		if (col_time >= 0.1f)
 		{
-			health -= delta*5;
+			health -= delta*2;
 			EmitSignal("Change_Health", (int)health);
 		}
 	}
@@ -156,7 +154,13 @@ public class Movement : Spatial
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
-		
+		// if(Input.IsActionJustPressed("Save"))
+		// {
+		// 	var image = GetViewport().GetTexture().GetData();
+		// 	image.FlipY();
+		// 	image.SavePng("D:/Godot export/SS/" + im + ".png");
+		// 	im++;
+		// }
 		// turning wheels
 		
 		var left_rotation = left_wheel.Rotation;
@@ -214,7 +218,7 @@ public class Movement : Spatial
 		}
 		if(body is RigidBody)	
 		{
-			col = true;
+			// Enable_col();
 			// get relative velocity
 			var col_body = body as RigidBody;
 			var relative_velocity = col_body.LinearVelocity - ball.LinearVelocity;
@@ -237,7 +241,7 @@ public class Movement : Spatial
 		}
 		if(body is RigidBody)
 		{
-			col = false;
+			// Disable_col();
 		}
 	}
 	public void Apply_Damage(float damage , Node body)
@@ -269,5 +273,13 @@ public class Movement : Spatial
 			audioStreamPlayer.Play();
 		}
 		return damage;
+	}
+	public void Enable_col()
+	{
+		col = true;
+	}
+	public void Disable_col()
+	{
+		col = false;
 	}
 }

@@ -6,15 +6,16 @@ public class Enemy_Plane : RigidBody
 	public Spatial player;
 	public RayCast raycast;
 	public Vector3 target_pos;
+
+	public MeshInstance capsule;
 	[Export] public float FollowAltitude = 10f;
-	[Export] public float Tilt_amount = 0.5f;
 	[Export] public float FollowSpeed = 5f;
 	[Export] public float AvoidanceStrength = 10f;
-	[Export] public float Rotationspeed = 10f;
 	// [Export] public float ObjectDetectionDistance = 10f;
 	public override void _Ready()
 	{
 		player = GetParent().GetNode<Spatial>("taxi/Spatial");
+		capsule = GetNode<MeshInstance>("MeshInstance");
 		raycast = new RayCast();
 		AddChild(raycast);
 		raycast.Enabled = true;
@@ -28,6 +29,16 @@ public class Enemy_Plane : RigidBody
 		target_pos = player.GlobalTransform.origin + new Vector3(0, FollowAltitude, 0);
 		raycast.CastTo = target_pos - GlobalTransform.origin;
 		raycast.ForceRaycastUpdate();
+		if (GlobalTranslation.DistanceTo(player.GlobalTranslation) < 4)
+		{
+			player.GetParent().Call("Enable_col");
+			capsule.Show();
+		}
+		else
+		{
+			player.GetParent().Call("Disable_col");
+			capsule.Hide();
+		}
 	   
 	}
 	public override void _PhysicsProcess(float delta)
@@ -37,17 +48,8 @@ public class Enemy_Plane : RigidBody
 			Vector3 avoid_dir = raycast.GetCollisionNormal().Cross(Vector3.Up).Normalized();
 			target_pos += avoid_dir * AvoidanceStrength;
 		}
-		var direction = (target_pos - GlobalTransform.origin).Normalized();
-
-		    var t =  LinearVelocity.Length() / Tilt_amount;
-			var rotation = GlobalRotation;
-			rotation.z = Mathf.Lerp(rotation.z , t , 10 * delta);
-            rotation.y = Mathf.Lerp(rotation.y , t , 10 * delta);
-            if(LinearVelocity.Length() > 3)
-            {
-			    GlobalRotation = rotation;
-            }
-
+		
 		GlobalTranslation = GlobalTranslation.LinearInterpolate(target_pos, FollowSpeed);
 	}
+	
 }

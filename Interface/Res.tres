@@ -9,4 +9,4 @@ res_int = 0
 shadows = true
 ShadowQuality = 0
 Glow = true
-NoOfEnemies = 4
+NoOfEnemies = 1
