@@ -42,6 +42,7 @@ public class Menu : Control
     
     public void OnPlayPressed()
     {
+        GetParent().Call("Click");
         ResourceSaver.Save("res://Interface/Res.tres", Res);
         GetTree().ChangeScene("res://Scenes/World.tscn");
     }
@@ -49,10 +50,13 @@ public class Menu : Control
     {
         Hide();
         GetParent().GetNode<Control>("Settings").Show();
+        GetParent().Call("Click");
+        
     }
 
     public void OnQuitPressed()
     {
+        GetParent().Call("Back");
         ResourceSaver.Save("res://Interface/Res.tres", Res);
         GetTree().Quit();
     }

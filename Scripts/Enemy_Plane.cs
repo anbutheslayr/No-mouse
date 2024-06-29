@@ -11,11 +11,13 @@ public class Enemy_Plane : RigidBody
 	[Export] public float FollowAltitude = 10f;
 	[Export] public float FollowSpeed = 5f;
 	[Export] public float AvoidanceStrength = 10f;
+	public AudioStreamPlayer Attack;
 	// [Export] public float ObjectDetectionDistance = 10f;
 	public override void _Ready()
 	{
 		player = GetParent().GetNode<Spatial>("taxi/Spatial");
 		capsule = GetNode<MeshInstance>("MeshInstance");
+		Attack = GetNode<AudioStreamPlayer>("Attack");
 		raycast = new RayCast();
 		AddChild(raycast);
 		raycast.Enabled = true;
@@ -33,11 +35,13 @@ public class Enemy_Plane : RigidBody
 		{
 			player.GetParent().Call("Enable_col");
 			capsule.Show();
+			Attack.Playing = true;
 		}
 		else
 		{
 			player.GetParent().Call("Disable_col");
 			capsule.Hide();
+			Attack.Playing = false;
 		}
 	   
 	}

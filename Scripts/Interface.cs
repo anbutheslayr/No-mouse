@@ -17,6 +17,7 @@ public class Interface : Control
     public int cur_enemies;
     public Label enemy_spawntext;
     public bool dead = false;
+    public bool won = false;
     public float spawn_time;
     public override void _Ready()
     {
@@ -150,8 +151,9 @@ public class Interface : Control
         if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0)
         {
             enemy_spawntext.Text = "You Won :) \n Against " + cur_enemies + " Enemies";
+            won = true;
         }
-        if(dead)
+        if(dead && !won)
         {
             enemy_spawntext.Text = "You Lost :( \n To " + cur_enemies + " Enemies \n Try Again";
         }

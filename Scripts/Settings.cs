@@ -68,6 +68,7 @@ public class Settings : Control
     }
     public void OnOptionSelect(int index)
     {
+        GetParent().Call("Click");
         Res.res_int = index;
         if ( index == 0)
         {
@@ -89,6 +90,7 @@ public class Settings : Control
     }
     public void OnEsc()
     {
+        GetParent().Call("Back");
         ResourceSaver.Save("res://Interface/Res.tres", Res);
         Hide();
         GetParent().GetNode<Control>("Menu").Show();
@@ -96,6 +98,7 @@ public class Settings : Control
     }
     public void OnShadowSelect(int index)
     {
+        GetParent().Call("Click");
         Res.ShadowQuality = index;
         if(index != 4)
         {
@@ -111,6 +114,7 @@ public class Settings : Control
     }
     public void OnGlowToggled(bool enabled)
     {
+        GetParent().Call("Click");
         if(enabled)
         {
             Res.Glow = true;
@@ -168,6 +172,7 @@ public class Settings : Control
     }
     public void OnNumberSelect(int index)
     {
+        GetParent().Call("Click");
         Res.NoOfEnemies = index+1;
     }
 

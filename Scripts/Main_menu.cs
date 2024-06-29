@@ -6,6 +6,8 @@ public class Main_menu : Spatial
     public Control settings;
     public Control Menu;
     public resolution Res;
+    public AudioStreamPlayer click;
+    public AudioStreamPlayer back;
     public override void _Ready()
     {
         Resize();
@@ -19,7 +21,16 @@ public class Main_menu : Spatial
         settings = GetNode<Control>("Settings");
         settings.Call("Resize" , Res.res);
         settings.Call("Reposition" , Res.res);
-
+        click = GetNode<AudioStreamPlayer>("Click");
+        back = GetNode<AudioStreamPlayer>("Back");
+    }
+    public void Click()
+    {
+        click.Play();
+    }
+    public void Back()
+    {
+        back.Play();
     }
     // public override void _Process(float delta)
     // {
