@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Materials/Gray8.material" type="Material" id=3]
 [ext_resource path="res://Assets/Materials/Gray5.material" type="Material" id=4]
 [ext_resource path="res://Scripts/Gun.cs" type="Script" id=5]
-[ext_resource path="res://Materials/Muzzle.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Materials/Muzzle.png" type="Texture" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {

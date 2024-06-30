@@ -41,7 +41,7 @@ target_PATH = "taxi/Spatial"
 offset = Vector3( 0, 5, 10 )
 
 [node name="Plane" parent="." instance=ExtResource( 12 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 21.0553, 3.72634, 30.767 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 24.6818, 3.72634, 40.4247 )
 FollowAltitude = 3.0
 FollowSpeed = 0.03
 AvoidanceStrength = 2.0

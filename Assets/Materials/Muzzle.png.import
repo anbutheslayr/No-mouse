@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Muzzle.png-4b61abaf0647ce97e76f44254ee9f2fe.s3tc.stex"
-path.etc2="res://.import/Muzzle.png-4b61abaf0647ce97e76f44254ee9f2fe.etc2.stex"
+path.s3tc="res://.import/Muzzle.png-34438ade1fa3e4624d458a1853c3681e.s3tc.stex"
+path.etc2="res://.import/Muzzle.png-34438ade1fa3e4624d458a1853c3681e.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Materials/Muzzle.png"
-dest_files=[ "res://.import/Muzzle.png-4b61abaf0647ce97e76f44254ee9f2fe.s3tc.stex", "res://.import/Muzzle.png-4b61abaf0647ce97e76f44254ee9f2fe.etc2.stex" ]
+source_file="res://Assets/Materials/Muzzle.png"
+dest_files=[ "res://.import/Muzzle.png-34438ade1fa3e4624d458a1853c3681e.s3tc.stex", "res://.import/Muzzle.png-34438ade1fa3e4624d458a1853c3681e.etc2.stex" ]
 
 [params]
 

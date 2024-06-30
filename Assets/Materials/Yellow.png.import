@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pngegg.png-7ebde871e09e0b31d0536dd583ee00df.stex"
+path="res://.import/Yellow.png-80f05b957eeff221af6385ee4c194444.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Materials/pngegg.png"
-dest_files=[ "res://.import/pngegg.png-7ebde871e09e0b31d0536dd583ee00df.stex" ]
+source_file="res://Assets/Materials/Yellow.png"
+dest_files=[ "res://.import/Yellow.png-80f05b957eeff221af6385ee4c194444.stex" ]
 
 [params]
 

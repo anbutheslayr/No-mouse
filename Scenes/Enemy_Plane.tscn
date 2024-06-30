@@ -82,5 +82,5 @@ material/0 = ExtResource( 2 )
 
 [node name="Attack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -10.0
+volume_db = -15.0
 pitch_scale = 5.0
