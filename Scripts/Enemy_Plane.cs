@@ -11,6 +11,7 @@ public class Enemy_Plane : RigidBody
 	[Export] public float FollowAltitude = 10f;
 	[Export] public float FollowSpeed = 5f;
 	[Export] public float AvoidanceStrength = 10f;
+	[Export] public bool paused = false;
 	public AudioStreamPlayer Attack;
 	// [Export] public float ObjectDetectionDistance = 10f;
 	public override void _Ready()
@@ -52,8 +53,18 @@ public class Enemy_Plane : RigidBody
 			Vector3 avoid_dir = raycast.GetCollisionNormal().Cross(Vector3.Up).Normalized();
 			target_pos += avoid_dir * AvoidanceStrength;
 		}
-		
-		GlobalTranslation = GlobalTranslation.LinearInterpolate(target_pos, FollowSpeed);
+		if(!paused)
+		{
+			GlobalTranslation = GlobalTranslation.LinearInterpolate(target_pos, FollowSpeed);
+		}
+	}
+	public void Pause()
+	{
+		paused = true;
+	}
+	public void Resume()
+	{
+		paused = false;
 	}
 	
 }

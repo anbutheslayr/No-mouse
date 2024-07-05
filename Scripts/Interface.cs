@@ -19,8 +19,12 @@ public class Interface : Control
     public bool dead = false;
     public bool won = false;
     public float spawn_time;
+    public Control PauseMenu;
+    public RigidBody plane;
     public override void _Ready()
     {
+        plane = GetParent().GetParent().GetNode<RigidBody>("Plane");
+        PauseMenu = GetParent().GetParent().GetNode<Pause_menu>("Pause_menu");
         Accelerate_button = GetNode<TouchScreenButton>("Acceleration/Accelerate");
         Brake = GetNode<TouchScreenButton>("Acceleration/Brake");
         Left = GetNode<TouchScreenButton>("Steering/Left");
@@ -68,7 +72,15 @@ public class Interface : Control
     }
     public void OnEscPressed()
     {
-        GetTree().ChangeScene("res://Scenes/Main_menu.tscn");
+        Engine.TimeScale = 0;
+        PauseMenu.Show();
+        Hide();
+        plane.Call("Pause");
+        if(Res.volume != -15)
+        {
+            var audio_bus = AudioServer.GetBusIndex("Master");
+            AudioServer.SetBusMute(audio_bus, true);
+        }
     }
     public void SetGlow(bool enabled)
     {

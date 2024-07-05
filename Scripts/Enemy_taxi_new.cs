@@ -151,7 +151,12 @@ public class Enemy_taxi_new : Spatial
 	public override void _Process(float delta)
 	{
 		
-		
+		if(Engine.TimeScale == 0)
+		{
+			speed_input = 0;
+			steering_input = 0;
+			GD.Print("Pause");
+		}
 		// Apply steering
 		if(ball.LinearVelocity.Length() > turn_stop_limit)
 		{
@@ -170,7 +175,6 @@ public class Enemy_taxi_new : Spatial
 			rotation.z = Mathf.Lerp(rotation.z , t , 10 * delta);
 			car_mesh_body.Rotation = rotation;
 			// turning wheels
-		
 			var right_rotation = right_wheel.Rotation;
 			right_rotation.y = steering_input;
 			var left_rotation = left_wheel.Rotation;

@@ -18,6 +18,7 @@ public class Settings : Control
     public DynamicFont title_font;
     public TextureButton Esc;
     public OptionButton NoOfEnemies;
+    public HSlider volume;
     public override void _Ready()
     {
         Esc = GetNode<TextureButton>("TextureButton");
@@ -27,6 +28,7 @@ public class Settings : Control
         Resize(OS.GetScreenSize());
         Reposition(OS.GetScreenSize());
 
+        volume = GetNode<HSlider>("MarginContainer/HBoxContainer2/VBoxContainer/Hslider");
         OptionButton = GetNode<OptionButton>("MarginContainer/HBoxContainer2/VBoxContainer/OptionButton");
         NoOfEnemies = GetNode<OptionButton>("MarginContainer/HBoxContainer2/VBoxContainer/NoOfEnemies");
         shadows = GetNode<OptionButton>("MarginContainer/HBoxContainer2/VBoxContainer/Shadow");
@@ -35,6 +37,8 @@ public class Settings : Control
         {
             glow.SetPressedNoSignal(true);
         }
+        
+        
 
         OptionButton.AddItem("Default : " + OS.GetScreenSize().ToString(), 0);
         OptionButton.AddItem("1920x1080", 1);
@@ -64,6 +68,9 @@ public class Settings : Control
         NoOfEnemies.AddItem("9");
         NoOfEnemies.AddItem("10");
         NoOfEnemies.Selected = Res.NoOfEnemies-1;
+
+        volume.Value = Res.volume;
+        GD.Print("Volume : " +Res.volume);
 
     }
     public void OnOptionSelect(int index)
@@ -148,12 +155,28 @@ public class Settings : Control
                 break;
         }
     }
+    public void OnVolumeChange(float value)
+    {
+        var audio_bus = AudioServer.GetBusIndex("Master");
+        AudioServer.SetBusVolumeDb(audio_bus, value);
+
+        if(value == -15)
+        {
+            AudioServer.SetBusMute(audio_bus, true);
+        }
+        else
+        {
+            AudioServer.SetBusMute(audio_bus, false);
+        }
+        GD.Print("Volume changed to : " +value);
+        Res.volume = (int)value;
+    }
     public void Reposition(Vector2 resolution)
     {
         vb1 = GetNode<VBoxContainer>("MarginContainer/VBoxContainer");
         vb1.AddConstantOverride("separation", (int)(resolution.y/1080*30));
         hb1 = GetNode<HBoxContainer>("MarginContainer/HBoxContainer");
-        hb1.AddConstantOverride("separation", (int)(resolution.x/1920*50));
+        hb1.AddConstantOverride("separation", (int)(resolution.x/1920*150));
         vb2 = GetNode<VBoxContainer>("MarginContainer/HBoxContainer/VBoxContainer");
         vb2.AddConstantOverride("separation", (int)(resolution.y/1080*20));
         hb2 = GetNode<HBoxContainer>("MarginContainer/HBoxContainer2");

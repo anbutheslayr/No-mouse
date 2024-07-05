@@ -138,7 +138,6 @@ public class Movement : Spatial
 		if(col)
 		{
 			col_time+=delta;
-			GD.Print(col_time);
 		}
 		else
 		{

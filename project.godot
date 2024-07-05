@@ -37,6 +37,7 @@ external=false
 navigation=false
 groups=true
 export=false
+global=false
 
 [gui]
 
