@@ -66,5 +66,4 @@ public class Enemy_Plane : RigidBody
 	{
 		paused = false;
 	}
-	
 }

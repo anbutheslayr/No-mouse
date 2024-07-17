@@ -153,13 +153,13 @@ public class Movement : Spatial
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
-		// if(Input.IsActionJustPressed("Save"))
-		// {
-		// 	var image = GetViewport().GetTexture().GetData();
-		// 	image.FlipY();
-		// 	image.SavePng("D:/Godot export/SS/" + im + ".png");
-		// 	im++;
-		// }
+		if(Input.IsActionJustPressed("Save"))
+		{
+			var image = GetViewport().GetTexture().GetData();
+			image.FlipY();
+			image.SavePng("D:/Godot export/SS/" + im + ".png");
+			im++;
+		}
 		// turning wheels
 		
 		var left_rotation = left_wheel.Rotation;

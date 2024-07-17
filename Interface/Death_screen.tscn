@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/FONT.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/Theme.tres" type="Theme" id=2]
+[ext_resource path="res://Scripts/Death_screen.cs" type="Script" id=3]
+
+[node name="Death_screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 1908.0
+margin_bottom = 1068.0
+custom_constants/separation = 70
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_right = 1896.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 70.0
+margin_right = 1896.0
+margin_bottom = 183.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 7
+custom_constants/shadow_offset_y = 7
+custom_fonts/font = ExtResource( 1 )
+text = "You lost
+¬_¬ )"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 1908.0
+margin_bottom = 1068.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 755.0
+margin_right = 1137.0
+margin_bottom = 1056.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 462.0
+margin_right = 382.0
+margin_bottom = 462.0
+
+[node name="Restart" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 482.0
+margin_right = 382.0
+margin_bottom = 518.0
+theme = ExtResource( 2 )
+keep_pressed_outside = true
+text = "Restart"
+
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 538.0
+margin_right = 382.0
+margin_bottom = 538.0
+
+[node name="Quit to main menu" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 558.0
+margin_right = 382.0
+margin_bottom = 594.0
+theme = ExtResource( 2 )
+keep_pressed_outside = true
+text = "QUIT to main menu"
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+margin_left = 1141.0
+margin_right = 1141.0
+margin_bottom = 1056.0
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Restart" to="." method="OnRestartPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit to main menu" to="." method="OnQuitToMMPressed"]

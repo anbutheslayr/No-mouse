@@ -1,13 +1,14 @@
 using Godot;
 using System;
 
-public class Pause_menu : Control
-{
+public class Death_screen : Control
+{   
     public VBoxContainer vb1;
     public VBoxContainer vb2;
     public resolution Res;
     public Control inter_face;
     public RigidBody plane;
+    public bool Started = false;
 
 
     public override void _Ready()
@@ -22,18 +23,35 @@ public class Pause_menu : Control
         plane = GetParent().GetNode<RigidBody>("Plane");
 
     }
-
-    public void OnResumePressed()
+    public override void _Process(float delta)
     {
-        inter_face.Show();
+        if(Started)
+        {
+            Engine.TimeScale = Mathf.Lerp(Engine.TimeScale, 0, 0.03f);
+        }
+        if(Engine.TimeScale == 0)
+        {
+            if(Res.volume != -15)
+            {
+                var audio_bus = AudioServer.GetBusIndex("Master");
+                AudioServer.SetBusMute(audio_bus, true);
+            }
+        }
+    }
+    public void Start()
+    {
+        Started = true;
+    }
+
+    public void OnRestartPressed()
+    {
         Engine.TimeScale = 1;
-        Hide();
-        plane.Call("Resume");
         if(Res.volume != -15)
         {
             var audio_bus = AudioServer.GetBusIndex("Master");
             AudioServer.SetBusMute(audio_bus, false);
         }
+        GetTree().ChangeScene("res://Scenes/World.tscn");
     }
 
     public void OnQuitToMMPressed()

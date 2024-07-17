@@ -160,14 +160,29 @@ public class Interface : Control
         {
             enemy_spawntext.Text = "All " + Res.NoOfEnemies+"/"+Res.NoOfEnemies +" enemies spawned";
         }
-        if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0)
+        if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0 && !dead)
         {
             enemy_spawntext.Text = "You Won :) \n Against " + cur_enemies + " Enemies";
             won = true;
         }
         if(dead && !won)
         {
-            enemy_spawntext.Text = "You Lost :( \n To " + cur_enemies + " Enemies \n Try Again";
+            // enemy_spawntext.Text = "You Lost :( \n To " + cur_enemies + " Enemies \n Try Again";
+            // if(Res.volume != -15)
+            // {
+            //     var audio_bus = AudioServer.GetBusIndex("Master");
+            //     AudioServer.SetBusMute(audio_bus, true);
+            // }
+            Hide();
+            GetParent().GetParent().GetNode<Control>("Death_screen").Show();
+            GetParent().GetParent().GetNode<Control>("Death_screen").Call("Start");
+            plane.Call("Pause");
+
+            
+        }
+        if(Input.IsActionJustPressed("ui_cancel"))
+        {
+            OnEscPressed();
         }
     }
 }

@@ -151,9 +151,9 @@ public class Enemy_taxi_new : Spatial
 	public override void _Process(float delta)
 	{
 		
-		if(Engine.TimeScale == 0)
+		if(Engine.TimeScale != 1)
 		{
-			speed_input = 0;
+			// speed_input = 0;
 			steering_input = 0;
 			GD.Print("Pause");
 		}
