@@ -59,6 +59,6 @@ mesh = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0268791, 0 )
 shape = SubResource( 11 )
 
-[node name="Icosphere009" type="MeshInstance" parent="."]
+[node name="Icosphere009" type="MeshInstance" parent="." groups=["Leaves"]]
 transform = Transform( 0.117379, -1.34681, 0.0329584, -0.285138, 0.00749797, 1.32189, -1.31669, -0.121687, -0.283326, 2.32265, 4.10795, 1.43345 )
 mesh = SubResource( 12 )

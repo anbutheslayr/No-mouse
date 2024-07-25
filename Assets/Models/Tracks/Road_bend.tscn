@@ -99,5 +99,12 @@ mesh = SubResource( 3 )
 skeleton = NodePath("../..")
 
 [node name="CollisionShape2" type="CollisionShape" parent="Wall"]
-transform = Transform( 12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0 )
+transform = Transform( 12, 0, 0, 0, 20, 0, 0, 0, 12, 0, 0, 0 )
 shape = SubResource( 5 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+visible = false
+use_collision = true
+width = 12.0
+height = 0.001
+depth = 12.0

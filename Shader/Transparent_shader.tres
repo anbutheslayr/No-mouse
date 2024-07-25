@@ -1,0 +1,15 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+
+uniform vec3 player_position;
+
+void fragment() {
+    float distance_to_player = distance(VERTEX, player_position);
+    float threshold_distance = 3.0;
+    
+    if (distance_to_player < threshold_distance) {
+        discard;
+    }
+}"

@@ -155,7 +155,7 @@ public class Enemy_taxi_new : Spatial
 		{
 			// speed_input = 0;
 			steering_input = 0;
-			GD.Print("Pause");
+			// GD.Print("Pause");
 		}
 		// Apply steering
 		if(ball.LinearVelocity.Length() > turn_stop_limit)

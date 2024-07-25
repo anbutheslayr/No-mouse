@@ -29,7 +29,7 @@ public class Death_screen : Control
         {
             Engine.TimeScale = Mathf.Lerp(Engine.TimeScale, 0, 0.03f);
         }
-        if(Engine.TimeScale == 0)
+        if(Engine.TimeScale < 0.1)
         {
             if(Res.volume != -15)
             {
