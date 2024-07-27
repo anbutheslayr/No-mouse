@@ -44,6 +44,8 @@ public class Movement : Spatial
 	public AudioStreamPlayer3D drift;
 	public float col_time = 0;
 	public bool col = false;
+	[Export] public float Jump_ht = 2.5f;
+	public Timer jump_timer;
 	public int im = 0;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -65,6 +67,11 @@ public class Movement : Spatial
 		Left = GetNode<TouchScreenButton>("Interface/Steering/Left");
 		Right = GetNode<TouchScreenButton>("Interface/Steering/Right");
 		Brake = GetNode<TouchScreenButton>("Interface/Acceleration/Brake");
+		jump_timer = new Timer();
+		AddChild(jump_timer);
+		jump_timer.OneShot = true;
+		jump_timer.WaitTime = 0.1f;
+		jump_timer.Start();
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -149,7 +156,14 @@ public class Movement : Spatial
 			EmitSignal("Change_Health", (int)health);
 		}
 	}
-
+	public void Jump()
+	{
+		if(jump_timer.TimeLeft == 0)
+		{
+			jump_timer.Start();
+			ball.AddForce(new Vector3(0, Jump_ht*1000, 0), ball.Transform.origin);
+		}
+	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{

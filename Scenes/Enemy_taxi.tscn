@@ -208,6 +208,7 @@ Ball_path = "Ball"
 car_mesh_body_path = "Spatial/body"
 Car_mesh_path = "Spatial"
 rayCast_path = "Spatial/RayCast"
+Jump_ht = 2.2
 left_wheel_path = "Spatial/wheel_frontLeft"
 right_wheel_path = "Spatial/wheel_frontRight"
 B_L_particles = "Spatial/Backleft/CPUParticles"

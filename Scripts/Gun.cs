@@ -61,8 +61,8 @@ public class Gun : Spatial
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        ammo_text.Text = "       Ammo = " + cur_ammo + "/" + Ammo + "(" + cur_magazines + ") \n       " + OS.GetScreenSize().ToString() + "\n       FPS : " + Engine.GetFramesPerSecond();
-        if(anim.CurrentAnimation == "Reload \n FPS : " + Engine.GetFramesPerSecond())
+        ammo_text.Text = "       Ammo = " + cur_ammo + "/" + Ammo + "(" + cur_magazines + ") \n       " + OS.GetScreenSize().ToString() + "\n       FPS : " + Engine.GetFramesPerSecond() + "\n       Enemies Alive : " + GetTree().GetNodesInGroup("Enemy").Count;
+        if(anim.CurrentAnimation == "Reload")
         {
             ammo_text.Text = "Reloading...";
         }

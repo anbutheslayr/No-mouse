@@ -16,6 +16,7 @@ public class Enemy_taxi_new : Spatial
 	[Export] public float turn_speed = 5;
 	[Export] public float turn_stop_limit = 0.75f;
 	[Export] public float tilt = 65;
+	[Export] public float Jump_ht = 2.5f;
  	public float speed_input;
 	public float steering_input;
 	[Export] public string left_wheel_path;
@@ -27,6 +28,7 @@ public class Enemy_taxi_new : Spatial
 	[Export] public string B_R_particles;
 	public CPUParticles B_L;
 	public CPUParticles B_R;
+	public Timer jump_timer;
 
     // AI components
 	public MeshInstance player_mesh;
@@ -66,6 +68,19 @@ public class Enemy_taxi_new : Spatial
 		nav_agent.SetNavigation(navigation);
 		health_bar = GetNode<Spatial>(health_bar_path);
 		Connect("Change_Health", health_bar, nameof(Change_Health));
+		jump_timer = new Timer();
+		AddChild(jump_timer);
+		jump_timer.OneShot = true;
+		jump_timer.WaitTime = 0.1f;
+		jump_timer.Start();
+	}
+	public void Jump()
+	{
+		if(jump_timer.TimeLeft == 0)
+		{
+			jump_timer.Start();
+			ball.AddForce(new Vector3(0, Jump_ht*1000, 0), ball.Transform.origin);
+		}
 	}
 	public override void _PhysicsProcess(float delta)
 	{
@@ -145,6 +160,12 @@ public class Enemy_taxi_new : Spatial
 			speed_input = 0;
 		}
 		speed_input = Mathf.Lerp(speed_input , speed_input*acceleration , delta * 25);
+
+		if(ball.GlobalTransform.origin.DistanceTo(player_mesh.GlobalTransform.origin) > 300)
+		{
+			ball.GlobalTranslation =new Vector3 (0,5,0);
+			GD.Print("Reset");
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
