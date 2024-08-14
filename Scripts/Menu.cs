@@ -12,7 +12,7 @@ public class Menu : Control
     {
         title_font = GD.Load<DynamicFont>("res://Scenes/FONT.tres");
         theme = GD.Load<Theme>("res://Scenes/Theme.tres");
-        Res = GD.Load<resolution>("res://Interface/Res.tres");
+        Verify_res();
         if (Res.res != Vector2.Zero)
         {
             GetTree().SetScreenStretch(SceneTree.StretchMode.Viewport, SceneTree.StretchAspect.Expand, Res.res);
@@ -37,6 +37,27 @@ public class Menu : Control
         {
             Res.shadows = false;
             GetParent().GetNode<DirectionalLight>("DirectionalLight").ShadowEnabled = false;
+        }
+    }
+    public void Verify_res()
+    {
+        var dir = new Directory();
+        dir.Open("user://");
+        if(!dir.DirExists("user://Int")) 
+        {
+            dir.MakeDir("user://Int");
+            GD.Print("user://Int created");
+        }
+
+        if(dir.FileExists("user://Int/Res.tres"))
+        {
+            Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
+        }
+        else
+        {
+            Res = ResourceLoader.Load<resolution>("res://Interface/Res.tres");
+            GD.Print("Res created");
+            ResourceSaver.Save("user://Int/Res.tres", Res);
         }
     }
     

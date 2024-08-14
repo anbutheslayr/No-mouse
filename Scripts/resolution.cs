@@ -3,12 +3,12 @@ using System;
 
 public class resolution : Resource
 {
-    [Export] public Vector2 res = Vector2.Zero;
+    [Export] public Vector2 res = new Vector2(1920, 1080);
     [Export] public int res_int = 0;
     [Export] public bool shadows = true;
-    [Export] public int ShadowQuality = 1;
+    [Export] public int ShadowQuality = 0;
     [Export] public bool Glow = true;
-    [Export] public int NoOfEnemies = 3;
+    [Export] public int NoOfEnemies = 4;
     [Export] public int volume = 0;
 
 }

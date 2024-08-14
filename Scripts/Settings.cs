@@ -22,7 +22,7 @@ public class Settings : Control
     public override void _Ready()
     {
         Esc = GetNode<TextureButton>("TextureButton");
-        Res = GD.Load<resolution>("res://Interface/Res.tres");
+        Verify_res();
         title_font = GD.Load<DynamicFont>("res://Scenes/FONT.tres");
         theme = GD.Load<Theme>("res://Scenes/Theme.tres");
         Resize(OS.GetScreenSize());
@@ -73,6 +73,26 @@ public class Settings : Control
         GD.Print("Volume : " +Res.volume);
 
     }
+    public void Verify_res()
+    {
+        var dir = new Directory();
+        dir.Open("user://");
+        if(!dir.DirExists("user://Int")) 
+        {
+            dir.MakeDir("user://Int");
+            GD.Print("user://Int created");
+        }
+
+        if(dir.FileExists("user://Int/Res.tres"))
+        {
+            Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
+        }
+        else
+        {
+            Res = ResourceLoader.Load<resolution>("res://Interface/Res.tres");
+            GD.Print("Res created");
+        }
+    }
     public void OnOptionSelect(int index)
     {
         GetParent().Call("Click");
@@ -83,6 +103,7 @@ public class Settings : Control
             Res.res = OS.GetScreenSize();
             Resize(OS.GetScreenSize());
             Reposition(OS.GetScreenSize());
+
         }
         else
         {
@@ -92,13 +113,15 @@ public class Settings : Control
             Res.res = size;
             Resize(size);
             Reposition(size);   
+
         }
         
     }
     public void OnEsc()
     {
+        ResourceSaver.Save("user://Int/Res.tres", Res);
+
         GetParent().Call("Back");
-        ResourceSaver.Save("res://Interface/Res.tres", Res);
         Hide();
         GetParent().GetNode<Control>("Menu").Show();
         GetParent().Call("Resize");
@@ -112,11 +135,13 @@ public class Settings : Control
             Res.shadows = true;
             GetParent().GetNode<DirectionalLight>("DirectionalLight").ShadowEnabled = true;
             SetShadowQuality(index);
+
         }
         else
         {
             Res.shadows = false;
             GetParent().GetNode<DirectionalLight>("DirectionalLight").ShadowEnabled = false;
+
         }
     }
     public void OnGlowToggled(bool enabled)
@@ -132,6 +157,7 @@ public class Settings : Control
             Res.Glow = false;
             GetTree().Root.GetNode<WorldEnvironment>("Main_menu/WorldEnvironment").Environment.GlowEnabled = false;
         }
+
     }
     public void SetShadowQuality(int index)
     {
@@ -170,6 +196,7 @@ public class Settings : Control
         }
         GD.Print("Volume changed to : " +value);
         Res.volume = (int)value;
+
     }
     public void Reposition(Vector2 resolution)
     {
@@ -197,6 +224,7 @@ public class Settings : Control
     {
         GetParent().Call("Click");
         Res.NoOfEnemies = index+1;
+
     }
 
 }

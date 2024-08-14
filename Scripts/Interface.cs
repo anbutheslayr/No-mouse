@@ -33,7 +33,7 @@ public class Interface : Control
         enemyspawner = GetParent().GetParent().GetNode<Spatial>("Enemy_spawner");
         enemy_taxi = GD.Load<PackedScene>("res://Scenes/Enemy_taxi.tscn");
         enemy_spawntext = GetNode<Label>("Enemy_spawntext");
-        Res = GD.Load<resolution>("res://Interface/Res.tres");
+        Verify_res();
         cur_enemies = 0;
         timer = new Timer();
         timer.OneShot = true;
@@ -48,6 +48,27 @@ public class Interface : Control
         SetGlow(Res.Glow);
         
         RepositionAndResize(Res.res);
+    }
+    public void Verify_res()
+    {
+        var dir = new Directory();
+        dir.Open("user://");
+        if(!dir.DirExists("user://Int")) 
+        {
+            dir.MakeDir("user://Int");
+            GD.Print("user://Int created");
+        }
+
+        if(dir.FileExists("user://Int/Res.tres"))
+        {
+            Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
+        }
+        else
+        {
+            Res = ResourceLoader.Load<resolution>("res://Interface/Res.tres");
+            GD.Print("Res created");
+            ResourceSaver.Save("user://Int/Res.tres", Res);
+        }
     }
     
     public void AddEnemies()
