@@ -480,9 +480,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1155, 0.450848, 18.1082 )
 [node name="Jump_pd2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 18 )]
 transform = Transform( 0.971751, 0.236007, 0, -0.236007, 0.971751, 0, 0, 0, 1, -48.4364, 2.52145, 23.8425 )
 
-[node name="Jump_pd3" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -92.174, 3.79489, 24.0703 )
-
 [node name="Jump_pd7" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.0745, 3.19154, 23.8425 )
 
@@ -491,6 +488,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56.2465, 3.21309, -46.6741 )
 
 [node name="Jump_pd5" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5732, 3.21278, -56.967 )
+
+[node name="Jump_pd3" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -91.937, 3.48718, 24.1744 )
 
 [node name="CSGBox8" type="CSGBox" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 0.954491, 0.298241, 0, -0.298241, 0.954491, 0, 0, 0, 1, -49.1927, 0.61625, -6 )

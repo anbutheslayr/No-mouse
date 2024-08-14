@@ -38,3 +38,4 @@ unit_size = 60.0
 max_db = 5.0
 
 [connection signal="body_entered" from="Area" to="." method="On_Enter"]
+[connection signal="body_exited" from="Area" to="." method="On_Exit"]
