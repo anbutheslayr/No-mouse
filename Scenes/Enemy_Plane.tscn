@@ -50,6 +50,8 @@ points = PoolVector3Array( -0.372025, 0.256191, 1.48751, -0.210877, 0.218844, -1
 size = Vector3( 0.3, 0.126, 1.698 )
 
 [node name="Plane" type="RigidBody"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 1 )
 FollowAltitude = 5.0
 FollowSpeed = 15.0

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Interface/Textures/inst.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Menu.cs" type="Script" id=3]
 [ext_resource path="res://Scenes/FONT.tres" type="DynamicFont" id=4]
 
@@ -48,51 +49,65 @@ margin_bottom = 1068.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 857.0
-margin_right = 1038.0
+margin_left = 839.0
+margin_right = 1057.0
 margin_bottom = 1056.0
 custom_constants/separation = 20
 alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 424.0
-margin_right = 181.0
-margin_bottom = 424.0
+margin_top = 375.0
+margin_right = 218.0
+margin_bottom = 375.0
 
 [node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 444.0
-margin_right = 181.0
-margin_bottom = 480.0
+margin_top = 395.0
+margin_right = 218.0
+margin_bottom = 431.0
 theme = ExtResource( 1 )
 keep_pressed_outside = true
 text = "PLAY"
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 500.0
-margin_right = 181.0
-margin_bottom = 500.0
+margin_top = 451.0
+margin_right = 218.0
+margin_bottom = 451.0
 
 [node name="Settings" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 520.0
-margin_right = 181.0
-margin_bottom = 556.0
+margin_top = 471.0
+margin_right = 218.0
+margin_bottom = 507.0
 theme = ExtResource( 1 )
 keep_pressed_outside = true
 text = "SETTINGS"
 
 [node name="Control3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 576.0
-margin_right = 181.0
-margin_bottom = 576.0
+margin_top = 527.0
+margin_right = 218.0
+margin_bottom = 527.0
 
 [node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 596.0
-margin_right = 181.0
-margin_bottom = 632.0
+margin_top = 547.0
+margin_right = 218.0
+margin_bottom = 583.0
 theme = ExtResource( 1 )
 keep_pressed_outside = true
 text = "QUIT"
 
+[node name="Control5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 603.0
+margin_right = 218.0
+margin_bottom = 603.0
+
+[node name="insta" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 623.0
+margin_right = 218.0
+margin_bottom = 681.0
+theme = ExtResource( 1 )
+text = "contact"
+icon = ExtResource( 2 )
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Play" to="." method="OnPlayPressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Settings" to="." method="OnSettingsPressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="OnQuitPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/insta" to="." method="On_insta_pressed"]

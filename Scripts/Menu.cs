@@ -93,4 +93,8 @@ public class Menu : Control
                 break;
         }
     }
+    public void On_insta_pressed()
+    {
+        OS.ShellOpen("https://www.instagram.com/anbu_the_coder/");
+    }
 }
