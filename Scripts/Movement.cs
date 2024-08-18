@@ -45,7 +45,8 @@ public class Movement : Spatial
 	public float col_time = 0;
 	public bool col = false;
 	[Export] public float Jump_ht = 2.5f;
-	// public Timer jump_timer;
+	public Control intrface;
+	[Export] public int Drift_multiplier = 1;
 	public int im = 0;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -67,6 +68,7 @@ public class Movement : Spatial
 		Left = GetNode<TouchScreenButton>("Interface/Steering/Left");
 		Right = GetNode<TouchScreenButton>("Interface/Steering/Right");
 		Brake = GetNode<TouchScreenButton>("Interface/Acceleration/Brake");
+		intrface = GetNode<Control>("Interface");
 		// jump_timer = new Timer();
 		// AddChild(jump_timer);
 		// jump_timer.OneShot = true;
@@ -129,6 +131,8 @@ public class Movement : Spatial
 			// GD.Print(dot_product);
 			B_L.Emitting = true;
 			B_R.Emitting = true;
+			var points = ball.LinearVelocity.Length()/60*(1-dot_product)*Drift_multiplier;
+			intrface.Call("AddDriftPoints",points);
 			
 			if(!drift.Playing)
 			{

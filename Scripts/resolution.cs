@@ -10,5 +10,6 @@ public class resolution : Resource
     [Export] public bool Glow = true;
     [Export] public int NoOfEnemies = 4;
     [Export] public int volume = 0;
+    [Export] public float Drift_points = 0;
 
 }

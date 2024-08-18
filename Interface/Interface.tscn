@@ -83,13 +83,15 @@ theme = ExtResource( 3 )
 text = "Enemy Spawning in"
 align = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Drift_points" type="RichTextLabel" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -371.0
-margin_top = 29.0
-margin_bottom = 66.0
+margin_left = -652.0
+margin_top = 8.0
+margin_right = -2.0
+margin_bottom = 71.0
 theme = ExtResource( 3 )
 text = "Drift points : "
+fit_content_height = true
 
 [connection signal="pressed" from="Esc" to="." method="OnEscPressed"]

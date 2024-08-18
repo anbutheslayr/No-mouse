@@ -242,6 +242,7 @@ public class Enemy_taxi_new : Spatial
 		health -= damage;
 		if(health <= 0)
 		{
+			player_mesh.GetParent().GetNode("Interface").Call("Kill");
 			health = 0;
 			QueueFree();
 		}

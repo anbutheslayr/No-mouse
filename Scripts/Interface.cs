@@ -21,6 +21,8 @@ public class Interface : Control
     public float spawn_time;
     public Control PauseMenu;
     public RigidBody plane;
+    public RichTextLabel Drift_points;
+    public int kill=1;
     public override void _Ready()
     {
         plane = GetParent().GetParent().GetNode<RigidBody>("Plane");
@@ -41,6 +43,8 @@ public class Interface : Control
         AddChild(timer);
         timer.Start(10);
         spawn_time = 26;
+        Drift_points = GetNode<RichTextLabel>("Drift_points");
+        Drift_points.Text = "Drift Points: " + Res.Drift_points;
 
         // Setting shadows
         SetShadow(Res.shadows , Res.ShadowQuality);
@@ -68,6 +72,8 @@ public class Interface : Control
             Res = ResourceLoader.Load<resolution>("res://Interface/Res.tres");
             GD.Print("Res created");
             ResourceSaver.Save("user://Int/Res.tres", Res);
+            Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
+ 
         }
     }
     
@@ -102,6 +108,7 @@ public class Interface : Control
             var audio_bus = AudioServer.GetBusIndex("Master");
             AudioServer.SetBusMute(audio_bus, true);
         }
+        ResourceSaver.Save("user://Int/Res.tres", Res);
     }
     public void SetGlow(bool enabled)
     {
@@ -146,6 +153,8 @@ public class Interface : Control
         // Esc.RectPosition = new Vector2(96-res.y/1080*96 , 96-res.y/1080*96);
         // Esc.SetPosition(new Vector2(OS.GetScreenSize().x - Esc.RectSize.x , 0));
         enemy_spawntext.MarginTop = res.y/1080*100;
+        Drift_points.MarginTop = res.y/1080*10;
+        Drift_points.MarginLeft = res.y/1080*-600;
     }
     public void SetShadowQuality(int index)
     {
@@ -173,6 +182,10 @@ public class Interface : Control
     public void Dead()
     {
         dead = true;
+    }
+    public void AddDriftPoints(float points)
+    {
+        Res.Drift_points += points*kill;
     }
     public override void _Process(float delta)
     {
@@ -205,6 +218,11 @@ public class Interface : Control
         {
             OnEscPressed();
         }
+        Drift_points.Text = "Drift Points : " + (int)Res.Drift_points;
+    }
+    public void Kill()
+    {
+        kill+=1;
     }
 }
 

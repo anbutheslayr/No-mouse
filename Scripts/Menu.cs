@@ -58,6 +58,8 @@ public class Menu : Control
             Res = ResourceLoader.Load<resolution>("res://Interface/Res.tres");
             GD.Print("Res created");
             ResourceSaver.Save("user://Int/Res.tres", Res);
+            Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
+ 
         }
     }
     
