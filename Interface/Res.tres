@@ -4,11 +4,11 @@
 
 [resource]
 script = ExtResource( 1 )
-res = Vector2( 1920, 1080 )
-res_int = 1
+res = Vector2( 1024, 576 )
+res_int = 3
 shadows = true
 ShadowQuality = 0
 Glow = true
-NoOfEnemies = 4
+NoOfEnemies = 10
 volume = 0
-Drift_points = 0.0
+Drift_points = 6707.03

@@ -15,12 +15,21 @@ public class Healthbar3d : Spatial
         tween = GetNode<Tween>("Tween");
 	}
 
-	public void Change_Health(int health)
+	public void Change_Health(int health,bool immediate)
 	{
-		texture_progress.Value = health;
-        tween.InterpolateProperty(texture_progress , "value" , texture_progress.Value , health, 0.15f, Tween.TransitionType.Elastic, Tween.EaseType.In);
-        tween.InterpolateProperty(texture_progress_under , "value" , texture_progress_under.Value , health, 0.7f, Tween.TransitionType.Cubic, Tween.EaseType.In);
-        tween.Start();
+		if(immediate)
+		{
+			texture_progress.Value = health;
+        	tween.InterpolateProperty(texture_progress , "value" , texture_progress.Value , health, 0.5f, Tween.TransitionType.Elastic, Tween.EaseType.In);
+			tween.InterpolateProperty(texture_progress_under , "value" , texture_progress_under.Value , health, 0.7f, Tween.TransitionType.Cubic, Tween.EaseType.In);
+        	tween.Start();
+		}
+		else
+		{
+			tween.InterpolateProperty(texture_progress , "value" , texture_progress.Value , health, 0.5f, Tween.TransitionType.Elastic, Tween.EaseType.In);
+			tween.InterpolateProperty(texture_progress_under , "value" , texture_progress_under.Value , health, 0.7f, Tween.TransitionType.Cubic, Tween.EaseType.In);
+        	tween.Start();
+		}
 		if(health <= 0)
 		{
 			GetParent().GetParent().GetNode<Control>("Interface").Call("Dead");	

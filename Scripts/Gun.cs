@@ -26,6 +26,7 @@ public class Gun : Spatial
     public int cur_magazines;
     public int cur_ammo;
     public RichTextLabel ammo_text;
+    public Spatial player;
     public override void _Ready()
     {
         ray_cast = GetNode<RayCast>(RayCastPath);
@@ -41,6 +42,7 @@ public class Gun : Spatial
         cur_magazines = start_magazines;
         ProjectSettings.SetSetting("display/window/stretch/mode" , "disabled");
         Particles = GD.Load<PackedScene>("res://Scenes/Particles.tscn");
+        player = GetParent().GetParent().GetParent() as Spatial;
     }
 
     public void OnDetection(Node body)
@@ -56,6 +58,7 @@ public class Gun : Spatial
         if(body.IsInGroup("Enemy"))
         {
             enemies.Remove(body as Spatial);
+            player.Call("Close_miss" , body);
         }
     }
     // Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -7,6 +7,7 @@ public class Movement : Spatial
 	public RigidBody ball;
 	public MeshInstance Car_mesh;
 	public RayCast rayCast;
+	[Export] public int Close_miss_bonus = 10;
 	[Export] public string Ball_path;
 	[Export] public string car_mesh_body_path;
 	[Export] public string Car_mesh_path;
@@ -157,7 +158,7 @@ public class Movement : Spatial
 		if (col_time >= 0.1f)
 		{
 			health -= delta*2;
-			EmitSignal("Change_Health", (int)health);
+			EmitSignal("Change_Health", (int)health,true);
 		}
 	}
 	public void Jump()
@@ -278,7 +279,7 @@ public class Movement : Spatial
 			health = 0;
 			// GD.Print("DEAD");
 		}
-		EmitSignal("Change_Health", health);
+		EmitSignal("Change_Health", health,false);
 		body.GetParent().Call("Calculate_Health", damage);
 	}
 	
@@ -303,5 +304,14 @@ public class Movement : Spatial
 	public void Disable_col()
 	{
 		col = false;
+	}
+	public void Close_miss(RigidBody body)
+	{
+		if(body.LinearVelocity.Length() > 27)
+		{
+			health += Close_miss_bonus;
+			health = Mathf.Clamp(health , 0 , 100);
+			EmitSignal("Change_Health", health,false);
+		}
 	}
 }
