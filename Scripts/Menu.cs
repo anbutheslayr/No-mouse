@@ -118,6 +118,6 @@ public class Menu : Control
     }
     public void On_insta_pressed()
     {
-        OS.ShellOpen("https://www.instagram.com/anbu_the_coder/");
+        OS.ShellOpen("https://www.instagram.com/anbu_the_coder/profilecard/?igsh=MTBmbm83Z3hwcjI3bw%3D%3D");
     }
 }

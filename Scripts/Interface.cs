@@ -189,6 +189,7 @@ public class Interface : Control
     }
     public override void _Process(float delta)
     {
+        Drift_points.Text = "Drift Points : " + (int)Res.Drift_points;
         enemy_spawntext.Text = "Enemy " + cur_enemies + "/" + Res.NoOfEnemies + " Spawning in " + (int)timer.TimeLeft;
         if(cur_enemies == Res.NoOfEnemies)
         {
@@ -218,7 +219,6 @@ public class Interface : Control
         {
             OnEscPressed();
         }
-        Drift_points.Text = "Drift Points : " + (int)Res.Drift_points;
     }
     public void Kill()
     {

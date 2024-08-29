@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Enemy_taxi_new : Spatial
 {
@@ -45,6 +46,9 @@ public class Enemy_taxi_new : Spatial
 	public Spatial health_bar;
 	[Export] public string health_bar_path;
 	public AudioStreamPlayer3D drift;
+	public Vector3 next_point;
+	List<Vector3> p;
+	public Timer update_path_timer;
 
 	
 	// Called when the node enters the scene tree for the first time.
@@ -65,8 +69,15 @@ public class Enemy_taxi_new : Spatial
 		navigation = GetParent().GetNode<Navigation>(Navigation_path);
 		nav_agent.SetTargetLocation(player_mesh.GlobalTransform.origin);
 		nav_agent.SetNavigation(navigation);
+		var o = nav_agent.GetNavPath();
+		p = new List<Vector3>(o);
 		health_bar = GetNode<Spatial>(health_bar_path);
 		Connect("Change_Health", health_bar, nameof(Change_Health));
+		update_path_timer = new Timer();
+		AddChild(update_path_timer);
+		update_path_timer.OneShot = true;
+		update_path_timer.WaitTime = 0.1f;
+		update_path_timer.Start();
 		// jump_timer = new Timer();
 		// AddChild(jump_timer);
 		// jump_timer.OneShot = true;
@@ -89,9 +100,9 @@ public class Enemy_taxi_new : Spatial
 	public override void _PhysicsProcess(float delta)
 	{
 		// align mesh with sphere
-		var transform = Car_mesh.Transform;
-		transform.origin = ball.Transform.origin + sphere_offset;
-		Car_mesh.Transform = transform;
+		var trnsform = Car_mesh.Transform;
+		trnsform.origin = ball.Transform.origin + sphere_offset;
+		Car_mesh.Transform = trnsform;
 		//Accelerate
 		if(Is_on_ramp)
 		{
@@ -124,8 +135,22 @@ public class Enemy_taxi_new : Spatial
 		}
 
 		// AI
-		nav_agent.SetTargetLocation(player_mesh.GlobalTransform.origin);
-		var next_point = nav_agent.GetNextLocation();
+		
+		if(update_path_timer.TimeLeft == 0)
+		{
+			// UpdatePath();
+			nav_agent.SetTargetLocation(player_mesh.GlobalTransform.origin);
+			next_point = nav_agent.GetNextLocation();
+			update_path_timer.Start(0.035f);
+		}
+		// if(p.Count > 0)
+		// {
+		// 	next_point = p[1];
+		// 	if(Car_mesh.GlobalTransform.origin.DistanceTo(next_point) < 1.5)
+		// 	{
+		// 		p.RemoveAt(1);
+		// 	}
+		// }
 		var direction = next_point - Car_mesh.GlobalTransform.origin;
         var angle = Calculate_Angle(direction);
 		// GD.Print("Angle : " + angle);
@@ -152,37 +177,7 @@ public class Enemy_taxi_new : Spatial
 		// speed_input += Input.GetActionStrength("ui_up");
 		// speed_input -=  Input.GetActionStrength("ui_down");
 		// speed_input = -Input.GetAccelerometer().Normalized().y;
-		
-		var distance = (player_mesh.GlobalTransform.origin - Car_mesh.GlobalTransform.origin).Length();
-		if(distance > 2)
-		{ 	
-			
-			speed_input = 1.5f;
-		}
-		else
-		{
-			speed_input = 0;
-		}
-		speed_input = Mathf.Lerp(speed_input , speed_input*acceleration , delta * 25);
-
-		if(ball.GlobalTransform.origin.DistanceTo(player_mesh.GlobalTransform.origin) > 500)
-		{
-			ball.GlobalTranslation =new Vector3 (0,5,0);
-			GD.Print("Reset");
-		}
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(float delta)
-	{
-		
-		if(Engine.TimeScale != 1)
-		{
-			// speed_input = 0;
-			steering_input = 0;
-			// GD.Print("Pause");
-		}
-		// Apply steering
+				// Apply steering
 		if(ball.LinearVelocity.Length() > turn_stop_limit)
 		{
 			if(speed_input < 0)
@@ -207,6 +202,45 @@ public class Enemy_taxi_new : Spatial
 			left_wheel.Rotation = left_rotation;
 			right_wheel.Rotation = right_rotation;
 		}
+		
+		var distance = (player_mesh.GlobalTransform.origin - Car_mesh.GlobalTransform.origin).Length();
+		if(distance > 2)
+		{ 	
+			
+			speed_input = 1.5f;
+		}
+		else
+		{
+			speed_input = 0;
+		}
+		speed_input = Mathf.Lerp(speed_input , speed_input*acceleration , delta * 25);
+
+		if(ball.GlobalTransform.origin.DistanceTo(player_mesh.GlobalTransform.origin) > 500)
+		{
+			ball.GlobalTranslation =new Vector3 (0,5,0);
+			GD.Print("Reset");
+		}
+	}
+	// public void UpdatePath()
+	// {
+	// 	// nav_agent.SetTargetLocation(player_mesh.GlobalTransform.origin);
+	// 	// // var o = nav_agent.GetNavPath();
+	// 	// // p = new List<Vector3>(o);
+	// 	// RandomNumberGenerator R = new RandomNumberGenerator();
+	// 	// next_point = nav_agent.GetNextLocation();
+	// 	// update_path_timer.Start(R.RandfRange(0,0.09f));
+	// }
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(float delta)
+	{
+		
+		if(Engine.TimeScale != 1)
+		{
+			// speed_input = 0;
+			steering_input = 0;
+			// GD.Print("Pause");
+		}
+
 		// Align with surface
 		if(rayCast.IsColliding())
 		{
@@ -256,4 +290,5 @@ public class Enemy_taxi_new : Spatial
 		xform.basis = xform.basis.Orthonormalized();
 		return xform;
 	}
+	
 }

@@ -276,6 +276,8 @@ skeleton = NodePath("../..")
 enabled = true
 
 [node name="NavigationAgent" type="NavigationAgent" parent="Spatial"]
+path_desired_distance = 0.5
+target_desired_distance = 0.5
 
 [node name="Healthbar" parent="Spatial" groups=["Enemy_Healthbar"] instance=ExtResource( 4 )]
 script = ExtResource( 6 )
