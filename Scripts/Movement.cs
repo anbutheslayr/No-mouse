@@ -49,6 +49,7 @@ public class Movement : Spatial
 	public Control intrface;
 	[Export] public int Drift_multiplier = 1;
 	public int im = 0;
+	public Camera cam;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -70,6 +71,7 @@ public class Movement : Spatial
 		Right = GetNode<TouchScreenButton>("Interface/Steering/Right");
 		Brake = GetNode<TouchScreenButton>("Interface/Acceleration/Brake");
 		intrface = GetNode<Control>("Interface");
+		cam = GetParent().GetNode<Camera>("Camera");
 		// jump_timer = new Timer();
 		// AddChild(jump_timer);
 		// jump_timer.OneShot = true;
@@ -173,6 +175,7 @@ public class Movement : Spatial
 		// }
 		ball.LinearVelocity = new Vector3(ball.LinearVelocity.x, Jump_ht*40, ball.LinearVelocity.z);
 		GD.Print("JUMP");
+		cam.Call("Add_trauma",0.8f);
 	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
@@ -254,6 +257,7 @@ public class Movement : Spatial
 		if(body.IsInGroup("Obstacle") && ball.LinearVelocity.Length() > 6)
 		{
 			audioStreamPlayer.Play();
+			cam.Call("Add_trauma",0.6f);
 		}
 	}
 	public void On_leaving(Node body)
@@ -294,6 +298,7 @@ public class Movement : Spatial
 		else
 		{
 			audioStreamPlayer.Play();
+			cam.Call("Add_trauma",0.7f);
 		}
 		return damage;
 	}

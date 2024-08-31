@@ -8,6 +8,14 @@ public class Follow : Camera
     [Export] public Vector3 offset;
     public MeshInstance target;
     public Vector3 target_pos;
+    public float trauma = 0;
+    [Export] public float trauma_red_rate = 1;
+    [Export] public OpenSimplexNoise noise;
+    public float time = 0;
+    [Export]public int noise_speed = 50;
+    [Export] public float max_x = 10;
+    [Export] public float max_y = 10;
+    [Export] public float max_z = 5;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -21,5 +29,24 @@ public class Follow : Camera
        var target_pos = target.GlobalTransform.Translated(offset);
        GlobalTransform = GlobalTransform.InterpolateWith(target_pos , lerp_speed * delta);
        LookAt(target.GlobalTransform.origin , Vector3.Up);
+        trauma = Mathf.Max(trauma - trauma_red_rate * delta , 0);
+        time += delta;
+        RotationDegrees = new Vector3(RotationDegrees.x + GetNoiseFromSeed(0)*max_x*GetShakeIntensity(),
+        RotationDegrees.y+ GetNoiseFromSeed(1)*max_y*GetShakeIntensity(),
+        RotationDegrees.z + GetNoiseFromSeed(2)*max_z*GetShakeIntensity());
+
+    }
+    public void Add_trauma(float amount)
+    {
+        trauma = Mathf.Clamp(trauma + amount ,0, 1);
+    }
+    public float GetNoiseFromSeed(int seed)
+    {
+        noise.Seed = seed;
+        return noise.GetNoise1d(time * noise_speed);
+    }
+    public float GetShakeIntensity()
+    {
+        return trauma*trauma;
     }
 }

@@ -13,6 +13,8 @@ public class Enemy_Plane : RigidBody
 	[Export] public float AvoidanceStrength = 10f;
 	[Export] public bool paused = false;
 	public AudioStreamPlayer Attack;
+	public Camera Camera;
+	[Export] public float trauma_amount = 0.5f;
 	// [Export] public float ObjectDetectionDistance = 10f;
 	public override void _Ready()
 	{
@@ -24,6 +26,7 @@ public class Enemy_Plane : RigidBody
 		raycast.Enabled = true;
 		raycast.AddException(this);
 		raycast.AddException(player);
+		Camera = GetParent().GetNode<Camera>("Camera");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,6 +40,7 @@ public class Enemy_Plane : RigidBody
 			player.GetParent().Call("Enable_col");
 			capsule.Show();
 			Attack.Playing = true;
+			Camera.Call("Add_trauma" , trauma_amount);
 		}
 		else
 		{

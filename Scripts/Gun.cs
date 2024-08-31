@@ -127,10 +127,8 @@ public class Gun : Spatial
             var b = decal.Instance() as Spatial;
             GetTree().Root.AddChild(a);
             (ray_cast.GetCollider() as Node).AddChild(b);
-            var transform = b.GlobalTransform;
-            transform.origin = ray_cast.GetCollisionPoint();
-            a.GlobalTransform = transform;
-            b.GlobalTransform = transform;
+            a.GlobalTranslation = ray_cast.GetCollisionPoint();
+            b.GlobalTranslation = ray_cast.GetCollisionPoint();
             if(ray_cast.GetCollisionNormal() != Vector3.Up)
             {
                 b.LookAt(ray_cast.GetCollisionPoint() + ray_cast.GetCollisionNormal(), Vector3.Up);
