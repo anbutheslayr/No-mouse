@@ -10,8 +10,8 @@ width = 128
 curve = SubResource( 1 )
 
 [sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( 0, 0.486339, 0.966102 )
-colors = PoolColorArray( 0.247059, 0.054902, 0.556863, 1, 0.890196, 0.321569, 0.761366, 1, 0.3588, 0.420181, 0.92, 1 )
+offsets = PoolRealArray( 0, 0.402256, 0.87594 )
+colors = PoolColorArray( 0.556863, 0.054902, 0.34902, 1, 0.890196, 0.321569, 0.761366, 1, 0.3588, 0.92, 0.867388, 1 )
 
 [sub_resource type="GradientTexture" id=4]
 gradient = SubResource( 3 )
@@ -32,7 +32,7 @@ shader_param/wind_strength = 3.0
 shader_param/wind_texture_tile_size = 20.0
 shader_param/wind_vertical_strength = 0.3
 shader_param/wind_horizontal_direction = Vector2( 1, 0.5 )
-shader_param/character_position = Vector3( 25.2173, 0.674384, 24.3092 )
+shader_param/character_position = Vector3( 25.2173, 1.20296, 24.3092 )
 shader_param/character_radius = 3.0
 shader_param/character_push_strength = 1.0
 shader_param/color_ramp = SubResource( 4 )

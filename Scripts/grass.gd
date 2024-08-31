@@ -8,8 +8,8 @@ export var character_path := NodePath()
 
 onready var _character: Spatial = get_node(character_path)
 
-func _enter_tree() -> void:
-	connect("visibility_changed", self, "_on_WindGrass_visibility_changed")
+# func _enter_tree() -> void:
+# 	connect("visibility_changed", self, "_on_WindGrass_visibility_changed")
 
 
 func _ready() -> void:
@@ -37,9 +37,9 @@ func _ready() -> void:
 		multimesh.set_instance_transform(instance_index, transform)
 
 
-func _on_WindGrass_visibility_changed() -> void:
-	if visible:
-		_ready()
+# func _on_WindGrass_visibility_changed() -> void:
+# 	if visible:
+# 		_ready()
 
 
 func _process(_delta: float) -> void:
