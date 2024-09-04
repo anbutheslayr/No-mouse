@@ -1,4 +1,4 @@
-@tool
+tool
 extends "ui_input_field.gd"
 
 
@@ -18,8 +18,7 @@ var enum_selector:OptionButton = null
 #-------------------------------------------------------------------------------
 
 
-func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", settings:Dictionary = {}):
-	super(__init_val, __labelText, __prop_name, settings)
+func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", settings:Dictionary = {}).(__init_val, __labelText, __prop_name, settings):
 	set_meta("class", "UI_IF_Enum")
 	
 	enum_selector = OptionButton.new()
@@ -29,16 +28,13 @@ func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", set
 	for i in range(0, settings.enum_list.size()):
 		enum_selector.add_item(settings.enum_list[i], i)
 	
-	enum_selector.item_selected.connect(_request_prop_action.bind("PA_PropSet"))
-	enum_selector.theme_type_variation = "InspectorOptionButton"
-	
-	container_box.add_child(enum_selector)
+	enum_selector.connect("item_selected", self, "_request_prop_action", ["PA_PropSet"])
+	ThemeAdapter.assign_node_type(enum_selector, 'InspectorButton')
 
 
-func _cleanup():
-	super()
-	if is_instance_valid(enum_selector):
-		enum_selector.queue_free()
+func _ready():
+	value_container.add_child(enum_selector)
+	_init_ui()
 
 
 
@@ -49,10 +45,10 @@ func _cleanup():
 
 
 func _update_ui_to_prop_action(prop_action:PropAction, final_val):
-	if is_instance_of(prop_action, PA_PropSet) || is_instance_of(prop_action, PA_PropEdit):
+	if prop_action is PA_PropSet || prop_action is PA_PropEdit:
 		_update_ui_to_val(final_val)
 
 
 func _update_ui_to_val(val):
 	enum_selector.selected = val
-	super._update_ui_to_val(val)
+	._update_ui_to_val(val)

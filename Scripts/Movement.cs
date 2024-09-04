@@ -257,7 +257,7 @@ public class Movement : Spatial
 		if(body.IsInGroup("Obstacle") && ball.LinearVelocity.Length() > 6)
 		{
 			audioStreamPlayer.Play();
-			cam.Call("Add_trauma",0.6f);
+			cam.Call("Add_trauma",0.4f);
 		}
 	}
 	public void On_leaving(Node body)
@@ -266,22 +266,14 @@ public class Movement : Spatial
 		{
 			Is_on_ramp = false;
 		}
-		if(body is RigidBody)
-		{
-			// Disable_col();
-		}
 	}
 	public void Apply_Damage(float damage , Node body)
 	{
-		
-		// GD.Print("damage = " + damage);
-		// GD.Print("health = " + health);
-		
+
 		health -= damage;
 		if(health <= 0)
 		{
 			health = 0;
-			// GD.Print("DEAD");
 		}
 		EmitSignal("Change_Health", health,false);
 		body.GetParent().Call("Calculate_Health", damage);
@@ -298,7 +290,7 @@ public class Movement : Spatial
 		else
 		{
 			audioStreamPlayer.Play();
-			cam.Call("Add_trauma",0.7f);
+			cam.Call("Add_trauma",0.5f);
 		}
 		return damage;
 	}

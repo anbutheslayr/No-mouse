@@ -1,4 +1,4 @@
-@tool
+tool
 extends TextEdit
 
 
@@ -11,7 +11,7 @@ func _process(delta):
 
 func _hide_scrollbar():
 	for child in get_children():
-		if is_instance_of(child, VScrollBar):
+		if child is VScrollBar:
 			child.visible = false
-		elif is_instance_of(child, HScrollBar):
+		elif child is HScrollBar:
 			child.visible = false

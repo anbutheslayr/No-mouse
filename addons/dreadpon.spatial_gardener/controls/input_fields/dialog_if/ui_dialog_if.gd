@@ -1,5 +1,5 @@
-@tool
-extends ConfirmationDialog
+tool
+extends WindowDialog
 
 
 #-------------------------------------------------------------------------------
@@ -8,16 +8,29 @@ extends ConfirmationDialog
 #-------------------------------------------------------------------------------
 
 
+const ThemeAdapter = preload("../../theme_adapter.gd")
+
+onready var panel_container_fields_nd: Control = $VBoxContainer_Main/PanelContainer_Fields
+onready var fields = $VBoxContainer_Main/PanelContainer_Fields/VBoxContainer_Fields
 
 
-@onready var panel_container_fields_nd: Control = $VBoxContainer_Main/PanelContainer_Fields
-@onready var fields = $VBoxContainer_Main/PanelContainer_Fields/VBoxContainer_Fields
+signal confirmed
+signal cancelled
 
 
 
 
 func _init():
 	set_meta("class", "UI_Dialog_IF")
-	ok_button_text = "Apply"
-	cancel_button_text = "Cancel"
-	close_requested.connect(hide)
+
+
+func on_button_apply_pressed():
+	emit_signal("confirmed")
+
+
+func on_button_cancel_pressed():
+	emit_signal("cancelled")
+
+
+func _on_about_to_show():
+	pass

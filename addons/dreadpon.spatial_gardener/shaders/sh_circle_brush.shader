@@ -1,9 +1,9 @@
 shader_type spatial;
-render_mode blend_mix,cull_disabled,unshaded,depth_draw_opaque,depth_test_disabled;
+render_mode blend_mix,cull_disabled,unshaded,depth_draw_opaque,depth_test_disable;
 
 
 // Base color + opacity
-uniform vec4 albedo : source_color;
+uniform vec4 albedo : hint_color;
 
 
 void fragment() {

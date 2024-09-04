@@ -1,4 +1,4 @@
-extends RefCounted
+extends Reference
 
 
 enum Tokens {
@@ -62,7 +62,7 @@ static func get_val_for_export(val):
 			return 'null'
 		TYPE_STRING:
 			return '"%s"' % [val]
-		TYPE_FLOAT:
+		TYPE_REAL:
 			if is_equal_approx(val - int(val), 0.0):
 				return '%d.0' % [int(val)]
 			return str(val)
@@ -93,7 +93,7 @@ static func to_bool(string: String):
 
 
 
-class TokenVal extends RefCounted:
+class TokenVal extends Reference:
 	var type: int = Tokens.NONE
 	var val = null
 	func _init(__type: int = Tokens.NONE, __val = null):
@@ -107,7 +107,7 @@ class TokenVal extends RefCounted:
 
 
 
-class PropStruct extends RefCounted:
+class PropStruct extends Reference:
 	var content = null
 	func _init(__content = null):
 		content = __content
@@ -116,19 +116,17 @@ class PropStruct extends RefCounted:
 
 
 class PS_Vector3 extends PropStruct:
-	func _init(__content = null):
-		super(__content)
+	func _init(__content = null).(__content): pass
 	func variant():
 		var split = content.trim_prefix('Vector3( ').trim_suffix(' )').split(', ')
 		return Vector3(split[0], split[1], split[2])
 
 
 class PS_Transform extends PropStruct:
-	func _init(__content = null):
-		super(__content)
+	func _init(__content = null).(__content): pass
 	func variant():
-		var split = content.trim_prefix('Transform3D( ').trim_suffix(' )').split(', ')
-		return Transform3D(Vector3(split[0], split[3], split[6]), Vector3(split[1], split[4], split[7]), Vector3(split[2], split[5], split[8]), Vector3(split[9], split[10], split[11]))
+		var split = content.trim_prefix('Transform( ').trim_suffix(' )').split(', ')
+		return Transform(Vector3(split[0], split[3], split[6]), Vector3(split[1], split[4], split[7]), Vector3(split[2], split[5], split[8]), Vector3(split[9], split[10], split[11]))
 
 
 
@@ -141,7 +139,6 @@ class SubResource extends PropStruct:
 
 
 class ExtResource extends SubResource:
-	func _init(__id: int = -1):
-		super(__id)
+	func _init(__id: int = -1).(__id): pass
 	func _to_string():
 		return 'ExtResource( %d )' % [id]

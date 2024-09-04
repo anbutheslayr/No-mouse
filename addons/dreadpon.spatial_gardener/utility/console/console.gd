@@ -3,10 +3,10 @@ extends Control
 
 const Gardener = preload("../../gardener/gardener.gd")
 
-@onready var input_field:TextEdit = $VBoxContainer/InputField
-@onready var output_field:RichTextLabel = $VBoxContainer/OutputField
+onready var input_field:TextEdit = $VBoxContainer/InputField
+onready var output_field:RichTextLabel = $VBoxContainer/OutputField
 
-@export var block_input_PTH:Array = [] # (Array, NodePath)
+export(Array, NodePath) var block_input_PTH:Array = []
 var block_input:Array = []
 
 var last_mouse_mode:int
@@ -25,16 +25,16 @@ func _ready():
 
 
 func _unhandled_input(event):
-	if is_instance_of(event, InputEventKey) && event.keycode == KEY_QUOTELEFT && !event.pressed:
+	if event is InputEventKey && event.scancode == KEY_QUOTELEFT && !event.pressed:
 		toggle_console()
 	
 	if !visible: return
 	
-	if is_instance_of(event, InputEventKey):
-		get_viewport().set_input_as_handled()
+	if event is InputEventKey:
+		get_tree().set_input_as_handled()
 		
 		if !event.pressed:
-			match event.keycode:
+			match event.scancode:
 				KEY_ENTER:
 					input_field.text = input_field.text.trim_suffix("\n")
 					try_execute_command()
@@ -61,7 +61,7 @@ func set_nodes_input_state(state:bool):
 
 
 func try_execute_command():
-	if input_field.text.is_empty(): return
+	if input_field.text.empty(): return
 	var result = parse_and_execute(input_field.text)
 	clear_command()
 	print_output(result)
@@ -76,7 +76,7 @@ func print_output(string:String):
 
 
 func parse_and_execute(string:String):
-	var args:PackedStringArray = string.split(" ")
+	var args:PoolStringArray = string.split(" ")
 	
 	match args[0]:
 		"dump_octrees":
@@ -84,7 +84,7 @@ func parse_and_execute(string:String):
 		"dump_scene_tree":
 			return debug_scene_tree()
 		"clear":
-			output_field.text = ""
+			output_field.bbcode_text = ""
 			return ""
 		_:
 			return "[color=red]Undefined command[/color]"
@@ -98,18 +98,18 @@ func dump_octrees(args:Array = []):
 	var octree_index := -1
 	
 	if args.size() > 1:
-		if current_scene.has_node(args[1]) && is_instance_of(current_scene.get_node(args[1]), Gardener):
+		if current_scene.has_node(args[1]) && current_scene.get_node(args[1]) is Gardener:
 			gardener_path = args[1]
 		else:
 			return "[color=red]'%s' wrong node path in argument '%d'[/color]" % [args[0], 1]
 	
 	if args.size() > 2:
-		if args[2].is_valid_int():
+		if args[2].is_valid_integer():
 			octree_index = args[2].to_int()
 		else:
 			return "[color=red]'%s' wrong type in argument '%d'[/color]" % [args[0], 2]
 	
-	if gardener_path.is_empty():
+	if gardener_path.empty():
 		return dump_octrees_from_node(current_scene)
 	elif octree_index < 0:
 		return dump_octrees_from_gardener(current_scene.get_node(args[1]))
@@ -120,7 +120,7 @@ func dump_octrees(args:Array = []):
 func dump_octrees_from_node(node:Node):
 	var output := ""
 	
-	if is_instance_of(node, Gardener):
+	if node is Gardener:
 		output += dump_octrees_from_gardener(node)
 	else:
 		for child in node.get_children():

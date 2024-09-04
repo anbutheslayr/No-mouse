@@ -1,4 +1,4 @@
-@tool
+tool
 extends "ui_input_field.gd"
 
 
@@ -20,8 +20,7 @@ signal pressed
 #-------------------------------------------------------------------------------
 
 
-func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", settings:Dictionary = {}):
-	super(__init_val, __labelText, __prop_name, settings)
+func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", settings:Dictionary = {}).(__init_val, __labelText, __prop_name, settings):
 	
 	set_meta("class", "UI_IF_Button")
 	
@@ -30,16 +29,14 @@ func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", set
 	button.size_flags_horizontal = SIZE_EXPAND_FILL
 	button.size_flags_vertical = SIZE_SHRINK_CENTER
 	button.text = settings.button_text
-	button.pressed.connect(on_pressed)
-	button.theme_type_variation = "InspectorButton"
+	button.connect("pressed", self, "on_button_pressed")
+	ThemeAdapter.assign_node_type(button, 'InspectorButton')
+
+
+func _ready():
+	value_container.add_child(button)
 	
-	container_box.add_child(button)
-
-
-func _cleanup():
-	super()
-	if is_instance_valid(button):
-		button.queue_free()
+	_init_ui()
 
 
 
@@ -50,5 +47,5 @@ func _cleanup():
 #-------------------------------------------------------------------------------
 
 
-func on_pressed():
-	pressed.emit()
+func on_button_pressed():
+	emit_signal("pressed")

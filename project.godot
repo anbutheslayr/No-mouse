@@ -8,16 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "RefCounted",
-"class": "DPON_FM",
-"language": "GDScript",
-"path": "res://addons/dreadpon.spatial_gardener/utility/feature_manager.gd"
-} ]
-_global_script_class_icons={
-"DPON_FM": ""
-}
-
 [application]
 
 config/name="Rogue drifters"
@@ -39,7 +29,7 @@ convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/Todo_Manager/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/Todo_Manager/plugin.cfg", "res://addons/dreadpon.spatial_gardener/plugin.cfg" )
 
 [global]
 

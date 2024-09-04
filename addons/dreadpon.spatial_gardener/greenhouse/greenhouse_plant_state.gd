@@ -1,4 +1,4 @@
-@tool
+tool
 extends "../utility/input_field_resource/input_field_resource.gd"
 
 
@@ -19,11 +19,8 @@ signal prop_action_executed_on_plant(prop_action, final_val, plant)
 signal prop_action_executed_on_LOD_variant(prop_action, final_val, LOD_variant, plant)
 signal req_octree_reconfigure(plant)
 signal req_octree_recenter(plant)
-signal req_import_plant_data(plant)
-signal req_export_plant_data(plant)
-signal req_import_greenhouse_data()
-signal req_export_greenhouse_data()
-
+signal req_import_transforms(plant)
+signal req_export_transforms(plant)
 
 
 
@@ -33,8 +30,7 @@ signal req_export_greenhouse_data()
 #-------------------------------------------------------------------------------
 
 
-func _init():
-	super()
+func _init().():
 	set_meta("class", "Greenhouse_PlantState")
 	resource_name = "Greenhouse_PlantState"
 	# A workaround to trigger the initial creation of a plant
@@ -52,28 +48,22 @@ func on_changed_plant():
 	emit_changed()
 
 func on_prop_action_executed_on_plant(prop_action, final_val, plant):
-	prop_action_executed_on_plant.emit(prop_action, final_val, plant)
+	emit_signal("prop_action_executed_on_plant", prop_action, final_val, plant)
 
 func on_req_octree_reconfigure(plant):
-	req_octree_reconfigure.emit(plant)
+	emit_signal("req_octree_reconfigure", plant)
 
 func on_req_octree_recenter(plant):
-	req_octree_recenter.emit(plant)
+	emit_signal("req_octree_recenter", plant)
 
-func on_req_import_plant_data(plant):
-	req_import_plant_data.emit(plant)
+func on_req_import_transforms(plant):
+	emit_signal("req_import_transforms", plant)
 
-func on_req_export_plant_data(plant):
-	req_export_plant_data.emit(plant)
-
-func on_req_import_greenhouse_data():
-	req_import_greenhouse_data.emit()
-
-func on_req_export_greenhouse_data():
-	req_export_greenhouse_data.emit()
+func on_req_export_transforms(plant):
+	emit_signal("req_export_transforms", plant)
 
 func on_prop_action_executed_on_LOD_variant(prop_action, final_val, LOD_variant, plant):
-	prop_action_executed_on_LOD_variant.emit(prop_action, final_val, LOD_variant, plant)
+	emit_signal("prop_action_executed_on_LOD_variant", prop_action, final_val, LOD_variant, plant)
 
 
 
@@ -85,18 +75,16 @@ func on_prop_action_executed_on_LOD_variant(prop_action, final_val, LOD_variant,
 func _modify_prop(prop:String, val):
 	match prop:
 		"plant/plant":
-			if !is_instance_of(val, Greenhouse_Plant):
+			if !(val is Greenhouse_Plant):
 				val = Greenhouse_Plant.new()
 			
-			FunLib.ensure_signal(val.changed, on_changed_plant)
-			FunLib.ensure_signal(val.prop_action_executed, on_prop_action_executed_on_plant, [val])
-			FunLib.ensure_signal(val.prop_action_executed_on_LOD_variant, on_prop_action_executed_on_LOD_variant, [val])
-			FunLib.ensure_signal(val.req_octree_reconfigure, on_req_octree_reconfigure, [val])
-			FunLib.ensure_signal(val.req_octree_recenter, on_req_octree_recenter, [val])
-			FunLib.ensure_signal(val.req_import_plant_data, on_req_import_plant_data, [val])
-			FunLib.ensure_signal(val.req_export_plant_data, on_req_export_plant_data, [val])
-			FunLib.ensure_signal(val.req_import_greenhouse_data, on_req_import_greenhouse_data)
-			FunLib.ensure_signal(val.req_export_greenhouse_data, on_req_export_greenhouse_data)
+			FunLib.ensure_signal(val, "changed", self, "on_changed_plant")
+			FunLib.ensure_signal(val, "prop_action_executed", self, "on_prop_action_executed_on_plant", [val])
+			FunLib.ensure_signal(val, "prop_action_executed_on_LOD_variant", self, "on_prop_action_executed_on_LOD_variant", [val])
+			FunLib.ensure_signal(val, "req_octree_reconfigure", self, "on_req_octree_reconfigure", [val])
+			FunLib.ensure_signal(val, "req_octree_recenter", self, "on_req_octree_recenter", [val])
+			FunLib.ensure_signal(val, "req_import_transforms", self, "on_req_import_transforms", [val])
+			FunLib.ensure_signal(val, "req_export_transforms", self, "on_req_export_transforms", [val])
 			
 			if val._undo_redo != _undo_redo:
 				val.set_undo_redo(_undo_redo)
@@ -110,8 +98,8 @@ func _modify_prop(prop:String, val):
 #-------------------------------------------------------------------------------
 
 
-func set_undo_redo(val):
-	super.set_undo_redo(val)
+func set_undo_redo(val:UndoRedo):
+	.set_undo_redo(val)
 	plant.set_undo_redo(_undo_redo)
 
 
@@ -172,10 +160,9 @@ func _get_prop_dictionary():
 		}
 
 
-func create_input_fields(_base_control:Control, _resource_previewer, whitelist:Array = []) -> Dictionary:
+func create_input_fields(_base_control:Control, _resource_previewer, whitelist:Array = []):
 	if plant:
 		return plant.create_input_fields(_base_control, _resource_previewer, whitelist)
-	return {}
 
 
 func _fix_duplicate_signals(copy):
