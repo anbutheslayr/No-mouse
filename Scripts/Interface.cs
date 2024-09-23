@@ -23,6 +23,8 @@ public class Interface : Control
     public RigidBody plane;
     public RichTextLabel Drift_points;
     public int kill=1;
+    public Timer change_world_timer;
+    public int cur_world = 1;
     public override void _Ready()
     {
         plane = GetParent().GetParent().GetNode<RigidBody>("Plane");
@@ -42,6 +44,10 @@ public class Interface : Control
         timer.Connect("timeout", this, nameof(AddEnemies));
         AddChild(timer);
         timer.Start(10);
+        change_world_timer = new Timer();
+        change_world_timer.OneShot = true;
+        change_world_timer.Connect("timeout", this, nameof(ChangeWorld));
+        AddChild(change_world_timer);
         spawn_time = 26;
         Drift_points = GetNode<RichTextLabel>("Drift_points");
         Drift_points.Text = "Drift Points: " + Res.Drift_points;
@@ -79,7 +85,7 @@ public class Interface : Control
     
     public void AddEnemies()
     {
-        if(dead == false)
+        if(!dead)
         {
             var enemy = enemy_taxi.Instance() as Spatial;
             enemy.GlobalTransform = enemyspawner.GlobalTransform;
@@ -90,14 +96,7 @@ public class Interface : Control
                 timer.Start(spawn_time);
                 spawn_time -= 2.5f;
             }
-            else
-            {
-                enemy_spawntext.Text = "All enemies spawned";
-            }
-        }
-        else
-        {
-            timer.Start(10);
+            
         }
         
     }
@@ -195,17 +194,14 @@ public class Interface : Control
     {
         Drift_points.Text = "Drift Points : " + (int)Res.Drift_points;
         enemy_spawntext.Text = "Enemy " + cur_enemies + "/" + Res.NoOfEnemies + " Spawning in " + (int)timer.TimeLeft;
-        if(cur_enemies == Res.NoOfEnemies)
+        if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count !=0)
         {
             enemy_spawntext.Text = "All " + Res.NoOfEnemies+"/"+Res.NoOfEnemies +" enemies spawned";
+            change_world_timer.Start(10);
         }
         if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0 && !dead)
         {
-            if(timer.TimeLeft ==0)
-            {
-                GetTree().ChangeScene("res://Scenes/Worlds/World2.tscn");
-            }
-            enemy_spawntext.Text = " Teleporting to next world in " + timer.TimeLeft;
+            enemy_spawntext.Text = " Teleporting to next world in " + (int)change_world_timer.TimeLeft;
             won = true;
         }
         if(dead && !won)
@@ -231,6 +227,11 @@ public class Interface : Control
     public void Kill()
     {
         kill+=1;
+    }
+    public void ChangeWorld()
+    {
+        cur_world++;
+        GetTree().ChangeScene("res://Scenes/Worlds/World"+cur_world+".tscn");
     }
 }
 
