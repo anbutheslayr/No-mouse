@@ -12,7 +12,7 @@ config_version=4
 
 config/name="Rogue drifters"
 run/main_scene="res://Scenes/Main_menu.tscn"
-boot_splash/image="res://Splash.png"
+boot_splash/image="res://okk.png"
 config/windows_native_icon="res://ICO.ico"
 
 [display]

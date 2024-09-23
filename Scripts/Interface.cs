@@ -197,11 +197,19 @@ public class Interface : Control
         if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count !=0)
         {
             enemy_spawntext.Text = "All " + Res.NoOfEnemies+"/"+Res.NoOfEnemies +" enemies spawned";
-            change_world_timer.Start(10);
+            if(Res.NoOfEnemies >= 6)
+            {
+                change_world_timer.Start(10);    
+            }
         }
-        if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0 && !dead)
+        if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0 && !dead && Res.NoOfEnemies >= 6)
         {
-            enemy_spawntext.Text = " Teleporting to next world in " + (int)change_world_timer.TimeLeft;
+            enemy_spawntext.Text = "\n\n Teleporting to next world in " + (int)change_world_timer.TimeLeft;
+            won = true;
+        }
+        else if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0 && !dead && Res.NoOfEnemies < 6)
+        {
+            enemy_spawntext.Text = "\n\n\nAtleast defeat 6 enemies to get to next world \n You can change the number of enemies in settings";
             won = true;
         }
         if(dead && !won)
