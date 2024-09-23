@@ -49,6 +49,7 @@ public class Enemy_taxi_new : Spatial
 	public Vector3 next_point;
 	List<Vector3> p;
 	public Timer update_path_timer;
+	public PackedScene explosion;
 
 	
 	// Called when the node enters the scene tree for the first time.
@@ -77,6 +78,7 @@ public class Enemy_taxi_new : Spatial
 		AddChild(update_path_timer);
 		update_path_timer.OneShot = true;
 		update_path_timer.WaitTime = 0.1f;
+		explosion = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
 		update_path_timer.Start();
 		// jump_timer = new Timer();
 		// AddChild(jump_timer);
@@ -278,6 +280,9 @@ public class Enemy_taxi_new : Spatial
 		{
 			player_mesh.GetParent().GetNode("Interface").Call("Kill");
 			health = 0;
+			var explosion_instance = explosion.Instance() as Spatial;
+			GetTree().Root.AddChild(explosion_instance);
+			explosion_instance.GlobalTranslation = ball.GlobalTranslation;
 			QueueFree();
 		}
 		EmitSignal("Change_Health", health);

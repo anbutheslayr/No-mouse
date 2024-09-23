@@ -95,6 +95,10 @@ public class Interface : Control
                 enemy_spawntext.Text = "All enemies spawned";
             }
         }
+        else
+        {
+            timer.Start(10);
+        }
         
     }
     public void OnEscPressed()
@@ -197,7 +201,11 @@ public class Interface : Control
         }
         if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0 && !dead)
         {
-            enemy_spawntext.Text = "You Won :) \n Against " + cur_enemies + " Enemies";
+            if(timer.TimeLeft ==0)
+            {
+                GetTree().ChangeScene("res://Scenes/Worlds/World2.tscn");
+            }
+            enemy_spawntext.Text = " Teleporting to next world in " + timer.TimeLeft;
             won = true;
         }
         if(dead && !won)

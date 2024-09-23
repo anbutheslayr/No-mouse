@@ -3,7 +3,7 @@ using System;
 
 public class Enemy_Plane : RigidBody
 {
-	public Spatial player;
+	public RigidBody player;
 	public RayCast raycast;
 	public Vector3 target_pos;
 
@@ -18,7 +18,7 @@ public class Enemy_Plane : RigidBody
 	// [Export] public float ObjectDetectionDistance = 10f;
 	public override void _Ready()
 	{
-		player = GetParent().GetNode<Spatial>("taxi/Spatial");
+		player = GetParent().GetNode<RigidBody>("taxi/Ball");
 		capsule = GetNode<MeshInstance>("MeshInstance");
 		Attack = GetNode<AudioStreamPlayer>("Attack");
 		raycast = new RayCast();
@@ -32,6 +32,7 @@ public class Enemy_Plane : RigidBody
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
+		
 		target_pos = player.GlobalTransform.origin + new Vector3(0, FollowAltitude, 0);
 		raycast.CastTo = target_pos - GlobalTransform.origin;
 		raycast.ForceRaycastUpdate();
@@ -48,10 +49,14 @@ public class Enemy_Plane : RigidBody
 			capsule.Hide();
 			Attack.Playing = false;
 		}
-	   
+
+		
+
 	}
 	public override void _PhysicsProcess(float delta)
 	{
+		
+		
 		if (raycast.IsColliding())
 		{
 			Vector3 avoid_dir = raycast.GetCollisionNormal().Cross(Vector3.Up).Normalized();
@@ -61,6 +66,8 @@ public class Enemy_Plane : RigidBody
 		{
 			GlobalTranslation = GlobalTranslation.LinearInterpolate(target_pos, FollowSpeed);
 		}
+		
+
 	}
 	public void Pause()
 	{

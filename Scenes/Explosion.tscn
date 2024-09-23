@@ -1,0 +1,202 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Assets/Audio/explosion.mp3" type="AudioStream" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.619176, 0.794478 ), -4.7546, -4.7546, 0, 0, Vector2( 0.99552, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_align_y = true
+spread = 180.0
+initial_velocity = 14.0
+initial_velocity_random = 0.12
+scale_random = 1.0
+scale_curve = SubResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.980392, 0.670588, 0.137255, 1 )
+emission_enabled = true
+emission = Color( 0.972549, 0.419608, 0.0823529, 1 )
+emission_energy = 2.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CylinderMesh" id=5]
+material = SubResource( 4 )
+top_radius = 0.1
+bottom_radius = 0.0
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.854962 )
+colors = PoolColorArray( 1, 0.877434, 0.0771484, 1, 0.957031, 0.49904, 0.0551414, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0, 0.916031 )
+colors = PoolColorArray( 0.944336, 0.859924, 0.279428, 1, 0.987305, 0.215014, 0.0298891, 1 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.117384, 1 ), -1.12526, -1.12526, 0, 0, Vector2( 0.536738, 1 ), -4.63949, -4.63949, 0, 0, Vector2( 0.931004, 0.868098 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.119632 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, -1, 0 )
+spread = 90.0
+gravity = Vector3( 0, 5, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.16
+scale_random = 0.5
+scale_curve = SubResource( 11 )
+color = Color( 0.945098, 0.831373, 0.368627, 1 )
+color_ramp = SubResource( 9 )
+color_initial_ramp = SubResource( 7 )
+
+[sub_resource type="SpatialMaterial" id=15]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id=14]
+material = SubResource( 15 )
+radial_segments = 6
+rings = 3
+
+[sub_resource type="ParticlesMaterial" id=16]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, -1, 0 )
+gravity = Vector3( 0, 5, 0 )
+initial_velocity = 3.0
+initial_velocity_random = 0.16
+scale_random = 0.5
+scale_curve = SubResource( 11 )
+color = Color( 0.105882, 0.101961, 0.0901961, 1 )
+
+[sub_resource type="SpatialMaterial" id=17]
+flags_use_shadow_to_opacity = true
+albedo_color = Color( 0.168627, 0.152941, 0.152941, 1 )
+emission_enabled = true
+emission = Color( 0.184314, 0.160784, 0.160784, 1 )
+emission_energy = 2.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=18]
+material = SubResource( 17 )
+radial_segments = 6
+rings = 3
+
+[sub_resource type="Animation" id=19]
+resource_name = "Boom"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Debris:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("fire:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Smoke:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Boom:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="Explosion" type="Spatial"]
+
+[node name="Debris" type="Particles" parent="."]
+emitting = false
+amount = 24
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fract_delta = false
+process_material = SubResource( 3 )
+draw_pass_1 = SubResource( 5 )
+
+[node name="fire" type="Particles" parent="."]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 12 )
+draw_pass_1 = SubResource( 14 )
+
+[node name="Smoke" type="Particles" parent="."]
+amount = 12
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 16 )
+draw_pass_1 = SubResource( 18 )
+
+[node name="Boom" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 2 )
+unit_size = 20.0
+pitch_scale = 2.45
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Boom"
+anims/Boom = SubResource( 19 )

@@ -50,6 +50,9 @@ public class Movement : Spatial
 	[Export] public int Drift_multiplier = 1;
 	public int im = 0;
 	public Camera cam;
+	[Export]public NodePath min_map_cam_path;
+	public Camera min_map_cam;
+	public PackedScene exp;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -72,6 +75,9 @@ public class Movement : Spatial
 		Brake = GetNode<TouchScreenButton>("Interface/Acceleration/Brake");
 		intrface = GetNode<Control>("Interface");
 		cam = GetParent().GetNode<Camera>("Camera");
+		min_map_cam = GetNode<Camera>(min_map_cam_path);
+		exp = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
+
 		// jump_timer = new Timer();
 		// AddChild(jump_timer);
 		// jump_timer.OneShot = true;
@@ -81,6 +87,7 @@ public class Movement : Spatial
 
 	public override void _PhysicsProcess(float delta)
 	{
+		min_map_cam.GlobalTranslation= new Vector3(ball.GlobalTranslation.x, min_map_cam.GlobalTranslation.y, ball.GlobalTranslation.z);
 		// align mesh with sphere
 		var transform = Car_mesh.Transform;
 		transform.origin = ball.Transform.origin + sphere_offset;
@@ -273,7 +280,10 @@ public class Movement : Spatial
 		health -= damage;
 		if(health <= 0)
 		{
-			health = 0;
+			Visible = false;
+			var e = exp.Instance() as Spatial;
+			GetTree().Root.AddChild(e);
+			e.GlobalTranslation = ball.GlobalTranslation;
 		}
 		EmitSignal("Change_Health", health,false);
 		body.GetParent().Call("Calculate_Health", damage);

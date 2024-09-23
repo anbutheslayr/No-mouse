@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://taxi.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://Scripts/Enemy_taxi_new.cs" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/EnemyHealthbar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Audio/drift.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Scripts/Healthbar3d_enemy.cs" type="Script" id=6]
+[ext_resource path="res://Assets/Materials/enemy.png" type="Texture" id=7]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "plastic"
@@ -281,6 +282,13 @@ target_desired_distance = 0.5
 
 [node name="Healthbar" parent="Spatial" groups=["Enemy_Healthbar"] instance=ExtResource( 4 )]
 script = ExtResource( 6 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10634, 0 )
+layers = 2
+pixel_size = 0.015
+billboard = 1
+texture = ExtResource( 7 )
 
 [node name="Ball" type="RigidBody" parent="." groups=["Enemy"]]
 physics_material_override = SubResource( 12 )

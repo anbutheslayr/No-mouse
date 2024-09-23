@@ -22,19 +22,18 @@ public class Follow : Camera
     {
         target = GetParent().GetNode<MeshInstance>(target_PATH);
     }
-
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _PhysicsProcess(float delta)
     {
-       var target_pos = target.GlobalTransform.Translated(offset);
-       GlobalTransform = GlobalTransform.InterpolateWith(target_pos , lerp_speed * delta);
-       LookAt(target.GlobalTransform.origin , Vector3.Up);
+        
+        var target_pos = target.GlobalTransform.Translated(offset);
+        GlobalTransform = GlobalTransform.InterpolateWith(target_pos , lerp_speed * delta);
+        LookAt(target.GlobalTransform.origin , Vector3.Up);
         trauma = Mathf.Max(trauma - trauma_red_rate * delta , 0);
         time += delta;
         RotationDegrees = new Vector3(RotationDegrees.x + GetNoiseFromSeed(0)*max_x*GetShakeIntensity(),
         RotationDegrees.y+ GetNoiseFromSeed(1)*max_y*GetShakeIntensity(),
         RotationDegrees.z + GetNoiseFromSeed(2)*max_z*GetShakeIntensity());
-
     }
     public void Add_trauma(float amount)
     {

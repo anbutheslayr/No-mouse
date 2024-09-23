@@ -3,20 +3,6 @@
 [ext_resource path="res://addons/dreadpon.spatial_gardener/toolshed/toolshed_brush.gd" type="Script" id=1]
 [ext_resource path="res://addons/dreadpon.spatial_gardener/toolshed/toolshed.gd" type="Script" id=2]
 
-[sub_resource type="Resource" id=1]
-resource_name = "Toolshed_Brush"
-script = ExtResource( 1 )
-__meta__ = {
-"class": "Toolshed_Brush"
-}
-behavior/behavior_brush_type = 0
-shape/shape_volume_size = 6.6
-shape/shape_projection_size = 1.0
-behavior/behavior_strength = 1.0
-behavior/behavior_passthrough = false
-behavior/behavior_overlap_mode = 0
-behavior/behavior_no_settings_text = "This brush has no additional settings"
-
 [sub_resource type="Resource" id=2]
 resource_name = "Toolshed_Brush"
 script = ExtResource( 1 )
@@ -24,8 +10,22 @@ __meta__ = {
 "class": "Toolshed_Brush"
 }
 behavior/behavior_brush_type = 1
-shape/shape_volume_size = 3.6
+shape/shape_volume_size = 9.6
 shape/shape_projection_size = 100.0
+behavior/behavior_strength = 0.06
+behavior/behavior_passthrough = false
+behavior/behavior_overlap_mode = 0
+behavior/behavior_no_settings_text = "This brush has no additional settings"
+
+[sub_resource type="Resource" id=1]
+resource_name = "Toolshed_Brush"
+script = ExtResource( 1 )
+__meta__ = {
+"class": "Toolshed_Brush"
+}
+behavior/behavior_brush_type = 0
+shape/shape_volume_size = 4.2
+shape/shape_projection_size = 1.0
 behavior/behavior_strength = 1.0
 behavior/behavior_passthrough = false
 behavior/behavior_overlap_mode = 0
@@ -52,9 +52,9 @@ __meta__ = {
 "class": "Toolshed_Brush"
 }
 behavior/behavior_brush_type = 3
-shape/shape_volume_size = 2.11
+shape/shape_volume_size = 4.51
 shape/shape_projection_size = 100.0
-behavior/behavior_strength = 1.0
+behavior/behavior_strength = 0.11
 behavior/behavior_passthrough = false
 behavior/behavior_overlap_mode = 0
 behavior/behavior_no_settings_text = "This brush has no additional settings"
@@ -66,4 +66,4 @@ __meta__ = {
 "class": "Toolshed"
 }
 brush/brushes = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ]
-brush/active_brush = SubResource( 1 )
+brush/active_brush = SubResource( 2 )
