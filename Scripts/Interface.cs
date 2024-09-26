@@ -27,7 +27,7 @@ public class Interface : Control
     public int cur_world = 1;
     public override void _Ready()
     {
-        plane = GetParent().GetParent().GetNode<RigidBody>("Plane");
+        plane = GetTree().GetNodesInGroup("Plane")[0] as RigidBody;
         PauseMenu = GetParent().GetParent().GetNode<Pause_menu>("Pause_menu");
         Accelerate_button = GetNode<TouchScreenButton>("Acceleration/Accelerate");
         Brake = GetNode<TouchScreenButton>("Acceleration/Brake");

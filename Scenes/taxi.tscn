@@ -633,6 +633,8 @@ skeleton = NodePath("../..")
 
 [node name="RayCast" type="RayCast" parent="Spatial"]
 enabled = true
+cast_to = Vector3( 0, -1.5, 0 )
+collide_with_areas = true
 
 [node name="Healthbar" parent="Spatial" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239 )

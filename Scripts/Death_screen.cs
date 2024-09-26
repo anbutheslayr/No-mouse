@@ -51,7 +51,7 @@ public class Death_screen : Control
             var audio_bus = AudioServer.GetBusIndex("Master");
             AudioServer.SetBusMute(audio_bus, false);
         }
-        GetTree().ChangeScene("res://Scenes/World.tscn");
+        GetTree().ChangeScene("res://Scenes/Worlds/World.tscn");
     }
 
     public void OnQuitToMMPressed()

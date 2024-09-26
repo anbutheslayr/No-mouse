@@ -38,6 +38,7 @@ navigation=false
 groups=true
 export=false
 global=false
+import=false
 
 [gui]
 
