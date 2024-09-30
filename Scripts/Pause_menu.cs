@@ -19,7 +19,7 @@ public class Pause_menu : Control
         vb2 = GetNode<VBoxContainer>("MarginContainer/HBoxContainer/VBoxContainer");
         vb2.AddConstantOverride("separation", (int)(Res.res.y/1080*30));
         inter_face = GetParent().GetNode<Control>("taxi/Interface");
-        plane = GetParent().GetNode<RigidBody>("Plane");
+        plane = GetTree().GetNodesInGroup("Plane")[0] as RigidBody;
 
     }
 

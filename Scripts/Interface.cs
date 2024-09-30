@@ -25,6 +25,7 @@ public class Interface : Control
     public int kill=1;
     public Timer change_world_timer;
     public int cur_world = 1;
+    [Export] public int min_kills = 6;
     public override void _Ready()
     {
         plane = GetTree().GetNodesInGroup("Plane")[0] as RigidBody;
@@ -58,6 +59,7 @@ public class Interface : Control
         SetGlow(Res.Glow);
         
         RepositionAndResize(Res.res);
+        SetQuality(Res.Quality);
     }
     public void Verify_res()
     {
@@ -80,6 +82,20 @@ public class Interface : Control
             ResourceSaver.Save("user://Int/Res.tres", Res);
             Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
  
+        }
+    }
+    public void SetQuality(int quality)
+    {
+        switch(quality)
+        {
+            case 0:
+                ProjectSettings.SetSetting("rendering/quality/depth/hdr" , true);
+                ProjectSettings.SetSetting("rendering/quality/depth/hdr.mobile" , true);
+                break;
+            case 1:
+                ProjectSettings.SetSetting("rendering/quality/depth/hdr" , false);
+                ProjectSettings.SetSetting("rendering/quality/depth/hdr.mobile" , false);
+                break;
         }
     }
     
@@ -197,19 +213,22 @@ public class Interface : Control
         if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count !=0)
         {
             enemy_spawntext.Text = "All " + Res.NoOfEnemies+"/"+Res.NoOfEnemies +" enemies spawned";
-            if(Res.NoOfEnemies >= 6)
+            if(Res.NoOfEnemies >= min_kills && cur_world < Res.max_worlds)
             {
                 change_world_timer.Start(10);    
             }
         }
-        if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0 && !dead && Res.NoOfEnemies >= 6)
+        if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0 && !dead && Res.NoOfEnemies >= min_kills)
         {
-            enemy_spawntext.Text = "\n\n Teleporting to next world in " + (int)change_world_timer.TimeLeft;
+            if(cur_world < Res.max_worlds)
+            {
+                enemy_spawntext.Text = "\n\n Teleporting to next world in " + (int)change_world_timer.TimeLeft;
+            }
             won = true;
         }
-        else if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0 && !dead && Res.NoOfEnemies < 6)
+        else if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0 && !dead && Res.NoOfEnemies < min_kills)
         {
-            enemy_spawntext.Text = "\n\n\nAtleast defeat 6 enemies to get to next world \n You can change the number of enemies in settings";
+            enemy_spawntext.Text = "\n\n\nAtleast defeat " + min_kills + " enemies to get to next world \n You can change the number of enemies in settings";
             won = true;
         }
         if(dead && !won)

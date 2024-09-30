@@ -34,9 +34,10 @@ surfaces/1 = {
 height = 1.08979
 radius = 0.200912
 
-[node name="trunk-long" type="StaticBody"]
+[node name="trunk-long" type="StaticBody" groups=["Obstacle"]]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+layers = 3
 mesh = SubResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

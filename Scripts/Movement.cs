@@ -77,6 +77,9 @@ public class Movement : Spatial
 		cam = GetParent().GetNode<Camera>("Camera");
 		min_map_cam = GetNode<Camera>(min_map_cam_path);
 		exp = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
+		var i = exp.Instance() as Spatial;
+		GetTree().Root.AddChild(i);
+		i.GlobalTranslation = ball.GlobalTranslation;
 
 		// jump_timer = new Timer();
 		// AddChild(jump_timer);

@@ -33,9 +33,10 @@ surfaces/1 = {
 [sub_resource type="ConvexPolygonShape" id=2]
 points = PoolVector3Array( -0.52845, 0, -0.3266, -0.52845, 0, 0.3266, -0.52845, 0.0599922, -0.3266, 0.52845, 0, -0.3266, -0.52845, 0.0599922, 0.3266, 0.52845, 0, 0.3266, -0.475481, 0.47, -0.282035, 0.52845, 0.0599922, -0.3266, -0.475481, 0.47, 0.281971, 0.52845, 0.0599922, 0.3266, 0.475377, 0.47, -0.282035, 0.475377, 0.47, 0.281971 )
 
-[node name="altar-wood" type="StaticBody"]
+[node name="altar-wood" type="StaticBody" groups=["Obstacle"]]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+layers = 3
 mesh = SubResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
