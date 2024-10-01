@@ -190,6 +190,7 @@ public class Movement : Spatial
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
+		//Screenshot
 		if(Input.IsActionJustPressed("Save"))
 		{
 			var image = GetViewport().GetTexture().GetData();
