@@ -240,6 +240,15 @@ texture_pressed = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
+[node name="WindowDialog" type="WindowDialog" parent="."]
+visible = true
+margin_left = 684.0
+margin_top = 379.0
+margin_right = 1208.0
+margin_bottom = 614.0
+theme = ExtResource( 2 )
+window_title = "Accept"
+
 [connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/OptionButton" to="." method="OnOptionSelect"]
 [connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/Shadow" to="." method="OnShadowSelect"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer2/VBoxContainer/Glow" to="." method="OnGlowToggled"]

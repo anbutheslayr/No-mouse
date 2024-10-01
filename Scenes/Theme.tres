@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=2]
+[gd_resource type="Theme" load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Theme_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Interface/Textures/Slider ball.png" type="Texture" id=2]
@@ -84,6 +84,21 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id=47]
+bg_color = Color( 0.639216, 0.286275, 0.286275, 1 )
+
+[sub_resource type="StyleBoxFlat" id=48]
+bg_color = Color( 0.85098, 0.376471, 0.376471, 1 )
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color( 0.533333, 0.329412, 0.329412, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [resource]
 default_font = ExtResource( 1 )
 Button/styles/hover = SubResource( 41 )
@@ -100,3 +115,11 @@ HSlider/styles/grabber_area = SubResource( 46 )
 HSlider/styles/grabber_area_highlight = SubResource( 43 )
 OptionButton/styles/hover = SubResource( 42 )
 OptionButton/styles/normal = SubResource( 43 )
+PopupDialog/styles/panel = SubResource( 47 )
+WindowDialog/colors/title_color = Color( 1, 1, 1, 1 )
+WindowDialog/constants/close_h_ofs = 18
+WindowDialog/constants/close_v_ofs = 0
+WindowDialog/constants/scaleborder_size = 20
+WindowDialog/constants/title_height = 8
+WindowDialog/fonts/title_font = ExtResource( 1 )
+WindowDialog/styles/panel = SubResource( 48 )

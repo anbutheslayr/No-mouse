@@ -91,10 +91,12 @@ public class Interface : Control
             case 0:
                 ProjectSettings.SetSetting("rendering/quality/depth/hdr" , true);
                 ProjectSettings.SetSetting("rendering/quality/depth/hdr.mobile" , true);
+                ProjectSettings.SaveCustom("res://override.cfg");
                 break;
             case 1:
                 ProjectSettings.SetSetting("rendering/quality/depth/hdr" , false);
                 ProjectSettings.SetSetting("rendering/quality/depth/hdr.mobile" , false);
+                ProjectSettings.SaveCustom("res://override.cfg");
                 break;
         }
     }

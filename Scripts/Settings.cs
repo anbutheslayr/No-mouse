@@ -107,6 +107,19 @@ public class Settings : Control
     {
         Res.Quality = index;
         ResourceSaver.Save("user://Int/Res.tres", Res);
+        switch (index)
+        {
+            case 0:
+                ProjectSettings.SetSetting("rendering/quality/depth/hdr", true);
+                ProjectSettings.SetSetting("rendering/quality/depth/hdr.mobile", true);
+                ProjectSettings.SaveCustom("res://override.cfg");
+                break;
+            case 1:
+                ProjectSettings.SetSetting("rendering/quality/depth/hdr", false);
+                ProjectSettings.SetSetting("rendering/quality/depth/hdr.mobile", false);
+                ProjectSettings.SaveCustom("res://override.cfg");
+                break;
+        }
     }
     public void OnOptionSelect(int index)
     {

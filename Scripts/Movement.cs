@@ -194,7 +194,7 @@ public class Movement : Spatial
 		{
 			var image = GetViewport().GetTexture().GetData();
 			image.FlipY();
-			image.SavePng("D:/Godot export/SS/" + im + ".png");
+			image.SavePng("D:/Godot export/SS/World2/" + im + ".png");
 			im++;
 		}
 		// turning wheels
