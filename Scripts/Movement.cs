@@ -231,7 +231,6 @@ public class Movement : Spatial
 		// Align with surface
 		if(rayCast.IsColliding())
 		{
-			 ;
 			var xform = Alignwithsurface(Car_mesh.GlobalTransform ,rayCast.GetCollisionNormal().Normalized());
 			Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , turn_speed * 2 * delta);
 		}

@@ -52,6 +52,10 @@ public class Gun : Spatial
             enemies.Add(body as Spatial);
             // GD.Print(enemies);
         }
+        if(body.IsInGroup("Runnable"))
+        {
+            enemies.Add(body as Spatial);
+        }
     }
     public void OnExit(Node body)
     {
@@ -139,6 +143,11 @@ public class Gun : Spatial
                 enemy.Call("Calculate_Health" , gun_damage);
                 // GD.Print("damage = " + gun_damage);
             }
+            if( (ray_cast.GetCollider() as Node).IsInGroup("Runnable") || (ray_cast.GetCollider() as Node).IsInGroup("Runnable_Body"))
+            {
+                
+            }
+            audioStreamPlayer.Play();
         }
         else if(cur_ammo <= 0)
         {

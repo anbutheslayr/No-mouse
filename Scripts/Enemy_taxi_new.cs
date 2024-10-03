@@ -102,9 +102,7 @@ public class Enemy_taxi_new : Spatial
 	public override void _PhysicsProcess(float delta)
 	{
 		// align mesh with sphere
-		var trnsform = Car_mesh.Transform;
-		trnsform.origin = ball.Transform.origin + sphere_offset;
-		Car_mesh.Transform = trnsform;
+		Car_mesh.Translation = ball.Translation + sphere_offset;
 		//Accelerate
 		if(Is_on_ramp)
 		{
@@ -113,9 +111,8 @@ public class Enemy_taxi_new : Spatial
 		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z * speed_input);
 		// GD.Print(speed_input);
 		// Smoke
-		var ball_velocity = ball.LinearVelocity.Normalized();
 		var car_mesh_forward = -Car_mesh.GlobalTransform.basis.z.Normalized();
-		var dot_product = ball_velocity.Dot(car_mesh_forward);
+		var dot_product = ball.LinearVelocity.Normalized().Dot(car_mesh_forward);
 		
 		if(rayCast.IsColliding() && ball.LinearVelocity.Length() >13 && dot_product < 0.85 && dot_product > 0)
 		{
@@ -145,14 +142,6 @@ public class Enemy_taxi_new : Spatial
 			next_point = nav_agent.GetNextLocation();
 			update_path_timer.Start(0.035f);
 		}
-		// if(p.Count > 0)
-		// {
-		// 	next_point = p[1];
-		// 	if(Car_mesh.GlobalTransform.origin.DistanceTo(next_point) < 1.5)
-		// 	{
-		// 		p.RemoveAt(1);
-		// 	}
-		// }
 		var direction = next_point - Car_mesh.GlobalTransform.origin;
         var angle = Calculate_Angle(direction);
 		// GD.Print("Angle : " + angle);

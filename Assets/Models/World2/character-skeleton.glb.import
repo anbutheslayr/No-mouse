@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/character-skeleton.obj-f56e27d2a77f6f6334fd7b55901e297f.scn"
+path="res://.import/character-skeleton.glb-bea24546c4dde440d3e95ed0693924fb.scn"
 
 [deps]
 
-source_file="res://Assets/Models/World2/character-skeleton.obj"
-dest_files=[ "res://.import/character-skeleton.obj-f56e27d2a77f6f6334fd7b55901e297f.scn" ]
+source_file="res://Assets/Models/World2/character-skeleton.glb"
+dest_files=[ "res://.import/character-skeleton.glb-bea24546c4dde440d3e95ed0693924fb.scn" ]
 
 [params]
 
@@ -28,7 +28,7 @@ meshes/light_baking=0
 meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 external_files/store_in_subdir=false
-animation/import=true
+animation/import=false
 animation/fps=15
 animation/filter_script=""
 animation/storage=false
