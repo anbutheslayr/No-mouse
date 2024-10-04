@@ -51,7 +51,10 @@ public class Death_screen : Control
             var audio_bus = AudioServer.GetBusIndex("Master");
             AudioServer.SetBusMute(audio_bus, false);
         }
-        GetTree().ChangeScene("res://Scenes/Worlds/World.tscn");
+        if(Res.cur_world ==1)
+            GetTree().ChangeScene("res://Scenes/Worlds/World.tscn");
+        else
+            GetTree().ChangeScene("res://Scenes/Worlds/World"+Res.cur_world+".tscn");
     }
 
     public void OnQuitToMMPressed()
@@ -63,5 +66,7 @@ public class Death_screen : Control
             var audio_bus = AudioServer.GetBusIndex("Master");
             AudioServer.SetBusMute(audio_bus, false);
         }
+        Res.cur_world = 1;
+        ResourceSaver.Save("res://Interface/Res.tres", Res);
     }
 }

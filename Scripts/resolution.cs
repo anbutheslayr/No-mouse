@@ -12,6 +12,6 @@ public class resolution : Resource
     [Export] public int volume = 0;
     [Export] public float Drift_points = 0;
     [Export] public int max_worlds = 2;
-    [Export] public int Quality = 0;
+    [Export] public int cur_world = 1;
 
 }

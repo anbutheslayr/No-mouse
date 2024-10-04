@@ -205,7 +205,7 @@ size = Vector3( 0.005, 0.087, 0.007 )
 size = Vector3( -0.012, 0.087, -0.018 )
 
 [sub_resource type="CylinderShape" id=17]
-height = 2.28552
+height = 3.59778
 radius = 10.0
 
 [sub_resource type="Animation" id=23]
@@ -638,6 +638,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239 )
 [node name="DetectionArea" type="Area" parent="Spatial" groups=["Player_body"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="Spatial/DetectionArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764219, 0 )
 shape = SubResource( 17 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Spatial"]

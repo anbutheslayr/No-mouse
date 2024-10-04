@@ -19,10 +19,8 @@ public class Settings : Control
     public TextureButton Esc;
     public OptionButton NoOfEnemies;
     public HSlider volume;
-    public OptionButton Quality_button;
     public override void _Ready()
     {
-        Quality_button = GetNode<OptionButton>("MarginContainer/HBoxContainer2/VBoxContainer/Quality");
         Esc = GetNode<TextureButton>("TextureButton");
         Verify_res();
         title_font = GD.Load<DynamicFont>("res://Scenes/FONT.tres");
@@ -71,11 +69,6 @@ public class Settings : Control
         NoOfEnemies.AddItem("10");
         NoOfEnemies.Selected = Res.NoOfEnemies-1;
 
-        Quality_button.AddItem("Default", 0);
-        Quality_button.AddItem("Low", 1);
-
-        Quality_button.Selected = Res.Quality;
-
         volume.Value = Res.volume;
         GD.Print("Volume : " +Res.volume);
 
@@ -101,24 +94,6 @@ public class Settings : Control
             ResourceSaver.Save("user://Int/Res.tres", Res);
             Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
  
-        }
-    }
-    public void On_Quality_Select(int index)
-    {
-        Res.Quality = index;
-        ResourceSaver.Save("user://Int/Res.tres", Res);
-        switch (index)
-        {
-            case 0:
-                ProjectSettings.SetSetting("rendering/quality/depth/hdr", true);
-                ProjectSettings.SetSetting("rendering/quality/depth/hdr.mobile", true);
-                ProjectSettings.SaveCustom("res://override.cfg");
-                break;
-            case 1:
-                ProjectSettings.SetSetting("rendering/quality/depth/hdr", false);
-                ProjectSettings.SetSetting("rendering/quality/depth/hdr.mobile", false);
-                ProjectSettings.SaveCustom("res://override.cfg");
-                break;
         }
     }
     public void OnOptionSelect(int index)

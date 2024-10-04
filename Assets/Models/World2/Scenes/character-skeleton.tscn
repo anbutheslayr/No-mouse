@@ -1,8 +1,9 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Assets/Models/World2/colormap.material" type="Material" id=1]
 [ext_resource path="res://Scenes/EnemyHealthbar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Skeleton.cs" type="Script" id=3]
+[ext_resource path="res://Assets/Materials/Skeleton.png" type="Texture" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "character-skeleton_leg-left"
@@ -94,41 +95,11 @@ surfaces/0 = {
 "vertex_count": 80
 }
 
-[sub_resource type="ConvexPolygonShape" id=32]
-points = PoolVector3Array( 0.100869, 0.259131, 0.129131, -0.1, 0.00197134, -0.128029, 0.1, 0.00198116, -0.128019, -0.100865, 0.259135, -0.129135, -0.1, 0.00197134, 0.128029, -0.129128, 0.230872, 0.129136, 0.129132, 0.230868, -0.129132, 0.129376, 0.0451, 0.129376, -0.129369, 0.0451, -0.129376, 0.1, 0.00198116, 0.128019, 0.129376, 0.0451, -0.129376, -0.129369, 0.0451, 0.129376, -0.100865, 0.259135, 0.129135, 0.100869, 0.259131, -0.129131, -0.129128, 0.230872, -0.129136, 0.129132, 0.230868, 0.129132 )
+[sub_resource type="ConvexPolygonShape" id=47]
+points = PoolVector3Array( 0.0999941, 0.26, 0.13, 0.13, 0.229994, 0.13, 0.0999941, 0.26, -0.13, -0.10002, 0.26, 0.13, 0.13, 0.229994, -0.13, 0.13, 0.0451233, 0.13, -0.10002, 0.26, -0.13, -0.13, 0.229994, 0.13, 0.13, 0.0451233, -0.13, 0.0999941, -9.02389e-17, 0.13, -0.13, 0.229994, -0.13, -0.13, 0.0451233, 0.13, 0.0999941, -9.02389e-17, -0.13, -0.10002, -9.02389e-17, 0.13, -0.13, 0.0451233, -0.13, -0.10002, -9.02389e-17, -0.13 )
 
-[sub_resource type="ConvexPolygonShape" id=33]
-points = PoolVector3Array( 0.0360435, 0.085489, -0.0726335, 0.132054, 0.113489, 0.0547401, 0.119664, 0.113489, 0.0588655, 0.0330159, 0.113489, -0.0773016, 0.0346087, 0.0850705, 0.072941, 0.12863, 0.0856046, -0.0527937, 0.0330159, 0.113489, 0.0753968, 0.132054, 0.113489, -0.0566448, 0.13, 0.085205, 0.0524302, 0.0454053, 0.113489, 0.0753968, 0.0371554, 0.113489, -0.0773016 )
-
-[sub_resource type="ConvexPolygonShape" id=34]
-points = PoolVector3Array( -0.0288889, 0.0722222, -0.102063, 0.0330159, 0.113488, 0.0753956, 0.0288832, 0.134127, 0.100159, 0.0288832, 0.134127, -0.102063, -0.0288889, 0.134127, 0.100159, 0.0288832, 0.0722222, 0.100159, 0.0288832, 0.0722222, -0.102063, -0.0288889, 0.0722222, 0.100159, -0.0288889, 0.134127, -0.102063, 0.0330159, 0.113488, -0.0773004, 0.0322276, 0.0850868, 0.0734512, 0.0315171, 0.0855128, -0.0736035 )
-
-[sub_resource type="ConvexPolygonShape" id=35]
-points = PoolVector3Array( 0.0368065, 0.16, -0.0714572, 0.132054, 0.187778, 0.0547401, 0.119664, 0.187778, 0.0588655, 0.0330159, 0.187778, -0.0773016, 0.0368065, 0.16, 0.0695524, 0.128263, 0.16, -0.0523817, 0.0330159, 0.187778, 0.0753968, 0.132054, 0.187778, -0.0566448, 0.128263, 0.16, 0.0504769, 0.0482475, 0.16, 0.0695524, 0.0454053, 0.187778, 0.0753968, 0.0371554, 0.187778, -0.0773016, 0.101585, 0.16, 0.0581099, 0.0406291, 0.16, -0.0714572 )
-
-[sub_resource type="ConvexPolygonShape" id=36]
-points = PoolVector3Array( 0.0330159, 0.187768, 0.0753956, -0.0288889, 0.134127, -0.102063, -0.0288889, 0.200159, -0.102063, -0.0288889, 0.134127, 0.100159, 0.0288832, 0.134127, -0.102063, -0.0288889, 0.200159, 0.100159, 0.0288832, 0.200159, -0.102063, 0.0288832, 0.134127, 0.100159, 0.0288832, 0.200159, 0.100159, 0.0330159, 0.158889, -0.0773004, 0.0330159, 0.187768, -0.0773004, 0.0330159, 0.158889, 0.0753956 )
-
-[sub_resource type="ConvexPolygonShape" id=37]
-points = PoolVector3Array( -0.12851, 0.085598, -0.0528192, -0.025, 0.114581, 0.0811685, -0.025, 0.114581, -0.0830732, -0.0303061, 0.085, 0.0733138, -0.132053, 0.113489, 0.0547401, -0.0313769, 0.0852998, -0.0736335, -0.132053, 0.113489, -0.0566448, -0.129982, 0.0851859, 0.0525038, -0.103162, 0.113489, 0.0630058 )
-
-[sub_resource type="ConvexPolygonShape" id=38]
-points = PoolVector3Array( -0.0288889, 0.0515873, -0.102063, 0.0288889, 0.0722222, 0.100159, 0.0288889, 0.0515873, 0.100159, 0.0288889, 0.0722222, -0.102063, -0.0288889, 0.0722222, 0.100159, -0.0288889, 0.0515873, 0.100159, 0.0288889, 0.0515873, -0.102063, -0.0288889, 0.0722222, -0.102063 )
-
-[sub_resource type="ConvexPolygonShape" id=39]
-points = PoolVector3Array( 0.0266577, -3.46945e-18, 0.0733233, -0.025, 0.00153983, -0.0884817, -0.121905, 3.46945e-18, -0.0523698, -0.124249, 0.05, 0.0514538, 0.124249, 0.05, -0.0533586, -0.124249, 0.05, -0.0533586, 0.124249, 0.05, 0.0514538, 0.121905, -3.46945e-18, -0.0523698, -0.121905, -3.46945e-18, 0.050465, -0.025, 0.047984, 0.086577, 0.121905, 3.46945e-18, 0.050465, 0.025, 0.047984, -0.0884817, 0.025, 0.0194065, 0.086577, 0.025, 0.00153983, -0.0884817, -0.025, 0.047984, -0.0884817, -0.025, 0.0194065, 0.086577, 0.025, 0.047984, 0.086577, -0.0266577, -6.93889e-18, 0.0733233, 0.0952232, 0, 0.0580844, -0.0952232, 0, 0.0580844 )
-
-[sub_resource type="ConvexPolygonShape" id=40]
-points = PoolVector3Array( 0.0330159, 0.233177, -0.0773016, 0.132054, 0.262061, 0.0547401, 0.119664, 0.262061, 0.0588655, 0.0330159, 0.262061, -0.0773016, 0.0330159, 0.233177, 0.0753968, 0.132054, 0.233177, -0.0566448, 0.0330159, 0.262061, 0.0753968, 0.132054, 0.233177, 0.0547401, 0.132054, 0.262061, -0.0566448, 0.0454053, 0.233177, 0.0753968, 0.0454053, 0.262061, 0.0753968, 0.0371554, 0.262061, -0.0773016, 0.0371554, 0.233177, -0.0773016, 0.103165, 0.262061, 0.0630058 )
-
-[sub_resource type="ConvexPolygonShape" id=41]
-points = PoolVector3Array( -0.0288889, 0.200159, -0.102063, 0.0309582, 0.26, 0.0703202, 0.0288832, 0.262057, 0.100159, 0.0288832, 0.200159, 0.100159, -0.0288889, 0.262057, 0.100159, 0.0288832, 0.262057, -0.102063, 0.0288832, 0.200159, -0.102063, -0.0288889, 0.200159, 0.100159, -0.0288889, 0.262057, -0.102063, 0.0330159, 0.233168, -0.0773004, 0.0330159, 0.233168, 0.0753956, 0.0309582, 0.26, -0.072225 )
-
-[sub_resource type="ConvexPolygonShape" id=42]
-points = PoolVector3Array( -0.128105, 0.16, -0.0523817, -0.025, 0.188869, 0.0811685, -0.025, 0.188869, -0.0830732, -0.025, 0.157803, 0.0811685, -0.132053, 0.187778, 0.0547401, -0.025, 0.157803, -0.0830732, -0.132053, 0.187778, -0.0566448, -0.128105, 0.16, 0.0504769, -0.119673, 0.187778, 0.0588655 )
-
-[sub_resource type="ConvexPolygonShape" id=43]
-points = PoolVector3Array( -0.132053, 0.233177, -0.0566448, -0.028899, 0.262061, 0.0753968, -0.0454098, 0.262061, 0.0753968, -0.028899, 0.262061, -0.0773016, -0.025, 0.232086, 0.0811685, -0.132053, 0.262061, 0.0547401, -0.025, 0.232086, -0.0830732, -0.132053, 0.262061, -0.0566448, -0.132053, 0.233177, 0.0547401, -0.103162, 0.262061, 0.0630058, -0.0371594, 0.262061, -0.0773016 )
+[sub_resource type="ConvexPolygonShape" id=46]
+points = PoolVector3Array( 0.13, 0.26, 0.0524863, 0.13, 0.26, -0.0525059, 0.0249922, 0.26, 0.1, 0.13, 2.70717e-16, 0.0524863, 0.13, 2.70717e-16, -0.0525059, 0.0249922, 0.26, -0.1, 0.0249922, 0.0249922, 0.1, -0.0250176, 0.26, 0.1, 0.0249922, 2.70717e-16, 0.075, 0.0249922, 2.70717e-16, -0.1, -0.0250176, 0.26, -0.1, -0.0250176, 0.0249922, 0.1, -0.13, 0.26, 0.0524863, -0.0250176, 2.70717e-16, 0.075, -0.0250176, 2.70717e-16, -0.1, -0.13, 0.26, -0.0525059, -0.13, 2.70717e-16, 0.0524863, -0.13, 2.70717e-16, -0.0525059 )
 
 [sub_resource type="Animation" id=7]
 resource_name = "attack-kick-left"
@@ -1110,76 +1081,54 @@ radius = 0.9
 [node name="character-skeleton" type="Spatial" parent="."]
 transform = Transform( -3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, 0, 0, 0 )
 script = ExtResource( 3 )
-acceleration = 17
+acceleration = 30
 
 [node name="root" type="Spatial" parent="character-skeleton"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0146933, 0 )
 
 [node name="leg-left" type="MeshInstance" parent="character-skeleton/root"]
-transform = Transform( 0.8584, 0, 0, 0, 0.661728, -0.546778, 0, 0.546778, 0.661728, 0.074204, 0.223184, -7.21911e-16 )
+transform = Transform( 0.8584, 0, 0, 0, 0.8584, 0, 0, 0, 0.8584, 0.074204, 0.223184, -7.21911e-16 )
 mesh = SubResource( 1 )
 
 [node name="leg-right" type="MeshInstance" parent="character-skeleton/root"]
-transform = Transform( 0.8584, 0, 0, 0, 0.661728, 0.546778, 0, -0.546778, 0.661728, -0.074204, 0.223184, -7.21911e-16 )
+transform = Transform( 0.8584, 0, 0, 0, 0.8584, 0, 0, 0, 0.8584, -0.074204, 0.223184, -7.21911e-16 )
 mesh = SubResource( 2 )
 
 [node name="torso" type="MeshInstance" parent="character-skeleton/root"]
-transform = Transform( 0.994029, 0, 0.109112, 0, 1, 0, -0.109112, 0, 0.994029, -1.44382e-15, 0.223184, -7.21911e-16 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44382e-15, 0.223184, -7.21911e-16 )
 mesh = SubResource( 3 )
 
 [node name="arm-left" type="MeshInstance" parent="character-skeleton/root/torso"]
-transform = Transform( 0.763975, 0.560527, -0.319613, -0.590198, 0.807244, 0.00496017, 0.260786, 0.184845, 0.947535, 0.15, 0.225, 0.0025 )
+transform = Transform( 0.707108, 0.707106, 0, -0.707106, 0.707108, 0, 0, 0, 1, 0.15, 0.225, 0.0025 )
 mesh = SubResource( 4 )
 
 [node name="arm-right" type="MeshInstance" parent="character-skeleton/root/torso"]
-transform = Transform( 0.763975, -0.560527, -0.319613, 0.590198, 0.807244, -0.00496017, 0.260786, -0.184845, 0.947535, -0.15, 0.225, 0.0025 )
+transform = Transform( 0.707108, -0.707106, 0, 0.707106, 0.707108, 0, 0, 0, 1, -0.15, 0.225, 0.0025 )
 mesh = SubResource( 5 )
 
 [node name="head" type="MeshInstance" parent="character-skeleton/root/torso"]
-transform = Transform( 0.997715, 0, -0.0675568, 0, 1, 0, 0.0675568, 0, 0.997715, 0, 0.26, 7.21911e-16 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26, 7.21911e-16 )
 mesh = SubResource( 6 )
 
-[node name="Head" type="RigidBody" parent="character-skeleton/root/torso/head" groups=["Runnable_head"]]
+[node name="Head" type="RigidBody" parent="character-skeleton/root/torso/head"]
 
 [node name="CollisionShape" type="CollisionShape" parent="character-skeleton/root/torso/head/Head"]
-shape = SubResource( 32 )
+transform = Transform( 1, 0, 7.45058e-09, 0, 1, 0, -7.45058e-09, 0, 1, 0, 0, 0 )
+shape = SubResource( 47 )
 
 [node name="Torso" type="RigidBody" parent="character-skeleton/root/torso" groups=["Runnable"]]
-
-[node name="CollisionShape11" type="CollisionShape" parent="character-skeleton/root/torso/Torso"]
-shape = SubResource( 33 )
-
-[node name="CollisionShape10" type="CollisionShape" parent="character-skeleton/root/torso/Torso"]
-shape = SubResource( 34 )
-
-[node name="CollisionShape9" type="CollisionShape" parent="character-skeleton/root/torso/Torso"]
-shape = SubResource( 35 )
-
-[node name="CollisionShape8" type="CollisionShape" parent="character-skeleton/root/torso/Torso"]
-shape = SubResource( 36 )
-
-[node name="CollisionShape7" type="CollisionShape" parent="character-skeleton/root/torso/Torso"]
-shape = SubResource( 37 )
-
-[node name="CollisionShape6" type="CollisionShape" parent="character-skeleton/root/torso/Torso"]
-shape = SubResource( 38 )
-
-[node name="CollisionShape5" type="CollisionShape" parent="character-skeleton/root/torso/Torso"]
-shape = SubResource( 39 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="character-skeleton/root/torso/Torso"]
-shape = SubResource( 40 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="character-skeleton/root/torso/Torso"]
-shape = SubResource( 41 )
-
-[node name="CollisionShape2" type="CollisionShape" parent="character-skeleton/root/torso/Torso"]
-shape = SubResource( 42 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="character-skeleton/root/torso/Torso"]
-shape = SubResource( 43 )
+transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 0, 0, 0 )
+shape = SubResource( 46 )
 
 [node name="NavigationAgent" type="NavigationAgent" parent="character-skeleton/root"]
+
+[node name="Sprite3D" type="Sprite3D" parent="character-skeleton/root"]
+layers = 2
+billboard = 1
+texture = ExtResource( 4 )
 
 [node name="Healthbar" parent="character-skeleton" instance=ExtResource( 2 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 2, 0, 0.913208, 0 )
@@ -1190,7 +1139,7 @@ enabled = true
 cast_to = Vector3( 0, -0.3, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "walk"
+autoplay = "sprint"
 anims/attack-kick-left = SubResource( 7 )
 anims/attack-kick-right = SubResource( 8 )
 anims/attack-melee-left = SubResource( 9 )
@@ -1224,6 +1173,7 @@ collision_mask = 8
 physics_material_override = SubResource( 45 )
 gravity_scale = 10.0
 contacts_reported = 3
+contact_monitor = true
 angular_damp = 10.0
 
 [node name="CollisionShape" type="CollisionShape" parent="Ball"]

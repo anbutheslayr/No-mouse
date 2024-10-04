@@ -55,11 +55,18 @@ public class Gun : Spatial
         if(body.IsInGroup("Runnable"))
         {
             enemies.Add(body as Spatial);
+            // GD.Print(enemies);
         }
+        
     }
     public void OnExit(Node body)
     {
         if(body.IsInGroup("Enemy"))
+        {
+            enemies.Remove(body as Spatial);
+            player.Call("Close_miss" , body);
+        }
+        if(body.IsInGroup("Runnable"))
         {
             enemies.Remove(body as Spatial);
             player.Call("Close_miss" , body);
@@ -85,7 +92,12 @@ public class Gun : Spatial
             
             if( gun.GlobalTransform.origin.DistanceTo(closest_enemy.GlobalTransform.origin) > Range )
             {
-                gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , Aim_speed),Vector3.Up);
+                var aimspd = Aim_speed;
+                if(GetClosestEnemy().IsInGroup("Runnable"))
+                {
+                    aimspd = 0.8f;
+                }
+                gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , aimspd),Vector3.Up);
                 if(anim.CurrentAnimation != "Shoot" && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Gun_descend")
                 {
                     anim.Play("Shoot");
@@ -143,9 +155,9 @@ public class Gun : Spatial
                 enemy.Call("Calculate_Health" , gun_damage);
                 // GD.Print("damage = " + gun_damage);
             }
-            if( (ray_cast.GetCollider() as Node).IsInGroup("Runnable") || (ray_cast.GetCollider() as Node).IsInGroup("Runnable_Body"))
+            if( (ray_cast.GetCollider() as Node).IsInGroup("Runnable"))
             {
-                
+                (ray_cast.GetCollider() as Node).GetParent().GetParent().GetParent().Call("Calculate_Health");
             }
             audioStreamPlayer.Play();
         }

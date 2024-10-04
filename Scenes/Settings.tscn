@@ -60,76 +60,64 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 334.0
+margin_top = 368.0
 margin_right = 240.0
-margin_bottom = 334.0
+margin_bottom = 368.0
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 354.0
+margin_top = 388.0
 margin_right = 240.0
-margin_bottom = 382.0
+margin_bottom = 416.0
 theme = ExtResource( 2 )
 text = "RESOLUTION"
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 402.0
+margin_top = 436.0
 margin_right = 240.0
-margin_bottom = 402.0
+margin_bottom = 436.0
 
 [node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 422.0
+margin_top = 456.0
 margin_right = 240.0
-margin_bottom = 450.0
+margin_bottom = 484.0
 theme = ExtResource( 2 )
 text = "Shadows"
 
 [node name="Control3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 470.0
+margin_top = 504.0
 margin_right = 240.0
-margin_bottom = 470.0
+margin_bottom = 504.0
 
 [node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 490.0
+margin_top = 524.0
 margin_right = 240.0
-margin_bottom = 518.0
+margin_bottom = 552.0
 theme = ExtResource( 2 )
 text = "glow"
 
 [node name="Control4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 538.0
+margin_top = 572.0
 margin_right = 240.0
-margin_bottom = 538.0
+margin_bottom = 572.0
 
 [node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 558.0
+margin_top = 592.0
 margin_right = 240.0
-margin_bottom = 586.0
+margin_bottom = 620.0
 theme = ExtResource( 2 )
 text = "Enemies"
 
 [node name="Control5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 606.0
+margin_top = 640.0
 margin_right = 240.0
-margin_bottom = 606.0
+margin_bottom = 640.0
 
 [node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 626.0
+margin_top = 660.0
 margin_right = 240.0
-margin_bottom = 654.0
+margin_bottom = 688.0
 theme = ExtResource( 2 )
 text = "Volume"
-
-[node name="Control6" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 674.0
-margin_right = 240.0
-margin_bottom = 674.0
-
-[node name="Label6" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 694.0
-margin_right = 240.0
-margin_bottom = 722.0
-theme = ExtResource( 2 )
-text = "Quality"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
 margin_left = 12.0
@@ -140,95 +128,82 @@ custom_constants/separation = 300
 alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer2"]
-margin_left = 1168.0
-margin_right = 1596.0
+margin_left = 1468.0
+margin_right = 1896.0
 margin_bottom = 1056.0
 custom_constants/separation = 20
 alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 323.0
+margin_top = 347.0
 margin_right = 428.0
-margin_bottom = 323.0
+margin_bottom = 347.0
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 343.0
+margin_top = 367.0
 margin_right = 428.0
-margin_bottom = 371.0
+margin_bottom = 395.0
 theme = ExtResource( 2 )
 text = "            select            "
 align = 1
 icon_align = 1
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 391.0
+margin_top = 415.0
 margin_right = 428.0
-margin_bottom = 391.0
+margin_bottom = 415.0
 
 [node name="Shadow" type="OptionButton" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 411.0
+margin_top = 435.0
 margin_right = 428.0
-margin_bottom = 439.0
+margin_bottom = 463.0
 theme = ExtResource( 2 )
 text = "            Medium            "
 align = 1
 
 [node name="Control3" type="Control" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 459.0
+margin_top = 483.0
 margin_right = 428.0
-margin_bottom = 459.0
+margin_bottom = 483.0
 
 [node name="Glow" type="CheckBox" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 479.0
+margin_top = 503.0
 margin_right = 428.0
-margin_bottom = 507.0
+margin_bottom = 531.0
 theme = ExtResource( 2 )
 text = "            Enabled            "
 align = 1
 
 [node name="Control4" type="Control" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 527.0
+margin_top = 551.0
 margin_right = 428.0
-margin_bottom = 527.0
+margin_bottom = 551.0
 
 [node name="NoOfEnemies" type="OptionButton" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 547.0
+margin_top = 571.0
 margin_right = 428.0
-margin_bottom = 575.0
+margin_bottom = 599.0
 theme = ExtResource( 2 )
 text = "0"
 align = 1
 
 [node name="Control5" type="Control" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 595.0
+margin_top = 619.0
 margin_right = 428.0
-margin_bottom = 595.0
+margin_bottom = 619.0
 
 [node name="Hslider" type="HSlider" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 615.0
+margin_top = 639.0
 margin_right = 428.0
-margin_bottom = 665.0
+margin_bottom = 689.0
 theme = ExtResource( 2 )
 min_value = -15.0
 max_value = 10.0
 
 [node name="Control6" type="Control" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 685.0
+margin_top = 709.0
 margin_right = 428.0
-margin_bottom = 685.0
-
-[node name="Quality" type="OptionButton" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 705.0
-margin_right = 428.0
-margin_bottom = 733.0
-theme = ExtResource( 2 )
-text = "Select"
-align = 1
-
-[node name="Control" type="Control" parent="MarginContainer/HBoxContainer2"]
-margin_left = 1896.0
-margin_right = 1896.0
-margin_bottom = 1056.0
+margin_bottom = 709.0
 
 [node name="TextureButton" type="TextureButton" parent="."]
 margin_left = 18.0
@@ -240,19 +215,9 @@ texture_pressed = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
-[node name="WindowDialog" type="WindowDialog" parent="."]
-visible = true
-margin_left = 684.0
-margin_top = 379.0
-margin_right = 1208.0
-margin_bottom = 614.0
-theme = ExtResource( 2 )
-window_title = "Accept"
-
 [connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/OptionButton" to="." method="OnOptionSelect"]
 [connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/Shadow" to="." method="OnShadowSelect"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer2/VBoxContainer/Glow" to="." method="OnGlowToggled"]
 [connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/NoOfEnemies" to="." method="OnNumberSelect"]
 [connection signal="value_changed" from="MarginContainer/HBoxContainer2/VBoxContainer/Hslider" to="." method="OnVolumeChange"]
-[connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/Quality" to="." method="On_Quality_Select"]
 [connection signal="pressed" from="TextureButton" to="." method="OnEsc"]

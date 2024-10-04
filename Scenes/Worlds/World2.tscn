@@ -704,7 +704,7 @@ extent = 1.0
 bounds = AABB( -1, -1, -1, 2, 2, 2 )
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance"
 
 [sub_resource type="Resource" id=13678]
@@ -3194,7 +3194,7 @@ extent = 38.3863
 bounds = AABB( -143.52, 0.0499992, -76.2923, 76.7727, 76.7727, 76.7727 )
 max_bounds_to_center_dist = 66.4871
 min_bounds_to_center_dist = 38.3863
-active_LOD_index = -1
+active_LOD_index = 1
 MMI_name = "MultiMeshInstance5"
 
 [sub_resource type="Resource" id=13786]
@@ -4229,7 +4229,7 @@ extent = 19.1932
 bounds = AABB( -66.7469, -38.3363, -37.9059, 38.3863, 38.3863, 38.3863 )
 max_bounds_to_center_dist = 33.2435
 min_bounds_to_center_dist = 19.1932
-active_LOD_index = -1
+active_LOD_index = 1
 MMI_name = ""
 
 [sub_resource type="Resource" id=13831]
@@ -4298,7 +4298,7 @@ extent = 19.1932
 bounds = AABB( -28.3605, -38.3363, -76.2923, 38.3863, 38.3863, 38.3863 )
 max_bounds_to_center_dist = 33.2435
 min_bounds_to_center_dist = 19.1932
-active_LOD_index = -1
+active_LOD_index = 1
 MMI_name = "MultiMeshInstance170"
 
 [sub_resource type="Resource" id=13834]
@@ -4344,7 +4344,7 @@ extent = 9.59658
 bounds = AABB( -28.3605, -38.3363, -18.7127, 19.1932, 19.1932, 19.1932 )
 max_bounds_to_center_dist = 16.6218
 min_bounds_to_center_dist = 9.59658
-active_LOD_index = -1
+active_LOD_index = 1
 MMI_name = "MultiMeshInstance256"
 
 [sub_resource type="Resource" id=13836]
@@ -4367,7 +4367,7 @@ extent = 9.59658
 bounds = AABB( -28.3605, -19.1432, -37.9059, 19.1932, 19.1932, 19.1932 )
 max_bounds_to_center_dist = 16.6218
 min_bounds_to_center_dist = 9.59658
-active_LOD_index = -1
+active_LOD_index = 1
 MMI_name = "MultiMeshInstance257"
 
 [sub_resource type="Resource" id=13837]
@@ -4390,7 +4390,7 @@ extent = 9.59658
 bounds = AABB( -28.3605, -19.1432, -18.7127, 19.1932, 19.1932, 19.1932 )
 max_bounds_to_center_dist = 16.6218
 min_bounds_to_center_dist = 9.59658
-active_LOD_index = -1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance258"
 
 [sub_resource type="Resource" id=13838]
@@ -4413,7 +4413,7 @@ extent = 9.59658
 bounds = AABB( -9.16736, -38.3363, -37.9059, 19.1932, 19.1932, 19.1932 )
 max_bounds_to_center_dist = 16.6218
 min_bounds_to_center_dist = 9.59658
-active_LOD_index = -1
+active_LOD_index = 1
 MMI_name = "MultiMeshInstance259"
 
 [sub_resource type="Resource" id=13839]
@@ -4436,7 +4436,7 @@ extent = 9.59658
 bounds = AABB( -9.16736, -38.3363, -18.7127, 19.1932, 19.1932, 19.1932 )
 max_bounds_to_center_dist = 16.6218
 min_bounds_to_center_dist = 9.59658
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance260"
 
 [sub_resource type="Resource" id=13840]
@@ -4459,7 +4459,7 @@ extent = 9.59658
 bounds = AABB( -9.16736, -19.1432, -37.9059, 19.1932, 19.1932, 19.1932 )
 max_bounds_to_center_dist = 16.6218
 min_bounds_to_center_dist = 9.59658
-active_LOD_index = -1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance261"
 
 [sub_resource type="Resource" id=13841]
@@ -4482,7 +4482,7 @@ extent = 9.59658
 bounds = AABB( -9.16736, -19.1432, -18.7127, 19.1932, 19.1932, 19.1932 )
 max_bounds_to_center_dist = 16.6218
 min_bounds_to_center_dist = 9.59658
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance262"
 
 [sub_resource type="Resource" id=13842]
@@ -4505,7 +4505,7 @@ extent = 19.1932
 bounds = AABB( -28.3605, -38.3363, -37.9059, 38.3863, 38.3863, 38.3863 )
 max_bounds_to_center_dist = 33.2435
 min_bounds_to_center_dist = 19.1932
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=13843]
@@ -4528,7 +4528,7 @@ extent = 38.3863
 bounds = AABB( -66.7469, -76.7227, -76.2923, 76.7727, 76.7727, 76.7727 )
 max_bounds_to_center_dist = 66.4871
 min_bounds_to_center_dist = 38.3863
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=13844]
@@ -5724,7 +5724,7 @@ extent = 19.1932
 bounds = AABB( -66.7469, -38.3363, 38.8668, 38.3863, 38.3863, 38.3863 )
 max_bounds_to_center_dist = 33.2435
 min_bounds_to_center_dist = 19.1932
-active_LOD_index = 1
+active_LOD_index = -1
 MMI_name = ""
 
 [sub_resource type="Resource" id=13896]
@@ -5770,7 +5770,7 @@ extent = 19.1932
 bounds = AABB( -28.3605, -76.7227, 38.8668, 38.3863, 38.3863, 38.3863 )
 max_bounds_to_center_dist = 33.2435
 min_bounds_to_center_dist = 19.1932
-active_LOD_index = 1
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance267"
 
 [sub_resource type="Resource" id=13898]
@@ -5816,7 +5816,7 @@ extent = 19.1932
 bounds = AABB( -28.3605, -38.3363, 38.8668, 38.3863, 38.3863, 38.3863 )
 max_bounds_to_center_dist = 33.2435
 min_bounds_to_center_dist = 19.1932
-active_LOD_index = 0
+active_LOD_index = 1
 MMI_name = "MultiMeshInstance269"
 
 [sub_resource type="Resource" id=13900]
@@ -5926,6 +5926,7 @@ LOD_kill_distance = 45.0
 [sub_resource type="MultiMesh" id=6075]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=13480]
 resource_local_to_scene = true
@@ -24654,7 +24655,7 @@ extent = 2.88701
 bounds = AABB( -16.3286, 0.0499992, -6.63295, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance722"
 
 [sub_resource type="Resource" id=14680]
@@ -24677,7 +24678,7 @@ extent = 2.88701
 bounds = AABB( -16.3286, 5.82402, -12.407, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance723"
 
 [sub_resource type="Resource" id=14681]
@@ -24700,7 +24701,7 @@ extent = 2.88701
 bounds = AABB( -16.3286, 5.82402, -6.63295, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance724"
 
 [sub_resource type="Resource" id=14682]
@@ -24723,7 +24724,7 @@ extent = 5.77402
 bounds = AABB( -22.1026, 0.0499992, -12.407, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14683]
@@ -24769,7 +24770,7 @@ extent = 5.77402
 bounds = AABB( -22.1026, 11.598, -12.407, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance710"
 
 [sub_resource type="Resource" id=14685]
@@ -24792,7 +24793,7 @@ extent = 11.548
 bounds = AABB( -33.6506, 0.0499992, -23.955, 23.0961, 23.0961, 23.0961 )
 max_bounds_to_center_dist = 20.0018
 min_bounds_to_center_dist = 11.548
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14686]
@@ -24838,7 +24839,7 @@ extent = 11.548
 bounds = AABB( -33.6506, 23.1461, -23.955, 23.0961, 23.0961, 23.0961 )
 max_bounds_to_center_dist = 20.0018
 min_bounds_to_center_dist = 11.548
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance500"
 
 [sub_resource type="Resource" id=14688]
@@ -24861,7 +24862,7 @@ extent = 23.0961
 bounds = AABB( -56.7467, 0.0499992, -47.0511, 46.1922, 46.1922, 46.1922 )
 max_bounds_to_center_dist = 40.0036
 min_bounds_to_center_dist = 23.0961
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14689]
@@ -25482,7 +25483,7 @@ extent = 23.0961
 bounds = AABB( -10.5545, 0.0499992, -93.2433, 46.1922, 46.1922, 46.1922 )
 max_bounds_to_center_dist = 40.0036
 min_bounds_to_center_dist = 23.0961
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14716]
@@ -26724,7 +26725,7 @@ extent = 1.44351
 bounds = AABB( -1.89351, 2.93701, -26.842, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance640"
 
 [sub_resource type="Resource" id=14770]
@@ -26747,7 +26748,7 @@ extent = 2.88701
 bounds = AABB( -4.78052, 0.0499992, -29.729, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14771]
@@ -26793,7 +26794,7 @@ extent = 2.88701
 bounds = AABB( -4.78052, 5.82402, -29.729, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance619"
 
 [sub_resource type="Resource" id=14773]
@@ -26816,7 +26817,7 @@ extent = 5.77402
 bounds = AABB( -10.5545, 0.0499992, -35.5031, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14774]
@@ -26862,7 +26863,7 @@ extent = 5.77402
 bounds = AABB( -10.5545, 11.598, -35.5031, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance559"
 
 [sub_resource type="Resource" id=14776]
@@ -26885,7 +26886,7 @@ extent = 5.77402
 bounds = AABB( 0.993503, 0.0499992, -47.0511, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance560"
 
 [sub_resource type="Resource" id=14777]
@@ -26908,7 +26909,7 @@ extent = 2.88701
 bounds = AABB( 0.993503, 0.0499992, -35.5031, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1114"
 
 [sub_resource type="Resource" id=14778]
@@ -26954,7 +26955,7 @@ extent = 1.44351
 bounds = AABB( 0.993503, 0.0499992, -26.842, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1145"
 
 [sub_resource type="Resource" id=14780]
@@ -26977,7 +26978,7 @@ extent = 1.44351
 bounds = AABB( 0.993503, 2.93701, -29.729, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1146"
 
 [sub_resource type="Resource" id=14781]
@@ -27000,7 +27001,7 @@ extent = 1.44351
 bounds = AABB( 0.993503, 2.93701, -26.842, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1147"
 
 [sub_resource type="Resource" id=14782]
@@ -27023,7 +27024,7 @@ extent = 1.44351
 bounds = AABB( 3.88051, 0.0499992, -29.729, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1148"
 
 [sub_resource type="Resource" id=14783]
@@ -27046,7 +27047,7 @@ extent = 1.44351
 bounds = AABB( 3.88051, 0.0499992, -26.842, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1149"
 
 [sub_resource type="Resource" id=14784]
@@ -27069,7 +27070,7 @@ extent = 1.44351
 bounds = AABB( 3.88051, 2.93701, -29.729, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1150"
 
 [sub_resource type="Resource" id=14785]
@@ -27092,7 +27093,7 @@ extent = 1.44351
 bounds = AABB( 3.88051, 2.93701, -26.842, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1151"
 
 [sub_resource type="Resource" id=14786]
@@ -27115,7 +27116,7 @@ extent = 2.88701
 bounds = AABB( 0.993503, 0.0499992, -29.729, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14787]
@@ -27138,7 +27139,7 @@ extent = 2.88701
 bounds = AABB( 0.993503, 5.82402, -35.5031, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1139"
 
 [sub_resource type="Resource" id=14788]
@@ -27161,7 +27162,7 @@ extent = 2.88701
 bounds = AABB( 0.993503, 5.82402, -29.729, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1140"
 
 [sub_resource type="Resource" id=14789]
@@ -27184,7 +27185,7 @@ extent = 2.88701
 bounds = AABB( 6.76752, 0.0499992, -35.5031, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1141"
 
 [sub_resource type="Resource" id=14790]
@@ -27207,7 +27208,7 @@ extent = 2.88701
 bounds = AABB( 6.76752, 0.0499992, -29.729, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1142"
 
 [sub_resource type="Resource" id=14791]
@@ -27230,7 +27231,7 @@ extent = 2.88701
 bounds = AABB( 6.76752, 5.82402, -35.5031, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1143"
 
 [sub_resource type="Resource" id=14792]
@@ -27253,7 +27254,7 @@ extent = 2.88701
 bounds = AABB( 6.76752, 5.82402, -29.729, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1144"
 
 [sub_resource type="Resource" id=14793]
@@ -27276,7 +27277,7 @@ extent = 5.77402
 bounds = AABB( 0.993503, 0.0499992, -35.5031, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14794]
@@ -27299,7 +27300,7 @@ extent = 5.77402
 bounds = AABB( 0.993503, 11.598, -47.0511, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance562"
 
 [sub_resource type="Resource" id=14795]
@@ -27322,7 +27323,7 @@ extent = 5.77402
 bounds = AABB( 0.993503, 11.598, -35.5031, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance563"
 
 [sub_resource type="Resource" id=14796]
@@ -27345,7 +27346,7 @@ extent = 11.548
 bounds = AABB( -10.5545, 0.0499992, -47.0511, 23.0961, 23.0961, 23.0961 )
 max_bounds_to_center_dist = 20.0018
 min_bounds_to_center_dist = 11.548
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14797]
@@ -27575,7 +27576,7 @@ extent = 2.88701
 bounds = AABB( -10.5545, 0.0499992, -18.181, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance648"
 
 [sub_resource type="Resource" id=14807]
@@ -27598,7 +27599,7 @@ extent = 2.88701
 bounds = AABB( -10.5545, 5.82402, -23.955, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance649"
 
 [sub_resource type="Resource" id=14808]
@@ -27621,7 +27622,7 @@ extent = 2.88701
 bounds = AABB( -10.5545, 5.82402, -18.181, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance650"
 
 [sub_resource type="Resource" id=14809]
@@ -27667,7 +27668,7 @@ extent = 1.44351
 bounds = AABB( -4.78052, 0.0499992, -21.068, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance767"
 
 [sub_resource type="Resource" id=14811]
@@ -27690,7 +27691,7 @@ extent = 1.44351
 bounds = AABB( -4.78052, 2.93701, -23.955, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance768"
 
 [sub_resource type="Resource" id=14812]
@@ -27713,7 +27714,7 @@ extent = 1.44351
 bounds = AABB( -4.78052, 2.93701, -21.068, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance769"
 
 [sub_resource type="Resource" id=14813]
@@ -27736,7 +27737,7 @@ extent = 1.44351
 bounds = AABB( -1.89351, 0.0499992, -23.955, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance770"
 
 [sub_resource type="Resource" id=14814]
@@ -27759,7 +27760,7 @@ extent = 1.44351
 bounds = AABB( -1.89351, 0.0499992, -21.068, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance771"
 
 [sub_resource type="Resource" id=14815]
@@ -27782,7 +27783,7 @@ extent = 1.44351
 bounds = AABB( -1.89351, 2.93701, -23.955, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance772"
 
 [sub_resource type="Resource" id=14816]
@@ -27805,7 +27806,7 @@ extent = 1.44351
 bounds = AABB( -1.89351, 2.93701, -21.068, 2.88701, 2.88701, 2.88701 )
 max_bounds_to_center_dist = 2.50022
 min_bounds_to_center_dist = 1.44351
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance773"
 
 [sub_resource type="Resource" id=14817]
@@ -27828,7 +27829,7 @@ extent = 2.88701
 bounds = AABB( -4.78052, 0.0499992, -23.955, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14818]
@@ -27851,7 +27852,7 @@ extent = 2.88701
 bounds = AABB( -4.78052, 0.0499992, -18.181, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance652"
 
 [sub_resource type="Resource" id=14819]
@@ -27874,7 +27875,7 @@ extent = 2.88701
 bounds = AABB( -4.78052, 5.82402, -23.955, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance653"
 
 [sub_resource type="Resource" id=14820]
@@ -27897,7 +27898,7 @@ extent = 2.88701
 bounds = AABB( -4.78052, 5.82402, -18.181, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance654"
 
 [sub_resource type="Resource" id=14821]
@@ -27920,7 +27921,7 @@ extent = 5.77402
 bounds = AABB( -10.5545, 0.0499992, -23.955, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14822]
@@ -27943,7 +27944,7 @@ extent = 2.88701
 bounds = AABB( -10.5545, 0.0499992, -12.407, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance651"
 
 [sub_resource type="Resource" id=14823]
@@ -27966,7 +27967,7 @@ extent = 2.88701
 bounds = AABB( -10.5545, 0.0499992, -6.63295, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance774"
 
 [sub_resource type="Resource" id=14824]
@@ -27989,7 +27990,7 @@ extent = 2.88701
 bounds = AABB( -10.5545, 5.82402, -12.407, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance775"
 
 [sub_resource type="Resource" id=14825]
@@ -28012,7 +28013,7 @@ extent = 2.88701
 bounds = AABB( -10.5545, 5.82402, -6.63295, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance776"
 
 [sub_resource type="Resource" id=14826]
@@ -28035,7 +28036,7 @@ extent = 2.88701
 bounds = AABB( -4.78052, 0.0499992, -12.407, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance777"
 
 [sub_resource type="Resource" id=14827]
@@ -28058,7 +28059,7 @@ extent = 2.88701
 bounds = AABB( -4.78052, 0.0499992, -6.63295, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance778"
 
 [sub_resource type="Resource" id=14828]
@@ -28081,7 +28082,7 @@ extent = 2.88701
 bounds = AABB( -4.78052, 5.82402, -12.407, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance779"
 
 [sub_resource type="Resource" id=14829]
@@ -28104,7 +28105,7 @@ extent = 2.88701
 bounds = AABB( -4.78052, 5.82402, -6.63295, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance780"
 
 [sub_resource type="Resource" id=14830]
@@ -28127,7 +28128,7 @@ extent = 5.77402
 bounds = AABB( -10.5545, 0.0499992, -12.407, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14831]
@@ -28150,7 +28151,7 @@ extent = 5.77402
 bounds = AABB( -10.5545, 11.598, -23.955, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance642"
 
 [sub_resource type="Resource" id=14832]
@@ -28173,7 +28174,7 @@ extent = 5.77402
 bounds = AABB( -10.5545, 11.598, -12.407, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance643"
 
 [sub_resource type="Resource" id=14833]
@@ -28196,7 +28197,7 @@ extent = 2.88701
 bounds = AABB( 0.993503, 0.0499992, -23.955, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1138"
 
 [sub_resource type="Resource" id=14834]
@@ -28219,7 +28220,7 @@ extent = 2.88701
 bounds = AABB( 0.993503, 0.0499992, -18.181, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1152"
 
 [sub_resource type="Resource" id=14835]
@@ -28242,7 +28243,7 @@ extent = 2.88701
 bounds = AABB( 0.993503, 5.82402, -23.955, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1153"
 
 [sub_resource type="Resource" id=14836]
@@ -28265,7 +28266,7 @@ extent = 2.88701
 bounds = AABB( 0.993503, 5.82402, -18.181, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1154"
 
 [sub_resource type="Resource" id=14837]
@@ -28288,7 +28289,7 @@ extent = 2.88701
 bounds = AABB( 6.76752, 0.0499992, -23.955, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1155"
 
 [sub_resource type="Resource" id=14838]
@@ -28311,7 +28312,7 @@ extent = 2.88701
 bounds = AABB( 6.76752, 0.0499992, -18.181, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1156"
 
 [sub_resource type="Resource" id=14839]
@@ -28334,7 +28335,7 @@ extent = 2.88701
 bounds = AABB( 6.76752, 5.82402, -23.955, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1157"
 
 [sub_resource type="Resource" id=14840]
@@ -28357,7 +28358,7 @@ extent = 2.88701
 bounds = AABB( 6.76752, 5.82402, -18.181, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance1158"
 
 [sub_resource type="Resource" id=14841]
@@ -28380,7 +28381,7 @@ extent = 5.77402
 bounds = AABB( 0.993503, 0.0499992, -23.955, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14842]
@@ -28403,7 +28404,7 @@ extent = 5.77402
 bounds = AABB( 0.993503, 0.0499992, -12.407, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance645"
 
 [sub_resource type="Resource" id=14843]
@@ -28426,7 +28427,7 @@ extent = 5.77402
 bounds = AABB( 0.993503, 11.598, -23.955, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance646"
 
 [sub_resource type="Resource" id=14844]
@@ -28449,7 +28450,7 @@ extent = 5.77402
 bounds = AABB( 0.993503, 11.598, -12.407, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance647"
 
 [sub_resource type="Resource" id=14845]
@@ -28472,7 +28473,7 @@ extent = 11.548
 bounds = AABB( -10.5545, 0.0499992, -23.955, 23.0961, 23.0961, 23.0961 )
 max_bounds_to_center_dist = 20.0018
 min_bounds_to_center_dist = 11.548
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14846]
@@ -28495,7 +28496,7 @@ extent = 11.548
 bounds = AABB( -10.5545, 23.1461, -47.0511, 23.0961, 23.0961, 23.0961 )
 max_bounds_to_center_dist = 20.0018
 min_bounds_to_center_dist = 11.548
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance551"
 
 [sub_resource type="Resource" id=14847]
@@ -28518,7 +28519,7 @@ extent = 11.548
 bounds = AABB( -10.5545, 23.1461, -23.955, 23.0961, 23.0961, 23.0961 )
 max_bounds_to_center_dist = 20.0018
 min_bounds_to_center_dist = 11.548
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance552"
 
 [sub_resource type="Resource" id=14848]
@@ -28541,7 +28542,7 @@ extent = 11.548
 bounds = AABB( 12.5415, 0.0499992, -47.0511, 23.0961, 23.0961, 23.0961 )
 max_bounds_to_center_dist = 20.0018
 min_bounds_to_center_dist = 11.548
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance553"
 
 [sub_resource type="Resource" id=14849]
@@ -28587,7 +28588,7 @@ extent = 11.548
 bounds = AABB( 12.5415, 23.1461, -47.0511, 23.0961, 23.0961, 23.0961 )
 max_bounds_to_center_dist = 20.0018
 min_bounds_to_center_dist = 11.548
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance555"
 
 [sub_resource type="Resource" id=14851]
@@ -28610,7 +28611,7 @@ extent = 11.548
 bounds = AABB( 12.5415, 23.1461, -23.955, 23.0961, 23.0961, 23.0961 )
 max_bounds_to_center_dist = 20.0018
 min_bounds_to_center_dist = 11.548
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance556"
 
 [sub_resource type="Resource" id=14852]
@@ -28679,7 +28680,7 @@ extent = 23.0961
 bounds = AABB( -10.5545, 46.2422, -47.0511, 46.1922, 46.1922, 46.1922 )
 max_bounds_to_center_dist = 40.0036
 min_bounds_to_center_dist = 23.0961
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance325"
 
 [sub_resource type="Resource" id=14855]
@@ -30105,7 +30106,7 @@ extent = 2.88701
 bounds = AABB( -16.3286, 0.0499992, -0.858932, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance749"
 
 [sub_resource type="Resource" id=14917]
@@ -30128,7 +30129,7 @@ extent = 2.88701
 bounds = AABB( -16.3286, 0.0499992, 4.91509, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance750"
 
 [sub_resource type="Resource" id=14918]
@@ -30151,7 +30152,7 @@ extent = 2.88701
 bounds = AABB( -16.3286, 5.82402, -0.858932, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance751"
 
 [sub_resource type="Resource" id=14919]
@@ -30174,7 +30175,7 @@ extent = 2.88701
 bounds = AABB( -16.3286, 5.82402, 4.91509, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance752"
 
 [sub_resource type="Resource" id=14920]
@@ -30197,7 +30198,7 @@ extent = 5.77402
 bounds = AABB( -22.1026, 0.0499992, -0.858932, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14921]
@@ -30358,7 +30359,7 @@ extent = 2.88701
 bounds = AABB( -16.3286, 5.82402, 10.6891, 5.77402, 5.77402, 5.77402 )
 max_bounds_to_center_dist = 5.00045
 min_bounds_to_center_dist = 2.88701
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance800"
 
 [sub_resource type="Resource" id=14928]
@@ -30404,7 +30405,7 @@ extent = 5.77402
 bounds = AABB( -22.1026, 0.0499992, 10.6891, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14930]
@@ -30427,7 +30428,7 @@ extent = 5.77402
 bounds = AABB( -22.1026, 11.598, -0.858932, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance674"
 
 [sub_resource type="Resource" id=14931]
@@ -30450,7 +30451,7 @@ extent = 5.77402
 bounds = AABB( -22.1026, 11.598, 10.6891, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance675"
 
 [sub_resource type="Resource" id=14932]
@@ -30473,7 +30474,7 @@ extent = 11.548
 bounds = AABB( -33.6506, 0.0499992, -0.858932, 23.0961, 23.0961, 23.0961 )
 max_bounds_to_center_dist = 20.0018
 min_bounds_to_center_dist = 11.548
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = ""
 
 [sub_resource type="Resource" id=14933]
@@ -32083,7 +32084,7 @@ extent = 5.77402
 bounds = AABB( -22.1026, 0.0499992, 33.7852, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 0
+active_LOD_index = 1
 MMI_name = "MultiMeshInstance694"
 
 [sub_resource type="Resource" id=15003]
@@ -32152,7 +32153,7 @@ extent = 11.548
 bounds = AABB( -33.6506, 0.0499992, 22.2371, 23.0961, 23.0961, 23.0961 )
 max_bounds_to_center_dist = 20.0018
 min_bounds_to_center_dist = 11.548
-active_LOD_index = 0
+active_LOD_index = 1
 MMI_name = ""
 
 [sub_resource type="Resource" id=15006]
@@ -32175,7 +32176,7 @@ extent = 11.548
 bounds = AABB( -33.6506, 23.1461, -0.858932, 23.0961, 23.0961, 23.0961 )
 max_bounds_to_center_dist = 20.0018
 min_bounds_to_center_dist = 11.548
-active_LOD_index = 1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance667"
 
 [sub_resource type="Resource" id=15007]
@@ -35924,7 +35925,7 @@ extent = 5.77402
 bounds = AABB( -22.1026, 0.0499992, 45.3332, 11.548, 11.548, 11.548 )
 max_bounds_to_center_dist = 10.0009
 min_bounds_to_center_dist = 5.77402
-active_LOD_index = 0
+active_LOD_index = 1
 MMI_name = "MultiMeshInstance1001"
 
 [sub_resource type="Resource" id=15170]
@@ -36200,7 +36201,7 @@ extent = 11.548
 bounds = AABB( -33.6506, 0.0499992, 45.3332, 23.0961, 23.0961, 23.0961 )
 max_bounds_to_center_dist = 20.0018
 min_bounds_to_center_dist = 11.548
-active_LOD_index = 0
+active_LOD_index = 1
 MMI_name = ""
 
 [sub_resource type="Resource" id=15182]
@@ -37028,7 +37029,7 @@ extent = 23.0961
 bounds = AABB( -56.7467, 0.0499992, 45.3332, 46.1922, 46.1922, 46.1922 )
 max_bounds_to_center_dist = 40.0036
 min_bounds_to_center_dist = 23.0961
-active_LOD_index = 0
+active_LOD_index = 1
 MMI_name = ""
 
 [sub_resource type="Resource" id=15218]
@@ -37166,7 +37167,7 @@ extent = 23.0961
 bounds = AABB( -10.5545, 46.2422, 45.3332, 46.1922, 46.1922, 46.1922 )
 max_bounds_to_center_dist = 40.0036
 min_bounds_to_center_dist = 23.0961
-active_LOD_index = 0
+active_LOD_index = 1
 MMI_name = "MultiMeshInstance661"
 
 [sub_resource type="Resource" id=15224]
@@ -37247,7 +37248,7 @@ extent = 1.0
 bounds = AABB( -1, -1, -1, 2, 2, 2 )
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = -1
+active_LOD_index = 0
 MMI_name = "MultiMeshInstance3"
 
 [sub_resource type="Resource" id=15228]
@@ -38741,6 +38742,7 @@ transform_format = 1
 [sub_resource type="MultiMesh" id=5232]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5233]
 resource_local_to_scene = true
@@ -39553,6 +39555,7 @@ transform_format = 1
 [sub_resource type="MultiMesh" id=5407]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5408]
 resource_local_to_scene = true
@@ -39781,14 +39784,17 @@ transform_format = 1
 [sub_resource type="MultiMesh" id=5457]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5458]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5459]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5460]
 resource_local_to_scene = true
@@ -39798,10 +39804,12 @@ mesh = ExtResource( 12 )
 [sub_resource type="MultiMesh" id=5461]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5462]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5463]
 resource_local_to_scene = true
@@ -39810,20 +39818,24 @@ transform_format = 1
 [sub_resource type="MultiMesh" id=5464]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5465]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 2
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -3.97919, 0, -0.000608861, 0, 3.97919, 0, 0.000608861, 0, -3.97919, 1.17544, 0.0499999, -40.3906, -3.3347, 0, -0.000477927, 0, 3.3347, 0, 0.000477927, 0, -3.3347, 2.6161, 0.05, -36.7602 )
 
 [sub_resource type="MultiMesh" id=5466]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5467]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5468]
 resource_local_to_scene = true
@@ -40096,6 +40108,7 @@ transform_format = 1
 [sub_resource type="MultiMesh" id=5524]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5525]
 resource_local_to_scene = true
@@ -40210,54 +40223,66 @@ transform_format = 1
 [sub_resource type="MultiMesh" id=5548]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5549]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5550]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5551]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5552]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5553]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5554]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 1
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -4.54519, 0, -0.000484939, 0, 4.54519, 0, 0.000484939, 0, -4.54519, -8.73165, 0.0499997, -14.6752 )
 
 [sub_resource type="MultiMesh" id=5555]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5556]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5557]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 3
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -4.50254, 0, -0.00057697, 0, 4.50254, 0, 0.00057697, 0, -4.50254, -3.05125, 0.0499999, -15.8573, -3.66529, 0, 0.000274189, 0, 3.66529, 0, -0.000274189, 0, -3.66529, -4.43206, 0.0500002, -13.5495, -3.69986, 0, -0.000457157, 0, 3.69986, 0, 0.000457157, 0, -3.69986, -1.39801, 0.0500002, -14.5809 )
 
 [sub_resource type="MultiMesh" id=5558]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5559]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5560]
 resource_local_to_scene = true
@@ -40285,7 +40310,6 @@ mesh = ExtResource( 12 )
 [sub_resource type="MultiMesh" id=5565]
 resource_local_to_scene = true
 transform_format = 1
-mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5566]
 resource_local_to_scene = true
@@ -40304,6 +40328,7 @@ transform_format = 1
 [sub_resource type="MultiMesh" id=5569]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5570]
 resource_local_to_scene = true
@@ -40320,10 +40345,12 @@ transform_format = 1
 [sub_resource type="MultiMesh" id=5573]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5574]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5575]
 resource_local_to_scene = true
@@ -40407,7 +40434,6 @@ transform_array = PoolVector3Array( -4.85924, 0, -0.000502565, 0, 4.85924, 0, 0.
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 3
-mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -3.67054, 0, 0.000406748, 0, 3.67054, 0, -0.000406748, 0, -3.67054, -20.1099, 0.05, 40.7014, -4.09405, 0, -0.000700883, 0, 4.09405, 0, 0.000700883, 0, -4.09405, -21.3763, 0.05, 41.7918, -3.68671, 0, -1.30115e-06, 0, 3.68671, 0, 1.30115e-06, 0, -3.68671, -20.8642, 0.05, 44.5791 )
 
 [sub_resource type="MultiMesh" id=5594]
@@ -40465,6 +40491,7 @@ transform_format = 1
 [sub_resource type="MultiMesh" id=5606]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5607]
 resource_local_to_scene = true
@@ -40530,15 +40557,18 @@ transform_array = PoolVector3Array( -4.63236, 0, -0.000168832, 0, 4.63236, 0, 0.
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 2
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -4.6344, 0, -0.000569053, 0, 4.6344, 0, 0.000569053, 0, -4.6344, -15.6608, 0.05, -2.70753, -4.35004, 0, 0.00018274, 0, 4.35004, 0, -0.00018274, 0, -4.35004, -13.2714, 0.05, -6.01277 )
 
 [sub_resource type="MultiMesh" id=5620]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5621]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5622]
 resource_local_to_scene = true
@@ -40672,21 +40702,25 @@ transform_format = 1
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 3
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -3.74034, 0, 0.000213769, 0, 3.74034, 0, -0.000213769, 0, -3.74034, -16.2201, 0.05, 4.19768, -3.79575, 0, -0.000649578, 0, 3.79575, 0, 0.000649578, 0, -3.79575, -13.2188, 0.05, 2.67972, -3.92446, 0, 0.000484944, 0, 3.92446, 0, -0.000484944, 0, -3.92446, -11.8269, 0.0500002, -0.0463316 )
 
 [sub_resource type="MultiMesh" id=5649]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 2
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -3.74126, 0, 0.000163515, 0, 3.74126, 0, -0.000163515, 0, -3.74126, -12.9273, 0.05, 6.59027, -3.79686, 0, -0.00051811, 0, 3.79686, 0, 0.00051811, 0, -3.79686, -14.2098, 0.05, 8.83879 )
 
 [sub_resource type="MultiMesh" id=5650]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5651]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5652]
 resource_local_to_scene = true
@@ -40774,73 +40808,88 @@ transform_format = 1
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 1
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -3.47968, 0, -0.000333691, 0, 3.47968, 0, 0.000333691, 0, -3.47968, -2.22275, 0.0500001, -20.4476 )
 
 [sub_resource type="MultiMesh" id=5670]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5671]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5672]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 2
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -4.37745, 0, 5.68177e-05, 0, 4.37745, 0, -5.68177e-05, 0, -4.37745, -1.27028, 0.0500001, -23.6577, -3.84136, 0, -0.000413689, 0, 3.84136, 0, 0.000413689, 0, -3.84136, 0.728496, 0.05, -22.0971 )
 
 [sub_resource type="MultiMesh" id=5673]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 1
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -4.98813, 0, -0.000634005, 0, 4.98813, 0, 0.000634005, 0, -4.98813, -0.509433, 0.05, -18.3771 )
 
 [sub_resource type="MultiMesh" id=5674]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5675]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5676]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 1
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -4.31441, 0, 0.000510102, 0, 4.31441, 0, -0.000510102, 0, -4.31441, -8.41607, 0.05, -11.3066 )
 
 [sub_resource type="MultiMesh" id=5677]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 2
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -3.06819, 0, -0.000443671, 0, 3.06819, 0, 0.000443671, 0, -3.06819, -8.08177, 0.0499997, -6.3791, -4.95742, 0, 8.89384e-05, 0, 4.95742, 0, -8.89384e-05, 0, -4.95742, -10.0139, 0.05, -3.83251 )
 
 [sub_resource type="MultiMesh" id=5678]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5679]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5680]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 2
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -4.81314, 0, -2.95816e-05, 0, 4.81314, 0, 2.95816e-05, 0, -4.81314, -3.76001, 0.05, -8.78646, -4.08208, 0, -0.000305798, 0, 4.08208, 0, 0.000305798, 0, -4.08208, -0.433615, 0.0500001, -11.2527 )
 
 [sub_resource type="MultiMesh" id=5681]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5682]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5683]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5684]
 resource_local_to_scene = true
@@ -40953,6 +41002,7 @@ transform_format = 1
 [sub_resource type="MultiMesh" id=5706]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=5707]
 resource_local_to_scene = true
@@ -41878,7 +41928,6 @@ transform_format = 1
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 1
-mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -3.31811, 0, 0.000532062, 0, 3.31811, 0, -0.000532062, 0, -3.31811, -20.8623, 0.0500003, 55.7051 )
 
 [sub_resource type="MultiMesh" id=5907]
@@ -42571,35 +42620,42 @@ transform_format = 1
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 3
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -3.48886, 0, 0.000194714, 0, 3.48886, 0, -0.000194714, 0, -3.48886, 3.91953, 0.0499999, -34.2917, -4.53182, 0, 0.0005055, 0, 4.53182, 0, -0.0005055, 0, -4.53182, 4.34158, 0.05, -32.1854, -3.11108, 0, -0.00052451, 0, 3.11108, 0, 0.00052451, 0, -3.11108, 1.55013, 0.0500002, -31.3813 )
 
 [sub_resource type="MultiMesh" id=6052]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6053]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6054]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 1
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -3.24063, 0, -0.000457137, 0, 3.24063, 0, 0.000457137, 0, -3.24063, 7.22965, 0.05, -32.4493 )
 
 [sub_resource type="MultiMesh" id=6055]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 1
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -3.94607, 0, 0.000466541, 0, 3.94607, 0, -0.000466541, 0, -3.94607, 6.96226, 0.05, -28.5158 )
 
 [sub_resource type="MultiMesh" id=6056]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6057]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6058]
 resource_local_to_scene = true
@@ -42610,68 +42666,83 @@ transform_array = PoolVector3Array( -4.73561, 0, -0.000644855, 0, 4.73561, 0, 0.
 [sub_resource type="MultiMesh" id=6059]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6060]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6061]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6062]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6063]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 2
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -4.41938, 0, -0.000711489, 0, 4.41938, 0, 0.000711489, 0, -4.41938, 3.89355, 0.0500002, -23.9901, -3.98082, 0, -2.38101e-05, 0, 3.98082, 0, 2.38101e-05, 0, -3.98082, 5.10124, 0.0499999, -25.6131 )
 
 [sub_resource type="MultiMesh" id=6064]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6065]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6066]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 3
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -3.03275, 0, 0.000494481, 0, 3.03275, 0, -0.000494481, 0, -3.03275, 4.16153, 0.0500002, -21.7427, -3.35207, 0, 6.45948e-05, 0, 3.35207, 0, -6.45948e-05, 0, -3.35207, 5.8515, 0.0500001, -22.7304, -3.93974, 0, -3.9811e-05, 0, 3.93974, 0, 3.9811e-05, 0, -3.93974, 4.67555, 0.05, -19.4009 )
 
 [sub_resource type="MultiMesh" id=6067]
 resource_local_to_scene = true
 transform_format = 1
 instance_count = 2
+mesh = ExtResource( 12 )
 transform_array = PoolVector3Array( -4.30038, 0, 0.000503139, 0, 4.30038, 0, -0.000503139, 0, -4.30038, 5.70428, 0.0499997, -15.8983, -4.04967, 0, -0.00043988, 0, 4.04967, 0, 0.00043988, 0, -4.04967, 1.35573, 0.0499997, -15.0193 )
 
 [sub_resource type="MultiMesh" id=6068]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6069]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6070]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6071]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6072]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [sub_resource type="MultiMesh" id=6073]
 resource_local_to_scene = true
 transform_format = 1
+mesh = ExtResource( 12 )
 
 [node name="World" type="Spatial"]
 
@@ -42895,7 +42966,7 @@ cull_mask = 2
 environment = SubResource( 7622 )
 projection = 1
 fov = 100.0
-size = 100.0
+size = 50.0
 
 [node name="Enemy_spawner" type="Spatial" parent="."]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -11.8868, 20.2893, 14.1523 )
@@ -42931,6 +43002,7 @@ octree_managers = [ SubResource( 13678 ), SubResource( 13904 ) ]
 [node name="MMI_container" type="Spatial" parent="Gardener2/Arborist"]
 
 [node name="MultiMeshInstance" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6075 )
 
 [node name="MultiMeshInstance5" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
@@ -43082,6 +43154,15 @@ multimesh = SubResource( 13520 )
 
 [node name="MultiMeshInstance258" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13521 )
+
+[node name="pine-fall" type="StaticBody" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance258" groups=["Obstacle"] instance=ExtResource( 107 )]
+transform = Transform( -0.622456, 0, -3.67992, 0, 3.73219, 0, 3.67992, 0, -0.622456, -27.0995, 0.05, -9.37166 )
+
+[node name="pine-fall2" type="StaticBody" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance258" groups=["Obstacle"] instance=ExtResource( 107 )]
+transform = Transform( -3.15812, 0, 3.77089, 0, 4.91867, 0, -3.77089, 0, -3.15812, -25.8358, 0.05, -12.4164 )
+
+[node name="pine-fall3" type="StaticBody" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance258" groups=["Obstacle"] instance=ExtResource( 107 )]
+transform = Transform( 0.175853, 0, -3.04624, 0, 3.05131, 0, 3.04624, 0, 0.175853, -21.0775, 0.05, -16.8993 )
 
 [node name="MultiMeshInstance259" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13522 )
@@ -44786,6 +44867,7 @@ multimesh = SubResource( 5230 )
 multimesh = SubResource( 5231 )
 
 [node name="MultiMeshInstance325" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5232 )
 
 [node name="MultiMeshInstance327" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -45311,6 +45393,7 @@ multimesh = SubResource( 5405 )
 multimesh = SubResource( 5406 )
 
 [node name="MultiMeshInstance500" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5407 )
 
 [node name="MultiMeshInstance319" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -45461,12 +45544,15 @@ multimesh = SubResource( 5455 )
 multimesh = SubResource( 5456 )
 
 [node name="MultiMeshInstance551" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5457 )
 
 [node name="MultiMeshInstance552" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5458 )
 
 [node name="MultiMeshInstance553" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5459 )
 
 [node name="MultiMeshInstance554" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -45474,24 +45560,30 @@ cast_shadow = 0
 multimesh = SubResource( 5460 )
 
 [node name="MultiMeshInstance555" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5461 )
 
 [node name="MultiMeshInstance556" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5462 )
 
 [node name="MultiMeshInstance558" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
 multimesh = SubResource( 5463 )
 
 [node name="MultiMeshInstance559" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5464 )
 
 [node name="MultiMeshInstance560" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5465 )
 
 [node name="MultiMeshInstance562" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5466 )
 
 [node name="MultiMeshInstance563" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5467 )
 
 [node name="MultiMeshInstance511" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -45663,6 +45755,7 @@ multimesh = SubResource( 5522 )
 multimesh = SubResource( 5523 )
 
 [node name="MultiMeshInstance619" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5524 )
 
 [node name="MultiMeshInstance557" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -45735,39 +45828,51 @@ multimesh = SubResource( 5546 )
 multimesh = SubResource( 5547 )
 
 [node name="MultiMeshInstance640" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5548 )
 
 [node name="MultiMeshInstance642" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5549 )
 
 [node name="MultiMeshInstance643" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5550 )
 
 [node name="MultiMeshInstance645" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5551 )
 
 [node name="MultiMeshInstance646" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5552 )
 
 [node name="MultiMeshInstance647" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5553 )
 
 [node name="MultiMeshInstance648" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5554 )
 
 [node name="MultiMeshInstance649" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5555 )
 
 [node name="MultiMeshInstance650" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5556 )
 
 [node name="MultiMeshInstance652" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5557 )
 
 [node name="MultiMeshInstance653" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5558 )
 
 [node name="MultiMeshInstance654" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5559 )
 
 [node name="MultiMeshInstance656" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -45789,7 +45894,6 @@ cast_shadow = 0
 multimesh = SubResource( 5564 )
 
 [node name="MultiMeshInstance661" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
-cast_shadow = 0
 multimesh = SubResource( 5565 )
 
 [node name="MultiMeshInstance662" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -45802,6 +45906,7 @@ multimesh = SubResource( 5567 )
 multimesh = SubResource( 5568 )
 
 [node name="MultiMeshInstance667" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5569 )
 
 [node name="MultiMeshInstance668" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -45814,9 +45919,11 @@ multimesh = SubResource( 5571 )
 multimesh = SubResource( 5572 )
 
 [node name="MultiMeshInstance674" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5573 )
 
 [node name="MultiMeshInstance675" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5574 )
 
 [node name="MultiMeshInstance665" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -45874,7 +45981,6 @@ multimesh = SubResource( 5591 )
 multimesh = SubResource( 5592 )
 
 [node name="MultiMeshInstance694" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
-cast_shadow = 0
 multimesh = SubResource( 5593 )
 
 [node name="MultiMeshInstance695" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -45914,6 +46020,7 @@ multimesh = SubResource( 5604 )
 multimesh = SubResource( 5605 )
 
 [node name="MultiMeshInstance710" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5606 )
 
 [node name="MultiMeshInstance498" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -45953,12 +46060,15 @@ multimesh = SubResource( 5617 )
 multimesh = SubResource( 5618 )
 
 [node name="MultiMeshInstance722" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5619 )
 
 [node name="MultiMeshInstance723" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5620 )
 
 [node name="MultiMeshInstance724" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5621 )
 
 [node name="MultiMeshInstance708" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -46040,15 +46150,19 @@ multimesh = SubResource( 5646 )
 multimesh = SubResource( 5647 )
 
 [node name="MultiMeshInstance749" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5648 )
 
 [node name="MultiMeshInstance750" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5649 )
 
 [node name="MultiMeshInstance751" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5650 )
 
 [node name="MultiMeshInstance752" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5651 )
 
 [node name="MultiMeshInstance672" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -46103,48 +46217,63 @@ multimesh = SubResource( 5667 )
 multimesh = SubResource( 5668 )
 
 [node name="MultiMeshInstance767" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5669 )
 
 [node name="MultiMeshInstance768" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5670 )
 
 [node name="MultiMeshInstance769" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5671 )
 
 [node name="MultiMeshInstance770" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5672 )
 
 [node name="MultiMeshInstance771" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5673 )
 
 [node name="MultiMeshInstance772" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5674 )
 
 [node name="MultiMeshInstance773" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5675 )
 
 [node name="MultiMeshInstance651" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5676 )
 
 [node name="MultiMeshInstance774" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5677 )
 
 [node name="MultiMeshInstance775" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5678 )
 
 [node name="MultiMeshInstance776" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5679 )
 
 [node name="MultiMeshInstance777" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5680 )
 
 [node name="MultiMeshInstance778" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5681 )
 
 [node name="MultiMeshInstance779" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5682 )
 
 [node name="MultiMeshInstance780" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5683 )
 
 [node name="MultiMeshInstance641" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -46214,6 +46343,7 @@ multimesh = SubResource( 5704 )
 multimesh = SubResource( 5705 )
 
 [node name="MultiMeshInstance800" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 5706 )
 
 [node name="MultiMeshInstance801" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -46814,7 +46944,6 @@ multimesh = SubResource( 5904 )
 multimesh = SubResource( 5905 )
 
 [node name="MultiMeshInstance1001" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
-cast_shadow = 0
 multimesh = SubResource( 5906 )
 
 [node name="MultiMeshInstance1003" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
@@ -47250,76 +47379,98 @@ multimesh = SubResource( 6049 )
 multimesh = SubResource( 6050 )
 
 [node name="MultiMeshInstance1114" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6051 )
 
 [node name="MultiMeshInstance1139" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6052 )
 
 [node name="MultiMeshInstance1140" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6053 )
 
 [node name="MultiMeshInstance1141" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6054 )
 
 [node name="MultiMeshInstance1142" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6055 )
 
 [node name="MultiMeshInstance1143" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6056 )
 
 [node name="MultiMeshInstance1144" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6057 )
 
 [node name="MultiMeshInstance561" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
 multimesh = SubResource( 6058 )
 
 [node name="MultiMeshInstance1145" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6059 )
 
 [node name="MultiMeshInstance1146" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6060 )
 
 [node name="MultiMeshInstance1147" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6061 )
 
 [node name="MultiMeshInstance1148" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6062 )
 
 [node name="MultiMeshInstance1149" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6063 )
 
 [node name="MultiMeshInstance1150" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6064 )
 
 [node name="MultiMeshInstance1151" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6065 )
 
 [node name="MultiMeshInstance1138" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6066 )
 
 [node name="MultiMeshInstance1152" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6067 )
 
 [node name="MultiMeshInstance1153" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6068 )
 
 [node name="MultiMeshInstance1154" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6069 )
 
 [node name="MultiMeshInstance1155" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6070 )
 
 [node name="MultiMeshInstance1156" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6071 )
 
 [node name="MultiMeshInstance1157" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6072 )
 
 [node name="MultiMeshInstance1158" type="MultiMeshInstance" parent="Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 6073 )
 
 [node name="character-skeleton" parent="." instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9488, 0.91427, 35.0874 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9488, 14.0949, 35.0874 )
 
 [connection signal="body_entered" from="taxi/Spatial/DetectionArea" to="taxi/Spatial/body/MachineGun" method="OnDetection"]
 [connection signal="body_exited" from="taxi/Spatial/DetectionArea" to="taxi/Spatial/body/MachineGun" method="OnExit"]

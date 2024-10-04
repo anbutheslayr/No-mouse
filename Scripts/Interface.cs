@@ -24,8 +24,8 @@ public class Interface : Control
     public RichTextLabel Drift_points;
     public int kill=1;
     public Timer change_world_timer;
-    public int cur_world = 1;
     [Export] public int min_kills = 6;
+    public PackedScene skeleton;
     public override void _Ready()
     {
         plane = GetTree().GetNodesInGroup("Plane")[0] as RigidBody;
@@ -52,14 +52,13 @@ public class Interface : Control
         spawn_time = 26;
         Drift_points = GetNode<RichTextLabel>("Drift_points");
         Drift_points.Text = "Drift Points: " + Res.Drift_points;
-
+        skeleton = GD.Load<PackedScene>("res://Assets/Models/World2/Scenes/character-skeleton.tscn");
         // Setting shadows
         SetShadow(Res.shadows , Res.ShadowQuality);
         //Setting glow
         SetGlow(Res.Glow);
         
         RepositionAndResize(Res.res);
-        SetQuality(Res.Quality);
     }
     public void Verify_res()
     {
@@ -84,31 +83,23 @@ public class Interface : Control
  
         }
     }
-    public void SetQuality(int quality)
-    {
-        switch(quality)
-        {
-            case 0:
-                ProjectSettings.SetSetting("rendering/quality/depth/hdr" , true);
-                ProjectSettings.SetSetting("rendering/quality/depth/hdr.mobile" , true);
-                ProjectSettings.SaveCustom("res://override.cfg");
-                break;
-            case 1:
-                ProjectSettings.SetSetting("rendering/quality/depth/hdr" , false);
-                ProjectSettings.SetSetting("rendering/quality/depth/hdr.mobile" , false);
-                ProjectSettings.SaveCustom("res://override.cfg");
-                break;
-        }
-    }
     
     public void AddEnemies()
     {
         if(!dead)
         {
-            var enemy = enemy_taxi.Instance() as Spatial;
+            var enemy = enemy_taxi.Instance() as Spatial;  
             enemy.GlobalTransform = enemyspawner.GlobalTransform;
             GetParent().GetParent().AddChild(enemy);
             cur_enemies++;
+            if(Res.cur_world == 2)
+            {
+                var sk1 = skeleton.Instance() as Spatial;
+                sk1.GlobalTransform = enemyspawner.GlobalTransform;
+                GetParent().GetParent().AddChild(sk1);
+            }
+                
+            
             if(cur_enemies < Res.NoOfEnemies)
             {
                 timer.Start(spawn_time);
@@ -215,17 +206,22 @@ public class Interface : Control
         if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count !=0)
         {
             enemy_spawntext.Text = "All " + Res.NoOfEnemies+"/"+Res.NoOfEnemies +" enemies spawned";
-            if(Res.NoOfEnemies >= min_kills && cur_world < Res.max_worlds)
+            if(Res.NoOfEnemies >= min_kills && Res.cur_world < Res.max_worlds)
             {
                 change_world_timer.Start(10);    
             }
         }
         if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0 && !dead && Res.NoOfEnemies >= min_kills)
         {
-            if(cur_world < Res.max_worlds)
+            if(Res.cur_world < Res.max_worlds)
             {
                 enemy_spawntext.Text = "\n\n Teleporting to next world in " + (int)change_world_timer.TimeLeft;
             }
+            else
+            {
+                enemy_spawntext.Text = "You won against " + Res.NoOfEnemies + " enemies";
+            }
+            
             won = true;
         }
         else if(cur_enemies == Res.NoOfEnemies && GetTree().GetNodesInGroup("Enemy").Count == 0 && !dead && Res.NoOfEnemies < min_kills)
@@ -259,8 +255,9 @@ public class Interface : Control
     }
     public void ChangeWorld()
     {
-        cur_world++;
-        GetTree().ChangeScene("res://Scenes/Worlds/World"+cur_world+".tscn");
+        Res.cur_world++;
+        GetTree().ChangeScene("res://Scenes/Worlds/World"+Res.cur_world+".tscn");
+        ResourceSaver.Save("res://Interface/Res.tres", Res);
     }
 }
 

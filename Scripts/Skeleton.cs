@@ -17,7 +17,11 @@ public class Skeleton : Spatial
     [Export] public float steering = 60;
     [Export] public int acceleration = 25;
     [Export] public int turn_speed = 5;
+	[Signal] delegate void Change_Health(int health);
+
     public RayCast rayCast;
+    public int health = 100;
+    public PackedScene explosion;
 
     public override void _Ready()
     {
@@ -33,6 +37,8 @@ public class Skeleton : Spatial
         update_path_timer.Start(0.1f);
         rayCast = GetNode<RayCast>("RayCast");
         character = GetNode<Spatial>("root");
+        explosion = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
+		Connect("Change_Health", healthbar, nameof(Change_Health));
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,6 +78,19 @@ public class Skeleton : Spatial
 		var angle = -GlobalTransform.basis.z.SignedAngleTo(direction , Vector3.Up);
 		angle = Mathf.Rad2Deg(angle);
 		return angle;
+	}
+    public void Calculate_Health()
+	{
+		health -= 20;
+		if(health <= 0)
+		{
+			health = 0;
+			var explosion_instance = explosion.Instance() as Spatial;
+			GetTree().Root.AddChild(explosion_instance);
+			explosion_instance.GlobalTranslation = ball.GlobalTranslation;
+			GetParent().QueueFree();
+		}
+		EmitSignal("Change_Health" ,health);
 	}
     
 //     public Transform Alignwithsurface(Transform xform ,Vector3 new_y)
