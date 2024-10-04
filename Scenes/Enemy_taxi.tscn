@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://taxi.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://Scripts/Enemy_taxi_new.cs" type="Script" id=2]
 [ext_resource path="res://Scenes/Smoke.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/EnemyHealthbar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Audio/drift.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Scenes/Smoke_graveyard.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Materials/enemy.png" type="Texture" id=7]
 
 [sub_resource type="SpatialMaterial" id=1]
@@ -213,6 +214,8 @@ left_wheel_path = "Spatial/wheel_frontLeft"
 right_wheel_path = "Spatial/wheel_frontRight"
 B_L_particles = "Spatial/Backleft/CPUParticles"
 B_R_particles = "Spatial/Backright/CPUParticles"
+B_L2_particles = "Spatial/Backleft2/CPUParticles"
+B_R2_particles = "Spatial/Backright2/CPUParticles"
 player_mesh_path = "taxi/Spatial"
 Nav_agent_path = "Spatial/NavigationAgent"
 Navigation_path = "Navigation"
@@ -220,6 +223,12 @@ ramp_speed = 1.6
 health_bar_path = "Spatial/Healthbar"
 
 [node name="Spatial" type="MeshInstance" parent="."]
+
+[node name="Backright2" parent="Spatial" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428421, 0.0363879, 0.811293 )
+
+[node name="Backleft2" parent="Spatial" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546473, 0.0306792, 0.851717 )
 
 [node name="Backright" parent="Spatial" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428421, 0.0363879, 0.811293 )

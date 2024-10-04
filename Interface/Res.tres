@@ -13,5 +13,4 @@ NoOfEnemies = 6
 volume = 0
 Drift_points = 0.0
 max_worlds = 2
-Quality = 0
 cur_world = 1

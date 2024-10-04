@@ -1081,32 +1081,33 @@ radius = 0.9
 [node name="character-skeleton" type="Spatial" parent="."]
 transform = Transform( -3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, 0, 0, 0 )
 script = ExtResource( 3 )
-acceleration = 30
+acceleration = 17
 
 [node name="root" type="Spatial" parent="character-skeleton"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0246072, 0 )
 
 [node name="leg-left" type="MeshInstance" parent="character-skeleton/root"]
-transform = Transform( 0.8584, 0, 0, 0, 0.8584, 0, 0, 0, 0.8584, 0.074204, 0.223184, -7.21911e-16 )
+transform = Transform( 0.8584, 0, 0, 0, 0.567704, -0.643866, 0, 0.643866, 0.567704, 0.074204, 0.223184, -7.21911e-16 )
 mesh = SubResource( 1 )
 
 [node name="leg-right" type="MeshInstance" parent="character-skeleton/root"]
-transform = Transform( 0.8584, 0, 0, 0, 0.8584, 0, 0, 0, 0.8584, -0.074204, 0.223184, -7.21911e-16 )
+transform = Transform( 0.8584, 0, 0, 0, 0.567704, 0.643866, 0, -0.643866, 0.567704, -0.074204, 0.223184, -7.21911e-16 )
 mesh = SubResource( 2 )
 
 [node name="torso" type="MeshInstance" parent="character-skeleton/root"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44382e-15, 0.223184, -7.21911e-16 )
+transform = Transform( 0.987388, 0, 0.158319, 0, 1, 0, -0.158319, 0, 0.987388, -1.44382e-15, 0.223184, -7.21911e-16 )
 mesh = SubResource( 3 )
 
 [node name="arm-left" type="MeshInstance" parent="character-skeleton/root/torso"]
-transform = Transform( 0.707108, 0.707106, 0, -0.707106, 0.707108, 0, 0, 0, 1, 0.15, 0.225, 0.0025 )
+transform = Transform( 0.765364, 0.451278, -0.458874, -0.503758, 0.863795, 0.00927018, 0.400557, 0.224066, 0.888453, 0.15, 0.225, 0.0025 )
 mesh = SubResource( 4 )
 
 [node name="arm-right" type="MeshInstance" parent="character-skeleton/root/torso"]
-transform = Transform( 0.707108, -0.707106, 0, 0.707106, 0.707108, 0, 0, 0, 1, -0.15, 0.225, 0.0025 )
+transform = Transform( 0.765364, -0.451278, -0.458874, 0.503758, 0.863795, -0.00927018, 0.400557, -0.224066, 0.888453, -0.15, 0.225, 0.0025 )
 mesh = SubResource( 5 )
 
 [node name="head" type="MeshInstance" parent="character-skeleton/root/torso"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26, 7.21911e-16 )
+transform = Transform( 0.994818, 0, -0.10167, 0, 1, 0, 0.10167, 0, 0.994818, 0, 0.26, 7.21911e-16 )
 mesh = SubResource( 6 )
 
 [node name="Head" type="RigidBody" parent="character-skeleton/root/torso/head"]
@@ -1139,7 +1140,7 @@ enabled = true
 cast_to = Vector3( 0, -0.3, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "sprint"
+autoplay = "walk"
 anims/attack-kick-left = SubResource( 7 )
 anims/attack-kick-right = SubResource( 8 )
 anims/attack-melee-left = SubResource( 9 )

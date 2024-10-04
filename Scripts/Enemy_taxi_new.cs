@@ -27,6 +27,8 @@ public class Enemy_taxi_new : Spatial
 	public MeshInstance right_wheel;
 	[Export] public string B_L_particles;
 	[Export] public string B_R_particles;
+	[Export] public string B_L2_particles;
+	[Export] public string B_R2_particles;
 	public CPUParticles B_L;
 	public CPUParticles B_R;
 	// public Timer jump_timer;
@@ -50,11 +52,13 @@ public class Enemy_taxi_new : Spatial
 	List<Vector3> p;
 	public Timer update_path_timer;
 	public PackedScene explosion;
+	public resolution Res;
 
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Res = GD.Load<resolution>("user://Int/Res.tres");
 		ball = GetNode<RigidBody>(Ball_path);
 		Car_mesh = GetNode<MeshInstance>(Car_mesh_path);
 		rayCast = GetNode<RayCast>(rayCast_path);
@@ -62,8 +66,18 @@ public class Enemy_taxi_new : Spatial
 		left_wheel = GetNode<MeshInstance>(left_wheel_path);
 		right_wheel = GetNode<MeshInstance>(right_wheel_path);
 		car_mesh_body = GetNode<MeshInstance>(car_mesh_body_path);
-		B_L = GetNode<CPUParticles>(B_L_particles);
-		B_R = GetNode<CPUParticles>(B_R_particles);
+		if(Res.cur_world ==2 )
+		{
+			B_L = GetNode<CPUParticles>(B_L2_particles);
+			B_R = GetNode<CPUParticles>(B_R2_particles);
+		}
+		else
+		{
+			B_L = GetNode<CPUParticles>(B_L_particles);
+			B_R = GetNode<CPUParticles>(B_R_particles);
+		}
+		B_L.Emitting = true;
+		B_R.Emitting = true;
 		drift = GetNode<AudioStreamPlayer3D>("Spatial/Drift");
 		player_mesh = GetParent().GetNode<MeshInstance>(player_mesh_path);
 		nav_agent = GetNode<NavigationAgent>(Nav_agent_path);

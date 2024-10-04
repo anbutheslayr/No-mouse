@@ -95,7 +95,7 @@ public class Gun : Spatial
                 var aimspd = Aim_speed;
                 if(GetClosestEnemy().IsInGroup("Runnable"))
                 {
-                    aimspd = 0.8f;
+                    aimspd = 0.95f;
                 }
                 gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , aimspd),Vector3.Up);
                 if(anim.CurrentAnimation != "Shoot" && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Gun_descend")

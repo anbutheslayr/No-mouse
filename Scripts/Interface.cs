@@ -256,8 +256,8 @@ public class Interface : Control
     public void ChangeWorld()
     {
         Res.cur_world++;
+        ResourceSaver.Save("user://Int/Res.tres", Res);
         GetTree().ChangeScene("res://Scenes/Worlds/World"+Res.cur_world+".tscn");
-        ResourceSaver.Save("res://Interface/Res.tres", Res);
     }
 }
 

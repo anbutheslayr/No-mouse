@@ -637,16 +637,12 @@ shadow_size = 5
 [sub_resource type="ProceduralSky" id=7621]
 
 [sub_resource type="Environment" id=7622]
-background_mode = 1
 background_sky = SubResource( 7621 )
-background_color = Color( 0.890196, 0.254902, 0.254902, 1 )
-ambient_light_color = Color( 0.254902, 0.247059, 0.247059, 1 )
 fog_color = Color( 0.568627, 0.156863, 0.0901961, 1 )
 fog_sun_color = Color( 0.996078, 0.341176, 0.0823529, 1 )
 fog_depth_begin = 11.4
 fog_depth_end = 87.5
 fog_depth_curve = 1.8025
-tonemap_mode = 2
 tonemap_white = 16.0
 dof_blur_far_distance = 20.0
 dof_blur_far_transition = 25.3
@@ -42966,7 +42962,7 @@ cull_mask = 2
 environment = SubResource( 7622 )
 projection = 1
 fov = 100.0
-size = 50.0
+size = 70.0
 
 [node name="Enemy_spawner" type="Spatial" parent="."]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -11.8868, 20.2893, 14.1523 )
@@ -43245,6 +43241,15 @@ multimesh = SubResource( 13547 )
 [node name="MultiMeshInstance311" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13548 )
 
+[node name="pine-fall" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance311" instance=ExtResource( 107 )]
+transform = Transform( 3.2377, 0, 2.88735, 0, 4.33814, 0, -2.88735, 0, 3.2377, -43.54, 0.05, 58.9954 )
+
+[node name="pine-fall2" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance311" instance=ExtResource( 107 )]
+transform = Transform( 0.260132, 0, 4.74941, 0, 4.75653, 0, -4.74941, 0, 0.260132, -44.2704, 0.05, 63.5095 )
+
+[node name="pine-fall3" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance311" instance=ExtResource( 107 )]
+transform = Transform( 2.49865, 0, 2.69014, 0, 3.67153, 0, -2.69014, 0, 2.49865, -44.487, 0.05, 64.606 )
+
 [node name="MultiMeshInstance306" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13549 )
 
@@ -43254,8 +43259,23 @@ multimesh = SubResource( 13550 )
 [node name="MultiMeshInstance320" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13551 )
 
+[node name="pine-fall" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance320" instance=ExtResource( 107 )]
+transform = Transform( 4.59337, 0, -0.029555, 0, 4.59347, 0, 0.029555, 0, 4.59337, -64.9637, 0.05, 67.0174 )
+
+[node name="pine-fall2" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance320" instance=ExtResource( 107 )]
+transform = Transform( -0.877729, 0, -4.41993, 0, 4.50623, 0, 4.41993, 0, -0.877729, -59.7738, 0.05, 63.296 )
+
 [node name="MultiMeshInstance321" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13552 )
+
+[node name="pine-fall" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance321" instance=ExtResource( 107 )]
+transform = Transform( -3.61914, 0, -3.02176, 0, 4.71479, 0, 3.02176, 0, -3.61914, -61.4816, 0.05, 72.5763 )
+
+[node name="pine-fall2" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance321" instance=ExtResource( 107 )]
+transform = Transform( -1.46845, 0, -3.05701, 0, 3.39141, 0, 3.05701, 0, -1.46845, -57.6242, 0.00100017, 72.2485 )
+
+[node name="pine-fall3" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance321" instance=ExtResource( 107 )]
+transform = Transform( -2.32822, 0, -1.91619, 0, 3.01536, 0, 1.91619, 0, -2.32822, -62.4463, 0.000999995, 68.9687 )
 
 [node name="MultiMeshInstance322" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13553 )
@@ -43266,8 +43286,35 @@ multimesh = SubResource( 13554 )
 [node name="MultiMeshInstance324" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13555 )
 
+[node name="pine-fall" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance324" instance=ExtResource( 107 )]
+transform = Transform( -2.9157, 0, 1.71358, 0, 3.38197, 0, -1.71358, 0, -2.9157, -49.9491, 0.05, 58.8196 )
+
+[node name="pine-fall2" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance324" instance=ExtResource( 107 )]
+transform = Transform( -3.59619, 0, 1.09682, 0, 3.75973, 0, -1.09682, 0, -3.59619, -54.3334, 0.05, 64.7126 )
+
+[node name="pine-fall3" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance324" instance=ExtResource( 107 )]
+transform = Transform( -4.60982, 0, 0.395523, 0, 4.62675, 0, -0.395523, 0, -4.60982, -54.2663, 0.05, 60.4892 )
+
+[node name="pine-fall4" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance324" instance=ExtResource( 107 )]
+transform = Transform( 2.40683, 0, 3.76457, 0, 4.4682, 0, -3.76457, 0, 2.40683, -48.869, 0.00100005, 63.5476 )
+
+[node name="pine-fall5" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance324" instance=ExtResource( 107 )]
+transform = Transform( 4.37162, 0, 0.225575, 0, 4.37744, 0, -0.225575, 0, 4.37162, -53.5071, 0.000999689, 66.1137 )
+
 [node name="MultiMeshInstance325" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13556 )
+
+[node name="pine-fall" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance325" instance=ExtResource( 107 )]
+transform = Transform( 0.968656, 0, -3.94804, 0, 4.06513, 0, 3.94804, 0, 0.968656, -54.0487, 0.05, 70.9064 )
+
+[node name="pine-fall2" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance325" instance=ExtResource( 107 )]
+transform = Transform( 2.31134, 0, 2.64652, 0, 3.51374, 0, -2.64652, 0, 2.31134, -52.4117, 0.05, 71.441 )
+
+[node name="pine-fall3" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance325" instance=ExtResource( 107 )]
+transform = Transform( 3.51852, 0, -0.122593, 0, 3.52065, 0, 0.122593, 0, 3.51852, -53.7499, 0.05, 76.3273 )
+
+[node name="pine-fall4" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance325" instance=ExtResource( 107 )]
+transform = Transform( -2.14819, 0, 2.54285, 0, 3.32879, 0, -2.54285, 0, -2.14819, -52.0032, 0.05, 77.2531 )
 
 [node name="MultiMeshInstance118" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13557 )
@@ -43298,6 +43345,15 @@ multimesh = SubResource( 13565 )
 
 [node name="MultiMeshInstance71" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13566 )
+
+[node name="pine-fall" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance71" instance=ExtResource( 107 )]
+transform = Transform( -0.826053, 0, 3.01572, 0, 3.12681, 0, -3.01572, 0, -0.826053, -52.8062, 0.05, 46.0443 )
+
+[node name="pine-fall2" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance71" instance=ExtResource( 107 )]
+transform = Transform( -2.87287, 0, -1.48151, 0, 3.23238, 0, 1.48151, 0, -2.87287, -49.9425, 0.05, 56.138 )
+
+[node name="pine-fall3" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance71" instance=ExtResource( 107 )]
+transform = Transform( 2.3479, 0, 3.01972, 0, 3.82509, 0, -3.01972, 0, 2.3479, -52.7759, 0.00100005, 51.7961 )
 
 [node name="MultiMeshInstance16" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13567 )
@@ -43566,8 +43622,29 @@ multimesh = SubResource( 13654 )
 [node name="MultiMeshInstance112" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13655 )
 
+[node name="pine-fall" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance112" instance=ExtResource( 107 )]
+transform = Transform( -4.45145, 0, -0.620192, 0, 4.49445, 0, 0.620192, 0, -4.45145, -40.6027, 0.05, 44.8215 )
+
+[node name="pine-fall2" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance112" instance=ExtResource( 107 )]
+transform = Transform( 3.32149, 0, 3.23601, 0, 4.63725, 0, -3.23601, 0, 3.32149, -46.6406, 0.05, 46.1889 )
+
+[node name="pine-fall3" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance112" instance=ExtResource( 107 )]
+transform = Transform( 4.52758, 0, 1.43784, 0, 4.7504, 0, -1.43784, 0, 4.52758, -40.8315, 0.05, 46.6132 )
+
+[node name="pine-fall4" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance112" instance=ExtResource( 107 )]
+transform = Transform( 1.23035, 0, 4.30266, 0, 4.47511, 0, -4.30266, 0, 1.23035, -41.1987, 0.000999995, 38.9623 )
+
+[node name="pine-fall5" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance112" instance=ExtResource( 107 )]
+transform = Transform( 3.37329, 0, 2.88278, 0, 4.43728, 0, -2.88278, 0, 3.37329, -41.5692, 0.000999995, 42.6322 )
+
 [node name="MultiMeshInstance113" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13656 )
+
+[node name="pine-fall" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance113" instance=ExtResource( 107 )]
+transform = Transform( -3.41437, 0, -2.13022, 0, 4.02439, 0, 2.13022, 0, -3.41437, -41.8997, 0.05, 50.7232 )
+
+[node name="pine-fall2" parent="Gardener2/Arborist/MMI_container/MultiMeshInstance113" instance=ExtResource( 107 )]
+transform = Transform( 2.4547, 0, 3.64793, 0, 4.39692, 0, -3.64793, 0, 2.4547, -43.7187, 0.05, 52.8599 )
 
 [node name="MultiMeshInstance114" type="MultiMeshInstance" parent="Gardener2/Arborist/MMI_container"]
 multimesh = SubResource( 13657 )

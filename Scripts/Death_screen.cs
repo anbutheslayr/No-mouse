@@ -13,7 +13,7 @@ public class Death_screen : Control
 
     public override void _Ready()
     {
-        Res = GD.Load<resolution>("res://Interface/Res.tres");
+        Res = GD.Load<resolution>("user://Int/Res.tres");
 
         vb1 = GetNode<VBoxContainer>("MarginContainer/VBoxContainer");
         vb1.AddConstantOverride("separation", (int)(Res.res.y/1080*70));
@@ -45,13 +45,14 @@ public class Death_screen : Control
 
     public void OnRestartPressed()
     {
+        Res = GD.Load<resolution>("user://Int/Res.tres");
         Engine.TimeScale = 1;
         if(Res.volume != -15)
         {
             var audio_bus = AudioServer.GetBusIndex("Master");
             AudioServer.SetBusMute(audio_bus, false);
         }
-        if(Res.cur_world ==1)
+        if(Res.cur_world == 1)
             GetTree().ChangeScene("res://Scenes/Worlds/World.tscn");
         else
             GetTree().ChangeScene("res://Scenes/Worlds/World"+Res.cur_world+".tscn");
@@ -67,6 +68,6 @@ public class Death_screen : Control
             AudioServer.SetBusMute(audio_bus, false);
         }
         Res.cur_world = 1;
-        ResourceSaver.Save("res://Interface/Res.tres", Res);
+        ResourceSaver.Save("user://Int/Res.tres", Res);
     }
 }
