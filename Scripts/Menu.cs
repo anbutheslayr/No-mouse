@@ -67,7 +67,7 @@ public class Menu : Control
     {
         GetParent().Call("Click");
         ResourceSaver.Save("res://Interface/Res.tres", Res);
-        GetTree().ChangeScene("res://Scenes/Worlds/World.tscn");
+        GetTree().ChangeScene("res://Scenes/Worlds/World2.tscn");
     }
     public void OnSettingsPressed()
     {

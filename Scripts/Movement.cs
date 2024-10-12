@@ -48,7 +48,7 @@ public class Movement : Spatial
 	[Export] public float Jump_ht = 2.5f;
 	public Control intrface;
 	[Export] public int Drift_multiplier = 1;
-	public int im = 0;
+	[Export] public int im = 88;
 	public Camera cam;
 	[Export]public NodePath min_map_cam_path;
 	public Camera min_map_cam;
