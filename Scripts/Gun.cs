@@ -27,6 +27,8 @@ public class Gun : Spatial
     public int cur_ammo;
     public RichTextLabel ammo_text;
     public Spatial player;
+    public int cur_gun = 0;
+    public int rocket_ammo = 15;
     public override void _Ready()
     {
         ray_cast = GetNode<RayCast>(RayCastPath);
@@ -75,48 +77,75 @@ public class Gun : Spatial
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        ammo_text.Text = "       Ammo = " + cur_ammo + "/" + Ammo + "(" + cur_magazines + ") \n       " + OS.GetScreenSize().ToString() + "\n       FPS : " + Engine.GetFramesPerSecond() + "\n       Enemies Alive : " + GetTree().GetNodesInGroup("Enemy").Count;
-        if(anim.CurrentAnimation == "Reload")
+        Spatial closest_enemy = GetClosestEnemy();
+        var direction = Vector3.Zero;
+        if(closest_enemy != null)
+            direction = closest_enemy.GlobalTransform.origin - GlobalTransform.origin;
+        switch(cur_gun)
         {
-            ammo_text.Text = "Reloading...";
-        }
-        if(enemies.Count > 0 && GetClosestEnemy() != null && cur_ammo > 0 && anim.CurrentAnimation != "Reload")
-        {
-            if(entered == false && anim.CurrentAnimation != "Gun_descend")
-            {
-                anim.Play("Gun_rise");
-                entered = true;
-            }
-            Spatial closest_enemy = GetClosestEnemy();
-            var direction = closest_enemy.GlobalTransform.origin - GlobalTransform.origin;
-            
-            if( gun.GlobalTransform.origin.DistanceTo(closest_enemy.GlobalTransform.origin) > Range )
-            {
-                var aimspd = Aim_speed;
-                if(GetClosestEnemy().IsInGroup("Runnable"))
+            case 0:
+                ammo_text.Text = "       Ammo = " + cur_ammo + "/" + Ammo + "(" + cur_magazines + ") \n       " + OS.GetScreenSize().ToString() + "\n       FPS : " + Engine.GetFramesPerSecond() + "\n       Enemies Alive : " + GetTree().GetNodesInGroup("Enemy").Count;
+                if(anim.CurrentAnimation == "Reload")
                 {
-                    aimspd = 0.95f;
+                   ammo_text.Text = "Reloading...";
                 }
-                gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , aimspd),Vector3.Up);
-                if(anim.CurrentAnimation != "Shoot" && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Gun_descend")
+                if(enemies.Count > 0 && GetClosestEnemy() != null && cur_ammo > 0 && anim.CurrentAnimation != "Reload")
                 {
-                    anim.Play("Shoot");
-                }
-            }
-
+                    if(entered == false && anim.CurrentAnimation != "Gun_descend")
+                    {
+                       anim.Play("Gun_rise");
+                       entered = true;
+                    }
+                   
                 
+                    if( gun.GlobalTransform.origin.DistanceTo(closest_enemy.GlobalTransform.origin) > Range )
+                    {
+                        var aimspd = Aim_speed;
+                        if(GetClosestEnemy().IsInGroup("Runnable"))
+                        {
+                            aimspd = 0.95f;
+                        }
+                        gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , aimspd),Vector3.Up);
+                        if(anim.CurrentAnimation != "Shoot" && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Gun_descend")
+                        {
+                            anim.Play("Shoot");
+                        }
+                    }
+                }
+                else if(cur_ammo <= 0 && cur_magazines > 0)
+                {
+                    anim.Play("Reload");
+                    cur_ammo = Ammo;
+                    cur_magazines--;
+                }
+                else if(entered == true && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Reload")
+                {
+                    anim.Play("Gun_descend");
+                    entered = false;
+                }
+                break;
+
+
+
+
+                case 1:
+                if(enemies.Count > 0 && GetClosestEnemy() != null && rocket_ammo > 0)
+                {
+                    if(entered == false && anim.CurrentAnimation != "Rocket_rise")
+                    {
+                       anim.Play("Rocket_rise");
+                       entered = true;
+                    }
+                }
+                else if(entered == true && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Reload")
+                {
+                    anim.PlayBackwards("Rocket_rise");
+                    entered = false;
+                }
+
+                break;
         }
-        else if(cur_ammo <= 0 && cur_magazines > 0)
-        {
-            anim.Play("Reload");
-            cur_ammo = Ammo;
-            cur_magazines--;
-        }
-        else if(entered == true && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Reload")
-        {
-            anim.Play("Gun_descend");
-            entered = false;
-        }
+        
         
     }
     public Spatial GetClosestEnemy()
@@ -170,5 +199,13 @@ public class Gun : Spatial
     public void Add_ammo()
     {
         cur_magazines++;
+    }
+    public void gun_switch()
+    {
+        cur_gun++;
+        if(cur_gun > 1)
+        {
+            cur_gun = 0;
+        }
     }
 }

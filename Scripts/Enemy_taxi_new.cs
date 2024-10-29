@@ -281,6 +281,8 @@ public class Enemy_taxi_new : Spatial
 		health -= damage;
 		if(health <= 0)
 		{
+			player_mesh.GetParent().Call("Enemyexploded" , ball.GlobalTranslation);
+			GetParent().GetNode("Camera").Call("Add_trauma",0.8f);
 			player_mesh.GetParent().GetNode("Interface").Call("Kill");
 			health = 0;
 			var explosion_instance = explosion.Instance() as Spatial;

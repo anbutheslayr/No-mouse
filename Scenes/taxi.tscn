@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scenes/Healthbar3d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Movement.cs" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Audio/drift.mp3" type="AudioStream" id=9]
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Materials/player.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Models/Guns/Rocket Launcher.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "plastic"
@@ -420,6 +421,54 @@ tracks/6/keys = {
 "update": 0,
 "values": [ Vector3( 0, -1.62987, 0.0648999 ) ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("body/Rocket Launcher:translation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.0892019, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("body/Rocket Launcher:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("body/MachineGun/Stand:mesh")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ SubResource( 20 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("body/MachineGun/Base:mesh")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ SubResource( 21 ) ]
+}
 
 [sub_resource type="Animation" id=24]
 resource_name = "Reload"
@@ -435,6 +484,58 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -180, 0 ), Vector3( -180, -180, 0 ), Vector3( -154.615, -180, 0 ), Vector3( -180, -180, 0 ), Vector3( 0, -180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "Rocket_rise"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/Rocket Launcher:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.0892019, 0 ), Vector3( 0, 2, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/Rocket Launcher:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, -90 ), Vector3( 0, -90, -90 ), Vector3( 0, -90, -53.531 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/MachineGun/Stand:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.3908, 0.0648999 ), Vector3( 0, 0.0207081, 0.0648999 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/MachineGun/Base:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.30323, 0.0648999 ), Vector3( 0, -0.631757, 0.0648999 ) ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -607,6 +708,9 @@ stream = ExtResource( 8 )
 volume_db = -10.0
 pitch_scale = 3.5
 
+[node name="Rocket Launcher" parent="Spatial/body" instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0892019, 0 )
+
 [node name="wheel_backRight" type="MeshInstance" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, 0.76 )
 mesh = ExtResource( 3 )
@@ -646,6 +750,7 @@ anims/Gun_descend = SubResource( 23 )
 anims/Gun_rise = SubResource( 22 )
 anims/RESET = SubResource( 18 )
 anims/Reload = SubResource( 24 )
+anims/Rocket_rise = SubResource( 26 )
 anims/Shoot = SubResource( 19 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Spatial"]
@@ -729,4 +834,5 @@ size = 100.0
 [editable path="Spatial/Backright"]
 [editable path="Spatial/Backleft"]
 [editable path="Spatial/body/MachineGun"]
+[editable path="Spatial/body/Rocket Launcher"]
 [editable path="Interface"]

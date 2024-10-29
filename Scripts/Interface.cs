@@ -252,6 +252,7 @@ public class Interface : Control
     public void Kill()
     {
         kill+=1;
+        
     }
     public void ChangeWorld()
     {
