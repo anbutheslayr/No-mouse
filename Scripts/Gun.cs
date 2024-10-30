@@ -28,7 +28,13 @@ public class Gun : Spatial
     public RichTextLabel ammo_text;
     public Spatial player;
     public int cur_gun = 0;
-    public int rocket_ammo = 15;
+    public Spatial rocket_launcher;
+    public Timer rock_timer;
+    public bool launch = false;
+    public int i = 0;
+    public PackedScene roc_ammo;
+    [Export] public int rocket_ammo = 15;
+    public int max_bull_ind=2;
     public override void _Ready()
     {
         ray_cast = GetNode<RayCast>(RayCastPath);
@@ -45,6 +51,14 @@ public class Gun : Spatial
         ProjectSettings.SetSetting("display/window/stretch/mode" , "disabled");
         Particles = GD.Load<PackedScene>("res://Scenes/Particles.tscn");
         player = GetParent().GetParent().GetParent() as Spatial;
+        rocket_launcher = GetParent().GetNode<Spatial>("Rocket Launcher/Gun");
+        rock_timer = new Timer();
+        AddChild(rock_timer);
+        rock_timer.OneShot = true;
+        rock_timer.WaitTime = .2f;
+        rock_timer.Connect("timeout" , this , nameof(On_timeout));
+        rock_timer.Start();
+        roc_ammo = GD.Load<PackedScene>("res://Assets/Models/Guns/Rocket Ammo.tscn");
     }
 
     public void OnDetection(Node body)
@@ -75,16 +89,17 @@ public class Gun : Spatial
         }
     }
     // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
+    public override async void _Process(float delta)
     {
         Spatial closest_enemy = GetClosestEnemy();
         var direction = Vector3.Zero;
+        ammo_text.Text = "       Ammo = " + cur_ammo + "/" + Ammo + "(" + cur_magazines + ") \n       " + OS.GetScreenSize().ToString() + "\n       FPS : " + Engine.GetFramesPerSecond() + "\n       Enemies Alive : " + GetTree().GetNodesInGroup("Enemy").Count;
+
         if(closest_enemy != null)
             direction = closest_enemy.GlobalTransform.origin - GlobalTransform.origin;
         switch(cur_gun)
         {
             case 0:
-                ammo_text.Text = "       Ammo = " + cur_ammo + "/" + Ammo + "(" + cur_magazines + ") \n       " + OS.GetScreenSize().ToString() + "\n       FPS : " + Engine.GetFramesPerSecond() + "\n       Enemies Alive : " + GetTree().GetNodesInGroup("Enemy").Count;
                 if(anim.CurrentAnimation == "Reload")
                 {
                    ammo_text.Text = "Reloading...";
@@ -129,6 +144,9 @@ public class Gun : Spatial
 
 
                 case 1:
+
+                ammo_text.Text = "       Ammo = " + rocket_ammo*3 + "/" + 45 + "(" + rocket_ammo + ") \n       " + OS.GetScreenSize().ToString() + "\n       FPS : " + Engine.GetFramesPerSecond() + "\n       Enemies Alive : " + GetTree().GetNodesInGroup("Enemy").Count;
+
                 if(enemies.Count > 0 && GetClosestEnemy() != null && rocket_ammo > 0)
                 {
                     if(entered == false && anim.CurrentAnimation != "Rocket_rise")
@@ -136,13 +154,29 @@ public class Gun : Spatial
                        anim.Play("Rocket_rise");
                        entered = true;
                     }
+                    if(entered == true && anim.CurrentAnimation != "Rocket_rise")
+                    {
+                        if(launch && i<max_bull_ind && rocket_ammo > 0)
+                        {
+                            rocket_launcher.GetChild(i).Call("Launch");
+                            launch = false;
+                            rock_timer.Start(3);
+                            i++;
+                        }
+                        else if(launch && rocket_ammo > 0 && anim.CurrentAnimation != "Rocket_reload") 
+                        {
+                            anim.PlayBackwards("Rocket_reload");
+                        }
+                        
+                    }
+                    
                 }
                 else if(entered == true && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Reload")
                 {
                     anim.PlayBackwards("Rocket_rise");
                     entered = false;
                 }
-
+                
                 break;
         }
         
@@ -162,6 +196,24 @@ public class Gun : Spatial
             }
         }
         return closest_enemy;
+    }
+    public void On_timeout()
+    {
+        launch = true;
+    }
+    public void Rocket_reload()
+    {
+        var b1 = roc_ammo.Instance() as Spatial;
+        rocket_launcher.AddChild(b1);
+        b1.GlobalTransform = (rocket_launcher.GetParent().GetChild(0)as Spatial).GlobalTransform;
+        var b2 = roc_ammo.Instance() as Spatial;
+        rocket_launcher.AddChild(b2);
+        b2.GlobalTransform = (rocket_launcher.GetParent().GetChild(1)as Spatial).GlobalTransform;
+        var b3 = roc_ammo.Instance() as Spatial;
+        rocket_launcher.AddChild(b3);
+        b3.GlobalTransform = (rocket_launcher.GetParent().GetChild(2)as Spatial).GlobalTransform;
+        rocket_ammo--;
+        max_bull_ind+=3;
     }
     private void OnShoot()
     {

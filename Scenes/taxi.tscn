@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scenes/Healthbar3d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Movement.cs" type="Script" id=2]
@@ -486,6 +486,72 @@ tracks/0/keys = {
 "values": [ Vector3( 0, -180, 0 ), Vector3( -180, -180, 0 ), Vector3( -154.615, -180, 0 ), Vector3( -180, -180, 0 ), Vector3( 0, -180, 0 ) ]
 }
 
+[sub_resource type="Animation" id=27]
+resource_name = "Rocket_reload"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/Rocket Launcher:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.0892019, 0 ), Vector3( 0, 2, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/Rocket Launcher:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, -90 ), Vector3( 0, -90, -90 ), Vector3( 0, -90, -53.531 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/MachineGun/Stand:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.3908, 0.0648999 ), Vector3( 0, 0.0207081, 0.0648999 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/MachineGun/Base:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.30323, 0.0648999 ), Vector3( 0, -0.631757, 0.0648999 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("body/MachineGun")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "Rocket_reload"
+} ]
+}
+
 [sub_resource type="Animation" id=26]
 resource_name = "Rocket_rise"
 length = 1.6
@@ -738,6 +804,7 @@ collide_with_areas = true
 
 [node name="Healthbar" parent="Spatial" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239 )
+visible = false
 
 [node name="DetectionArea" type="Area" parent="Spatial" groups=["Player_body"]]
 
@@ -750,11 +817,13 @@ anims/Gun_descend = SubResource( 23 )
 anims/Gun_rise = SubResource( 22 )
 anims/RESET = SubResource( 18 )
 anims/Reload = SubResource( 24 )
+anims/Rocket_reload = SubResource( 27 )
 anims/Rocket_rise = SubResource( 26 )
 anims/Shoot = SubResource( 19 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10634, 0 )
+visible = false
 layers = 2
 pixel_size = 0.015
 billboard = 1

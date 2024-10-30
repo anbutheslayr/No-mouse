@@ -324,8 +324,5 @@ public class Movement : Spatial
 			EmitSignal("Change_Health", health,false);
 		}
 	}
-	public void Enemyexploded(Vector3 pos)
-	{
-		ball.ApplyImpulse(ball.GlobalTranslation -pos , ((ball.GlobalTranslation-pos).Normalized()+new Vector3(0,1.5f,0))*20);
-	}
+
 }

@@ -3,35 +3,16 @@ using System;
 
 public class Explosion : Spatial
 {
-    public Particles Debris;
-    public Particles Smoke;
-    public Particles fire;
-    public Timer timer;
-    public AudioStreamPlayer3D Boom;
-    
+    public Area area;
     public override void _Ready()
     {
-        Debris = GetNode<Particles>("Debris");
-        Smoke = GetNode<Particles>("Smoke");
-        fire = GetNode<Particles>("fire");
-        timer = new Timer();
-        timer.OneShot = true;
-        Boom = GetNode<AudioStreamPlayer3D>("Boom");
+        area = GetNode<Area>("Area");
     }
-
-    public void Explode()
+    public void On_body_entered(Node body)
     {
-        Debris.Emitting = true;
-        Smoke.Emitting = true;
-        fire.Emitting = true;
-        Boom.Playing = true;
-        AddChild(timer);
-        timer.Start(2f);
-        timer.Connect("timeout", this, nameof(qf));
-    }
-
-    public void qf()
-    {
-        QueueFree();
+        if (body is RigidBody)
+        {
+            (body as RigidBody).ApplyImpulse(GlobalTranslation - (body as RigidBody).GlobalTranslation , ((GlobalTranslation-(body as RigidBody).GlobalTranslation).Normalized()+new Vector3(0,1.2f,0))*20);
+        }
     }
 }

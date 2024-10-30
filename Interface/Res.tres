@@ -11,6 +11,6 @@ ShadowQuality = 0
 Glow = true
 NoOfEnemies = 6
 volume = -10
-Drift_points = 9123.63
+Drift_points = 18715.9
 max_worlds = 2
 cur_world = 1

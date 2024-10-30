@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Materials/Branch.material" type="Material" id=1]
 [ext_resource path="res://World2.tres" type="Environment" id=2]
@@ -35,13 +35,6 @@ agent_radius = 1.1
 region_min_size = 4.0
 edge_max_error = 1.0
 
-[sub_resource type="SpatialMaterial" id=16]
-emission_enabled = true
-emission = Color( 0.0235294, 0.407843, 0.647059, 1 )
-emission_energy = 1.0
-emission_operator = 0
-emission_on_uv2 = false
-
 [node name="World" type="Spatial"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -55,7 +48,7 @@ environment = ExtResource( 2 )
 far = 200.0
 script = ExtResource( 3 )
 lerp_speed = 5.0
-target_PATH = "taxi/Spatial/body"
+target_PATH = "taxi/Spatial"
 offset = Vector3( 0, 5, 10 )
 noise = SubResource( 15 )
 noise_speed = 100
@@ -79,6 +72,12 @@ min_map_cam_path = NodePath("Interface/PanelContainer/ViewportContainer/Viewport
 
 [node name="Gun" parent="taxi/Spatial/body/MachineGun" index="0"]
 transform = Transform( -10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07 )
+
+[node name="Rocket Launcher" parent="taxi/Spatial/body" index="1"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0892019, 0 )
+
+[node name="Rocket Ammo2" parent="taxi/Spatial/body/Rocket Launcher/Gun" index="2"]
+rot_speed = 1.0
 
 [node name="TextureButton" type="TextureButton" parent="taxi/Interface" index="7"]
 anchor_left = 0.0015625
@@ -402,7 +401,6 @@ depth = 300.0
 
 [node name="Ground" type="CSGBox" parent="Navigation/NavigationMeshInstance" groups=["2d", "Ground"]]
 layers = 3
-material_override = SubResource( 16 )
 cast_shadow = 0
 use_collision = true
 collision_layer = 13
@@ -569,4 +567,5 @@ visible = false
 [editable path="taxi/Spatial/Backright"]
 [editable path="taxi/Spatial/Backleft"]
 [editable path="taxi/Spatial/body/MachineGun"]
+[editable path="taxi/Spatial/body/Rocket Launcher"]
 [editable path="taxi/Interface"]
