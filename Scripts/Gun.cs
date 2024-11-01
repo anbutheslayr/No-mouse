@@ -35,6 +35,7 @@ public class Gun : Spatial
     public PackedScene roc_ammo;
     [Export] public int rocket_ammo = 15;
     public int max_bull_ind=2;
+    public TextureButton rocket_button;
     public override void _Ready()
     {
         ray_cast = GetNode<RayCast>(RayCastPath);
@@ -59,6 +60,7 @@ public class Gun : Spatial
         rock_timer.Connect("timeout" , this , nameof(On_timeout));
         rock_timer.Start();
         roc_ammo = GD.Load<PackedScene>("res://Assets/Models/Guns/Rocket Ammo.tscn");
+        rocket_button = GetParent().GetParent().GetParent().GetNode<TextureButton>("Interface/Rocket_button");
     }
 
     public void OnDetection(Node body)
@@ -133,7 +135,7 @@ public class Gun : Spatial
                     cur_ammo = Ammo;
                     cur_magazines--;
                 }
-                else if(entered == true && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Reload")
+                else if(entered == true && !anim.IsPlaying())
                 {
                     anim.Play("Gun_descend");
                     entered = false;
@@ -147,35 +149,39 @@ public class Gun : Spatial
 
                 ammo_text.Text = "       Ammo = " + rocket_ammo*3 + "/" + 45 + "(" + rocket_ammo + ") \n       " + OS.GetScreenSize().ToString() + "\n       FPS : " + Engine.GetFramesPerSecond() + "\n       Enemies Alive : " + GetTree().GetNodesInGroup("Enemy").Count;
 
-                if(enemies.Count > 0 && GetClosestEnemy() != null && rocket_ammo > 0)
+                if(rocket_ammo > 0 && rocket_launcher.GetChildCount() > 0)
                 {
-                    if(entered == false && anim.CurrentAnimation != "Rocket_rise")
+                    if(entered == false && !anim.IsPlaying() && GetTree().GetNodesInGroup("Enemy").Count > 0)
                     {
                        anim.Play("Rocket_rise");
                        entered = true;
                     }
-                    if(entered == true && anim.CurrentAnimation != "Rocket_rise")
+                    if(entered == true && !anim.IsPlaying())
                     {
-                        if(launch && i<max_bull_ind && rocket_ammo > 0)
+                        if(launch)
                         {
-                            rocket_launcher.GetChild(i).Call("Launch");
+                            rocket_launcher.GetChild(rocket_launcher.GetChildCount() - 1).Call("Launch");
+                            Reparent(rocket_launcher.GetChild(rocket_launcher.GetChildCount() - 1) as Spatial);
                             launch = false;
-                            rock_timer.Start(3);
+                            rock_timer.Start(2);
                             i++;
                         }
-                        else if(launch && rocket_ammo > 0 && anim.CurrentAnimation != "Rocket_reload") 
-                        {
-                            anim.PlayBackwards("Rocket_reload");
-                        }
+                        
                         
                     }
                     
                 }
-                else if(entered == true && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Reload")
+                else if(enemies.Count > 0 && GetClosestEnemy() != null && rocket_ammo > 0 && rocket_launcher.GetChildCount() == 0)
+                {
+                    anim.Play("Rocket_reload");
+                    entered = false;
+                }
+                else if(entered == true && !anim.IsPlaying())
                 {
                     anim.PlayBackwards("Rocket_rise");
                     entered = false;
                 }
+                
                 
                 break;
         }
@@ -213,7 +219,15 @@ public class Gun : Spatial
         rocket_launcher.AddChild(b3);
         b3.GlobalTransform = (rocket_launcher.GetParent().GetChild(2)as Spatial).GlobalTransform;
         rocket_ammo--;
-        max_bull_ind+=3;
+        gun_switch();
+    }
+    public void Reparent(Spatial bullet)
+    {
+        var transform = bullet.GlobalTransform;
+        var oldparent = bullet.GetParent();
+        oldparent.RemoveChild(bullet);
+        GetTree().Root.GetChild(0).AddChild(bullet);
+        bullet.GlobalTransform = transform;
     }
     private void OnShoot()
     {
@@ -254,10 +268,20 @@ public class Gun : Spatial
     }
     public void gun_switch()
     {
-        cur_gun++;
-        if(cur_gun > 1)
+        if(cur_gun == 1)
         {
             cur_gun = 0;
+            rocket_button.Disabled = false;
+        }
+        else
+        {
+            cur_gun++;
+            rocket_button.Disabled = true;
+            if(anim.IsPlaying() && anim.CurrentAnimation != "Gun_descend")
+            {
+                anim.Play("Gun_descend");
+                entered = false;
+            }
         }
     }
 }

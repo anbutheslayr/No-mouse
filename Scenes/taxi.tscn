@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scenes/Healthbar3d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Movement.cs" type="Script" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Materials/player.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Models/Guns/Rocket Launcher.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Smoke_graveyard.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Materials/Switch Selected.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Materials/Switch.png" type="Texture" id=15]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "plastic"
@@ -715,10 +718,18 @@ left_wheel_path = "Spatial/wheel_frontLeft"
 right_wheel_path = "Spatial/wheel_frontRight"
 B_L_particles = "Spatial/Backleft/CPUParticles"
 B_R_particles = "Spatial/Backright/CPUParticles"
+B_L2_particles = "Spatial/Backleft2/CPUParticles"
+B_R2_particles = "Spatial/Backright2/CPUParticles"
 Accelerate_button_path = "Interface/Acceleration/Accelerate"
 health_bar_path = "Spatial/Healthbar"
 
 [node name="Spatial" type="MeshInstance" parent="."]
+
+[node name="Backright2" parent="Spatial" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428421, 0.0363879, 0.811293 )
+
+[node name="Backleft2" parent="Spatial" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546473, 0.0306792, 0.851717 )
 
 [node name="Backright" parent="Spatial" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428421, 0.0363879, 0.811293 )
@@ -804,7 +815,6 @@ collide_with_areas = true
 
 [node name="Healthbar" parent="Spatial" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239 )
-visible = false
 
 [node name="DetectionArea" type="Area" parent="Spatial" groups=["Player_body"]]
 
@@ -823,7 +833,6 @@ anims/Shoot = SubResource( 19 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10634, 0 )
-visible = false
 layers = 2
 pixel_size = 0.015
 billboard = 1
@@ -895,10 +904,25 @@ projection = 1
 fov = 100.0
 size = 100.0
 
+[node name="Rocket_button" type="TextureButton" parent="Interface"]
+anchor_left = 0.0015625
+anchor_top = 0.527778
+anchor_right = 0.134896
+anchor_bottom = 0.698148
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 14 )
+texture_disabled = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [connection signal="body_entered" from="Spatial/DetectionArea" to="Spatial/body/MachineGun" method="OnDetection"]
 [connection signal="body_exited" from="Spatial/DetectionArea" to="Spatial/body/MachineGun" method="OnExit"]
 [connection signal="body_entered" from="Ball" to="." method="On_collision"]
 [connection signal="body_exited" from="Ball" to="." method="On_leaving"]
+[connection signal="pressed" from="Interface/Rocket_button" to="Spatial/body/MachineGun" method="gun_switch"]
 
 [editable path="Spatial/Backright"]
 [editable path="Spatial/Backleft"]

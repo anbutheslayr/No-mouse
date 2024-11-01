@@ -29,6 +29,8 @@ public class Movement : Spatial
 	[Export] public string B_R_particles;
 	public CPUParticles B_L;
 	public CPUParticles B_R;
+	[Export] public string B_L2_particles;
+	[Export] public string B_R2_particles;
 	[Export] public string Accelerate_button_path;
 	[Export] public float damage_multiplier = 1;
 	public TouchScreenButton Accelerate_button;
@@ -53,6 +55,7 @@ public class Movement : Spatial
 	[Export]public NodePath min_map_cam_path;
 	public Camera min_map_cam;
 	public PackedScene exp;
+	public resolution Res;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -63,8 +66,6 @@ public class Movement : Spatial
 		left_wheel = GetNode<MeshInstance>(left_wheel_path);
 		right_wheel = GetNode<MeshInstance>(right_wheel_path);
 		car_mesh_body = GetNode<MeshInstance>(car_mesh_body_path);
-		B_L = GetNode<CPUParticles>(B_L_particles);
-		B_R = GetNode<CPUParticles>(B_R_particles);
 		Accelerate_button = GetNode<TouchScreenButton>(Accelerate_button_path);
 		health_bar = GetNode<Spatial>(health_bar_path);
 		Connect("Change_Health", health_bar, nameof(Change_Health));
@@ -79,8 +80,19 @@ public class Movement : Spatial
 		exp = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
 		var i = exp.Instance() as Spatial;
 		GetTree().Root.AddChild(i);
-		i.GlobalTranslation = ball.GlobalTranslation;
+		Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
 
+		i.GlobalTranslation = ball.GlobalTranslation;
+		if(Res.cur_world ==2 )
+		{
+			B_L = GetNode<CPUParticles>(B_L2_particles);
+			B_R = GetNode<CPUParticles>(B_R2_particles);
+		}
+		else
+		{
+			B_L = GetNode<CPUParticles>(B_L_particles);
+			B_R = GetNode<CPUParticles>(B_R_particles);
+		}
 		// jump_timer = new Timer();
 		// AddChild(jump_timer);
 		// jump_timer.OneShot = true;

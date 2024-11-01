@@ -27,7 +27,7 @@ public class Rocket_Ammo : Area
         if(launch)
         {
             SetAsToplevel(true);
-            GlobalTranslate(GlobalTransform.basis.z * delta*80);
+            GlobalTranslate(GlobalTransform.basis.z * delta*100);
             targ = GetClosestEnemy();
             if(targ != null)
             {
@@ -35,10 +35,7 @@ public class Rocket_Ammo : Area
                 direction = (targ.GlobalTranslation - GlobalTranslation).Normalized();
                 LookAt(marker.GlobalTranslation.LinearInterpolate(GlobalTransform.origin - direction , rot_speed*delta),Vector3.Up);
             }
-            else
-            {
-                QueueFree();
-            }
+            
 
         }
         
@@ -66,12 +63,13 @@ public class Rocket_Ammo : Area
     }
     public void On_collision(Node node)
     {
-        if (node is RigidBody && node.IsInGroup("Enemy"))
+        if (node is RigidBody && node.IsInGroup("Enemy") && launch)
         {
             var e = Explosion.Instance() as Spatial;
             GetTree().Root.AddChild(e);
             e.GlobalTranslation = GlobalTranslation;
-            // QueueFree();
+            node.GetParent().Call("Calculate_Health", 20);
+            QueueFree();
         }
     }
 
