@@ -44,7 +44,7 @@ public class Rocket_Ammo : Area
     {
         Spatial closest_enemy = null;
         float closest_distance = 0;
-        foreach(Spatial enemy in GetTree().GetNodesInGroup("Enemy"))
+        foreach(Spatial enemy in GetTree().GetNodesInGroup("Enemy") + GetTree().GetNodesInGroup("Runnable"))
         {
             float distance = GlobalTransform.origin.DistanceTo(enemy.GlobalTransform.origin);
             if(closest_enemy == null || distance < closest_distance)
@@ -69,6 +69,22 @@ public class Rocket_Ammo : Area
             GetTree().Root.AddChild(e);
             e.GlobalTranslation = GlobalTranslation;
             node.GetParent().Call("Calculate_Health", 20);
+            QueueFree();
+        }
+        else if (node.IsInGroup("Runnable") && launch)
+        {
+            var e = Explosion.Instance() as Spatial;
+            GetTree().Root.AddChild(e);
+            e.GlobalTranslation = GlobalTranslation;
+            node.GetParent().GetParent().GetParent().Call("Calculate_Health");
+            node.GetParent().GetParent().GetParent().Call("Calculate_Health");
+            QueueFree();
+        }
+        else if (node.IsInGroup("Ground") && launch)
+        {
+            var e = Explosion.Instance() as Spatial;
+            GetTree().Root.AddChild(e);
+            e.GlobalTranslation = GlobalTranslation;
             QueueFree();
         }
     }

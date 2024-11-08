@@ -179,7 +179,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="SphereShape" id=20]
-radius = 5.55706
+radius = 6.6198
 
 [node name="Explosion" type="Spatial"]
 script = ExtResource( 1 )

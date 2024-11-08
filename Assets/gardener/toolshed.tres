@@ -10,7 +10,7 @@ __meta__ = {
 "class": "Toolshed_Brush"
 }
 behavior/behavior_brush_type = 0
-shape/shape_volume_size = 8.0
+shape/shape_volume_size = 6.2
 shape/shape_projection_size = 1.0
 behavior/behavior_strength = 1.0
 behavior/behavior_passthrough = false

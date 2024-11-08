@@ -12,7 +12,8 @@ public class Explosion : Spatial
     {
         if (body is RigidBody)
         {
-            (body as RigidBody).ApplyImpulse(GlobalTranslation - (body as RigidBody).GlobalTranslation , ((GlobalTranslation-(body as RigidBody).GlobalTranslation).Normalized()+new Vector3(0,1.2f,0))*20);
+            var ball = body as RigidBody;
+            ball.ApplyImpulse(ball.GlobalTranslation - GlobalTranslation , ((ball.GlobalTranslation - GlobalTranslation).Normalized()+new Vector3(0,0.5f,0))*35);
         }
     }
 }

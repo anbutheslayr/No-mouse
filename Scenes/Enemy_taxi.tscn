@@ -233,15 +233,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546473, 0.0306792, 0.851717
 [node name="Backright" parent="Spatial" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428421, 0.0363879, 0.811293 )
 
-[node name="CPUParticles" parent="Spatial/Backright" index="0"]
-emitting = false
-
 [node name="Backleft" parent="Spatial" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546473, 0.0306792, 0.851717 )
 
 [node name="CPUParticles" parent="Spatial/Backleft" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.143636, 0, 0 )
-emitting = false
 
 [node name="Drift" type="AudioStreamPlayer3D" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17042, 1 )

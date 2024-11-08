@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/Models/World2/Scenes/trunk.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Models/World2/Scenes/trunk-long.tscn" type="PackedScene" id=10]
 
-[sub_resource type="Resource" id=30]
+[sub_resource type="Resource" id=19061]
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource( 4 )
 __meta__ = {
@@ -20,7 +20,7 @@ __meta__ = {
 mesh = ExtResource( 2 )
 cast_shadow = 0
 
-[sub_resource type="Resource" id=18666]
+[sub_resource type="Resource" id=19062]
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource( 4 )
 __meta__ = {
@@ -34,11 +34,11 @@ script = ExtResource( 3 )
 __meta__ = {
 "class": "Greenhouse_Plant"
 }
-mesh/mesh_LOD_variants = [ SubResource( 30 ), SubResource( 18666 ) ]
-mesh/selected_for_edit_resource = SubResource( 30 )
-mesh/mesh_LOD_max_distance = 1000.0
-mesh/mesh_LOD_kill_distance = 1000.0
-mesh/mesh_LOD_max_capacity = 3
+mesh/mesh_LOD_variants = [ SubResource( 19061 ), SubResource( 19062 ) ]
+mesh/selected_for_edit_resource = SubResource( 19061 )
+mesh/mesh_LOD_max_distance = 50.0
+mesh/mesh_LOD_kill_distance = 50.0
+mesh/mesh_LOD_max_capacity = 4
 mesh/mesh_LOD_min_size = 1.0
 octree/octree_reconfigure_button = false
 octree/octree_recenter_button = false
@@ -74,7 +74,7 @@ plant/plant_brush_active = false
 plant/plant_label = ""
 plant/plant = SubResource( 31 )
 
-[sub_resource type="Resource" id=109]
+[sub_resource type="Resource" id=22049]
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource( 4 )
 __meta__ = {
@@ -83,7 +83,7 @@ __meta__ = {
 spawned_spatial = ExtResource( 6 )
 cast_shadow = 1
 
-[sub_resource type="Resource" id=7624]
+[sub_resource type="Resource" id=22050]
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource( 4 )
 __meta__ = {
@@ -97,11 +97,11 @@ script = ExtResource( 3 )
 __meta__ = {
 "class": "Greenhouse_Plant"
 }
-mesh/mesh_LOD_variants = [ SubResource( 109 ), SubResource( 7624 ) ]
-mesh/selected_for_edit_resource = SubResource( 109 )
+mesh/mesh_LOD_variants = [ SubResource( 22049 ), SubResource( 22050 ) ]
+mesh/selected_for_edit_resource = SubResource( 22049 )
 mesh/mesh_LOD_max_distance = 1000.0
 mesh/mesh_LOD_kill_distance = 1000.0
-mesh/mesh_LOD_max_capacity = 5
+mesh/mesh_LOD_max_capacity = 6
 mesh/mesh_LOD_min_size = 1.0
 octree/octree_reconfigure_button = false
 octree/octree_recenter_button = false
@@ -137,7 +137,7 @@ plant/plant_brush_active = false
 plant/plant_label = ""
 plant/plant = SubResource( 110 )
 
-[sub_resource type="Resource" id=7625]
+[sub_resource type="Resource" id=22053]
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource( 4 )
 __meta__ = {
@@ -146,7 +146,7 @@ __meta__ = {
 spawned_spatial = ExtResource( 7 )
 cast_shadow = 1
 
-[sub_resource type="Resource" id=18662]
+[sub_resource type="Resource" id=22054]
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource( 4 )
 __meta__ = {
@@ -160,10 +160,10 @@ script = ExtResource( 3 )
 __meta__ = {
 "class": "Greenhouse_Plant"
 }
-mesh/mesh_LOD_variants = [ SubResource( 7625 ), SubResource( 18662 ) ]
-mesh/selected_for_edit_resource = SubResource( 7625 )
-mesh/mesh_LOD_max_distance = 1000.0
-mesh/mesh_LOD_kill_distance = 1000.0
+mesh/mesh_LOD_variants = [ SubResource( 22053 ), SubResource( 22054 ) ]
+mesh/selected_for_edit_resource = SubResource( 22053 )
+mesh/mesh_LOD_max_distance = 40.0
+mesh/mesh_LOD_kill_distance = 40.0
 mesh/mesh_LOD_max_capacity = 75
 mesh/mesh_LOD_min_size = 1.0
 octree/octree_reconfigure_button = false
@@ -200,7 +200,7 @@ plant/plant_brush_active = true
 plant/plant_label = ""
 plant/plant = SubResource( 7626 )
 
-[sub_resource type="Resource" id=7628]
+[sub_resource type="Resource" id=22057]
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource( 4 )
 __meta__ = {
@@ -209,7 +209,7 @@ __meta__ = {
 spawned_spatial = ExtResource( 8 )
 cast_shadow = 1
 
-[sub_resource type="Resource" id=18663]
+[sub_resource type="Resource" id=22058]
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource( 4 )
 __meta__ = {
@@ -223,10 +223,10 @@ script = ExtResource( 3 )
 __meta__ = {
 "class": "Greenhouse_Plant"
 }
-mesh/mesh_LOD_variants = [ SubResource( 7628 ), SubResource( 18663 ) ]
-mesh/selected_for_edit_resource = SubResource( 7628 )
-mesh/mesh_LOD_max_distance = 1000.0
-mesh/mesh_LOD_kill_distance = 1000.0
+mesh/mesh_LOD_variants = [ SubResource( 22057 ), SubResource( 22058 ) ]
+mesh/selected_for_edit_resource = SubResource( 22057 )
+mesh/mesh_LOD_max_distance = 40.0
+mesh/mesh_LOD_kill_distance = 40.0
 mesh/mesh_LOD_max_capacity = 75
 mesh/mesh_LOD_min_size = 1.0
 octree/octree_reconfigure_button = false
@@ -263,7 +263,7 @@ plant/plant_brush_active = true
 plant/plant_label = ""
 plant/plant = SubResource( 7629 )
 
-[sub_resource type="Resource" id=7631]
+[sub_resource type="Resource" id=22061]
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource( 4 )
 __meta__ = {
@@ -272,7 +272,7 @@ __meta__ = {
 spawned_spatial = ExtResource( 10 )
 cast_shadow = 1
 
-[sub_resource type="Resource" id=18664]
+[sub_resource type="Resource" id=22062]
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource( 4 )
 __meta__ = {
@@ -286,10 +286,10 @@ script = ExtResource( 3 )
 __meta__ = {
 "class": "Greenhouse_Plant"
 }
-mesh/mesh_LOD_variants = [ SubResource( 7631 ), SubResource( 18664 ) ]
-mesh/selected_for_edit_resource = SubResource( 7631 )
-mesh/mesh_LOD_max_distance = 1000.0
-mesh/mesh_LOD_kill_distance = 1000.0
+mesh/mesh_LOD_variants = [ SubResource( 22061 ), SubResource( 22062 ) ]
+mesh/selected_for_edit_resource = SubResource( 22061 )
+mesh/mesh_LOD_max_distance = 40.0
+mesh/mesh_LOD_kill_distance = 40.0
 mesh/mesh_LOD_max_capacity = 75
 mesh/mesh_LOD_min_size = 1.0
 octree/octree_reconfigure_button = false
@@ -326,7 +326,7 @@ plant/plant_brush_active = true
 plant/plant_label = ""
 plant/plant = SubResource( 7632 )
 
-[sub_resource type="Resource" id=7634]
+[sub_resource type="Resource" id=22065]
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource( 4 )
 __meta__ = {
@@ -335,7 +335,7 @@ __meta__ = {
 spawned_spatial = ExtResource( 9 )
 cast_shadow = 1
 
-[sub_resource type="Resource" id=18665]
+[sub_resource type="Resource" id=22066]
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource( 4 )
 __meta__ = {
@@ -349,10 +349,10 @@ script = ExtResource( 3 )
 __meta__ = {
 "class": "Greenhouse_Plant"
 }
-mesh/mesh_LOD_variants = [ SubResource( 7634 ), SubResource( 18665 ) ]
-mesh/selected_for_edit_resource = SubResource( 7634 )
-mesh/mesh_LOD_max_distance = 1000.0
-mesh/mesh_LOD_kill_distance = 1000.0
+mesh/mesh_LOD_variants = [ SubResource( 22065 ), SubResource( 22066 ) ]
+mesh/selected_for_edit_resource = SubResource( 22065 )
+mesh/mesh_LOD_max_distance = 40.0
+mesh/mesh_LOD_kill_distance = 40.0
 mesh/mesh_LOD_max_capacity = 75
 mesh/mesh_LOD_min_size = 1.0
 octree/octree_reconfigure_button = false
@@ -396,4 +396,4 @@ __meta__ = {
 "class": "Greenhouse"
 }
 plant_types/greenhouse_plant_states = [ SubResource( 32 ), SubResource( 111 ), SubResource( 7627 ), SubResource( 7630 ), SubResource( 7633 ), SubResource( 7636 ) ]
-plant_types/selected_for_edit_resource = SubResource( 7636 )
+plant_types/selected_for_edit_resource = SubResource( 111 )
