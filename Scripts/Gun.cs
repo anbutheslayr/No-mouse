@@ -91,7 +91,7 @@ public class Gun : Spatial
         }
     }
     // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override async void _Process(float delta)
+    public override void _Process(float delta)
     {
         Spatial closest_enemy = GetClosestEnemy();
         var direction = Vector3.Zero;

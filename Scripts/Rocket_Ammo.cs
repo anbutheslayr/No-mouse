@@ -9,7 +9,9 @@ public class Rocket_Ammo : Area
     public Spatial targ;
     public Timer timer;
     public PackedScene Explosion;
-    public Particles part;
+    public PackedScene part;
+    public Spatial partpos;
+    public Particles p;
     public bool can_turn = false;
     [Export] public float rot_speed = .2f;
     public AudioStreamPlayer3D thrust;
@@ -17,7 +19,8 @@ public class Rocket_Ammo : Area
     {
         marker = GetNode<Spatial>("target");
         Explosion = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
-        part = GetNode<Particles>("Rocket part/Particles");
+        part = GD.Load<PackedScene>("res://Scenes/Rocket particles.tscn");
+        partpos = GetNode<Spatial>("part");
         thrust = GetNode<AudioStreamPlayer3D>("Thruster");
     }
 
@@ -26,7 +29,7 @@ public class Rocket_Ammo : Area
     {
         if(launch)
         {
-            SetAsToplevel(true);
+            p.GlobalTransform = partpos.GlobalTransform;    
             GlobalTranslate(GlobalTransform.basis.z * delta*100);
             targ = GetClosestEnemy();
             if(targ != null)
@@ -58,8 +61,13 @@ public class Rocket_Ammo : Area
     public void Launch()
     {
         launch = true;
-        part.Emitting = true;
+        p = part.Instance() as Particles;
+        GetTree().Root.AddChild(p);
+        p.GlobalTranslation = partpos.GlobalTranslation;    
+        p.Emitting = true;
         thrust.Playing = true;
+        SetAsToplevel(true);
+
     }
     public void On_collision(Node node)
     {
@@ -70,6 +78,8 @@ public class Rocket_Ammo : Area
             e.GlobalTranslation = GlobalTranslation;
             node.GetParent().Call("Calculate_Health", 20);
             QueueFree();
+            p.Emitting = false;
+            p.Call("Kys");
         }
         else if (node.IsInGroup("Runnable") && launch)
         {
@@ -78,7 +88,10 @@ public class Rocket_Ammo : Area
             e.GlobalTranslation = GlobalTranslation;
             node.GetParent().GetParent().GetParent().Call("Calculate_Health");
             node.GetParent().GetParent().GetParent().Call("Calculate_Health");
+            node.GetParent().GetParent().GetParent().Call("Calculate_Health");
             QueueFree();
+            p.Emitting = false;
+            p.Call("Kys");
         }
         else if (node.IsInGroup("Ground") && launch)
         {
@@ -86,6 +99,8 @@ public class Rocket_Ammo : Area
             GetTree().Root.AddChild(e);
             e.GlobalTranslation = GlobalTranslation;
             QueueFree();
+            p.Emitting = false;
+            p.Call("Kys");
         }
     }
 

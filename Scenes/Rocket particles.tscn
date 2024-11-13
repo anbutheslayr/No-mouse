@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Rocket_particles.cs" type="Script" id=1]
 
 [sub_resource type="Gradient" id=8]
-offsets = PoolRealArray( 0, 0.0666667, 0.472727, 1 )
+offsets = PoolRealArray( 0, 0.0666667, 0.192982, 1 )
 colors = PoolColorArray( 1, 0.0585938, 0.0585938, 1, 1, 0.942627, 0.0820313, 1, 0.827148, 0.148628, 0.812571, 1, 0, 0, 0, 1 )
 
 [sub_resource type="GradientTexture" id=9]
@@ -33,12 +35,12 @@ vertex_color_use_as_albedo = true
 material = SubResource( 13 )
 size = Vector3( 0.2, 0.2, 0.2 )
 
-[node name="Rocket part" type="Spatial"]
-
-[node name="Particles" type="Particles" parent="."]
-amount = 200
-lifetime = 2.0
+[node name="Particles" type="Particles"]
+emitting = false
+amount = 700
+lifetime = 3.5
 visibility_aabb = AABB( -46.072, -26.222, -48.861, 100, 100, 100 )
 local_coords = false
 process_material = SubResource( 12 )
 draw_pass_1 = SubResource( 14 )
+script = ExtResource( 1 )

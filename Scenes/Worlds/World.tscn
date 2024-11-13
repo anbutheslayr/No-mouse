@@ -38,7 +38,7 @@ edge_max_error = 1.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 2 )
 
-[node name="Camera" type="Camera" parent="."]
+[node name="Camera" type="Camera" parent="." groups=["Cam"]]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 29.6168, 13.9851, 2.37051 )
 keep_aspect = 0
 cull_mask = 1
@@ -67,12 +67,6 @@ damage_multiplier = 0.7
 ramp_speed = 1.6
 Jump_ht = 1.0
 min_map_cam_path = NodePath("Interface/PanelContainer/ViewportContainer/Viewport/Camera")
-
-[node name="Gun" parent="taxi/Spatial/body/MachineGun" index="0"]
-transform = Transform( -10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07 )
-
-[node name="Rocket Launcher" parent="taxi/Spatial/body" index="1"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0892019, 0 )
 
 [node name="Rocket Ammo2" parent="taxi/Spatial/body/Rocket Launcher/Gun" index="2"]
 rot_speed = 1.0
