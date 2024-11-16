@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://World2.tres" type="Environment" id=1]
 [ext_resource path="res://Scenes/Settings.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/Menu.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Audio/Yes.wav" type="AudioStream" id=13]
 [ext_resource path="res://Assets/Audio/No.wav" type="AudioStream" id=14]
+[ext_resource path="res://Interface/Select level.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "plastic"
@@ -989,6 +990,9 @@ script = ExtResource( 9 )
 visible = false
 
 [node name="Menu" parent="." instance=ExtResource( 12 )]
+
+[node name="Select level" parent="." instance=ExtResource( 15 )]
+visible = false
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )

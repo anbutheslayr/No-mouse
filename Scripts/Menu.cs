@@ -8,10 +8,12 @@ public class Menu : Control
     public resolution Res;
     public DynamicFont title_font;
     public Theme theme;
+    public Control level_select;
     public override void _Ready()
     {
         title_font = GD.Load<DynamicFont>("res://Scenes/FONT.tres");
         theme = GD.Load<Theme>("res://Scenes/Theme.tres");
+        level_select = GetParent().GetNode<Control>("Select level");
         Verify_res();
         if (Res.res != Vector2.Zero)
         {
@@ -67,7 +69,8 @@ public class Menu : Control
     {
         GetParent().Call("Click");
         ResourceSaver.Save("res://Interface/Res.tres", Res);
-        GetTree().ChangeScene("res://Scenes/Worlds/World0.tscn");
+        Hide();
+        level_select.Show();
     }
     public void OnSettingsPressed()
     {
