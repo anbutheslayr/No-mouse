@@ -51,62 +51,68 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Scroll" type="Control" parent="."]
-anchor_top = 0.188889
-anchor_right = 1.0
-anchor_bottom = 0.938889
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Scroll"]
+[node name="ScrollContainer" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-scroll_vertical_enabled = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Scroll/ScrollContainer"]
-margin_right = 1920.0
-margin_bottom = 810.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Scroll/ScrollContainer/HBoxContainer"]
-margin_right = 1920.0
-margin_bottom = 810.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Control3" type="Control" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer"]
-margin_right = 1920.0
-margin_bottom = 810.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3"]
-anchor_right = 1.05
-anchor_bottom = 1.07905
-margin_top = -8.0
-margin_bottom = -0.0299988
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+anchor_top = 0.168519
+anchor_right = 1.0
+anchor_bottom = 0.867593
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer"]
-margin_right = 400.0
-margin_bottom = 882.0
-rect_min_size = Vector2( 400, 0 )
-
-[node name="Control" type="Control" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer"]
-margin_right = 400.0
-margin_bottom = 882.0
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 754.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/Control"]
-anchor_right = 0.7825
-anchor_bottom = 0.82612
-margin_bottom = 0.0319824
+[node name="Control3" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 754.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3"]
+anchor_right = 1.0
+anchor_bottom = 1.18675
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer"]
+margin_right = 1920.0
+margin_bottom = 894.81
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
+margin_bottom = 894.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
+margin_left = 30.0
+margin_right = 430.0
+margin_bottom = 894.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 894.0
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer/Control"]
+anchor_left = 0.0575
+anchor_top = 0.184106
+anchor_right = 1.0325
+anchor_bottom = 0.675497
 mouse_filter = 1
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 4 )
@@ -116,20 +122,22 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer"]
-margin_left = 404.0
-margin_right = 804.0
-margin_bottom = 882.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
+margin_left = 460.0
+margin_right = 860.0
+margin_bottom = 894.0
 rect_min_size = Vector2( 400, 0 )
 
-[node name="Control" type="Control" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer2"]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer2"]
 margin_right = 400.0
-margin_bottom = 882.0
+margin_bottom = 894.0
 size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer2/Control"]
-anchor_right = 0.7825
-anchor_bottom = 0.82612
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer2/Control"]
+anchor_left = 0.0025
+anchor_top = 0.17351
+anchor_right = 0.92
+anchor_bottom = 0.707242
 margin_bottom = 0.0319824
 mouse_filter = 1
 texture_normal = ExtResource( 5 )
@@ -140,21 +148,23 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer"]
-margin_left = 808.0
-margin_right = 1208.0
-margin_bottom = 882.0
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
+margin_left = 890.0
+margin_right = 1290.0
+margin_bottom = 894.0
 rect_min_size = Vector2( 400, 0 )
 
-[node name="Control" type="Control" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer3"]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer3"]
 margin_right = 400.0
-margin_bottom = 882.0
+margin_bottom = 894.0
 size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer3/Control"]
-anchor_right = 0.7825
-anchor_bottom = 0.82612
-margin_bottom = 0.0319824
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer3/Control"]
+anchor_left = -0.0325
+anchor_top = 0.169944
+anchor_right = 0.825
+anchor_bottom = 0.716157
+margin_bottom = 0.0959473
 mouse_filter = 1
 disabled = true
 texture_normal = ExtResource( 2 )
@@ -166,19 +176,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
 visible = false
 margin_left = 1212.0
 margin_right = 1612.0
 margin_bottom = 882.0
 rect_min_size = Vector2( 400, 0 )
 
-[node name="Control" type="Control" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer4"]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer4"]
 margin_right = 400.0
 margin_bottom = 882.0
 size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer4/Control"]
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer4/Control"]
 anchor_right = 0.7825
 anchor_bottom = 0.82612
 margin_bottom = 0.0319824
@@ -191,19 +201,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer"]
+[node name="VBoxContainer5" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
 visible = false
 margin_left = 1616.0
 margin_right = 2016.0
 margin_bottom = 882.0
 rect_min_size = Vector2( 400, 0 )
 
-[node name="Control" type="Control" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer5"]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer5"]
 margin_right = 400.0
 margin_bottom = 882.0
 size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer5/Control"]
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer5/Control"]
 anchor_right = 0.7825
 anchor_bottom = 0.82612
 margin_bottom = 0.0319824
@@ -216,7 +226,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Control2" type="Control" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="Control2" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 visible = false
 margin_top = 407.0
 margin_right = 1920.0
@@ -224,7 +234,7 @@ margin_bottom = 810.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control2"]
 anchor_right = 1.0
 anchor_bottom = 0.851191
 margin_top = -8.0
@@ -235,17 +245,17 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control2/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control2/HBoxContainer"]
 margin_right = 400.0
 margin_bottom = 351.0
 rect_min_size = Vector2( 400, 0 )
 
-[node name="Control" type="Control" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/VBoxContainer"]
 margin_right = 400.0
 margin_bottom = 351.0
 size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/VBoxContainer/Control"]
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/VBoxContainer/Control"]
 anchor_right = 0.7825
 anchor_bottom = 0.82612
 margin_bottom = 0.0319824
@@ -258,9 +268,9 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[connection signal="pressed" from="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/Control/TextureButton" to="." method="On_World1"]
-[connection signal="pressed" from="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer2/Control/TextureButton" to="." method="On_World2"]
-[connection signal="pressed" from="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer3/Control/TextureButton" to="." method="On_World1"]
-[connection signal="pressed" from="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer4/Control/TextureButton" to="." method="On_World1"]
-[connection signal="pressed" from="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer5/Control/TextureButton" to="." method="On_World1"]
-[connection signal="pressed" from="Scroll/ScrollContainer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/VBoxContainer/Control/TextureButton" to="." method="On_World1"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer/Control/TextureButton" to="." method="On_World1"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer2/Control/TextureButton" to="." method="On_World2"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer3/Control/TextureButton" to="." method="On_World1"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer4/Control/TextureButton" to="." method="On_World1"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer5/Control/TextureButton" to="." method="On_World1"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/VBoxContainer/Control/TextureButton" to="." method="On_World1"]

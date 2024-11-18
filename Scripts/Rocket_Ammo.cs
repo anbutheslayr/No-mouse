@@ -89,6 +89,8 @@ public class Rocket_Ammo : Area
             node.GetParent().GetParent().GetParent().Call("Calculate_Health");
             node.GetParent().GetParent().GetParent().Call("Calculate_Health");
             node.GetParent().GetParent().GetParent().Call("Calculate_Health");
+            node.GetParent().GetParent().GetParent().Call("Calculate_Health");
+            node.GetParent().GetParent().GetParent().Call("Calculate_Health");
             QueueFree();
             p.Emitting = false;
             p.Call("Kys");
