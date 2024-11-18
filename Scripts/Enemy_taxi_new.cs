@@ -53,6 +53,7 @@ public class Enemy_taxi_new : Spatial
 	public Timer update_path_timer;
 	public PackedScene explosion;
 	public resolution Res;
+	public RayCast playerballray;
 
 	
 	// Called when the node enters the scene tree for the first time.
@@ -94,6 +95,7 @@ public class Enemy_taxi_new : Spatial
 		update_path_timer.WaitTime = 0.1f;
 		explosion = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
 		update_path_timer.Start();
+		playerballray = GetParent().GetNode<RayCast>("taxi/Spatial/RayCast");
 		// jump_timer = new Timer();
 		// AddChild(jump_timer);
 		// jump_timer.OneShot = true;
@@ -149,7 +151,7 @@ public class Enemy_taxi_new : Spatial
 
 		// AI
 		
-		if(update_path_timer.TimeLeft == 0)
+		if(update_path_timer.TimeLeft == 0 && playerballray.IsColliding())
 		{
 			// UpdatePath();
 			nav_agent.SetTargetLocation(player_mesh.GlobalTransform.origin);

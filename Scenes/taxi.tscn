@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scenes/Healthbar3d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Movement.cs" type="Script" id=2]
@@ -207,6 +207,10 @@ size = Vector3( 0.005, 0.087, 0.007 )
 
 [sub_resource type="CubeMesh" id=21]
 size = Vector3( -0.012, 0.087, -0.018 )
+
+[sub_resource type="CylinderShape" id=28]
+height = 13.6859
+radius = 31.8248
 
 [sub_resource type="CylinderShape" id=17]
 height = 3.59778
@@ -816,6 +820,12 @@ collide_with_areas = true
 [node name="Healthbar" parent="Spatial" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239 )
 
+[node name="Audio change" type="Area" parent="Spatial"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/Audio change"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.781404, 0 )
+shape = SubResource( 28 )
+
 [node name="DetectionArea" type="Area" parent="Spatial" groups=["Player_body"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="Spatial/DetectionArea"]
@@ -918,6 +928,8 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[connection signal="body_entered" from="Spatial/Audio change" to="." method="AudioChangeEnter"]
+[connection signal="body_exited" from="Spatial/Audio change" to="." method="AudioChangeExit"]
 [connection signal="body_entered" from="Spatial/DetectionArea" to="Spatial/body/MachineGun" method="OnDetection"]
 [connection signal="body_exited" from="Spatial/DetectionArea" to="Spatial/body/MachineGun" method="OnExit"]
 [connection signal="body_entered" from="Ball" to="." method="On_collision"]

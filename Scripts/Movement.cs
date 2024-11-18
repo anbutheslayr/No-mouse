@@ -1,4 +1,5 @@
 using Godot;
+using System.Collections.Generic;
 using System;
 
 
@@ -56,6 +57,9 @@ public class Movement : Spatial
 	public Camera min_map_cam;
 	public PackedScene exp;
 	public resolution Res;
+	public AudioStreamPlayer BG;
+	public AudioStreamPlayer Att;
+	public List<Spatial> enemies_in_range = new List<Spatial>();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -81,6 +85,8 @@ public class Movement : Spatial
 		var i = exp.Instance() as Spatial;
 		GetTree().Root.AddChild(i);
 		Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
+		BG = GetParent().GetNode<AudioStreamPlayer>("BG");
+		Att = GetParent().GetNode<AudioStreamPlayer>("Att");
 
 		i.GlobalTranslation = ball.GlobalTranslation;
 		if(Res.cur_world ==2 )
@@ -334,6 +340,39 @@ public class Movement : Spatial
 			health += Close_miss_bonus;
 			health = Mathf.Clamp(health , 0 , 100);
 			EmitSignal("Change_Health", health,false);
+		}
+	}
+	public void AudioChangeEnter(Node body)
+	{
+		if(body.IsInGroup("Enemy") && body is RigidBody)
+		{
+			enemies_in_range.Add(body as Spatial);
+		}
+		
+		
+	}
+	public void AudioChangeExit(Node body)
+	{
+		if(body.IsInGroup("Enemy") && body is RigidBody)
+		{
+			enemies_in_range.Remove(body as Spatial);
+		}
+		if(enemies_in_range.Count > 0)
+		{
+			if(!Att.Playing)
+			{
+				BG.Playing = false;
+				Att.Playing = true;
+			}
+		}
+		else
+		{
+			if(!BG.Playing)
+			{
+				BG.Playing = true;
+				Att.Playing = false;
+			}
+			
 		}
 	}
 

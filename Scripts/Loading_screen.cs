@@ -3,18 +3,18 @@ using System;
 
 public class Loading_screen : Control
 {
-    public CanvasLayer canvasLayer;
+    public ColorRect colorRect;
     public Label label;
     public override void _Ready()
     {
-        canvasLayer = GetNode<CanvasLayer>("CanvasLayer");
-        canvasLayer.Visible = false;
-        label = GetNode<Label>("CanvasLayer/Label");
+        colorRect = GetNode<ColorRect>("ColorRect");
+        colorRect.Visible = false;
+        label = GetNode<Label>("ColorRect/Label");
     }
 
     public void SceneChange( string scenelocation )
     {
-        canvasLayer.Visible = true;
+        colorRect.Visible = true;
         var scene = ResourceLoader.LoadInteractive(scenelocation,"PackedScene");
         while(true)
         {
@@ -23,8 +23,8 @@ public class Loading_screen : Control
             {
                 var res = scene.GetResource();
                 GetTree().ChangeSceneTo((PackedScene)res); 
-                canvasLayer.Visible = false;
-                // break;
+                colorRect.Visible = false;
+                break;
             }
             if (err == Error.Ok)
             {
