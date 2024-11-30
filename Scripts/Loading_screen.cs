@@ -3,36 +3,60 @@ using System;
 
 public class Loading_screen : Control
 {
-    public ColorRect colorRect;
     public Label label;
+    public Global_vars gl;
+    int i = 0;
     public override void _Ready()
     {
-        colorRect = GetNode<ColorRect>("ColorRect");
-        colorRect.Visible = false;
+        gl = GetNode<Global_vars>("/root/GlobalVars");
         label = GetNode<Label>("ColorRect/Label");
+        Hide();
+        SceneChange(gl.SceneToLoad);
     }
 
-    public void SceneChange( string scenelocation )
+    public async void SceneChange(string sceneName)
     {
-        colorRect.Visible = true;
-        var scene = ResourceLoader.LoadInteractive(scenelocation,"PackedScene");
-        while(true)
+        i=0;
+        Show();
         {
-            var err = scene.Poll();
-            if(err == Error.FileEof)
+            if(!ResourceLoader.HasCached(sceneName))
             {
-                var res = scene.GetResource();
-                GetTree().ChangeSceneTo((PackedScene)res); 
-                colorRect.Visible = false;
-                break;
+                var scene = ResourceLoader.LoadInteractive(sceneName);
+            
+                GetTree().ChangeSceneTo(null);
+                while (true)
+                {
+                    var err = scene.Poll();
+                    if(err == Error.FileEof)
+                    {
+                        var res = scene.GetResource();
+                        GetTree().ChangeSceneTo((PackedScene)res);
+                        Hide();
+                        QueueFree();
+                        break; 
+                    }
+                    if (err == Error.Ok)
+                    {
+                        float progress = (float)scene.GetStage()/scene.GetStageCount();
+                        label.Text = "Loading... " + ((int)(progress*100)).ToString() + "%";
+                        GD.Print(scene.GetStage()+"/"+scene.GetStageCount());
+                    }
+                    i++;
+                    if(i%((int)(scene.GetStageCount()*0.04)+1) == 0)
+                    {
+                        await ToSignal(GetTree(), "idle_frame");
+                    }
+                }
             }
-            if (err == Error.Ok)
+            else
             {
-                var progress = scene.GetStage()/scene.GetStageCount();
-                label.Text = "Loading... " + (progress*100).ToString() + "%";
+                GetTree().ChangeScene(sceneName);
+                // GetTree().Root.AddChild(ResourceLoader.Load<PackedScene>(sceneName).Instance());
+                Hide();
+                QueueFree();
             }
         }
+
+        
     }
-
-
 }

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Audio/Final Step.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Audio/City Run.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Scripts/AudioPlayer.cs" type="Script" id=3]
+
+[node name="AudioPlayer" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Att" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = 5.0
+
+[node name="BG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = 5.0

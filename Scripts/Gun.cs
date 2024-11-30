@@ -76,6 +76,7 @@ public class Gun : Spatial
             // GD.Print(enemies);
         }
         
+        
     }
     public void OnExit(Node body)
     {

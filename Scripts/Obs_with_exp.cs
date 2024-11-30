@@ -17,6 +17,5 @@ public class Obs_with_exp : StaticBody
             GetTree().Root.AddChild(e);
             e.GlobalTranslation = GlobalTranslation; 
         }
-
     }
 }

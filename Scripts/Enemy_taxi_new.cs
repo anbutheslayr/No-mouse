@@ -53,8 +53,8 @@ public class Enemy_taxi_new : Spatial
 	public Timer update_path_timer;
 	public PackedScene explosion;
 	public resolution Res;
-	public RayCast playerballray;
-
+	public AudioPlayer audioPlayer;
+	public float waittime;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -95,7 +95,31 @@ public class Enemy_taxi_new : Spatial
 		update_path_timer.WaitTime = 0.1f;
 		explosion = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
 		update_path_timer.Start();
-		playerballray = GetParent().GetNode<RayCast>("taxi/Spatial/RayCast");
+		audioPlayer = GetNode<AudioPlayer>("/root/AudioPlayer");
+
+		switch(Res.difficulty)
+		{
+			case 0:
+				waittime = .1f;
+				acceleration = 95;
+				turn_speed = 3;
+				break;
+			case 1:
+				waittime = 0.1f;
+				acceleration = 110;
+				turn_speed = 4;
+				break;
+			case 2:
+				waittime = 0.05f;
+				acceleration = 130;
+				turn_speed = 5;
+				break;
+			case 3:
+				waittime = 0;
+				acceleration = 160;
+				turn_speed = 4;
+				break;
+		}
 		// jump_timer = new Timer();
 		// AddChild(jump_timer);
 		// jump_timer.OneShot = true;
@@ -151,12 +175,12 @@ public class Enemy_taxi_new : Spatial
 
 		// AI
 		
-		if(update_path_timer.TimeLeft == 0 && playerballray.IsColliding())
+		if(update_path_timer.TimeLeft == 0)
 		{
 			// UpdatePath();
 			nav_agent.SetTargetLocation(player_mesh.GlobalTransform.origin);
 			next_point = nav_agent.GetNextLocation();
-			update_path_timer.Start(0.035f);
+			update_path_timer.Start(waittime);
 		}
 		var direction = next_point - Car_mesh.GlobalTransform.origin;
         var angle = Calculate_Angle(direction);

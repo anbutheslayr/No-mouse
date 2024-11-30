@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Materials/Branch.material" type="Material" id=1]
 [ext_resource path="res://World2.tres" type="Environment" id=2]
@@ -18,8 +18,6 @@
 [ext_resource path="res://Assets/Models/Tracks/Road_curve.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Models/Trees/Tree3.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/Models/Trees/Tree1.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Assets/Audio/this will find who needs it.wav" type="AudioStream" id=19]
-[ext_resource path="res://Assets/Audio/City Run.mp3" type="AudioStream" id=20]
 
 [sub_resource type="OpenSimplexNoise" id=15]
 octaves = 4
@@ -45,7 +43,7 @@ transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 2
 keep_aspect = 0
 cull_mask = 1
 environment = ExtResource( 2 )
-far = 200.0
+far = 120.0
 script = ExtResource( 3 )
 lerp_speed = 5.0
 target_PATH = "taxi/Spatial"
@@ -58,7 +56,7 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 24.6818, 3.05, 92.5556 )
 FollowAltitude = 3.0
 FollowSpeed = 0.03
 AvoidanceStrength = 2.0
-trauma_amount = 0.05
+trauma_amount = 0.013
 
 [node name="taxi" parent="." instance=ExtResource( 15 )]
 transform = Transform( 0.674778, 0, 0.738019, 0, 1, 0, -0.738019, 0, 0.674778, 25, 1.203, 25 )
@@ -68,7 +66,6 @@ turn_stop_limit = 1.25
 damage_multiplier = 0.7
 ramp_speed = 1.6
 Jump_ht = 1.0
-min_map_cam_path = NodePath("Interface/PanelContainer/ViewportContainer/Viewport/Camera")
 
 [node name="Rocket Ammo2" parent="taxi/Spatial/body/Rocket Launcher/Gun" index="2"]
 rot_speed = 1.0
@@ -541,14 +538,6 @@ visible = false
 
 [node name="Death_screen" parent="." instance=ExtResource( 4 )]
 visible = false
-
-[node name="BG" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 19 )
-volume_db = 10.0
-autoplay = true
-
-[node name="Att" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 20 )
 
 [editable path="taxi"]
 [editable path="taxi/Spatial/Backright"]

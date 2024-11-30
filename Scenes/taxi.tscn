@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scenes/Healthbar3d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Movement.cs" type="Script" id=2]
@@ -207,10 +207,6 @@ size = Vector3( 0.005, 0.087, 0.007 )
 
 [sub_resource type="CubeMesh" id=21]
 size = Vector3( -0.012, 0.087, -0.018 )
-
-[sub_resource type="CylinderShape" id=28]
-height = 13.6859
-radius = 31.8248
 
 [sub_resource type="CylinderShape" id=17]
 height = 3.59778
@@ -726,6 +722,8 @@ B_L2_particles = "Spatial/Backleft2/CPUParticles"
 B_R2_particles = "Spatial/Backright2/CPUParticles"
 Accelerate_button_path = "Interface/Acceleration/Accelerate"
 health_bar_path = "Spatial/Healthbar"
+min_map_cam_path = NodePath("Interface/PanelContainer/ViewportContainer/Viewport/Camera")
+cam_pos_path = NodePath("Spatial/body/cam_pos")
 
 [node name="Spatial" type="MeshInstance" parent="."]
 
@@ -792,6 +790,9 @@ pitch_scale = 3.5
 [node name="Rocket Launcher" parent="Spatial/body" instance=ExtResource( 12 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0892019, 0 )
 
+[node name="cam_pos" type="Spatial" parent="Spatial/body"]
+transform = Transform( -1, 1.77636e-15, 8.74228e-08, 1.73575e-08, 0.980091, 0.198547, -8.56823e-08, 0.198547, -0.980091, -0.0262446, 1.57004, 0.997644 )
+
 [node name="wheel_backRight" type="MeshInstance" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, 0.76 )
 mesh = ExtResource( 3 )
@@ -819,12 +820,6 @@ collide_with_areas = true
 
 [node name="Healthbar" parent="Spatial" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239 )
-
-[node name="Audio change" type="Area" parent="Spatial"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Spatial/Audio change"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.781404, 0 )
-shape = SubResource( 28 )
 
 [node name="DetectionArea" type="Area" parent="Spatial" groups=["Player_body"]]
 
@@ -881,11 +876,10 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="Interface"]
-anchor_left = 0.830899
-anchor_top = 0.0648148
-anchor_right = 0.966316
-anchor_bottom = 0.305556
-margin_bottom = 3.25928
+anchor_left = 0.728125
+anchor_top = 0.0601852
+anchor_right = 0.988542
+anchor_bottom = 0.294444
 custom_styles/panel = SubResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": true
@@ -894,25 +888,25 @@ __meta__ = {
 [node name="ViewportContainer" type="ViewportContainer" parent="Interface/PanelContainer"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 255.001
-margin_bottom = 258.26
+margin_right = 495.0
+margin_bottom = 248.0
 stretch = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Viewport" type="Viewport" parent="Interface/PanelContainer/ViewportContainer"]
-size = Vector2( 250, 253 )
+size = Vector2( 490, 243 )
 size_override_stretch = true
 handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Camera" type="Camera" parent="Interface/PanelContainer/ViewportContainer/Viewport"]
-transform = Transform( 1, 0, 0, 0, 1.31134e-07, 1, 0, -1, 1.31134e-07, 25, 50, 25 )
-cull_mask = 2
-projection = 1
-fov = 100.0
-size = 100.0
+transform = Transform( -1, 1.77636e-15, 8.74228e-08, 1.73575e-08, 0.980091, 0.198547, -8.56823e-08, 0.198547, -0.980091, -4.62809, 5.20898, 5.35079 )
+cull_mask = 1
+fov = 50.0
+size = 8.29881
+far = 25.0
 
 [node name="Rocket_button" type="TextureButton" parent="Interface"]
 anchor_left = 0.0015625
@@ -928,8 +922,6 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[connection signal="body_entered" from="Spatial/Audio change" to="." method="AudioChangeEnter"]
-[connection signal="body_exited" from="Spatial/Audio change" to="." method="AudioChangeExit"]
 [connection signal="body_entered" from="Spatial/DetectionArea" to="Spatial/body/MachineGun" method="OnDetection"]
 [connection signal="body_exited" from="Spatial/DetectionArea" to="Spatial/body/MachineGun" method="OnExit"]
 [connection signal="body_entered" from="Ball" to="." method="On_collision"]

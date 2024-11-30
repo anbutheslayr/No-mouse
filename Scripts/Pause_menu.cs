@@ -9,7 +9,6 @@ public class Pause_menu : Control
     public Control inter_face;
     public RigidBody plane;
 
-
     public override void _Ready()
     {
         Res = GD.Load<resolution>("user://Int/Res.tres");
@@ -20,7 +19,6 @@ public class Pause_menu : Control
         vb2.AddConstantOverride("separation", (int)(Res.res.y/1080*30));
         inter_face = GetParent().GetNode<Control>("taxi/Interface");
         plane = GetTree().GetNodesInGroup("Plane")[0] as RigidBody;
-
     }
 
     public void OnResumePressed()
@@ -39,6 +37,7 @@ public class Pause_menu : Control
     public void OnQuitToMMPressed()
     {
         Engine.TimeScale = 1;
+        GetTree().ChangeSceneTo(null);
         GetTree().ChangeScene("res://Scenes/Main_menu.tscn");
         if(Res.volume != -15)
         {

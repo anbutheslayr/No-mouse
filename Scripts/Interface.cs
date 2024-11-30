@@ -57,7 +57,6 @@ public class Interface : Control
         SetShadow(Res.shadows , Res.ShadowQuality);
         //Setting glow
         SetGlow(Res.Glow);
-        
         RepositionAndResize(Res.res);
     }
     public void Verify_res()

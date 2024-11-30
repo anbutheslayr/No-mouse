@@ -54,11 +54,11 @@ public class Movement : Spatial
 	[Export] public int im = 88;
 	public Camera cam;
 	[Export]public NodePath min_map_cam_path;
+	[Export]public NodePath cam_pos_path;
+	public Spatial cam_pos; 
 	public Camera min_map_cam;
 	public PackedScene exp;
 	public resolution Res;
-	public AudioStreamPlayer BG;
-	public AudioStreamPlayer Att;
 	public List<Spatial> enemies_in_range = new List<Spatial>();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -81,12 +81,11 @@ public class Movement : Spatial
 		intrface = GetNode<Control>("Interface");
 		cam = GetParent().GetNode<Camera>("Camera");
 		min_map_cam = GetNode<Camera>(min_map_cam_path);
+		cam_pos = GetNode<Spatial>(cam_pos_path);
 		exp = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
 		var i = exp.Instance() as Spatial;
 		GetTree().Root.AddChild(i);
 		Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
-		BG = GetParent().GetNode<AudioStreamPlayer>("BG");
-		Att = GetParent().GetNode<AudioStreamPlayer>("Att");
 
 		i.GlobalTranslation = ball.GlobalTranslation;
 		if(Res.cur_world ==2 )
@@ -108,7 +107,7 @@ public class Movement : Spatial
 
 	public override void _PhysicsProcess(float delta)
 	{
-		min_map_cam.GlobalTranslation= new Vector3(ball.GlobalTranslation.x, min_map_cam.GlobalTranslation.y, ball.GlobalTranslation.z);
+		min_map_cam.GlobalTransform = cam_pos.GlobalTransform;
 		// align mesh with sphere
 		var transform = Car_mesh.Transform;
 		transform.origin = ball.Transform.origin + sphere_offset;
@@ -340,39 +339,6 @@ public class Movement : Spatial
 			health += Close_miss_bonus;
 			health = Mathf.Clamp(health , 0 , 100);
 			EmitSignal("Change_Health", health,false);
-		}
-	}
-	public void AudioChangeEnter(Node body)
-	{
-		if(body.IsInGroup("Enemy") && body is RigidBody)
-		{
-			enemies_in_range.Add(body as Spatial);
-		}
-		
-		
-	}
-	public void AudioChangeExit(Node body)
-	{
-		if(body.IsInGroup("Enemy") && body is RigidBody)
-		{
-			enemies_in_range.Remove(body as Spatial);
-		}
-		if(enemies_in_range.Count > 0)
-		{
-			if(!Att.Playing)
-			{
-				BG.Playing = false;
-				Att.Playing = true;
-			}
-		}
-		else
-		{
-			if(!BG.Playing)
-			{
-				BG.Playing = true;
-				Att.Playing = false;
-			}
-			
 		}
 	}
 
