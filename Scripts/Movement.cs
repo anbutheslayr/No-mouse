@@ -1,4 +1,5 @@
 using Godot;
+using System.Collections.Generic;
 using System;
 
 
@@ -29,6 +30,8 @@ public class Movement : Spatial
 	[Export] public string B_R_particles;
 	public CPUParticles B_L;
 	public CPUParticles B_R;
+	[Export] public string B_L2_particles;
+	[Export] public string B_R2_particles;
 	[Export] public string Accelerate_button_path;
 	[Export] public float damage_multiplier = 1;
 	public TouchScreenButton Accelerate_button;
@@ -48,11 +51,15 @@ public class Movement : Spatial
 	[Export] public float Jump_ht = 2.5f;
 	public Control intrface;
 	[Export] public int Drift_multiplier = 1;
-	public int im = 0;
+	[Export] public int im = 88;
 	public Camera cam;
 	[Export]public NodePath min_map_cam_path;
+	[Export]public NodePath cam_pos_path;
+	public Spatial cam_pos; 
 	public Camera min_map_cam;
 	public PackedScene exp;
+	public resolution Res;
+	public List<Spatial> enemies_in_range = new List<Spatial>();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -63,8 +70,6 @@ public class Movement : Spatial
 		left_wheel = GetNode<MeshInstance>(left_wheel_path);
 		right_wheel = GetNode<MeshInstance>(right_wheel_path);
 		car_mesh_body = GetNode<MeshInstance>(car_mesh_body_path);
-		B_L = GetNode<CPUParticles>(B_L_particles);
-		B_R = GetNode<CPUParticles>(B_R_particles);
 		Accelerate_button = GetNode<TouchScreenButton>(Accelerate_button_path);
 		health_bar = GetNode<Spatial>(health_bar_path);
 		Connect("Change_Health", health_bar, nameof(Change_Health));
@@ -76,11 +81,23 @@ public class Movement : Spatial
 		intrface = GetNode<Control>("Interface");
 		cam = GetParent().GetNode<Camera>("Camera");
 		min_map_cam = GetNode<Camera>(min_map_cam_path);
+		cam_pos = GetNode<Spatial>(cam_pos_path);
 		exp = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
 		var i = exp.Instance() as Spatial;
 		GetTree().Root.AddChild(i);
-		i.GlobalTranslation = ball.GlobalTranslation;
+		Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
 
+		i.GlobalTranslation = ball.GlobalTranslation;
+		if(Res.cur_world ==2 )
+		{
+			B_L = GetNode<CPUParticles>(B_L2_particles);
+			B_R = GetNode<CPUParticles>(B_R2_particles);
+		}
+		else
+		{
+			B_L = GetNode<CPUParticles>(B_L_particles);
+			B_R = GetNode<CPUParticles>(B_R_particles);
+		}
 		// jump_timer = new Timer();
 		// AddChild(jump_timer);
 		// jump_timer.OneShot = true;
@@ -90,7 +107,7 @@ public class Movement : Spatial
 
 	public override void _PhysicsProcess(float delta)
 	{
-		min_map_cam.GlobalTranslation= new Vector3(ball.GlobalTranslation.x, min_map_cam.GlobalTranslation.y, ball.GlobalTranslation.z);
+		min_map_cam.GlobalTransform = cam_pos.GlobalTransform;
 		// align mesh with sphere
 		var transform = Car_mesh.Transform;
 		transform.origin = ball.Transform.origin + sphere_offset;
@@ -190,6 +207,7 @@ public class Movement : Spatial
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
+		//Screenshot
 		if(Input.IsActionJustPressed("Save"))
 		{
 			var image = GetViewport().GetTexture().GetData();
@@ -230,7 +248,6 @@ public class Movement : Spatial
 		// Align with surface
 		if(rayCast.IsColliding())
 		{
-			 ;
 			var xform = Alignwithsurface(Car_mesh.GlobalTransform ,rayCast.GetCollisionNormal().Normalized());
 			Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , turn_speed * 2 * delta);
 		}
@@ -324,4 +341,5 @@ public class Movement : Spatial
 			EmitSignal("Change_Health", health,false);
 		}
 	}
+
 }

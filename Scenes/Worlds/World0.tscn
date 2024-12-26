@@ -1,0 +1,645 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Interface/Death_screen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Interface/Pause menu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Enemy_Plane.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/taxi.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scripts/Follow.cs" type="Script" id=18]
+
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0.458824, 0.968627, 0.729412, 1 )
+sky_horizon_color = Color( 0.184314, 0.741176, 0.796078, 1 )
+sky_energy = 4.0
+ground_bottom_color = Color( 0.184314, 0.741176, 0.796078, 1 )
+ground_horizon_color = Color( 0.458824, 0.968627, 0.729412, 1 )
+sun_color = Color( 0.972549, 0.054902, 0.827451, 1 )
+sun_angle_min = 3.59
+
+[sub_resource type="Environment" id=22]
+background_mode = 2
+background_sky = SubResource( 1 )
+ambient_light_color = Color( 0.141176, 0.537255, 0.513726, 1 )
+ambient_light_sky_contribution = 0.1
+fog_color = Color( 0.713726, 0.462745, 0.8, 1 )
+fog_sun_color = Color( 1, 1, 1, 1 )
+fog_depth_begin = 25.1
+fog_depth_end = 73.5
+tonemap_exposure = 1.78
+tonemap_white = 16.0
+auto_exposure_scale = 1.0
+glow_enabled = true
+glow_bloom = 1.0
+
+[sub_resource type="OpenSimplexNoise" id=23]
+octaves = 4
+period = 20.0
+persistence = 0.8
+
+[sub_resource type="Animation" id=24]
+resource_name = "Gun_descend"
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/MachineGun/Gun:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00407523, 0.908774 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.146015, 4.76837e-07 ), Vector3( 0, -0.970469, 4.76837e-07 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/MachineGun/Gun:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.00407523, 0.201724, 0.625547, 0.908774 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ), Vector3( -38.1986, -159.914, -30.5963 ), Vector3( -90, -179.999, 0 ), Vector3( -90, -179.999, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/MachineGun/Stand:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.0030297, 0.908774 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.172817, 0.0648999 ), Vector3( 0, -1.3908, 0.0648999 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/MachineGun/Base:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.000640213, 0.91285 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.62009, 0.0648999 ), Vector3( 0, -1.62987, 0.0648999 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "Gun_rise"
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/MachineGun/Gun:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.939339 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.970469, 4.76837e-07 ), Vector3( 0, 0, 0.0546631 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/MachineGun/Gun:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.256739, 0.615359, 0.935263 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -90, -179.999, 0 ), Vector3( -90, -179.999, 0 ), Vector3( -38.1986, -159.914, -30.5963 ), Vector3( 0, -180, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/MachineGun/Stand:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.941376 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.3908, 0.0648999 ), Vector3( 0, -0.3439, 0.0648999 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/MachineGun/Base:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.903302 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.62987, 0.0648999 ), Vector3( 0, -0.62009, 0.0648999 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="CubeMesh" id=21]
+size = Vector3( -0.012, 0.087, -0.018 )
+
+[sub_resource type="CubeMesh" id=20]
+size = Vector3( 0.005, 0.087, 0.007 )
+
+[sub_resource type="Animation" id=26]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/MachineGun/AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/MachineGun/Gun:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.970469, 4.76837e-07 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/MachineGun/Gun:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -90, 180, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/MachineGun/Gun/Marker/Particles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.001 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/MachineGun/Stand:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.3908, 0.0648999 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("body/MachineGun/Base:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.62987, 0.0648999 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("body/Rocket Launcher:translation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.0892019, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("body/Rocket Launcher:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("body/MachineGun/Stand:mesh")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ SubResource( 20 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("body/MachineGun/Base:mesh")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ SubResource( 21 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "Reload"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/MachineGun/Gun:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.0163009, 0.458857, 0.649365, 0.8386, 1.27103 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ), Vector3( -180, -180, 0 ), Vector3( -154.615, -180, 0 ), Vector3( -180, -180, 0 ), Vector3( 0, -180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "Rocket_reload"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/Rocket Launcher:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.0892019, 0 ), Vector3( 0, 2, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/Rocket Launcher:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, -90 ), Vector3( 0, -90, -90 ), Vector3( 0, -90, -53.531 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/MachineGun/Stand:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.3908, 0.0648999 ), Vector3( 0, 0.0207081, 0.0648999 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/MachineGun/Base:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.30323, 0.0648999 ), Vector3( 0, -0.631757, 0.0648999 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("body/MachineGun")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "Rocket_reload"
+} ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "Rocket_rise"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/Rocket Launcher:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.0892019, 0 ), Vector3( 0, 2, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/Rocket Launcher:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, -90 ), Vector3( 0, -90, -90 ), Vector3( 0, -90, -53.531 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/MachineGun/Stand:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.3908, 0.0648999 ), Vector3( 0, 0.0207081, 0.0648999 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/MachineGun/Base:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.30323, 0.0648999 ), Vector3( 0, -0.631757, 0.0648999 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "Shoot"
+length = 0.15
+tracks/0/type = "method"
+tracks/0/path = NodePath("body/MachineGun")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "OnShoot"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/MachineGun/AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.00047946 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/MachineGun/Gun:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.0026065, 0.029532, 0.040353 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0.0935564 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/MachineGun/Gun:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.0026065, 0.0291666, 0.0407526 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ), Vector3( -26.162, -180, 0 ), Vector3( 0, -180, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.001166, 0.0256039 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="NavigationMesh" id=31]
+vertices = PoolVector3Array( -140.25, 0.45, -149.5, -149.5, 0.45, -149.5, -149.5, 0.45, -140.25, -149.5, 0.45, 140, -149.5, 0.45, 149.5, -140.25, 0.45, 149.5, 149.5, 0.45, -140.25, 149.5, 0.45, -149.5, 140, 0.45, -149.5, 140, 0.45, 149.5, 149.5, 0.45, 149.5, 149.5, 0.45, 140, -131, 0.45, -149.5, -140.25, 0.45, -149.5, -149.5, 0.45, -140.25, -149.5, 0.45, -131, -149.5, 0.45, 140, -140.25, 0.45, 149.5, -131, 0.45, 149.5, -149.5, 0.45, 130.75, 149.5, 0.45, -131, 149.5, 0.45, -140.25, 140, 0.45, -149.5, 130.75, 0.45, -149.5, 130.75, 0.45, 149.5, 140, 0.45, 149.5, 149.5, 0.45, 140, -9.5, 0.45, -149.5, -18.75, 0.45, -149.5, -149.5, 0.45, -18.75, -149.5, 0.45, -9.5, 65.25, 0.45, 149.5, 149.5, 0.45, 74.75, 149.5, 0.45, 65.25, 56, 0.45, 149.5, 149.5, 0.45, -28.25, 149.5, 0.45, -37.5, 37.25, 0.45, -149.5, 27.75, 0.45, -149.5, 130.75, 0.45, 149.5, 149.5, 0.45, 140, 149.5, 0.45, 130.75, 121.25, 0.45, 149.5, -121.75, 0.45, -149.5, -131, 0.45, -149.5, -149.5, 0.45, -131, -149.5, 0.45, -121.75, -149.5, 0.45, 130.75, -131, 0.45, 149.5, -121.75, 0.45, 149.5, -149.5, 0.45, 121.25, 149.5, 0.45, -121.75, 149.5, 0.45, -131, 130.75, 0.45, -149.5, 121.25, 0.45, -149.5, -56.25, 0.45, -149.5, -65.5, 0.45, -149.5, -149.5, 0.45, -65.5, -149.5, 0.45, -56.25, -149.5, 0.45, 65.25, -65.5, 0.45, 149.5, -56.25, 0.45, 149.5, -149.5, 0.45, 56, -149.5, 0.45, 18.5, -18.75, 0.45, 149.5, -9.5, 0.45, 149.5, -149.5, 0.45, 9.25, 149.5, 0.45, -56.25, 149.5, 0.45, -65.5, 65.25, 0.45, -149.5, 56, 0.45, -149.5, 121.25, 0.45, 149.5, 149.5, 0.45, 130.75, 149.5, 0.45, 121.25, 112, 0.45, 149.5, -112.25, 0.45, -149.5, -121.75, 0.45, -149.5, -149.5, 0.45, -121.75, -149.5, 0.45, -112.25, -149.5, 0.45, 112, -149.5, 0.45, 121.25, -121.75, 0.45, 149.5, -112.25, 0.45, 149.5, 149.5, 0.45, -121.75, 121.25, 0.45, -149.5, 112, 0.45, -149.5, 149.5, 0.45, -112.25, -149.5, 0.45, 0, -149.5, 0.45, 9.25, -9.5, 0.45, 149.5, 27.75, 0.45, 149.5, 149.5, 0.45, 37.25, 149.5, 0.45, 27.75, 18.5, 0.45, 149.5, 56, 0.45, 149.5, 149.5, 0.45, 65.25, 149.5, 0.45, 56, 46.5, 0.45, 149.5, 149.5, 0.45, -9.5, 149.5, 0.45, -18.75, 18.5, 0.45, -149.5, 9.25, 0.45, -149.5, 112, 0.45, 149.5, 149.5, 0.45, 121.25, 149.5, 0.45, 112, 102.5, 0.45, 149.5, -103, 0.45, -149.5, -112.25, 0.45, -149.5, -149.5, 0.45, -112.25, -149.5, 0.45, -103, -149.5, 0.45, 112, -112.25, 0.45, 149.5, -103, 0.45, 149.5, -149.5, 0.45, 102.5, 149.5, 0.45, -103, 149.5, 0.45, -112.25, 112, 0.45, -149.5, 102.5, 0.45, -149.5, -47, 0.45, -149.5, -56.25, 0.45, -149.5, -149.5, 0.45, -56.25, -149.5, 0.45, -47, -149.5, 0.45, 56, -56.25, 0.45, 149.5, -47, 0.45, 149.5, -149.5, 0.45, 46.5, -18.75, 0.45, -149.5, -28.25, 0.45, -149.5, -149.5, 0.45, -28.25, -149.5, 0.45, -18.75, 149.5, 0.45, -47, 149.5, 0.45, -56.25, 56, 0.45, -149.5, 46.5, 0.45, -149.5, 102.5, 0.45, 149.5, 149.5, 0.45, 112, 149.5, 0.45, 102.5, 93.25, 0.45, 149.5, -93.5, 0.45, -149.5, -103, 0.45, -149.5, -149.5, 0.45, -103, -149.5, 0.45, -93.5, -149.5, 0.45, 93.25, -149.5, 0.45, 102.5, -103, 0.45, 149.5, -93.5, 0.45, 149.5, 149.5, 0.45, -103, 102.5, 0.45, -149.5, 93.25, 0.45, -149.5, 149.5, 0.45, -93.5, -149.5, 0.45, 18.5, -149.5, 0.45, 27.75, -28.25, 0.45, 149.5, -18.75, 0.45, 149.5, 149.5, 0.45, -9.5, 9.25, 0.45, -149.5, 0, 0.45, -149.5, 149.5, 0.45, 0, 46.5, 0.45, 149.5, 149.5, 0.45, 56, 149.5, 0.45, 46.5, 37.25, 0.45, 149.5, 149.5, 0.45, -28.25, 27.75, 0.45, -149.5, 18.5, 0.45, -149.5, 149.5, 0.45, -18.75, 93.25, 0.45, 149.5, 149.5, 0.45, 102.5, 149.5, 0.45, 93.25, 84, 0.45, 149.5, -84.25, 0.45, -149.5, -93.5, 0.45, -149.5, -149.5, 0.45, -93.5, -149.5, 0.45, -84.25, -149.5, 0.45, 93.25, -93.5, 0.45, 149.5, -84.25, 0.45, 149.5, -149.5, 0.45, 84, 149.5, 0.45, -84.25, 149.5, 0.45, -93.5, 93.25, 0.45, -149.5, 84, 0.45, -149.5, -37.5, 0.45, -149.5, -47, 0.45, -149.5, -149.5, 0.45, -47, -149.5, 0.45, -37.5, -149.5, 0.45, 37.25, -149.5, 0.45, 46.5, -47, 0.45, 149.5, -37.5, 0.45, 149.5, 149.5, 0.45, 0, 0, 0.45, -149.5, -149.5, 0.45, 0, -9.5, 0.45, 149.5, 0, 0.45, 149.5, 149.5, 0.45, 9.25, 149.5, 0.45, -47, 46.5, 0.45, -149.5, 37.25, 0.45, -149.5, 149.5, 0.45, -37.5, 84, 0.45, 149.5, 149.5, 0.45, 93.25, 149.5, 0.45, 84, 74.75, 0.45, 149.5, -149.5, 0.45, 74.75, -149.5, 0.45, 84, -84.25, 0.45, 149.5, -74.75, 0.45, 149.5, 149.5, 0.45, -84.25, 84, 0.45, -149.5, 74.75, 0.45, -149.5, 149.5, 0.45, -74.75, -74.75, 0.45, -149.5, -84.25, 0.45, -149.5, -149.5, 0.45, -84.25, -149.5, 0.45, -74.75, 9.25, 0.45, 149.5, 149.5, 0.45, 18.5, 149.5, 0.45, 9.25, 0, 0.45, 149.5, 37.25, 0.45, 149.5, 149.5, 0.45, 46.5, 149.5, 0.45, 37.25, 27.75, 0.45, 149.5, 74.75, 0.45, 149.5, 149.5, 0.45, 84, 149.5, 0.45, 74.75, 65.25, 0.45, 149.5, 0, 0.45, -149.5, -9.5, 0.45, -149.5, -149.5, 0.45, -9.5, -149.5, 0.45, 0, 18.5, 0.45, 149.5, 149.5, 0.45, 27.75, 149.5, 0.45, 18.5, 9.25, 0.45, 149.5, -149.5, 0.45, 74.75, -74.75, 0.45, 149.5, -65.5, 0.45, 149.5, -149.5, 0.45, 65.25, 149.5, 0.45, -65.5, 149.5, 0.45, -74.75, 74.75, 0.45, -149.5, 65.25, 0.45, -149.5, -65.5, 0.45, -149.5, -74.75, 0.45, -149.5, -149.5, 0.45, -74.75, -149.5, 0.45, -65.5, -28.25, 0.45, -149.5, -37.5, 0.45, -149.5, -149.5, 0.45, -37.5, -149.5, 0.45, -28.25, -149.5, 0.45, 37.25, -37.5, 0.45, 149.5, -28.25, 0.45, 149.5, -149.5, 0.45, 27.75 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 8, 7, 6 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 13, 12, 14 ), PoolIntArray( 14, 12, 15 ), PoolIntArray( 17, 16, 18 ), PoolIntArray( 18, 16, 19 ), PoolIntArray( 21, 20, 22 ), PoolIntArray( 22, 20, 23 ), PoolIntArray( 26, 25, 24 ), PoolIntArray( 28, 27, 29 ), PoolIntArray( 29, 27, 30 ), PoolIntArray( 32, 31, 33 ), PoolIntArray( 33, 31, 34 ), PoolIntArray( 36, 35, 37 ), PoolIntArray( 37, 35, 38 ), PoolIntArray( 40, 39, 41 ), PoolIntArray( 41, 39, 42 ), PoolIntArray( 44, 43, 45 ), PoolIntArray( 45, 43, 46 ), PoolIntArray( 48, 47, 49 ), PoolIntArray( 49, 47, 50 ), PoolIntArray( 52, 51, 53 ), PoolIntArray( 53, 51, 54 ), PoolIntArray( 56, 55, 57 ), PoolIntArray( 57, 55, 58 ), PoolIntArray( 60, 59, 61 ), PoolIntArray( 61, 59, 62 ), PoolIntArray( 64, 63, 65 ), PoolIntArray( 65, 63, 66 ), PoolIntArray( 68, 67, 69 ), PoolIntArray( 69, 67, 70 ), PoolIntArray( 72, 71, 73 ), PoolIntArray( 73, 71, 74 ), PoolIntArray( 76, 75, 77 ), PoolIntArray( 77, 75, 78 ), PoolIntArray( 80, 79, 81 ), PoolIntArray( 81, 79, 82 ), PoolIntArray( 84, 83, 85 ), PoolIntArray( 85, 83, 86 ), PoolIntArray( 89, 88, 87 ), PoolIntArray( 91, 90, 92 ), PoolIntArray( 92, 90, 93 ), PoolIntArray( 95, 94, 96 ), PoolIntArray( 96, 94, 97 ), PoolIntArray( 99, 98, 100 ), PoolIntArray( 100, 98, 101 ), PoolIntArray( 103, 102, 104 ), PoolIntArray( 104, 102, 105 ), PoolIntArray( 107, 106, 108 ), PoolIntArray( 108, 106, 109 ), PoolIntArray( 111, 110, 112 ), PoolIntArray( 112, 110, 113 ), PoolIntArray( 115, 114, 116 ), PoolIntArray( 116, 114, 117 ), PoolIntArray( 119, 118, 120 ), PoolIntArray( 120, 118, 121 ), PoolIntArray( 123, 122, 124 ), PoolIntArray( 124, 122, 125 ), PoolIntArray( 127, 126, 128 ), PoolIntArray( 128, 126, 129 ), PoolIntArray( 131, 130, 132 ), PoolIntArray( 132, 130, 133 ), PoolIntArray( 135, 134, 136 ), PoolIntArray( 136, 134, 137 ), PoolIntArray( 139, 138, 140 ), PoolIntArray( 140, 138, 141 ), PoolIntArray( 143, 142, 144 ), PoolIntArray( 144, 142, 145 ), PoolIntArray( 147, 146, 148 ), PoolIntArray( 148, 146, 149 ), PoolIntArray( 151, 150, 152 ), PoolIntArray( 152, 150, 153 ), PoolIntArray( 155, 154, 156 ), PoolIntArray( 156, 154, 157 ), PoolIntArray( 159, 158, 160 ), PoolIntArray( 160, 158, 161 ), PoolIntArray( 163, 162, 164 ), PoolIntArray( 164, 162, 165 ), PoolIntArray( 167, 166, 168 ), PoolIntArray( 168, 166, 169 ), PoolIntArray( 171, 170, 172 ), PoolIntArray( 172, 170, 173 ), PoolIntArray( 175, 174, 176 ), PoolIntArray( 176, 174, 177 ), PoolIntArray( 179, 178, 180 ), PoolIntArray( 180, 178, 181 ), PoolIntArray( 183, 182, 184 ), PoolIntArray( 184, 182, 185 ), PoolIntArray( 187, 186, 188 ), PoolIntArray( 188, 186, 189 ), PoolIntArray( 195, 194, 190 ), PoolIntArray( 190, 194, 193 ), PoolIntArray( 190, 193, 192 ), PoolIntArray( 190, 192, 191 ), PoolIntArray( 197, 196, 198 ), PoolIntArray( 198, 196, 199 ), PoolIntArray( 201, 200, 202 ), PoolIntArray( 202, 200, 203 ), PoolIntArray( 205, 204, 206 ), PoolIntArray( 206, 204, 207 ), PoolIntArray( 209, 208, 210 ), PoolIntArray( 210, 208, 211 ), PoolIntArray( 213, 212, 214 ), PoolIntArray( 214, 212, 215 ), PoolIntArray( 217, 216, 218 ), PoolIntArray( 218, 216, 219 ), PoolIntArray( 221, 220, 222 ), PoolIntArray( 222, 220, 223 ), PoolIntArray( 225, 224, 226 ), PoolIntArray( 226, 224, 227 ), PoolIntArray( 229, 228, 230 ), PoolIntArray( 230, 228, 231 ), PoolIntArray( 233, 232, 234 ), PoolIntArray( 234, 232, 235 ), PoolIntArray( 237, 236, 238 ), PoolIntArray( 238, 236, 239 ), PoolIntArray( 241, 240, 242 ), PoolIntArray( 242, 240, 243 ), PoolIntArray( 245, 244, 246 ), PoolIntArray( 246, 244, 247 ), PoolIntArray( 249, 248, 250 ), PoolIntArray( 250, 248, 251 ), PoolIntArray( 253, 252, 254 ), PoolIntArray( 254, 252, 255 ) ]
+
+[sub_resource type="SpatialMaterial" id=32]
+albedo_color = Color( 0.0980392, 0.407843, 0.494118, 1 )
+roughness = 0.43
+emission_enabled = true
+emission = Color( 0.0392157, 0.298039, 0.172549, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[node name="World" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 22 )
+
+[node name="Camera" type="Camera" parent="." groups=["Cam"]]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 29.6168, 13.9851, 2.37051 )
+keep_aspect = 0
+cull_mask = 1
+far = 200.0
+script = ExtResource( 18 )
+lerp_speed = 5.0
+target_PATH = "taxi/Spatial"
+offset = Vector3( 0, 5, 10 )
+noise = SubResource( 23 )
+noise_speed = 100
+
+[node name="Plane" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 24.6818, 3.05, 92.5556 )
+FollowAltitude = 3.0
+FollowSpeed = 0.03
+AvoidanceStrength = 2.0
+trauma_amount = 0.05
+
+[node name="taxi" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.674778, 0, 0.738019, 0, 1, 0, -0.738019, 0, 0.674778, 25, 1.203, 25 )
+acceleration = 155.0
+steering = 30.0
+turn_stop_limit = 1.25
+damage_multiplier = 0.7
+ramp_speed = 1.6
+Jump_ht = 1.0
+min_map_cam_path = NodePath("Interface/PanelContainer/ViewportContainer/Viewport/Camera")
+
+[node name="Rocket Ammo2" parent="taxi/Spatial/body/Rocket Launcher/Gun" index="2"]
+rot_speed = 1.0
+
+[node name="AnimationPlayer" parent="taxi/Spatial" index="13"]
+anims/Gun_descend = SubResource( 24 )
+anims/Gun_rise = SubResource( 25 )
+anims/RESET = SubResource( 26 )
+anims/Reload = SubResource( 27 )
+anims/Rocket_reload = SubResource( 28 )
+anims/Rocket_rise = SubResource( 29 )
+anims/Shoot = SubResource( 30 )
+
+[node name="VScrollBar2" type="VScrollBar" parent="taxi/Interface/Ammo_text" index="0"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+max_value = 29.0
+step = 1.0
+page = 56.0
+
+[node name="VScrollBar3" type="VScrollBar" parent="taxi/Interface/Ammo_text" index="1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+step = 1.0
+
+[node name="VScrollBar2" type="VScrollBar" parent="taxi/Interface/Drift_points" index="0"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+max_value = 29.0
+step = 1.0
+page = 63.0
+
+[node name="VScrollBar3" type="VScrollBar" parent="taxi/Interface/Drift_points" index="1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+step = 1.0
+
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 31 )
+
+[node name="Ground" type="CSGBox" parent="Navigation/NavigationMeshInstance" groups=["2d", "Ground"]]
+layers = 3
+cast_shadow = 0
+use_collision = true
+collision_layer = 13
+collision_mask = 13
+width = 300.0
+height = 0.1
+depth = 300.0
+material = SubResource( 32 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.313801, 0.717866, -0.621448, 0.065038, 0.63672, 0.768348, 0.947259, -0.281526, 0.153115, 37.7649, 5.43877, 0 )
+light_color = Color( 0.960784, 0.741176, 0.956863, 1 )
+shadow_enabled = true
+shadow_bias = 0.0
+directional_shadow_split_2 = 0.138
+directional_shadow_split_3 = 0.426
+directional_shadow_blend_splits = true
+directional_shadow_normal_bias = 0.37
+directional_shadow_max_distance = 70.0
+
+[node name="Enemy_spawner" type="Spatial" parent="."]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -11.8868, 20.2893, 14.1523 )
+
+[node name="Pause_menu" parent="." instance=ExtResource( 10 )]
+visible = false
+
+[node name="Death_screen" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[editable path="taxi"]
+[editable path="taxi/Spatial/Backright"]
+[editable path="taxi/Spatial/Backleft"]
+[editable path="taxi/Spatial/body/MachineGun"]
+[editable path="taxi/Spatial/body/Rocket Launcher"]
+[editable path="taxi/Interface"]

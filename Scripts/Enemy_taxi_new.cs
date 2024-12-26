@@ -27,6 +27,8 @@ public class Enemy_taxi_new : Spatial
 	public MeshInstance right_wheel;
 	[Export] public string B_L_particles;
 	[Export] public string B_R_particles;
+	[Export] public string B_L2_particles;
+	[Export] public string B_R2_particles;
 	public CPUParticles B_L;
 	public CPUParticles B_R;
 	// public Timer jump_timer;
@@ -50,11 +52,14 @@ public class Enemy_taxi_new : Spatial
 	List<Vector3> p;
 	public Timer update_path_timer;
 	public PackedScene explosion;
-
+	public resolution Res;
+	public AudioPlayer audioPlayer;
+	public float waittime;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Res = GD.Load<resolution>("user://Int/Res.tres");
 		ball = GetNode<RigidBody>(Ball_path);
 		Car_mesh = GetNode<MeshInstance>(Car_mesh_path);
 		rayCast = GetNode<RayCast>(rayCast_path);
@@ -62,8 +67,18 @@ public class Enemy_taxi_new : Spatial
 		left_wheel = GetNode<MeshInstance>(left_wheel_path);
 		right_wheel = GetNode<MeshInstance>(right_wheel_path);
 		car_mesh_body = GetNode<MeshInstance>(car_mesh_body_path);
-		B_L = GetNode<CPUParticles>(B_L_particles);
-		B_R = GetNode<CPUParticles>(B_R_particles);
+		if(Res.cur_world ==2 )
+		{
+			B_L = GetNode<CPUParticles>(B_L2_particles);
+			B_R = GetNode<CPUParticles>(B_R2_particles);
+		}
+		else
+		{
+			B_L = GetNode<CPUParticles>(B_L_particles);
+			B_R = GetNode<CPUParticles>(B_R_particles);
+		}
+		B_L.Emitting = true;
+		B_R.Emitting = true;
 		drift = GetNode<AudioStreamPlayer3D>("Spatial/Drift");
 		player_mesh = GetParent().GetNode<MeshInstance>(player_mesh_path);
 		nav_agent = GetNode<NavigationAgent>(Nav_agent_path);
@@ -80,6 +95,31 @@ public class Enemy_taxi_new : Spatial
 		update_path_timer.WaitTime = 0.1f;
 		explosion = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
 		update_path_timer.Start();
+		audioPlayer = GetNode<AudioPlayer>("/root/AudioPlayer");
+
+		switch(Res.difficulty)
+		{
+			case 0:
+				waittime = .1f;
+				acceleration = 95;
+				turn_speed = 3;
+				break;
+			case 1:
+				waittime = 0.1f;
+				acceleration = 110;
+				turn_speed = 4;
+				break;
+			case 2:
+				waittime = 0.05f;
+				acceleration = 130;
+				turn_speed = 5;
+				break;
+			case 3:
+				waittime = 0;
+				acceleration = 160;
+				turn_speed = 4;
+				break;
+		}
 		// jump_timer = new Timer();
 		// AddChild(jump_timer);
 		// jump_timer.OneShot = true;
@@ -102,9 +142,7 @@ public class Enemy_taxi_new : Spatial
 	public override void _PhysicsProcess(float delta)
 	{
 		// align mesh with sphere
-		var trnsform = Car_mesh.Transform;
-		trnsform.origin = ball.Transform.origin + sphere_offset;
-		Car_mesh.Transform = trnsform;
+		Car_mesh.Translation = ball.Translation + sphere_offset;
 		//Accelerate
 		if(Is_on_ramp)
 		{
@@ -113,9 +151,8 @@ public class Enemy_taxi_new : Spatial
 		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z * speed_input);
 		// GD.Print(speed_input);
 		// Smoke
-		var ball_velocity = ball.LinearVelocity.Normalized();
 		var car_mesh_forward = -Car_mesh.GlobalTransform.basis.z.Normalized();
-		var dot_product = ball_velocity.Dot(car_mesh_forward);
+		var dot_product = ball.LinearVelocity.Normalized().Dot(car_mesh_forward);
 		
 		if(rayCast.IsColliding() && ball.LinearVelocity.Length() >13 && dot_product < 0.85 && dot_product > 0)
 		{
@@ -143,16 +180,8 @@ public class Enemy_taxi_new : Spatial
 			// UpdatePath();
 			nav_agent.SetTargetLocation(player_mesh.GlobalTransform.origin);
 			next_point = nav_agent.GetNextLocation();
-			update_path_timer.Start(0.035f);
+			update_path_timer.Start(waittime);
 		}
-		// if(p.Count > 0)
-		// {
-		// 	next_point = p[1];
-		// 	if(Car_mesh.GlobalTransform.origin.DistanceTo(next_point) < 1.5)
-		// 	{
-		// 		p.RemoveAt(1);
-		// 	}
-		// }
 		var direction = next_point - Car_mesh.GlobalTransform.origin;
         var angle = Calculate_Angle(direction);
 		// GD.Print("Angle : " + angle);
@@ -278,6 +307,7 @@ public class Enemy_taxi_new : Spatial
 		health -= damage;
 		if(health <= 0)
 		{
+			GetParent().GetNode("Camera").Call("Add_trauma",0.8f);
 			player_mesh.GetParent().GetNode("Interface").Call("Kill");
 			health = 0;
 			var explosion_instance = explosion.Instance() as Spatial;

@@ -38,15 +38,15 @@ edge_max_error = 1.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 2 )
 
-[node name="Camera" type="Camera" parent="."]
+[node name="Camera" type="Camera" parent="." groups=["Cam"]]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 29.6168, 13.9851, 2.37051 )
 keep_aspect = 0
 cull_mask = 1
 environment = ExtResource( 2 )
-far = 200.0
+far = 120.0
 script = ExtResource( 3 )
 lerp_speed = 5.0
-target_PATH = "taxi/Spatial/body"
+target_PATH = "taxi/Spatial"
 offset = Vector3( 0, 5, 10 )
 noise = SubResource( 15 )
 noise_speed = 100
@@ -56,7 +56,7 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 24.6818, 3.05, 92.5556 )
 FollowAltitude = 3.0
 FollowSpeed = 0.03
 AvoidanceStrength = 2.0
-trauma_amount = 0.05
+trauma_amount = 0.013
 
 [node name="taxi" parent="." instance=ExtResource( 15 )]
 transform = Transform( 0.674778, 0, 0.738019, 0, 1, 0, -0.738019, 0, 0.674778, 25, 1.203, 25 )
@@ -66,10 +66,9 @@ turn_stop_limit = 1.25
 damage_multiplier = 0.7
 ramp_speed = 1.6
 Jump_ht = 1.0
-min_map_cam_path = NodePath("Interface/PanelContainer/ViewportContainer/Viewport/Camera")
 
-[node name="Gun" parent="taxi/Spatial/body/MachineGun" index="0"]
-transform = Transform( -10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07 )
+[node name="Rocket Ammo2" parent="taxi/Spatial/body/Rocket Launcher/Gun" index="2"]
+rot_speed = 1.0
 
 [node name="Navigation" type="Navigation" parent="."]
 
@@ -351,31 +350,31 @@ collision_layer = 5
 collision_mask = 5
 
 [node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 150 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 150 )
 visible = false
 use_collision = true
 width = 300.0
-height = 6.0
+height = 100.0
 
 [node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 3, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 50, 0 )
 visible = false
 use_collision = true
-height = 6.0
+height = 100.0
 depth = 300.0
 
 [node name="CSGBox3" type="CSGBox" parent="Navigation/NavigationMeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -150 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, -150 )
 visible = false
 use_collision = true
 width = 300.0
-height = 6.0
+height = 100.0
 
 [node name="CSGBox4" type="CSGBox" parent="Navigation/NavigationMeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 3, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 50, 0 )
 visible = false
 use_collision = true
-height = 6.0
+height = 100.0
 depth = 300.0
 
 [node name="Ground" type="CSGBox" parent="Navigation/NavigationMeshInstance" groups=["2d", "Ground"]]
@@ -544,4 +543,5 @@ visible = false
 [editable path="taxi/Spatial/Backright"]
 [editable path="taxi/Spatial/Backleft"]
 [editable path="taxi/Spatial/body/MachineGun"]
+[editable path="taxi/Spatial/body/Rocket Launcher"]
 [editable path="taxi/Interface"]

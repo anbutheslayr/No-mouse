@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Materials/Yellow.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Materials/Red.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Healthbar3d.cs" type="Script" id=3]
+[ext_resource path="res://Scripts/Healthbar3d_enemy.cs" type="Script" id=3]
 [ext_resource path="res://Assets/Materials/pngegg.png" type="Texture" id=4]
 
 [sub_resource type="ViewportTexture" id=18]

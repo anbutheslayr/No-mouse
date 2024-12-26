@@ -129,7 +129,7 @@ margin_top = 694.0
 margin_right = 240.0
 margin_bottom = 722.0
 theme = ExtResource( 2 )
-text = "Quality"
+text = "Difficulty"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
 margin_left = 12.0
@@ -140,8 +140,8 @@ custom_constants/separation = 300
 alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer2"]
-margin_left = 1168.0
-margin_right = 1596.0
+margin_left = 1468.0
+margin_right = 1896.0
 margin_bottom = 1056.0
 custom_constants/separation = 20
 alignment = 1
@@ -217,18 +217,13 @@ margin_top = 685.0
 margin_right = 428.0
 margin_bottom = 685.0
 
-[node name="Quality" type="OptionButton" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
+[node name="Difficulty" type="OptionButton" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
 margin_top = 705.0
 margin_right = 428.0
 margin_bottom = 733.0
 theme = ExtResource( 2 )
-text = "Select"
+text = "easy"
 align = 1
-
-[node name="Control" type="Control" parent="MarginContainer/HBoxContainer2"]
-margin_left = 1896.0
-margin_right = 1896.0
-margin_bottom = 1056.0
 
 [node name="TextureButton" type="TextureButton" parent="."]
 margin_left = 18.0
@@ -240,19 +235,10 @@ texture_pressed = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
-[node name="WindowDialog" type="WindowDialog" parent="."]
-visible = true
-margin_left = 684.0
-margin_top = 379.0
-margin_right = 1208.0
-margin_bottom = 614.0
-theme = ExtResource( 2 )
-window_title = "Accept"
-
 [connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/OptionButton" to="." method="OnOptionSelect"]
 [connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/Shadow" to="." method="OnShadowSelect"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer2/VBoxContainer/Glow" to="." method="OnGlowToggled"]
 [connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/NoOfEnemies" to="." method="OnNumberSelect"]
 [connection signal="value_changed" from="MarginContainer/HBoxContainer2/VBoxContainer/Hslider" to="." method="OnVolumeChange"]
-[connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/Quality" to="." method="On_Quality_Select"]
+[connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/Difficulty" to="." method="OnDifficultySelect"]
 [connection signal="pressed" from="TextureButton" to="." method="OnEsc"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scenes/Healthbar3d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Movement.cs" type="Script" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://Assets/Audio/drift.mp3" type="AudioStream" id=9]
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Materials/player.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Models/Guns/Rocket Launcher.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Smoke_graveyard.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Materials/Switch Selected.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Materials/Switch.png" type="Texture" id=15]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "plastic"
@@ -205,7 +209,7 @@ size = Vector3( 0.005, 0.087, 0.007 )
 size = Vector3( -0.012, 0.087, -0.018 )
 
 [sub_resource type="CylinderShape" id=17]
-height = 2.28552
+height = 3.59778
 radius = 10.0
 
 [sub_resource type="Animation" id=23]
@@ -420,6 +424,54 @@ tracks/6/keys = {
 "update": 0,
 "values": [ Vector3( 0, -1.62987, 0.0648999 ) ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("body/Rocket Launcher:translation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.0892019, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("body/Rocket Launcher:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("body/MachineGun/Stand:mesh")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ SubResource( 20 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("body/MachineGun/Base:mesh")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ SubResource( 21 ) ]
+}
 
 [sub_resource type="Animation" id=24]
 resource_name = "Reload"
@@ -435,6 +487,124 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -180, 0 ), Vector3( -180, -180, 0 ), Vector3( -154.615, -180, 0 ), Vector3( -180, -180, 0 ), Vector3( 0, -180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "Rocket_reload"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/Rocket Launcher:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.0892019, 0 ), Vector3( 0, 2, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/Rocket Launcher:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, -90 ), Vector3( 0, -90, -90 ), Vector3( 0, -90, -53.531 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/MachineGun/Stand:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.3908, 0.0648999 ), Vector3( 0, 0.0207081, 0.0648999 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/MachineGun/Base:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.30323, 0.0648999 ), Vector3( 0, -0.631757, 0.0648999 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("body/MachineGun")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "Rocket_reload"
+} ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "Rocket_rise"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/Rocket Launcher:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -0.0892019, 0 ), Vector3( 0, 2, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/Rocket Launcher:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, -90 ), Vector3( 0, -90, -90 ), Vector3( 0, -90, -53.531 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/MachineGun/Stand:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.3908, 0.0648999 ), Vector3( 0, 0.0207081, 0.0648999 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/MachineGun/Base:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -1.30323, 0.0648999 ), Vector3( 0, -0.631757, 0.0648999 ) ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -548,10 +718,20 @@ left_wheel_path = "Spatial/wheel_frontLeft"
 right_wheel_path = "Spatial/wheel_frontRight"
 B_L_particles = "Spatial/Backleft/CPUParticles"
 B_R_particles = "Spatial/Backright/CPUParticles"
+B_L2_particles = "Spatial/Backleft2/CPUParticles"
+B_R2_particles = "Spatial/Backright2/CPUParticles"
 Accelerate_button_path = "Interface/Acceleration/Accelerate"
 health_bar_path = "Spatial/Healthbar"
+min_map_cam_path = NodePath("Interface/PanelContainer/ViewportContainer/Viewport/Camera")
+cam_pos_path = NodePath("Spatial/body/cam_pos")
 
 [node name="Spatial" type="MeshInstance" parent="."]
+
+[node name="Backright2" parent="Spatial" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428421, 0.0363879, 0.811293 )
+
+[node name="Backleft2" parent="Spatial" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546473, 0.0306792, 0.851717 )
 
 [node name="Backright" parent="Spatial" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428421, 0.0363879, 0.811293 )
@@ -607,6 +787,12 @@ stream = ExtResource( 8 )
 volume_db = -10.0
 pitch_scale = 3.5
 
+[node name="Rocket Launcher" parent="Spatial/body" instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0892019, 0 )
+
+[node name="cam_pos" type="Spatial" parent="Spatial/body"]
+transform = Transform( -1, 1.77636e-15, 8.74228e-08, 1.73575e-08, 0.980091, 0.198547, -8.56823e-08, 0.198547, -0.980091, -0.0262446, 1.57004, 0.997644 )
+
 [node name="wheel_backRight" type="MeshInstance" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, 0.76 )
 mesh = ExtResource( 3 )
@@ -638,6 +824,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239 )
 [node name="DetectionArea" type="Area" parent="Spatial" groups=["Player_body"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="Spatial/DetectionArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764219, 0 )
 shape = SubResource( 17 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Spatial"]
@@ -645,6 +832,8 @@ anims/Gun_descend = SubResource( 23 )
 anims/Gun_rise = SubResource( 22 )
 anims/RESET = SubResource( 18 )
 anims/Reload = SubResource( 24 )
+anims/Rocket_reload = SubResource( 27 )
+anims/Rocket_rise = SubResource( 26 )
 anims/Shoot = SubResource( 19 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Spatial"]
@@ -687,11 +876,10 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="Interface"]
-anchor_left = 0.830899
-anchor_top = 0.0648148
-anchor_right = 0.966316
-anchor_bottom = 0.305556
-margin_bottom = 3.25928
+anchor_left = 0.728125
+anchor_top = 0.0601852
+anchor_right = 0.988542
+anchor_bottom = 0.294444
 custom_styles/panel = SubResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": true
@@ -700,32 +888,48 @@ __meta__ = {
 [node name="ViewportContainer" type="ViewportContainer" parent="Interface/PanelContainer"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 255.001
-margin_bottom = 258.26
+margin_right = 495.0
+margin_bottom = 248.0
 stretch = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Viewport" type="Viewport" parent="Interface/PanelContainer/ViewportContainer"]
-size = Vector2( 250, 253 )
+size = Vector2( 490, 243 )
 size_override_stretch = true
 handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Camera" type="Camera" parent="Interface/PanelContainer/ViewportContainer/Viewport"]
-transform = Transform( 1, 0, 0, 0, 1.31134e-07, 1, 0, -1, 1.31134e-07, 25, 50, 25 )
-cull_mask = 2
-projection = 1
-fov = 100.0
-size = 100.0
+transform = Transform( -1, 1.77636e-15, 8.74228e-08, 1.73575e-08, 0.980091, 0.198547, -8.56823e-08, 0.198547, -0.980091, -4.62809, 5.20898, 5.35079 )
+cull_mask = 1
+fov = 50.0
+size = 8.29881
+far = 25.0
+
+[node name="Rocket_button" type="TextureButton" parent="Interface"]
+anchor_left = 0.0015625
+anchor_top = 0.527778
+anchor_right = 0.134896
+anchor_bottom = 0.698148
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 14 )
+texture_disabled = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [connection signal="body_entered" from="Spatial/DetectionArea" to="Spatial/body/MachineGun" method="OnDetection"]
 [connection signal="body_exited" from="Spatial/DetectionArea" to="Spatial/body/MachineGun" method="OnExit"]
 [connection signal="body_entered" from="Ball" to="." method="On_collision"]
 [connection signal="body_exited" from="Ball" to="." method="On_leaving"]
+[connection signal="pressed" from="Interface/Rocket_button" to="Spatial/body/MachineGun" method="gun_switch"]
 
 [editable path="Spatial/Backright"]
 [editable path="Spatial/Backleft"]
 [editable path="Spatial/body/MachineGun"]
+[editable path="Spatial/body/Rocket Launcher"]
 [editable path="Interface"]
