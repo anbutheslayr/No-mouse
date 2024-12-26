@@ -19,10 +19,9 @@ public class Settings : Control
     public TextureButton Esc;
     public OptionButton NoOfEnemies;
     public HSlider volume;
-    public OptionButton Quality_button;
+    public OptionButton difficultyselector;
     public override void _Ready()
     {
-        Quality_button = GetNode<OptionButton>("MarginContainer/HBoxContainer2/VBoxContainer/Quality");
         Esc = GetNode<TextureButton>("TextureButton");
         Verify_res();
         title_font = GD.Load<DynamicFont>("res://Scenes/FONT.tres");
@@ -35,6 +34,7 @@ public class Settings : Control
         NoOfEnemies = GetNode<OptionButton>("MarginContainer/HBoxContainer2/VBoxContainer/NoOfEnemies");
         shadows = GetNode<OptionButton>("MarginContainer/HBoxContainer2/VBoxContainer/Shadow");
         glow = GetNode<CheckBox>("MarginContainer/HBoxContainer2/VBoxContainer/Glow");
+        difficultyselector = GetNode<OptionButton>("MarginContainer/HBoxContainer2/VBoxContainer/Difficulty");
         if(Res.Glow)
         {
             glow.SetPressedNoSignal(true);
@@ -71,14 +71,32 @@ public class Settings : Control
         NoOfEnemies.AddItem("10");
         NoOfEnemies.Selected = Res.NoOfEnemies-1;
 
-        Quality_button.AddItem("Default", 0);
-        Quality_button.AddItem("Low", 1);
-
-        Quality_button.Selected = Res.Quality;
-
+        difficultyselector.AddItem("Easy", 0);
+        difficultyselector.AddItem("Normal",1);
+        difficultyselector.AddItem("Hard",2);
+        difficultyselector.AddItem("Insane",3);
+        difficultyselector.Selected = Res.difficulty;
         volume.Value = Res.volume;
         GD.Print("Volume : " +Res.volume);
 
+    }
+    public void OnDifficultySelect(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                Res.difficulty = 0;
+                break;
+            case 1: 
+                Res.difficulty = 1;
+                break;
+            case 2:
+                Res.difficulty = 2;
+                break;
+            case 3:
+                Res.difficulty = 3;
+                break;
+        }
     }
     public void Verify_res()
     {
@@ -101,24 +119,6 @@ public class Settings : Control
             ResourceSaver.Save("user://Int/Res.tres", Res);
             Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
  
-        }
-    }
-    public void On_Quality_Select(int index)
-    {
-        Res.Quality = index;
-        ResourceSaver.Save("user://Int/Res.tres", Res);
-        switch (index)
-        {
-            case 0:
-                ProjectSettings.SetSetting("rendering/quality/depth/hdr", true);
-                ProjectSettings.SetSetting("rendering/quality/depth/hdr.mobile", true);
-                ProjectSettings.SaveCustom("res://override.cfg");
-                break;
-            case 1:
-                ProjectSettings.SetSetting("rendering/quality/depth/hdr", false);
-                ProjectSettings.SetSetting("rendering/quality/depth/hdr.mobile", false);
-                ProjectSettings.SaveCustom("res://override.cfg");
-                break;
         }
     }
     public void OnOptionSelect(int index)
@@ -145,6 +145,7 @@ public class Settings : Control
         }
         
     }
+
     public void OnEsc()
     {
         ResourceSaver.Save("user://Int/Res.tres", Res);

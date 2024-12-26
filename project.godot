@@ -15,6 +15,11 @@ run/main_scene="res://Scenes/Main_menu.tscn"
 boot_splash/image="res://okk.png"
 config/windows_native_icon="res://ICO.ico"
 
+[autoload]
+
+AudioPlayer="*res://Scenes/AudioPlayer.tscn"
+GlobalVars="*res://Scripts/Global_vars.cs"
+
 [display]
 
 window/size/width=1920
@@ -1132,6 +1137,10 @@ Save={
  ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [mono]
 
 project/assembly_name="No mouse"
@@ -1142,7 +1151,16 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/intended_usage/framebuffer_allocation=3
+quality/directional_shadow/size=2048
 quality/shadow_atlas/size=2048
 quality/shadows/filter_mode=2
 quality/shadows/filter_mode.mobile=2
+quality/reflections/texture_array_reflections=false
+quality/reflections/high_quality_ggx=false
+quality/shading/force_vertex_shading=true
+quality/shading/force_lambert_over_burley=true
+quality/shading/force_blinn_over_ggx=true
+quality/lightmapping/use_bicubic_sampling=false
+quality/depth/hdr.mobile=true
 environment/default_environment="res://default_env.tres"
