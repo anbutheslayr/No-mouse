@@ -253,7 +253,7 @@ public class Gun : Spatial
                 enemy.Call("Calculate_Health" , gun_damage);
                 var d = poputtext.Instance() as Spatial;
                 GetTree().Root.AddChild(d);
-                (d as Popuptext).PlayAnim("Hit!",10,5,ray_cast.GetCollisionPoint() + new Vector3(0,1,0));
+                (d as Popuptext).PlayAnim("Hit!",10,5,ray_cast.GetCollisionPoint() + new Vector3(0,1,0),0);
                 // GD.Print("damage = " + gun_damage);
             }
             if( (ray_cast.GetCollider() as Node).IsInGroup("Runnable"))

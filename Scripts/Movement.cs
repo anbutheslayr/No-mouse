@@ -303,7 +303,7 @@ public class Movement : Spatial
 		{
 			var d = poputtext.Instance() as Spatial;
 			GetTree().Root.AddChild(d);
-			(d as Popuptext).PlayAnim(damage.ToString(),20,3,Car_mesh.GlobalTranslation + new Vector3(0,2,0),true);
+			(d as Popuptext).PlayAnim(damage.ToString(),20,3,Car_mesh.GlobalTranslation + new Vector3(0,2,0),1);
 		}
 		
 		if(health <= 0)

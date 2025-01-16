@@ -5,10 +5,12 @@ public class Explosion : Spatial
 {
     public Area area;
     public Camera cam; 
+    public PackedScene popupttext;
     public override void _Ready()
     {
         area = GetNode<Area>("Area");
         cam = GetTree().Root.GetNode<Camera>("World/Camera");
+        popupttext = GD.Load<PackedScene>("res://Interface/Popup text.tscn");
     }
     public void On_body_entered(Node body)
     {
@@ -28,5 +30,9 @@ public class Explosion : Spatial
             body.GetParent().GetParent().GetParent().Call("Calculate_Health");
             body.GetParent().GetParent().GetParent().Call("Calculate_Health");
         }
+        var e = popupttext.Instance() as Spatial;
+        GetTree().Root.AddChild(e);
+        e.GlobalTranslation = GlobalTranslation;
+        (e as Popuptext).PlayAnim("Boom!",20,3,GlobalTranslation + new Vector3(0,1.5f,0),2);
     }
 }
