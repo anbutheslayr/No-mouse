@@ -888,15 +888,15 @@ __meta__ = {
 [node name="ViewportContainer" type="ViewportContainer" parent="Interface/PanelContainer"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 495.0
-margin_bottom = 248.0
+margin_right = 495.001
+margin_bottom = 247.999
 stretch = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Viewport" type="Viewport" parent="Interface/PanelContainer/ViewportContainer"]
-size = Vector2( 490, 243 )
+size = Vector2( 490, 242 )
 size_override_stretch = true
 handle_input_locally = false
 render_target_update_mode = 3

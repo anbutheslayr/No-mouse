@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/FONT.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/Theme.tres" type="Theme" id=2]
 [ext_resource path="res://Scripts/Death_screen.cs" type="Script" id=3]
+[ext_resource path="res://admob-lib/admob.gd" type="Script" id=4]
 
 [node name="Death_screen" type="Control"]
 anchor_right = 1.0
@@ -56,27 +57,40 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 462.0
+margin_top = 424.0
 margin_right = 382.0
-margin_bottom = 462.0
+margin_bottom = 424.0
+
+[node name="Revive" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 444.0
+margin_right = 382.0
+margin_bottom = 480.0
+theme = ExtResource( 2 )
+keep_pressed_outside = true
+text = "Revive(Watch ad)"
+
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 500.0
+margin_right = 382.0
+margin_bottom = 500.0
 
 [node name="Restart" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 482.0
+margin_top = 520.0
 margin_right = 382.0
-margin_bottom = 518.0
+margin_bottom = 556.0
 theme = ExtResource( 2 )
 keep_pressed_outside = true
 text = "Restart"
 
-[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 538.0
+[node name="Control3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 576.0
 margin_right = 382.0
-margin_bottom = 538.0
+margin_bottom = 576.0
 
 [node name="Quit to main menu" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 558.0
+margin_top = 596.0
 margin_right = 382.0
-margin_bottom = 594.0
+margin_bottom = 632.0
 theme = ExtResource( 2 )
 keep_pressed_outside = true
 text = "QUIT to main menu"
@@ -86,5 +100,13 @@ margin_left = 1141.0
 margin_right = 1141.0
 margin_bottom = 1056.0
 
+[node name="AdMob" type="Node" parent="."]
+script = ExtResource( 4 )
+rewarded_id = "ca-app-pub-5974334448635956/9410298226"
+child_directed = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Revive" to="." method="OnRevivePressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Restart" to="." method="OnRestartPressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit to main menu" to="." method="OnQuitToMMPressed"]
+[connection signal="rewarded" from="AdMob" to="." method="OnRewarded"]
+[connection signal="rewarded_video_loaded" from="AdMob" to="." method="OnAdLoaded"]

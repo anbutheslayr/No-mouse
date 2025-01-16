@@ -36,6 +36,7 @@ public class Gun : Spatial
     [Export] public int rocket_ammo = 15;
     public int max_bull_ind=2;
     public TextureButton rocket_button;
+    public PackedScene poputtext;
     public override void _Ready()
     {
         ray_cast = GetNode<RayCast>(RayCastPath);
@@ -61,6 +62,7 @@ public class Gun : Spatial
         rock_timer.Start();
         roc_ammo = GD.Load<PackedScene>("res://Assets/Models/Guns/Rocket Ammo.tscn");
         rocket_button = GetParent().GetParent().GetParent().GetNode<TextureButton>("Interface/Rocket_button");
+        poputtext = GD.Load<PackedScene>("res://Interface/Popup text.tscn");
     }
 
     public void OnDetection(Node body)
@@ -249,6 +251,9 @@ public class Gun : Spatial
             {
                 var enemy =(ray_cast.GetCollider() as Node).GetParent().GetParent().GetParent() as Spatial;
                 enemy.Call("Calculate_Health" , gun_damage);
+                var d = poputtext.Instance() as Spatial;
+                GetTree().Root.AddChild(d);
+                (d as Popuptext).PlayAnim("Hit!",10,5,ray_cast.GetCollisionPoint() + new Vector3(0,1,0));
                 // GD.Print("damage = " + gun_damage);
             }
             if( (ray_cast.GetCollider() as Node).IsInGroup("Runnable"))

@@ -9,18 +9,21 @@ public class Death_screen : Control
     public Control inter_face;
     public RigidBody plane;
     public bool Started = false;
-
+    public Node admob;
+    public Button revive;
+    public bool Revived = false;
 
     public override void _Ready()
     {
         Res = GD.Load<resolution>("user://Int/Res.tres");
-
+        admob = GetNode<Node>("AdMob");
         vb1 = GetNode<VBoxContainer>("MarginContainer/VBoxContainer");
         vb1.AddConstantOverride("separation", (int)(Res.res.y/1080*70));
         vb2 = GetNode<VBoxContainer>("MarginContainer/HBoxContainer/VBoxContainer");
         vb2.AddConstantOverride("separation", (int)(Res.res.y/1080*30));
         inter_face = GetParent().GetNode<Control>("taxi/Interface");
         plane = GetTree().GetNodesInGroup("Plane")[0] as RigidBody;
+        revive = GetNode<Button>("MarginContainer/HBoxContainer/VBoxContainer/Revive");
 
     }
     public override void _Process(float delta)
@@ -57,7 +60,27 @@ public class Death_screen : Control
         else
             GetTree().ChangeScene("res://Scenes/Worlds/World"+Res.cur_world+".tscn");
     }
-
+    public void OnRevivePressed()
+    {
+        if(!Revived)
+            admob.Call("load_rewarded_video");
+        else
+            Started = false;
+    }
+    public void OnAdLoaded()
+    {
+        admob.Call("show_rewarded_video");
+    }
+    public void OnRewarded(string reward, int amount)
+    {
+        Revive();
+    }
+    public void Revive()
+    {
+        revive.Text = "Resume";
+        (GetParent().GetNode<Control>("taxi/Interface") as Interface).Revive();
+        Revived = true;
+    }
     public void OnQuitToMMPressed()
     {
         Engine.TimeScale = 1;

@@ -1,0 +1,34 @@
+com.godot.game-jetified-appcompat-resources-1.5.1-0 C:\Users\tamil\.gradle\caches\transforms-3\0302816d89e5c35f7d374718f4ed4d15\transformed\jetified-appcompat-resources-1.5.1\res
+com.godot.game-jetified-play-services-basement-18.0.0-1 C:\Users\tamil\.gradle\caches\transforms-3\04f600bea88e9f46131f1931534747c1\transformed\jetified-play-services-basement-18.0.0\res
+com.godot.game-jetified-godot-lib.release-2 C:\Users\tamil\.gradle\caches\transforms-3\0d271384288c53b0502721cf9adfe2d3\transformed\jetified-godot-lib.release\res
+com.godot.game-jetified-activity-1.7.2-3 C:\Users\tamil\.gradle\caches\transforms-3\17217bd060487ee6e9dd0a6d5894ffa1\transformed\jetified-activity-1.7.2\res
+com.godot.game-appcompat-1.5.1-4 C:\Users\tamil\.gradle\caches\transforms-3\239799a697315c12835b9bdf63ff0d49\transformed\appcompat-1.5.1\res
+com.godot.game-core-1.8.0-5 C:\Users\tamil\.gradle\caches\transforms-3\245f1aa0863a677574781ac0a1900f6e\transformed\core-1.8.0\res
+com.godot.game-jetified-annotation-experimental-1.1.0-6 C:\Users\tamil\.gradle\caches\transforms-3\25a3133bc2a02accb3249d2e75335802\transformed\jetified-annotation-experimental-1.1.0\res
+com.godot.game-lifecycle-viewmodel-2.6.1-7 C:\Users\tamil\.gradle\caches\transforms-3\29441c4b9970a8bec5ae4c6584bf1466\transformed\lifecycle-viewmodel-2.6.1\res
+com.godot.game-core-runtime-2.2.0-8 C:\Users\tamil\.gradle\caches\transforms-3\322ae571677f51e5eec52131b265a665\transformed\core-runtime-2.2.0\res
+com.godot.game-lifecycle-runtime-2.6.1-9 C:\Users\tamil\.gradle\caches\transforms-3\33c479b53b41603cc3192168771adda7\transformed\lifecycle-runtime-2.6.1\res
+com.godot.game-jetified-lifecycle-viewmodel-savedstate-2.6.1-10 C:\Users\tamil\.gradle\caches\transforms-3\3b7b23c7cf9d64f2cdf97830e0eaf3fa\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.1\res
+com.godot.game-lifecycle-livedata-core-2.6.1-11 C:\Users\tamil\.gradle\caches\transforms-3\687008004bad3d3378837076129c7833\transformed\lifecycle-livedata-core-2.6.1\res
+com.godot.game-jetified-emoji2-views-helper-1.2.0-12 C:\Users\tamil\.gradle\caches\transforms-3\6b4ba404cba23073b42c39f93cd7a81a\transformed\jetified-emoji2-views-helper-1.2.0\res
+com.godot.game-browser-1.4.0-13 C:\Users\tamil\.gradle\caches\transforms-3\70c0019c2b4a30302a35a78a6e9a7ca3\transformed\browser-1.4.0\res
+com.godot.game-jetified-savedstate-1.2.1-14 C:\Users\tamil\.gradle\caches\transforms-3\72bc74126f9cd461c513810c4d33efc5\transformed\jetified-savedstate-1.2.1\res
+com.godot.game-jetified-play-services-base-18.0.0-15 C:\Users\tamil\.gradle\caches\transforms-3\7e0c4c596f13c9f42b4e0674f1af95db\transformed\jetified-play-services-base-18.0.0\res
+com.godot.game-jetified-play-services-ads-lite-22.2.0-16 C:\Users\tamil\.gradle\caches\transforms-3\98cb21fe8b9377055900cae3c18bfa9b\transformed\jetified-play-services-ads-lite-22.2.0\res
+com.godot.game-jetified-emoji2-1.2.0-17 C:\Users\tamil\.gradle\caches\transforms-3\9be94c330fcd0d11ad53cd39958f4b37\transformed\jetified-emoji2-1.2.0\res
+com.godot.game-jetified-startup-runtime-1.1.1-18 C:\Users\tamil\.gradle\caches\transforms-3\9e5db9b26d9392a98e8f1e9350d92494\transformed\jetified-startup-runtime-1.1.1\res
+com.godot.game-fragment-1.6.2-19 C:\Users\tamil\.gradle\caches\transforms-3\a1052a08c437a0cfe93531a0770d912d\transformed\fragment-1.6.2\res
+com.godot.game-jetified-profileinstaller-1.3.0-20 C:\Users\tamil\.gradle\caches\transforms-3\b72b7b82f0312570e02e9e180c961d22\transformed\jetified-profileinstaller-1.3.0\res
+com.godot.game-jetified-core-ktx-1.8.0-21 C:\Users\tamil\.gradle\caches\transforms-3\bca38f17c1ecc98113f777e20f9b6344\transformed\jetified-core-ktx-1.8.0\res
+com.godot.game-lifecycle-livedata-2.6.1-22 C:\Users\tamil\.gradle\caches\transforms-3\c96a8659546c6e7fe813d23b94cc24a7\transformed\lifecycle-livedata-2.6.1\res
+com.godot.game-jetified-lifecycle-process-2.6.1-23 C:\Users\tamil\.gradle\caches\transforms-3\d1a9258fff4f1e3a56a00d7664bb9bff\transformed\jetified-lifecycle-process-2.6.1\res
+com.godot.game-jetified-play-services-ads-22.2.0-24 C:\Users\tamil\.gradle\caches\transforms-3\d6c17740c59665ce89b361bc2c526a3c\transformed\jetified-play-services-ads-22.2.0\res
+com.godot.game-jetified-lifecycle-service-2.6.1-25 C:\Users\tamil\.gradle\caches\transforms-3\e57675833cbe78e8fd992bc2a38d2e55\transformed\jetified-lifecycle-service-2.6.1\res
+com.godot.game-work-runtime-2.7.0-26 C:\Users\tamil\.gradle\caches\transforms-3\fd71ffde2f760e393cd13678b740a867\transformed\work-runtime-2.7.0\res
+com.godot.game-pngs-27 D:\Godot projects\No-mouse\android\build\build\generated\res\pngs\release
+com.godot.game-resValues-28 D:\Godot projects\No-mouse\android\build\build\generated\res\resValues\release
+com.godot.game-packageReleaseResources-29 D:\Godot projects\No-mouse\android\build\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.godot.game-packageReleaseResources-30 D:\Godot projects\No-mouse\android\build\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.godot.game-merged_res-31 D:\Godot projects\No-mouse\android\build\build\intermediates\merged_res\release
+com.godot.game-build-32 D:\Godot projects\No-mouse\android\build\res
+com.godot.game-release-33 D:\Godot projects\No-mouse\android\build\src\release\res
