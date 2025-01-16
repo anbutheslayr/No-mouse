@@ -6,6 +6,7 @@ public class Popuptext : Spatial
     public Label3D label;
     public AnimationPlayer anim;
     public Tween tween;
+    public float tweenlength;
     public override void _Ready()
     {
         label = GetNode<Label3D>("Label3D");
@@ -13,20 +14,25 @@ public class Popuptext : Spatial
         tween = GetNode<Tween>("Tween");
     }
 
-    public void PlayAnim(string damage,int spread, int height ,Vector3 pos , bool self = false)
+    public void PlayAnim(string damage,int spread, int height ,Vector3 pos , int an)
     {
         GlobalTranslation = pos;
         label.Text = damage;
-        float tweenlength;
-        if (self == true)
+        
+        switch (an)
         {
-            tweenlength = anim.GetAnimation("Damagedone").Length;
-            anim.Play("Damagereceive");
-        }
-        else
-        {
-            tweenlength = anim.GetAnimation("Damagedone").Length;
-            anim.Play("Damagedone");
+            case 0:
+                tweenlength = anim.GetAnimation("Damagedone").Length;
+                anim.Play("Damagedone");
+                break;
+            case 1:
+                tweenlength = anim.GetAnimation("Damagereceive").Length;
+                anim.Play("Damagereceive");
+                break;
+            case 2:
+                tweenlength = anim.GetAnimation("Boom").Length;
+                anim.Play("Boom");
+                break;
         }
         var rand = new RandomNumberGenerator();
         var end_pos = new Vector3(rand.RandiRange(-spread,spread),height,rand.RandiRange(-spread, spread)) + Translation;
