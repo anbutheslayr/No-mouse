@@ -70,6 +70,8 @@ public class Death_screen : Control
         if(!Revived)
         {
             admob.Call("load_rewarded_video");
+            revive.Text = "Loading Ad ...";
+            revive.Disabled = true;
         }
         else
         {
@@ -99,6 +101,7 @@ public class Death_screen : Control
     public void Revive()
     {
         revive.Text = "Resume";
+        revive.Disabled = false;
         Revived = true;
     }
     public void OnQuitToMMPressed()
