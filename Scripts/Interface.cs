@@ -259,5 +259,9 @@ public class Interface : Control
         ResourceSaver.Save("user://Int/Res.tres", Res);
         GetTree().ChangeScene("res://Scenes/Worlds/World"+Res.cur_world+".tscn");
     }
+    public void Revive()
+    {
+        (plane as Enemy_Plane).Resume();
+    }
 }
 

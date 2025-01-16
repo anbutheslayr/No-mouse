@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Rifle.mp3-9a469703f7641eb40b7f52ec9042548a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Rifle.mp3"
+dest_files=[ "res://.import/Rifle.mp3-9a469703f7641eb40b7f52ec9042548a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

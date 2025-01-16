@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vine-boom-162668_[cut_2sec].mp3-ab753cbf1da5ae60fb5a3e65587e0852.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/vine-boom-162668_[cut_2sec].mp3"
+dest_files=[ "res://.import/vine-boom-162668_[cut_2sec].mp3-ab753cbf1da5ae60fb5a3e65587e0852.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

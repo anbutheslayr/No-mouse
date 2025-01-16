@@ -1127,6 +1127,7 @@ shape = SubResource( 46 )
 [node name="NavigationAgent" type="NavigationAgent" parent="character-skeleton/root"]
 
 [node name="Sprite3D" type="Sprite3D" parent="character-skeleton/root"]
+visible = false
 layers = 2
 billboard = 1
 texture = ExtResource( 4 )

@@ -5,6 +5,7 @@ using System;
 
 public class Movement : Spatial
 {
+	public PackedScene poputtext;
 	public RigidBody ball;
 	public MeshInstance Car_mesh;
 	public RayCast rayCast;
@@ -86,6 +87,7 @@ public class Movement : Spatial
 		var i = exp.Instance() as Spatial;
 		GetTree().Root.AddChild(i);
 		Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
+		poputtext = GD.Load<PackedScene>("res://Interface/Popup text.tscn");
 
 		i.GlobalTranslation = ball.GlobalTranslation;
 		if(Res.cur_world ==2 )
@@ -296,8 +298,14 @@ public class Movement : Spatial
 	}
 	public void Apply_Damage(float damage , Node body)
 	{
-
 		health -= damage;
+		if(damage!=0)
+		{
+			var d = poputtext.Instance() as Spatial;
+			GetTree().Root.AddChild(d);
+			(d as Popuptext).PlayAnim(damage.ToString(),20,3,Car_mesh.GlobalTranslation + new Vector3(0,2,0),true);
+		}
+		
 		if(health <= 0)
 		{
 			Visible = false;
