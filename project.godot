@@ -8,7 +8,6 @@
 
 config_version=4
 
-<<<<<<< HEAD
 _global_script_classes=[ {
 "base": "Node",
 "class": "AdMob",
@@ -84,8 +83,6 @@ config={
 }
 }
 
-=======
->>>>>>> parent of 5c6eb95 (Play store support)
 [application]
 
 config/name="Rogue drifters"
@@ -97,6 +94,7 @@ config/windows_native_icon="res://ICO.ico"
 
 AudioPlayer="*res://Scenes/AudioPlayer.tscn"
 GlobalVars="*res://Scripts/Global_vars.cs"
+MobileAds="*res://addons/admob/src/singletons/MobileAds.gd"
 
 [display]
 
@@ -112,7 +110,7 @@ convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/dreadpon.spatial_gardener/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/dreadpon.spatial_gardener/plugin.cfg", "res://addons/multimesh_scatter/plugin.cfg" )
 
 [global]
 
