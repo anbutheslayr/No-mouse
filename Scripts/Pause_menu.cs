@@ -8,6 +8,7 @@ public class Pause_menu : Control
     public resolution Res;
     public Control inter_face;
     public RigidBody plane;
+    public bool paused;
 
     public override void _Ready()
     {
@@ -19,6 +20,7 @@ public class Pause_menu : Control
         vb2.AddConstantOverride("separation", (int)(Res.res.y/1080*30));
         inter_face = GetParent().GetNode<Control>("taxi/Interface");
         plane = GetTree().GetNodesInGroup("Plane")[0] as RigidBody;
+        paused = false;
     }
 
     public void OnResumePressed()
@@ -32,6 +34,7 @@ public class Pause_menu : Control
             var audio_bus = AudioServer.GetBusIndex("Master");
             AudioServer.SetBusMute(audio_bus, false);
         }
+        paused = false;
     }
 
     public void OnQuitToMMPressed()

@@ -40,6 +40,11 @@ public class Death_screen : Control
                 AudioServer.SetBusMute(audio_bus, true);
             }
         }
+        else
+        {
+            var audio_bus = AudioServer.GetBusIndex("Master");
+            AudioServer.SetBusMute(audio_bus, false);
+        }
     }
     public void Start()
     {
@@ -63,9 +68,25 @@ public class Death_screen : Control
     public void OnRevivePressed()
     {
         if(!Revived)
+        {
             admob.Call("load_rewarded_video");
+        }
         else
+        {
             Started = false;
+            Hide();
+            (GetParent().GetNode<Control>("taxi/Interface") as Interface).Revive();
+            Engine.TimeScale = 1;
+        }
+            
+    }
+    public void ReviveDebug()
+    {
+        Started = false;
+        Hide();
+        (GetParent().GetNode<Control>("taxi/Interface") as Interface).Revive();
+        GD.Print("Revived");
+        Engine.TimeScale = 1;
     }
     public void OnAdLoaded()
     {
@@ -78,7 +99,6 @@ public class Death_screen : Control
     public void Revive()
     {
         revive.Text = "Resume";
-        (GetParent().GetNode<Control>("taxi/Interface") as Interface).Revive();
         Revived = true;
     }
     public void OnQuitToMMPressed()

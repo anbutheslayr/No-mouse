@@ -261,7 +261,9 @@ public class Interface : Control
     }
     public void Revive()
     {
-        (plane as Enemy_Plane).Resume();
+        plane.Call("Resume");
+        dead = false;
+        GetParent().Call("ReviveCar");
     }
 }
 

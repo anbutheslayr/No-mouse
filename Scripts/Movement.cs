@@ -316,6 +316,13 @@ public class Movement : Spatial
 		EmitSignal("Change_Health", health,false);
 		body.GetParent().Call("Calculate_Health", damage);
 	}
+	public void ReviveCar()
+	{
+		health = 100;
+		Visible = true;
+		GetNode<Interface>("Interface").Show();
+		EmitSignal("Change_Health", health,false);
+	}
 	
 	public float Calculate_Damage(float impact_magnitude)
 	{
