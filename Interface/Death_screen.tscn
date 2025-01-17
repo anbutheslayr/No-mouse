@@ -57,24 +57,26 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 386.0
+margin_top = 424.0
 margin_right = 382.0
-margin_bottom = 386.0
+margin_bottom = 424.0
 
 [node name="Revive" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 406.0
+margin_top = 444.0
 margin_right = 382.0
-margin_bottom = 442.0
+margin_bottom = 480.0
 theme = ExtResource( 2 )
 keep_pressed_outside = true
 text = "Revive(Watch ad)"
 
 [node name="Control4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 462.0
+visible = false
+margin_top = 490.0
 margin_right = 382.0
-margin_bottom = 462.0
+margin_bottom = 490.0
 
 [node name="ReviveDebug" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
 margin_top = 482.0
 margin_right = 382.0
 margin_bottom = 518.0
@@ -83,27 +85,27 @@ keep_pressed_outside = true
 text = "Revive Debug"
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 538.0
+margin_top = 500.0
 margin_right = 382.0
-margin_bottom = 538.0
+margin_bottom = 500.0
 
 [node name="Restart" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 558.0
+margin_top = 520.0
 margin_right = 382.0
-margin_bottom = 594.0
+margin_bottom = 556.0
 theme = ExtResource( 2 )
 keep_pressed_outside = true
 text = "Restart"
 
 [node name="Control3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 614.0
+margin_top = 576.0
 margin_right = 382.0
-margin_bottom = 614.0
+margin_bottom = 576.0
 
 [node name="Quit to main menu" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 634.0
+margin_top = 596.0
 margin_right = 382.0
-margin_bottom = 670.0
+margin_bottom = 632.0
 theme = ExtResource( 2 )
 keep_pressed_outside = true
 text = "QUIT to main menu"

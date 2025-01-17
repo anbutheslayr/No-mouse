@@ -79,6 +79,8 @@ public class Death_screen : Control
             Hide();
             (GetParent().GetNode<Control>("taxi/Interface") as Interface).Revive();
             Engine.TimeScale = 1;
+            Revived = false;
+            revive.Text = "Revive(Watch Ad)";
         }
             
     }
@@ -95,10 +97,6 @@ public class Death_screen : Control
         admob.Call("show_rewarded_video");
     }
     public void OnRewarded(string reward, int amount)
-    {
-        Revive();
-    }
-    public void Revive()
     {
         revive.Text = "Resume";
         revive.Disabled = false;
