@@ -61,6 +61,7 @@ public class Movement : Spatial
 	public PackedScene exp;
 	public resolution Res;
 	public List<Spatial> enemies_in_range = new List<Spatial>();
+	public AnimationPlayer hitanim;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -105,6 +106,7 @@ public class Movement : Spatial
 		// jump_timer.OneShot = true;
 		// jump_timer.WaitTime = 0.1f;
 		// jump_timer.Start();
+		hitanim = GetNode<AnimationPlayer>("Hit Anim");
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -301,6 +303,7 @@ public class Movement : Spatial
 		health -= damage;
 		if(damage!=0)
 		{
+			hitanim.Play("Hit");
 			var d = poputtext.Instance() as Spatial;
 			GetTree().Root.AddChild(d);
 			(d as Popuptext).PlayAnim(damage.ToString(),20,3,Car_mesh.GlobalTranslation + new Vector3(0,2,0),1);
@@ -351,6 +354,9 @@ public class Movement : Spatial
 	{
 		if(body.LinearVelocity.Length() > 27)
 		{
+			var p = poputtext.Instance() as Spatial;
+			GetTree().Root.AddChild(p);
+			(p as Popuptext).PlayAnim("Close Miss +" + Close_miss_bonus.ToString(),20,1,health_bar.GlobalTranslation + new Vector3(0,1,0),3);
 			health += Close_miss_bonus;
 			health = Mathf.Clamp(health , 0 , 100);
 			EmitSignal("Change_Health", health,false);
