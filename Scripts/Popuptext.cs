@@ -33,6 +33,10 @@ public class Popuptext : Spatial
                 tweenlength = anim.GetAnimation("Boom").Length;
                 anim.Play("Boom");
                 break;
+            case 3:
+                tweenlength = anim.GetAnimation("Close miss +10").Length;
+                anim.Play("Close miss +10");
+                break;
         }
         var rand = new RandomNumberGenerator();
         var end_pos = new Vector3(rand.RandiRange(-spread,spread),height,rand.RandiRange(-spread, spread)) + Translation;

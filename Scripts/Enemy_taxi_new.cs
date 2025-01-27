@@ -55,6 +55,7 @@ public class Enemy_taxi_new : Spatial
 	public resolution Res;
 	public AudioPlayer audioPlayer;
 	public float waittime;
+	public AnimationPlayer hitanim;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -83,7 +84,7 @@ public class Enemy_taxi_new : Spatial
 		player_mesh = GetParent().GetNode<MeshInstance>(player_mesh_path);
 		nav_agent = GetNode<NavigationAgent>(Nav_agent_path);
 		navigation = GetParent().GetNode<Navigation>(Navigation_path);
-		nav_agent.SetTargetLocation(player_mesh.GlobalTransform.origin);
+		nav_agent.TargetLocation = player_mesh.GlobalTransform.origin;
 		nav_agent.SetNavigation(navigation);
 		var o = nav_agent.GetNavPath();
 		p = new List<Vector3>(o);
@@ -125,6 +126,7 @@ public class Enemy_taxi_new : Spatial
 		// jump_timer.OneShot = true;
 		// jump_timer.WaitTime = 0.05f;
 		// jump_timer.Start();
+		// hitanim = GetNode<AnimationPlayer>("Hit Anim");
 	}
 	public void Jump()
 	{
@@ -178,7 +180,7 @@ public class Enemy_taxi_new : Spatial
 		if(update_path_timer.TimeLeft == 0)
 		{
 			// UpdatePath();
-			nav_agent.SetTargetLocation(player_mesh.GlobalTransform.origin);
+			nav_agent.TargetLocation =player_mesh.GlobalTransform.origin;
 			next_point = nav_agent.GetNextLocation();
 			update_path_timer.Start(waittime);
 		}
@@ -316,6 +318,10 @@ public class Enemy_taxi_new : Spatial
 			QueueFree();
 		}
 		EmitSignal("Change_Health", health);
+		// if(damage > 0)
+		// {
+		// 	hitanim.Play("Hit");
+		// }
 	}
 	
 	public Transform Alignwithsurface(Transform xform ,Vector3 new_y)
