@@ -152,14 +152,15 @@ config={
 [application]
 
 config/name="Rogue drifters"
-run/main_scene="res://Scenes/Main_menu.tscn"
+run/main_scene="res://Interface/Start.tscn"
+boot_splash/show_image=false
 boot_splash/image="res://okk.png"
 config/windows_native_icon="res://ICO.ico"
 
 [autoload]
 
 AudioPlayer="*res://Scenes/AudioPlayer.tscn"
-GlobalVars="*res://Scripts/Global_vars.cs"
+GlobalVars="res://Scripts/Global_vars.cs"
 MobileAds="*res://addons/admob/src/singletons/MobileAds.gd"
 
 [display]
