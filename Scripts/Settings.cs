@@ -243,9 +243,9 @@ public class Settings : Control
     }
     public void Resize(Vector2 resolution)
     {
-        theme.DefaultFont.Set("size", (resolution.x/1920)*30);
-        theme.DefaultFont.Set("outline_size", (resolution.x/1920)*4);
-        title_font.Size = (int)(resolution.x/1920*64);
+        theme.DefaultFont.Set("size", (resolution.x/1920)*50);
+        theme.DefaultFont.Set("outline_size", (resolution.x/1920)*3);
+        title_font.Size = (int)(resolution.x/1920*100);
         Esc.SetSize(new Vector2(resolution.x/1920*96 , resolution.y/1080*96));
         
     }
