@@ -90,7 +90,8 @@ public class Menu : Control
     {
         theme.DefaultFont.Set("size", (resolution.x/1920)*50);
         theme.DefaultFont.Set("outline_size", (resolution.x/1920)*3);
-        title_font.Size = (int)(resolution.x/1920*100);
+        title_font.Size = (int)(resolution.x/1920*120);
+        title_font.Set("outline_size", (resolution.x/1920*3));
 
         vb1 = GetNode<VBoxContainer>("MarginContainer/VBoxContainer");
         vb1.AddConstantOverride("separation", (int)(resolution.y/1080*70));

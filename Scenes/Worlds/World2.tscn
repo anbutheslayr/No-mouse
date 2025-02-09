@@ -77874,11 +77874,17 @@ damage_multiplier = 0.7
 ramp_speed = 1.6
 Jump_ht = 1.0
 
+[node name="Gun" parent="taxi/Spatial/body/MachineGun" index="0"]
+transform = Transform( -10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07 )
+
 [node name="Stand" parent="taxi/Spatial/body/MachineGun" index="1"]
 mesh = SubResource( 20 )
 
 [node name="Base" parent="taxi/Spatial/body/MachineGun" index="2"]
 mesh = SubResource( 21 )
+
+[node name="Rocket Launcher" parent="taxi/Spatial/body" index="1"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0892019, 0 )
 
 [node name="Rocket Ammo2" parent="taxi/Spatial/body/Rocket Launcher/Gun" index="2"]
 rot_speed = 1.0
@@ -79849,6 +79855,7 @@ cast_shadow = 0
 multimesh = SubResource( 25579 )
 
 [node name="MultiMeshInstance486" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25580 )
 
 [node name="MultiMeshInstance126" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -79868,6 +79875,7 @@ cast_shadow = 0
 multimesh = SubResource( 25585 )
 
 [node name="MultiMeshInstance491" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25586 )
 
 [node name="MultiMeshInstance492" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -79875,6 +79883,7 @@ cast_shadow = 0
 multimesh = SubResource( 25587 )
 
 [node name="MultiMeshInstance493" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25588 )
 
 [node name="MultiMeshInstance495" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -79964,12 +79973,14 @@ multimesh = SubResource( 25611 )
 multimesh = SubResource( 25612 )
 
 [node name="MultiMeshInstance518" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25613 )
 
 [node name="MultiMeshInstance519" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
 multimesh = SubResource( 25614 )
 
 [node name="MultiMeshInstance520" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25615 )
 
 [node name="MultiMeshInstance521" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80320,6 +80331,7 @@ cast_shadow = 0
 multimesh = SubResource( 25712 )
 
 [node name="MultiMeshInstance619" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25713 )
 
 [node name="MultiMeshInstance442" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80553,6 +80565,7 @@ multimesh = SubResource( 25777 )
 multimesh = SubResource( 25778 )
 
 [node name="MultiMeshInstance681" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25779 )
 
 [node name="MultiMeshInstance675" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80578,6 +80591,7 @@ cast_shadow = 0
 multimesh = SubResource( 25785 )
 
 [node name="MultiMeshInstance690" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25786 )
 
 [node name="MultiMeshInstance691" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80585,6 +80599,7 @@ cast_shadow = 0
 multimesh = SubResource( 25787 )
 
 [node name="MultiMeshInstance692" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25788 )
 
 [node name="MultiMeshInstance693" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80592,6 +80607,7 @@ cast_shadow = 0
 multimesh = SubResource( 25789 )
 
 [node name="MultiMeshInstance694" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25790 )
 
 [node name="MultiMeshInstance695" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80669,18 +80685,21 @@ multimesh = SubResource( 25808 )
 multimesh = SubResource( 25809 )
 
 [node name="MultiMeshInstance712" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25810 )
 
 [node name="MultiMeshInstance713" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
 multimesh = SubResource( 25811 )
 
 [node name="MultiMeshInstance714" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25812 )
 
 [node name="MultiMeshInstance715" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
 multimesh = SubResource( 25813 )
 
 [node name="MultiMeshInstance716" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25814 )
 
 [node name="MultiMeshInstance717" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80761,6 +80780,7 @@ cast_shadow = 0
 multimesh = SubResource( 25834 )
 
 [node name="MultiMeshInstance727" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25835 )
 
 [node name="MultiMeshInstance739" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80771,12 +80791,14 @@ cast_shadow = 0
 multimesh = SubResource( 25837 )
 
 [node name="MultiMeshInstance742" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25838 )
 
 [node name="MultiMeshInstance743" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
 multimesh = SubResource( 25839 )
 
 [node name="MultiMeshInstance744" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25840 )
 
 [node name="MultiMeshInstance745" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80788,6 +80810,7 @@ cast_shadow = 0
 multimesh = SubResource( 25842 )
 
 [node name="MultiMeshInstance746" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25843 )
 
 [node name="MultiMeshInstance747" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80795,6 +80818,7 @@ cast_shadow = 0
 multimesh = SubResource( 25844 )
 
 [node name="MultiMeshInstance748" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25845 )
 
 [node name="MultiMeshInstance749" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80802,6 +80826,7 @@ cast_shadow = 0
 multimesh = SubResource( 25846 )
 
 [node name="MultiMeshInstance750" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25847 )
 
 [node name="MultiMeshInstance751" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80809,6 +80834,7 @@ cast_shadow = 0
 multimesh = SubResource( 25848 )
 
 [node name="MultiMeshInstance752" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25849 )
 
 [node name="MultiMeshInstance740" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80877,6 +80903,7 @@ cast_shadow = 0
 multimesh = SubResource( 25867 )
 
 [node name="MultiMeshInstance771" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25868 )
 
 [node name="MultiMeshInstance772" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -80884,15 +80911,18 @@ cast_shadow = 0
 multimesh = SubResource( 25869 )
 
 [node name="MultiMeshInstance773" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25870 )
 
 [node name="MultiMeshInstance438" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25871 )
 
 [node name="MultiMeshInstance774" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
 multimesh = SubResource( 25872 )
 
 [node name="MultiMeshInstance775" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25873 )
 
 [node name="MultiMeshInstance776" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -81675,24 +81705,28 @@ cast_shadow = 0
 multimesh = SubResource( 26088 )
 
 [node name="MultiMeshInstance976" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26089 )
 
 [node name="MultiMeshInstance984" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
 multimesh = SubResource( 26090 )
 
 [node name="MultiMeshInstance985" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26091 )
 
 [node name="MultiMeshInstance986" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
 multimesh = SubResource( 26092 )
 
 [node name="MultiMeshInstance987" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26093 )
 
 [node name="MultiMeshInstance988" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
 multimesh = SubResource( 26094 )
 
 [node name="MultiMeshInstance989" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26095 )
 
 [node name="MultiMeshInstance990" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -81761,6 +81795,7 @@ multimesh = SubResource( 26115 )
 multimesh = SubResource( 26116 )
 
 [node name="MultiMeshInstance1016" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26117 )
 
 [node name="MultiMeshInstance1007" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -81792,15 +81827,19 @@ cast_shadow = 0
 multimesh = SubResource( 26124 )
 
 [node name="MultiMeshInstance1013" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26125 )
 
 [node name="MultiMeshInstance1026" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26126 )
 
 [node name="MultiMeshInstance1027" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26127 )
 
 [node name="MultiMeshInstance1028" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26128 )
 
 [node name="MultiMeshInstance1029" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -81808,6 +81847,7 @@ cast_shadow = 0
 multimesh = SubResource( 26129 )
 
 [node name="MultiMeshInstance1030" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26130 )
 
 [node name="MultiMeshInstance1031" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -81815,6 +81855,7 @@ cast_shadow = 0
 multimesh = SubResource( 26131 )
 
 [node name="MultiMeshInstance1032" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26132 )
 
 [node name="MultiMeshInstance1014" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -81877,6 +81918,7 @@ cast_shadow = 0
 multimesh = SubResource( 26148 )
 
 [node name="MultiMeshInstance1047" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26149 )
 
 [node name="MultiMeshInstance1048" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -81884,6 +81926,7 @@ cast_shadow = 0
 multimesh = SubResource( 26150 )
 
 [node name="MultiMeshInstance1049" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26151 )
 
 [node name="MultiMeshInstance1050" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -82293,12 +82336,14 @@ cast_shadow = 0
 multimesh = SubResource( 26278 )
 
 [node name="MultiMeshInstance1167" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26279 )
 
 [node name="MultiMeshInstance1180" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
 multimesh = SubResource( 26280 )
 
 [node name="MultiMeshInstance1181" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26281 )
 
 [node name="MultiMeshInstance1182" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
