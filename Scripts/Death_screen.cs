@@ -61,9 +61,17 @@ public class Death_screen : Control
             AudioServer.SetBusMute(audio_bus, false);
         }
         if(Res.cur_world == 1)
-            GetTree().ChangeScene("res://Scenes/Worlds/World.tscn");
+        {
+            // GetTree().ChangeScene("res://Scenes/Worlds/World.tscn");
+            var lod = GetTree().Root.GetNode("LoadingScreen");
+            lod.Call("load_scene",GetTree().Root.GetNode("World"),"res://Scenes/Worlds/World.tscn");
+        }
         else
-            GetTree().ChangeScene("res://Scenes/Worlds/World"+Res.cur_world+".tscn");
+        {
+            // GetTree().ChangeScene("res://Scenes/Worlds/World.tscn");
+            var lod = GetTree().Root.GetNode("LoadingScreen");
+            lod.Call("load_scene",GetTree().Root.GetNode("World"),"res://Scenes/Worlds/World2.tscn");
+        }
     }
     public void OnRevivePressed()
     {
@@ -105,7 +113,9 @@ public class Death_screen : Control
     public void OnQuitToMMPressed()
     {
         Engine.TimeScale = 1;
-        GetTree().ChangeScene("res://Scenes/Main_menu.tscn");
+        // GetTree().ChangeScene("res://Scenes/Main_menu.tscn");
+        var lod = GetTree().Root.GetNode("LoadingScreen");
+        lod.Call("load_scene",GetTree().Root.GetNode("World"),"res://Scenes/Main_menu.tscn");
         if(Res.volume != -15)
         {
             var audio_bus = AudioServer.GetBusIndex("Master");
