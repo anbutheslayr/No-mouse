@@ -6,10 +6,12 @@ extends Node
 # var b: String = "text"
 onready var anim = get_node("Control/AnimationPlayer")
 onready var start_font = preload("res://title.tres")
+onready var splash_font = preload("res://Interface/Splash font.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_font.size = (OS.window_size.y/1080)*64
+	splash_font.size = (OS.window_size.y/1080)*80
 	anim.play("Fade in")
 	yield(anim,"animation_finished")
 	load_main_menu()

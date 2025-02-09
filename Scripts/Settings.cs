@@ -50,12 +50,13 @@ public class Settings : Control
         OptionButton.AddItem("640x360", 5);
         OptionButton.Selected = Res.res_int;
 
-
         shadows.AddItem("Low Quality", 0);
         shadows.AddItem("Medium Quality", 1);
         shadows.AddItem("High Quality", 2);
         shadows.AddItem("Ultra Quality", 3);
         shadows.AddItem("Disabled", 4);
+        shadows.AddItem("Ultra low quality", 5);
+
         shadows.Selected = Res.ShadowQuality;
 
 
@@ -192,6 +193,7 @@ public class Settings : Control
     {
         switch(index)
         {
+            
             case 0:
                 ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 2048);
                 ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 2048);
@@ -207,6 +209,10 @@ public class Settings : Control
             case 3:
                 ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 4864);
                 ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 4864);
+                break;
+            case 5:
+                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 1024);
+                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" ,1024);
                 break;
         }
     }
@@ -245,7 +251,8 @@ public class Settings : Control
     {
         theme.DefaultFont.Set("size", (resolution.x/1920)*50);
         theme.DefaultFont.Set("outline_size", (resolution.x/1920)*3);
-        title_font.Size = (int)(resolution.x/1920*100);
+        title_font.Size = (int)(resolution.x/1920*120);
+        title_font.Set("outline_size", (resolution.x/1920*3));
         Esc.SetSize(new Vector2(resolution.x/1920*96 , resolution.y/1080*96));
         
     }

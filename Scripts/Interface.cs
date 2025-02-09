@@ -188,6 +188,10 @@ public class Interface : Control
                 ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 4864);
                 ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" , 4864);
                 break;
+            case 5:
+                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size" , 1024);
+                ProjectSettings.SetSetting("rendering/quality/directional_shadow/size.mobile" ,1024);
+                break;
         }
     }
     public void Dead()
