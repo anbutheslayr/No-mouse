@@ -40,8 +40,9 @@ public class Pause_menu : Control
     public void OnQuitToMMPressed()
     {
         Engine.TimeScale = 1;
-        GetTree().ChangeSceneTo(null);
-        GetTree().ChangeScene("res://Scenes/Main_menu.tscn");
+        var lod = GetTree().Root.GetNode("LoadingScreen");
+        lod.Call("load_scene",GetTree().Root.GetNode("World"),"res://Scenes/Main_menu.tscn");
+        // GetTree().ChangeScene("res://Scenes/Main_menu.tscn");
         if(Res.volume != -15)
         {
             var audio_bus = AudioServer.GetBusIndex("Master");

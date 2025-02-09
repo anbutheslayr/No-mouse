@@ -5,7 +5,7 @@ extends Node
 # var a: int = 2
 # var b: String = "text"
 onready var anim = get_node("Control/AnimationPlayer")
-var start_font = preload("res://title.tres")
+onready var start_font = preload("res://title.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

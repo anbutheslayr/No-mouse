@@ -15,18 +15,23 @@ public class Select_level : Control
     {
         Res.cur_world = 1;
         ResourceSaver.Save("user://Int/Res.tres", Res);
-        gl.SceneToLoad = "res://Scenes/Worlds/World.tscn";
+        // gl.SceneToLoad = "res://Scenes/Worlds/World.tscn";
+        // gl.currentscene = GetTree().Root.GetNode<Spatial>("Main_menu");
+        var lod = GetTree().Root.GetNode("LoadingScreen");
+        lod.Call("load_scene",GetTree().Root.GetNode("Main_menu"),"res://Scenes/Worlds/World.tscn");
         // GetTree().Root.AddChild(ResourceLoader.Load<PackedScene>("res://Interface/Loading screen.tscn").Instance());
         // QueueFree();
-        GetTree().ChangeScene("res://Scenes/Worlds/World.tscn");
+        // GetTree().ChangeScene("res://Scenes/Worlds/World.tscn");
     }
     public void On_World2()
     {
         Res.cur_world = 2;
         ResourceSaver.Save("user://Int/Res.tres", Res);
-        gl.SceneToLoad = "res://Scenes/Worlds/World2.tscn";
+        // gl.SceneToLoad = "res://Scenes/Worlds/World2.tscn";
+        var lod = GetTree().Root.GetNode("LoadingScreen");
+        lod.Call("load_scene",GetTree().Root.GetNode("Main_menu"),"res://Scenes/Worlds/World2.tscn");
         // GetTree().Root.AddChild(ResourceLoader.Load<PackedScene>("res://Interface/Loading screen.tscn").Instance());
-        GetTree().ChangeScene("res://Scenes/Worlds/World2.tscn");
+        // GetTree().ChangeScene("res://Scenes/Worlds/World2.tscn");
     }
     
 }
