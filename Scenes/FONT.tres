@@ -1,10 +1,10 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://GOUDYSTO.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/DirtyBrush.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 40
-outline_size = 4
+size = 100
+outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_char = 5
 font_data = ExtResource( 1 )
