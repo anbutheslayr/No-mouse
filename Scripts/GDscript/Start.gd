@@ -12,6 +12,7 @@ onready var splash_font = preload("res://Interface/Splash font.tres")
 func _ready() -> void:
 	start_font.size = (OS.window_size.y/1080)*64
 	splash_font.size = (OS.window_size.y/1080)*80
+	yield(ParticleLoader,"loaded")
 	anim.play("Fade in")
 	yield(anim,"animation_finished")
 	load_main_menu()

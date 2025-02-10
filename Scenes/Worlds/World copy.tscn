@@ -1703,11 +1703,11 @@ next_mag = 17.3681
 script = ExtResource( 20 )
 material_resource = ExtResource( 37 )
 use_lowpoly_preview = true
-edge_containers = [ "", NodePath("../Road_001"), "", "" ]
-edge_rp_targets = [ "", NodePath("RP_010"), "", "" ]
-edge_rp_target_dirs = [ -1, 1, -1, -1 ]
-edge_rp_locals = [ NodePath("RP_001"), NodePath("RP_011"), NodePath("RP_012"), NodePath("RP_012") ]
-edge_rp_local_dirs = [ 0, 0, 0, 1 ]
+edge_containers = [ "", NodePath("../Road_001") ]
+edge_rp_targets = [ "", NodePath("RP_010") ]
+edge_rp_target_dirs = [ -1, 1 ]
+edge_rp_locals = [ NodePath("RP_001"), NodePath("RP_011") ]
+edge_rp_local_dirs = [ 0, 0 ]
 
 [node name="RP_001" type="Spatial" parent="RoadManager/Road_002"]
 transform = Transform( -0.970388, 0.00300365, -0.241533, 0, 0.999923, 0.0124348, 0.241552, 0.0120666, -0.970313, -11.1145, 0.299997, -94.0691 )
