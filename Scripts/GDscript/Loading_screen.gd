@@ -30,37 +30,37 @@ func load_scene(cur_scene,next_scene):
 			# printt(str(float(loader.get_stage())/loader.get_stage_count()))
 		elif error ==ERR_FILE_EOF:
 			loaded = true
-			# var label = lod_inst.get_node("ColorRect/Label") as Label
-			# label.text = "Tap screen to continue"
+			var label = lod_inst.get_node("ColorRect/Label") as Label
+			label.text = "Tap screen to continue"
+			# var scene = loader.get_resource().instance()
+			# get_tree().root.add_child(scene)
+			# lod_inst.queue_free()
+			# lod_inst = null
+			# loaded = false
+			# called = false
+			return
+		i = i+1
+		if(i%(int(loader.get_stage_count()*0.003)+1) == 0):
+			yield(get_tree(),"idle_frame")
+	
+		
+
+func _unhandled_input(event):
+	if event is InputEventScreenTouch:
+		if event.pressed and loaded and called:
 			var scene = loader.get_resource().instance()
 			get_tree().root.add_child(scene)
 			lod_inst.queue_free()
 			lod_inst = null
 			loaded = false
 			called = false
-			return
-		i = i+1
-		if(i%(int(loader.get_stage_count()*0.005)+1) == 0):
-			yield(get_tree(),"idle_frame")
-	
-		
-
-# func _unhandled_input(event):
-# 	if event is InputEventScreenTouch:
-# 		if event.pressed and loaded and called:
-# 			var scene = loader.get_resource().instance()
-# 			get_tree().root.add_child(scene)
-# 			lod_inst.queue_free()
-# 			lod_inst = null
-# 			loaded = false
-# 			called = false
-# 	elif loaded and called:
-# 		var scene = loader.get_resource().instance()
-# 		get_tree().root.call("add_child",scene)
-# 		lod_inst.queue_free()
-# 		lod_inst = null
-# 		loaded = false
-# 		called = false
+	elif loaded and called:
+		var scene = loader.get_resource().instance()
+		get_tree().root.call("add_child",scene)
+		lod_inst.queue_free()
+		lod_inst = null
+		loaded = false
+		called = false
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
