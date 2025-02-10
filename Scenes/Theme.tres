@@ -19,10 +19,11 @@ expand_margin_bottom = 5.0
 shadow_color = Color( 0.27451, 0.12549, 0.12549, 0.6 )
 shadow_offset = Vector2( 3, 3 )
 
-[sub_resource type="StyleBoxFlat" id=41]
-bg_color = Color( 0.796078, 0.501961, 0.423529, 1 )
+[sub_resource type="StyleBoxFlat" id=51]
+bg_color = Color( 0.862745, 0.533333, 0.627451, 1 )
+skew = Vector2( 0.371, 0.035 )
 border_width_bottom = 8
-border_color = Color( 0.337255, 0.0941176, 0.0941176, 1 )
+border_color = Color( 0.858824, 0.121569, 0.337255, 1 )
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -31,13 +32,14 @@ expand_margin_left = 5.0
 expand_margin_right = 5.0
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
-shadow_color = Color( 0.27451, 0.12549, 0.12549, 0.6 )
+shadow_size = 5
 shadow_offset = Vector2( 3, 3 )
 
 [sub_resource type="StyleBoxFlat" id=39]
-bg_color = Color( 0.85098, 0.376471, 0.376471, 1 )
+bg_color = Color( 0.898039, 0.333333, 0.498039, 1 )
+skew = Vector2( 0.371, 0.035 )
 border_width_bottom = 8
-border_color = Color( 0.337255, 0.0941176, 0.0941176, 1 )
+border_color = Color( 0.858824, 0.121569, 0.337255, 1 )
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -46,13 +48,14 @@ expand_margin_left = 5.0
 expand_margin_right = 5.0
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
-shadow_color = Color( 0.27451, 0.12549, 0.12549, 0.6 )
+shadow_size = 5
 shadow_offset = Vector2( 3, 3 )
 
-[sub_resource type="StyleBoxFlat" id=40]
-bg_color = Color( 0.52549, 0.152941, 0.152941, 1 )
-border_width_bottom = 5
-border_color = Color( 0.337255, 0.0941176, 0.0941176, 1 )
+[sub_resource type="StyleBoxFlat" id=50]
+bg_color = Color( 0.862745, 0.533333, 0.627451, 1 )
+skew = Vector2( 0.371, 0.035 )
+border_width_bottom = 8
+border_color = Color( 0.858824, 0.121569, 0.337255, 1 )
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -61,39 +64,49 @@ expand_margin_left = 5.0
 expand_margin_right = 5.0
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
-shadow_color = Color( 0.27451, 0.12549, 0.12549, 0.6 )
+shadow_size = 5
 shadow_offset = Vector2( 3, 3 )
 
 [sub_resource type="StyleBoxFlat" id=44]
-bg_color = Color( 0.85098, 0.376471, 0.376471, 1 )
+bg_color = Color( 0.901961, 0.478431, 0.603922, 1 )
+skew = Vector2( 0.371, 0 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+shadow_size = 5
+shadow_offset = Vector2( 3, 3 )
 
 [sub_resource type="StyleBoxFlat" id=45]
-bg_color = Color( 0.819608, 0.286275, 0.286275, 1 )
+bg_color = Color( 0.898039, 0.333333, 0.498039, 1 )
+skew = Vector2( 0.371, 0 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+shadow_size = 10
 
 [sub_resource type="StyleBoxFlat" id=46]
-bg_color = Color( 0.85098, 0.376471, 0.376471, 1 )
+bg_color = Color( 0.898039, 0.333333, 0.498039, 1 )
+skew = Vector2( 0.371, 0.035 )
 corner_radius_top_left = 10
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id=43]
-bg_color = Color( 0.85098, 0.376471, 0.376471, 1 )
+bg_color = Color( 0.898039, 0.333333, 0.498039, 1 )
+skew = Vector2( 0.371, 0 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+shadow_size = 5
+shadow_offset = Vector2( 3, 3 )
 
 [sub_resource type="StyleBoxFlat" id=42]
-bg_color = Color( 0.886275, 0.470588, 0.470588, 1 )
+bg_color = Color( 0.756863, 0.356863, 0.47451, 1 )
+skew = Vector2( 0.371, 0 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -118,9 +131,9 @@ corner_radius_bottom_left = 10
 default_font = ExtResource( 1 )
 Button/colors/font_color_disabled = Color( 1, 1, 1, 0.2 )
 Button/styles/disabled = SubResource( 49 )
-Button/styles/hover = SubResource( 41 )
+Button/styles/hover = SubResource( 51 )
 Button/styles/normal = SubResource( 39 )
-Button/styles/pressed = SubResource( 40 )
+Button/styles/pressed = SubResource( 50 )
 CheckBox/constants/check_vadjust = 0
 CheckBox/constants/hseparation = 5
 CheckBox/styles/hover = SubResource( 44 )

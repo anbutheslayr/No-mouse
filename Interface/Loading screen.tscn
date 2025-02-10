@@ -102,10 +102,14 @@ tracks/2/keys = {
 [node name="Loading screen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect"]
 anchor_right = 1.0
@@ -113,6 +117,9 @@ anchor_bottom = 1.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Label" type="Label" parent="ColorRect"]
 anchor_left = -0.00364583

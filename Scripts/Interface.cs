@@ -261,7 +261,9 @@ public class Interface : Control
     {
         Res.cur_world++;
         ResourceSaver.Save("user://Int/Res.tres", Res);
-        GetTree().ChangeScene("res://Scenes/Worlds/World"+Res.cur_world+".tscn");
+        // GetTree().ChangeScene("res://Scenes/Worlds/World"+Res.cur_world+".tscn");
+        var lod = GetTree().Root.GetNode("LoadingScreen");
+        lod.Call("load_scene",GetTree().Root.GetNode("Main_menu"),"res://Scenes/Worlds/World2.tscn");
     }
     public void Revive()
     {
