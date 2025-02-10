@@ -1,13 +1,15 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Extra Beige.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Popuptext.cs" type="Script" id=2]
 
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://Extra Beige.ttf"
+
 [sub_resource type="DynamicFont" id=1]
-size = 40
+size = 400
 use_filter = true
 extra_spacing_char = 5
-font_data = ExtResource( 1 )
+font_data = SubResource( 7 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "Boom"
@@ -22,7 +24,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.0906699, 0.951316, 1.28858 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0435, 0.1281, 0.0097, 0.0001 ]
+"values": [ 0.05, 0.0916, 0.0097, 0.0001 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Label3D:modulate")
@@ -49,6 +51,18 @@ tracks/2/keys = {
 "args": [  ],
 "method": "queue_free"
 } ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Label3D:font:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 400 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -202,6 +216,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label3D:font:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 400 ]
 }
 
 [node name="Pop up text" type="Spatial"]

@@ -239,10 +239,10 @@ public class Movement : Spatial
 			{
 				steering_input = -steering_input;
 			}
-			var new_basis = Car_mesh.GlobalTransform.basis.Rotated(Car_mesh.GlobalTransform.basis.y ,steering_input );
+			var new_basis = Car_mesh.GlobalTransform.basis.Rotated(Car_mesh.GlobalTransform.basis.y ,steering_input ).Orthonormalized();
 			var transform = Car_mesh.GlobalTransform;
 			transform.basis = Car_mesh.GlobalTransform.basis.Slerp(new_basis, turn_speed * delta);
-			Car_mesh.GlobalTransform = transform.Orthonormalized();
+			Car_mesh.GlobalTransform = transform;
 			// Applying tilt
 			var t = -steering_input * ball.LinearVelocity.Length() / tilt;
 			var rotation = car_mesh_body.Rotation;
