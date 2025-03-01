@@ -789,7 +789,6 @@ script = ExtResource( 2 )
 Ball_path = "Ball"
 car_mesh_body_path = "Spatial/body"
 Car_mesh_path = "Spatial"
-rayCast_path = "Spatial/RayCast"
 acceleration = 100.0
 turn_speed = 4.0
 tilt = 65.0
@@ -803,6 +802,10 @@ Accelerate_button_path = "Interface/Acceleration/Accelerate"
 health_bar_path = "Spatial/Healthbar"
 min_map_cam_path = NodePath("Interface/PanelContainer/ViewportContainer/Viewport/Camera")
 cam_pos_path = NodePath("Spatial/body/cam_pos")
+Fl_path = NodePath("Spatial/Fl")
+Fr_path = NodePath("Spatial/Fr")
+Bl_path = NodePath("Spatial/Bl")
+Br_path = NodePath("Spatial/Br")
 
 [node name="Spatial" type="MeshInstance" parent="."]
 
@@ -873,31 +876,52 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0
 transform = Transform( -1, 1.77636e-15, 8.74228e-08, 1.73575e-08, 0.980091, 0.198547, -8.56823e-08, 0.198547, -0.980091, -0.0262446, 1.57004, 0.997644 )
 
 [node name="wheel_backRight" type="MeshInstance" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, 0.76 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.25, 0.76 )
 mesh = ExtResource( 3 )
 skeleton = NodePath("../..")
 
 [node name="wheel_frontLeft" type="MeshInstance" parent="Spatial"]
-transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.341157, 0.3, -0.746651 )
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.341157, 0.25, -0.746651 )
 mesh = ExtResource( 3 )
 skeleton = NodePath("../..")
 
 [node name="wheel_frontRight" type="MeshInstance" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, -0.76 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.25, -0.76 )
 mesh = ExtResource( 3 )
 skeleton = NodePath("../..")
 
 [node name="wheel_backLeft" type="MeshInstance" parent="Spatial"]
-transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.3, 0.3, 0.76 )
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.3, 0.25, 0.76 )
 mesh = ExtResource( 3 )
 skeleton = NodePath("../..")
 
-[node name="RayCast" type="RayCast" parent="Spatial"]
+[node name="Fl" type="RayCast" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.526394, 0, -0.947657 )
 enabled = true
+cast_to = Vector3( 0, -2, 0 )
+collide_with_areas = true
+
+[node name="Fr" type="RayCast" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.552943, 0, -0.989694 )
+enabled = true
+cast_to = Vector3( 0, -2, 0 )
+collide_with_areas = true
+
+[node name="Bl" type="RayCast" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.471344, 0, 0.783103 )
+enabled = true
+cast_to = Vector3( 0, -2, 0 )
+collide_with_areas = true
+
+[node name="Br" type="RayCast" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.520095, 0, 0.810501 )
+enabled = true
+cast_to = Vector3( 0, -2, 0 )
 collide_with_areas = true
 
 [node name="Healthbar" parent="Spatial" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239 )
+visible = false
 
 [node name="DetectionArea" type="Area" parent="Spatial" groups=["Player_body"]]
 
@@ -916,6 +940,7 @@ anims/Shoot = SubResource( 19 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10634, 0 )
+visible = false
 layers = 2
 pixel_size = 0.015
 billboard = 1

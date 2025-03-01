@@ -32,9 +32,9 @@ tonemap_mode = 2
 tonemap_white = 16.0
 auto_exposure_scale = 1.0
 glow_enabled = true
-glow_intensity = 2.16
-glow_strength = 0.86
-glow_bloom = 0.22
+glow_intensity = 2.87
+glow_strength = 0.69
+glow_bloom = 1.0
 glow_blend_mode = 1
 
 [sub_resource type="OpenSimplexNoise" id=15]
@@ -54,7 +54,7 @@ environment = SubResource( 17 )
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 29.6168, 13.9851, 2.37051 )
 keep_aspect = 0
 cull_mask = 1
-far = 120.0
+far = 200.0
 script = ExtResource( 3 )
 target_PATH = "taxi/Spatial"
 offset = Vector3( 0, 6, 18 )
@@ -80,12 +80,6 @@ Jump_ht = 1.0
 
 [node name="Spatial" parent="taxi" index="0"]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
-
-[node name="Gun" parent="taxi/Spatial/body/MachineGun" index="0"]
-transform = Transform( -10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07 )
-
-[node name="Rocket Launcher" parent="taxi/Spatial/body" index="1"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0892019, 0 )
 
 [node name="Rocket Ammo2" parent="taxi/Spatial/body/Rocket Launcher/Gun" index="2"]
 rot_speed = 1.0

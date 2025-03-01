@@ -77861,7 +77861,7 @@ far = 80.0
 script = ExtResource( 3 )
 lerp_speed = 5.0
 target_PATH = "taxi/Spatial/body"
-offset = Vector3( 0, 5, 10 )
+offset = Vector3( 0, 6, 18 )
 noise = SubResource( 1 )
 noise_speed = 100
 
@@ -77889,7 +77889,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0
 [node name="Rocket Ammo2" parent="taxi/Spatial/body/Rocket Launcher/Gun" index="2"]
 rot_speed = 1.0
 
-[node name="AnimationPlayer" parent="taxi/Spatial" index="13"]
+[node name="AnimationPlayer" parent="taxi/Spatial" index="16"]
 anims/Gun_descend = SubResource( 18667 )
 anims/Gun_rise = SubResource( 18668 )
 anims/RESET = SubResource( 18669 )
@@ -80615,6 +80615,7 @@ cast_shadow = 0
 multimesh = SubResource( 25791 )
 
 [node name="MultiMeshInstance696" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 25792 )
 
 [node name="MultiMeshInstance685" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -81723,6 +81724,7 @@ cast_shadow = 0
 multimesh = SubResource( 26093 )
 
 [node name="MultiMeshInstance988" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26094 )
 
 [node name="MultiMeshInstance989" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
@@ -81789,6 +81791,7 @@ cast_shadow = 0
 multimesh = SubResource( 26114 )
 
 [node name="MultiMeshInstance1012" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
+cast_shadow = 0
 multimesh = SubResource( 26115 )
 
 [node name="MultiMeshInstance1015" type="MultiMeshInstance" parent="Navigation/NavigationMeshInstance/Gardener/Arborist/MMI_container"]
