@@ -14,9 +14,12 @@ func load_scene(cur_scene,next_scene):
 	called = true
 	lod_inst = lodscrn.instance()
 	get_tree().root.call_deferred("add_child",lod_inst)
-
-	loader = ResourceLoader.load_interactive(next_scene)
 	cur_scene.queue_free()
+	yield(cur_scene,"tree_exited")
+	loader = ResourceLoader.load_interactive("res://Scenes/Worlds/null.tscn")
+	loader.poll()
+	loader = ResourceLoader.load_interactive(next_scene)
+	
 
 
 	yield(get_tree().create_timer(0.5),"timeout")
@@ -45,7 +48,7 @@ func load_scene(cur_scene,next_scene):
 	
 		
 
-func _unhandled_input(event):
+func _input(event):
 	if event is InputEventScreenTouch:
 		if event.pressed and loaded and called:
 			var scene = loader.get_resource().instance()
