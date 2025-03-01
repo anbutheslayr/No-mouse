@@ -8,12 +8,10 @@ public class Movement : Spatial
 	public PackedScene poputtext;
 	public RigidBody ball;
 	public MeshInstance Car_mesh;
-	public RayCast rayCast;
 	[Export] public int Close_miss_bonus = 10;
 	[Export] public string Ball_path;
 	[Export] public string car_mesh_body_path;
 	[Export] public string Car_mesh_path;
-	[Export] public string rayCast_path; 
 	[Export] public Vector3 sphere_offset = new Vector3(0, -1, 0);
 	[Export] public float acceleration = 50;
 	[Export] public float steering = 50;
@@ -62,13 +60,23 @@ public class Movement : Spatial
 	public resolution Res;
 	public List<Spatial> enemies_in_range = new List<Spatial>();
 	public AnimationPlayer hitanim;
+	public RayCast Fl;
+	public RayCast Fr;
+	public RayCast Bl;
+	public RayCast Br;
+	[Export]public NodePath Fl_path;
+	[Export]public NodePath Fr_path;
+	[Export]public NodePath Bl_path;
+	[Export]public NodePath Br_path;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Fl = GetNode<RayCast>(Fl_path);
+		Fr = GetNode<RayCast>(Fr_path);
+		Bl = GetNode<RayCast>(Bl_path);
+		Br = GetNode<RayCast>(Br_path);
 		ball = GetNode<RigidBody>(Ball_path);
 		Car_mesh = GetNode<MeshInstance>(Car_mesh_path);
-		rayCast = GetNode<RayCast>(rayCast_path);
-		rayCast.AddException(ball);
 		left_wheel = GetNode<MeshInstance>(left_wheel_path);
 		right_wheel = GetNode<MeshInstance>(right_wheel_path);
 		car_mesh_body = GetNode<MeshInstance>(car_mesh_body_path);
@@ -154,7 +162,7 @@ public class Movement : Spatial
 		{
 			speed_input *= ramp_speed;
 		}
-		var add = (Car_mesh.Rotation.x>0)?-Car_mesh.GlobalTransform.basis.z*Mathf.Sin(Car_mesh.Rotation.x)*ball.Weight*5 : Vector3.Zero;
+		var add = (Car_mesh.Rotation.x>0)?-Car_mesh.GlobalTransform.basis.z*Mathf.Sin(Car_mesh.Rotation.x)*ball.Weight*2 : Vector3.Zero;
 		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z* speed_input  + add);
 		GD.Print(Car_mesh.Rotation.x);
 		// Smoke
@@ -162,7 +170,7 @@ public class Movement : Spatial
 		var car_mesh_forward = Car_mesh.GlobalTransform.basis.z.Normalized();
 		var dot_product = -ball_velocity.Dot(car_mesh_forward);
 		
-		if(rayCast.IsColliding() && ball.LinearVelocity.Length() >13 && dot_product < 0.85 && dot_product > 0)
+		if(Bl.IsColliding() && ball.LinearVelocity.Length() >13 && dot_product < 0.85 && dot_product > 0)
 		{
 			// GD.Print(dot_product);
 			B_L.Emitting = true;
@@ -252,17 +260,23 @@ public class Movement : Spatial
 			car_mesh_body.Rotation = rotation;
 		}
 		// Align with surface
-		if(rayCast.IsColliding())
+		if(Bl.IsColliding() || Br.IsColliding() || Fl.IsColliding() || Fr.IsColliding())
 		{
-			var xform = Alignwithsurface(Car_mesh.GlobalTransform ,rayCast.GetCollisionNormal().Normalized());
+			var xform = Alignwithsurface(Car_mesh.GlobalTransform);
 			Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , turn_speed* delta);
 		}
 		
-
 	}
 
-	public Transform Alignwithsurface(Transform xform ,Vector3 new_y)
+	public Transform Alignwithsurface(Transform xform)
 	{
+		Vector3 frontLeft = Fl.IsColliding() ? Fl.GetCollisionNormal() : Vector3.Up;
+        Vector3 frontRight = Fr.IsColliding() ? Fr.GetCollisionNormal() : Vector3.Up;
+        Vector3 backLeft = Bl.IsColliding() ? Bl.GetCollisionNormal() : Vector3.Up;
+        Vector3 backRight = Br.IsColliding() ? Br.GetCollisionNormal() : Vector3.Up;
+
+		var new_y = (frontLeft + frontRight + backLeft + backRight).Normalized();
+
 		xform.basis.y = new_y;
 		xform.basis.x = -xform.basis.z.Cross(new_y);
 		xform.basis = xform.basis.Orthonormalized();
