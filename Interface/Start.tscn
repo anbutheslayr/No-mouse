@@ -103,10 +103,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/TextureRect"]
-anchor_left = 0.0765625
-anchor_top = 0.488889
-anchor_right = 0.307292
-anchor_bottom = 0.588889
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -813.0
+margin_top = 528.0
+margin_right = -369.999
+margin_bottom = -444.0
 theme = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
@@ -118,10 +121,13 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="Control/TextureRect"]
-anchor_left = 0.676042
-anchor_top = 0.487963
-anchor_right = 0.985417
-anchor_bottom = 0.584259
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 338.001
+margin_top = 527.0
+margin_right = 932.001
+margin_bottom = -449.0
 theme = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 3 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://World2.tres" type="Environment" id=1]
 [ext_resource path="res://Scenes/Settings.tscn" type="PackedScene" id=2]
@@ -10,7 +10,7 @@
 [ext_resource path="res://Assets/Models/Trees/Tree1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/Main_menu.cs" type="Script" id=9]
 [ext_resource path="res://Assets/Models/Trees/Tree3.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/Audio/Music BGM.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Audio/MM part.wav" type="AudioStream" id=11]
 [ext_resource path="res://Scenes/Menu.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Audio/Yes.wav" type="AudioStream" id=13]
 [ext_resource path="res://Assets/Audio/No.wav" type="AudioStream" id=14]
@@ -983,6 +983,34 @@ tracks/1/keys = {
 "values": [ Vector3( -45.3829, 68.7206, -13.5263 ), Vector3( -33.3196, -16.9509, 3.85355 ) ]
 }
 
+[sub_resource type="Animation" id=40]
+resource_name = "start v2"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.7, 4.8, 6.4, 7.1, 10, 11.3, 12.3, 17.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 4.52894, 0.352585 ), Vector3( -3, 2.90449, 0.352585 ), Vector3( 4.42922, 2.90449, 0.352585 ), Vector3( 10.3674, 1.80297, -2.38018 ), Vector3( 11.4503, 1.80297, -5.73031 ), Vector3( 8.65319, 1.80297, -14.3238 ), Vector3( 7.29335, 1.80297, -16.8699 ), Vector3( 4.0895, 1.80297, -15.8725 ), Vector3( 0.617943, 2.76124, -15.3551 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.7, 2.2, 6.4, 10, 12.3, 14.9, 17.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -45.3829, 68.7206, -13.5263 ), Vector3( -18.8498, -1.76154, 30.5996 ), Vector3( -18.5773, 3.69759, 13.6952 ), Vector3( -7.36375, 63.3885, -42.6998 ), Vector3( -16.8807, 121.376, -37.3228 ), Vector3( 19.3141, 134.892, 14.0264 ), Vector3( -24.0341, 136.826, -27.6772 ), Vector3( -24.0341, 169.951, -27.6772 ) ]
+}
+
 [node name="Main_menu" type="Spatial"]
 script = ExtResource( 9 )
 
@@ -1206,6 +1234,7 @@ skeleton = NodePath("../..")
 autoplay = "Start"
 anims/RESET = SubResource( 37 )
 anims/Start = SubResource( 38 )
+"anims/start v2" = SubResource( 40 )
 
 [node name="Tree1" parent="." instance=ExtResource( 8 )]
 transform = Transform( -0.0328701, 0, 0.688215, 0, 0.689, 0, -0.688215, 0, -0.0328701, -2.69763, 0.0500002, -10.5238 )
@@ -1218,5 +1247,4 @@ transform = Transform( -0.71684, 0, 0.148203, 0, 0.732, 0, -0.148203, 0, -0.7168
 
 [node name="Bgm" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-volume_db = 6.0
 autoplay = true

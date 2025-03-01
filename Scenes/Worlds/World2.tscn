@@ -1219,7 +1219,7 @@ extent = 2.79619
 bounds = AABB( 11.3163, -5.56804, -23.7563, 5.59237, 5.59237, 5.59237 )
 max_bounds_to_center_dist = 4.84313
 min_bounds_to_center_dist = 2.79619
-active_LOD_index = 1
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance696"
 
 [sub_resource type="Resource" id=36652]
@@ -3381,7 +3381,7 @@ extent = 2.79619
 bounds = AABB( 44.8705, -11.1604, -23.7563, 5.59237, 5.59237, 5.59237 )
 max_bounds_to_center_dist = 4.84313
 min_bounds_to_center_dist = 2.79619
-active_LOD_index = 1
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance988"
 
 [sub_resource type="Resource" id=36746]
@@ -12420,7 +12420,7 @@ extent = 5.59237
 bounds = AABB( -5.46084, 0.0243301, -29.3487, 11.1847, 11.1847, 11.1847 )
 max_bounds_to_center_dist = 9.68627
 min_bounds_to_center_dist = 5.59237
-active_LOD_index = 1
+active_LOD_index = -1
 MMI_name = ""
 
 [sub_resource type="Resource" id=37139]
@@ -24748,7 +24748,7 @@ extent = 2.79619
 bounds = AABB( -22.238, 0.0243301, 54.5369, 5.59237, 5.59237, 5.59237 )
 max_bounds_to_center_dist = 4.84313
 min_bounds_to_center_dist = 2.79619
-active_LOD_index = -1
+active_LOD_index = 1
 MMI_name = "MultiMeshInstance890"
 
 [sub_resource type="Resource" id=37675]
@@ -24794,7 +24794,7 @@ extent = 2.79619
 bounds = AABB( -22.238, 5.6167, 54.5369, 5.59237, 5.59237, 5.59237 )
 max_bounds_to_center_dist = 4.84313
 min_bounds_to_center_dist = 2.79619
-active_LOD_index = -1
+active_LOD_index = 1
 MMI_name = "MultiMeshInstance892"
 
 [sub_resource type="Resource" id=37677]
@@ -26542,7 +26542,7 @@ extent = 22.3695
 bounds = AABB( 50.4629, -89.4536, -62.9029, 44.739, 44.739, 44.739 )
 max_bounds_to_center_dist = 38.7451
 min_bounds_to_center_dist = 22.3695
-active_LOD_index = 1
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance998"
 
 [sub_resource type="Resource" id=37753]
@@ -26680,7 +26680,7 @@ extent = 5.59237
 bounds = AABB( 50.4629, -22.3452, -29.3487, 11.1847, 11.1847, 11.1847 )
 max_bounds_to_center_dist = 9.68627
 min_bounds_to_center_dist = 5.59237
-active_LOD_index = 1
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance1012"
 
 [sub_resource type="Resource" id=37759]

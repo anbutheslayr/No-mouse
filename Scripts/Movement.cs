@@ -52,7 +52,7 @@ public class Movement : Spatial
 	[Export] public float Jump_ht = 2.5f;
 	public Control intrface;
 	[Export] public int Drift_multiplier = 1;
-	[Export] public int im = 88;
+	[Export] public int im = 0;
 	public Camera cam;
 	[Export]public NodePath min_map_cam_path;
 	[Export]public NodePath cam_pos_path;
@@ -154,7 +154,9 @@ public class Movement : Spatial
 		{
 			speed_input *= ramp_speed;
 		}
-		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z * speed_input);
+		var add = (Car_mesh.Rotation.x>0)?-Car_mesh.GlobalTransform.basis.z*Mathf.Sin(Car_mesh.Rotation.x)*ball.Weight*5 : Vector3.Zero;
+		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z* speed_input  + add);
+		GD.Print(Car_mesh.Rotation.x);
 		// Smoke
 		var ball_velocity = ball.LinearVelocity.Normalized();
 		var car_mesh_forward = Car_mesh.GlobalTransform.basis.z.Normalized();
@@ -216,7 +218,7 @@ public class Movement : Spatial
 		{
 			var image = GetViewport().GetTexture().GetData();
 			image.FlipY();
-			image.SavePng("D:/Godot export/SS/World2/" + im + ".png");
+			image.SavePng("D:/Godot export/SS/World1/" + im + ".png");
 			im++;
 		}
 		// turning wheels
@@ -242,7 +244,7 @@ public class Movement : Spatial
 			var new_basis = Car_mesh.GlobalTransform.basis.Rotated(Car_mesh.GlobalTransform.basis.y ,steering_input ).Orthonormalized();
 			var transform = Car_mesh.GlobalTransform;
 			transform.basis = Car_mesh.GlobalTransform.basis.Slerp(new_basis, turn_speed * delta);
-			Car_mesh.GlobalTransform = transform;
+			Car_mesh.GlobalTransform = transform.Orthonormalized();
 			// Applying tilt
 			var t = -steering_input * ball.LinearVelocity.Length() / tilt;
 			var rotation = car_mesh_body.Rotation;
@@ -258,6 +260,7 @@ public class Movement : Spatial
 		
 
 	}
+
 	public Transform Alignwithsurface(Transform xform ,Vector3 new_y)
 	{
 		xform.basis.y = new_y;

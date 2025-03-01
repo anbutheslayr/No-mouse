@@ -26,9 +26,13 @@ public class Follow : Camera
     public override void _PhysicsProcess(float delta)
     {
         
-        var target_pos = target.GlobalTransform.Translated(offset);
-        GlobalTransform = GlobalTransform.InterpolateWith(target_pos , lerp_speed * delta);
+        // Transform target_pos = target.GlobalTransform.Translated(offset);
+        // GlobalTransform = GlobalTransform.InterpolateWith(target_pos, lerp_speed * delta);
+        var target_pos = target.GlobalTransform.Translated(offset).origin;
+        target_pos.y = Mathf.Max(target_pos.y, target.GlobalTransform.origin.y + offset.y);
+        GlobalTranslation = GlobalTranslation.LinearInterpolate(target_pos, lerp_speed * delta);
         LookAt(target.GlobalTransform.origin , Vector3.Up);
+        
         trauma = Mathf.Max(trauma - trauma_red_rate * delta , 0);
         time += delta;
         RotationDegrees = new Vector3(RotationDegrees.x + GetNoiseFromSeed(0)*max_x*GetShakeIntensity(),
