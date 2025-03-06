@@ -896,32 +896,31 @@ mesh = ExtResource( 3 )
 skeleton = NodePath("../..")
 
 [node name="Fl" type="RayCast" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.526394, 0, -0.947657 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.545909, 0.5, -1.27291 )
 enabled = true
 cast_to = Vector3( 0, -2, 0 )
 collide_with_areas = true
 
 [node name="Fr" type="RayCast" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.552943, 0, -0.989694 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.631004, 0.5, -1.21737 )
 enabled = true
 cast_to = Vector3( 0, -2, 0 )
 collide_with_areas = true
 
 [node name="Bl" type="RayCast" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.471344, 0, 0.783103 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603789, 0.5, 1.44533 )
 enabled = true
 cast_to = Vector3( 0, -2, 0 )
 collide_with_areas = true
 
 [node name="Br" type="RayCast" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.520095, 0, 0.810501 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532135, 0.5, 1.50885 )
 enabled = true
 cast_to = Vector3( 0, -2, 0 )
 collide_with_areas = true
 
 [node name="Healthbar" parent="Spatial" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239 )
-visible = false
 
 [node name="DetectionArea" type="Area" parent="Spatial" groups=["Player_body"]]
 
