@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Assets/Models/Buildings/_defaultMat_001.material" type="Material" id=1]
-[ext_resource path="res://Assets/Models/Buildings/border_001.material" type="Material" id=2]
+[ext_resource path="res://Assets/Models/Buildings/border_002.material" type="Material" id=1]
+[ext_resource path="res://Assets/Models/Buildings/_defaultMat_002.material" type="Material" id=2]
 [ext_resource path="res://Assets/Models/Buildings/window_001.material" type="Material" id=3]
 [ext_resource path="res://Assets/Models/Buildings/door_001.material" type="Material" id=4]
 
@@ -14,7 +14,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 6389015,
 "index_count": 960,
-"material": ExtResource( 2 ),
+"material": ExtResource( 4 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 436
@@ -38,7 +38,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 6389015,
 "index_count": 144,
-"material": ExtResource( 4 ),
+"material": ExtResource( 1 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 48
@@ -50,7 +50,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 6389015,
 "index_count": 198,
-"material": ExtResource( 1 ),
+"material": ExtResource( 2 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 162
@@ -71,7 +71,7 @@ points = PoolVector3Array( -0.590476, 0.347381, -0.345238, -0.533333, 0.385476, 
 [node name="Htype20" type="Spatial"]
 
 [node name="house_type20 " type="MeshInstance" parent="."]
-transform = Transform( 10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0, 0, 0 )
+transform = Transform( 7, 0, 0, 0, -3.0598e-07, -7, 0, 7, -3.0598e-07, 0, 0, 0 )
 mesh = SubResource( 1 )
 
 [node name="StaticBody" type="StaticBody" parent="house_type20 "]

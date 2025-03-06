@@ -270,12 +270,15 @@ public class Movement : Spatial
 
 	public Transform Alignwithsurface(Transform xform)
 	{
-		Vector3 frontLeft = Fl.IsColliding() ? Fl.GetCollisionNormal() : Vector3.Up;
-        Vector3 frontRight = Fr.IsColliding() ? Fr.GetCollisionNormal() : Vector3.Up;
-        Vector3 backLeft = Bl.IsColliding() ? Bl.GetCollisionNormal() : Vector3.Up;
-        Vector3 backRight = Br.IsColliding() ? Br.GetCollisionNormal() : Vector3.Up;
+		Vector3 frontLeftcol = Fl.IsColliding() ? Fl.GetCollisionPoint() : Fl.GlobalTranslation;
+        Vector3 backLeftcol = Bl.IsColliding() ? Bl.GetCollisionPoint() : Bl.GlobalTranslation;
+		Vector3 frontRightcol = Fr.IsColliding() ? Fr.GetCollisionPoint() : Fr.GlobalTranslation;
 
-		var new_y = (frontLeft + frontRight + backLeft + backRight).Normalized();
+		Vector3 sidevector = (frontRightcol - frontLeftcol).Normalized();
+		Vector3 forwardvector = (backLeftcol-frontLeftcol).Normalized();
+
+
+		var new_y = forwardvector.Cross(sidevector).Normalized();
 
 		xform.basis.y = new_y;
 		xform.basis.x = -xform.basis.z.Cross(new_y);
