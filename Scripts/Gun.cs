@@ -37,6 +37,7 @@ public class Gun : Spatial
     public int max_bull_ind=2;
     public TextureButton rocket_button;
     public PackedScene poputtext;
+    public Spatial closest_enemy;
     public override void _Ready()
     {
         ray_cast = GetNode<RayCast>(RayCastPath);
@@ -96,7 +97,7 @@ public class Gun : Spatial
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        Spatial closest_enemy = GetClosestEnemy();
+        closest_enemy = GetClosestEnemy();
         var direction = Vector3.Zero;
         ammo_text.Text = "       Ammo = " + cur_ammo + "/" + Ammo + "(" + cur_magazines + ") \n       " + OS.GetScreenSize().ToString() + "\n       FPS : " + Engine.GetFramesPerSecond() + "\n       Enemies Alive : " + GetTree().GetNodesInGroup("Enemy").Count;
 

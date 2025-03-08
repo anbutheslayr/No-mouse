@@ -52,10 +52,10 @@ public class Movement : Spatial
 	[Export] public int Drift_multiplier = 1;
 	[Export] public int im = 0;
 	public Camera cam;
-	[Export]public NodePath min_map_cam_path;
+	// [Export]public NodePath min_map_cam_path;
 	[Export]public NodePath cam_pos_path;
 	public Spatial cam_pos; 
-	public Camera min_map_cam;
+	// public Camera min_map_cam;
 	public PackedScene exp;
 	public resolution Res;
 	public List<Spatial> enemies_in_range = new List<Spatial>();
@@ -63,18 +63,15 @@ public class Movement : Spatial
 	public RayCast Fl;
 	public RayCast Fr;
 	public RayCast Bl;
-	public RayCast Br;
 	[Export]public NodePath Fl_path;
 	[Export]public NodePath Fr_path;
 	[Export]public NodePath Bl_path;
-	[Export]public NodePath Br_path;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		Fl = GetNode<RayCast>(Fl_path);
 		Fr = GetNode<RayCast>(Fr_path);
 		Bl = GetNode<RayCast>(Bl_path);
-		Br = GetNode<RayCast>(Br_path);
 		ball = GetNode<RigidBody>(Ball_path);
 		Car_mesh = GetNode<MeshInstance>(Car_mesh_path);
 		left_wheel = GetNode<MeshInstance>(left_wheel_path);
@@ -90,7 +87,7 @@ public class Movement : Spatial
 		Brake = GetNode<TouchScreenButton>("Interface/Acceleration/Brake");
 		intrface = GetNode<Control>("Interface");
 		cam = GetParent().GetNode<Camera>("Camera");
-		min_map_cam = GetNode<Camera>(min_map_cam_path);
+		// min_map_cam = GetNode<Camera>(min_map_cam_path);
 		cam_pos = GetNode<Spatial>(cam_pos_path);
 		exp = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
 		var i = exp.Instance() as Spatial;
@@ -119,7 +116,7 @@ public class Movement : Spatial
 
 	public override void _PhysicsProcess(float delta)
 	{
-		min_map_cam.GlobalTransform = cam_pos.GlobalTransform;
+		// min_map_cam.GlobalTransform = cam_pos.GlobalTransform;
 		// align mesh with sphere
 		var transform = Car_mesh.Transform;
 		transform.origin = ball.Transform.origin + sphere_offset;
@@ -162,7 +159,7 @@ public class Movement : Spatial
 		{
 			speed_input *= ramp_speed;
 		}
-		var add = (Car_mesh.Rotation.x>0)?-Car_mesh.GlobalTransform.basis.z*Mathf.Sin(Car_mesh.Rotation.x)*ball.Weight*2 : Vector3.Zero;
+		var add = (Car_mesh.Rotation.x>0)?-Car_mesh.GlobalTransform.basis.z*Mathf.Sin(Car_mesh.Rotation.x)*ball.Weight*3 : Vector3.Zero;
 		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z* speed_input  + add);
 		GD.Print(Car_mesh.Rotation.x);
 		// Smoke
@@ -260,7 +257,7 @@ public class Movement : Spatial
 			car_mesh_body.Rotation = rotation;
 		}
 		// Align with surface
-		if(Bl.IsColliding() || Br.IsColliding() || Fl.IsColliding() || Fr.IsColliding())
+		if(Bl.IsColliding() || Fl.IsColliding() || Fr.IsColliding())
 		{
 			var xform = Alignwithsurface(Car_mesh.GlobalTransform);
 			Car_mesh.GlobalTransform = Car_mesh.GlobalTransform.InterpolateWith(xform , turn_speed* delta);
