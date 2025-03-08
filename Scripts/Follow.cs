@@ -18,6 +18,8 @@ public class Follow : Camera
     [Export] public float max_z = 5;
     public RayCast raycast;
     [Export] public int col_lerp_speed = 10;
+    public Spatial rayp;
+    public Gun gun;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -30,23 +32,26 @@ public class Follow : Camera
         raycast.AddException(target);
         raycast.CollideWithAreas = false;
         raycast.CollideWithBodies = true;
+        rayp = target.GetNode<Spatial>("Raycol");
+        gun = target.GetNode<Gun>("body/MachineGun");
     }
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _PhysicsProcess(float delta)
     {
-        
+
         // Transform target_pos = target.GlobalTransform.Translated(offset);
         // GlobalTransform = GlobalTransform.InterpolateWith(target_pos, lerp_speed * delta);
         var target_pos = target.GlobalTransform.Translated(offset).origin;
         target_pos.y = Mathf.Max(target_pos.y, target.GlobalTransform.origin.y + offset.y);
-       
-        raycast.GlobalTranslation = target.GlobalTranslation + new Vector3(0, .1f, 0);
+
+        raycast.GlobalTranslation = rayp.GlobalTranslation;
         var dir = GlobalTransform.origin - raycast.GlobalTransform.origin;
         raycast.CastTo = dir;
         raycast.ForceRaycastUpdate();
-        if (raycast.IsColliding() && raycast.GetCollider() is StaticBody)
+        // if (raycast.IsColliding() && raycast.GetCollider() is StaticBody)
+        if(gun.closest_enemy != null || raycast.GetCollider() is StaticBody)
         {
-            GlobalTranslation = GlobalTranslation.LinearInterpolate( new Vector3(GlobalTranslation.x, 30, GlobalTranslation.z),col_lerp_speed*delta);
+            GlobalTranslation = GlobalTranslation.LinearInterpolate( new Vector3(target_pos.x, 25, target_pos.z),col_lerp_speed*delta);
         }
         else
         {

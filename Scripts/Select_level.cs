@@ -33,5 +33,10 @@ public class Select_level : Control
         // GetTree().Root.AddChild(ResourceLoader.Load<PackedScene>("res://Interface/Loading screen.tscn").Instance());
         // GetTree().ChangeScene("res://Scenes/Worlds/World2.tscn");
     }
+    public void On_Cutscene()
+    {
+        var lod = GetTree().Root.GetNode("LoadingScreen");
+        lod.Call("load_scene",GetTree().Root.GetNode("Main_menu"),"res://Scenes/Worlds/Cutscene.tscn");
+    }
     
 }

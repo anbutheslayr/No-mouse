@@ -800,12 +800,10 @@ B_L2_particles = "Spatial/Backleft2/CPUParticles"
 B_R2_particles = "Spatial/Backright2/CPUParticles"
 Accelerate_button_path = "Interface/Acceleration/Accelerate"
 health_bar_path = "Spatial/Healthbar"
-min_map_cam_path = NodePath("Interface/PanelContainer/ViewportContainer/Viewport/Camera")
 cam_pos_path = NodePath("Spatial/body/cam_pos")
 Fl_path = NodePath("Spatial/Fl")
 Fr_path = NodePath("Spatial/Fr")
 Bl_path = NodePath("Spatial/Bl")
-Br_path = NodePath("Spatial/Br")
 
 [node name="Spatial" type="MeshInstance" parent="."]
 
@@ -913,12 +911,6 @@ enabled = true
 cast_to = Vector3( 0, -2, 0 )
 collide_with_areas = true
 
-[node name="Br" type="RayCast" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532135, 0.5, 1.50885 )
-enabled = true
-cast_to = Vector3( 0, -2, 0 )
-collide_with_areas = true
-
 [node name="Healthbar" parent="Spatial" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239 )
 
@@ -944,6 +936,9 @@ layers = 2
 pixel_size = 0.015
 billboard = 1
 texture = ExtResource( 11 )
+
+[node name="Raycol" type="Spatial" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13508, 0.805907 )
 
 [node name="Ball" type="RigidBody" parent="." groups=["Ball"]]
 physics_material_override = SubResource( 12 )
@@ -978,6 +973,7 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="Interface"]
+visible = false
 anchor_left = 0.728125
 anchor_top = 0.0601852
 anchor_right = 0.988542
@@ -1001,14 +997,7 @@ __meta__ = {
 size = Vector2( 490, 242 )
 size_override_stretch = true
 handle_input_locally = false
-render_target_update_mode = 3
-
-[node name="Camera" type="Camera" parent="Interface/PanelContainer/ViewportContainer/Viewport"]
-transform = Transform( -1, 1.77636e-15, 8.74228e-08, 1.73575e-08, 0.980091, 0.198547, -8.56823e-08, 0.198547, -0.980091, -4.62809, 5.20898, 5.35079 )
-cull_mask = 1
-fov = 50.0
-size = 8.29881
-far = 25.0
+render_target_update_mode = 0
 
 [node name="Rocket_button" type="TextureButton" parent="Interface"]
 anchor_left = 0.0015625
