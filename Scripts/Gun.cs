@@ -6,6 +6,7 @@ public class Gun : Spatial
 {
     [Export] public string RayCastPath;
     [Export] public string AnimPath;
+    
     public MeshInstance gun;
     [Export] public string gun_path;
     public AnimationPlayer anim;
