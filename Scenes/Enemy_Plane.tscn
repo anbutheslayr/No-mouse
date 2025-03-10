@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Scripts/Enemy_Plane.cs" type="Script" id=1]
-[ext_resource path="res://Assets/Materials/asphalt.material" type="Material" id=2]
-[ext_resource path="res://Assets/Audio/Retro Alarm Long 02.wav" type="AudioStream" id=3]
+[ext_resource type="Script" uid="uid://bdlgtoxea2ea0" path="res://Scripts/Ported scripts/Enemy_Plane.cs" id="1"]
+[ext_resource type="Material" path="res://Assets/Materials/asphalt.material" id="2"]
+[ext_resource type="AudioStream" uid="uid://cmylcwwqivv46" path="res://Assets/Audio/Retro Alarm Long 02.wav" id="3"]
 
 [sub_resource type="CapsuleMesh" id=12]
 radius = 1.02

@@ -1,16 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://pekso4kpqq33"]
 
-[ext_resource path="res://okk.png" type="Texture2D" id=1]
-[ext_resource path="res://Scenes/Theme.tres" type="Theme" id=2]
-[ext_resource path="res://Interface/Splash font.tres" type="FontFile" id=3]
-[ext_resource path="res://Scripts/GDscript/Start.gd" type="Script" id=4]
+[ext_resource type="Texture2D" uid="uid://dqvosbt71wp32" path="res://okk.png" id="1"]
+[ext_resource type="Theme" uid="uid://6wasy10nsxp0" path="res://Scenes/Theme.tres" id="2"]
+[ext_resource type="FontFile" path="res://Interface/Splash font.tres" id="3"]
+[ext_resource type="Script" uid="uid://dxnxif17eielq" path="res://Scripts/GDscript/Start.gd" id="4"]
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.890196, 0.376471, 0.482353, 1 )
-skew = Vector2( 0.579, 0 )
+[sub_resource type="StyleBoxFlat" id="3"]
+bg_color = Color(0.890196, 0.376471, 0.482353, 1)
+skew = Vector2(0.579, 0)
 border_width_left = 10
 border_width_bottom = 10
-border_color = Color( 0, 0, 0, 1 )
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
@@ -18,91 +18,93 @@ corner_radius_bottom_left = 50
 expand_margin_top = 14.0
 anti_aliasing_size = 0.668
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "Fade in"
 length = 7.0
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 1, 4, 5.4, 7 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(1, 4, 5.4, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array(  ),
-"transitions": PackedFloat32Array(  ),
-"values": [  ]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
+"values": [Color(0, 0, 0, 1)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("TextureRect/Label:theme_override_styles/normal")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ SubResource( 3 ) ]
+"values": [SubResource("3")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ghds"]
+_data = {
+&"Fade in": SubResource("1"),
+&"RESET": SubResource("2")
 }
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource( 4 )
+script = ExtResource("4")
 
 [node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 0
 anchor_left = -1.46354
 anchor_top = -1.96204
 anchor_right = 2.83281
 anchor_bottom = 3.23426
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
+color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 1 )
-expand = true
+texture = ExtResource("1")
+expand_mode = 1
 stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Label" type="Label" parent="Control/TextureRect"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -110,17 +112,15 @@ offset_left = -813.0
 offset_top = 528.0
 offset_right = -369.999
 offset_bottom = -444.0
-theme = ExtResource( 2 )
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_styles/normal = SubResource( 3 )
+theme = ExtResource("2")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3")
+theme_override_styles/normal = SubResource("3")
 text = "A game by"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Control/TextureRect"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -128,21 +128,20 @@ offset_left = 338.001
 offset_top = 527.0
 offset_right = 932.001
 offset_bottom = -449.0
-theme = ExtResource( 2 )
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_styles/normal = SubResource( 3 )
+theme = ExtResource("2")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3")
+theme_override_styles/normal = SubResource("3")
 text = "Anbuthecoder"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
+horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
-"anims/Fade in" = SubResource( 1 )
-anims/RESET = SubResource( 2 )
+libraries = {
+&"": SubResource("AnimationLibrary_4ghds")
+}

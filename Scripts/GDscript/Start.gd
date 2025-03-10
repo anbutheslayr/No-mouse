@@ -10,8 +10,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	start_font.size = (get_window().size.y/1080)*64
-	splash_font.size = (get_window().size.y/1080)*80
+	#start_font.size = (get_window().size.y/1080)*64
+	#splash_font.size = (get_window().size.y/1080)*80
 	await ParticleLoader.loaded
 	anim.play("Fade in")
 	await anim.animation_finished

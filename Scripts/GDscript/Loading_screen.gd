@@ -8,7 +8,7 @@ extends Node
 @onready var lodscrn = preload("res://Interface/Loading screen.tscn")
 var loaded = false
 var called = false
-var loader
+var loader 
 var lod_inst
 func load_scene(cur_scene,next_scene):
 	called = true

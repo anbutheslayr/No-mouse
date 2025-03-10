@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/Popuptext.cs" type="Script" id=2]
+[ext_resource type="Script" uid="uid://c6yy81ujr8xof" path="res://Scripts/Ported scripts/Popuptext.cs" id="2"]
 
 [sub_resource type="FontFile" id=7]
 font_path = "res://Extra Beige.ttf"
