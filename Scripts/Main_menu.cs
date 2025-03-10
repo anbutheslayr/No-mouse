@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Main_menu : Spatial
+public partial class Main_menu : Node3D
 {
     public Control settings;
     public Control Menu;
@@ -14,7 +14,7 @@ public class Main_menu : Spatial
     }
     public void Verify_res()
     {
-        var dir = new Directory();
+        var dir = new DirAccess();
         dir.Open("user://");
         if(!dir.DirExists("user://Int")) 
         {

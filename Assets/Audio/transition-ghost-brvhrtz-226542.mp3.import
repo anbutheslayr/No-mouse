@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/transition-ghost-brvhrtz-226542.mp3-8729f2bf03186127685a77d63ef89d3b.mp3str"
+uid="uid://b4142vu0ned28"
+path="res://.godot/imported/transition-ghost-brvhrtz-226542.mp3-8729f2bf03186127685a77d63ef89d3b.mp3str"
 
 [deps]
 
 source_file="res://Assets/Audio/transition-ghost-brvhrtz-226542.mp3"
-dest_files=[ "res://.import/transition-ghost-brvhrtz-226542.mp3-8729f2bf03186127685a77d63ef89d3b.mp3str" ]
+dest_files=["res://.godot/imported/transition-ghost-brvhrtz-226542.mp3-8729f2bf03186127685a77d63ef89d3b.mp3str"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 
-public class Interface : Control
+public partial class Interface : Control
 {
     public TouchScreenButton Accelerate_button;
     public TouchScreenButton Brake;
@@ -11,7 +11,7 @@ public class Interface : Control
     public TouchScreenButton Right;
     public TextureButton Esc;
     public resolution Res;
-    public Spatial enemyspawner;
+    public Node3D enemyspawner;
     public PackedScene enemy_taxi;
     public Timer timer;
     public int cur_enemies;
@@ -20,7 +20,7 @@ public class Interface : Control
     public bool won = false;
     public float spawn_time;
     public Control PauseMenu;
-    public RigidBody plane;
+    public RigidBody3D plane;
     public RichTextLabel Drift_points;
     public int kill=1;
     public Timer change_world_timer;
@@ -28,26 +28,26 @@ public class Interface : Control
     public PackedScene skeleton;
     public override void _Ready()
     {
-        plane = GetTree().GetNodesInGroup("Plane")[0] as RigidBody;
+        plane = GetTree().GetNodesInGroup("Plane")[0] as RigidBody3D;
         PauseMenu = GetParent().GetParent().GetNode<Pause_menu>("Pause_menu");
         Accelerate_button = GetNode<TouchScreenButton>("Acceleration/Accelerate");
         Brake = GetNode<TouchScreenButton>("Acceleration/Brake");
         Left = GetNode<TouchScreenButton>("Steering/Left");
         Right = GetNode<TouchScreenButton>("Steering/Right");
         Esc = GetNode<TextureButton>("Esc");
-        enemyspawner = GetParent().GetParent().GetNode<Spatial>("Enemy_spawner");
+        enemyspawner = GetParent().GetParent().GetNode<Node3D>("Enemy_spawner");
         enemy_taxi = GD.Load<PackedScene>("res://Scenes/Enemy_taxi.tscn");
         enemy_spawntext = GetNode<Label>("Enemy_spawntext");
         Verify_res();
         cur_enemies = 0;
         timer = new Timer();
         timer.OneShot = true;
-        timer.Connect("timeout", this, nameof(AddEnemies));
+        timer.Connect("timeout", new Callable(this, nameof(AddEnemies)));
         AddChild(timer);
         timer.Start(10);
         change_world_timer = new Timer();
         change_world_timer.OneShot = true;
-        change_world_timer.Connect("timeout", this, nameof(ChangeWorld));
+        change_world_timer.Connect("timeout", new Callable(this, nameof(ChangeWorld)));
         AddChild(change_world_timer);
         spawn_time = 26;
         Drift_points = GetNode<RichTextLabel>("Drift_points");
@@ -61,7 +61,7 @@ public class Interface : Control
     }
     public void Verify_res()
     {
-        var dir = new Directory();
+        var dir = new DirAccess();
         dir.Open("user://");
         if(!dir.DirExists("user://Int")) 
         {
@@ -87,13 +87,13 @@ public class Interface : Control
     {
         if(!dead)
         {
-            var enemy = enemy_taxi.Instance() as Spatial;  
+            var enemy = enemy_taxi.Instance() as Node3D;  
             enemy.GlobalTransform = enemyspawner.GlobalTransform;
             GetParent().GetParent().AddChild(enemy);
             cur_enemies++;
             if(Res.cur_world == 2)
             {
-                var sk1 = skeleton.Instance() as Spatial;
+                var sk1 = skeleton.Instance() as Node3D;
                 sk1.GlobalTransform = enemyspawner.GlobalTransform;
                 GetParent().GetParent().AddChild(sk1);
             }
@@ -136,12 +136,12 @@ public class Interface : Control
     {
         if(enabled)
         {
-            GetTree().Root.GetNode<DirectionalLight>("World/DirectionalLight").ShadowEnabled = true;
+            GetTree().Root.GetNode<DirectionalLight3D>("World/DirectionalLight3D").ShadowEnabled = true;
             SetShadowQuality(ShadowQuality);
         }
         else
         {
-            GetTree().Root.GetNode<DirectionalLight>("World/DirectionalLight").ShadowEnabled = false;
+            GetTree().Root.GetNode<DirectionalLight3D>("World/DirectionalLight3D").ShadowEnabled = false;
         }
     }
     public void RepositionAndResize(Vector2 res)
@@ -160,12 +160,12 @@ public class Interface : Control
         // Brake.Position = new Vector2(-383 , -121);
         Brake.Position = new Vector2(res.y/1080*-573 , res.y/1080*-166);
         Brake.Scale = Accelerate_button.Scale;
-        Esc.RectScale = new Vector2(res.y/1080, res.y/1080);
+        Esc.Scale = new Vector2(res.y/1080, res.y/1080);
         // Esc.RectPosition = new Vector2(96-res.y/1080*96 , 96-res.y/1080*96);
         // Esc.SetPosition(new Vector2(OS.GetScreenSize().x - Esc.RectSize.x , 0));
-        enemy_spawntext.MarginTop = res.y/1080*100;
-        Drift_points.MarginTop = res.y/1080*10;
-        Drift_points.MarginLeft = res.y/1080*-600;
+        enemy_spawntext.OffsetTop = res.y/1080*100;
+        Drift_points.OffsetTop = res.y/1080*10;
+        Drift_points.OffsetLeft = res.y/1080*-600;
     }
     public void SetShadowQuality(int index)
     {

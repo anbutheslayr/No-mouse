@@ -1,4 +1,4 @@
-tool
+@tool
 extends "test_gardener_base.gd"
 
 
@@ -21,7 +21,7 @@ var member_count_snapshots_list:Array = []
 
 
 func execute():
-	.execute()
+	super.execute()
 	logger.info("Executing test")
 	octree_snapshot_check = OctreeSnapshotCheck.new()
 	painting_data = GardenerUtils.populate_node_with_surfaces(self, true, false)

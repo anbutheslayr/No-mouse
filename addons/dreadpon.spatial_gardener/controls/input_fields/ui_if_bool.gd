@@ -1,4 +1,4 @@
-tool
+@tool
 extends "ui_input_field.gd"
 
 
@@ -17,7 +17,8 @@ var bool_check:CheckBox = null
 #-------------------------------------------------------------------------------
 
 
-func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", settings:Dictionary = {}).(__init_val, __labelText, __prop_name, settings):
+func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", settings:Dictionary = {}):
+	super(__init_val, __labelText, __prop_name, settings)
 	set_meta("class", "UI_IF_Bool")
 	
 	bool_check = CheckBox.new()
@@ -25,7 +26,7 @@ func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", set
 	bool_check.text = "On"
 	bool_check.size_flags_horizontal = SIZE_EXPAND_FILL
 	bool_check.size_flags_vertical = SIZE_SHRINK_CENTER
-	bool_check.connect("toggled", self, "_request_prop_action", ["PA_PropSet"])
+	bool_check.connect("toggled", Callable(self, "_request_prop_action").bind("PA_PropSet"))
 	ThemeAdapter.assign_node_type(bool_check, 'InspectorButton')
 
 
@@ -47,5 +48,5 @@ func _update_ui_to_prop_action(prop_action:PropAction, final_val):
 
 
 func _update_ui_to_val(val):
-	bool_check.pressed = val
-	._update_ui_to_val(val)
+	bool_check.button_pressed = val
+	super._update_ui_to_val(val)

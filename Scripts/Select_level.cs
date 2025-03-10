@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Select_level : Control
+public partial class Select_level : Control
 {
     public resolution Res;
     public AudioStreamPlayer play;

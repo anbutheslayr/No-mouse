@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/tHUMP2.wav-59423641ff5db63de0b3466fa6c688b3.sample"
+type="AudioStreamWAV"
+uid="uid://b1boftcrod2t6"
+path="res://.godot/imported/tHUMP2.wav-59423641ff5db63de0b3466fa6c688b3.sample"
 
 [deps]
 
 source_file="res://Assets/Audio/tHUMP2.wav"
-dest_files=[ "res://.import/tHUMP2.wav-59423641ff5db63de0b3466fa6c688b3.sample" ]
+dest_files=["res://.godot/imported/tHUMP2.wav-59423641ff5db63de0b3466fa6c688b3.sample"]
 
 [params]
 

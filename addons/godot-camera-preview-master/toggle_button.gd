@@ -1,4 +1,4 @@
-tool
+@tool
 
 extends MenuButton
 
@@ -6,7 +6,7 @@ var search_mode = 0
 var search_mode_offset = 2
 var pop : PopupMenu
 var is_visible: bool = false
-var search_name: String = "Camera*"
+var search_name: String = "Camera3D*"
 
 signal preview_toggled(visible)
 signal preview_clear()
@@ -22,11 +22,11 @@ func _enter_tree():
 	pop.add_separator()
 	pop.add_item("Change search pattern")
 	pop.add_item("Clear preview")
-	pop.connect('id_pressed', self, 'item_pressed')
+	pop.connect('id_pressed', Callable(self, 'item_pressed'))
 	pop.set_item_checked(2, true)
 	
 func _exit_tree():
-	pop.disconnect('id_pressed', self, 'item_pressed')
+	pop.disconnect('id_pressed', Callable(self, 'item_pressed'))
 	
 func select_search_mode(id):
 	pop.set_item_checked(search_mode + search_mode_offset, false)
@@ -47,16 +47,16 @@ func item_pressed(id):
 		select_search_mode(id)
 		return
 	if id == 6:
-		$WindowDialog.popup_centered()
-		$WindowDialog/VBoxContainer/TextEdit.text = search_name
+		$Window.popup_centered()
+		$Window/VBoxContainer/TextEdit.text = search_name
 		return
 	if id == 7:
 		emit_signal("preview_clear")
 
 
 func set_search_text():
-	search_name = $WindowDialog/VBoxContainer/TextEdit.text
-	$WindowDialog.hide()
+	search_name = $Window/VBoxContainer/TextEdit.text
+	$Window.hide()
 
 func _on_change_search_pressed():
 	set_search_text()

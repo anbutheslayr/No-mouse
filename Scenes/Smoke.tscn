@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="StandardMaterial3D" id=4]
 albedo_color = Color( 0.0666667, 0.0627451, 0.0627451, 1 )
 emission_enabled = true
 emission = Color( 0.333333, 0.32549, 0.32549, 1 )
@@ -20,12 +20,12 @@ max_value = 2.0
 _data = [ Vector2( 0.011745, 0.190184 ), 0.0, 0.461866, 0, 0, Vector2( 0.360738, 0.95092 ), 1.10086, 0.0, 0, 0 ]
 
 [sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( 0, 0.537879, 1 )
-colors = PoolColorArray( 0, 0, 0, 1, 0.529412, 0.529412, 0.529412, 1, 1, 1, 1, 1 )
+offsets = PackedFloat32Array( 0, 0.537879, 1 )
+colors = PackedColorArray( 0, 0, 0, 1, 0.529412, 0.529412, 0.529412, 1, 1, 1, 1, 1 )
 
-[node name="Spatial" type="Spatial"]
+[node name="Node3D" type="Node3D"]
 
-[node name="CPUParticles" type="CPUParticles" parent="."]
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 emitting = false
 amount = 25
 lifetime = 0.3

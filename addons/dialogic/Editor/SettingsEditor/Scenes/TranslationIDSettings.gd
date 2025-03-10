@@ -1,17 +1,17 @@
-tool
+@tool
 extends VBoxContainer
 
 var override_system_locale: String
 var events_to_localize = ["text", "question", "choice"]
 var timeline_folder: String = "res://dialogic/timelines/"
-var csv_path: String = "res://dialogic/translation/dialogic_localization.csv"
+var csv_path: String = "res://dialogic/position/dialogic_localization.csv"
 var translations = {}
 
 
 func _ready():
 	var TranslationCheckbox = $TranslationIdBox/SettingsCheckbox/CheckBox
-	TranslationCheckbox.connect('toggled', self, '_on_Translation_toggled')
-	$GridContainer/CollectButton.connect("pressed", self, '_on_CollectButton_pressed')
+	TranslationCheckbox.connect('toggled', Callable(self, '_on_Translation_toggled'))
+	$GridContainer/CollectButton.connect("pressed", Callable(self, '_on_CollectButton_pressed'))
 	_on_Translation_toggled(TranslationCheckbox.pressed)
 
 
@@ -26,7 +26,7 @@ func _on_CollectButton_pressed():
 	if $GridContainer/LineEdit.text != '':
 		override_system_locale = $GridContainer/LineEdit.text
 	if $GridContainer/LineEdit2.text == '':
-		csv_path = "res://dialogic/translation/dialogic_localization.csv"
+		csv_path = "res://dialogic/position/dialogic_localization.csv"
 	else:
 		csv_path = $GridContainer/LineEdit2.text
 	
@@ -39,7 +39,7 @@ func _on_CollectButton_pressed():
 
 
 func check_and_create_directory_and_file():
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	
 	if not dir.dir_exists(csv_path.get_base_dir()):
 		dir.make_dir_recursive(csv_path.get_base_dir())
@@ -65,10 +65,10 @@ func load_existing_translations():
 
 
 func parse_dialogic_files():
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	print("Collecting timeline data...")
 	if dir.open(timeline_folder) == OK:
-		dir.list_dir_begin()
+		dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var filename = dir.get_next()
 		
 		while filename != "":
@@ -80,7 +80,9 @@ func parse_dialogic_files():
 func parse_json_file(path: String):
 	var file = File.new()
 	if file.open(path, File.READ) == OK:
-		var data = parse_json(file.get_as_text())
+		var test_json_conv = JSON.new()
+		test_json_conv.parse(file.get_as_text())
+		var data = test_json_conv.get_data()
 		file.close()
 		var timeline_name = "unknown"
 		
@@ -90,7 +92,7 @@ func parse_json_file(path: String):
 		localize_text(data, timeline_name, 0, 0)
 		
 		if file.open(path, File.WRITE) == OK:
-			file.store_string(to_json(data))
+			file.store_string(JSON.new().stringify(data))
 			file.close()
 
 

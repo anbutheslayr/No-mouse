@@ -1,15 +1,15 @@
-tool
+@tool
 extends Control
 
-onready var window: Panel = $window
-onready var vp: Viewport = $window/container/vp
-onready var container: ViewportContainer = $window/container
+@onready var window: Panel = $window
+@onready var vp: SubViewport = $window/container/vp
+@onready var container: SubViewportContainer = $window/container
 
 
 func _ready():
 	resize_vp()
 
-func get_vp() -> Viewport:
+func get_vp() -> SubViewport:
 	return vp
 	
 func toggle_window(toggle):
@@ -22,5 +22,5 @@ func _on_window_resized():
 	resize_vp()
 	
 func resize_vp():
-	vp.size = window.rect_size
+	vp.size = window.size
 	

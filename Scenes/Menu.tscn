@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Interface/Textures/inst.png" type="Texture" id=2]
+[ext_resource path="res://Interface/Textures/inst.png" type="Texture2D" id=2]
 [ext_resource path="res://Scripts/Menu.cs" type="Script" id=3]
-[ext_resource path="res://Scenes/FONT.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scenes/FONT.tres" type="FontFile" id=4]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -13,96 +13,96 @@ script = ExtResource( 3 )
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 12
-custom_constants/margin_top = 12
-custom_constants/margin_left = 12
-custom_constants/margin_bottom = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_left = 12.0
-margin_top = 12.0
-margin_right = 1908.0
-margin_bottom = 1068.0
-custom_constants/separation = 70
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 1908.0
+offset_bottom = 1068.0
+theme_override_constants/separation = 70
 
 [node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_right = 1896.0
+offset_right = 1896.0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-margin_top = 70.0
-margin_right = 1896.0
-margin_bottom = 170.0
-custom_colors/font_color = Color( 0.905882, 0.709804, 0.85098, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 7
-custom_constants/shadow_offset_y = 7
-custom_fonts/font = ExtResource( 4 )
+offset_top = 70.0
+offset_right = 1896.0
+offset_bottom = 170.0
+theme_override_colors/font_color = Color( 0.905882, 0.709804, 0.85098, 1 )
+theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 7
+theme_override_fonts/font = ExtResource( 4 )
 text = "Rogue drifters"
 align = 1
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-margin_left = 12.0
-margin_top = 12.0
-margin_right = 1908.0
-margin_bottom = 1068.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 1908.0
+offset_bottom = 1068.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 875.0
-margin_right = 1020.0
-margin_bottom = 1056.0
-custom_constants/separation = 20
+offset_left = 875.0
+offset_right = 1020.0
+offset_bottom = 1056.0
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 375.0
-margin_right = 145.0
-margin_bottom = 375.0
+offset_top = 375.0
+offset_right = 145.0
+offset_bottom = 375.0
 
 [node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 395.0
-margin_right = 145.0
-margin_bottom = 431.0
+offset_top = 395.0
+offset_right = 145.0
+offset_bottom = 431.0
 theme = ExtResource( 1 )
 keep_pressed_outside = true
 text = "PLAY"
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 451.0
-margin_right = 145.0
-margin_bottom = 451.0
+offset_top = 451.0
+offset_right = 145.0
+offset_bottom = 451.0
 
 [node name="Settings" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 471.0
-margin_right = 145.0
-margin_bottom = 507.0
+offset_top = 471.0
+offset_right = 145.0
+offset_bottom = 507.0
 theme = ExtResource( 1 )
 keep_pressed_outside = true
 text = "SETTINGS"
 
 [node name="Control3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 527.0
-margin_right = 145.0
-margin_bottom = 527.0
+offset_top = 527.0
+offset_right = 145.0
+offset_bottom = 527.0
 
 [node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 547.0
-margin_right = 145.0
-margin_bottom = 583.0
+offset_top = 547.0
+offset_right = 145.0
+offset_bottom = 583.0
 theme = ExtResource( 1 )
 keep_pressed_outside = true
 text = "QUIT"
 
 [node name="Control5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 603.0
-margin_right = 145.0
-margin_bottom = 603.0
+offset_top = 603.0
+offset_right = 145.0
+offset_bottom = 603.0
 
 [node name="insta" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 623.0
-margin_right = 145.0
-margin_bottom = 681.0
+offset_top = 623.0
+offset_right = 145.0
+offset_bottom = 681.0
 theme = ExtResource( 1 )
 text = "contact"
 icon = ExtResource( 2 )

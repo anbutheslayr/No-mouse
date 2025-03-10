@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public class Pause_menu : Control
+public partial class Pause_menu : Control
 {
     public VBoxContainer vb1;
     public VBoxContainer vb2;
     public resolution Res;
     public Control inter_face;
-    public RigidBody plane;
+    public RigidBody3D plane;
     public bool paused;
 
     public override void _Ready()
@@ -15,11 +15,11 @@ public class Pause_menu : Control
         Res = GD.Load<resolution>("user://Int/Res.tres");
 
         vb1 = GetNode<VBoxContainer>("MarginContainer/VBoxContainer");
-        vb1.AddConstantOverride("separation", (int)(Res.res.y/1080*70));
+        vb1.AddThemeConstantOverride("separation", (int)(Res.res.y/1080*70));
         vb2 = GetNode<VBoxContainer>("MarginContainer/HBoxContainer/VBoxContainer");
-        vb2.AddConstantOverride("separation", (int)(Res.res.y/1080*30));
+        vb2.AddThemeConstantOverride("separation", (int)(Res.res.y/1080*30));
         inter_face = GetParent().GetNode<Control>("taxi/Interface");
-        plane = GetTree().GetNodesInGroup("Plane")[0] as RigidBody;
+        plane = GetTree().GetNodesInGroup("Plane")[0] as RigidBody3D;
         paused = false;
     }
 

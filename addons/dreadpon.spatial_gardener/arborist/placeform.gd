@@ -1,5 +1,5 @@
-tool
-extends Reference
+@tool
+extends RefCounted
 
 
 #-------------------------------------------------------------------------------
@@ -22,7 +22,7 @@ extends Reference
 # [3] - octree_octant
 
 
-static func mk(placement:Vector3 = Vector3(), surface_normal:Vector3 = Vector3(), transform:Transform = Transform(), octree_octant:int = 0) -> Array:
+static func mk(placement:Vector3 = Vector3(), surface_normal:Vector3 = Vector3(), transform:Transform3D = Transform3D(), octree_octant:int = 0) -> Array:
 	return [
 		# A designated position for an instance
 		placement, 

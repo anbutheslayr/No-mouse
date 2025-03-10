@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public class Death_screen : Control
+public partial class Death_screen : Control
 {   
     public VBoxContainer vb1;
     public VBoxContainer vb2;
     public resolution Res;
     public Control inter_face;
-    public RigidBody plane;
+    public RigidBody3D plane;
     public bool Started = false;
     public Node admob;
     public Button revive;
@@ -18,11 +18,11 @@ public class Death_screen : Control
         Res = GD.Load<resolution>("user://Int/Res.tres");
         admob = GetNode<Node>("AdMob");
         vb1 = GetNode<VBoxContainer>("MarginContainer/VBoxContainer");
-        vb1.AddConstantOverride("separation", (int)(Res.res.y/1080*70));
+        vb1.AddThemeConstantOverride("separation", (int)(Res.res.y/1080*70));
         vb2 = GetNode<VBoxContainer>("MarginContainer/HBoxContainer/VBoxContainer");
-        vb2.AddConstantOverride("separation", (int)(Res.res.y/1080*30));
+        vb2.AddThemeConstantOverride("separation", (int)(Res.res.y/1080*30));
         inter_face = GetParent().GetNode<Control>("taxi/Interface");
-        plane = GetTree().GetNodesInGroup("Plane")[0] as RigidBody;
+        plane = GetTree().GetNodesInGroup("Plane")[0] as RigidBody3D;
         revive = GetNode<Button>("MarginContainer/HBoxContainer/VBoxContainer/Revive");
 
     }

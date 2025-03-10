@@ -1,17 +1,17 @@
 using Godot;
 using System;
 
-public class Healthbar3d : Spatial
+public partial class Healthbar3d : Node3D
 {
 	[Export] public string texture_progress_path;
     [Export] public string texture_progress_under_path;
     public Tween tween;
-	public TextureProgress texture_progress;
-    public TextureProgress texture_progress_under;
+	public TextureProgressBar texture_progress;
+    public TextureProgressBar texture_progress_under;
 	public override void _Ready()
 	{
-		texture_progress = GetNode<TextureProgress>(texture_progress_path);
-        texture_progress_under = GetNode<TextureProgress>(texture_progress_under_path);
+		texture_progress = GetNode<TextureProgressBar>(texture_progress_path);
+        texture_progress_under = GetNode<TextureProgressBar>(texture_progress_under_path);
         tween = GetNode<Tween>("Tween");
 	}
 

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Hybrid.wav-0f1ddaf72b9ed35207d56a6e2b0b3bb0.sample"
+type="AudioStreamWAV"
+uid="uid://bcsy8j73ai88o"
+path="res://.godot/imported/Hybrid.wav-0f1ddaf72b9ed35207d56a6e2b0b3bb0.sample"
 
 [deps]
 
 source_file="res://Assets/Audio/Hybrid.wav"
-dest_files=[ "res://.import/Hybrid.wav-0f1ddaf72b9ed35207d56a6e2b0b3bb0.sample" ]
+dest_files=["res://.godot/imported/Hybrid.wav-0f1ddaf72b9ed35207d56a6e2b0b3bb0.sample"]
 
 [params]
 

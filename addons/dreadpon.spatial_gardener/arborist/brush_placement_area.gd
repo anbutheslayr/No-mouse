@@ -1,5 +1,5 @@
-tool
-extends Reference
+@tool
+extends RefCounted
 
 
 #-------------------------------------------------------------------------------
@@ -303,7 +303,7 @@ func generate_raycast_positions():
 		for y in range(0, grid_linear_size):
 			if !placement_grid[x][y]: continue
 			var grid_coord := Vector2(x, y)
-			var UV_jitter := Vector2(rand_range(-jitter_fraction, jitter_fraction), rand_range(-jitter_fraction, jitter_fraction))
+			var UV_jitter := Vector2(randf_range(-jitter_fraction, jitter_fraction), randf_range(-jitter_fraction, jitter_fraction))
 			grid_coord += UV_jitter
 			var centered_UV := grid_coord_to_centered_UV(grid_coord)
 			
@@ -322,7 +322,7 @@ func generate_raycast_positions():
 	# Yet it doesn't 100% work on angled surfaces
 	# We still might go over max placements, hence the limit check below
 	# The percieved visual density should be unaffected though, especially at high (>= 0.5) jitter
-	while raycast_positions.size() + placement_overlaps.size() > max_placements_allowed && !raycast_positions.empty():
+	while raycast_positions.size() + placement_overlaps.size() > max_placements_allowed && !raycast_positions.is_empty():
 		raycast_positions.remove(randi() % raycast_positions.size())
 
 

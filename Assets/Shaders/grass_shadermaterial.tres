@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=2]
 
-[ext_resource path="res://Assets/wind_grass.shader" type="Shader" id=1]
-[ext_resource path="res://Addons/scatter/demos/assets/grass/data/t_noise.png" type="Texture" id=2]
+[ext_resource path="res://Assets/wind_grass.gdshader" type="Shader" id=1]
+[ext_resource path="res://Addons/scatter/demos/assets/grass/data/t_noise.png" type="Texture2D" id=2]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.38182, 0.0, 0, 0 ]

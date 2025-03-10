@@ -1,32 +1,32 @@
 using Godot;
 using System;
 
-public class Enemy_Plane : RigidBody
+public partial class Enemy_Plane : RigidBody3D
 {
-	public RigidBody player;
-	public RayCast raycast;
+	public RigidBody3D player;
+	public RayCast3D raycast;
 	public Vector3 target_pos;
 
-	public MeshInstance capsule;
+	public MeshInstance3D capsule;
 	[Export] public float FollowAltitude = 10f;
 	[Export] public float FollowSpeed = 5f;
 	[Export] public float AvoidanceStrength = 10f;
 	[Export] public bool paused = false;
 	public AudioStreamPlayer Attack;
-	public Camera Camera;
+	public Camera3D Camera3D;
 	[Export] public float trauma_amount = 0.5f;
 	// [Export] public float ObjectDetectionDistance = 10f;
 	public override void _Ready()
 	{
-		player = GetParent().GetNode<RigidBody>("taxi/Ball");
-		capsule = GetNode<MeshInstance>("MeshInstance");
+		player = GetParent().GetNode<RigidBody3D>("taxi/Ball");
+		capsule = GetNode<MeshInstance3D>("MeshInstance3D");
 		Attack = GetNode<AudioStreamPlayer>("Attack");
-		raycast = new RayCast();
+		raycast = new RayCast3D();
 		AddChild(raycast);
 		raycast.Enabled = true;
 		raycast.AddException(this);
 		raycast.AddException(player);
-		Camera = GetParent().GetNode<Camera>("Camera");
+		Camera3D = GetParent().GetNode<Camera3D>("Camera3D");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,14 +34,14 @@ public class Enemy_Plane : RigidBody
 	{
 		
 		target_pos = player.GlobalTransform.origin + new Vector3(0, FollowAltitude, 0);
-		raycast.CastTo = target_pos - GlobalTransform.origin;
+		raycast.TargetPosition = target_pos - GlobalTransform.origin;
 		raycast.ForceRaycastUpdate();
 		if (GlobalTranslation.DistanceTo(player.GlobalTranslation) < 4)
 		{
 			player.GetParent().Call("Enable_col");
 			capsule.Show();
 			Attack.Playing = true;
-			Camera.Call("Add_trauma" , trauma_amount);
+			Camera3D.Call("Add_trauma" , trauma_amount);
 		}
 		else
 		{
@@ -64,7 +64,7 @@ public class Enemy_Plane : RigidBody
 		}
 		if(!paused)
 		{
-			GlobalTranslation = GlobalTranslation.LinearInterpolate(target_pos, FollowSpeed);
+			GlobalTranslation = GlobalTranslation.Lerp(target_pos, FollowSpeed);
 		}
 		
 

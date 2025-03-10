@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public class Ammo : Spatial
+public partial class Ammo : Node3D
 {
     public void On_collision(Node node)
     {
         if(node.IsInGroup("Ball"))
         {
-            node.GetParent().GetNode("Spatial/body/MachineGun").Call("Add_ammo");
+            node.GetParent().GetNode("Node3D/body/MachineGun").Call("Add_ammo");
             QueueFree();
         }
     }

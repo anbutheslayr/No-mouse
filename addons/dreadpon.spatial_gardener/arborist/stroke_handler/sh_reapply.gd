@@ -1,4 +1,4 @@
-tool
+@tool
 extends "stroke_handler.gd"
 
 
@@ -15,7 +15,7 @@ var reapplied_octree_members:Array
 
 
 
-func _init(_brush:Toolshed_Brush, _plant_states:Array, _octree_managers:Array, _space_state:PhysicsDirectSpaceState, _camera: Camera, _collision_mask:int).(
+func _init(_brush:Toolshed_Brush, _plant_states:Array, _octree_managers:Array, _space_state:PhysicsDirectSpaceState3D, _camera: Camera3D, _collision_mask:int).(
 	_brush, _plant_states, _octree_managers, _space_state, _camera, _collision_mask):
 	
 	set_meta("class", "SH_Reapply")
@@ -23,7 +23,7 @@ func _init(_brush:Toolshed_Brush, _plant_states:Array, _octree_managers:Array, _
 
 
 func volume_get_stroke_update_changes(brush_data:Dictionary, plant:Greenhouse_Plant, plant_index:int, octree_manager:MMIOctreeManager, 
-	brush_placement_area:BrushPlacementArea, container_transform:Transform, painting_changes:PaintingChanges):
+	brush_placement_area:BrushPlacementArea, container_transform:Transform3D, painting_changes:PaintingChanges):
 	
 	# We detect overlaps first
 	brush_placement_area.init_placement_overlaps(octree_manager)

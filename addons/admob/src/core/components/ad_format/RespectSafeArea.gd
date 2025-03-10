@@ -1,4 +1,4 @@
-tool
+@tool
 extends CheckBox
 
 signal value_changed(value)

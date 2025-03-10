@@ -1,38 +1,38 @@
 using Godot;
 using System;
 
-public class Follow : Camera
+public partial class Follow : Camera3D
 {
     [Export] public float lerp_speed = 3;
     [Export] public string target_PATH;
     [Export] public Vector3 offset;
-    public MeshInstance target;
+    public MeshInstance3D target;
     public Vector3 target_pos;
     public float trauma = 0;
     [Export] public float trauma_red_rate = 1;
-    [Export] public OpenSimplexNoise noise;
+    [Export] public FastNoiseLite noise;
     public float time = 0;
     [Export]public int noise_speed = 50;
     [Export] public float max_x = 10;
     [Export] public float max_y = 10;
     [Export] public float max_z = 5;
-    public RayCast raycast;
+    public RayCast3D raycast;
     [Export] public int col_lerp_speed = 10;
-    public Spatial rayp;
+    public Node3D rayp;
     public Gun gun;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        target = GetParent().GetNode<MeshInstance>(target_PATH);
-        raycast = new RayCast();
+        target = GetParent().GetNode<MeshInstance3D>(target_PATH);
+        raycast = new RayCast3D();
         AddChild(raycast);
         raycast.Enabled = true;
         raycast.AddException(this);
         raycast.AddException(target);
         raycast.CollideWithAreas = false;
         raycast.CollideWithBodies = true;
-        rayp = target.GetNode<Spatial>("Raycol");
+        rayp = target.GetNode<Node3D>("Raycol");
         gun = target.GetNode<Gun>("body/MachineGun");
     }
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,16 +46,16 @@ public class Follow : Camera
 
         raycast.GlobalTranslation = rayp.GlobalTranslation;
         var dir = GlobalTransform.origin - raycast.GlobalTransform.origin;
-        raycast.CastTo = dir;
+        raycast.TargetPosition = dir;
         raycast.ForceRaycastUpdate();
         // if (raycast.IsColliding() && raycast.GetCollider() is StaticBody)
-        if(gun.closest_enemy != null || raycast.GetCollider() is StaticBody)
+        if(gun.closest_enemy != null || raycast.GetCollider() is StaticBody3D)
         {
-            GlobalTranslation = GlobalTranslation.LinearInterpolate( new Vector3(target_pos.x, 25, target_pos.z),col_lerp_speed*delta);
+            GlobalTranslation = GlobalTranslation.Lerp( new Vector3(target_pos.x, 25, target_pos.z),col_lerp_speed*delta);
         }
         else
         {
-            GlobalTranslation = GlobalTranslation.LinearInterpolate(target_pos, lerp_speed * delta);
+            GlobalTranslation = GlobalTranslation.Lerp(target_pos, lerp_speed * delta);
         }
         LookAt(target.GlobalTransform.origin , Vector3.Up);
         

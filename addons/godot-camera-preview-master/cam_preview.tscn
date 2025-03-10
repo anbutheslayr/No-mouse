@@ -26,11 +26,11 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -316.0
-margin_top = -250.0
-rect_min_size = Vector2( 300, 250 )
+offset_left = -316.0
+offset_top = -250.0
+custom_minimum_size = Vector2( 300, 250 )
 mouse_default_cursor_shape = 6
-custom_styles/panel = SubResource( 1 )
+theme_override_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="window"]
@@ -40,13 +40,13 @@ text = "no signal"
 align = 1
 valign = 1
 
-[node name="container" type="ViewportContainer" parent="window"]
+[node name="container" type="SubViewportContainer" parent="window"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
 
-[node name="vp" type="Viewport" parent="window/container"]
+[node name="vp" type="SubViewport" parent="window/container"]
 size = Vector2( 316, 250 )
 handle_input_locally = false
 render_target_update_mode = 0
@@ -57,9 +57,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -20.0
-margin_top = -20.0
-rect_min_size = Vector2( 20, 20 )
+offset_left = -20.0
+offset_top = -20.0
+custom_minimum_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 12
 
 [connection signal="gui_input" from="window" to="window" method="_on_window_gui_input"]

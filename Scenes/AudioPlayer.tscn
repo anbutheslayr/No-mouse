@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Audio/Hybrid.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/AudioPlayer.cs" type="Script" id=3]
 
-[node name="AudioPlayer" type="Spatial"]
+[node name="AudioPlayer" type="Node3D"]
 script = ExtResource( 3 )
 
 [node name="Att" type="AudioStreamPlayer" parent="."]

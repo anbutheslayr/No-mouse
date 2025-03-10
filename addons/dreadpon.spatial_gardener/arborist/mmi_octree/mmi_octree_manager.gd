@@ -1,4 +1,4 @@
-tool
+@tool
 extends Resource
 
 
@@ -15,10 +15,10 @@ const FunLib = preload("../../utility/fun_lib.gd")
 const DebugDraw = preload("../../utility/debug_draw.gd")
 
 
-export(Resource) var root_octree_node = null
-export(Array, Resource) var LOD_variants setget set_LOD_variants
-export var LOD_max_distance:float
-export var LOD_kill_distance:float
+@export var root_octree_node: Resource = null
+@export var LOD_variants : set = set_LOD_variants
+@export var LOD_max_distance:float
+@export var LOD_kill_distance:float
 
 var add_placeforms_queue:Array
 var remove_placeforms_queue:Array
@@ -40,7 +40,7 @@ func _init():
 	set_meta("class", "MMIOctreeManager")
 	resource_name = "MMIOctreeManager"
 	
-	if LOD_variants == null || LOD_variants.empty():
+	if LOD_variants == null || LOD_variants.is_empty():
 		LOD_variants = []
 	add_placeforms_queue = []
 	remove_placeforms_queue = []
@@ -65,14 +65,14 @@ func deep_copy():
 
 
 # Restore any states that might be broken after loading OctreeNode objects
-func restore_after_load(__MMI_container:Spatial):
+func restore_after_load(__MMI_container:Node3D):
 	if is_instance_valid(root_octree_node):
 		root_octree_node.restore_after_load(__MMI_container, LOD_variants)
 		connect_node(root_octree_node)
 		request_debug_redraw()
 
 
-func init_octree(members_per_node:int, root_extent:float, center:Vector3 = Vector3.ZERO, MMI_container:Spatial = null, min_leaf_extent:float = 0.0):
+func init_octree(members_per_node:int, root_extent:float, center:Vector3 = Vector3.ZERO, MMI_container:Node3D = null, min_leaf_extent:float = 0.0):
 	root_octree_node = MMIOctreeNode.new(null, members_per_node, root_extent, center, -1, min_leaf_extent, MMI_container, LOD_variants)
 	connect_node(root_octree_node)
 	request_debug_redraw()
@@ -92,9 +92,9 @@ func connect_node(octree_node:MMIOctreeNode):
 
 func disconnect_node(octree_node:MMIOctreeNode):
 	assert(octree_node)
-	octree_node.disconnect("placeforms_rejected", self, "grow_to_members")
-	octree_node.disconnect("collapse_self_possible", self, "collapse_root")
-	octree_node.disconnect("req_debug_redraw", self, "schedule_debug_redraw")
+	octree_node.disconnect("placeforms_rejected", Callable(self, "grow_to_members"))
+	octree_node.disconnect("collapse_self_possible", Callable(self, "collapse_root"))
+	octree_node.disconnect("req_debug_redraw", Callable(self, "schedule_debug_redraw"))
 
 
 func destroy():
@@ -123,7 +123,7 @@ func rebuild_octree(members_per_node:int, min_leaf_extent:float):
 	init_octree(members_per_node, min_leaf_extent, Vector3.ZERO,
 		root_octree_node.MMI_container, min_leaf_extent)
 
-	if !all_placeforms.empty():
+	if !all_placeforms.is_empty():
 		add_placeforms(all_placeforms)
 	request_debug_redraw()
 	
@@ -154,7 +154,7 @@ func recenter_octree():
 	init_octree(last_root.max_members, new_extent, new_center,
 		root_octree_node.MMI_container, last_root.min_leaf_extent)
 
-	if !all_placeforms.empty():
+	if !all_placeforms.is_empty():
 		add_placeforms(all_placeforms)
 	request_debug_redraw()
 	
@@ -227,11 +227,11 @@ func queue_placeforms_set(change):
 func process_queues():
 	assert(root_octree_node, "'root_octree_node' is not initialized!")
 	
-	if !add_placeforms_queue.empty():
+	if !add_placeforms_queue.is_empty():
 		add_placeforms(add_placeforms_queue)
-	if !remove_placeforms_queue.empty():
+	if !remove_placeforms_queue.is_empty():
 		remove_placeforms(remove_placeforms_queue)
-	if !set_placeforms_queue.empty():
+	if !set_placeforms_queue.is_empty():
 		set_placeforms(set_placeforms_queue)
 	
 	add_placeforms_queue = []
@@ -323,8 +323,8 @@ func set_LODs_to_active_index():
 
 
 # Update LODs in OctreeNodes depending on their distance to camera
-func update_LODs(camera_pos:Vector3, container_transform:Transform):
-	camera_pos = container_transform.affine_inverse().xform(camera_pos)
+func update_LODs(camera_pos:Vector3, container_transform:Transform3D):
+	camera_pos = container_transform.affine_inverse() * (camera_pos)
 	root_octree_node.update_LODs(camera_pos, LOD_max_distance, LOD_kill_distance)
 
 

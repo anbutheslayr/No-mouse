@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Col_jmpd : Spatial
+public partial class Col_jmpd : Node3D
 {
     public AudioStreamPlayer3D Boom;
     public override void _Ready()

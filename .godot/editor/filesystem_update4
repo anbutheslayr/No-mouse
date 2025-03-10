@@ -1,0 +1,5 @@
+res://Scenes/Worlds/World.tscn
+res://default_env.tres
+res://Scenes/Theme.tres
+res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
+res://taxi.tres

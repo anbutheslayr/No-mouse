@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Popuptext : Spatial
+public partial class Popuptext : Node3D
 {
     public Label3D label;
     public AnimationPlayer anim;
@@ -39,8 +39,8 @@ public class Popuptext : Spatial
                 break;
         }
         var rand = new RandomNumberGenerator();
-        var end_pos = new Vector3(rand.RandiRange(-spread,spread),height,rand.RandiRange(-spread, spread)) + Translation;
-        tween.InterpolateProperty(this, "translation" ,Translation,end_pos , tweenlength , Tween.TransitionType.Linear, Tween.EaseType.InOut);
+        var end_pos = new Vector3(rand.RandiRange(-spread,spread),height,rand.RandiRange(-spread, spread)) + Position;
+        tween.InterpolateProperty(this, "translation" ,Position,end_pos , tweenlength , Tween.TransitionType.Linear, Tween.EaseType.InOut);
         tween.Start();
     }
 

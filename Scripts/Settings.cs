@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Settings : Control
+public partial class Settings : Control
 {
     public OptionButton OptionButton;
     public OptionButton shadows;
@@ -15,7 +15,7 @@ public class Settings : Control
     public HBoxContainer hb2;
     public VBoxContainer vb3;
     public Label title;
-    public DynamicFont title_font;
+    public FontFile title_font;
     public TextureButton Esc;
     public OptionButton NoOfEnemies;
     public HSlider volume;
@@ -24,7 +24,7 @@ public class Settings : Control
     {
         Esc = GetNode<TextureButton>("TextureButton");
         Verify_res();
-        title_font = GD.Load<DynamicFont>("res://Scenes/FONT.tres");
+        title_font = GD.Load<FontFile>("res://Scenes/FONT.tres");
         theme = GD.Load<Theme>("res://Scenes/Theme.tres");
         Resize(OS.GetScreenSize());
         Reposition(OS.GetScreenSize());
@@ -101,7 +101,7 @@ public class Settings : Control
     }
     public void Verify_res()
     {
-        var dir = new Directory();
+        var dir = new DirAccess();
         dir.Open("user://");
         if(!dir.DirExists("user://Int")) 
         {
@@ -137,7 +137,7 @@ public class Settings : Control
         else
         {
             var size = new Vector2(OptionButton.GetItemText(OptionButton.Selected).ToString().Split('x')[0].ToFloat(), OptionButton.GetItemText(OptionButton.Selected).ToString().Split('x')[1].ToFloat());
-            GetTree().SetScreenStretch(SceneTree.StretchMode.Viewport, SceneTree.StretchAspect.Expand, size);
+            GetTree().SetScreenStretch(SceneTree.StretchMode.SubViewport, SceneTree.StretchAspect.Expand, size);
             OS.WindowSize = size;
             Res.res = size;
             Resize(size);
@@ -163,14 +163,14 @@ public class Settings : Control
         if(index != 4)
         {
             Res.shadows = true;
-            GetParent().GetNode<DirectionalLight>("DirectionalLight").ShadowEnabled = true;
+            GetParent().GetNode<DirectionalLight3D>("DirectionalLight3D").ShadowEnabled = true;
             SetShadowQuality(index);
 
         }
         else
         {
             Res.shadows = false;
-            GetParent().GetNode<DirectionalLight>("DirectionalLight").ShadowEnabled = false;
+            GetParent().GetNode<DirectionalLight3D>("DirectionalLight3D").ShadowEnabled = false;
 
         }
     }
@@ -236,15 +236,15 @@ public class Settings : Control
     public void Reposition(Vector2 resolution)
     {
         vb1 = GetNode<VBoxContainer>("MarginContainer/VBoxContainer");
-        vb1.AddConstantOverride("separation", (int)(resolution.y/1080*30));
+        vb1.AddThemeConstantOverride("separation", (int)(resolution.y/1080*30));
         hb1 = GetNode<HBoxContainer>("MarginContainer/HBoxContainer");
-        hb1.AddConstantOverride("separation", (int)(resolution.x/1920*150));
+        hb1.AddThemeConstantOverride("separation", (int)(resolution.x/1920*150));
         vb2 = GetNode<VBoxContainer>("MarginContainer/HBoxContainer/VBoxContainer");
-        vb2.AddConstantOverride("separation", (int)(resolution.y/1080*20));
+        vb2.AddThemeConstantOverride("separation", (int)(resolution.y/1080*20));
         hb2 = GetNode<HBoxContainer>("MarginContainer/HBoxContainer2");
-        hb2.AddConstantOverride("separation", (int)(resolution.x/1920*300));
+        hb2.AddThemeConstantOverride("separation", (int)(resolution.x/1920*300));
         vb3 = GetNode<VBoxContainer>("MarginContainer/HBoxContainer2/VBoxContainer");
-        vb3.AddConstantOverride("separation", (int)(resolution.y/1080*20));
+        vb3.AddThemeConstantOverride("separation", (int)(resolution.y/1080*20));
         Esc.SetPosition(new Vector2(resolution.x/1920*18 , resolution.y/1080*26));
     }
     public void Resize(Vector2 resolution)

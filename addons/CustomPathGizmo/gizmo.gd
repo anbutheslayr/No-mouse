@@ -1,4 +1,4 @@
-extends EditorSpatialGizmoPlugin
+extends EditorNode3DGizmoPlugin
 
 const DIRS := [Vector3.RIGHT, Vector3.UP, Vector3.BACK]
 const DIST := 4096
@@ -16,33 +16,33 @@ signal set_tilt_value
 
 
 func _init() -> void:
-	var mat :SpatialMaterial
-	create_material("lines", Color.white)
+	var mat :StandardMaterial3D
+	create_material("lines", Color.WHITE)
 	mat = get_material("lines")
-	mat.set_flag(SpatialMaterial.FLAG_DISABLE_DEPTH_TEST, true)
+	mat.set_flag(StandardMaterial3D.FLAG_DISABLE_DEPTH_TEST, true)
 	
 	create_handle_material("handles")
 	mat = get_material("handles")
 	mat.set_render_priority(3)
-	mat.set_albedo(Color.cyan)
+	mat.set_albedo(Color.CYAN)
 	
 	create_handle_material("points")
 	mat = get_material("points")
 	mat.set_render_priority(2)
-	mat.set_albedo(Color.magenta)
+	mat.set_albedo(Color.MAGENTA)
 	
 	create_handle_material("points_x")
 	mat = get_material("points_x")
 	mat.set_render_priority(1)
-	mat.set_albedo(Color.yellow)
+	mat.set_albedo(Color.YELLOW)
 	
 	create_handle_material("first")
 	mat = get_material("first")
 	mat.set_render_priority(4)
-	mat.set_albedo(Color.black)
+	mat.set_albedo(Color.BLACK)
 
 
-func set_curr_path(p:Path) -> void:
+func set_curr_path(p:Path3D) -> void:
 	var _curve :Curve3D= p.get_curve()
 	var points := _curve.get_point_count()
 	if !points:
@@ -72,7 +72,7 @@ func set_gizmo_info(c:Curve3D, idx:int, x:int) -> void:
 	if idx >= 0:
 		if x == 0:
 			emit_signal("set_tilt_visible", true)
-			emit_signal("set_tilt_value", str(rad2deg(c.get_point_tilt(idx))))
+			emit_signal("set_tilt_value", str(rad_to_deg(c.get_point_tilt(idx))))
 		else:
 			emit_signal("set_tilt_visible", false)
 
@@ -85,13 +85,13 @@ func set_gizmo_xtent(s:float) -> void:
 func set_tilt(t:float, UR:UndoRedo) -> void:
 	var last :int= curve.get_meta("last_point", 0)
 	UR.create_action("Set tilt")
-	UR.add_do_method(curve, "set_point_tilt", last, deg2rad(t))
+	UR.add_do_method(curve, "set_point_tilt", last, deg_to_rad(t))
 	UR.add_undo_method(curve, "set_point_tilt", last, curve.get_point_tilt(last))
 	UR.add_undo_method(
 		self, 
 		"emit_signal", 
 		"set_tilt_value", 
-		str(rad2deg(curve.get_point_tilt(last)))
+		str(rad_to_deg(curve.get_point_tilt(last)))
 	)
 	UR.commit_action()
 
@@ -113,16 +113,16 @@ func open_loop(UR:UndoRedo) -> void:
 		UR.commit_action()
 
 
-func has_gizmo(spatial:Spatial) -> bool:
-	return spatial is Path
+func has_gizmo(spatial:Node3D) -> bool:
+	return spatial is Path3D
 
 
 func get_name() -> String:
 	return "CustomPathGizmo"
 
 
-func get_handle_name(gizmo:EditorSpatialGizmo, index:int) -> String:
-	var curve :Curve3D= gizmo.get_spatial_node().get_curve()
+func _get_handle_name(gizmo:EditorNode3DGizmo, index:int) -> String:
+	var curve :Curve3D= gizmo.get_node_3d().get_curve()
 	var point_count := curve.get_point_count()
 	if index <= 3 * (point_count - 1):
 		if index < point_count:
@@ -141,8 +141,8 @@ func get_handle_name(gizmo:EditorSpatialGizmo, index:int) -> String:
 	return "Point %s (%s)" % [last, "Out" if x > 0 else "In"]
 
 
-func get_handle_value(gizmo:EditorSpatialGizmo, index:int) -> Vector3:
-	var curve :Curve3D= gizmo.get_spatial_node().get_curve()
+func _get_handle_value(gizmo:EditorNode3DGizmo, index:int) -> Vector3:
+	var curve :Curve3D= gizmo.get_node_3d().get_curve()
 	var point_count := curve.get_point_count()
 	if index <= 3 * (point_count - 1):
 		if index < point_count:
@@ -172,9 +172,9 @@ func hide_gizmos() -> void:
 	_hack()
 
 
-func redraw(gizmo:EditorSpatialGizmo) -> void:
+func redraw(gizmo:EditorNode3DGizmo) -> void:
 	gizmo.clear()
-	curve = gizmo.get_spatial_node().get_curve()
+	curve = gizmo.get_node_3d().get_curve()
 	var point_count :int= curve.get_point_count()
 	if !point_count:
 		hide = false
@@ -189,8 +189,8 @@ func redraw(gizmo:EditorSpatialGizmo) -> void:
 		curve_last_point = point_count - 1
 		set_gizmo_info(curve, curve_last_point, 0)
 	
-	if Input.is_mouse_button_pressed(BUTTON_RIGHT):
-		emit_signal("set_tilt_value", str(rad2deg(curve.get_point_tilt(curve_last_point))))
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		emit_signal("set_tilt_value", str(rad_to_deg(curve.get_point_tilt(curve_last_point))))
 		set_gizmo_info(curve, curve_last_point, 0)
 	
 	var line_points := []
@@ -206,7 +206,7 @@ func redraw(gizmo:EditorSpatialGizmo) -> void:
 		closed = false
 		emit_signal("set_open_visible", closed)
 	
-	var mat_lines :SpatialMaterial= get_material("lines")
+	var mat_lines :StandardMaterial3D= get_material("lines")
 	if line_points:
 		gizmo.add_lines(line_points, mat_lines)
 		gizmo.add_lines(line_points, mat_lines)
@@ -243,7 +243,7 @@ func redraw(gizmo:EditorSpatialGizmo) -> void:
 		gizmo.add_lines(line_points, mat_lines)
 		gizmo.add_lines(line_points, mat_lines)
 		gizmo.add_handles([points.pop_front()], get_material("first"))
-		if !points.empty():
+		if !points.is_empty():
 			gizmo.add_handles(points, get_material("points"))
 			gizmo.add_handles(points_x, get_material("points_x"))
 	
@@ -270,8 +270,8 @@ func redraw(gizmo:EditorSpatialGizmo) -> void:
 		hide = false
 
 
-func set_handle(gizmo:EditorSpatialGizmo, index:int, camera:Camera, point:Vector2) -> void:
-	var node :Spatial= gizmo.get_spatial_node() as Path
+func set_handle(gizmo:EditorNode3DGizmo, index:int, camera:Camera3D, point:Vector2) -> void:
+	var node :Node3D= gizmo.get_node_3d() as Path3D
 	var curve :Curve3D= node.get_curve()
 	var point_count :int= curve.get_point_count()
 	var idx_limit :int= 3 * (point_count - 1)
@@ -302,7 +302,7 @@ func set_handle(gizmo:EditorSpatialGizmo, index:int, camera:Camera, point:Vector
 		pos_end = (node.to_local(res - loc_dir * xtent) - point_pos)
 	
 	var snap_vector :Vector3= Vector3.ONE
-	if !Input.is_physical_key_pressed(KEY_CONTROL):
+	if !Input.is_physical_key_pressed(KEY_CTRL):
 		snap_vector *= SNAP
 	
 	var final :Vector3= (point_pos + pos_end).snapped(snap_vector)

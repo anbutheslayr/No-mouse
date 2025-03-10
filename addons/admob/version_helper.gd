@@ -23,7 +23,7 @@
 class_name PoingAdMobVersionHelper
 extends Object
 
-var version_formated : String = _get_plugin_version_formated() setget set_version_formated
+var version_formated : String = _get_plugin_version_formated(): set = set_version_formated
 
 func set_version_formated(value : String) -> void:
 	version_formated = _get_plugin_version_formated()

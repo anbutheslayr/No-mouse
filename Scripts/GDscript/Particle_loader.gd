@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 var frame = 0
 var loaded = false

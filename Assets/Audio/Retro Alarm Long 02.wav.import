@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Retro Alarm Long 02.wav-7d17cdd0939f726bb0268a26aeeb3be6.sample"
+type="AudioStreamWAV"
+uid="uid://cmylcwwqivv46"
+path="res://.godot/imported/Retro Alarm Long 02.wav-7d17cdd0939f726bb0268a26aeeb3be6.sample"
 
 [deps]
 
 source_file="res://Assets/Audio/Retro Alarm Long 02.wav"
-dest_files=[ "res://.import/Retro Alarm Long 02.wav-7d17cdd0939f726bb0268a26aeeb3be6.sample" ]
+dest_files=["res://.godot/imported/Retro Alarm Long 02.wav-7d17cdd0939f726bb0268a26aeeb3be6.sample"]
 
 [params]
 

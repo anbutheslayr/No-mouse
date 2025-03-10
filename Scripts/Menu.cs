@@ -1,23 +1,23 @@
 using Godot;
 using System;
 
-public class Menu : Control
+public partial class Menu : Control
 {
     public VBoxContainer vb1;
     public VBoxContainer vb2;
     public resolution Res;
-    public DynamicFont title_font;
+    public FontFile title_font;
     public Theme theme;
     public Control level_select;
     public override void _Ready()
     {
-        title_font = GD.Load<DynamicFont>("res://Scenes/FONT.tres");
+        title_font = GD.Load<FontFile>("res://Scenes/FONT.tres");
         theme = GD.Load<Theme>("res://Scenes/Theme.tres");
         level_select = GetParent().GetNode<Control>("Select level");
         Verify_res();
         if (Res.res != Vector2.Zero)
         {
-            GetTree().SetScreenStretch(SceneTree.StretchMode.Viewport, SceneTree.StretchAspect.Expand, Res.res);
+            GetTree().SetScreenStretch(SceneTree.StretchMode.SubViewport, SceneTree.StretchAspect.Expand, Res.res);
             GetParent().Call("Resize");
             Resize(Res.res);
             OS.WindowSize = Res.res;
@@ -32,18 +32,18 @@ public class Menu : Control
         if(Res.ShadowQuality != 4)
         {
             Res.shadows = true;
-            GetParent().GetNode<DirectionalLight>("DirectionalLight").ShadowEnabled = true;
+            GetParent().GetNode<DirectionalLight3D>("DirectionalLight3D").ShadowEnabled = true;
             SetShadowQuality(Res.ShadowQuality);
         }
         else
         {
             Res.shadows = false;
-            GetParent().GetNode<DirectionalLight>("DirectionalLight").ShadowEnabled = false;
+            GetParent().GetNode<DirectionalLight3D>("DirectionalLight3D").ShadowEnabled = false;
         }
     }
     public void Verify_res()
     {
-        var dir = new Directory();
+        var dir = new DirAccess();
         dir.Open("user://");
         if(!dir.DirExists("user://Int")) 
         {
@@ -94,9 +94,9 @@ public class Menu : Control
         title_font.Set("outline_size", (resolution.x/1920*3));
 
         vb1 = GetNode<VBoxContainer>("MarginContainer/VBoxContainer");
-        vb1.AddConstantOverride("separation", (int)(resolution.y/1080*70));
+        vb1.AddThemeConstantOverride("separation", (int)(resolution.y/1080*70));
         vb2 = GetNode<VBoxContainer>("MarginContainer/HBoxContainer/VBoxContainer");
-        vb2.AddConstantOverride("separation", (int)(resolution.y/1080*30));
+        vb2.AddThemeConstantOverride("separation", (int)(resolution.y/1080*30));
     }
     public void SetShadowQuality(int index)
     {

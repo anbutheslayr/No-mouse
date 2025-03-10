@@ -1,14 +1,14 @@
 using Godot;
 using System;
 
-public class Skeleton : Spatial
+public partial class Skeleton3D : Node3D
 {
-    public Spatial healthbar;
-    public Spatial player_mesh;
-    public Spatial character;
-    public RigidBody ball;
+    public Node3D healthbar;
+    public Node3D player_mesh;
+    public Node3D character;
+    public RigidBody3D ball;
     public Vector3 sphere_offset = new Vector3(0, -0.9f, 0);
-    public NavigationAgent agent;
+    public NavigationAgent3D agent;
     [Export]public float speed_input;
     public Vector3 nexpos;
     public Navigation navigation;
@@ -19,26 +19,26 @@ public class Skeleton : Spatial
     [Export] public int turn_speed = 5;
 	[Signal] delegate void Change_Health(int health);
 
-    public RayCast rayCast;
+    public RayCast3D rayCast;
     public int health = 100;
     public PackedScene explosion;
 
     public override void _Ready()
     {
-        healthbar = GetNode<Spatial>("Healthbar");
-        player_mesh = GetParent().GetParent().GetNode<Spatial>("taxi/Spatial");
-        ball = GetParent().GetNode<RigidBody>("Ball");
-        agent = GetNode<NavigationAgent>("root/NavigationAgent");
+        healthbar = GetNode<Node3D>("Healthbar");
+        player_mesh = GetParent().GetParent().GetNode<Node3D>("taxi/Node3D");
+        ball = GetParent().GetNode<RigidBody3D>("Ball");
+        agent = GetNode<NavigationAgent3D>("root/NavigationAgent3D");
         navigation = GetParent().GetParent().GetNode<Navigation>("Navigation");
         agent.SetNavigation(navigation);
         update_path_timer = new Timer();
         AddChild(update_path_timer);
         update_path_timer.OneShot = true;
         update_path_timer.Start(0.1f);
-        rayCast = GetNode<RayCast>("RayCast");
-        character = GetNode<Spatial>("root");
+        rayCast = GetNode<RayCast3D>("RayCast3D");
+        character = GetNode<Node3D>("root");
         explosion = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
-		Connect("Change_Health", healthbar, nameof(Change_Health));
+		Connect("Change_Health", new Callable(healthbar, nameof(Change_Health)));
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,7 +57,7 @@ public class Skeleton : Spatial
 			speed_input = 0;
 		}
 		speed_input = Mathf.Lerp(speed_input , speed_input*acceleration , delta * 25);
-		ball.AddCentralForce(-GlobalTransform.basis.z * speed_input);
+		ball.AddConstantCentralForce(-GlobalTransform.basis.z * speed_input);
         
         // GlobalTranslation = GlobalTranslation.LinearInterpolate(player_mesh.GlobalTransform.origin, 0.07f);
     
@@ -70,13 +70,13 @@ public class Skeleton : Spatial
             update_path_timer.Start(0.35f);
         }
         
-        character.Rotation = new Vector3(0, Mathf.Deg2Rad(180), 0);
+        character.Rotation = new Vector3(0, Mathf.DegToRad(180), 0);
     }
     public float Calculate_Angle(Vector3 direction)
 	{
 		// Calculate angle
 		var angle = -GlobalTransform.basis.z.SignedAngleTo(direction , Vector3.Up);
-		angle = Mathf.Rad2Deg(angle);
+		angle = Mathf.RadToDeg(angle);
 		return angle;
 	}
     public void Calculate_Health()
@@ -85,7 +85,7 @@ public class Skeleton : Spatial
 		if(health <= 0)
 		{
 			health = 0;
-			var explosion_instance = explosion.Instance() as Spatial;
+			var explosion_instance = explosion.Instance() as Node3D;
 			GetTree().Root.AddChild(explosion_instance);
 			explosion_instance.GlobalTranslation = ball.GlobalTranslation;
 			GetParent().QueueFree();
