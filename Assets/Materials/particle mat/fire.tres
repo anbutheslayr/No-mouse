@@ -1,35 +1,33 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=7 format=2]
+[gd_resource type="ParticleProcessMaterial" load_steps=7 format=3 uid="uid://dhnctxv4rmjlo"]
 
-[sub_resource type="Gradient" id=6]
-offsets = PackedFloat32Array( 0, 0.854962 )
-colors = PackedColorArray( 1, 0.877434, 0.0771484, 1, 0.957031, 0.49904, 0.0551414, 1 )
+[sub_resource type="Gradient" id="6"]
+offsets = PackedFloat32Array(0, 0.854962)
+colors = PackedColorArray(1, 0.877434, 0.0771484, 1, 0.957031, 0.49904, 0.0551414, 1)
 
-[sub_resource type="GradientTexture2D" id=7]
-gradient = SubResource( 6 )
+[sub_resource type="GradientTexture2D" id="7"]
+gradient = SubResource("6")
 
-[sub_resource type="Gradient" id=8]
-offsets = PackedFloat32Array( 0.139394, 0.842424, 1 )
-colors = PackedColorArray( 1, 0.942627, 0.0820313, 1, 0.676636, 0.21053, 0.119051, 1, 0.1875, 0.177456, 0.175049, 1 )
+[sub_resource type="Gradient" id="8"]
+offsets = PackedFloat32Array(0.139394, 0.842424, 1)
+colors = PackedColorArray(1, 0.942627, 0.0820313, 1, 0.676636, 0.21053, 0.119051, 1, 0.1875, 0.177456, 0.175049, 1)
 
-[sub_resource type="GradientTexture2D" id=9]
-gradient = SubResource( 8 )
+[sub_resource type="GradientTexture2D" id="9"]
+gradient = SubResource("8")
 
-[sub_resource type="Curve" id=10]
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.117384, 1 ), -1.12526, -1.12526, 0, 0, Vector2( 0.536738, 1 ), -4.63949, -4.63949, 0, 0, Vector2( 0.931004, 0.868098 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.119632 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="Curve" id="10"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.117384, 1), -1.12526, -1.12526, 0, 0, Vector2(0.536738, 1), -4.63949, -4.63949, 0, 0, Vector2(0.931004, 0.868098), 0.0, 0.0, 0, 0, Vector2(1, 0.119632), 0.0, 0.0, 0, 0]
+point_count = 5
 
-[sub_resource type="CurveTexture" id=11]
-curve = SubResource( 10 )
+[sub_resource type="CurveTexture" id="11"]
+curve = SubResource("10")
 
 [resource]
 emission_shape = 1
 emission_sphere_radius = 1.0
-direction = Vector3( 0, -1, 0 )
+direction = Vector3(0, -1, 0)
 spread = 90.0
-gravity = Vector3( 0, 5, 0 )
-initial_velocity = 5.0
-initial_velocity_random = 0.16
-scale_random = 0.5
-scale_curve = SubResource( 11 )
-color = Color( 0.945098, 0.831373, 0.368627, 1 )
-color_ramp = SubResource( 9 )
-color_initial_ramp = SubResource( 7 )
+gravity = Vector3(0, 5, 0)
+scale_curve = SubResource("11")
+color = Color(0.945098, 0.831373, 0.368627, 1)
+color_ramp = SubResource("9")
+color_initial_ramp = SubResource("7")

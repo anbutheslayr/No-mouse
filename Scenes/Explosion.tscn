@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://Scripts/Explosion.cs" type="Script" id=1]
-[ext_resource path="res://Assets/Audio/explosion.mp3" type="AudioStream" id=2]
+[ext_resource type="Script" uid="uid://leqm6b6yg5tu" path="res://Scripts/Ported scripts/Explosion.cs" id="1"]
+[ext_resource type="AudioStream" uid="uid://drg17rqvkh1vx" path="res://Assets/Audio/explosion.mp3" id="2"]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.619176, 0.794478 ), -4.7546, -4.7546, 0, 0, Vector2( 0.99552, 0 ), 0.0, 0.0, 0, 0 ]

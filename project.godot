@@ -102,7 +102,7 @@ convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dreadpon.spatial_gardener/plugin.cfg", "res://addons/godot-camera-preview-master/plugin.cfg", "res://addons/multimesh_scatter/plugin.cfg", "res://addons/road-generator/plugin.cfg")
+enabled=PackedStringArray("res://addons/dreadpon.spatial_gardener/plugin.cfg", "res://addons/godot-camera-preview-master/plugin.cfg")
 
 [global]
 

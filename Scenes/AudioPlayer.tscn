@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Audio/Hybrid.wav" type="AudioStream" id=1]
-[ext_resource path="res://Scripts/AudioPlayer.cs" type="Script" id=3]
+[ext_resource type="AudioStream" uid="uid://bcsy8j73ai88o" path="res://Assets/Audio/Hybrid.wav" id="1"]
+[ext_resource type="Script" uid="uid://k6fdbwr3inux" path="res://Scripts/Ported scripts/AudioPlayer.cs" id="3"]
 
 [node name="AudioPlayer" type="Node3D"]
 script = ExtResource( 3 )
