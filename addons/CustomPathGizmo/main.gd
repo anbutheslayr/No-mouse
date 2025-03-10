@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorPlugin
 
 const GIZMO := preload("res://addons/CustomPathGizmo/gizmo.gd")
@@ -6,45 +6,45 @@ const MENU := preload("res://addons/CustomPathGizmo/menu_bar.tscn")
 const PICK_LENGTH := 4096
 const PICK_MAX_DIST := 0.049
 
-var gizmo := GIZMO.new() as EditorSpatialGizmoPlugin
-var menu := MENU.instance() as Control
+var gizmo := GIZMO.new() as EditorNode3DGizmoPlugin
+var menu := MENU.instantiate() as Control
 var selection :EditorSelection= get_editor_interface().get_selection()
-var last :Path
+var last :Path3D
 
 
 func _enter_tree():
-	selection.connect("selection_changed", self, "check_selection")
+	selection.connect("selection_changed", Callable(self, "check_selection"))
 	add_control_to_container(CONTAINER_SPATIAL_EDITOR_MENU, menu)
 	menu.set_visible(false)
 	
-	add_spatial_gizmo_plugin(gizmo)
-	menu.xtent.connect("value_changed", gizmo, "set_gizmo_xtent")
-	menu.open.connect("pressed", gizmo, "open_loop", [get_undo_redo()])
-	menu.connect("tilted", gizmo, "set_tilt", [get_undo_redo()])
+	add_node_3d_gizmo_plugin(gizmo)
+	menu.xtent.connect("value_changed", Callable(gizmo, "set_gizmo_xtent"))
+	menu.open.connect("pressed", Callable(gizmo, "open_loop").bind(get_undo_redo()))
+	menu.connect("tilted", Callable(gizmo, "set_tilt").bind(get_undo_redo()))
 	
-	gizmo.connect("set_menu_visible", menu, "set_visible")
-	gizmo.connect("set_open_visible", menu.top_open, "set_visible")
-	gizmo.connect("set_tilt_visible", menu.top_tilt, "set_visible")
-	gizmo.connect("set_tilt_value", menu.tilt, "set_text")
+	gizmo.connect("set_menu_visible", Callable(menu, "set_visible"))
+	gizmo.connect("set_open_visible", Callable(menu.top_open, "set_visible"))
+	gizmo.connect("set_tilt_visible", Callable(menu.top_tilt, "set_visible"))
+	gizmo.connect("set_tilt_value", Callable(menu.tilt, "set_text"))
 
 
 func _exit_tree():
 	menu.set_visible(false)
 	remove_control_from_container(CONTAINER_SPATIAL_EDITOR_MENU, menu)
 	menu.free()
-	remove_spatial_gizmo_plugin(gizmo)
+	remove_node_3d_gizmo_plugin(gizmo)
 
 
 func check_selection() -> void:
 	var arr :Array= selection.get_selected_nodes()
 	var size := arr.size()
-	if size != 1 or (size == 1 and arr[0].get_class() != "Path"):
+	if size != 1 or (size == 1 and arr[0].get_class() != "Path3D"):
 		gizmo.call_deferred("hide_gizmos")
 		menu.call_deferred("set_visible", false)
 
 
 func handles(object:Object) -> bool:
-	if object is Path:
+	if object is Path3D:
 		last = object
 		gizmo.set_curr_path(last)
 		return true
@@ -54,10 +54,10 @@ func handles(object:Object) -> bool:
 	return false
 
 
-func forward_spatial_gui_input(camera:Camera, event:InputEvent) -> bool:
+func _forward_3d_gui_input(camera:Camera3D, event:InputEvent) -> bool:
 	if !event is InputEventMouseButton:
 		return false
-	elif event.get_button_index() != BUTTON_LEFT or !event.is_pressed():
+	elif event.get_button_index() != MOUSE_BUTTON_LEFT or !event.is_pressed():
 		return false
 	
 	var curve :Curve3D= last.get_curve()
@@ -83,8 +83,8 @@ func forward_spatial_gui_input(camera:Camera, event:InputEvent) -> bool:
 	var to_print := ""
 	if idx >= 0: # Checks Handles and Colliders
 		to_print = "Point %s at: %s" % [idx, curve.get_point_position(idx)]
-		if event.get_shift():
-			if !event.get_control(): # Add Handles if needed
+		if event.is_shift_pressed():
+			if !event.is_ctrl_pressed(): # Add Handles if needed
 				var is_closed :bool= last.get_gizmo().get_plugin().closed
 				var add_i_closed :bool= is_closed and idx == 0 and !curve.get_point_in(point_count - 1)
 				var add_o_closed :bool= is_closed and idx == point_count - 1 and !curve.get_point_out(0)
@@ -110,7 +110,7 @@ func forward_spatial_gui_input(camera:Camera, event:InputEvent) -> bool:
 					
 					UR.commit_action()
 			else: # Snap to Collider if there is one
-				var pdss :PhysicsDirectSpaceState= last.get_world().get_direct_space_state()
+				var pdss :PhysicsDirectSpaceState3D= last.get_world_3d().get_direct_space_state()
 				var res :Dictionary= pdss.intersect_ray(cam_from, cam_to)
 				if res:
 					var pos :Vector3= curve.get_point_position(idx)
@@ -167,8 +167,8 @@ func forward_spatial_gui_input(camera:Camera, event:InputEvent) -> bool:
 		]
 	
 	last.get_gizmo().get_plugin().set_gizmo_info(curve, idx, x)
-	last.update_gizmo()
-	if event.is_doubleclick():
+	last.update_gizmos()
+	if event.is_double_click():
 		print(to_print)
 	
 	return true

@@ -1,4 +1,4 @@
-tool
+@tool
 extends Node
 
 
@@ -7,9 +7,9 @@ const Logger = preload("../../utility/logger.gd")
 const FunLib = preload("../../utility/fun_lib.gd")
 
 
-export var do_execute:bool = false setget set_do_execute
+@export var do_execute:bool = false: set = set_do_execute
 var logger = null
-var undo_redo:UndoRedo = null setget set_undo_redo
+var undo_redo:UndoRedo = null: set = set_undo_redo
 var is_executing:bool = false
 
 signal finished_execution(result)

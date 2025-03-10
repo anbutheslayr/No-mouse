@@ -1,7 +1,7 @@
-tool
+@tool
 extends CheckBox
 
-onready var AdMobEditor : Control = find_parent("AdMobEditor")
+@onready var AdMobEditor : Control = find_parent("AdMobEditor")
 
 func _ready() -> void:
 	pressed = AdMobEditor.AdMobSettings.config.general.is_enabled

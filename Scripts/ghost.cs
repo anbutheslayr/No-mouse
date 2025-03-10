@@ -1,10 +1,10 @@
 using Godot;
 using System;
 
-public class ghost : RigidBody
+public partial class ghost : RigidBody3D
 {
-	public RigidBody player;
-  public RayCast raycast;
+	public RigidBody3D player;
+  public RayCast3D raycast;
   public Vector3 target_pos;
 
   [Export] public float FollowAltitude = 10f;
@@ -12,21 +12,21 @@ public class ghost : RigidBody
   [Export] public float AvoidanceStrength = 10f;
   [Export] public bool paused = false;
   public AudioStreamPlayer ghostAudio;
-  public Camera Camera;
+  public Camera3D Camera3D;
   [Export] public float trauma_amount = 0.5f;    
   public Particles Ghost_smoke;
 
   // Called when the node enters the scene tree for the first time.
   public override void _Ready()
   {
-    player = GetParent().GetNode<RigidBody>("taxi/Ball");
+    player = GetParent().GetNode<RigidBody3D>("taxi/Ball");
     ghostAudio = GetNode<AudioStreamPlayer>("Ghost_sound");
-    raycast = new RayCast();
+    raycast = new RayCast3D();
     AddChild(raycast);
     raycast.Enabled = true;
     raycast.AddException(this);
     raycast.AddException(player);
-    Camera = GetParent().GetNode<Camera>("Camera");     
+    Camera3D = GetParent().GetNode<Camera3D>("Camera3D");     
     Ghost_smoke = GetNode<Particles>("Ghost smoke");   
   }
 
@@ -34,14 +34,14 @@ public class ghost : RigidBody
     public override void _Process(float delta)
     {
         target_pos = player.GlobalTransform.origin + new Vector3(2, FollowAltitude, 2);
-        raycast.CastTo = target_pos - GlobalTransform.origin;
+        raycast.TargetPosition = target_pos - GlobalTransform.origin;
         raycast.ForceRaycastUpdate();
         if (GlobalTranslation.DistanceTo(player.GlobalTranslation) < 5)
         {
           player.GetParent().Call("Enable_col");
           Ghost_smoke.Emitting = true;
            ghostAudio.Play();
-          Camera.Call("Add_trauma" , trauma_amount);
+          Camera3D.Call("Add_trauma" , trauma_amount);
         }
         else
         {
@@ -61,7 +61,7 @@ public class ghost : RigidBody
       }
       if(!paused)
       {
-        GlobalTranslation = GlobalTranslation.LinearInterpolate(target_pos, FollowSpeed);
+        GlobalTranslation = GlobalTranslation.Lerp(target_pos, FollowSpeed);
         LookAt(player.GlobalTranslation, Vector3.Up);
       }
       

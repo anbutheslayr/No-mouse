@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/ghost-moan-83902.mp3-43a91dfca7cf4f8c35209b35c3e4ef9c.mp3str"
+uid="uid://cm5ekboalvinh"
+path="res://.godot/imported/ghost-moan-83902.mp3-43a91dfca7cf4f8c35209b35c3e4ef9c.mp3str"
 
 [deps]
 
 source_file="res://Assets/Audio/ghost-moan-83902.mp3"
-dest_files=[ "res://.import/ghost-moan-83902.mp3-43a91dfca7cf4f8c35209b35c3e4ef9c.mp3str" ]
+dest_files=["res://.godot/imported/ghost-moan-83902.mp3-43a91dfca7cf4f8c35209b35c3e4ef9c.mp3str"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-tool
+@tool
 extends "ui_input_field.gd"
 
 
@@ -23,7 +23,8 @@ var _resource_previewer = null
 #-------------------------------------------------------------------------------
 
 
-func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", settings:Dictionary = {}).(__init_val, __labelText, __prop_name, settings):
+func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", settings:Dictionary = {}):
+	super(__init_val, __labelText, __prop_name, settings)
 	
 	set_meta("class", "UI_IF_ApplyChanges")
 	
@@ -52,7 +53,7 @@ func _ready():
 	if tab_index > 0:
 		ThemeAdapter.assign_node_type(margin_container, 'PanelContainer')
 	else:
-		margin_container.add_stylebox_override('panel', StyleBoxEmpty.new())
+		margin_container.add_theme_stylebox_override('panel', StyleBoxEmpty.new())
 
 
 func rebuild_object_input_fields(object:Object):
@@ -65,7 +66,7 @@ func rebuild_object_input_fields(object:Object):
 			var nesting := (input_field.prop_name as String).split('/')
 			if nesting.size() >= 2:
 				if !property_sections.has(nesting[0]): 
-					var section = UI_FoldableSection_SCN.instance()
+					var section = UI_FoldableSection_SCN.instantiate()
 					property_sections[nesting[0]] = {'section': section, 'subsections': {}}
 					input_field_container.add_child(section)
 					section.set_button_text(nesting[0].capitalize())
@@ -73,7 +74,7 @@ func rebuild_object_input_fields(object:Object):
 				
 				if nesting.size() >= 3:
 					if !property_sections[nesting[0]].subsections.has(nesting[1]):
-						var subsection = UI_FoldableSection_SCN.instance()
+						var subsection = UI_FoldableSection_SCN.instantiate()
 						property_sections[nesting[0]].subsections[nesting[1]] = {'subsection': subsection} 
 						property_sections[nesting[0]].section.add_child(subsection)
 						subsection.set_button_text(nesting[1].capitalize())
@@ -107,4 +108,4 @@ func _update_ui_to_val(val):
 		rebuild_object_input_fields(null)
 		visibility_forced = 0
 		visible = false
-	._update_ui_to_val(val)
+	super._update_ui_to_val(val)

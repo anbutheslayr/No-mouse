@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Thrust.wav-0410b1a3acecabc95be562b51344f1cc.sample"
+type="AudioStreamWAV"
+uid="uid://bghvf5gmcvvjk"
+path="res://.godot/imported/Thrust.wav-0410b1a3acecabc95be562b51344f1cc.sample"
 
 [deps]
 
 source_file="res://Assets/Audio/Thrust.wav"
-dest_files=[ "res://.import/Thrust.wav-0410b1a3acecabc95be562b51344f1cc.sample" ]
+dest_files=["res://.godot/imported/Thrust.wav-0410b1a3acecabc95be562b51344f1cc.sample"]
 
 [params]
 

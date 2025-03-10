@@ -1,4 +1,4 @@
-tool
+@tool
 extends Resource
 
 
@@ -12,19 +12,19 @@ extends Resource
 
 
 # A designated position for an instance
-export var placement:Vector3 = Vector3()
+@export var placement:Vector3 = Vector3()
 # A normal of the surface
-export var surface_normal:Vector3 = Vector3()
+@export var surface_normal:Vector3 = Vector3()
 # An actual transform derived from placement including random offsets, rotations, scaling, etc.
-export var transform:Transform = Transform()
+@export var transform:Transform3D = Transform3D()
 # Occupied octant is mostly used to quick access the child node of an octree node
 # E.g. when aplying PaintingChanges
-export var octree_octant:int = 0
+@export var octree_octant:int = 0
 
 
 
 
-func _init(_placement:Vector3 = Vector3(), _surface_normal:Vector3 = Vector3(), _transform:Transform = Transform(), _octree_octant:int = 0):
+func _init(_placement:Vector3 = Vector3(), _surface_normal:Vector3 = Vector3(), _transform:Transform3D = Transform3D(), _octree_octant:int = 0):
 	set_meta("class", "PlacementTransform")
 	resource_name = "PlacementTransform"
 	

@@ -1,5 +1,5 @@
-tool
-extends Reference
+@tool
+extends RefCounted
 
 enum PainterActionType {START_STROKE, MOVE_STROKE, END_STROKE, SET_SIZE}
 

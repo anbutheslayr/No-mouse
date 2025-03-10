@@ -1,9 +1,9 @@
-tool
+@tool
 extends VBoxContainer
 
-onready var AdMobEditor : Control = find_parent("AdMobEditor")
+@onready var AdMobEditor : Control = find_parent("AdMobEditor")
 
-onready var godot_version : String = "v" + String(Engine.get_version_info().major) + "." + String(Engine.get_version_info().minor) + "." + String(Engine.get_version_info().patch)
+@onready var godot_version : String = "v" + String(Engine.get_version_info().major) + "." + String(Engine.get_version_info().minor) + "." + String(Engine.get_version_info().patch)
 var actual_downloading_file : String = ""
 var downloaded_plugin_version : String = ""
 var version_support : Dictionary
@@ -16,7 +16,7 @@ var ios_dictionary : Dictionary = {
 		"download_directory" : "res://addons/admob/downloads/ios"
 	} setget set_ios_dictionary
 
-var current_dir_download_label = "Current Download Directory: %s"
+var current_dir_download_label = "Current Download DirAccess: %s"
 var download_complete_message = "Download of %s completed! \n%s"
 
 func set_android_dictionary(value):
@@ -124,7 +124,9 @@ func _on_VersionSupportedHTTPRequest_supported_version_changed(value_dictionary 
 	version_support = value_dictionary
 
 func get_versions_platform_supported(body):
-	var json = JSON.parse(body.get_string_from_utf8())
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(body.get_string_from_utf8())
+	var json = test_json_conv.get_data()
 
 	var regex = RegEx.new()
 	regex.compile("[v](([0-9])+(\\.{0,1}([0-9]))*)+")

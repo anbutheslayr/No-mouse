@@ -1,20 +1,20 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Audio/vine-boom-162668_[cut_2sec].mp3" type="AudioStream" id=1]
-[ext_resource path="res://Assets/Materials/BOOM.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Materials/BOOM.png" type="Texture2D" id=2]
 [ext_resource path="res://Scripts/Col_jmpd.cs" type="Script" id=3]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="StandardMaterial3D" id=1]
 flags_transparent = true
 albedo_texture = ExtResource( 2 )
 uv1_scale = Vector3( 0.167, 0.2, 0.163 )
 uv1_offset = Vector3( 1.5, 0, 1.5 )
 uv1_triplanar = true
 
-[node name="Col_jmpd" type="Spatial" groups=["Jump"]]
+[node name="Col_jmpd" type="Node3D" groups=["Jump"]]
 script = ExtResource( 3 )
 
-[node name="CSGCylinder" type="CSGCylinder" parent="."]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 material_override = SubResource( 1 )
 use_collision = true
 radius = 2.98542

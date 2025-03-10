@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class resolution : Resource
+public partial class resolution : Resource
 {
     [Export] public Vector2 res = new Vector2(1920, 1080);
     [Export] public int res_int = 0;

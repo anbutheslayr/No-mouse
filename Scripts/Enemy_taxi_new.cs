@@ -2,11 +2,11 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Enemy_taxi_new : Spatial
+public partial class Enemy_taxi_new : Node3D
 {
-	public RigidBody ball;
-	public MeshInstance Car_mesh;
-	public RayCast rayCast;
+	public RigidBody3D ball;
+	public MeshInstance3D Car_mesh;
+	public RayCast3D rayCast;
 	[Export] public string Ball_path;
 	[Export] public string car_mesh_body_path;
 	[Export] public string Car_mesh_path;
@@ -22,22 +22,22 @@ public class Enemy_taxi_new : Spatial
 	public float steering_input;
 	[Export] public string left_wheel_path;
 	[Export] public string right_wheel_path;
-	public MeshInstance car_mesh_body;
-	public MeshInstance left_wheel;
-	public MeshInstance right_wheel;
+	public MeshInstance3D car_mesh_body;
+	public MeshInstance3D left_wheel;
+	public MeshInstance3D right_wheel;
 	[Export] public string B_L_particles;
 	[Export] public string B_R_particles;
 	[Export] public string B_L2_particles;
 	[Export] public string B_R2_particles;
-	public CPUParticles B_L;
-	public CPUParticles B_R;
+	public CPUParticles3D B_L;
+	public CPUParticles3D B_R;
 	// public Timer jump_timer;
 
     // AI components
-	public MeshInstance player_mesh;
+	public MeshInstance3D player_mesh;
 	[Export] public string player_mesh_path;
 
-	public NavigationAgent nav_agent;
+	public NavigationAgent3D nav_agent;
 	[Export] public string Nav_agent_path;
 	public Navigation navigation;
 	[Export] public string Navigation_path;
@@ -45,7 +45,7 @@ public class Enemy_taxi_new : Spatial
 	[Export] public float ramp_speed = 3;
 	public float health = 100;
 	[Signal] delegate void Change_Health(int health);
-	public Spatial health_bar;
+	public Node3D health_bar;
 	[Export] public string health_bar_path;
 	public AudioStreamPlayer3D drift;
 	public Vector3 next_point;
@@ -61,35 +61,35 @@ public class Enemy_taxi_new : Spatial
 	public override void _Ready()
 	{
 		Res = GD.Load<resolution>("user://Int/Res.tres");
-		ball = GetNode<RigidBody>(Ball_path);
-		Car_mesh = GetNode<MeshInstance>(Car_mesh_path);
-		rayCast = GetNode<RayCast>(rayCast_path);
+		ball = GetNode<RigidBody3D>(Ball_path);
+		Car_mesh = GetNode<MeshInstance3D>(Car_mesh_path);
+		rayCast = GetNode<RayCast3D>(rayCast_path);
 		rayCast.AddException(ball);
-		left_wheel = GetNode<MeshInstance>(left_wheel_path);
-		right_wheel = GetNode<MeshInstance>(right_wheel_path);
-		car_mesh_body = GetNode<MeshInstance>(car_mesh_body_path);
+		left_wheel = GetNode<MeshInstance3D>(left_wheel_path);
+		right_wheel = GetNode<MeshInstance3D>(right_wheel_path);
+		car_mesh_body = GetNode<MeshInstance3D>(car_mesh_body_path);
 		if(Res.cur_world ==2 )
 		{
-			B_L = GetNode<CPUParticles>(B_L2_particles);
-			B_R = GetNode<CPUParticles>(B_R2_particles);
+			B_L = GetNode<CPUParticles3D>(B_L2_particles);
+			B_R = GetNode<CPUParticles3D>(B_R2_particles);
 		}
 		else
 		{
-			B_L = GetNode<CPUParticles>(B_L_particles);
-			B_R = GetNode<CPUParticles>(B_R_particles);
+			B_L = GetNode<CPUParticles3D>(B_L_particles);
+			B_R = GetNode<CPUParticles3D>(B_R_particles);
 		}
 		B_L.Emitting = true;
 		B_R.Emitting = true;
-		drift = GetNode<AudioStreamPlayer3D>("Spatial/Drift");
-		player_mesh = GetParent().GetNode<MeshInstance>(player_mesh_path);
-		nav_agent = GetNode<NavigationAgent>(Nav_agent_path);
+		drift = GetNode<AudioStreamPlayer3D>("Node3D/Drift");
+		player_mesh = GetParent().GetNode<MeshInstance3D>(player_mesh_path);
+		nav_agent = GetNode<NavigationAgent3D>(Nav_agent_path);
 		navigation = GetParent().GetNode<Navigation>(Navigation_path);
-		nav_agent.TargetLocation = player_mesh.GlobalTransform.origin;
+		nav_agent.TargetPosition = player_mesh.GlobalTransform.origin;
 		nav_agent.SetNavigation(navigation);
-		var o = nav_agent.GetNavPath();
+		var o = nav_agent.GetCurrentNavigationPath();
 		p = new List<Vector3>(o);
-		health_bar = GetNode<Spatial>(health_bar_path);
-		Connect("Change_Health", health_bar, nameof(Change_Health));
+		health_bar = GetNode<Node3D>(health_bar_path);
+		Connect("Change_Health", new Callable(health_bar, nameof(Change_Health)));
 		update_path_timer = new Timer();
 		AddChild(update_path_timer);
 		update_path_timer.OneShot = true;
@@ -144,13 +144,13 @@ public class Enemy_taxi_new : Spatial
 	public override void _PhysicsProcess(float delta)
 	{
 		// align mesh with sphere
-		Car_mesh.Translation = ball.Translation + sphere_offset;
+		Car_mesh.Position = ball.Position + sphere_offset;
 		//Accelerate
 		if(Is_on_ramp)
 		{
 			speed_input *= ramp_speed;
 		}
-		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z * speed_input);
+		ball.AddConstantCentralForce(-Car_mesh.GlobalTransform.basis.z * speed_input);
 		// GD.Print(speed_input);
 		// Smoke
 		var car_mesh_forward = -Car_mesh.GlobalTransform.basis.z.Normalized();
@@ -180,8 +180,8 @@ public class Enemy_taxi_new : Spatial
 		if(update_path_timer.TimeLeft == 0)
 		{
 			// UpdatePath();
-			nav_agent.TargetLocation =player_mesh.GlobalTransform.origin;
-			next_point = nav_agent.GetNextLocation();
+			nav_agent.TargetPosition =player_mesh.GlobalTransform.origin;
+			next_point = nav_agent.GetNextPathPosition();
 			update_path_timer.Start(waittime);
 		}
 		var direction = next_point - Car_mesh.GlobalTransform.origin;
@@ -204,7 +204,7 @@ public class Enemy_taxi_new : Spatial
 		// steering_input -= Input.GetActionStrength("ui_right");
 		// steering_input += Input.GetActionStrength("ui_left");
 		// steering_input = -Input.GetAccelerometer().Normalized().x;
-		steering_input *= Mathf.Deg2Rad(steering);
+		steering_input *= Mathf.DegToRad(steering);
 		// Acceleration
 		// speed_input = 0;
 		// speed_input += Input.GetActionStrength("ui_up");
@@ -286,7 +286,7 @@ public class Enemy_taxi_new : Spatial
 	{
 		// Calculate angle
 		var angle = -car_mesh_body.GlobalTransform.basis.z.SignedAngleTo(direction , Vector3.Up);
-		angle = Mathf.Rad2Deg(angle);
+		angle = Mathf.RadToDeg(angle);
 		return angle;
 	}
 	private void OnCollision(Node node)
@@ -309,10 +309,10 @@ public class Enemy_taxi_new : Spatial
 		health -= damage;
 		if(health <= 0)
 		{
-			GetParent().GetNode("Camera").Call("Add_trauma",0.8f);
+			GetParent().GetNode("Camera3D").Call("Add_trauma",0.8f);
 			player_mesh.GetParent().GetNode("Interface").Call("Kill");
 			health = 0;
-			var explosion_instance = explosion.Instance() as Spatial;
+			var explosion_instance = explosion.Instance() as Node3D;
 			GetTree().Root.AddChild(explosion_instance);
 			explosion_instance.GlobalTranslation = ball.GlobalTranslation;
 			QueueFree();
@@ -324,7 +324,7 @@ public class Enemy_taxi_new : Spatial
 		// }
 	}
 	
-	public Transform Alignwithsurface(Transform xform ,Vector3 new_y)
+	public Transform3D Alignwithsurface(Transform3D xform ,Vector3 new_y)
 	{
 		xform.basis.y = new_y;
 		xform.basis.x = -xform.basis.z.Cross(new_y);

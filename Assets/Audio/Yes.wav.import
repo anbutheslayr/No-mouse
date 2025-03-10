@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Yes.wav-775557102c041023115bc16506197086.sample"
+type="AudioStreamWAV"
+uid="uid://crtajsg88m7cg"
+path="res://.godot/imported/Yes.wav-775557102c041023115bc16506197086.sample"
 
 [deps]
 
 source_file="res://Assets/Audio/Yes.wav"
-dest_files=[ "res://.import/Yes.wav-775557102c041023115bc16506197086.sample" ]
+dest_files=["res://.godot/imported/Yes.wav-775557102c041023115bc16506197086.sample"]
 
 [params]
 

@@ -2,34 +2,34 @@
 
 [ext_resource path="res://Scripts/Jump_pd.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Audio/vine-boom-162668_[cut_2sec].mp3" type="AudioStream" id=2]
-[ext_resource path="res://Assets/Materials/BOOM.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Materials/BOOM.png" type="Texture2D" id=3]
 
 [sub_resource type="CylinderMesh" id=2]
 top_radius = 3.0
 bottom_radius = 3.0
 height = 0.001
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="StandardMaterial3D" id=3]
 flags_transparent = true
 albedo_texture = ExtResource( 3 )
 uv1_scale = Vector3( 0.167, 0.2, 0.163 )
 uv1_offset = Vector3( 1.5, 0, 1.5 )
 uv1_triplanar = true
 
-[sub_resource type="CylinderShape" id=1]
+[sub_resource type="CylinderShape3D" id=1]
 height = 0.106235
 radius = 3.0
 
-[node name="Jump_pd" type="Spatial"]
+[node name="Jump_pd" type="Node3D"]
 script = ExtResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
-[node name="Area" type="Area" parent="."]
+[node name="Area3D" type="Area3D" parent="."]
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource( 1 )
 
 [node name="Boom" type="AudioStreamPlayer3D" parent="."]
@@ -37,5 +37,5 @@ stream = ExtResource( 2 )
 unit_size = 60.0
 max_db = 5.0
 
-[connection signal="body_entered" from="Area" to="." method="On_Enter"]
-[connection signal="body_exited" from="Area" to="." method="On_Exit"]
+[connection signal="body_entered" from="Area3D" to="." method="On_Enter"]
+[connection signal="body_exited" from="Area3D" to="." method="On_Exit"]

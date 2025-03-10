@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Loading_screen : Control
+public partial class Loading_screen : Control
 {
     public Label label;
     public Global_vars gl;
@@ -23,14 +23,14 @@ public class Loading_screen : Control
             {
                 var scene = ResourceLoader.LoadInteractive(sceneName);
             
-                GetTree().ChangeSceneTo(null);
+                GetTree().ChangeSceneToPacked(null);
                 while (true)
                 {
                     var err = scene.Poll();
                     if(err == Error.FileEof)
                     {
                         var res = scene.GetResource();
-                        GetTree().ChangeSceneTo((PackedScene)res);
+                        GetTree().ChangeSceneToPacked((PackedScene)res);
                         Hide();
                         QueueFree();
                         break; 
@@ -50,7 +50,7 @@ public class Loading_screen : Control
             }
             else
             {
-                GetTree().ChangeScene(sceneName);
+                GetTree().ChangeSceneToFile(sceneName);
                 // GetTree().Root.AddChild(ResourceLoader.Load<PackedScene>(sceneName).Instance());
                 Hide();
                 QueueFree();

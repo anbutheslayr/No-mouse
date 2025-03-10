@@ -1,4 +1,4 @@
-tool
+@tool
 
 
 #-------------------------------------------------------------------------------
@@ -20,8 +20,8 @@ class Base:
 	func _init(__context:String, __log_filepath:String = ''):
 		_context = __context
 		_log_filepath = __log_filepath
-		if !_log_filepath.empty():
-			var dir = Directory.new()
+		if !_log_filepath.is_empty():
+			var dir = DirAccess.new()
 			dir.make_dir_recursive(_log_filepath.get_base_dir())
 			if !dir.file_exists(_log_filepath):
 				var file = File.new()
@@ -60,7 +60,7 @@ class Base:
 	# We need to route that through a logger manager of some kind, 
 	# So we won't have to reopen File each time
 	func log_to_file(msg: String):
-		if _log_filepath.empty(): return
+		if _log_filepath.is_empty(): return
 		var file = File.new()
 		file.open(_log_filepath, File.READ_WRITE)
 		file.seek_end()

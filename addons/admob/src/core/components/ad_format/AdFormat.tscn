@@ -10,5 +10,5 @@ __meta__ = {
 }
 
 [node name="UnitIds" parent="." instance=ExtResource( 1 )]
-margin_right = 500.0
-margin_bottom = 60.0
+offset_right = 500.0
+offset_bottom = 60.0

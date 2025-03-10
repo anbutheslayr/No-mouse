@@ -2,16 +2,16 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Gun : Spatial
+public partial class Gun : Node3D
 {
     [Export] public string RayCastPath;
     [Export] public string AnimPath;
     
-    public MeshInstance gun;
+    public MeshInstance3D gun;
     [Export] public string gun_path;
     public AnimationPlayer anim;
-    public RayCast ray_cast;
-    public List<Spatial> enemies = new List<Spatial>();
+    public RayCast3D ray_cast;
+    public List<Node3D> enemies = new List<Node3D>();
     public PackedScene decal;
     public PackedScene Particles;
     [Export] public string decal_path;
@@ -19,7 +19,7 @@ public class Gun : Spatial
     [Export] public int gun_damage = 5;
     [Export] public float Aim_speed = .25f;
     [Export] public float Range = 2;
-    public Spatial Marker;
+    public Node3D Marker;
     public AudioStreamPlayer audioStreamPlayer;
     public bool entered = false;
     [Export] public int Ammo;
@@ -27,9 +27,9 @@ public class Gun : Spatial
     public int cur_magazines;
     public int cur_ammo;
     public RichTextLabel ammo_text;
-    public Spatial player;
+    public Node3D player;
     public int cur_gun = 0;
-    public Spatial rocket_launcher;
+    public Node3D rocket_launcher;
     public Timer rock_timer;
     public bool launch = false;
     public int i = 0;
@@ -38,29 +38,29 @@ public class Gun : Spatial
     public int max_bull_ind=2;
     public TextureButton rocket_button;
     public PackedScene poputtext;
-    public Spatial closest_enemy;
+    public Node3D closest_enemy;
     public override void _Ready()
     {
-        ray_cast = GetNode<RayCast>(RayCastPath);
+        ray_cast = GetNode<RayCast3D>(RayCastPath);
         ray_cast.Enabled = true;
         anim = GetParent().GetParent().GetNode<AnimationPlayer>(AnimPath);
-        gun = GetNode<MeshInstance>(gun_path);
+        gun = GetNode<MeshInstance3D>(gun_path);
         decal = GD.Load<PackedScene>(decal_path);
         random = new Random();
         audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-        Marker = GetNode<Spatial>("Gun/Marker");
+        Marker = GetNode<Node3D>("Gun/Marker");
         ammo_text = GetParent().GetParent().GetParent().GetNode<RichTextLabel>("Interface/Ammo_text");
         cur_ammo = Ammo;
         cur_magazines = start_magazines;
         ProjectSettings.SetSetting("display/window/stretch/mode" , "disabled");
         Particles = GD.Load<PackedScene>("res://Scenes/Particles.tscn");
-        player = GetParent().GetParent().GetParent() as Spatial;
-        rocket_launcher = GetParent().GetNode<Spatial>("Rocket Launcher/Gun");
+        player = GetParent().GetParent().GetParent() as Node3D;
+        rocket_launcher = GetParent().GetNode<Node3D>("Rocket Launcher/Gun");
         rock_timer = new Timer();
         AddChild(rock_timer);
         rock_timer.OneShot = true;
         rock_timer.WaitTime = .2f;
-        rock_timer.Connect("timeout" , this , nameof(On_timeout));
+        rock_timer.Connect("timeout", new Callable(this, nameof(On_timeout)));
         rock_timer.Start();
         roc_ammo = GD.Load<PackedScene>("res://Assets/Models/Guns/Rocket Ammo.tscn");
         rocket_button = GetParent().GetParent().GetParent().GetNode<TextureButton>("Interface/Rocket_button");
@@ -71,12 +71,12 @@ public class Gun : Spatial
     {
         if(body.IsInGroup("Enemy"))
         {
-            enemies.Add(body as Spatial);
+            enemies.Add(body as Node3D);
             // GD.Print(enemies);
         }
         if(body.IsInGroup("Runnable"))
         {
-            enemies.Add(body as Spatial);
+            enemies.Add(body as Node3D);
             // GD.Print(enemies);
         }
         
@@ -86,12 +86,12 @@ public class Gun : Spatial
     {
         if(body.IsInGroup("Enemy"))
         {
-            enemies.Remove(body as Spatial);
+            enemies.Remove(body as Node3D);
             player.Call("Close_miss" , body);
         }
         if(body.IsInGroup("Runnable"))
         {
-            enemies.Remove(body as Spatial);
+            enemies.Remove(body as Node3D);
             player.Call("Close_miss" , body);
         }
     }
@@ -127,7 +127,7 @@ public class Gun : Spatial
                         {
                             aimspd = 0.95f;
                         }
-                        gun.LookAt(Marker.GlobalTransform.origin.LinearInterpolate(GlobalTransform.origin - direction , aimspd),Vector3.Up);
+                        gun.LookAt(Marker.GlobalTransform.origin.Lerp(GlobalTransform.origin - direction , aimspd),Vector3.Up);
                         if(anim.CurrentAnimation != "Shoot" && anim.CurrentAnimation != "Gun_rise" && anim.CurrentAnimation != "Gun_descend")
                         {
                             anim.Play("Shoot");
@@ -166,7 +166,7 @@ public class Gun : Spatial
                         if(launch)
                         {
                             rocket_launcher.GetChild(rocket_launcher.GetChildCount() - 1).Call("Launch");
-                            Reparent(rocket_launcher.GetChild(rocket_launcher.GetChildCount() - 1) as Spatial);
+                            Reparent(rocket_launcher.GetChild(rocket_launcher.GetChildCount() - 1) as Node3D);
                             launch = false;
                             rock_timer.Start(2);
                             i++;
@@ -193,11 +193,11 @@ public class Gun : Spatial
         
         
     }
-    public Spatial GetClosestEnemy()
+    public Node3D GetClosestEnemy()
     {
-        Spatial closest_enemy = null;
+        Node3D closest_enemy = null;
         float closest_distance = 0;
-        foreach(Spatial enemy in enemies)
+        foreach(Node3D enemy in enemies)
         {
             float distance = GlobalTransform.origin.DistanceTo(enemy.GlobalTransform.origin);
             if(closest_enemy == null || distance < closest_distance)
@@ -214,19 +214,19 @@ public class Gun : Spatial
     }
     public void Rocket_reload()
     {
-        var b1 = roc_ammo.Instance() as Spatial;
+        var b1 = roc_ammo.Instance() as Node3D;
         rocket_launcher.AddChild(b1);
-        b1.GlobalTransform = (rocket_launcher.GetParent().GetChild(0)as Spatial).GlobalTransform;
-        var b2 = roc_ammo.Instance() as Spatial;
+        b1.GlobalTransform = (rocket_launcher.GetParent().GetChild(0)as Node3D).GlobalTransform;
+        var b2 = roc_ammo.Instance() as Node3D;
         rocket_launcher.AddChild(b2);
-        b2.GlobalTransform = (rocket_launcher.GetParent().GetChild(1)as Spatial).GlobalTransform;
-        var b3 = roc_ammo.Instance() as Spatial;
+        b2.GlobalTransform = (rocket_launcher.GetParent().GetChild(1)as Node3D).GlobalTransform;
+        var b3 = roc_ammo.Instance() as Node3D;
         rocket_launcher.AddChild(b3);
-        b3.GlobalTransform = (rocket_launcher.GetParent().GetChild(2)as Spatial).GlobalTransform;
+        b3.GlobalTransform = (rocket_launcher.GetParent().GetChild(2)as Node3D).GlobalTransform;
         rocket_ammo--;
         gun_switch();
     }
-    public void Reparent(Spatial bullet)
+    public void Reparent(Node3D bullet)
     {
         var transform = bullet.GlobalTransform;
         var oldparent = bullet.GetParent();
@@ -239,8 +239,8 @@ public class Gun : Spatial
         
         if(ray_cast.IsColliding() && cur_ammo > 0)
         {
-            var a = Particles.Instance() as Spatial;
-            var b = decal.Instance() as Spatial;
+            var a = Particles.Instance() as Node3D;
+            var b = decal.Instance() as Node3D;
             GetTree().Root.AddChild(a);
             (ray_cast.GetCollider() as Node).AddChild(b);
             a.GlobalTranslation = ray_cast.GetCollisionPoint();
@@ -251,9 +251,9 @@ public class Gun : Spatial
             }
             if( (ray_cast.GetCollider() as Node).IsInGroup("Enemy_Body"))
             {
-                var enemy =(ray_cast.GetCollider() as Node).GetParent().GetParent().GetParent() as Spatial;
+                var enemy =(ray_cast.GetCollider() as Node).GetParent().GetParent().GetParent() as Node3D;
                 enemy.Call("Calculate_Health" , gun_damage);
-                var d = poputtext.Instance() as Spatial;
+                var d = poputtext.Instance() as Node3D;
                 GetTree().Root.AddChild(d);
                 (d as Popuptext).PlayAnim("Hit!",10,5,ray_cast.GetCollisionPoint() + new Vector3(0,1,0),0);
                 // GD.Print("damage = " + gun_damage);

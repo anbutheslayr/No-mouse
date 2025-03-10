@@ -1,34 +1,34 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/Materials/Yellow.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Materials/Red.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Materials/Yellow.png" type="Texture2D" id=1]
+[ext_resource path="res://Assets/Materials/Red.png" type="Texture2D" id=2]
 [ext_resource path="res://Scripts/Healthbar3d_enemy.cs" type="Script" id=3]
-[ext_resource path="res://Assets/Materials/pngegg.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Materials/pngegg.png" type="Texture2D" id=4]
 
 [sub_resource type="ViewportTexture" id=18]
-viewport_path = NodePath("Viewport")
+viewport_path = NodePath("SubViewport")
 
-[node name="Healthbar" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+[node name="Healthbar" type="Node3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 script = ExtResource( 3 )
-texture_progress_path = "Viewport/TextureProgress"
-texture_progress_under_path = "Viewport/TextureProgress_under"
+texture_progress_path = "SubViewport/TextureProgressBar"
+texture_progress_under_path = "SubViewport/TextureProgress_under"
 
-[node name="Viewport" type="Viewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2( 450, 50 )
 transparent_bg = true
 render_target_v_flip = true
 
-[node name="TextureProgress_under" type="TextureProgress" parent="Viewport"]
-margin_right = 450.0
-margin_bottom = 50.0
+[node name="TextureProgress_under" type="TextureProgressBar" parent="SubViewport"]
+offset_right = 450.0
+offset_bottom = 50.0
 value = 100.0
 texture_over = ExtResource( 4 )
 texture_progress = ExtResource( 2 )
 
-[node name="TextureProgress" type="TextureProgress" parent="Viewport"]
-margin_right = 450.0
-margin_bottom = 50.0
+[node name="TextureProgressBar" type="TextureProgressBar" parent="SubViewport"]
+offset_right = 450.0
+offset_bottom = 50.0
 value = 100.0
 texture_over = ExtResource( 4 )
 texture_progress = ExtResource( 1 )

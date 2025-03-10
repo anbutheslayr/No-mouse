@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Global_vars : Node
+public partial class Global_vars : Node
 {
     public string SceneToLoad;
     public Node currentscene;

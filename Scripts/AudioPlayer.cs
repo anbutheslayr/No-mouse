@@ -2,7 +2,7 @@ using Godot;
 using System.Collections.Generic;
 using System;
 
-public class AudioPlayer : Spatial
+public partial class AudioPlayer : Node3D
 {
     public AudioStreamPlayer Att;
     public AudioStreamPlayer BG;

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System;
 
 
-public class Movement : Spatial
+public partial class Movement : Node3D
 {
 	public PackedScene poputtext;
-	public RigidBody ball;
-	public MeshInstance Car_mesh;
+	public RigidBody3D ball;
+	public MeshInstance3D Car_mesh;
 	[Export] public int Close_miss_bonus = 10;
 	[Export] public string Ball_path;
 	[Export] public string car_mesh_body_path;
@@ -22,13 +22,13 @@ public class Movement : Spatial
 	public float steering_input;
 	[Export] public string left_wheel_path;
 	[Export] public string right_wheel_path;
-	public MeshInstance car_mesh_body;
-	public MeshInstance left_wheel;
-	public MeshInstance right_wheel;
+	public MeshInstance3D car_mesh_body;
+	public MeshInstance3D left_wheel;
+	public MeshInstance3D right_wheel;
 	[Export] public string B_L_particles;
 	[Export] public string B_R_particles;
-	public CPUParticles B_L;
-	public CPUParticles B_R;
+	public CPUParticles3D B_L;
+	public CPUParticles3D B_R;
 	[Export] public string B_L2_particles;
 	[Export] public string B_R2_particles;
 	[Export] public string Accelerate_button_path;
@@ -43,7 +43,7 @@ public class Movement : Spatial
 	public TouchScreenButton Right;
 	public TouchScreenButton Brake;
 	public AudioStreamPlayer audioStreamPlayer;
-	public Spatial health_bar;
+	public Node3D health_bar;
 	public AudioStreamPlayer3D drift;
 	public float col_time = 0;
 	public bool col = false;
@@ -51,46 +51,46 @@ public class Movement : Spatial
 	public Control intrface;
 	[Export] public int Drift_multiplier = 1;
 	[Export] public int im = 0;
-	public Camera cam;
+	public Camera3D cam;
 	// [Export]public NodePath min_map_cam_path;
 	[Export]public NodePath cam_pos_path;
-	public Spatial cam_pos; 
+	public Node3D cam_pos; 
 	// public Camera min_map_cam;
 	public PackedScene exp;
 	public resolution Res;
-	public List<Spatial> enemies_in_range = new List<Spatial>();
+	public List<Node3D> enemies_in_range = new List<Node3D>();
 	public AnimationPlayer hitanim;
-	public RayCast Fl;
-	public RayCast Fr;
-	public RayCast Bl;
+	public RayCast3D Fl;
+	public RayCast3D Fr;
+	public RayCast3D Bl;
 	[Export]public NodePath Fl_path;
 	[Export]public NodePath Fr_path;
 	[Export]public NodePath Bl_path;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Fl = GetNode<RayCast>(Fl_path);
-		Fr = GetNode<RayCast>(Fr_path);
-		Bl = GetNode<RayCast>(Bl_path);
-		ball = GetNode<RigidBody>(Ball_path);
-		Car_mesh = GetNode<MeshInstance>(Car_mesh_path);
-		left_wheel = GetNode<MeshInstance>(left_wheel_path);
-		right_wheel = GetNode<MeshInstance>(right_wheel_path);
-		car_mesh_body = GetNode<MeshInstance>(car_mesh_body_path);
+		Fl = GetNode<RayCast3D>(Fl_path);
+		Fr = GetNode<RayCast3D>(Fr_path);
+		Bl = GetNode<RayCast3D>(Bl_path);
+		ball = GetNode<RigidBody3D>(Ball_path);
+		Car_mesh = GetNode<MeshInstance3D>(Car_mesh_path);
+		left_wheel = GetNode<MeshInstance3D>(left_wheel_path);
+		right_wheel = GetNode<MeshInstance3D>(right_wheel_path);
+		car_mesh_body = GetNode<MeshInstance3D>(car_mesh_body_path);
 		Accelerate_button = GetNode<TouchScreenButton>(Accelerate_button_path);
-		health_bar = GetNode<Spatial>(health_bar_path);
-		Connect("Change_Health", health_bar, nameof(Change_Health));
+		health_bar = GetNode<Node3D>(health_bar_path);
+		Connect("Change_Health", new Callable(health_bar, nameof(Change_Health)));
 		audioStreamPlayer = GetNode<AudioStreamPlayer>("Ball/Oncollision");
-		drift = GetNode<AudioStreamPlayer3D>("Spatial/Drift");
+		drift = GetNode<AudioStreamPlayer3D>("Node3D/Drift");
 		Left = GetNode<TouchScreenButton>("Interface/Steering/Left");
 		Right = GetNode<TouchScreenButton>("Interface/Steering/Right");
 		Brake = GetNode<TouchScreenButton>("Interface/Acceleration/Brake");
 		intrface = GetNode<Control>("Interface");
-		cam = GetParent().GetNode<Camera>("Camera");
+		cam = GetParent().GetNode<Camera3D>("Camera3D");
 		// min_map_cam = GetNode<Camera>(min_map_cam_path);
-		cam_pos = GetNode<Spatial>(cam_pos_path);
+		cam_pos = GetNode<Node3D>(cam_pos_path);
 		exp = GD.Load<PackedScene>("res://Scenes/Explosion.tscn");
-		var i = exp.Instance() as Spatial;
+		var i = exp.Instance() as Node3D;
 		GetTree().Root.AddChild(i);
 		Res = ResourceLoader.Load<resolution>("user://Int/Res.tres");
 		poputtext = GD.Load<PackedScene>("res://Interface/Popup text.tscn");
@@ -98,13 +98,13 @@ public class Movement : Spatial
 		i.GlobalTranslation = ball.GlobalTranslation;
 		if(Res.cur_world ==2 )
 		{
-			B_L = GetNode<CPUParticles>(B_L2_particles);
-			B_R = GetNode<CPUParticles>(B_R2_particles);
+			B_L = GetNode<CPUParticles3D>(B_L2_particles);
+			B_R = GetNode<CPUParticles3D>(B_R2_particles);
 		}
 		else
 		{
-			B_L = GetNode<CPUParticles>(B_L_particles);
-			B_R = GetNode<CPUParticles>(B_R_particles);
+			B_L = GetNode<CPUParticles3D>(B_L_particles);
+			B_R = GetNode<CPUParticles3D>(B_R_particles);
 		}
 		// jump_timer = new Timer();
 		// AddChild(jump_timer);
@@ -118,9 +118,9 @@ public class Movement : Spatial
 	{
 		// min_map_cam.GlobalTransform = cam_pos.GlobalTransform;
 		// align mesh with sphere
-		var transform = Car_mesh.Transform;
-		transform.origin = ball.Transform.origin + sphere_offset;
-		Car_mesh.Transform = transform;
+		var transform = Car_mesh.Transform3D;
+		transform.origin = ball.Transform3D.origin + sphere_offset;
+		Car_mesh.Transform3D = transform;
 		// Acceleration
 		speed_input = 0;
 		speed_input += Input.GetActionStrength("Up");
@@ -152,7 +152,7 @@ public class Movement : Spatial
 		{
 			steering_input = -1;
 		}
-		steering_input *= Mathf.Deg2Rad(steering);
+		steering_input *= Mathf.DegToRad(steering);
 
 		//Accelerate
 		if(Is_on_ramp)
@@ -160,7 +160,7 @@ public class Movement : Spatial
 			speed_input *= ramp_speed;
 		}
 		var add = (Car_mesh.Rotation.x>0)?-Car_mesh.GlobalTransform.basis.z*Mathf.Sin(Car_mesh.Rotation.x)*ball.Weight*3 : Vector3.Zero;
-		ball.AddCentralForce(-Car_mesh.GlobalTransform.basis.z* speed_input  + add);
+		ball.AddConstantCentralForce(-Car_mesh.GlobalTransform.basis.z* speed_input  + add);
 		GD.Print(Car_mesh.Rotation.x);
 		// Smoke
 		var ball_velocity = ball.LinearVelocity.Normalized();
@@ -265,7 +265,7 @@ public class Movement : Spatial
 		
 	}
 
-	public Transform Alignwithsurface(Transform xform)
+	public Transform3D Alignwithsurface(Transform3D xform)
 	{
 		Vector3 frontLeftcol = Fl.IsColliding() ? Fl.GetCollisionPoint() : Fl.GlobalTranslation;
         Vector3 backLeftcol = Bl.IsColliding() ? Bl.GetCollisionPoint() : Bl.GlobalTranslation;
@@ -290,11 +290,11 @@ public class Movement : Spatial
 		{
 			Is_on_ramp = true;
 		}
-		if(body is RigidBody)	
+		if(body is RigidBody3D)	
 		{
 			// Enable_col();
 			// get relative velocity
-			var col_body = body as RigidBody;
+			var col_body = body as RigidBody3D;
 			var relative_velocity = col_body.LinearVelocity - ball.LinearVelocity;
 			var Impact_magnitude = relative_velocity.Length();
 
@@ -321,7 +321,7 @@ public class Movement : Spatial
 		if(damage!=0)
 		{
 			hitanim.Play("Hit");
-			var d = poputtext.Instance() as Spatial;
+			var d = poputtext.Instance() as Node3D;
 			GetTree().Root.AddChild(d);
 			(d as Popuptext).PlayAnim(damage.ToString(),20,3,Car_mesh.GlobalTranslation + new Vector3(0,2,0),1);
 		}
@@ -329,7 +329,7 @@ public class Movement : Spatial
 		if(health <= 0)
 		{
 			Visible = false;
-			var e = exp.Instance() as Spatial;
+			var e = exp.Instance() as Node3D;
 			GetTree().Root.AddChild(e);
 			e.GlobalTranslation = ball.GlobalTranslation;
 		}
@@ -367,11 +367,11 @@ public class Movement : Spatial
 	{
 		col = false;
 	}
-	public void Close_miss(RigidBody body)
+	public void Close_miss(RigidBody3D body)
 	{
 		if(body.LinearVelocity.Length() > 27)
 		{
-			var p = poputtext.Instance() as Spatial;
+			var p = poputtext.Instance() as Node3D;
 			GetTree().Root.AddChild(p);
 			(p as Popuptext).PlayAnim("Close Miss +" + Close_miss_bonus.ToString(),20,1,health_bar.GlobalTranslation + new Vector3(0,1,0),3);
 			health += Close_miss_bonus;

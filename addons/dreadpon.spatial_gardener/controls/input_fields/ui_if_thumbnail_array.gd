@@ -1,4 +1,4 @@
-tool
+@tool
 extends "ui_if_thumbnail_base.gd"
 
 
@@ -26,7 +26,8 @@ var flex_grid:UI_FlexGridContainer = null
 #-------------------------------------------------------------------------------
 
 
-func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", settings:Dictionary = {}).(__init_val, __labelText, __prop_name, settings):
+func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", settings:Dictionary = {}):
+	super(__init_val, __labelText, __prop_name, settings)
 	set_meta("class", "UI_IF_ThumbnailArray")
 	
 	add_create_inst_button = settings.add_create_inst_button
@@ -80,7 +81,7 @@ func _update_ui_to_val(val):
 		else:
 			flex_grid.get_child(i).set_thumbnail(null)
 	
-	._update_ui_to_val(val.duplicate())
+	super._update_ui_to_val(val.duplicate())
 
 
 # Set possible interaction features for an action thumbnail

@@ -1,3 +1,4 @@
+@tool
 # Copyright (c) 2022 arcaneenergy
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -18,11 +19,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-tool
 extends EditorPlugin
 
 func _enter_tree() -> void:
-	add_custom_type("MultiMeshScatter", "MultiMeshInstance", preload("multimesh_scatter.gd"), preload("icon.svg"))
+	add_custom_type("MultiMeshScatter", "MultiMeshInstance3D", preload("multimesh_scatter.gd"), preload("icon.svg"))
 
 func _exit_tree() -> void:
 	remove_custom_type("MultiMeshScatter")
