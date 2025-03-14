@@ -6,7 +6,7 @@ extends Node3D
 @onready var texture_progress_under : TextureProgressBar = get_node(texture_progress_under_path)
 
 
-var tween : Tween = Tween.new()
+var tween : Tween = create_tween()
 
 func change_health(health : int, immediate : bool):
     if immediate:

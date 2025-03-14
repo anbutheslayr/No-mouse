@@ -10,3 +10,14 @@ res://Assets/Materials/particle mat/ghost smoke.tres
 res://Assets/Materials/particle mat/Smoke.tres
 res://Assets/Materials/particle mat/Rocket particles.tres
 res://taxi.tres
+res://Scenes/Healthbar3d.tscn
+res://addons/dreadpon.spatial_gardener/utility/globals.gd
+res://Assets/gardener/toolshed.tres
+res://Assets/gardener/greenhouse.tres
+res://Scenes/Worlds/test.tscn
+res://Interface/Start.tscn
+res://Scripts/GDscript/Follow.gd
+res://Scenes/AudioPlayer.tscn
+res://Assets/Models/Guns/Machine gun.tscn
+res://Scripts/explosion.gd
+res://Scenes/Explosion.tscn

@@ -1,10 +1,10 @@
 [gd_scene load_steps=47 format=4 uid="uid://gqjf08qmj56a"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Healthbar3d.tscn" id="1"]
-[ext_resource type="Script" uid="uid://c0pn6sieqx4iw" path="res://Scripts/Ported scripts/Movement.cs" id="2"]
+[ext_resource type="PackedScene" uid="uid://p67cldlwo417" path="res://Scenes/Healthbar3d.tscn" id="1"]
+[ext_resource type="Script" uid="uid://ciwkt07qufcgw" path="res://Scripts/GDscript/Movement.gd" id="1_dn7ac"]
 [ext_resource type="ArrayMesh" uid="uid://cdhyjuk3j3inm" path="res://taxi.tres" id="3"]
 [ext_resource type="PackedScene" path="res://Scenes/Smoke.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://Assets/Models/Guns/Machine gun.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://jpi7seohr20e" path="res://Assets/Models/Guns/Machine gun.tscn" id="5"]
 [ext_resource type="AudioStream" uid="uid://xwpaac22ka33" path="res://Assets/Audio/clank-car-crash-collision-6206.mp3" id="6"]
 [ext_resource type="AudioStream" uid="uid://dwjbwg6ej0fr" path="res://Assets/Audio/Rifle.mp3" id="8"]
 [ext_resource type="AudioStream" uid="uid://dyoldkhjja8x1" path="res://Assets/Audio/drift.mp3" id="9"]
@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cyupnyl086dlt" path="res://Interface/Textures/Brake.png" id="17_467mi"]
 [ext_resource type="Texture2D" uid="uid://im27g3igcxgn" path="res://Interface/Textures/Brake pressed.png" id="18_xgpia"]
 
-[sub_resource type="StandardMaterial3D" id="1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_738rb"]
 resource_name = "plastic"
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.376471, 0.376471, 0.376471, 1)
@@ -98,7 +98,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 996,
 "index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYABwAIAAYACAAJAAYACQAKAAYACQALAAoACwAMAAoACwANAAwACwAOAA0ADgAPAA0ADgAQAA8ADgARABAAEQASABAAEQATABIAEwAUABIAEwAVABQAEwAWABUAFgAXABUAFgAYABcAGAAZABcAGAAaABkAGgAbABkAGgAcABsAGgAdABwAHQAeABwAHQAfAB4AHQAgAB8AHQAhACAAIAAiAB8AIAAjACIAIwAkACIAJAAlACIAJQAmACIAJQAnACYAJwAoACYAJwApACgAJwAqACkAKgArACkAKgAsACsAKgAtACwALQAuACwALQAvAC4ALwAwAC4ALwAxADAALwAyADEAMgAzADEAMgA0ADMANAA1ADMANAA2ADUANgA3ADUANgA4ADcANgA5ADgAOQA6ADgAOQA7ADoAOQA8ADsAOQA9ADwAOQA+AD0APQA/ADwAQgBAAEEAQwBCAEEAQwBEAEIARQBDAEEARgBFAEEARwBGAEEARwBBAEgASQBHAEgASgBJAEgASgBIAEsATABKAEsATABLAE0ATgBMAE0ATwBOAE0ATwBNAFAAUQBPAFAAUQBQAFIAUwBRAFIAUwBSAFQAVQBTAFQAVgBVAFQAVgBUAFcAWABWAFcAWQBYAFcAVwBaAFkAWwBZAFoAWwBaAFwAWwBcAF0AWwBdAF4AXwBbAF4AXwBeAGAAXgBhAGAAYgBfAGAAYwBiAGAAYwBgAGQAZQBjAGQAZgBlAGQAZgBkAGcAaABmAGcAaABnAGkAagBoAGkAawBqAGkAawBpAGwAbQBrAGwAbQBsAG4AbwBtAG4AbwBuAHAAcQBvAHAAcgBxAHAAcgBwAHMAdAByAHMAdQB0AHMAcwB2AHUAdwB1AHYAdwB2AHgAdwB4AHkAegB3AHkAeQB7AHoAfgB8AH0AfQB/AH4AfwCAAH4AgACBAH4AhACCAIMAgwCFAIQAhQCGAIQAhgCHAIQAhwCIAIQAiwCJAIoAigCMAIsAjwCNAI4AjgCQAI8AkwCRAJIAkgCUAJMAlwCVAJYAlgCYAJcAmwCZAJoAmgCcAJsAnwCdAJ4AngCgAJ8AowChAKIAogCkAKMAogClAKQAqACmAKcApwCpAKgArACqAKsAqwCtAKwAsACuAK8ArwCxALAAtACyALMAswC1ALQAuAC2ALcAtwC5ALgAvAC6ALsAuwC9ALwAwAC+AL8AvwDBAMAAxADCAMMAwwDFAMQAyADGAMcAxwDJAMgAzADKAMsAywDNAMwA0ADOAM8AzwDRANAAzwDSANEAzwDTANIAzwDUANMA1wDVANYA1gDYANcA2wDZANoA2gDcANsA2gDdANwA2gDeAN0A2gDfAN4A3wDgAN4A3wDhAOAA3wDiAOEA5QDjAOQA5ADmAOUA6QDnAOgA6ADqAOkA6gDrAOkA6wDsAOkA7ADtAOkA7ADuAO0A7gDvAO0A7wDwAO0A8wDxAPIA8gD0APMA9wD1APYA9gD4APcA+wD5APoA+gD8APsA/wD9AP4A/gAAAf8AAwEBAQIBAgEEAQMBBwEFAQYBBgEIAQcBCwEJAQoBCgEMAQsBDAENAQsBEAEOAQ8BDwERARABFAESARMBEwEVARQBGAEWARcBFwEZARgBFwEaARkBHQEbARwBHAEeAR0BHgEfAR0BIgEgASEBIQEjASIBJgEkASUBJQEnASYBKgEoASkBKQErASoBKwEsASoBLwEtAS4BLgEwAS8BMAExAS8BNAEyATMBMwE1ATQBOAE2ATcBNwE5ATgBPAE6ATsBOwE9ATwBQAE+AT8BPwFBAUABRAFCAUMBQwFFAUQBSAFGAUcBRwFJAUgBTAFKAUsBSwFNAUwBUAFOAU8BTwFRAVABTwFSAVEBVQFTAVQBVAFWAVUBWQFXAVgBWAFaAVkBWAFbAVoBXgFcAV0BXQFfAV4BYgFgAWEBYQFjAWIBZgFkAWUBZQFnAWYBagFoAWkBaQFrAWoBbgFsAW0BbQFvAW4BbQFwAW8BbQFxAXABdAFyAXMBcwF1AXQBeAF2AXcBeAF3AXkBegF4AXkBewF6AXkBfAF7AXkBeQF9AXwBfgF8AX0BfgF9AX8BgAF+AX8BfwGBAYABhAGCAYMBgwGFAYQBiAGGAYcBhwGJAYgBjAGKAYsBiwGNAYwBkAGOAY8BjwGRAZABlAGSAZMBkwGVAZQBmAGWAZcBlwGZAZgBnAGaAZsBmwGdAZwBoAGeAZ8BnwGhAaABpAGiAaMBowGlAaQBpQGjAaYBpQGmAacBpQGnAagBpQGpAaQBqQGqAaQBqwGlAagBqwGoAawBrQGrAawBrgGtAawBrAGvAa4BsgGwAbEBsQGzAbIBtgG0AbUBtQG3AbYBugG4AbkBuQG7AboBvgG8Ab0BvQG/Ab4BwgHAAcEBwQHDAcIBxgHEAcUBxQHHAcYBxQHIAccByQHHAcgBygHJAcgBywHKAcgBzAHLAcgByAHNAcwByQHOAccByQHPAc4ByQHQAc8B0AHRAc8BzgHSAccBxwHSAdMB1AHTAdIB0gHVAdQB1QHWAdQBxwHTAdcB0wHYAdcB2QHHAdcB2AHaAdcB2AHbAdoB2QHXAdwB2QHcAd0B2QHdAd4B3gHfAdkB"),
-"material": SubResource("1"),
+"material": SubResource("StandardMaterial3D_738rb"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 1018,
@@ -781,25 +781,33 @@ _data = {
 }
 
 [node name="taxi" type="Node3D"]
-script = ExtResource("2")
-Ball_path = "Ball"
-car_mesh_body_path = "Node3D/body"
-Car_mesh_path = "Node3D"
-acceleration = 100.0
+script = ExtResource("1_dn7ac")
+close_miss_bonus = 7
+ball_path = NodePath("Ball")
+car_mesh_body_path = NodePath("Node3D/body")
+car_mesh_path = NodePath("Node3D")
+acceleration = 155.0
+steering = 30.0
 turn_speed = 4.0
+turn_stop_limit = 1.25
 tilt = 65.0
-left_wheel_path = "Node3D/wheel_frontLeft"
-right_wheel_path = "Node3D/wheel_frontRight"
-B_L_particles = "Node3D/Backleft/CPUParticles3D"
-B_R_particles = "Node3D/Backright/CPUParticles3D"
-B_L2_particles = "Node3D/Backleft2/CPUParticles3D"
-B_R2_particles = "Node3D/Backright2/CPUParticles3D"
-Accelerate_button_path = "Interface/Acceleration/Accelerate"
-health_bar_path = "Node3D/Healthbar"
+left_wheel_path = NodePath("Node3D/wheel_frontLeft")
+right_wheel_path = NodePath("Node3D/wheel_frontRight")
+b_l_particles = NodePath("Node3D/Backleft/CPUParticles3D")
+b_r_particles = NodePath("Node3D/Backright/CPUParticles3D")
+b_l2_particles = NodePath("Node3D/Backleft2/CPUParticles3D")
+b_r2_particles = NodePath("Node3D/Backright2/CPUParticles3D")
+accelerate_button_path = NodePath("Interface/Acceleration/Accelerate")
+brake_path = NodePath("Interface/Acceleration/Brake")
+left_path = NodePath("Interface/Steering/Left")
+right_path = NodePath("Interface/Steering/Right")
+damage_multiplier = 0.7
+jump_ht = 1.0
 cam_pos_path = NodePath("Node3D/body/cam_pos")
-Fl_path = NodePath("Node3D/Fl")
-Fr_path = NodePath("Node3D/Fr")
-Bl_path = NodePath("Node3D/Bl")
+fl_path = NodePath("Node3D/Fl")
+fr_path = NodePath("Node3D/Fr")
+bl_path = NodePath("Node3D/Bl")
+health_bar_path = NodePath("Node3D/Healthbar")
 
 [node name="Node3D" type="MeshInstance3D" parent="."]
 
@@ -831,11 +839,6 @@ skeleton = NodePath("../..")
 
 [node name="MachineGun" parent="Node3D/body" instance=ExtResource("5")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.000339031, 1.71628, 0.38334)
-AnimPath = "AnimationPlayer"
-Aim_speed = 0.245
-Range = 1.8
-Ammo = 30
-start_magazines = 20
 
 [node name="Gun" parent="Node3D/body/MachineGun" index="0"]
 transform = Transform3D(-10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07)
@@ -925,6 +928,7 @@ texture = ExtResource("11")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13508, 0.805907)
 
 [node name="Ball" type="RigidBody3D" parent="." groups=["Ball"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 physics_material_override = SubResource("12")
 gravity_scale = 10.0
 contact_monitor = true
@@ -1048,6 +1052,8 @@ libraries = {
 [connection signal="body_exited" from="Ball" to="." method="On_leaving"]
 [connection signal="pressed" from="Interface/Rocket_button" to="Node3D/body/MachineGun" method="gun_switch"]
 
+[editable path="Node3D/Backright2"]
+[editable path="Node3D/Backleft2"]
 [editable path="Node3D/Backright"]
 [editable path="Node3D/Backleft"]
 [editable path="Node3D/body/MachineGun"]

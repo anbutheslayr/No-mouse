@@ -32,7 +32,7 @@ extends Node3D
 @export var bl_path: NodePath
 @export var health_bar_path: NodePath
 
-@onready var expl = preload("res://Scenes/Explosion.tscn")
+var expl = preload("res://Scenes/Explosion.tscn")
 @onready var popuptext : PackedScene = preload("res://Interface/Popup text.tscn")
 @onready var ball: RigidBody3D = get_node(ball_path)
 @onready var car_mesh: MeshInstance3D = get_node(car_mesh_path)
@@ -64,178 +64,177 @@ var col_time: float = 0.0
 var col: bool = false
 
 func _ready():
-   var expl = load("res://Scenes/Explosion.tscn")
-   var i = expl.instantiate() as Node3D
-   get_tree().root.add_child(i)
-   i.global_position = ball.global_position
-   part_change()
+	var e = load("res://Scenes/Explosion.tscn")
+	var i = e.instantiate() as Node3D
+	get_tree().root.call_deferred("add_child",i)
+	i.global_position = ball.global_position
+	part_change()
 
 func _physics_process(delta: float) -> void:
-    # Align mesh with sphere
-    car_mesh.transform.origin = ball.transform.origin + sphere_offset
-    # Acceleration
-    speed_input = 0
-    speed_input+= Input.get_action_strength("Up")
-    speed_input-= Input.get_action_strength("Down")
-    if(accelerate_button.pressed):
-        speed_input = 1
-    if(brake.pressed):
-        speed_input = -1
-    speed_input = lerp(speed_input , speed_input*acceleration , delta * 25)
+	# Align mesh with sphere
+	car_mesh.transform.origin = ball.transform.origin + sphere_offset
+	# Acceleration
+	speed_input = 0
+	#speed_input+= Input.get_action_strength("Up")
+	#speed_input-= Input.get_action_strength("Down")
+	if(Input.is_action_pressed("Up")):
+		speed_input = 1
+	if(Input.is_action_pressed("Down")):
+		speed_input = -1
+	speed_input = lerp(speed_input , speed_input*acceleration , delta * 25) 
+	print(speed_input)
+	#Steering 
+	steering_input = 0
+	#steering_input -= Input.get_action_strength("Right")
+	#steering_input += Input.get_action_strength("Left")
+	if Input.is_action_pressed("Left"):
+		steering_input = 1
+	if Input.is_action_pressed("Right"):
+		steering_input = -1
+	steering_input = lerp(steering_input , steering_input*steering , delta * 25) 
+	print(steering_input)   
+	# Accelerate
+	var add = Vector3.ZERO
+	# if car_mesh.rotation.x>0 :
+	# 	add = -car_mesh.global_transform.basis.z*speed_input*sin(car_mesh.rotation.x)*ball.mass*grav
+	# else:
+	# 	add = Vector3.ZERO
+	ball.apply_central_force(-car_mesh.global_transform.basis.z*speed_input + add)
 
-    #Steering 
-    steering_input = 0
-    steering_input -= Input.get_action_strength("Right")
-    steering_input += Input.get_action_strength("Left")
-    if left.pressed:
-        steering_input = 1
-    if right.pressed:
-        steering_input = -1
-    steering_input = lerp(steering_input , steering_input*steering , delta * 25)
+	# smoke
+	var ball_vel = ball.linear_velocity
+	var car_forward = car_mesh.global_transform.basis.z.normalized()
+	var dot_pr = ball_vel.normalized().dot(car_forward)
+	if bl.is_colliding() and ball_vel.length() > 13 and dot_pr < .85 and dot_pr > 0:
+		b_l.emitting = true
+		b_r.emitting = true
+		var points = ball_vel.length()/60*(1-dot_pr)*drift_multiplier
+		# interface.add_drift_points(points)
+		if(!drift.playing):
+			drift.playing = true
+	else:
+		b_l.emitting = false
+		b_r.emitting = false
+		drift.playing = false
+	if col:
+		col_time += delta
+	else:
+		col_time = 0
+	if col_time >= .1:
+		health -= delta*2
+		health_bar_3d.change_health(health)
+# turning wheels
+	left_wheel.rotation.y = PI + steering_input
+	right_wheel.rotation.y = steering_input
+	if b_l.emitting:
+		left_wheel.rotation.y = -(PI + steering_input)
+		right_wheel.rotation.y = -(steering_input - .3)
 
-    # Accelerate
-    var add 
-    if car_mesh.rotation.x>0 :
-        add = -car_mesh.global_transform.basis.z*speed_input*sin(car_mesh.rotation.x)*ball.mass*grav
-    else:
-        add = 0
-    ball.apply_central_force(-car_mesh.global_transform.basis.z*speed_input + add)
-    
-    # smoke
-    var ball_vel = ball.linear_velocity
-    var car_forward = car_mesh.global_transform.basis.z.normalized()
-    var dot_pr = ball_vel.normalized().dot(car_forward)
-    if bl.is_colliding() and ball_vel.length() > 13 and dot_pr < .85 and dot_pr > 0:
-        b_l.emitting = true
-        b_r.emitting = true
-        var points = ball_vel.length()/60*(1-dot_pr)*drift_multiplier
-        interface.add_drift_points(points)
-        if(!drift.playing):
-            drift.playing = true
-    else:
-        b_l.emitting = false
-        b_r.emitting = false
-        drift.playing = false
-    if col:
-        col_time += delta
-    else :
-        col_time = 0
-    if col_time >= .1:
-        health -= delta*2
-        health_bar_3d.change_health(health)
+	if ball.linear_velocity.length() > turn_stop_limit:
+		if speed_input < 0:
+			steering_input = -steering_input
+		# turning mesh
+		var new_basis = car_mesh.global_transform.basis.rotated(car_mesh.global_transform.basis.y, steering_input).orthonormalized()
+		car_mesh.global_transform.basis = car_mesh.global_transform.basis.slerp(new_basis, delta * turn_speed)
+		# applying tilt
+		var t =-steering_input*ball.linear_velocity.length()/tilt
+		car_mesh_body.rotation.z = lerp(car_mesh_body.rotation.z, t, delta * 10)
 
+	# align with surface
+	if fl.is_colliding() or fr.is_colliding() or bl.is_colliding():
+		var xform = align_with_surface(car_mesh.global_transform)
+		car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform,.5)
 func jump():
-    ball.linear_velocity.y = jump_ht*40
-    cam.add_trauma(.8)
+	ball.linear_velocity.y = jump_ht*40
+	cam.add_trauma(.8)
 
 func _process(delta: float) -> void:
-    # screenshot
-    if Input.is_action_just_pressed("Save"):
-        var image = get_viewport().get_texture().get_data()
-        image.flip_y()
-        image.save_png("D:/Godot export/SS/World1/" + str(im) + ".png")
-        im += 1
-    # turning wheels
-    left_wheel.rotation.y = PI + steering_input
-    right_wheel.rotation.y = steering_input
-    if b_l.emitting:
-        left_wheel.rotation.y = -(PI + steering_input)
-        right_wheel.rotation.y = -(steering_input - .3)
-
-    if ball.linear_velocity.length() > turn_stop_limit:
-        if speed_input < 0:
-            steering_input = -steering_input
-        # turning mesh
-        var new_basis = car_mesh.global_transform.basis.rotated(car_mesh.global_transform.basis.y, steering_input).orthonormalized()
-        car_mesh.global_transform.basis = car_mesh.global_transform.basis.slerp(new_basis, delta * turn_speed)
-        # applying tilt
-        var t =-steering_input*ball.linear_velocity.length()/tilt
-        car_mesh_body.rotation.z = lerp(car_mesh_body.rotation.z, t, delta * 10)
-
-    # align with surface
-    if fl.is_colliding() or fr.is_colliding() or bl.is_colliding():
-        var xform = align_with_surface(car_mesh.global_transform)
-        car_mesh.global_transform = xform
-    
+	# screenshot
+	if Input.is_action_just_pressed("Save"):
+		var image = get_viewport().get_texture().get_data()
+		image.flip_y()
+		image.save_png("D:/Godot export/SS/World1/" + str(im) + ".png")
+		im += 1
+	
+	
 
 func align_with_surface(xform: Transform3D) -> Transform3D:
 
-    var front_left_col = fl.get_collision_point() if fl.is_colliding() else fl.global_transform.origin
-    var back_left_col = bl.get_collision_point() if bl.is_colliding() else bl.global_transform.origin
-    var front_right_col = fr.get_collision_point() if fr.is_colliding() else fr.global_transform.origin
+	var front_left_col = fl.get_collision_point() if fl.is_colliding() else fl.global_transform.origin
+	var back_left_col = bl.get_collision_point() if bl.is_colliding() else bl.global_transform.origin
+	var front_right_col = fr.get_collision_point() if fr.is_colliding() else fr.global_transform.origin
 
-    var side_vector = (front_right_col - front_left_col).normalized()
-    var forward_vector = (back_left_col - front_left_col).normalized()
+	var side_vector = (front_right_col - front_left_col).normalized()
+	var forward_vector = (back_left_col - front_left_col).normalized()
 
-    var new_y = forward_vector.cross(side_vector).normalized()
-    xform.basis.y = new_y
-    xform.basis.x = -xform.basis.z.cross(new_y)
-    xform.basis = xform.basis.orthonormalized()
-    return xform
+	var new_y = forward_vector.cross(side_vector).normalized()
+	xform.basis.y = new_y
+	xform.basis.x = -xform.basis.z.cross(new_y)
+	return xform
 
 func on_collision(body : Node):
-    if body is RigidBody3D:
-        var col_body = body as RigidBody3D
-        var rel_vel = col_body.linear_velocity - ball.linear_velocity
-        var imp_mag = rel_vel.length()
-        # Apply damage
-        var damage = calculate_damage(imp_mag)
-        apply_damage(damage, body)
-    if body.is_in_group("Obstacle") and ball.linear_velocity.length() > 6:
-        audio_stream_player.play()
-        cam.add_trauma(0.4)
+	if body is RigidBody3D:
+		var col_body = body as RigidBody3D
+		var rel_vel = col_body.linear_velocity - ball.linear_velocity
+		var imp_mag = rel_vel.length()
+		# Apply damage
+		var damage = calculate_damage(imp_mag)
+		apply_damage(damage, body)
+	if body.is_in_group("Obstacle") and ball.linear_velocity.length() > 6:
+		audio_stream_player.play()
+		cam.add_trauma(0.4)
 
 func calculate_damage(imp_mag):
-    var damage = round(imp_mag * damage_multiplier)
-    if damage <= 3:
-        damage = 0
-    else:
-        audio_stream_player.play()
-        cam.add_trauma(0.5)
-    return damage
+	var damage = round(imp_mag * damage_multiplier)
+	if damage <= 3:
+		damage = 0
+	else:
+		audio_stream_player.play()
+		cam.add_trauma(0.5)
+	return damage
 
 func apply_damage(damage, body):
-    health -= damage
-    if damage != 0:
-        hit_animation.play("Hit")
-        var d = popuptext.instance() as Node3D
-        get_tree().root.add_child(d)
-        (d as Popuptext).play_anim(damage.toString(), 20, 3, car_mesh.global_transform.origin + Vector3(0, 2, 0), 1)
-    if health <= 0:
-        visible = false
-        var e = expl.instance() as Node3D
-        get_tree().root.add_child(e)
-        e.global_position = ball.global_position
-    health_bar_3d.change_health(health)
-    body.get_parent().calculate_health(damage)
+	health -= damage
+	if damage != 0:
+		hit_animation.play("Hit")
+		var d = popuptext.instance() as Node3D
+		get_tree().root.add_child(d)
+		(d as Popuptext).play_anim(damage.toString(), 20, 3, car_mesh.global_transform.origin + Vector3(0, 2, 0), 1)
+	if health <= 0:
+		visible = false
+		var e = expl.instance() as Node3D
+		get_tree().root.add_child(e)
+		e.global_position = ball.global_position
+	health_bar_3d.change_health(health)
+	body.get_parent().calculate_health(damage)
 
 func revive_car():
-    health = 100
-    visible = true
-    interface.show()
-    health_bar_3d.change_health(health)
+	health = 100
+	visible = true
+	interface.show()
+	health_bar_3d.change_health(health)
 
 func enable_col():
-    col = true
+	col = true
 
 func disable_col():
-    col = false
+	col = false
 
 func close_miss(body : RigidBody3D):
-    if body.linear_velocity.length() > 27:
-        var p = popuptext.instance() as Node3D
-        get_tree().root.add_child(p)
-        p.play_anim("Miss", 20, 3, car_mesh.global_transform.origin + Vector3(0, 2, 0), 1)
-        health += close_miss_bonus
-        health = clamp(health, 0, 100)
-        health_bar_3d.change_health(health)
+	if body.linear_velocity.length() > 27:
+		var p = popuptext.instance() as Node3D
+		get_tree().root.add_child(p)
+		p.play_anim("Miss", 20, 3, car_mesh.global_transform.origin + Vector3(0, 2, 0), 1)
+		health += close_miss_bonus
+		health = clamp(health, 0, 100)
+		health_bar_3d.change_health(health)
 
-        
+		
 func part_change():
-    if reso.cur_world == 1:
-        b_l = get_node(b_l_particles)
-        b_r = get_node(b_r_particles)
-    elif reso.cur_world == 2:
-        b_l = get_node(b_l2_particles)
-        b_r = get_node(b_r2_particles)
-        
+	if reso.cur_world == 1:
+		b_l = get_node(b_l_particles)
+		b_r = get_node(b_r_particles)
+	elif reso.cur_world == 2:
+		b_l = get_node(b_l2_particles)
+		b_r = get_node(b_r2_particles)
+		

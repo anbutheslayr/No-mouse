@@ -79,15 +79,11 @@ config/windows_native_icon="res://ICO.ico"
 [autoload]
 
 AudioPlayer="*res://Scenes/AudioPlayer.tscn"
-GlobalVars="*res://Scripts/Global_vars.cs"
 LoadingScreen="*res://Scripts/GDscript/Loading_screen.gd"
 ParticleLoader="*res://Scripts/GDscript/Particle_loader.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=3
 window/stretch/aspect="expand"
 window/size/fullscreen=true
 window/tablet_driver=""
