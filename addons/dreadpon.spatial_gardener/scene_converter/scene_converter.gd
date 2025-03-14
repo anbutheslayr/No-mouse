@@ -3,6 +3,13 @@ extends Node
 
 
 #-------------------------------------------------------------------------------
+# NOTE: automatic conversion from Godot 3.5 to Godot 4.0 will not be supported
+#		instead, open the original project in Godot 3.5, export transforms to JSON for each plant
+#		recreate plants in Godot 4.0 and import transforms one by one for each plant
+#
+# NOTE: most types that are represented as strings are kept in Godot 3.5 format
+#		this is deliberate, to preserve the state of converter as much as possible
+#
 # To use this converter:
 # 1. Make sure the plugin is updated to the most recent version
 # 2. Copy your scenes to addons/dreadpon.spatial_gardener/scene_converter/input_scenes folder.
@@ -35,6 +42,7 @@ extends Node
 const Types = preload('converter_types.gd')
 const Globals = preload("../utility/globals.gd")
 const C_1_To_2 = preload('converters/c_1_to_2.gd')
+const C_3_To_4 = preload('converters/c_3_to_4.gd')
 const FunLib = preload("../utility/fun_lib.gd")
 const Gardener = preload("../gardener/gardener.gd")
 const Logger = preload('../utility/logger.gd')
@@ -46,9 +54,10 @@ enum RunMode {RECREATE, DRY, CONVERT}
 
 var logger = null
 var conversion_map: Dictionary = {
-	1: {'target': 2, 'script': C_1_To_2.new()}
+	1: {'target': 2, 'script': C_1_To_2.new()},
+	3: {'target': 4, 'script': C_3_To_4.new()}
 }
-var run_mode = RunMode.CONVERT
+var run_mode = RunMode.CONVERT#CONVERT
 var _base_control: Control = null
 var _convert_dialog = null
 var _result_dialog: AcceptDialog = null
@@ -67,7 +76,11 @@ func setup(__base_control: Control):
 
 
 func destroy():
-	_base_control.remove_child(_convert_dialog)
+	if is_instance_valid(_convert_dialog):
+		_base_control.remove_child(_convert_dialog)
+		_convert_dialog.queue_free()
+	if is_instance_valid(_result_dialog):
+		_result_dialog.queue_free()
 
 
 func _hide_dialog():
@@ -111,16 +124,16 @@ func _scan_for_outdated_scenes():
 	
 	if !_convert_dialog:
 		_convert_dialog = ConvertDialog_SCN.instantiate()
-		_convert_dialog.connect('confirm_pressed', Callable(self, '_convert_from_dialog'))
-		_convert_dialog.connect('confirm_pressed', Callable(self, '_hide_dialog'))
-		_convert_dialog.connect('cancel_pressed', Callable(self, '_hide_dialog'))
-		_convert_dialog.connect('dont_ask_again_toggled', Callable(self, '_set_dont_scan_setting'))
+		_convert_dialog.confirm_pressed.connect(_convert_from_dialog)
+		_convert_dialog.confirm_pressed.connect(_hide_dialog)
+		_convert_dialog.cancel_pressed.connect(_hide_dialog)
+		_convert_dialog.dont_ask_again_toggled.connect(_set_dont_scan_setting)
 	if _convert_dialog.get_parent() != _base_control:
 		_base_control.add_child(_convert_dialog)
 	
 	if !_result_dialog:
 		_result_dialog = AcceptDialog.new()
-		_result_dialog.window_title = 'Node3D Gardener conversion finished'
+		_result_dialog.title = 'Spatial Gardener conversion finished'
 		
 	if _result_dialog.get_parent() != _base_control:
 		_base_control.add_child(_result_dialog)
@@ -132,7 +145,7 @@ func _scan_for_outdated_scenes():
 func _convert_from_dialog():
 	var result = _run_conversion(_convert_dialog.get_selected_scenes(), _convert_dialog.should_mk_backups())
 	_result_dialog.dialog_text = (
-"""Node3D Gardener conversion finished.
+"""Spatial Gardener conversion finished.
 Please check the console/output for errors to see if conversion went successfully.
 Don\'t forget to move the backups elsewhere before committing to version control.""")
 	_result_dialog.popup_centered()
@@ -154,15 +167,15 @@ func _get_candidate_scenes(root_dir: String, check_gardeners: bool = true) -> Ar
 	if !check_gardeners:
 		return scene_file_paths
 
-	var file = File.new()
+	var file = null
 	var text = ''
 	var gardener_regex = RegEx.new()
-	gardener_regex.compile('"class": "Gardener"')
+	gardener_regex.compile('metadata/class = "Gardener"')
 	var storage_regex = RegEx.new()
 	storage_regex.compile('storage_version = ([0-9])*?\n')
 	
 	for scene_file in scene_file_paths:
-		file.open(scene_file, File.READ)
+		file = FileAccess.open(scene_file, FileAccess.READ)
 		text = file.get_as_text()
 		file.close()
 		
@@ -174,7 +187,8 @@ func _get_candidate_scenes(root_dir: String, check_gardeners: bool = true) -> Ar
 			continue
 		
 		for result in results:
-			if int(result.strings[1]) != Gardener.get_storage_ver():
+			var store_ver = int(result.strings[1])
+			if store_ver != Gardener.get_storage_ver() && conversion_map.has(store_ver) && !gardener_file_paths.has(scene_file):
 				gardener_file_paths.append(scene_file)
 				continue
 	
@@ -199,13 +213,12 @@ func _run_conversion(in_filepaths: Array, mk_backups: bool = true, out_base_dir:
 	
 	logger.info('Found %d valid scenes for conversion' % [in_filepaths.size()])
 	
-	var backup_dir := DirAccess.new()
 	for in_filepath in in_filepaths:
 		if mk_backups:
 			var num = 0
-			while backup_dir.file_exists('%s.backup_%d' % [in_filepath, num]):
+			while FileAccess.file_exists('%s.backup_%d' % [in_filepath, num]):
 				num += 1
-			backup_dir.copy(in_filepath, '%s.backup_%d' % [in_filepath, num])
+			DirAccess.copy_absolute (in_filepath, '%s.backup_%d' % [in_filepath, num])
 		
 		var out_filepath = in_filepath
 		if !out_base_dir.is_empty():
@@ -216,8 +229,7 @@ func _run_conversion(in_filepaths: Array, mk_backups: bool = true, out_base_dir:
 		
 		var in_size = 0
 		if run_mode == RunMode.CONVERT || run_mode == RunMode.RECREATE:
-			var file = File.new()
-			file.open(in_filepath, File.READ)
+			var file = FileAccess.open(in_filepath, FileAccess.READ)
 			in_size = file.get_length() * 0.000001
 			file.close()
 		
@@ -251,8 +263,7 @@ func _run_conversion(in_filepaths: Array, mk_backups: bool = true, out_base_dir:
 		logger.info('Took: %.2fs' % [ time_took])
 		
 		if run_mode == RunMode.CONVERT || run_mode == RunMode.RECREATE:
-			var file = File.new()
-			file.open(out_filepath, File.READ)
+			var file = FileAccess.open(out_filepath, FileAccess.READ)
 			var out_size = file.get_length() * 0.000001
 			file.close()
 			
@@ -265,7 +276,7 @@ func _run_conversion(in_filepaths: Array, mk_backups: bool = true, out_base_dir:
 func get_vers(parsed_scene):
 	var vers = []
 	for section in parsed_scene:
-		if section.props.get('__meta__', {}).get('class', '') == 'Gardener':
+		if section.props.get('metadata/class') == 'Gardener':
 			var ver = section.props.get('storage_version', 1)
 			if vers.has(ver): continue
 			vers.append(ver)
@@ -273,10 +284,9 @@ func get_vers(parsed_scene):
 
 
 func reconstruct_scene(parsed_scene: Array, out_path: String):
-	var file = File.new()
-	var err = file.open(out_path, File.WRITE)
-	if err != OK:
-		logger.error('Unable to write to file "%s", with error: %s' % [out_path, Globals.get_err_message(err)])
+	var file = FileAccess.open(out_path, FileAccess.WRITE)
+	if !file:
+		logger.error('Unable to write to file "%s", with error: %s' % [out_path, Globals.get_err_message(FileAccess.get_open_error())])
 	
 	var total_sections = float(parsed_scene.size())
 	var progress_milestone = 0
@@ -318,10 +328,9 @@ func reconstruct_scene(parsed_scene: Array, out_path: String):
 
 func parse_scene(filepath: String, ext_res: Dictionary = {}, sub_res: Dictionary = {}) -> Array:
 	var result := []
-	var file: File = File.new()
-	var err = file.open(filepath, File.READ)
-	if err != OK:
-		logger.error('Unable to open file "%s", with error: %s' % [filepath, Globals.get_err_message(err)])
+	var file: FileAccess = FileAccess.open(filepath, FileAccess.READ)
+	if !file:
+		logger.error('Unable to open file "%s", with error: %s' % [filepath, Globals.get_err_message(FileAccess.get_open_error())])
 	
 	var file_len = float(file.get_length())
 	var progress_milestone = 0
@@ -366,7 +375,7 @@ func parse_scene(filepath: String, ext_res: Dictionary = {}, sub_res: Dictionary
 			section = {'type': '', 'header': {}, 'props': {}}
 			sections_parts = Array(header_str.trim_prefix('[').trim_suffix(']').split(' '))
 			section.type = sections_parts.pop_front()
-			section.header = ' '.join(parse_resource(PackedStringArray(sections_parts)) + ' ', ' ')
+			section.header = parse_resource(" ".join(PackedStringArray(sections_parts)) + ' ', ' ')
 			result.append(section)
 			section_string = PackedStringArray()
 			
@@ -378,7 +387,7 @@ func parse_scene(filepath: String, ext_res: Dictionary = {}, sub_res: Dictionary
 			section_active = true
 		
 		elif section_active && line.strip_escapes().is_empty() && !result.is_empty():
-			result[-1].props = ''.join(parse_resource(section_string))
+			result[-1].props = parse_resource(''.join(section_string))
 			section_active = false
 		
 		elif !line.strip_escapes().is_empty():
@@ -431,7 +440,15 @@ func tokenize_string(string: String, separator: String = '\n') -> Array:
 						tokens.append(Types.TokenVal.new(Types.Tokens.VAL_INT,int(str_last_inclusive_stripped(status_bundle))))
 					status_bundle.last_tokenized_idx = idx + 1
 			
-			if character == '=':
+			if str_last_inclusive(status_bundle).contains('Array['):
+				if str_last_inclusive(status_bundle).ends_with("](["):
+					tokens.append(Types.TokenVal.new(Types.Tokens.OPEN_TYPED_ARRAY, str_last_inclusive_stripped(status_bundle)))
+					status_bundle.last_tokenized_idx = idx + 1
+			elif character == ']' && string[idx + 1] == ')':
+					tokens.append(Types.TokenVal.new(Types.Tokens.CLSD_TYPED_ARRAY, str_last_inclusive_stripped(status_bundle)))
+					status_bundle.last_tokenized_idx = idx + 2
+			
+			elif character == '=':
 				var prop_name = str_last_stripped(status_bundle)
 				while tokens.size() > 0:
 					var token_val = tokens[-1]
@@ -440,6 +457,9 @@ func tokenize_string(string: String, separator: String = '\n') -> Array:
 					prop_name = str(token_val.val) + prop_name
 				tokens.append(Types.TokenVal.new(Types.Tokens.PROP_NAME, prop_name))
 				tokens.append(Types.TokenVal.new(Types.Tokens.EQL_SIGN, character))
+				status_bundle.last_tokenized_idx = idx + 1
+			elif character == '"' && string[idx - 1] == '&' && (idx == 0 || string[idx - 2] != '\\'):
+				current_token = Types.Tokens.AMP_DBL_QUOTE
 				status_bundle.last_tokenized_idx = idx + 1
 			elif character == '"' && (idx == 0 || string[idx - 1] != '\\'):
 				current_token = Types.Tokens.DBL_QUOTE
@@ -479,18 +499,21 @@ func tokenize_string(string: String, separator: String = '\n') -> Array:
 			elif character == separator:
 				tokens.append(Types.TokenVal.new(Types.Tokens.STMT_SEPARATOR, ''))
 		
-		elif current_token == Types.Tokens.DBL_QUOTE:
+		elif current_token == Types.Tokens.DBL_QUOTE || current_token == Types.Tokens.AMP_DBL_QUOTE:
 			if character == '"' && (idx == 0 || string[idx - 1] != '\\'):
-				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_STRING, str_last(status_bundle)))
+				if current_token == Types.Tokens.DBL_QUOTE:
+					tokens.append(Types.TokenVal.new(Types.Tokens.VAL_STRING, str_last(status_bundle)))
+				elif current_token == Types.Tokens.AMP_DBL_QUOTE:
+					tokens.append(Types.TokenVal.new(Types.Tokens.VAL_STRING_NAME, StringName(str_last(status_bundle))))
 				status_bundle.last_tokenized_idx = idx + 1
 				current_token = Types.Tokens.NONE
 		
-		elif current_token == Types.Tokens.VAL_STRUCT && character == ')':
+		elif current_token == Types.Tokens.VAL_STRUCT && (character == ')' || character == ']'):
 			var str_struct = str_last_inclusive_stripped(status_bundle)
 			if str_struct.begins_with('SubResource'):
-				tokens.append(Types.TokenVal.new(Types.Tokens.SUB_RES, Types.SubResource.new(int(str_struct))))
+				tokens.append(Types.TokenVal.new(Types.Tokens.SUB_RES, Types.SubResource.new(str_struct)))
 			elif str_struct.begins_with('ExtResource'):
-				tokens.append(Types.TokenVal.new(Types.Tokens.EXT_RES, Types.ExtResource.new(int(str_struct))))
+				tokens.append(Types.TokenVal.new(Types.Tokens.EXT_RES, Types.ExtResource.new(str_struct)))
 			elif str_struct.begins_with('Vector2'):
 				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_VECTOR2, Types.PropStruct.new(str_struct)))
 			elif str_struct.begins_with('Rect'):
@@ -501,13 +524,13 @@ func tokenize_string(string: String, separator: String = '\n') -> Array:
 				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_TRANSFORM2D, Types.PropStruct.new(str_struct)))
 			elif str_struct.begins_with('Plane'):
 				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_PLANE, Types.PropStruct.new(str_struct)))
-			elif str_struct.begins_with('Quaternion'):
+			elif str_struct.begins_with('Quat'):
 				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_QUAT, Types.PropStruct.new(str_struct)))
 			elif str_struct.begins_with('AABB'):
 				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_AABB, Types.PropStruct.new(str_struct)))
 			elif str_struct.begins_with('Basis'):
 				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_BASIS, Types.PropStruct.new(str_struct)))
-			elif str_struct.begins_with('Transform3D'):
+			elif str_struct.begins_with('Transform'):
 				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_TRANSFORM, Types.PS_Transform.new(str_struct)))
 			elif str_struct.begins_with('Color'):
 				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_COLOR, Types.PropStruct.new(str_struct)))
@@ -515,9 +538,14 @@ func tokenize_string(string: String, separator: String = '\n') -> Array:
 				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_NODE_PATH, Types.PropStruct.new(str_struct)))
 			elif str_struct.begins_with('PackedByteArray'):
 				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_RAW_ARRAY, Types.PropStruct.new(str_struct)))
+			# TODO: check if 32/64 packed arrays actually work as intended (they were simply renamed and duplicated in 1.4.0)
 			elif str_struct.begins_with('PackedInt32Array'):
 				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_INT_ARRAY, Types.PropStruct.new(str_struct)))
+			elif str_struct.begins_with('PackedInt64Array'):
+				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_INT_ARRAY, Types.PropStruct.new(str_struct)))
 			elif str_struct.begins_with('PackedFloat32Array'):
+				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_REAL_ARRAY, Types.PropStruct.new(str_struct)))
+			elif str_struct.begins_with('PackedFloat64Array'):
 				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_REAL_ARRAY, Types.PropStruct.new(str_struct)))
 			elif str_struct.begins_with('PackedStringArray'):
 				tokens.append(Types.TokenVal.new(Types.Tokens.VAL_STRING_ARRAY, Types.PropStruct.new(str_struct)))
@@ -581,6 +609,10 @@ func tokens_to_dict(tokens: Array) -> Dictionary:
 				if values.size() > nest_level:
 					push_to_values = true
 				nest_level -= 1
+			Types.Tokens.CLSD_TYPED_ARRAY:
+				if values.size() > nest_level:
+					push_to_values = true
+				nest_level -= 1
 			Types.Tokens.CLSD_SQR_BRKT:
 				if values.size() > nest_level:
 					push_to_values = true
@@ -593,6 +625,11 @@ func tokens_to_dict(tokens: Array) -> Dictionary:
 			
 			Types.Tokens.OPEN_CLY_BRKT:
 				values.append({})
+				nest_level += 1
+			Types.Tokens.OPEN_TYPED_ARRAY:
+				# This is a hack to simplify storage and retrieval of array's type
+				var array_type = Types.TypedArrayType.new(token.val.substr(6, token.val.length() - 3 - 6))
+				values.append([array_type])
 				nest_level += 1
 			Types.Tokens.OPEN_SQR_BRKT:
 				values.append([])

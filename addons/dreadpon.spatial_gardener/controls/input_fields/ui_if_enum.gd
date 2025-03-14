@@ -29,13 +29,16 @@ func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", set
 	for i in range(0, settings.enum_list.size()):
 		enum_selector.add_item(settings.enum_list[i], i)
 	
-	enum_selector.connect("item_selected", Callable(self, "_request_prop_action").bind("PA_PropSet"))
-	ThemeAdapter.assign_node_type(enum_selector, 'InspectorButton')
+	enum_selector.item_selected.connect(_request_prop_action.bind("PA_PropSet"))
+	enum_selector.theme_type_variation = "InspectorOptionButton"
+	
+	container_box.add_child(enum_selector)
 
 
-func _ready():
-	value_container.add_child(enum_selector)
-	_init_ui()
+func _cleanup():
+	super()
+	if is_instance_valid(enum_selector):
+		enum_selector.queue_free()
 
 
 
@@ -46,7 +49,7 @@ func _ready():
 
 
 func _update_ui_to_prop_action(prop_action:PropAction, final_val):
-	if prop_action is PA_PropSet || prop_action is PA_PropEdit:
+	if is_instance_of(prop_action, PA_PropSet) || is_instance_of(prop_action, PA_PropEdit):
 		_update_ui_to_val(final_val)
 
 

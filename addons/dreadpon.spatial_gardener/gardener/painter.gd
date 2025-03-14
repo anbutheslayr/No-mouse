@@ -9,13 +9,13 @@ extends RefCounted
 
 
 const FunLib = preload("../utility/fun_lib.gd")
-const DebugDraw = preload("../utility/debug_draw.gd")
+const DponDebugDraw = preload("../utility/debug_draw.gd")
 const Toolshed_Brush = preload("../toolshed/toolshed_brush.gd")
 const Globals = preload("../utility/globals.gd")
 
 
-enum ModifierKeyList {KEY_SHIFT, KEY_CTRL, KEY_ALT, KEY_TAB}
-enum BrushPrimaryKeyList {MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT, MOUSE_BUTTON_MIDDLE, MOUSE_BUTTON_XBUTTON1, MOUSE_BUTTON_XBUTTON2}
+enum ModifierKeyboardKey {KEY_SHIFT, KEY_CTRL, KEY_ALT, KEY_TAB}
+enum BrushPrimaryKeyboardKey {MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT, MOUSE_BUTTON_MIDDLE, MOUSE_BUTTON_XBUTTON1, MOUSE_BUTTON_XBUTTON2}
 enum BrushPropEditFlag {MODIFIER, NONE, SIZE, STRENGTH}
 
 
@@ -27,6 +27,7 @@ var _cached_camera: Camera3D = null
 const sphere_brush_material = preload("../shaders/shm_sphere_brush.tres")
 const circle_brush_material = preload("../shaders/shm_circle_brush.tres")
 var paint_brush_node:MeshInstance3D = null
+var detached_paint_brush_container:Node = null
 
 # Temporary variables to store current quick prop edit state
 var brush_prop_edit_flag = BrushPropEditFlag.NONE
@@ -39,7 +40,7 @@ var brush_prop_edit_offset:float = 0.0
 var can_draw:bool = false
 var is_drawing:bool = false
 var pending_movement_update:bool = false
-var brush_collision_mask:int: set = set_brush_collision_mask
+var brush_collision_mask:int : set = set_brush_collision_mask
 
 # Used to pass during stroke-state signals sent to Gardener/Arborist
 # Meant to avoid retrieving transform from an actual 3D node
@@ -48,11 +49,12 @@ var active_brush_data:Dictionary = {'brush_pos': Vector3.ZERO, 'brush_normal': V
 
 # Variables to sync quick brush property edit with UI and vice-versa
 # And also for keeping brush state up-to-date without needing a reference to actual active brush
+var active_brush_type: int = Toolshed_Brush.BrushType.PAINT
 var active_brush_overlap_mode: int = Toolshed_Brush.OverlapMode.VOLUME
-var active_brush_size:float: set = set_active_brush_size
-var active_brush_strength:float: set = set_active_brush_strength
-var active_brush_max_size:float: set = set_active_brush_max_size
-var active_brush_max_strength:float: set = set_active_brush_max_strength
+var active_brush_size:float : set = set_active_brush_size
+var active_brush_strength:float : set = set_active_brush_strength
+var active_brush_max_size:float : set = set_active_brush_max_size
+var active_brush_max_strength:float : set = set_active_brush_max_strength
 
 # A queue of methods to be called once _cached_camera becomes available
 var when_camera_queue: Array = []
@@ -81,12 +83,15 @@ func _init(_owned_spatial):
 	set_meta("class", "Painter")
 	
 	owned_spatial = _owned_spatial
-	
+	FunLib.free_children(owned_spatial)
+
 	paint_brush_node = MeshInstance3D.new()
 	paint_brush_node.name = "active_brush"
-	set_brush_mesh()
+	set_brush_mesh(Toolshed_Brush.BrushShape.SPHERE)
 	
-	owned_spatial.add_child(paint_brush_node)
+	detached_paint_brush_container = Node.new()
+	owned_spatial.add_child(detached_paint_brush_container, true)
+	detached_paint_brush_container.add_child(paint_brush_node, true)
 	set_can_draw(false)
 
 
@@ -99,17 +104,20 @@ func update(delta):
 	consume_brush_drawing_update(delta)
 
 
-func set_brush_mesh(is_sphere: bool = false):
-	if is_sphere:
-		paint_brush_node.mesh = SphereMesh.new()
-		paint_brush_node.mesh.radial_segments = 32
-		paint_brush_node.mesh.rings = 16
-		paint_brush_node.cast_shadow = false
-		paint_brush_node.material_override = sphere_brush_material.duplicate()
-	else:
-		paint_brush_node.mesh = QuadMesh.new()
-		paint_brush_node.cast_shadow = false
-		paint_brush_node.material_override = circle_brush_material.duplicate()
+func set_brush_mesh(shape: Toolshed_Brush.BrushShape):
+	match shape:
+		Toolshed_Brush.BrushShape.SPHERE:
+			paint_brush_node.mesh = SphereMesh.new()
+			paint_brush_node.mesh.radial_segments = 32
+			paint_brush_node.mesh.rings = 16
+			paint_brush_node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			paint_brush_node.material_override = sphere_brush_material.duplicate()
+		Toolshed_Brush.BrushShape.CIRCLE:
+			paint_brush_node.mesh = QuadMesh.new()
+			paint_brush_node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			paint_brush_node.material_override = circle_brush_material.duplicate()
+		Toolshed_Brush.BrushShape.POINTER:
+			paint_brush_node.mesh = null
 
 
 # Queue a call to method that needs a _cached_camera to be set
@@ -141,7 +149,8 @@ func stop_editing():
 
 
 func forwarded_input(camera:Camera3D, event):
-	if !can_draw: return
+	if !can_draw: return false
+	if active_brush_type == Toolshed_Brush.BrushType.TRANSFORM: return false
 	
 	_cached_camera = camera
 	var handled = false
@@ -150,9 +159,9 @@ func forwarded_input(camera:Camera3D, event):
 	# And event == mouseMotion
 	# -> move the brush
 	if brush_prop_edit_flag <= BrushPropEditFlag.NONE:
-		if (event is InputEventMouseMotion
-			|| (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_WHEEL_UP)
-			|| (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_WHEEL_DOWN)):
+		if (is_instance_of(event, InputEventMouseMotion)
+			|| (is_instance_of(event, InputEventMouseButton) && event.button_index == MOUSE_BUTTON_WHEEL_UP)
+			|| (is_instance_of(event, InputEventMouseButton) && event.button_index == MOUSE_BUTTON_WHEEL_DOWN)):
 			
 			if mouse_move_call_delay > 0:
 				mouse_move_call_delay -= 1
@@ -164,7 +173,7 @@ func forwarded_input(camera:Camera3D, event):
 	# If inactive property edit
 	# And event == overlap mode key
 	# -> cycle overlap modes
-	if brush_prop_edit_flag <= BrushPropEditFlag.NONE && event is InputEventKey && event.keycode == get_overlap_mode_key():
+	if brush_prop_edit_flag <= BrushPropEditFlag.NONE && is_instance_of(event, InputEventKey) && event.keycode == get_overlap_mode_key():
 		if event.pressed && !event.is_echo():
 			cycle_overlap_modes()
 		handled = true
@@ -172,7 +181,7 @@ func forwarded_input(camera:Camera3D, event):
 	# If inactive property edit/modifier key pressed
 	# And event == modifier key pressed
 	# -> remember/forget the modifier
-	if brush_prop_edit_flag <= BrushPropEditFlag.NONE && event is InputEventKey && event.keycode == get_property_edit_modifier():
+	if brush_prop_edit_flag <= BrushPropEditFlag.NONE && is_instance_of(event, InputEventKey) && event.keycode == get_property_edit_modifier():
 		if event.pressed:
 			brush_prop_edit_flag = BrushPropEditFlag.MODIFIER
 		if !event.pressed:
@@ -182,7 +191,7 @@ func forwarded_input(camera:Camera3D, event):
 	# If inactive property edit or modifier key pressed
 	# And event == property edit trigger pressed
 	# -> start property edit
-	if brush_prop_edit_flag <= BrushPropEditFlag.NONE && event is InputEventMouseButton && event.button_index == get_property_edit_button():
+	if brush_prop_edit_flag <= BrushPropEditFlag.NONE && is_instance_of(event, InputEventMouseButton) && event.button_index == get_property_edit_button():
 		if event.pressed:
 			brush_prop_edit_flag = BrushPropEditFlag.SIZE if brush_prop_edit_flag != BrushPropEditFlag.MODIFIER else BrushPropEditFlag.STRENGTH
 			start_brush_prop_edit(event.global_position)
@@ -191,7 +200,7 @@ func forwarded_input(camera:Camera3D, event):
 	# If editing property
 	# And event == property edit trigger released
 	# -> stop property edit
-	if brush_prop_edit_flag > BrushPropEditFlag.NONE && event is InputEventMouseButton && event.button_index == get_property_edit_button():
+	if brush_prop_edit_flag > BrushPropEditFlag.NONE && is_instance_of(event, InputEventMouseButton) && event.button_index == get_property_edit_button():
 		if !event.pressed:
 			finish_brush_prop_edit(camera)
 			brush_prop_edit_flag = BrushPropEditFlag.NONE
@@ -200,14 +209,14 @@ func forwarded_input(camera:Camera3D, event):
 	# If editing property
 	# And event == mouseMotion
 	# -> update property value
-	if brush_prop_edit_flag > BrushPropEditFlag.NONE && event is InputEventMouseMotion:
+	if brush_prop_edit_flag > BrushPropEditFlag.NONE && is_instance_of(event, InputEventMouseMotion):
 		brush_prop_edit_calc_val(event.global_position)
 		handled = true
 	
 	# If editing property
 	# And event == paint trigger pressed/releasedq
 	# -> start/stop the brush stroke
-	if brush_prop_edit_flag == BrushPropEditFlag.NONE && event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT:
+	if brush_prop_edit_flag == BrushPropEditFlag.NONE && is_instance_of(event, InputEventMouseButton) && event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			move_brush()
 			start_brush_stroke()
@@ -221,18 +230,18 @@ func forwarded_input(camera:Camera3D, event):
 func get_property_edit_modifier():
 	# This convolution exists because a project setting with default value is not saved for some reason and load as "null"
 	# See https://github.com/godotengine/godot/issues/56598
-	var key = FunLib.get_setting_safe("dreadpons_spatial_gardener/input_and_ui/brush_prop_edit_modifier", Globals.KeyList.KEY_SHIFT)
-	return Globals.index_to_enum(key, Globals.KeyList)
+	var key = FunLib.get_setting_safe("dreadpons_spatial_gardener/input_and_ui/brush_prop_edit_modifier", Globals.KeyboardKey.KEY_SHIFT)
+	return Globals.index_to_enum(key, Globals.KeyboardKey)
 
 
 func get_property_edit_button():
-	var key = FunLib.get_setting_safe("dreadpons_spatial_gardener/input_and_ui/brush_prop_edit_button", Globals.ButtonList.MOUSE_BUTTON_RIGHT)
-	return Globals.index_to_enum(key, Globals.ButtonList)
+	var key = FunLib.get_setting_safe("dreadpons_spatial_gardener/input_and_ui/brush_prop_edit_button", Globals.MouseButton.MOUSE_BUTTON_XBUTTON1)
+	return Globals.index_to_enum(key, Globals.MouseButton)
 
 
 func get_overlap_mode_key():
-	var key = FunLib.get_setting_safe("dreadpons_spatial_gardener/input_and_ui/brush_overlap_mode_button", Globals.KeyList.KEY_QUOTELEFT)
-	return Globals.index_to_enum(key, Globals.KeyList)
+	var key = FunLib.get_setting_safe("dreadpons_spatial_gardener/input_and_ui/brush_overlap_mode_button", Globals.KeyboardKey.KEY_QUOTELEFT)
+	return Globals.index_to_enum(key, Globals.KeyboardKey)
 
 
 
@@ -253,14 +262,14 @@ func set_can_draw(state):
 func start_brush_stroke():
 	if is_drawing: return
 	is_drawing = true
-	emit_signal("stroke_started", active_brush_data)
+	stroke_started.emit(active_brush_data)
 
 
 func stop_brush_stroke():
 	if !is_drawing: return
 	is_drawing = false
 	active_brush_data = {'brush_pos': Vector3.ZERO, 'brush_normal': Vector3.UP, 'brush_basis': Basis()} 
-	emit_signal("stroke_finished", active_brush_data)
+	stroke_finished.emit(active_brush_data)
 
 
 # Actually update the stroke only if it was preceeded by the input event
@@ -270,7 +279,7 @@ func consume_brush_drawing_update(delta):
 	if !pending_movement_update: return
 	
 	pending_movement_update = false
-	emit_signal("stroke_updated", active_brush_data)
+	stroke_updated.emit(active_brush_data)
 
 
 
@@ -292,7 +301,10 @@ func update_active_brush_data(raycast_overrides: Dictionary = {}):
 	var space_state = paint_brush_node.get_world_3d().direct_space_state
 	var start = project_mouse_near() if !raycast_overrides.has('start') else raycast_overrides.start
 	var end = project_mouse_far() if !raycast_overrides.has('end') else raycast_overrides.end
-	var ray_result:Dictionary = space_state.intersect_ray(start, end, [], brush_collision_mask)
+	
+	var params = PhysicsRayQueryParameters3D.create(start, end, brush_collision_mask, [])
+	params.hit_from_inside = true
+	var ray_result:Dictionary = space_state.intersect_ray(params)
 	
 	if !ray_result.is_empty():
 		active_brush_data.brush_pos = ray_result.position
@@ -314,6 +326,7 @@ func update_active_brush_data(raycast_overrides: Dictionary = {}):
 # Update transform of a paint brush 3D node
 func refresh_brush_transform():
 	if active_brush_data.is_empty(): return
+	if active_brush_type == Toolshed_Brush.BrushType.TRANSFORM: return
 	
 	match active_brush_overlap_mode:
 		Toolshed_Brush.OverlapMode.VOLUME:
@@ -368,13 +381,13 @@ func brush_prop_edit_calc_val(mouse_pos):
 		Toolshed_Brush.OverlapMode.VOLUME:
 			match brush_prop_edit_flag:
 				BrushPropEditFlag.SIZE:
-					emit_signal('changed_active_brush_prop', 'shape/shape_volume_size', brush_prop_edit_cur_val, false)
+					changed_active_brush_prop.emit("shape/shape_volume_size", brush_prop_edit_cur_val, false)
 				BrushPropEditFlag.STRENGTH:
-					emit_signal('changed_active_brush_prop', 'behavior/behavior_strength', brush_prop_edit_cur_val, false)
+					changed_active_brush_prop.emit("behavior/behavior_strength", brush_prop_edit_cur_val, false)
 		Toolshed_Brush.OverlapMode.PROJECTION:
 			match brush_prop_edit_flag:
 				BrushPropEditFlag.SIZE:
-					emit_signal('changed_active_brush_prop', 'shape/shape_projection_size', brush_prop_edit_cur_val, false)
+					changed_active_brush_prop.emit("shape/shape_projection_size", brush_prop_edit_cur_val, false)
 
 
 # Stop editing brush property and reset helper variables and mouse position
@@ -383,15 +396,15 @@ func finish_brush_prop_edit(camera:Camera3D):
 		Toolshed_Brush.OverlapMode.VOLUME:
 			match brush_prop_edit_flag:
 				BrushPropEditFlag.SIZE:
-					emit_signal('changed_active_brush_prop', 'shape/shape_volume_size', brush_prop_edit_cur_val, true)
+					changed_active_brush_prop.emit("shape/shape_volume_size", brush_prop_edit_cur_val, true)
 				BrushPropEditFlag.STRENGTH:
-					emit_signal('changed_active_brush_prop', 'behavior/behavior_strength', brush_prop_edit_cur_val, true)
+					changed_active_brush_prop.emit("behavior/behavior_strength", brush_prop_edit_cur_val, true)
 		Toolshed_Brush.OverlapMode.PROJECTION:
 			match brush_prop_edit_flag:
 				BrushPropEditFlag.SIZE:
-					emit_signal('changed_active_brush_prop', 'shape/shape_projection_size', brush_prop_edit_cur_val, true)
+					changed_active_brush_prop.emit("shape/shape_projection_size", brush_prop_edit_cur_val, true)
 	
-	camera.get_viewport().warp_mouse(brush_prop_edit_start_pos)
+	Input.warp_mouse(brush_prop_edit_start_pos)
 	
 	brush_prop_edit_flag = BrushPropEditFlag.NONE
 	brush_prop_edit_start_pos = Vector2.ZERO
@@ -410,7 +423,7 @@ func cycle_overlap_modes():
 	active_brush_overlap_mode += 1
 	if active_brush_overlap_mode > Toolshed_Brush.OverlapMode.PROJECTION: 
 		active_brush_overlap_mode = Toolshed_Brush.OverlapMode.VOLUME
-	emit_signal('changed_active_brush_prop', 'behavior/behavior_overlap_mode', active_brush_overlap_mode, true)
+	changed_active_brush_prop.emit("behavior/behavior_overlap_mode", active_brush_overlap_mode, true)
 
 
 
@@ -435,6 +448,7 @@ func update_all_props_to_active_brush(brush: Toolshed_Brush):
 			max_size = FunLib.get_setting_safe("dreadpons_spatial_gardener/input_and_ui/brush_projection_size_slider_max_value", 1000.0)
 			curr_size = brush.shape_projection_size
 	
+	set_active_brush_type(brush.behavior_brush_type)
 	set_active_brush_overlap_mode(brush.behavior_overlap_mode)
 	set_active_brush_max_size(max_size)
 	set_active_brush_max_strength(max_strength)
@@ -445,6 +459,8 @@ func update_all_props_to_active_brush(brush: Toolshed_Brush):
 # Update helper variables and visuals
 func set_active_brush_size(val):
 	active_brush_size = val
+	if active_brush_type == Toolshed_Brush.BrushType.TRANSFORM: return
+	
 	paint_brush_node.material_override.set_shader_parameter("proximity_multiplier", active_brush_size * 0.5)
 	queue_call_when_camera('set_brush_diameter', [active_brush_size])
 
@@ -452,6 +468,8 @@ func set_active_brush_size(val):
 # Update helper variables and visuals
 func set_active_brush_max_size(val):
 	active_brush_max_size = val
+	if active_brush_type == Toolshed_Brush.BrushType.TRANSFORM: return
+	
 	queue_call_when_camera('set_brush_diameter', [active_brush_size])
 
 
@@ -467,6 +485,8 @@ func set_active_brush_max_strength(val):
 
 # Update visuals
 func set_brush_diameter(diameter: float):
+	if active_brush_type == Toolshed_Brush.BrushType.TRANSFORM: return
+	
 	match active_brush_overlap_mode:
 		
 		Toolshed_Brush.OverlapMode.VOLUME:
@@ -497,13 +517,27 @@ func set_brush_collision_mask(val):
 # Update helper variables and visuals
 func set_active_brush_overlap_mode(val):
 	active_brush_overlap_mode = val
+	if active_brush_type == Toolshed_Brush.BrushType.TRANSFORM: return
 	
 	match active_brush_overlap_mode:
 		Toolshed_Brush.OverlapMode.VOLUME:
-			set_brush_mesh(true)
+			set_brush_mesh(Toolshed_Brush.BrushShape.SPHERE)
 		Toolshed_Brush.OverlapMode.PROJECTION:
-			set_brush_mesh(false)
+			set_brush_mesh(Toolshed_Brush.BrushShape.CIRCLE)
 	
+	# Since we are rebuilding the mesh here
+	# It means that we need to move it in a proper position as well
+	move_brush()
+
+
+func set_active_brush_type(val):
+	active_brush_type = val
+	
+	match active_brush_type:
+		Toolshed_Brush.BrushType.TRANSFORM:
+			set_brush_mesh(Toolshed_Brush.BrushShape.POINTER)
+		_:
+			set_active_brush_overlap_mode(active_brush_overlap_mode)
 	# Since we are rebuilding the mesh here
 	# It means that we need to move it in a proper position as well
 	move_brush()
@@ -512,7 +546,7 @@ func set_active_brush_overlap_mode(val):
 
 
 #-------------------------------------------------------------------------------
-# Camera/raycasting methods
+# Camera3D/raycasting methods
 #-------------------------------------------------------------------------------
 
 

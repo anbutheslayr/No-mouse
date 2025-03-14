@@ -1,6 +1,5 @@
 @tool
-extends Window
-
+extends ConfirmationDialog
 
 signal confirm_pressed
 signal cancel_pressed
@@ -8,31 +7,34 @@ signal dont_ask_again_toggled(state)
 
 
 
+
+func _init():
+	close_requested.connect(hide)
+
+
 func _ready():
-	$'%TreeScenes'.connect('item_selected', Callable(self, '_on_tree_item_selected'))
+	$'%TreeScenes'.item_selected.connect(_on_tree_item_selected)
 
 
 func _on_tree_item_selected():
 	var selected_item: TreeItem = $'%TreeScenes'.get_selected()
 	if !selected_item: return
-	selected_item.set_checked(0, !selected_item.is_checked(0))
-	selected_item.deselect(0)
 
 
 func add_scenes(scenes: Array):
 	$'%TreeScenes'.clear()
-	$'%TreeScenes'.hide_root = true
 	var root = $'%TreeScenes'.create_item()
 	for scene in scenes:
 		var item: TreeItem = $'%TreeScenes'.create_item(root)
 		item.set_cell_mode(0, TreeItem.CELL_MODE_CHECK)
+		item.set_editable(0, true)
 		item.set_checked(0, true)
 		item.set_text(0, scene)
 
 
 func get_selected_scenes() -> Array:
 	var selected_scenes = []
-	var child_item: TreeItem = $'%TreeScenes'.get_root().get_children()
+	var child_item: TreeItem = $'%TreeScenes'.get_root().get_first_child()
 	while child_item != null:
 		if child_item.is_checked(0):
 			selected_scenes.append(child_item.get_text(0))
@@ -41,21 +43,21 @@ func get_selected_scenes() -> Array:
 
 
 func should_mk_backups():
-	return $'%ButtonBackup'.pressed
+	return $'%ButtonBackup'.button_pressed
 
 
 
 
 func _on_ButtonConfirm_pressed():
-	emit_signal('confirm_pressed')
+	confirm_pressed.emit()
 
 
 func _on_ButtonCancel_pressed():
-	emit_signal('cancel_pressed')
+	cancel_pressed.emit()
 
 
-func _on_ButtonDontAskAgain_toggled(button_pressed):
-	emit_signal('dont_ask_again_toggled', button_pressed)
+func _on_ButtonDontAskAgain_toggled(pressed):
+	dont_ask_again_toggled.emit(pressed)
 
 
 func _on_ConvertDialog_about_to_show():

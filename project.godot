@@ -80,7 +80,6 @@ config/windows_native_icon="res://ICO.ico"
 
 AudioPlayer="*res://Scenes/AudioPlayer.tscn"
 GlobalVars="*res://Scripts/Global_vars.cs"
-MobileAds="*res://addons/admob/src/singletons/MobileAds.gd"
 LoadingScreen="*res://Scripts/GDscript/Loading_screen.gd"
 ParticleLoader="*res://Scripts/GDscript/Particle_loader.gd"
 
@@ -88,6 +87,7 @@ ParticleLoader="*res://Scripts/GDscript/Particle_loader.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/aspect="expand"
 window/size/fullscreen=true
 window/tablet_driver=""
@@ -98,11 +98,12 @@ project/assembly_name="Rogue drifters"
 
 [editor]
 
+movie_writer/movie_file="D:/Godot projects/New folder/No-mouse/recvideo.avi"
 convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dreadpon.spatial_gardener/plugin.cfg", "res://addons/godot-camera-preview-master/plugin.cfg")
+enabled=PackedStringArray("res://addons/dreadpon.spatial_gardener/plugin.cfg")
 
 [global]
 

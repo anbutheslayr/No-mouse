@@ -8,7 +8,7 @@ extends Node3D
 
 
 const FunLib = preload("../utility/fun_lib.gd")
-const DebugDraw = preload("../utility/debug_draw.gd")
+const DponDebugDraw = preload("../utility/debug_draw.gd")
 const MMIOctreeManager = preload("../arborist/mmi_octree/mmi_octree_manager.gd")
 const MMIOctreeNode = preload("../arborist/mmi_octree/mmi_octree_node.gd")
 
@@ -49,7 +49,8 @@ static func make_debug_view_menu():
 	debug_view_menu.text = "Gardener Debug Viewer"
 	debug_view_menu.get_popup().hide_on_checkable_item_selection = false
 	debug_view_menu.get_popup().hide_on_item_selection = false
-	
+	debug_view_menu.tooltip_text = "Display debug information about octrees and instances"
+
 	for i in range(0, PlantViewModeFlags.size() - 1):
 		debug_view_menu.get_popup().add_radio_check_item(PlantViewModeFlags.keys()[i].capitalize(), PlantViewModeFlags.values()[i])
 	
@@ -200,12 +201,15 @@ func ensure_MMIs(amount:int):
 			MMI.cast_shadow = false
 			MMI.multimesh = MultiMesh.new()
 			MMI.multimesh.transform_format = 1
-			MMI.multimesh.color_format = MultiMesh.COLOR_8BIT
-			MMI.multimesh.mesh = DebugDraw.generate_cube(Vector3.ONE * 0.5, Color.WHITE)
+			MMI.multimesh.use_colors = true
+			MMI.multimesh.mesh = DponDebugDraw.generate_cube(Vector3.ONE, Color.WHITE)
 			octree_MMIs.append(MMI)
 	elif octree_MMIs.size() > amount:
+		var MMI = null
 		while octree_MMIs.size() > amount:
-			remove_child(octree_MMIs.pop_back())
+			MMI = octree_MMIs.pop_back()
+			remove_child(MMI)
+			MMI.queue_free()
 
 
 # Recursively draw an octree node
@@ -252,7 +256,7 @@ func set_debug_redraw_instance_count(octree_node:MMIOctreeNode, MMI:MultiMeshIns
 		MMI.multimesh.instance_count += 1
 	
 	if octree_node.is_leaf && draw_members:
-		MMI.multimesh.instance_count += octree_node.member_count()
+		MMI.multimesh.instance_count += octree_node.get_member_count()
 	
 	for child in octree_node.child_nodes:
 		set_debug_redraw_instance_count(child, MMI, draw_node, draw_members)
