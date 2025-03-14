@@ -13,50 +13,47 @@ extends Camera3D
 
 
 @onready var target : MeshInstance3D = get_node(target_path)
-@onready var rayp : Node3D = get_node("Raycol")
-@onready var gun : Gun = target.get_node("body/MachineGun")
+@onready var rayp : Node3D = target.get_node("Raycol")
+# @onready var gun : Gun = target.get_node("body/MachineGun")
 var raycast : RayCast3D
-var trauma
-var time
+var trauma = 0
+var time=0
 
 func _ready() -> void:
-    raycast = RayCast3D.new()
-    add_child(raycast)
-    raycast.enabled = true
-    raycast.collide_with_areas = false
-    raycast.collide_with_bodies = true
+	raycast = RayCast3D.new()
+	add_child(raycast)
+	raycast.enabled = true
+	raycast.collide_with_areas = false
+	raycast.collide_with_bodies = true
 
 
 
 
 func _physics_process(delta: float) -> void:
-    var targetpos = target.global_transform.translated(offset)
-    targetpos.y = max(targetpos.y, target.global_transform.origin.y + offset.y)
-    raycast.global_position = rayp.global_position
-    var dir = global_position - raycast.global_position
-    raycast.target_position = dir
-    raycast.force_raycast_update()
-    if(gun.closest_enemy != null ||raycast.get_collider() is StaticBody3D):
-        global_position = global_position.lerp(Vector3(targetpos.x, 25, targetpos.z),col_lerp_speed*delta)
-    else:
-        global_position = global_position.lerp(targetpos, lerp_speed*delta)
-    look_at(target.global_transform.origin, Vector3.UP)
-    trauma = max(trauma - trauma_red_rate*delta, 0)
-    time += delta
-    rotation_degrees = Vector3(rotation_degrees.x + get_noise_from_seed(0)*max_x*get_shake_intensity(),
-    rotation_degrees.y + get_noise_from_seed(1)*max_y*get_shake_intensity(),
-    rotation_degrees.z + get_noise_from_seed(2)*max_z*get_shake_intensity())
-    
+	var targetpos : Transform3D = target.global_transform.translated(offset)
+	targetpos.origin.y = max(targetpos.origin.y, target.global_transform.origin.y + offset.y)
+	raycast.global_position = rayp.global_position
+	var dir = global_position - raycast.global_position
+	raycast.target_position = dir
+	raycast.force_raycast_update()
+	# if(gun.closest_enemy != null ||raycast.get_collider() is StaticBody3D):
+		# global_position = global_position.lerp(Vector3(targetpos.x, 25, targetpos.z),col_lerp_speed*delta)
+	# else:
+	global_position = global_position.lerp(targetpos.origin, lerp_speed*delta)
+	look_at(target.global_transform.origin, Vector3.UP)
+	trauma = max(trauma - trauma_red_rate*delta, 0)
+	time += delta
+	rotation_degrees = Vector3(rotation_degrees.x + get_noise_from_seed(0)*max_x*get_shake_intensity(),
+	rotation_degrees.y + get_noise_from_seed(1)*max_y*get_shake_intensity(),
+	rotation_degrees.z + get_noise_from_seed(2)*max_z*get_shake_intensity())
+	
 func add_trauma(amount):
-    trauma = clamp(trauma + amount, 0, 1)
+	trauma = clamp(trauma + amount, 0, 1)
 
 
 func get_shake_intensity():
-    return trauma*trauma
+	return trauma*trauma
 
 func get_noise_from_seed(sed):
-    fastnoiselite.seed = sed
-    return fastnoiselite.get_noise_1d(time * noise_speed)
-
-
-
+	fastnoiselite.seed = sed
+	return fastnoiselite.get_noise_1d(time * noise_speed)

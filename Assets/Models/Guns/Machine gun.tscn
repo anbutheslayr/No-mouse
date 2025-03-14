@@ -1,640 +1,587 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=4 uid="uid://jpi7seohr20e"]
 
 [ext_resource type="Material" path="res://Assets/Materials/FrontColor.material" id="1"]
 [ext_resource type="Material" path="res://Assets/Materials/Gray6.material" id="2"]
 [ext_resource type="Material" path="res://Assets/Materials/Gray8.material" id="3"]
 [ext_resource type="Material" path="res://Assets/Materials/Gray5.material" id="4"]
-[ext_resource type="Script" uid="uid://8etmv7hm332l" path="res://Scripts/Ported scripts/Gun.cs" id="5"]
 [ext_resource type="Texture2D" uid="uid://c3aqtnqlerqjt" path="res://Assets/Materials/Muzzle.png" id="6"]
 
-[sub_resource type="ArrayMesh" id=1]
-surfaces/0 = {
-"aabb": AABB( -0.0039, -0.0207, -0.0264, 0.00781, 0.0198, 0.0162 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 12, 147, 169, 188, 208, 68, 216, 188, 0, 129, 129, 63, 131, 197, 214, 206, 36, 151, 127, 187, 12, 147, 169, 188, 208, 68, 216, 188, 0, 129, 129, 63, 76, 182, 214, 206, 36, 151, 127, 59, 12, 147, 169, 188, 250, 237, 107, 188, 0, 129, 129, 63, 131, 197, 222, 204, 36, 151, 127, 187, 12, 147, 169, 188, 250, 237, 107, 188, 0, 129, 129, 63, 76, 182, 222, 204, 36, 151, 127, 187, 12, 147, 169, 188, 208, 68, 216, 188, 152, 127, 129, 63, 76, 182, 244, 68, 36, 151, 127, 59, 12, 147, 169, 188, 208, 68, 216, 188, 152, 127, 129, 63, 131, 197, 244, 68, 36, 151, 127, 187, 250, 237, 107, 186, 198, 220, 181, 188, 152, 127, 129, 63, 76, 182, 41, 200, 36, 151, 127, 59, 250, 237, 107, 186, 198, 220, 181, 188, 152, 127, 129, 63, 131, 197, 41, 200, 36, 151, 127, 187, 250, 237, 107, 186, 231, 29, 39, 188, 129, 0, 0, 63, 109, 204, 250, 202, 36, 151, 127, 187, 12, 147, 169, 188, 250, 237, 107, 188, 129, 0, 0, 63, 30, 205, 191, 187, 36, 151, 127, 187, 250, 237, 107, 186, 198, 220, 181, 188, 129, 0, 0, 63, 101, 206, 250, 202, 36, 151, 127, 187, 12, 147, 169, 188, 208, 68, 216, 188, 129, 0, 0, 63, 22, 207, 191, 187, 82, 73, 29, 187, 221, 181, 4, 188, 220, 35, 64, 188, 0, 234, 126, 63, 131, 61, 33, 197, 36, 151, 127, 187, 12, 147, 169, 188, 250, 237, 107, 188, 0, 234, 126, 63, 76, 54, 165, 66, 36, 151, 127, 187, 250, 237, 107, 186, 231, 29, 39, 188, 0, 234, 126, 63, 76, 54, 250, 200, 82, 73, 29, 59, 221, 181, 4, 188, 220, 35, 64, 188, 0, 234, 126, 63, 135, 68, 33, 197, 36, 151, 127, 59, 12, 147, 169, 188, 250, 237, 107, 188, 0, 234, 126, 63, 131, 69, 165, 66, 36, 151, 127, 59, 250, 237, 107, 186, 231, 29, 39, 188, 0, 234, 126, 63, 131, 69, 250, 200, 36, 151, 127, 59, 250, 237, 107, 186, 198, 220, 181, 188, 127, 0, 127, 127, 101, 78, 250, 202, 36, 151, 127, 59, 12, 147, 169, 188, 208, 68, 216, 188, 127, 0, 127, 127, 22, 79, 191, 187, 36, 151, 127, 59, 250, 237, 107, 186, 231, 29, 39, 188, 127, 0, 127, 127, 109, 76, 250, 202, 36, 151, 127, 59, 12, 147, 169, 188, 250, 237, 107, 188, 127, 0, 127, 127, 30, 77, 191, 187 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 13, 0, 12, 0, 15, 0, 15, 0, 16, 0, 13, 0, 16, 0, 15, 0, 17, 0, 18, 0, 19, 0, 20, 0, 20, 0, 19, 0, 21, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+[sub_resource type="ArrayMesh" id="1"]
+_surfaces = [{
+"aabb": AABB(-0.0039, -0.0207, -0.0264, 0.00781, 0.0198, 0.0162),
+"attribute_data": PackedByteArray("AGCwwADA2sEAgMm+AMDawQBgsMAAwJvBAIDJvgDAm8EAgMm+AICeQABgsMAAgJ5AAIDJvgAgBcEAYLDAACAFwQCgjcEAQF/BAMCjwQDgd78AoMzBAEBfwQDA4sEA4He/AGCwPwAgpMAAgMk+AKBUQACAyT4AQB/BAOCQQAAgpMAAYLBAAKBUQABgsEAAQB/BAKDMQQBAX8EAwOJBAOB3vwCgjUEAQF/BAMCjQQDgd78="),
+"format": 34359742487,
 "index_count": 36,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsADAANAA4ADQAMAA8ADwAQAA0AEAAPABEAEgATABQAFAATABUA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 22
-}
-surfaces/1 = {
-"aabb": AABB( -0.0039, -0.0009, -0.0222, 0.0078, 1e-05, 0.012 ),
-"array_data": PackedByteArray( 36, 151, 127, 187, 250, 237, 107, 186, 198, 220, 181, 188, 0, 129, 129, 63, 76, 182, 37, 206, 36, 151, 127, 187, 250, 237, 107, 186, 231, 29, 39, 188, 0, 129, 129, 63, 76, 182, 45, 204, 36, 151, 127, 59, 250, 237, 107, 186, 198, 220, 181, 188, 0, 129, 129, 63, 131, 197, 37, 206, 36, 151, 127, 59, 250, 237, 107, 186, 231, 29, 39, 188, 0, 129, 129, 63, 131, 197, 45, 204 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 22,
+"vertex_data": PackedByteArray("JJd/OwyTqbzQRNi8JJd/uwyTqbzQRNi8JJd/OwyTqbz67Wu8JJd/uwyTqbz67Wu8JJd/uwyTqbzQRNi8JJd/OwyTqbzQRNi8JJd/u/rta7rG3LW8JJd/O/rta7rG3LW8JJd/u/rta7rnHSe8JJd/uwyTqbz67Wu8JJd/u/rta7rG3LW8JJd/uwyTqbzQRNi8Ukkdu921BLzcI0C8JJd/uwyTqbz67Wu8JJd/u/rta7rnHSe8UkkdO921BLzcI0C8JJd/OwyTqbz67Wu8JJd/O/rta7rnHSe8JJd/O/rta7rG3LW8JJd/OwyTqbzQRNi8JJd/O/rta7rnHSe8JJd/OwyTqbz67Wu8AAABgAAAfr8AAAGAAAB+vwAAAYAAAH6/AAABgAAAfr8wl/9/AAB+vzCX/38AAH6/MJf/fwAAfr8wl/9/AAB+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AADU6fz+fr8AANTp/P5+vwAA1On8/n6/AADU6fz+fr8AANTp/P5+vwAA1On8/n6//38AAP//////fwAA//////9/AAD//////38AAP////8=")
+}, {
+"aabb": AABB(-0.0039, -0.0009, -0.0222, 0.0078, 1e-05, 0.012),
+"attribute_data": PackedByteArray("AIDJvgCgxMEAgMm+AKCFwQBgsMAAoMTBAGCwwACghcE="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 1 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("1"),
 "name": "FrontColor",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/2 = {
-"aabb": AABB( -0.0045, -0.0009, -0.0222, 0.009, 1e-05, 0.020468 ),
-"array_data": PackedByteArray( 188, 116, 147, 187, 250, 237, 107, 186, 40, 84, 228, 186, 0, 129, 130, 63, 0, 0, 149, 201, 36, 151, 127, 187, 250, 237, 107, 186, 231, 29, 39, 188, 0, 129, 130, 63, 76, 182, 45, 204, 36, 151, 127, 187, 250, 237, 107, 186, 198, 220, 181, 188, 0, 129, 130, 63, 76, 182, 37, 206, 82, 73, 29, 187, 250, 237, 107, 186, 104, 124, 25, 187, 0, 129, 129, 63, 131, 189, 199, 201, 188, 116, 147, 59, 250, 237, 107, 186, 40, 84, 228, 186, 0, 129, 129, 63, 231, 197, 149, 201, 82, 73, 29, 59, 250, 237, 107, 186, 104, 124, 25, 187, 0, 129, 129, 63, 135, 196, 199, 201 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0, 3, 0, 0, 0, 4, 0, 3, 0, 4, 0, 5, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/u/rta7rG3LW8JJd/u/rta7rnHSe8JJd/O/rta7rG3LW8JJd/O/rta7rnHSe8AAABgAAAfr8AAAGAAAB+vwAAAYAAAH6/AAABgAAAfr8=")
+}, {
+"aabb": AABB(-0.0045, -0.0009, -0.0222, 0.009, 1e-05, 0.020468),
+"attribute_data": PackedByteArray("AAAAAACgMsEAgMm+AKCFwQCAyb4AoMTBAGCwvwDgOMEA4LzAAKAywQDgkMAA4DjB"),
+"format": 34359742487,
 "index_count": 12,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAAAAQAAwAEAAUA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 6
-}
-surfaces/3 = {
-"aabb": AABB( -0.0024, -0.0081, -0.0117273, 0.0048, 0.00721, 0.00939529 ),
-"array_data": PackedByteArray( 82, 73, 29, 187, 250, 237, 107, 186, 104, 124, 25, 187, 0, 0, 127, 63, 131, 61, 250, 202, 82, 73, 29, 59, 250, 237, 107, 186, 104, 124, 25, 187, 0, 0, 127, 63, 135, 68, 250, 202, 82, 73, 29, 187, 221, 181, 4, 188, 104, 124, 25, 187, 0, 0, 127, 63, 131, 61, 158, 200, 82, 73, 29, 59, 221, 181, 4, 188, 104, 124, 25, 187, 0, 0, 127, 63, 135, 68, 158, 200, 82, 73, 29, 187, 59, 112, 206, 187, 122, 226, 57, 188, 129, 0, 0, 63, 157, 204, 53, 201, 82, 73, 29, 187, 59, 112, 206, 187, 179, 185, 135, 187, 129, 0, 0, 63, 222, 202, 53, 201, 82, 73, 29, 187, 221, 181, 4, 188, 220, 35, 64, 188, 129, 0, 0, 63, 173, 204, 158, 200, 82, 73, 29, 187, 221, 181, 4, 188, 104, 124, 25, 187, 129, 0, 0, 63, 71, 202, 158, 200, 82, 73, 29, 187, 250, 237, 107, 186, 104, 124, 25, 187, 129, 0, 0, 63, 71, 202, 250, 202, 82, 73, 29, 187, 250, 237, 107, 186, 179, 185, 135, 187, 129, 0, 0, 63, 222, 202, 250, 202, 82, 73, 29, 59, 59, 112, 206, 187, 122, 226, 57, 188, 0, 127, 127, 63, 135, 68, 93, 204, 82, 73, 29, 59, 59, 112, 206, 187, 179, 185, 135, 187, 0, 127, 127, 63, 135, 68, 94, 202, 82, 73, 29, 187, 59, 112, 206, 187, 122, 226, 57, 188, 0, 127, 127, 63, 131, 61, 93, 204, 82, 73, 29, 187, 59, 112, 206, 187, 179, 185, 135, 187, 0, 127, 127, 63, 131, 61, 94, 202, 82, 73, 29, 59, 221, 181, 4, 188, 220, 35, 64, 188, 127, 0, 127, 127, 173, 76, 158, 200, 82, 73, 29, 59, 221, 181, 4, 188, 104, 124, 25, 187, 127, 0, 127, 127, 71, 74, 158, 200, 82, 73, 29, 59, 59, 112, 206, 187, 122, 226, 57, 188, 127, 0, 127, 127, 157, 76, 53, 201, 82, 73, 29, 59, 59, 112, 206, 187, 179, 185, 135, 187, 127, 0, 126, 127, 222, 74, 53, 201, 82, 73, 29, 59, 250, 237, 107, 186, 179, 185, 135, 187, 127, 0, 127, 127, 222, 74, 250, 202, 82, 73, 29, 59, 250, 237, 107, 186, 104, 124, 25, 187, 127, 0, 127, 127, 71, 74, 250, 202, 82, 73, 29, 187, 221, 181, 4, 188, 220, 35, 64, 188, 0, 129, 129, 63, 131, 189, 109, 204, 82, 73, 29, 187, 221, 181, 4, 188, 104, 124, 25, 187, 0, 129, 129, 63, 131, 189, 199, 201, 82, 73, 29, 59, 221, 181, 4, 188, 220, 35, 64, 188, 0, 129, 129, 63, 135, 196, 109, 204, 82, 73, 29, 59, 221, 181, 4, 188, 104, 124, 25, 187, 0, 129, 129, 63, 135, 196, 199, 201 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 7, 0, 5, 0, 8, 0, 8, 0, 5, 0, 9, 0, 10, 0, 11, 0, 12, 0, 12, 0, 11, 0, 13, 0, 14, 0, 15, 0, 16, 0, 16, 0, 15, 0, 17, 0, 17, 0, 15, 0, 18, 0, 18, 0, 15, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("vHSTu/rta7ooVOS6JJd/u/rta7rnHSe8JJd/u/rta7rG3LW8Ukkdu/rta7pofBm7vHSTO/rta7ooVOS6UkkdO/rta7pofBm7AAABgAIBfr8AAAGAAgF+vwAAAYACAX6/AAABgAAAfr8AAAGAAAB+vwAAAYAAAH6/")
+}, {
+"aabb": AABB(-0.0024, -0.0081, -0.0117273, 0.0048, 0.00721, 0.00939529),
+"attribute_data": PackedByteArray("AGCwPwBAX8EA4JBAAEBfwQBgsD8AwBPBAOCQQADAE8EAoJPBAKAmwQDAW8EAoCbBAKCVwQDAE8EA4EjBAMATwQDgSMEAQF/BAMBbwQBAX8EA4JBAAKCLwQDgkEAAwEvBAGCwPwCgi8EAYLA/AMBLwQCglUEAwBPBAOBIQQDAE8EAoJNBAKAmwQDAW0EAoCbBAMBbQQBAX8EA4EhBAEBfwQBgsL8AoI3BAGCwvwDgOMEA4JDAAKCNwQDgkMAA4DjB"),
+"format": 34359742487,
 "index_count": 42,
-"material": ExtResource( 4 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcABwAFAAgACAAFAAkACgALAAwADAALAA0ADgAPABAAEAAPABEAEQAPABIAEgAPABMAFAAVABYAFgAVABcA"),
+"material": ExtResource("4"),
 "name": "Gray5",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 24
-}
-surfaces/4 = {
-"aabb": AABB( -0.0024, -0.0081, -0.0117273, 0.00481, 0.0018, 0.000381799 ),
-"array_data": PackedByteArray( 82, 73, 29, 59, 221, 181, 4, 188, 220, 35, 64, 188, 0, 234, 127, 63, 135, 68, 33, 197, 82, 73, 29, 187, 221, 181, 4, 188, 220, 35, 64, 188, 0, 234, 127, 63, 131, 61, 33, 197, 82, 73, 29, 59, 59, 112, 206, 187, 122, 226, 57, 188, 0, 234, 127, 63, 135, 68, 86, 198, 82, 73, 29, 187, 59, 112, 206, 187, 122, 226, 57, 188, 0, 234, 127, 63, 131, 61, 86, 198 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("Ukkdu/rta7pofBm7UkkdO/rta7pofBm7Ukkdu921BLxofBm7UkkdO921BLxofBm7Ukkduztwzrt64jm8UkkduztwzruzuYe7Ukkdu921BLzcI0C8Ukkdu921BLxofBm7Ukkdu/rta7pofBm7Ukkdu/rta7qzuYe7UkkdOztwzrt64jm8UkkdOztwzruzuYe7Ukkduztwzrt64jm8UkkduztwzruzuYe7UkkdO921BLzcI0C8UkkdO921BLxofBm7UkkdOztwzrt64jm8UkkdOztwzruzuYe7UkkdO/rta7qzuYe7UkkdO/rta7pofBm7Ukkdu921BLzcI0C8Ukkdu921BLxofBm7UkkdO921BLzcI0C8UkkdO921BLxofBm7AAAAAP//fr8AAAAA//9+vwAAAAD//36/AAAAAP//fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8AAP9///9+vwAA/3///36/AAD/f///fr8AAP9///9+v/9/AAD//////38AAP//////fwAA//////9/AAD8/v///38AAP//////fwAA/////wAAAYAAAH6/AAABgAAAfr8AAAGAAAB+vwAAAYAAAH6/")
+}, {
+"aabb": AABB(-0.0024, -0.0081, -0.0117273, 0.00481, 0.0018, 0.000381799),
+"attribute_data": PackedByteArray("AOCQQAAgpMAAYLA/ACCkwADgkEAAwMrAAGCwPwDAysA="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/5 = {
-"aabb": AABB( -0.0039, -0.0081, -0.0117273, 0.00781, 0.00721, 0.0015373 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 250, 237, 107, 186, 231, 29, 39, 188, 0, 234, 126, 63, 131, 69, 250, 200, 82, 73, 29, 59, 221, 181, 4, 188, 220, 35, 64, 188, 0, 234, 126, 63, 135, 68, 33, 197, 82, 73, 29, 59, 59, 112, 206, 187, 122, 226, 57, 188, 0, 234, 126, 63, 135, 68, 86, 198, 82, 73, 29, 187, 59, 112, 206, 187, 122, 226, 57, 188, 0, 234, 126, 63, 131, 61, 86, 198, 36, 151, 127, 187, 250, 237, 107, 186, 231, 29, 39, 188, 0, 234, 126, 63, 76, 54, 250, 200, 82, 73, 29, 187, 221, 181, 4, 188, 220, 35, 64, 188, 0, 234, 126, 63, 131, 61, 33, 197 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 3, 0, 4, 0, 0, 0, 5, 0, 4, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("UkkdO921BLzcI0C8Ukkdu921BLzcI0C8UkkdOztwzrt64jm8Ukkduztwzrt64jm8AADU6f//fr8AANTp//9+vwAA1On//36/AADU6f//fr8=")
+}, {
+"aabb": AABB(-0.0039, -0.0081, -0.0117273, 0.00781, 0.00721, 0.0015373),
+"attribute_data": PackedByteArray("AGCwQABAH8EA4JBAACCkwADgkEAAwMrAAGCwPwDAysAAgMk+AEAfwQBgsD8AIKTA"),
+"format": 34359742487,
 "index_count": 12,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAwAEAAAABQAEAAMA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 6
-}
-surfaces/6 = {
-"aabb": AABB( -0.0045, -0.0045, -0.0228, 0.009, 0.015, 0.0372 ),
-"array_data": PackedByteArray( 82, 73, 29, 187, 250, 237, 107, 186, 179, 185, 135, 187, 0, 129, 129, 63, 131, 189, 94, 202, 36, 151, 127, 59, 250, 237, 107, 186, 231, 29, 39, 188, 0, 129, 129, 63, 131, 197, 45, 204, 36, 151, 127, 187, 250, 237, 107, 186, 231, 29, 39, 188, 0, 129, 129, 63, 76, 182, 45, 204, 82, 73, 29, 59, 250, 237, 107, 186, 179, 185, 135, 187, 0, 129, 130, 63, 135, 196, 94, 202, 82, 73, 29, 59, 250, 237, 107, 186, 104, 124, 25, 187, 0, 129, 130, 63, 135, 196, 199, 201, 188, 116, 147, 59, 250, 237, 107, 186, 40, 84, 228, 186, 0, 129, 129, 63, 231, 197, 149, 201, 188, 116, 147, 59, 250, 237, 107, 186, 17, 199, 186, 188, 0, 129, 129, 63, 231, 197, 62, 206, 36, 151, 127, 59, 250, 237, 107, 186, 198, 220, 181, 188, 0, 129, 130, 63, 131, 197, 37, 206, 208, 68, 88, 59, 250, 237, 107, 186, 17, 199, 186, 188, 0, 129, 129, 63, 30, 197, 62, 206, 208, 68, 88, 187, 250, 237, 107, 186, 17, 199, 186, 188, 0, 129, 129, 63, 76, 186, 62, 206, 36, 151, 127, 187, 250, 237, 107, 186, 198, 220, 181, 188, 0, 129, 129, 63, 76, 182, 37, 206, 188, 116, 147, 187, 250, 237, 107, 186, 17, 199, 186, 188, 0, 129, 129, 63, 0, 0, 62, 206, 188, 116, 147, 187, 250, 237, 107, 186, 40, 84, 228, 186, 0, 129, 129, 63, 0, 0, 149, 201, 188, 116, 147, 187, 49, 8, 44, 60, 17, 199, 186, 188, 129, 0, 0, 63, 126, 206, 92, 205, 188, 116, 147, 187, 250, 237, 107, 186, 40, 84, 228, 186, 129, 0, 0, 63, 21, 202, 250, 202, 188, 116, 147, 187, 250, 237, 107, 186, 17, 199, 186, 188, 129, 0, 0, 63, 126, 206, 250, 202, 188, 116, 147, 187, 114, 138, 14, 60, 177, 124, 44, 58, 129, 0, 0, 63, 75, 201, 16, 205, 188, 116, 147, 187, 114, 138, 14, 60, 101, 25, 98, 60, 129, 0, 0, 63, 223, 191, 16, 205, 188, 116, 147, 187, 49, 8, 44, 60, 250, 237, 107, 60, 129, 0, 0, 63, 76, 190, 92, 205, 188, 116, 147, 187, 188, 116, 147, 187, 250, 237, 107, 60, 129, 0, 0, 63, 76, 190, 204, 201, 188, 116, 147, 187, 250, 237, 107, 59, 101, 25, 98, 60, 129, 0, 0, 63, 223, 191, 58, 204, 188, 116, 147, 187, 188, 116, 147, 187, 40, 84, 228, 186, 129, 0, 0, 63, 21, 202, 204, 201, 188, 116, 147, 187, 250, 237, 107, 59, 177, 124, 44, 58, 129, 0, 0, 63, 75, 201, 58, 204 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 3, 0, 1, 0, 3, 0, 4, 0, 4, 0, 5, 0, 1, 0, 1, 0, 5, 0, 6, 0, 6, 0, 7, 0, 1, 0, 8, 0, 7, 0, 6, 0, 9, 0, 7, 0, 8, 0, 9, 0, 10, 0, 7, 0, 11, 0, 10, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 13, 0, 16, 0, 14, 0, 13, 0, 17, 0, 16, 0, 18, 0, 17, 0, 13, 0, 17, 0, 18, 0, 19, 0, 19, 0, 20, 0, 17, 0, 20, 0, 19, 0, 21, 0, 20, 0, 21, 0, 22, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("JJd/O/rta7rnHSe8UkkdO921BLzcI0C8UkkdOztwzrt64jm8Ukkduztwzrt64jm8JJd/u/rta7rnHSe8Ukkdu921BLzcI0C8AADU6fz+fr8AANTp/P5+vwAA1On8/n6/AADU6fz+fr8AANTp/P5+vwAA1On8/n6/")
+}, {
+"aabb": AABB(-0.0045, -0.0045, -0.0228, 0.009, 0.015, 0.0372),
+"attribute_data": PackedByteArray("AGCwvwDAS8EAYLDAAKCFwQCAyb4AoIXBAOCQwADAS8EA4JDAAOA4wQDgvMAAoDLBAOC8wADAx8EAYLDAAKDEwQDAo8AAwMfBAIBJvwDAx8EAgMm+AKDEwQAAAAAAwMfBAAAAAACgMsEAwM/BAICrwQCgQsEAQF/BAMDPwQBAX8EAYCnBAACiwQDg+78AAKLBAIDJvwCAq8EAgMm/AIA5wQDg+78AQIfBAKBCwQCAOcEAYCnBAECHwQ=="),
+"format": 34359742487,
 "index_count": 57,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAQAAAAMAAQADAAQABAAFAAEAAQAFAAYABgAHAAEACAAHAAYACQAHAAgACQAKAAcACwAKAAkACgALAAwADQAOAA8ADQAQAA4ADQARABAAEgARAA0AEQASABMAEwAUABEAFAATABUAFAAVABYA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 23
-}
-surfaces/7 = {
-"aabb": AABB( -0.0045, 0.0036, 0.000657986, 0.0006, 0.0051, 0.013152 ),
-"array_data": PackedByteArray( 188, 116, 147, 187, 250, 237, 107, 59, 101, 25, 98, 60, 0, 127, 127, 63, 0, 0, 191, 187, 188, 116, 147, 187, 250, 237, 107, 59, 177, 124, 44, 58, 0, 127, 127, 63, 0, 0, 203, 200, 36, 151, 127, 187, 250, 237, 107, 59, 101, 25, 98, 60, 0, 127, 127, 63, 76, 54, 191, 187, 36, 151, 127, 187, 250, 237, 107, 59, 177, 124, 44, 58, 0, 127, 127, 63, 76, 54, 203, 200, 188, 116, 147, 187, 114, 138, 14, 60, 101, 25, 98, 60, 127, 127, 129, 63, 0, 0, 16, 205, 188, 116, 147, 187, 250, 237, 107, 59, 101, 25, 98, 60, 127, 127, 129, 63, 0, 0, 58, 204, 36, 151, 127, 187, 114, 138, 14, 60, 101, 25, 98, 60, 127, 127, 129, 63, 76, 182, 16, 205, 36, 151, 127, 187, 250, 237, 107, 59, 101, 25, 98, 60, 127, 127, 129, 63, 76, 182, 58, 204, 188, 116, 147, 187, 114, 138, 14, 60, 177, 124, 44, 58, 0, 129, 129, 63, 0, 0, 203, 200, 188, 116, 147, 187, 114, 138, 14, 60, 101, 25, 98, 60, 0, 129, 129, 63, 0, 0, 191, 187, 36, 151, 127, 187, 114, 138, 14, 60, 177, 124, 44, 58, 0, 129, 129, 63, 76, 182, 203, 200, 36, 151, 127, 187, 114, 138, 14, 60, 101, 25, 98, 60, 0, 129, 129, 63, 76, 182, 191, 187, 188, 116, 147, 187, 250, 237, 107, 59, 177, 124, 44, 58, 0, 0, 127, 63, 0, 0, 58, 204, 188, 116, 147, 187, 114, 138, 14, 60, 177, 124, 44, 58, 0, 0, 127, 63, 0, 0, 16, 205, 36, 151, 127, 187, 250, 237, 107, 59, 177, 124, 44, 58, 0, 0, 127, 63, 76, 54, 58, 204, 36, 151, 127, 187, 114, 138, 14, 60, 177, 124, 44, 58, 0, 0, 127, 63, 76, 54, 16, 205 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 23,
+"vertex_data": PackedByteArray("Ukkdu/rta7qzuYe7JJd/O/rta7rnHSe8JJd/u/rta7rnHSe8UkkdO/rta7qzuYe7UkkdO/rta7pofBm7vHSTO/rta7ooVOS6vHSTO/rta7oRx7q8JJd/O/rta7rG3LW80ERYO/rta7oRx7q80ERYu/rta7oRx7q8JJd/u/rta7rG3LW8vHSTu/rta7oRx7q8vHSTu/rta7ooVOS6vHSTuzEILDwRx7q8vHSTu/rta7ooVOS6vHSTu/rta7oRx7q8vHSTu3KKDjyxfCw6vHSTu3KKDjxlGWI8vHSTuzEILDz67Ws8vHSTu7x0k7v67Ws8vHSTu/rtaztlGWI8vHSTu7x0k7soVOS6vHSTu/rtazuxfCw6AAABgAAAfr8AAAGAAAB+vwAAAYAAAH6/AAABgAIBfr8AAAGAAgF+vwAAAYAAAH6/AAABgAAAfr8AAAGAAgF+vwAAAYAAAH6/AAABgAAAfr8AAAGAAAB+vwAAAYAAAH6/AAABgAAAfr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vw==")
+}, {
+"aabb": AABB(-0.0045, 0.0036, 0.000657986, 0.0006, 0.0051, 0.013152),
+"attribute_data": PackedByteArray("AAAAAADgd78AAAAAAGAZwQCAyT4A4He/AIDJPgBgGcEAAAAAAACiwQAAAAAAQIfBAIDJvgAAosEAgMm+AECHwQAAAAAAYBnBAAAAAADgd78AgMm+AGAZwQCAyb4A4He/AAAAAABAh8EAAAAAAACiwQCAyT4AQIfBAIDJPgAAosE="),
+"format": 34359742487,
 "index_count": 24,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsADAANAA4ADgANAA8A"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 16
-}
-surfaces/8 = {
-"aabb": AABB( -0.0045, -0.0045, -0.0228, 0.009, 0.015, 0.0372 ),
-"array_data": PackedByteArray( 188, 116, 147, 187, 250, 237, 107, 59, 177, 124, 44, 58, 129, 0, 0, 63, 75, 201, 58, 204, 188, 116, 147, 187, 188, 116, 147, 187, 40, 84, 228, 186, 129, 0, 0, 63, 21, 202, 204, 201, 188, 116, 147, 187, 114, 138, 14, 60, 177, 124, 44, 58, 129, 0, 0, 63, 75, 201, 16, 205, 188, 116, 147, 187, 250, 237, 107, 186, 40, 84, 228, 186, 129, 0, 0, 63, 21, 202, 250, 202, 188, 116, 147, 59, 250, 237, 107, 186, 40, 84, 228, 186, 127, 127, 129, 63, 231, 197, 250, 202, 188, 116, 147, 187, 250, 237, 107, 186, 40, 84, 228, 186, 127, 127, 129, 63, 0, 0, 250, 202, 188, 116, 147, 59, 188, 116, 147, 187, 40, 84, 228, 186, 127, 127, 129, 63, 231, 197, 204, 201, 188, 116, 147, 187, 188, 116, 147, 187, 40, 84, 228, 186, 127, 127, 129, 63, 0, 0, 204, 201, 188, 116, 147, 59, 188, 116, 147, 187, 250, 237, 107, 60, 127, 0, 127, 127, 76, 62, 204, 201, 188, 116, 147, 59, 49, 8, 44, 60, 250, 237, 107, 60, 127, 0, 127, 127, 76, 62, 92, 205, 188, 116, 147, 59, 188, 116, 147, 187, 40, 84, 228, 186, 127, 0, 126, 127, 21, 74, 204, 201, 188, 116, 147, 59, 250, 237, 107, 186, 40, 84, 228, 186, 127, 0, 126, 127, 21, 74, 250, 202, 188, 116, 147, 59, 250, 237, 107, 186, 17, 199, 186, 188, 127, 0, 127, 127, 126, 78, 250, 202, 188, 116, 147, 59, 49, 8, 44, 60, 17, 199, 186, 188, 127, 0, 127, 127, 126, 78, 92, 205, 188, 116, 147, 59, 188, 116, 147, 187, 250, 237, 107, 60, 0, 0, 126, 63, 231, 69, 204, 201, 36, 151, 127, 59, 82, 73, 157, 185, 250, 237, 107, 60, 0, 0, 126, 63, 131, 69, 45, 203, 188, 116, 147, 59, 49, 8, 44, 60, 250, 237, 107, 60, 0, 0, 126, 63, 231, 69, 92, 205, 188, 116, 147, 187, 188, 116, 147, 187, 250, 237, 107, 60, 0, 0, 126, 63, 0, 0, 204, 201, 36, 151, 127, 187, 82, 73, 157, 185, 250, 237, 107, 60, 0, 0, 126, 63, 76, 54, 45, 203, 188, 116, 147, 187, 49, 8, 44, 60, 250, 237, 107, 60, 0, 0, 126, 63, 0, 0, 92, 205, 36, 151, 127, 187, 156, 51, 34, 60, 250, 237, 107, 60, 0, 0, 126, 63, 76, 54, 67, 205 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 11, 0, 9, 0, 12, 0, 12, 0, 9, 0, 13, 0, 14, 0, 15, 0, 16, 0, 15, 0, 14, 0, 17, 0, 17, 0, 18, 0, 15, 0, 18, 0, 17, 0, 19, 0, 18, 0, 19, 0, 20, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("vHSTu/rtaztlGWI8vHSTu/rtazuxfCw6JJd/u/rtaztlGWI8JJd/u/rtazuxfCw6vHSTu3KKDjxlGWI8vHSTu/rtaztlGWI8JJd/u3KKDjxlGWI8JJd/u/rtaztlGWI8vHSTu3KKDjyxfCw6vHSTu3KKDjxlGWI8JJd/u3KKDjyxfCw6JJd/u3KKDjxlGWI8vHSTu/rtazuxfCw6vHSTu3KKDjyxfCw6JJd/u/rtazuxfCw6JJd/u3KKDjyxfCw6AAD/f///fr8AAP9///9+vwAA/3///36/AAD/f///fr//f/9/AAB+v/9//38AAH6//3//fwAAfr//f/9/AAB+vwAAAYAAAH6/AAABgAAAfr8AAAGAAAB+vwAAAYAAAH6/AAAAAP//fr8AAAAA//9+vwAAAAD//36/AAAAAP//fr8=")
+}, {
+"aabb": AABB(-0.0045, -0.0045, -0.0228, 0.009, 0.015, 0.0372),
+"attribute_data": PackedByteArray("AGApwQBAh8EAoELBAIA5wQBgKcEAAKLBAKBCwQBAX8EA4LzAAEBfwQAAAAAAQF/BAOC8wACAOcEAAAAAAIA5wQCAyT8AgDnBAIDJPwCAq8EAoEJBAIA5wQCgQkEAQF/BAMDPQQBAX8EAwM9BAICrwQDgvEAAgDnBAGCwQACgZcEA4LxAAICrwQAAAAAAgDnBAIDJPgCgZcEAAAAAAICrwQCAyT4AYKjB"),
+"format": 34359742487,
 "index_count": 39,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsACwAJAAwADAAJAA0ADgAPABAADwAOABEAEQASAA8AEgARABMAEgATABQA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 21
-}
-surfaces/9 = {
-"aabb": AABB( -0.0039, -0.0003, 0.0144, 0.0078, 0.01021, 9.99961e-06 ),
-"array_data": PackedByteArray( 36, 151, 127, 187, 156, 51, 34, 60, 250, 237, 107, 60, 0, 0, 127, 63, 76, 54, 67, 205, 36, 151, 127, 59, 156, 51, 34, 60, 250, 237, 107, 60, 0, 0, 127, 63, 131, 69, 67, 205, 36, 151, 127, 187, 82, 73, 157, 185, 250, 237, 107, 60, 0, 0, 127, 63, 76, 54, 45, 203, 36, 151, 127, 59, 82, 73, 157, 185, 250, 237, 107, 60, 0, 0, 127, 63, 131, 69, 45, 203 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 21,
+"vertex_data": PackedByteArray("vHSTu/rtazuxfCw6vHSTu7x0k7soVOS6vHSTu3KKDjyxfCw6vHSTu/rta7ooVOS6vHSTO/rta7ooVOS6vHSTu/rta7ooVOS6vHSTO7x0k7soVOS6vHSTu7x0k7soVOS6vHSTO7x0k7v67Ws8vHSTOzEILDz67Ws8vHSTO7x0k7soVOS6vHSTO/rta7ooVOS6vHSTO/rta7oRx7q8vHSTOzEILDwRx7q8vHSTO7x0k7v67Ws8JJd/O1JJnbn67Ws8vHSTOzEILDz67Ws8vHSTu7x0k7v67Ws8JJd/u1JJnbn67Ws8vHSTuzEILDz67Ws8JJd/u5wzIjz67Ws8AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr//f/9/AAB+v/9//38AAH6//3//fwAAfr//f/9/AAB+v/9/AAD//////38AAP//////fwAA/P7///9/AAD8/v///38AAP//////fwAA/////wAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/")
+}, {
+"aabb": AABB(-0.0039, -0.0003, 0.0144, 0.0078, 0.01021, 9.99961e-06),
+"attribute_data": PackedByteArray("AIDJPgBgqMEAYLBAAGCowQCAyT4AoGXBAGCwQACgZcE="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 1 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("1"),
 "name": "FrontColor",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/10 = {
-"aabb": AABB( -0.0039, -0.0003, 0.0144, 0.0078, 0.01021, 0.00121 ),
-"array_data": PackedByteArray( 36, 151, 127, 187, 156, 51, 34, 60, 36, 151, 127, 60, 0, 127, 127, 63, 76, 54, 205, 50, 36, 151, 127, 187, 156, 51, 34, 60, 250, 237, 107, 60, 0, 127, 127, 63, 76, 54, 153, 184, 36, 151, 127, 59, 156, 51, 34, 60, 36, 151, 127, 60, 0, 127, 127, 63, 131, 69, 205, 50, 36, 151, 127, 59, 156, 51, 34, 60, 250, 237, 107, 60, 0, 127, 127, 63, 131, 69, 153, 184, 36, 151, 127, 187, 82, 73, 157, 185, 36, 151, 127, 60, 129, 0, 0, 63, 76, 186, 45, 203, 36, 151, 127, 187, 82, 73, 157, 185, 250, 237, 107, 60, 129, 0, 0, 63, 76, 190, 45, 203, 36, 151, 127, 187, 156, 51, 34, 60, 36, 151, 127, 60, 129, 0, 0, 63, 76, 186, 67, 205, 36, 151, 127, 187, 156, 51, 34, 60, 250, 237, 107, 60, 129, 0, 0, 63, 76, 190, 67, 205, 36, 151, 127, 187, 82, 73, 157, 185, 36, 151, 127, 60, 0, 129, 129, 63, 76, 182, 205, 50, 36, 151, 127, 59, 82, 73, 157, 185, 36, 151, 127, 60, 0, 129, 129, 63, 131, 197, 205, 50, 36, 151, 127, 187, 82, 73, 157, 185, 250, 237, 107, 60, 0, 129, 129, 63, 76, 182, 153, 184, 36, 151, 127, 59, 82, 73, 157, 185, 250, 237, 107, 60, 0, 129, 129, 63, 131, 197, 153, 184 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/u5wzIjz67Ws8JJd/O5wzIjz67Ws8JJd/u1JJnbn67Ws8JJd/O1JJnbn67Ws8AAAAAP//fr8AAAAA//9+vwAAAAD//36/AAAAAP//fr8=")
+}, {
+"aabb": AABB(-0.0039, -0.0003, 0.0144, 0.0078, 0.01021, 0.00121),
+"attribute_data": PackedByteArray("AIDJPgCgWT4AgMk+ACATvwBgsEAAoFk+AGCwQAAgE78AgEm/AKBlwQCAyb8AoGXBAIBJvwBgqMEAgMm/AGCowQCAyb4AoFk+AGCwwACgWT4AgMm+ACATvwBgsMAAIBO/"),
+"format": 34359742487,
 "index_count": 18,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 12
-}
-surfaces/11 = {
-"aabb": AABB( -0.0039, -0.0003, 0.0156, 0.00781, 0.01021, 9.99961e-06 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 156, 51, 34, 60, 36, 151, 127, 60, 0, 0, 127, 63, 131, 69, 67, 205, 36, 151, 127, 59, 82, 73, 157, 185, 36, 151, 127, 60, 0, 0, 127, 63, 131, 69, 45, 203, 36, 151, 127, 187, 156, 51, 34, 60, 36, 151, 127, 60, 0, 0, 127, 63, 76, 54, 67, 205, 36, 151, 127, 187, 82, 73, 157, 185, 36, 151, 127, 60, 0, 0, 127, 63, 76, 54, 45, 203 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("JJd/u5wzIjwkl388JJd/u5wzIjz67Ws8JJd/O5wzIjwkl388JJd/O5wzIjz67Ws8JJd/u1JJnbkkl388JJd/u1JJnbn67Ws8JJd/u5wzIjwkl388JJd/u5wzIjz67Ws8JJd/u1JJnbkkl388JJd/O1JJnbkkl388JJd/u1JJnbn67Ws8JJd/O1JJnbn67Ws8AAD/f///fr8AAP9///9+vwAA/3///36/AAD/f///fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwAAAYAAAH6/AAABgAAAfr8AAAGAAAB+vwAAAYAAAH6/")
+}, {
+"aabb": AABB(-0.0039, -0.0003, 0.0156, 0.00781, 0.01021, 9.99961e-06),
+"attribute_data": PackedByteArray("AGCwQABgqMEAYLBAAKBlwQCAyT4AYKjBAIDJPgCgZcE="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 1 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("1"),
 "name": "FrontColor",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/12 = {
-"aabb": AABB( 0.0039, -0.0003, 0.0144, 1.00001e-05, 0.0102, 0.00121 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 82, 73, 157, 185, 36, 151, 127, 60, 127, 0, 127, 127, 76, 58, 45, 203, 36, 151, 127, 59, 156, 51, 34, 60, 36, 151, 127, 60, 127, 0, 127, 127, 76, 58, 67, 205, 36, 151, 127, 59, 82, 73, 157, 185, 250, 237, 107, 60, 127, 0, 127, 127, 76, 62, 45, 203, 36, 151, 127, 59, 156, 51, 34, 60, 250, 237, 107, 60, 127, 0, 127, 127, 76, 62, 67, 205 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/O5wzIjwkl388JJd/O1JJnbkkl388JJd/u5wzIjwkl388JJd/u1JJnbkkl388AAAAAP//fr8AAAAA//9+vwAAAAD//36/AAAAAP//fr8=")
+}, {
+"aabb": AABB(0.0039, -0.0003, 0.0144, 1.00001e-05, 0.0102, 0.00121),
+"attribute_data": PackedByteArray("AIBJPwCgZcEAgEk/AGCowQCAyT8AoGXBAIDJPwBgqME="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/13 = {
-"aabb": AABB( -0.0045, -0.0009, 0.0156, 0.009, 0.0114, 0.027 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 82, 73, 157, 185, 36, 151, 127, 60, 127, 129, 130, 63, 131, 197, 45, 203, 188, 116, 147, 59, 49, 8, 44, 60, 36, 151, 127, 60, 127, 129, 130, 63, 231, 197, 92, 205, 36, 151, 127, 59, 156, 51, 34, 60, 36, 151, 127, 60, 127, 129, 130, 63, 131, 197, 67, 205, 188, 116, 147, 59, 250, 237, 107, 186, 36, 151, 127, 60, 127, 129, 130, 63, 231, 197, 250, 202, 36, 151, 127, 187, 82, 73, 157, 185, 36, 151, 127, 60, 127, 129, 130, 63, 76, 182, 45, 203, 188, 116, 147, 187, 250, 237, 107, 186, 36, 151, 127, 60, 127, 129, 130, 63, 0, 0, 250, 202, 188, 116, 147, 187, 49, 8, 44, 60, 36, 151, 127, 60, 127, 129, 130, 63, 0, 0, 92, 205, 188, 116, 147, 187, 49, 8, 44, 60, 36, 151, 127, 60, 132, 0, 2, 63, 76, 186, 92, 205, 36, 151, 127, 187, 49, 8, 44, 60, 86, 125, 46, 61, 132, 0, 2, 63, 59, 76, 92, 205, 188, 116, 147, 187, 250, 237, 107, 186, 36, 151, 127, 60, 132, 0, 2, 63, 76, 186, 250, 202, 36, 151, 127, 187, 250, 237, 107, 58, 86, 125, 46, 61, 132, 0, 2, 63, 59, 76, 146, 203, 188, 116, 147, 59, 49, 8, 44, 60, 36, 151, 127, 60, 0, 127, 127, 63, 231, 69, 205, 50, 36, 151, 127, 187, 49, 8, 44, 60, 86, 125, 46, 61, 0, 127, 126, 63, 76, 54, 123, 76, 188, 116, 147, 187, 49, 8, 44, 60, 36, 151, 127, 60, 0, 127, 127, 63, 0, 0, 205, 50, 166, 155, 196, 186, 49, 8, 44, 60, 226, 233, 21, 61, 0, 127, 126, 63, 223, 63, 254, 74, 166, 155, 196, 186, 49, 8, 44, 60, 12, 147, 41, 61, 0, 127, 126, 63, 223, 63, 73, 76, 36, 151, 127, 59, 49, 8, 44, 60, 86, 125, 46, 61, 0, 127, 127, 63, 131, 69, 123, 76, 166, 155, 196, 58, 49, 8, 44, 60, 12, 147, 41, 61, 0, 127, 127, 63, 223, 67, 73, 76, 166, 155, 196, 58, 49, 8, 44, 60, 226, 233, 21, 61, 0, 127, 127, 63, 223, 67, 254, 74 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0, 3, 0, 0, 0, 4, 0, 4, 0, 5, 0, 3, 0, 5, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 9, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 12, 0, 11, 0, 14, 0, 12, 0, 14, 0, 15, 0, 15, 0, 16, 0, 12, 0, 16, 0, 15, 0, 17, 0, 16, 0, 17, 0, 18, 0, 18, 0, 11, 0, 16, 0, 14, 0, 11, 0, 18, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/O1JJnbkkl388JJd/O5wzIjwkl388JJd/O1JJnbn67Ws8JJd/O5wzIjz67Ws8/38AAP//////fwAA//////9/AAD//////38AAP////8=")
+}, {
+"aabb": AABB(-0.0045, -0.0009, 0.0156, 0.009, 0.0114, 0.027),
+"attribute_data": PackedByteArray("AGCwwACgZcEA4LzAAICrwQBgsMAAYKjBAOC8wABAX8EAgMm+AKBlwQAAAAAAQF/BAAAAAACAq8EAgEm/AICrwQBgh0EAgKvBAIBJvwBAX8EAYIdBAEBywQDgvEAAoFk+AIDJPgBgj0EAAAAAAKBZPgDg+z8AwF9BAOD7PwAgiUEAYLBAAGCPQQDge0AAIIlBAOB7QADAX0E="),
+"format": 34359742487,
 "index_count": 45,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAAAAQABAAFAAMABQAEAAYABwAIAAkACQAIAAoACwAMAA0ADAALAA4ADAAOAA8ADwAQAAwAEAAPABEAEAARABIAEgALABAADgALABIA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 19
-}
-surfaces/14 = {
-"aabb": AABB( -0.0015, 0.0105, 0.0366, 0.003, 0.0072, 0.0048 ),
-"array_data": PackedByteArray( 166, 155, 196, 186, 49, 8, 44, 60, 226, 233, 21, 61, 95, 127, 129, 63, 223, 191, 25, 206, 166, 155, 196, 58, 49, 8, 44, 60, 226, 233, 21, 61, 95, 127, 129, 63, 223, 195, 25, 206, 166, 155, 196, 186, 151, 255, 144, 60, 119, 190, 31, 61, 95, 127, 129, 63, 223, 191, 88, 207, 166, 155, 196, 58, 151, 255, 144, 60, 119, 190, 31, 61, 95, 127, 129, 63, 223, 195, 88, 207, 166, 155, 196, 186, 49, 8, 44, 60, 12, 147, 41, 61, 129, 0, 0, 63, 9, 76, 92, 205, 166, 155, 196, 186, 49, 8, 44, 60, 226, 233, 21, 61, 129, 0, 0, 63, 126, 74, 92, 205, 166, 155, 196, 186, 151, 255, 144, 60, 12, 147, 41, 61, 129, 0, 0, 63, 9, 76, 138, 206, 166, 155, 196, 186, 151, 255, 144, 60, 119, 190, 31, 61, 129, 0, 0, 63, 72, 75, 138, 206, 166, 155, 196, 58, 49, 8, 44, 60, 12, 147, 41, 61, 0, 0, 127, 63, 223, 67, 92, 205, 166, 155, 196, 186, 49, 8, 44, 60, 12, 147, 41, 61, 0, 0, 127, 63, 223, 63, 92, 205, 166, 155, 196, 58, 151, 255, 144, 60, 12, 147, 41, 61, 0, 0, 127, 63, 223, 67, 138, 206, 166, 155, 196, 186, 151, 255, 144, 60, 12, 147, 41, 61, 0, 0, 127, 63, 223, 63, 138, 206, 166, 155, 196, 58, 49, 8, 44, 60, 226, 233, 21, 61, 127, 0, 127, 127, 126, 202, 92, 205, 166, 155, 196, 58, 49, 8, 44, 60, 12, 147, 41, 61, 127, 0, 127, 127, 9, 204, 92, 205, 166, 155, 196, 58, 151, 255, 144, 60, 119, 190, 31, 61, 127, 0, 127, 127, 72, 203, 138, 206, 166, 155, 196, 58, 151, 255, 144, 60, 12, 147, 41, 61, 127, 0, 127, 127, 9, 204, 138, 206, 166, 155, 196, 58, 151, 255, 144, 60, 12, 147, 41, 61, 0, 127, 127, 63, 223, 67, 73, 76, 166, 155, 196, 186, 151, 255, 144, 60, 12, 147, 41, 61, 0, 127, 127, 63, 223, 63, 73, 76, 166, 155, 196, 58, 151, 255, 144, 60, 119, 190, 31, 61, 0, 127, 127, 63, 223, 67, 200, 75, 166, 155, 196, 186, 151, 255, 144, 60, 119, 190, 31, 61, 0, 127, 127, 63, 223, 63, 200, 75 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 19,
+"vertex_data": PackedByteArray("JJd/O1JJnbkkl388vHSTOzEILDwkl388JJd/O5wzIjwkl388vHSTO/rta7okl388JJd/u1JJnbkkl388vHSTu/rta7okl388vHSTuzEILDwkl388vHSTuzEILDwkl388JJd/uzEILDxWfS49vHSTu/rta7okl388JJd/u/rtazpWfS49vHSTOzEILDwkl388JJd/uzEILDxWfS49vHSTuzEILDwkl388ppvEujEILDzi6RU9ppvEujEILDwMkyk9JJd/OzEILDxWfS49ppvEOjEILDwMkyk9ppvEOjEILDzi6RU9/38BgAIBfr//fwGAAgF+v/9/AYACAX6//38BgAIBfr//fwGAAgF+v/9/AYACAX6//38BgAIBfr8IgwAAA4J+vwiDAAADgn6/CIMAAAOCfr8IgwAAA4J+vwAA/3///36/AAD/f/z+fr8AAP9///9+vwAA/3/8/n6/AAD/f/z+fr8AAP9///9+vwAA/3///36/AAD/f///fr8=")
+}, {
+"aabb": AABB(-0.0015, 0.0105, 0.0366, 0.003, 0.0072, 0.0048),
+"attribute_data": PackedByteArray("AOD7vwAgw8EA4HvAACDDwQDg+78AAOvBAOB7wAAA68EAIIFBAICrwQDAT0EAgKvBACCBQQBA0cEAAGlBAEDRwQDge0AAgKvBAOD7PwCAq8EA4HtAAEDRwQDg+z8AQNHBAMBPwQCAq8EAIIHBAICrwQAAacEAQNHBACCBwQBA0cEA4HtAACCJQQDg+z8AIIlBAOB7QAAAeUEA4Ps/AAB5QQ=="),
+"format": 34359742487,
 "index_count": 30,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsADAANAA4ADgANAA8AEAARABIAEgARABMA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 20
-}
-surfaces/15 = {
-"aabb": AABB( -0.0045, -0.0009, 0.0156, 0.00901, 0.0114, 0.027 ),
-"array_data": PackedByteArray( 188, 116, 147, 59, 250, 237, 107, 186, 36, 151, 127, 60, 124, 0, 126, 125, 88, 59, 250, 202, 36, 151, 127, 59, 250, 237, 107, 58, 86, 125, 46, 61, 124, 0, 127, 125, 51, 204, 146, 203, 188, 116, 147, 59, 49, 8, 44, 60, 36, 151, 127, 60, 124, 0, 126, 125, 88, 59, 92, 205, 36, 151, 127, 59, 49, 8, 44, 60, 86, 125, 46, 61, 124, 0, 127, 125, 51, 204, 92, 205, 188, 116, 147, 187, 250, 237, 107, 186, 36, 151, 127, 60, 0, 137, 127, 63, 0, 0, 82, 58, 36, 151, 127, 187, 250, 237, 107, 58, 86, 125, 46, 61, 0, 137, 127, 63, 76, 54, 61, 204, 188, 116, 147, 59, 250, 237, 107, 186, 36, 151, 127, 60, 0, 137, 127, 63, 231, 69, 82, 58, 36, 151, 127, 59, 250, 237, 107, 58, 86, 125, 46, 61, 0, 137, 127, 63, 131, 69, 61, 204, 231, 29, 167, 58, 223, 40, 129, 59, 86, 125, 46, 61, 0, 0, 126, 63, 148, 67, 72, 204, 36, 151, 127, 59, 250, 237, 107, 58, 86, 125, 46, 61, 0, 0, 126, 63, 131, 69, 146, 203, 36, 151, 127, 187, 250, 237, 107, 58, 86, 125, 46, 61, 0, 0, 126, 63, 76, 54, 146, 203, 171, 86, 236, 58, 70, 112, 142, 59, 86, 125, 46, 61, 0, 0, 126, 63, 34, 68, 89, 204, 34, 186, 16, 59, 119, 190, 159, 59, 86, 125, 46, 61, 0, 0, 126, 63, 102, 68, 112, 204, 33, 108, 33, 59, 139, 229, 179, 59, 86, 125, 46, 61, 0, 0, 126, 63, 145, 68, 137, 204, 36, 151, 127, 59, 49, 8, 44, 60, 86, 125, 46, 61, 0, 0, 126, 63, 131, 69, 92, 205, 231, 29, 39, 59, 240, 133, 201, 59, 86, 125, 46, 61, 0, 0, 126, 63, 160, 68, 165, 204, 33, 108, 33, 59, 86, 38, 223, 59, 86, 125, 46, 61, 0, 0, 126, 63, 145, 68, 193, 204, 34, 186, 16, 59, 106, 77, 243, 59, 86, 125, 46, 61, 0, 0, 126, 63, 102, 68, 219, 204, 171, 86, 236, 58, 206, 77, 2, 60, 86, 125, 46, 61, 0, 0, 126, 63, 34, 68, 241, 204, 231, 29, 167, 58, 129, 241, 8, 60, 86, 125, 46, 61, 0, 0, 126, 63, 148, 67, 2, 205, 29, 3, 45, 58, 0, 30, 13, 60, 86, 125, 46, 61, 0, 0, 126, 63, 197, 66, 12, 205, 193, 82, 70, 37, 114, 138, 14, 60, 86, 125, 46, 61, 0, 0, 127, 63, 231, 65, 16, 205, 36, 151, 127, 187, 49, 8, 44, 60, 86, 125, 46, 61, 0, 0, 126, 63, 76, 54, 92, 205, 29, 3, 45, 186, 0, 30, 13, 60, 86, 125, 46, 61, 0, 0, 126, 63, 10, 65, 12, 205, 231, 29, 167, 186, 129, 241, 8, 60, 86, 125, 46, 61, 0, 0, 126, 63, 59, 64, 2, 205, 171, 86, 236, 186, 206, 77, 2, 60, 86, 125, 46, 61, 0, 0, 126, 63, 20, 63, 241, 204, 34, 186, 16, 187, 106, 77, 243, 59, 86, 125, 46, 61, 0, 0, 126, 63, 3, 62, 219, 204, 33, 108, 33, 187, 86, 38, 223, 59, 86, 125, 46, 61, 0, 0, 126, 63, 88, 61, 193, 204, 231, 29, 39, 187, 240, 133, 201, 59, 86, 125, 46, 61, 0, 0, 126, 63, 30, 61, 165, 204, 33, 108, 33, 187, 139, 229, 179, 59, 86, 125, 46, 61, 0, 0, 126, 63, 88, 61, 137, 204, 36, 151, 127, 187, 250, 237, 107, 58, 86, 125, 46, 61, 0, 0, 126, 63, 76, 54, 146, 203, 34, 186, 16, 187, 119, 190, 159, 59, 86, 125, 46, 61, 0, 0, 126, 63, 3, 62, 112, 204, 171, 86, 236, 186, 70, 112, 142, 59, 86, 125, 46, 61, 0, 0, 126, 63, 20, 63, 89, 204, 231, 29, 167, 186, 223, 40, 129, 59, 86, 125, 46, 61, 0, 0, 126, 63, 59, 64, 72, 204, 29, 3, 45, 186, 192, 159, 113, 59, 86, 125, 46, 61, 0, 0, 126, 63, 10, 65, 62, 204, 193, 82, 70, 37, 250, 237, 107, 59, 86, 125, 46, 61, 0, 0, 126, 63, 231, 65, 58, 204, 29, 3, 45, 58, 192, 159, 113, 59, 86, 125, 46, 61, 0, 0, 126, 63, 197, 66, 62, 204, 193, 82, 70, 37, 250, 237, 107, 59, 86, 125, 46, 61, 0, 0, 126, 63, 231, 65, 58, 204 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 9, 0, 8, 0, 11, 0, 9, 0, 11, 0, 12, 0, 9, 0, 12, 0, 13, 0, 9, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 14, 0, 15, 0, 16, 0, 14, 0, 16, 0, 17, 0, 14, 0, 17, 0, 18, 0, 14, 0, 18, 0, 19, 0, 14, 0, 19, 0, 20, 0, 14, 0, 20, 0, 21, 0, 21, 0, 22, 0, 14, 0, 23, 0, 22, 0, 21, 0, 24, 0, 22, 0, 23, 0, 25, 0, 22, 0, 24, 0, 26, 0, 22, 0, 25, 0, 27, 0, 22, 0, 26, 0, 28, 0, 22, 0, 27, 0, 29, 0, 22, 0, 28, 0, 29, 0, 30, 0, 22, 0, 30, 0, 29, 0, 31, 0, 30, 0, 31, 0, 32, 0, 30, 0, 32, 0, 33, 0, 30, 0, 33, 0, 34, 0, 30, 0, 34, 0, 35, 0, 36, 0, 10, 0, 37, 0, 8, 0, 10, 0, 36, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("ppvEujEILDzi6RU9ppvEOjEILDzi6RU9ppvEupf/kDx3vh89ppvEOpf/kDx3vh89ppvEujEILDwMkyk9ppvEujEILDzi6RU9ppvEupf/kDwMkyk9ppvEupf/kDx3vh89ppvEOjEILDwMkyk9ppvEujEILDwMkyk9ppvEOpf/kDwMkyk9ppvEupf/kDwMkyk9ppvEOjEILDzi6RU9ppvEOjEILDwMkyk9ppvEOpf/kDx3vh89ppvEOpf/kDwMkyk9ppvEOpf/kDwMkyk9ppvEupf/kDwMkyk9ppvEOpf/kDx3vh89ppvEupf/kDx3vh89vl//fwAAfr++X/9/AAB+v75f/38AAH6/vl//fwAAfr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwAAAAD//36/AAAAAP//fr8AAAAA//9+vwAAAAD//36//38AAP//////fwAA//////9/AAD//////38AAP////8AAP9///9+vwAA/3///36/AAD/f///fr8AAP9///9+vw==")
+}, {
+"aabb": AABB(-0.0045, -0.0009, 0.0156, 0.00901, 0.0114, 0.027),
+"attribute_data": PackedByteArray("AABrPwBAX8EAYIbBAEBywQAAaz8AgKvBAGCGwQCAq8EAAAAAAEBKPwCAyT4AoIfBAOC8QABASj8AYLBAAKCHwQCAckAAAInBAGCwQABAcsEAgMk+AEBywQBAhEAAIIvBAMCMQAAAjsEAIJJAACCRwQBgsEAAgKvBAACUQACglMEAIJJAACCYwQDAjEAAYJvBAECEQAAgnsEAgHJAAECgwQCgWEAAgKHBAOA8QAAAosEAgMk+AICrwQBAIUAAgKHBAGAHQABAoMEAgOI/ACCewQBgwD8AYJvBAACrPwAgmMEAwKM/AKCUwQAAqz8AIJHBAIDJPgBAcsEAYMA/AACOwQCA4j8AIIvBAGAHQAAAicEAQCFAAMCHwQDgPEAAQIfBAKBYQADAh8EA4DxAAECHwQ=="),
+"format": 34359742487,
 "index_count": 96,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACQAIAAsACQALAAwACQAMAA0ACQANAA4ADgANAA8ADgAPABAADgAQABEADgARABIADgASABMADgATABQADgAUABUAFQAWAA4AFwAWABUAGAAWABcAGQAWABgAGgAWABkAGwAWABoAHAAWABsAHQAWABwAHQAeABYAHgAdAB8AHgAfACAAHgAgACEAHgAhACIAHgAiACMAJAAKACUACAAKACQA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 38
-}
-surfaces/16 = {
-"aabb": AABB( -0.00180312, 0.0036, 0.0426, 0.00435312, 0.00435312, 0.0042 ),
-"array_data": PackedByteArray( 29, 3, 45, 58, 192, 159, 113, 59, 86, 125, 46, 61, 26, 156, 129, 127, 59, 204, 128, 200, 29, 3, 45, 58, 192, 159, 113, 59, 91, 177, 63, 61, 26, 156, 129, 127, 235, 204, 128, 200, 231, 29, 167, 58, 223, 40, 129, 59, 86, 125, 46, 61, 46, 176, 129, 127, 59, 204, 184, 200, 231, 29, 167, 58, 223, 40, 129, 59, 91, 177, 63, 61, 46, 176, 129, 127, 235, 204, 184, 200, 29, 3, 45, 58, 192, 159, 113, 59, 86, 125, 46, 61, 26, 156, 129, 127, 59, 204, 179, 196, 193, 82, 70, 37, 250, 237, 107, 59, 86, 125, 46, 61, 0, 129, 129, 127, 59, 204, 68, 196, 29, 3, 45, 58, 192, 159, 113, 59, 91, 177, 63, 61, 26, 156, 129, 127, 235, 204, 179, 196, 143, 31, 249, 37, 250, 237, 107, 59, 91, 177, 63, 61, 0, 129, 129, 127, 235, 204, 68, 196, 29, 3, 45, 186, 192, 159, 113, 59, 91, 177, 63, 61, 0, 0, 127, 63, 10, 65, 62, 204, 29, 3, 45, 58, 192, 159, 113, 59, 91, 177, 63, 61, 0, 0, 127, 63, 197, 66, 62, 204, 143, 31, 249, 37, 250, 237, 107, 59, 91, 177, 63, 61, 0, 0, 127, 63, 231, 65, 58, 204, 231, 29, 167, 58, 223, 40, 129, 59, 91, 177, 63, 61, 0, 0, 127, 63, 148, 67, 72, 204, 231, 29, 167, 186, 223, 40, 129, 59, 91, 177, 63, 61, 0, 0, 126, 63, 59, 64, 72, 204, 171, 86, 236, 58, 70, 112, 142, 59, 91, 177, 63, 61, 0, 0, 126, 63, 34, 68, 89, 204, 231, 29, 167, 58, 223, 40, 129, 59, 86, 125, 46, 61, 46, 176, 129, 127, 59, 204, 134, 202, 231, 29, 167, 58, 223, 40, 129, 59, 91, 177, 63, 61, 46, 176, 129, 127, 235, 204, 134, 202, 171, 86, 236, 58, 70, 112, 142, 59, 86, 125, 46, 61, 63, 193, 129, 127, 59, 204, 190, 202, 171, 86, 236, 58, 70, 112, 142, 59, 91, 177, 63, 61, 63, 193, 129, 127, 235, 204, 190, 202, 171, 86, 236, 58, 70, 112, 142, 59, 86, 125, 46, 61, 63, 193, 129, 127, 59, 204, 7, 204, 171, 86, 236, 58, 70, 112, 142, 59, 91, 177, 63, 61, 63, 193, 129, 127, 235, 204, 7, 204, 34, 186, 16, 59, 119, 190, 159, 59, 86, 125, 46, 61, 80, 210, 129, 127, 59, 204, 35, 204, 34, 186, 16, 59, 119, 190, 159, 59, 91, 177, 63, 61, 80, 210, 129, 127, 235, 204, 35, 204, 34, 186, 16, 59, 119, 190, 159, 59, 86, 125, 46, 61, 80, 210, 129, 127, 59, 204, 128, 204, 34, 186, 16, 59, 119, 190, 159, 59, 91, 177, 63, 61, 80, 210, 129, 127, 235, 204, 128, 204, 33, 108, 33, 59, 139, 229, 179, 59, 86, 125, 46, 61, 100, 230, 129, 127, 59, 204, 156, 204, 33, 108, 33, 59, 139, 229, 179, 59, 91, 177, 63, 61, 100, 230, 129, 127, 235, 204, 156, 204, 33, 108, 33, 59, 139, 229, 179, 59, 86, 125, 46, 61, 100, 230, 129, 127, 59, 204, 165, 204, 33, 108, 33, 59, 139, 229, 179, 59, 91, 177, 63, 61, 100, 230, 129, 127, 235, 204, 165, 204, 231, 29, 39, 59, 240, 133, 201, 59, 86, 125, 46, 61, 127, 0, 129, 127, 59, 204, 193, 204, 231, 29, 39, 59, 240, 133, 201, 59, 91, 177, 63, 61, 127, 0, 129, 127, 235, 204, 193, 204, 231, 29, 39, 59, 240, 133, 201, 59, 86, 125, 46, 61, 127, 0, 129, 127, 59, 204, 116, 204, 231, 29, 39, 59, 240, 133, 201, 59, 91, 177, 63, 61, 127, 0, 129, 127, 235, 204, 116, 204, 33, 108, 33, 59, 86, 38, 223, 59, 86, 125, 46, 61, 100, 26, 129, 1, 59, 204, 144, 204, 33, 108, 33, 59, 86, 38, 223, 59, 91, 177, 63, 61, 100, 26, 129, 1, 235, 204, 144, 204, 33, 108, 33, 59, 86, 38, 223, 59, 86, 125, 46, 61, 100, 26, 129, 1, 59, 204, 223, 203, 33, 108, 33, 59, 86, 38, 223, 59, 91, 177, 63, 61, 100, 26, 129, 1, 235, 204, 223, 203, 34, 186, 16, 59, 106, 77, 243, 59, 86, 125, 46, 61, 80, 46, 129, 1, 59, 204, 11, 204, 34, 186, 16, 59, 106, 77, 243, 59, 91, 177, 63, 61, 80, 46, 129, 1, 235, 204, 11, 204, 34, 186, 16, 59, 106, 77, 243, 59, 91, 177, 63, 61, 80, 46, 129, 1, 235, 204, 66, 202, 171, 86, 236, 58, 206, 77, 2, 60, 91, 177, 63, 61, 63, 63, 129, 1, 235, 204, 122, 202, 34, 186, 16, 59, 106, 77, 243, 59, 86, 125, 46, 61, 80, 46, 129, 1, 59, 204, 66, 202, 171, 86, 236, 58, 206, 77, 2, 60, 86, 125, 46, 61, 63, 63, 129, 1, 59, 204, 122, 202, 34, 186, 16, 59, 106, 77, 243, 59, 91, 177, 63, 61, 0, 0, 126, 63, 102, 68, 219, 204, 232, 16, 188, 58, 42, 138, 248, 59, 91, 177, 63, 61, 0, 0, 126, 63, 201, 67, 225, 204, 171, 86, 236, 58, 206, 77, 2, 60, 91, 177, 63, 61, 0, 0, 126, 63, 34, 68, 241, 204, 52, 85, 230, 58, 197, 196, 234, 59, 91, 177, 63, 61, 0, 0, 126, 63, 27, 68, 208, 204, 33, 108, 33, 59, 86, 38, 223, 59, 91, 177, 63, 61, 0, 0, 126, 63, 145, 68, 193, 204, 131, 115, 0, 59, 120, 187, 218, 59, 91, 177, 63, 61, 0, 0, 126, 63, 61, 68, 187, 204, 125, 251, 4, 59, 240, 133, 201, 59, 91, 177, 63, 61, 0, 0, 126, 63, 72, 68, 165, 204, 231, 29, 39, 59, 240, 133, 201, 59, 91, 177, 63, 61, 0, 0, 126, 63, 160, 68, 165, 204, 131, 115, 0, 59, 105, 80, 184, 59, 91, 177, 63, 61, 0, 0, 126, 63, 61, 68, 143, 204, 33, 108, 33, 59, 139, 229, 179, 59, 91, 177, 63, 61, 0, 0, 126, 63, 145, 68, 137, 204, 52, 85, 230, 58, 28, 71, 168, 59, 91, 177, 63, 61, 0, 0, 126, 63, 27, 68, 122, 204, 34, 186, 16, 59, 119, 190, 159, 59, 91, 177, 63, 61, 0, 0, 126, 63, 102, 68, 112, 204, 232, 16, 188, 58, 182, 129, 154, 59, 91, 177, 63, 61, 0, 0, 126, 63, 201, 67, 105, 204, 82, 251, 132, 58, 163, 240, 143, 59, 91, 177, 63, 61, 0, 0, 126, 63, 60, 67, 91, 204, 111, 172, 9, 58, 47, 76, 137, 59, 91, 177, 63, 61, 0, 0, 126, 63, 152, 66, 83, 204, 143, 31, 249, 37, 50, 8, 135, 59, 91, 177, 63, 61, 0, 0, 126, 63, 231, 65, 80, 204, 171, 86, 236, 186, 70, 112, 142, 59, 91, 177, 63, 61, 0, 0, 126, 63, 20, 63, 89, 204, 111, 172, 9, 186, 47, 76, 137, 59, 91, 177, 63, 61, 0, 0, 126, 63, 55, 65, 83, 204, 111, 172, 9, 186, 47, 76, 137, 59, 91, 177, 63, 61, 26, 100, 129, 1, 235, 204, 201, 60, 111, 172, 9, 186, 47, 76, 137, 59, 86, 125, 46, 61, 26, 100, 129, 1, 59, 204, 201, 60, 143, 31, 249, 37, 50, 8, 135, 59, 91, 177, 63, 61, 0, 127, 129, 1, 235, 204, 45, 62, 193, 82, 70, 37, 50, 8, 135, 59, 86, 125, 46, 61, 0, 127, 129, 1, 59, 204, 45, 62, 82, 251, 132, 186, 163, 240, 143, 59, 91, 177, 63, 61, 46, 80, 129, 1, 235, 204, 225, 195, 82, 251, 132, 186, 163, 240, 143, 59, 86, 125, 46, 61, 46, 80, 129, 1, 59, 204, 225, 195, 111, 172, 9, 186, 47, 76, 137, 59, 91, 177, 63, 61, 26, 100, 129, 1, 235, 204, 47, 195, 111, 172, 9, 186, 47, 76, 137, 59, 86, 125, 46, 61, 26, 100, 129, 1, 59, 204, 47, 195, 232, 16, 188, 186, 182, 129, 154, 59, 91, 177, 63, 61, 63, 63, 129, 1, 235, 204, 96, 200, 232, 16, 188, 186, 182, 129, 154, 59, 86, 125, 46, 61, 63, 63, 129, 1, 59, 204, 96, 200, 82, 251, 132, 186, 163, 240, 143, 59, 91, 177, 63, 61, 46, 80, 129, 1, 235, 204, 52, 200, 82, 251, 132, 186, 163, 240, 143, 59, 86, 125, 46, 61, 46, 80, 129, 1, 59, 204, 52, 200, 232, 16, 188, 186, 182, 129, 154, 59, 86, 125, 46, 61, 63, 63, 129, 1, 59, 204, 72, 202, 232, 16, 188, 186, 182, 129, 154, 59, 91, 177, 63, 61, 63, 63, 129, 1, 235, 204, 72, 202, 52, 85, 230, 186, 28, 71, 168, 59, 86, 125, 46, 61, 80, 46, 129, 1, 59, 204, 117, 202, 52, 85, 230, 186, 28, 71, 168, 59, 91, 177, 63, 61, 80, 46, 129, 1, 235, 204, 117, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 9, 0, 8, 0, 11, 0, 11, 0, 8, 0, 12, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 16, 0, 15, 0, 17, 0, 18, 0, 19, 0, 20, 0, 20, 0, 19, 0, 21, 0, 22, 0, 23, 0, 24, 0, 24, 0, 23, 0, 25, 0, 26, 0, 27, 0, 28, 0, 28, 0, 27, 0, 29, 0, 30, 0, 31, 0, 32, 0, 32, 0, 31, 0, 33, 0, 34, 0, 35, 0, 36, 0, 36, 0, 35, 0, 37, 0, 38, 0, 39, 0, 40, 0, 40, 0, 39, 0, 41, 0, 42, 0, 43, 0, 44, 0, 42, 0, 45, 0, 43, 0, 46, 0, 45, 0, 42, 0, 46, 0, 47, 0, 45, 0, 46, 0, 48, 0, 47, 0, 49, 0, 48, 0, 46, 0, 49, 0, 50, 0, 48, 0, 51, 0, 50, 0, 49, 0, 51, 0, 52, 0, 50, 0, 53, 0, 52, 0, 51, 0, 53, 0, 54, 0, 52, 0, 53, 0, 55, 0, 54, 0, 13, 0, 55, 0, 53, 0, 13, 0, 56, 0, 55, 0, 13, 0, 57, 0, 56, 0, 13, 0, 12, 0, 57, 0, 58, 0, 57, 0, 12, 0, 57, 0, 58, 0, 59, 0, 60, 0, 61, 0, 62, 0, 62, 0, 61, 0, 63, 0, 64, 0, 65, 0, 66, 0, 66, 0, 65, 0, 67, 0, 68, 0, 69, 0, 70, 0, 70, 0, 69, 0, 71, 0, 72, 0, 73, 0, 74, 0, 74, 0, 73, 0, 75, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 38,
+"vertex_data": PackedByteArray("vHSTO/rta7okl388JJd/O/rtazpWfS49vHSTOzEILDwkl388JJd/OzEILDxWfS49vHSTu/rta7okl388JJd/u/rtazpWfS49vHSTO/rta7okl388JJd/O/rtazpWfS495x2nOt8ogTtWfS49JJd/O/rtazpWfS49JJd/u/rtazpWfS49q1bsOkZwjjtWfS49IroQO3e+nztWfS49IWwhO4vlsztWfS49JJd/OzEILDxWfS495x0nO/CFyTtWfS49IWwhO1Ym3ztWfS49IroQO2pN8ztWfS49q1bsOs5NAjxWfS495x2nOoHxCDxWfS49HQMtOgAeDTxWfS49wVJGJXKKDjxWfS49JJd/uzEILDxWfS49HQMtugAeDTxWfS495x2nuoHxCDxWfS49q1bsus5NAjxWfS49IroQu2pN8ztWfS49IWwhu1Ym3ztWfS495x0nu/CFyTtWfS49IWwhu4vlsztWfS49JJd/u/rtazpWfS49IroQu3e+nztWfS49q1bsukZwjjtWfS495x2nut8ogTtWfS49HQMtusCfcTtWfS49wVJGJfrtaztWfS49HQMtOsCfcTtWfS49wVJGJfrtaztWfS49+HwAAPz++v34fAAA///6/fh8AAD8/vr9+HwAAP//+v0AABKI//9+vwAAEoj//36/AAASiP//fr8AABKI//9+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAP//fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vw==")
+}, {
+"aabb": AABB(-0.00180312, 0.0036, 0.0426, 0.00435312, 0.00435312, 0.0042),
+"attribute_data": PackedByteArray("AGCHwQAAEMEAYJ3BAAAQwQBgh8EAABfBAGCdwQAAF8EAYIfBAGCWwABgh8EAgIjAAGCdwQBglsAAYJ3BAICIwABAIUAAwIfBAKBYQADAh8EA4DxAAECHwQCAckAAAInBAGAHQAAAicEAQIRAACCLwQBgh8EAwFDBAGCdwQDAUMEAYIfBAMBXwQBgncEAwFfBAGCHwQDggMEAYJ3BAOCAwQBgh8EAYITBAGCdwQBghMEAYIfBAACQwQBgncEAAJDBAGCHwQCAk8EAYJ3BAICTwQBgh8EAoJTBAGCdwQCglMEAYIfBACCYwQBgncEAIJjBAGCHwQCAjsEAYJ3BAICOwQBgh8EAAJLBAGCdwQAAksEAYIfBAOB7wQBgncEA4HvBAGCHwQBggcEAYJ3BAGCBwQBgncEAQEjBAGCdwQBAT8EAYIfBAEBIwQBgh8EAQE/BAMCMQABgm8EAIHlAACCcwQBAhEAAIJ7BAGCDQAAAmsEAIJJAACCYwQCgh0AAYJfBAACJQACglMEAAJRAAKCUwQCgh0AA4JHBACCSQAAgkcEAYINAAECPwQDAjEAAAI7BACB5QAAgjcEAgGdAAGCLwQAAU0AAYIrBAOA8QAAAisEAgOI/ACCLwQDgJkAAYIrBAGCdwQAgmT8AYIfBACCZPwBgncEAoMU/AGCHwQCgxT8AYJ3BACB8wABgh8EAIHzAAGCdwQDgZcAAYIfBAOBlwABgncEAAAzBAGCHwQAADMEAYJ3BAIAGwQBgh8EAgAbBAGCHwQAAScEAYJ3BAABJwQBgh8EAoE7BAGCdwQCgTsE="),
+"format": 34359742487,
 "index_count": 144,
-"material": ExtResource( 4 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACQAIAAsACwAIAAwACwAMAA0ADgAPABAAEAAPABEAEgATABQAFAATABUAFgAXABgAGAAXABkAGgAbABwAHAAbAB0AHgAfACAAIAAfACEAIgAjACQAJAAjACUAJgAnACgAKAAnACkAKgArACwAKgAtACsALgAtACoALgAvAC0ALgAwAC8AMQAwAC4AMQAyADAAMwAyADEAMwA0ADIANQA0ADMANQA2ADQANQA3ADYADQA3ADUADQA4ADcADQA5ADgADQAMADkAOgA5AAwAOQA6ADsAPAA9AD4APgA9AD8AQABBAEIAQgBBAEMARABFAEYARgBFAEcASABJAEoASgBJAEsA"),
+"material": ExtResource("4"),
 "name": "Gray5",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 76
-}
-surfaces/17 = {
-"aabb": AABB( -0.00202915, 0.00412085, 0.0426, 0.0040583, 0.0040583, 9.99868e-06 ),
-"array_data": PackedByteArray( 111, 172, 9, 58, 217, 223, 4, 60, 86, 125, 46, 61, 0, 0, 126, 63, 152, 66, 247, 204, 82, 251, 132, 58, 159, 141, 1, 60, 86, 125, 46, 61, 0, 0, 126, 63, 60, 67, 239, 204, 193, 82, 70, 37, 215, 1, 6, 60, 86, 125, 46, 61, 0, 0, 126, 63, 231, 65, 250, 204, 111, 172, 9, 186, 217, 223, 4, 60, 86, 125, 46, 61, 0, 0, 126, 63, 55, 65, 247, 204, 82, 251, 132, 186, 159, 141, 1, 60, 86, 125, 46, 61, 0, 0, 127, 63, 146, 64, 239, 204, 232, 16, 188, 186, 42, 138, 248, 59, 86, 125, 46, 61, 0, 0, 126, 63, 5, 64, 225, 204, 52, 85, 230, 186, 197, 196, 234, 59, 86, 125, 46, 61, 0, 0, 126, 63, 50, 63, 208, 204, 131, 115, 0, 187, 120, 187, 218, 59, 86, 125, 46, 61, 0, 0, 126, 63, 170, 62, 187, 204, 125, 251, 4, 187, 240, 133, 201, 59, 86, 125, 46, 61, 0, 0, 126, 63, 124, 62, 165, 204, 131, 115, 0, 187, 105, 80, 184, 59, 86, 125, 46, 61, 0, 0, 126, 63, 170, 62, 143, 204, 52, 85, 230, 186, 28, 71, 168, 59, 86, 125, 46, 61, 0, 0, 126, 63, 50, 63, 122, 204, 232, 16, 188, 186, 182, 129, 154, 59, 86, 125, 46, 61, 0, 0, 126, 63, 5, 64, 105, 204, 82, 251, 132, 186, 163, 240, 143, 59, 86, 125, 46, 61, 0, 0, 126, 63, 146, 64, 91, 204, 111, 172, 9, 186, 47, 76, 137, 59, 86, 125, 46, 61, 0, 0, 126, 63, 55, 65, 83, 204, 193, 82, 70, 37, 50, 8, 135, 59, 86, 125, 46, 61, 0, 0, 126, 63, 231, 65, 80, 204, 111, 172, 9, 58, 47, 76, 137, 59, 86, 125, 46, 61, 0, 0, 126, 63, 152, 66, 83, 204, 82, 251, 132, 58, 163, 240, 143, 59, 86, 125, 46, 61, 0, 0, 126, 63, 60, 67, 91, 204, 232, 16, 188, 58, 182, 129, 154, 59, 86, 125, 46, 61, 0, 0, 126, 63, 201, 67, 105, 204, 52, 85, 230, 58, 28, 71, 168, 59, 86, 125, 46, 61, 0, 0, 126, 63, 27, 68, 122, 204, 131, 115, 0, 59, 105, 80, 184, 59, 86, 125, 46, 61, 0, 0, 126, 63, 61, 68, 143, 204, 125, 251, 4, 59, 240, 133, 201, 59, 86, 125, 46, 61, 0, 0, 126, 63, 72, 68, 165, 204, 131, 115, 0, 59, 120, 187, 218, 59, 86, 125, 46, 61, 0, 0, 126, 63, 61, 68, 187, 204, 52, 85, 230, 58, 197, 196, 234, 59, 86, 125, 46, 61, 0, 0, 126, 63, 27, 68, 208, 204, 232, 16, 188, 58, 42, 138, 248, 59, 86, 125, 46, 61, 0, 0, 126, 63, 201, 67, 225, 204 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 3, 0, 1, 0, 4, 0, 4, 0, 1, 0, 5, 0, 5, 0, 1, 0, 6, 0, 6, 0, 1, 0, 7, 0, 7, 0, 1, 0, 8, 0, 8, 0, 1, 0, 9, 0, 9, 0, 1, 0, 10, 0, 10, 0, 1, 0, 11, 0, 11, 0, 1, 0, 12, 0, 12, 0, 1, 0, 13, 0, 13, 0, 1, 0, 14, 0, 14, 0, 1, 0, 15, 0, 15, 0, 1, 0, 16, 0, 16, 0, 1, 0, 17, 0, 17, 0, 1, 0, 18, 0, 18, 0, 1, 0, 19, 0, 19, 0, 1, 0, 20, 0, 20, 0, 1, 0, 21, 0, 21, 0, 1, 0, 22, 0, 22, 0, 1, 0, 23, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 76,
+"vertex_data": PackedByteArray("HQMtOsCfcTtWfS49HQMtOsCfcTtbsT895x2nOt8ogTtWfS495x2nOt8ogTtbsT89HQMtOsCfcTtWfS49wVJGJfrtaztWfS49HQMtOsCfcTtbsT89jx/5JfrtaztbsT89HQMtusCfcTtbsT89HQMtOsCfcTtbsT89jx/5JfrtaztbsT895x2nOt8ogTtbsT895x2nut8ogTtbsT89q1bsOkZwjjtbsT895x2nOt8ogTtWfS495x2nOt8ogTtbsT89q1bsOkZwjjtWfS49q1bsOkZwjjtbsT89q1bsOkZwjjtWfS49q1bsOkZwjjtbsT89IroQO3e+nztWfS49IroQO3e+nztbsT89IroQO3e+nztWfS49IroQO3e+nztbsT89IWwhO4vlsztWfS49IWwhO4vlsztbsT89IWwhO4vlsztWfS49IWwhO4vlsztbsT895x0nO/CFyTtWfS495x0nO/CFyTtbsT895x0nO/CFyTtWfS495x0nO/CFyTtbsT89IWwhO1Ym3ztWfS49IWwhO1Ym3ztbsT89IWwhO1Ym3ztWfS49IWwhO1Ym3ztbsT89IroQO2pN8ztWfS49IroQO2pN8ztbsT89IroQO2pN8ztbsT89q1bsOs5NAjxbsT89IroQO2pN8ztWfS49q1bsOs5NAjxWfS49IroQO2pN8ztbsT896BC8OiqK+DtbsT89q1bsOs5NAjxbsT89NFXmOsXE6jtbsT89IWwhO1Ym3ztbsT89g3MAO3i72jtbsT89ffsEO/CFyTtbsT895x0nO/CFyTtbsT89g3MAO2lQuDtbsT89IWwhO4vlsztbsT89NFXmOhxHqDtbsT89IroQO3e+nztbsT896BC8OraBmjtbsT89UvuEOqPwjztbsT89b6wJOi9MiTtbsT89jx/5JTIIhztbsT89q1bsukZwjjtbsT89b6wJui9MiTtbsT89b6wJui9MiTtbsT89b6wJui9MiTtWfS49jx/5JTIIhztbsT89wVJGJTIIhztWfS49UvuEuqPwjztbsT89UvuEuqPwjztWfS49b6wJui9MiTtbsT89b6wJui9MiTtWfS496BC8uraBmjtbsT896BC8uraBmjtWfS49UvuEuqPwjztbsT89UvuEuqPwjztWfS496BC8uraBmjtWfS496BC8uraBmjtbsT89NFXmuhxHqDtWfS49NFXmuhxHqDtbsT89NBo4mwAA//80GjibAAD//1wuYK8AAP//XC5grwAA//80GjibAAD//wAAAYAAAP//NBo4mwAA//8AAAGAAAD//wAAAAD//36/AAAAAP//fr8AAAAA//9+vwAAAAD//36/AAAAAPz+fr8AAAAA/P5+v1wuYK8AAP//XC5grwAA//9+P4LAAAD//34/gsAAAP//fj+CwAAA//9+P4LAAAD//6BQpNEAAP//oFCk0QAA//+gUKTRAAD//6BQpNEAAP//yGTM5QAA///IZMzlAAD//8hkzOUAAP//yGTM5QAA////fwAAAAD///9/AAAAAP///38AAAAA////fwAAAAD//8hkNBoAAAGByGQ0GgAAAYHIZDQaAAABgchkNBoAAAGBoFBcLgAAAYGgUFwuAAABgaBQXC4AAAGBfj9+PwAAAYGgUFwuAAABgX4/fj8AAAGBAAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/NBrIZAAAAYE0GshkAAABgQAA/38AAAGBAAD/fwAAAYFcLqBQAAABgVwuoFAAAAGBNBrIZAAAAYE0GshkAAABgX4/fj8AAAGBfj9+PwAAAYFcLqBQAAABgVwuoFAAAAGBfj9+PwAAAYF+P34/AAABgaBQXC4AAAGBoFBcLgAAAYE=")
+}, {
+"aabb": AABB(-0.00202915, 0.00412085, 0.0426, 0.0040583, 0.0040583, 9.99868e-06),
+"attribute_data": PackedByteArray("AABTQADgnsEAgGdAAOCdwQDgPEAAQJ/BAOAmQADgnsEAQBJAAOCdwQCgAEAAIJzBAEDmPwAAmsEAQNU/AGCXwQCAzz8AoJTBAEDVPwDgkcEAQOY/AECPwQCgAEAAII3BAEASQABgi8EA4CZAAGCKwQDgPEAAAIrBAABTQABgisEAgGdAAGCLwQAgeUAAII3BAGCDQABAj8EAoIdAAOCRwQAAiUAAoJTBAKCHQABgl8EAYINAAACawQAgeUAAIJzB"),
+"format": 34359742487,
 "index_count": 66,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAwABAAQABAABAAUABQABAAYABgABAAcABwABAAgACAABAAkACQABAAoACgABAAsACwABAAwADAABAA0ADQABAA4ADgABAA8ADwABABAAEAABABEAEQABABIAEgABABMAEwABABQAFAABABUAFQABABYAFgABABcA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 24
-}
-surfaces/18 = {
-"aabb": AABB( -0.00255, 0.0036, 0.0426, 0.00457915, 0.0051, 0.0042 ),
-"array_data": PackedByteArray( 111, 172, 9, 58, 217, 223, 4, 60, 86, 125, 46, 61, 230, 156, 0, 63, 59, 76, 225, 195, 111, 172, 9, 58, 217, 223, 4, 60, 91, 177, 63, 61, 230, 156, 0, 63, 235, 76, 225, 195, 82, 251, 132, 58, 159, 141, 1, 60, 86, 125, 46, 61, 210, 176, 0, 63, 59, 76, 47, 195, 82, 251, 132, 58, 159, 141, 1, 60, 91, 177, 63, 61, 210, 176, 0, 63, 235, 76, 47, 195, 111, 172, 9, 58, 217, 223, 4, 60, 86, 125, 46, 61, 230, 156, 0, 63, 59, 76, 45, 62, 193, 82, 70, 37, 215, 1, 6, 60, 86, 125, 46, 61, 0, 129, 0, 63, 59, 76, 201, 60, 111, 172, 9, 58, 217, 223, 4, 60, 91, 177, 63, 61, 230, 156, 0, 63, 235, 76, 45, 62, 143, 31, 249, 37, 215, 1, 6, 60, 91, 177, 63, 61, 0, 129, 0, 63, 235, 76, 201, 60, 231, 29, 167, 58, 129, 241, 8, 60, 91, 177, 63, 61, 0, 0, 126, 63, 148, 67, 2, 205, 111, 172, 9, 58, 217, 223, 4, 60, 91, 177, 63, 61, 0, 0, 126, 63, 152, 66, 247, 204, 143, 31, 249, 37, 215, 1, 6, 60, 91, 177, 63, 61, 0, 0, 127, 63, 231, 65, 250, 204, 171, 86, 236, 58, 206, 77, 2, 60, 91, 177, 63, 61, 0, 0, 126, 63, 34, 68, 241, 204, 82, 251, 132, 58, 159, 141, 1, 60, 91, 177, 63, 61, 0, 0, 126, 63, 60, 67, 239, 204, 232, 16, 188, 58, 42, 138, 248, 59, 91, 177, 63, 61, 0, 0, 126, 63, 201, 67, 225, 204, 82, 251, 132, 58, 159, 141, 1, 60, 86, 125, 46, 61, 210, 176, 0, 63, 59, 76, 96, 200, 82, 251, 132, 58, 159, 141, 1, 60, 91, 177, 63, 61, 210, 176, 0, 63, 235, 76, 96, 200, 232, 16, 188, 58, 42, 138, 248, 59, 86, 125, 46, 61, 193, 193, 0, 63, 59, 76, 52, 200, 232, 16, 188, 58, 42, 138, 248, 59, 91, 177, 63, 61, 193, 193, 0, 63, 235, 76, 52, 200, 232, 16, 188, 58, 42, 138, 248, 59, 91, 177, 63, 61, 193, 193, 0, 63, 235, 76, 117, 202, 52, 85, 230, 58, 197, 196, 234, 59, 91, 177, 63, 61, 176, 210, 0, 63, 235, 76, 72, 202, 232, 16, 188, 58, 42, 138, 248, 59, 86, 125, 46, 61, 193, 193, 0, 63, 59, 76, 117, 202, 52, 85, 230, 58, 197, 196, 234, 59, 86, 125, 46, 61, 176, 210, 0, 63, 59, 76, 72, 202, 52, 85, 230, 58, 197, 196, 234, 59, 86, 125, 46, 61, 176, 210, 0, 63, 59, 76, 8, 204, 52, 85, 230, 58, 197, 196, 234, 59, 91, 177, 63, 61, 176, 210, 0, 63, 235, 76, 8, 204, 131, 115, 0, 59, 120, 187, 218, 59, 86, 125, 46, 61, 156, 230, 0, 63, 59, 76, 229, 203, 131, 115, 0, 59, 120, 187, 218, 59, 91, 177, 63, 61, 156, 230, 0, 63, 235, 76, 229, 203, 131, 115, 0, 59, 120, 187, 218, 59, 86, 125, 46, 61, 156, 230, 0, 63, 59, 76, 141, 204, 131, 115, 0, 59, 120, 187, 218, 59, 91, 177, 63, 61, 156, 230, 0, 63, 235, 76, 141, 204, 125, 251, 4, 59, 240, 133, 201, 59, 86, 125, 46, 61, 129, 0, 0, 63, 59, 76, 119, 204, 125, 251, 4, 59, 240, 133, 201, 59, 91, 177, 63, 61, 129, 0, 0, 63, 235, 76, 119, 204, 125, 251, 4, 59, 240, 133, 201, 59, 86, 125, 46, 61, 129, 0, 0, 63, 59, 76, 190, 204, 125, 251, 4, 59, 240, 133, 201, 59, 91, 177, 63, 61, 129, 0, 0, 63, 235, 76, 190, 204, 131, 115, 0, 59, 105, 80, 184, 59, 86, 125, 46, 61, 156, 26, 0, 63, 59, 76, 168, 204, 131, 115, 0, 59, 105, 80, 184, 59, 91, 177, 63, 61, 156, 26, 0, 63, 235, 76, 168, 204, 131, 115, 0, 59, 105, 80, 184, 59, 86, 125, 46, 61, 156, 26, 0, 63, 59, 76, 153, 204, 131, 115, 0, 59, 105, 80, 184, 59, 91, 177, 63, 61, 156, 26, 0, 63, 235, 76, 153, 204, 52, 85, 230, 58, 28, 71, 168, 59, 86, 125, 46, 61, 176, 46, 0, 63, 59, 76, 131, 204, 52, 85, 230, 58, 28, 71, 168, 59, 91, 177, 63, 61, 176, 46, 0, 63, 235, 76, 131, 204, 52, 85, 230, 58, 28, 71, 168, 59, 91, 177, 63, 61, 176, 46, 0, 63, 235, 76, 32, 204, 232, 16, 188, 58, 182, 129, 154, 59, 91, 177, 63, 61, 193, 63, 0, 63, 235, 76, 10, 204, 52, 85, 230, 58, 28, 71, 168, 59, 86, 125, 46, 61, 176, 46, 0, 63, 59, 76, 32, 204, 232, 16, 188, 58, 182, 129, 154, 59, 86, 125, 46, 61, 193, 63, 0, 63, 59, 76, 10, 204, 232, 16, 188, 58, 182, 129, 154, 59, 91, 177, 63, 61, 193, 63, 0, 63, 235, 76, 184, 202, 82, 251, 132, 58, 163, 240, 143, 59, 91, 177, 63, 61, 210, 80, 0, 63, 235, 76, 139, 202, 232, 16, 188, 58, 182, 129, 154, 59, 86, 125, 46, 61, 193, 63, 0, 63, 59, 76, 184, 202, 82, 251, 132, 58, 163, 240, 143, 59, 86, 125, 46, 61, 210, 80, 0, 63, 59, 76, 139, 202, 82, 251, 132, 58, 163, 240, 143, 59, 91, 177, 63, 61, 210, 80, 0, 63, 235, 76, 178, 200, 111, 172, 9, 58, 47, 76, 137, 59, 91, 177, 63, 61, 230, 100, 0, 63, 235, 76, 134, 200, 82, 251, 132, 58, 163, 240, 143, 59, 86, 125, 46, 61, 210, 80, 0, 63, 59, 76, 178, 200, 111, 172, 9, 58, 47, 76, 137, 59, 86, 125, 46, 61, 230, 100, 0, 63, 59, 76, 134, 200, 143, 31, 249, 37, 50, 8, 135, 59, 91, 177, 63, 61, 0, 127, 0, 63, 235, 76, 79, 196, 193, 82, 70, 37, 50, 8, 135, 59, 86, 125, 46, 61, 0, 127, 0, 63, 59, 76, 79, 196, 111, 172, 9, 58, 47, 76, 137, 59, 91, 177, 63, 61, 230, 100, 0, 63, 235, 76, 168, 196, 111, 172, 9, 58, 47, 76, 137, 59, 86, 125, 46, 61, 230, 100, 0, 63, 59, 76, 168, 196, 171, 86, 236, 58, 206, 77, 2, 60, 91, 177, 63, 61, 63, 63, 129, 1, 235, 204, 46, 200, 231, 29, 167, 58, 129, 241, 8, 60, 91, 177, 63, 61, 46, 80, 129, 1, 235, 204, 102, 200, 171, 86, 236, 58, 206, 77, 2, 60, 86, 125, 46, 61, 63, 63, 129, 1, 59, 204, 46, 200, 231, 29, 167, 58, 129, 241, 8, 60, 86, 125, 46, 61, 46, 80, 129, 1, 59, 204, 102, 200, 231, 29, 167, 58, 129, 241, 8, 60, 91, 177, 63, 61, 46, 80, 129, 1, 235, 204, 25, 195, 29, 3, 45, 58, 0, 30, 13, 60, 91, 177, 63, 61, 26, 100, 129, 1, 235, 204, 248, 195, 231, 29, 167, 58, 129, 241, 8, 60, 86, 125, 46, 61, 46, 80, 129, 1, 59, 204, 25, 195, 29, 3, 45, 58, 0, 30, 13, 60, 86, 125, 46, 61, 26, 100, 129, 1, 59, 204, 248, 195, 29, 3, 45, 186, 0, 30, 13, 60, 91, 177, 63, 61, 0, 0, 127, 63, 10, 65, 12, 205, 29, 3, 45, 58, 0, 30, 13, 60, 91, 177, 63, 61, 0, 0, 127, 63, 197, 66, 12, 205, 231, 29, 167, 186, 129, 241, 8, 60, 91, 177, 63, 61, 0, 0, 126, 63, 59, 64, 2, 205, 111, 172, 9, 186, 217, 223, 4, 60, 91, 177, 63, 61, 0, 0, 126, 63, 55, 65, 247, 204, 171, 86, 236, 186, 206, 77, 2, 60, 91, 177, 63, 61, 0, 0, 126, 63, 20, 63, 241, 204, 82, 251, 132, 186, 159, 141, 1, 60, 91, 177, 63, 61, 0, 0, 126, 63, 146, 64, 239, 204, 232, 16, 188, 186, 42, 138, 248, 59, 91, 177, 63, 61, 0, 0, 126, 63, 5, 64, 225, 204, 34, 186, 16, 187, 106, 77, 243, 59, 91, 177, 63, 61, 0, 0, 126, 63, 3, 62, 219, 204, 52, 85, 230, 186, 197, 196, 234, 59, 91, 177, 63, 61, 0, 0, 126, 63, 50, 63, 208, 204, 33, 108, 33, 187, 86, 38, 223, 59, 91, 177, 63, 61, 0, 0, 126, 63, 88, 61, 193, 204, 131, 115, 0, 187, 120, 187, 218, 59, 91, 177, 63, 61, 0, 0, 126, 63, 170, 62, 187, 204, 231, 29, 39, 187, 240, 133, 201, 59, 91, 177, 63, 61, 0, 0, 126, 63, 30, 61, 165, 204, 125, 251, 4, 187, 240, 133, 201, 59, 91, 177, 63, 61, 0, 0, 127, 63, 124, 62, 165, 204, 131, 115, 0, 187, 105, 80, 184, 59, 91, 177, 63, 61, 0, 0, 126, 63, 170, 62, 143, 204, 33, 108, 33, 187, 139, 229, 179, 59, 91, 177, 63, 61, 0, 0, 126, 63, 88, 61, 137, 204, 52, 85, 230, 186, 28, 71, 168, 59, 91, 177, 63, 61, 0, 0, 126, 63, 50, 63, 122, 204, 34, 186, 16, 187, 119, 190, 159, 59, 91, 177, 63, 61, 0, 0, 126, 63, 3, 62, 112, 204, 232, 16, 188, 186, 182, 129, 154, 59, 91, 177, 63, 61, 0, 0, 126, 63, 5, 64, 105, 204, 82, 251, 132, 186, 163, 240, 143, 59, 91, 177, 63, 61, 0, 0, 126, 63, 146, 64, 91, 204, 171, 86, 236, 186, 70, 112, 142, 59, 91, 177, 63, 61, 0, 0, 126, 63, 20, 63, 89, 204, 111, 172, 9, 186, 47, 76, 137, 59, 91, 177, 63, 61, 0, 0, 126, 63, 55, 65, 83, 204, 34, 186, 16, 187, 119, 190, 159, 59, 86, 125, 46, 61, 176, 210, 0, 63, 59, 76, 122, 202, 34, 186, 16, 187, 119, 190, 159, 59, 91, 177, 63, 61, 176, 210, 0, 63, 235, 76, 122, 202, 171, 86, 236, 186, 70, 112, 142, 59, 86, 125, 46, 61, 193, 193, 0, 63, 59, 76, 66, 202, 171, 86, 236, 186, 70, 112, 142, 59, 91, 177, 63, 61, 193, 193, 0, 63, 235, 76, 66, 202, 33, 108, 33, 187, 139, 229, 179, 59, 86, 125, 46, 61, 156, 230, 0, 63, 59, 76, 11, 204, 33, 108, 33, 187, 139, 229, 179, 59, 91, 177, 63, 61, 156, 230, 0, 63, 235, 76, 11, 204, 34, 186, 16, 187, 119, 190, 159, 59, 86, 125, 46, 61, 176, 210, 0, 63, 59, 76, 223, 203, 34, 186, 16, 187, 119, 190, 159, 59, 91, 177, 63, 61, 176, 210, 0, 63, 235, 76, 223, 203, 231, 29, 39, 187, 240, 133, 201, 59, 86, 125, 46, 61, 129, 0, 0, 63, 59, 76, 144, 204, 231, 29, 39, 187, 240, 133, 201, 59, 91, 177, 63, 61, 129, 0, 0, 63, 235, 76, 144, 204, 33, 108, 33, 187, 139, 229, 179, 59, 86, 125, 46, 61, 156, 230, 0, 63, 59, 76, 116, 204, 33, 108, 33, 187, 139, 229, 179, 59, 91, 177, 63, 61, 156, 230, 0, 63, 235, 76, 116, 204, 33, 108, 33, 187, 86, 38, 223, 59, 86, 125, 46, 61, 156, 26, 0, 63, 59, 76, 193, 204, 33, 108, 33, 187, 86, 38, 223, 59, 91, 177, 63, 61, 156, 26, 0, 63, 235, 76, 193, 204, 231, 29, 39, 187, 240, 133, 201, 59, 86, 125, 46, 61, 129, 0, 0, 63, 59, 76, 165, 204, 231, 29, 39, 187, 240, 133, 201, 59, 91, 177, 63, 61, 129, 0, 0, 63, 235, 76, 165, 204, 34, 186, 16, 187, 106, 77, 243, 59, 91, 177, 63, 61, 176, 46, 0, 63, 235, 76, 156, 204, 33, 108, 33, 187, 86, 38, 223, 59, 91, 177, 63, 61, 156, 26, 0, 63, 235, 76, 128, 204, 34, 186, 16, 187, 106, 77, 243, 59, 86, 125, 46, 61, 176, 46, 0, 63, 59, 76, 156, 204, 33, 108, 33, 187, 86, 38, 223, 59, 86, 125, 46, 61, 156, 26, 0, 63, 59, 76, 128, 204, 171, 86, 236, 186, 206, 77, 2, 60, 86, 125, 46, 61, 193, 63, 0, 63, 59, 76, 35, 204, 171, 86, 236, 186, 206, 77, 2, 60, 91, 177, 63, 61, 193, 63, 0, 63, 235, 76, 35, 204, 34, 186, 16, 187, 106, 77, 243, 59, 86, 125, 46, 61, 176, 46, 0, 63, 59, 76, 7, 204, 34, 186, 16, 187, 106, 77, 243, 59, 91, 177, 63, 61, 176, 46, 0, 63, 235, 76, 7, 204, 171, 86, 236, 186, 206, 77, 2, 60, 91, 177, 63, 61, 193, 63, 0, 63, 235, 76, 134, 202, 171, 86, 236, 186, 206, 77, 2, 60, 86, 125, 46, 61, 193, 63, 0, 63, 59, 76, 134, 202, 231, 29, 167, 186, 129, 241, 8, 60, 91, 177, 63, 61, 210, 80, 0, 63, 235, 76, 190, 202, 231, 29, 167, 186, 129, 241, 8, 60, 86, 125, 46, 61, 210, 80, 0, 63, 59, 76, 190, 202, 231, 29, 167, 186, 129, 241, 8, 60, 91, 177, 63, 61, 210, 80, 0, 63, 235, 76, 128, 200, 231, 29, 167, 186, 129, 241, 8, 60, 86, 125, 46, 61, 210, 80, 0, 63, 59, 76, 128, 200, 29, 3, 45, 186, 0, 30, 13, 60, 91, 177, 63, 61, 230, 100, 0, 63, 235, 76, 184, 200, 29, 3, 45, 186, 0, 30, 13, 60, 86, 125, 46, 61, 230, 100, 0, 63, 59, 76, 184, 200, 29, 3, 45, 186, 0, 30, 13, 60, 91, 177, 63, 61, 230, 100, 0, 63, 235, 76, 68, 196, 29, 3, 45, 186, 0, 30, 13, 60, 86, 125, 46, 61, 230, 100, 0, 63, 59, 76, 68, 196, 143, 31, 249, 37, 114, 138, 14, 60, 91, 177, 63, 61, 0, 127, 0, 63, 235, 76, 179, 196, 193, 82, 70, 37, 114, 138, 14, 60, 86, 125, 46, 61, 0, 127, 0, 63, 59, 76, 179, 196, 143, 31, 249, 37, 114, 138, 14, 60, 91, 177, 63, 61, 0, 0, 127, 63, 231, 65, 16, 205, 143, 31, 249, 37, 114, 138, 14, 60, 91, 177, 63, 61, 0, 127, 129, 127, 235, 204, 156, 60, 193, 82, 70, 37, 114, 138, 14, 60, 86, 125, 46, 61, 0, 127, 129, 127, 59, 204, 156, 60, 29, 3, 45, 58, 0, 30, 13, 60, 91, 177, 63, 61, 26, 100, 129, 127, 235, 204, 91, 62, 29, 3, 45, 58, 0, 30, 13, 60, 86, 125, 46, 61, 26, 100, 129, 1, 59, 204, 91, 62, 231, 29, 167, 186, 223, 40, 129, 59, 86, 125, 46, 61, 210, 176, 0, 63, 59, 76, 46, 200, 171, 86, 236, 186, 70, 112, 142, 59, 86, 125, 46, 61, 193, 193, 0, 63, 59, 76, 102, 200, 231, 29, 167, 186, 223, 40, 129, 59, 91, 177, 63, 61, 210, 176, 0, 63, 235, 76, 46, 200, 171, 86, 236, 186, 70, 112, 142, 59, 91, 177, 63, 61, 193, 193, 0, 63, 235, 76, 102, 200, 29, 3, 45, 186, 192, 159, 113, 59, 86, 125, 46, 61, 230, 156, 0, 63, 59, 76, 25, 195, 231, 29, 167, 186, 223, 40, 129, 59, 86, 125, 46, 61, 210, 176, 0, 63, 59, 76, 248, 195, 29, 3, 45, 186, 192, 159, 113, 59, 91, 177, 63, 61, 230, 156, 0, 63, 235, 76, 25, 195, 231, 29, 167, 186, 223, 40, 129, 59, 91, 177, 63, 61, 210, 176, 0, 63, 235, 76, 248, 195, 193, 82, 70, 37, 250, 237, 107, 59, 86, 125, 46, 61, 0, 129, 0, 63, 59, 76, 91, 62, 29, 3, 45, 186, 192, 159, 113, 59, 86, 125, 46, 61, 230, 156, 0, 63, 59, 76, 156, 60, 143, 31, 249, 37, 250, 237, 107, 59, 91, 177, 63, 61, 0, 129, 0, 63, 235, 76, 91, 62, 29, 3, 45, 186, 192, 159, 113, 59, 91, 177, 63, 61, 230, 156, 0, 63, 235, 76, 156, 60, 52, 85, 230, 186, 28, 71, 168, 59, 91, 177, 63, 61, 80, 46, 129, 1, 235, 204, 229, 203, 131, 115, 0, 187, 105, 80, 184, 59, 91, 177, 63, 61, 100, 26, 129, 1, 235, 204, 8, 204, 52, 85, 230, 186, 28, 71, 168, 59, 86, 125, 46, 61, 80, 46, 129, 1, 59, 204, 229, 203, 131, 115, 0, 187, 105, 80, 184, 59, 86, 125, 46, 61, 100, 26, 129, 1, 59, 204, 8, 204, 131, 115, 0, 187, 105, 80, 184, 59, 86, 125, 46, 61, 100, 26, 129, 1, 59, 204, 119, 204, 131, 115, 0, 187, 105, 80, 184, 59, 91, 177, 63, 61, 100, 26, 129, 1, 235, 204, 119, 204, 125, 251, 4, 187, 240, 133, 201, 59, 86, 125, 46, 61, 127, 0, 129, 127, 59, 204, 141, 204, 125, 251, 4, 187, 240, 133, 201, 59, 91, 177, 63, 61, 127, 0, 129, 127, 235, 204, 141, 204, 125, 251, 4, 187, 240, 133, 201, 59, 86, 125, 46, 61, 127, 0, 129, 127, 59, 204, 168, 204, 125, 251, 4, 187, 240, 133, 201, 59, 91, 177, 63, 61, 127, 0, 129, 127, 235, 204, 168, 204, 131, 115, 0, 187, 120, 187, 218, 59, 86, 125, 46, 61, 100, 230, 129, 127, 59, 204, 190, 204, 131, 115, 0, 187, 120, 187, 218, 59, 91, 177, 63, 61, 100, 230, 129, 127, 235, 204, 190, 204, 131, 115, 0, 187, 120, 187, 218, 59, 86, 125, 46, 61, 100, 230, 129, 127, 59, 204, 131, 204, 131, 115, 0, 187, 120, 187, 218, 59, 91, 177, 63, 61, 100, 230, 129, 127, 235, 204, 131, 204, 52, 85, 230, 186, 197, 196, 234, 59, 86, 125, 46, 61, 80, 210, 129, 127, 59, 204, 153, 204, 52, 85, 230, 186, 197, 196, 234, 59, 91, 177, 63, 61, 80, 210, 129, 127, 235, 204, 153, 204, 52, 85, 230, 186, 197, 196, 234, 59, 86, 125, 46, 61, 80, 210, 129, 127, 59, 204, 10, 204, 52, 85, 230, 186, 197, 196, 234, 59, 91, 177, 63, 61, 80, 210, 129, 127, 235, 204, 10, 204, 232, 16, 188, 186, 42, 138, 248, 59, 86, 125, 46, 61, 63, 193, 129, 127, 59, 204, 32, 204, 232, 16, 188, 186, 42, 138, 248, 59, 91, 177, 63, 61, 63, 193, 129, 127, 235, 204, 32, 204, 82, 251, 132, 186, 159, 141, 1, 60, 86, 125, 46, 61, 46, 176, 129, 127, 59, 204, 184, 202, 232, 16, 188, 186, 42, 138, 248, 59, 86, 125, 46, 61, 63, 193, 129, 127, 59, 204, 139, 202, 82, 251, 132, 186, 159, 141, 1, 60, 91, 177, 63, 61, 46, 176, 129, 127, 235, 204, 184, 202, 232, 16, 188, 186, 42, 138, 248, 59, 91, 177, 63, 61, 63, 193, 129, 127, 235, 204, 139, 202, 111, 172, 9, 186, 217, 223, 4, 60, 86, 125, 46, 61, 26, 156, 129, 127, 59, 204, 178, 200, 82, 251, 132, 186, 159, 141, 1, 60, 86, 125, 46, 61, 46, 176, 129, 127, 59, 204, 134, 200, 111, 172, 9, 186, 217, 223, 4, 60, 91, 177, 63, 61, 26, 156, 129, 127, 235, 204, 178, 200, 82, 251, 132, 186, 159, 141, 1, 60, 91, 177, 63, 61, 46, 176, 129, 127, 235, 204, 134, 200, 193, 82, 70, 37, 215, 1, 6, 60, 86, 125, 46, 61, 0, 129, 129, 127, 59, 204, 168, 196, 111, 172, 9, 186, 217, 223, 4, 60, 86, 125, 46, 61, 26, 156, 129, 127, 59, 204, 79, 196, 143, 31, 249, 37, 215, 1, 6, 60, 91, 177, 63, 61, 0, 129, 129, 127, 235, 204, 168, 196, 111, 172, 9, 186, 217, 223, 4, 60, 91, 177, 63, 61, 26, 156, 129, 127, 235, 204, 79, 196 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 9, 0, 8, 0, 11, 0, 12, 0, 9, 0, 11, 0, 13, 0, 12, 0, 14, 0, 15, 0, 16, 0, 16, 0, 15, 0, 17, 0, 18, 0, 19, 0, 20, 0, 20, 0, 19, 0, 21, 0, 22, 0, 23, 0, 24, 0, 24, 0, 23, 0, 25, 0, 26, 0, 27, 0, 28, 0, 28, 0, 27, 0, 29, 0, 30, 0, 31, 0, 32, 0, 32, 0, 31, 0, 33, 0, 34, 0, 35, 0, 36, 0, 36, 0, 35, 0, 37, 0, 38, 0, 39, 0, 40, 0, 40, 0, 39, 0, 41, 0, 42, 0, 43, 0, 44, 0, 44, 0, 43, 0, 45, 0, 46, 0, 47, 0, 48, 0, 48, 0, 47, 0, 49, 0, 50, 0, 51, 0, 52, 0, 52, 0, 51, 0, 53, 0, 54, 0, 55, 0, 56, 0, 56, 0, 55, 0, 57, 0, 58, 0, 59, 0, 60, 0, 60, 0, 59, 0, 61, 0, 8, 0, 62, 0, 63, 0, 8, 0, 64, 0, 62, 0, 8, 0, 10, 0, 64, 0, 65, 0, 64, 0, 10, 0, 65, 0, 66, 0, 64, 0, 67, 0, 66, 0, 65, 0, 68, 0, 66, 0, 67, 0, 68, 0, 69, 0, 66, 0, 70, 0, 69, 0, 68, 0, 70, 0, 71, 0, 69, 0, 72, 0, 71, 0, 70, 0, 72, 0, 73, 0, 71, 0, 74, 0, 73, 0, 72, 0, 75, 0, 73, 0, 74, 0, 75, 0, 76, 0, 73, 0, 77, 0, 76, 0, 75, 0, 77, 0, 78, 0, 76, 0, 79, 0, 78, 0, 77, 0, 80, 0, 78, 0, 79, 0, 80, 0, 81, 0, 78, 0, 82, 0, 81, 0, 80, 0, 83, 0, 84, 0, 85, 0, 85, 0, 84, 0, 86, 0, 87, 0, 88, 0, 89, 0, 89, 0, 88, 0, 90, 0, 91, 0, 92, 0, 93, 0, 93, 0, 92, 0, 94, 0, 95, 0, 96, 0, 97, 0, 97, 0, 96, 0, 98, 0, 99, 0, 100, 0, 101, 0, 101, 0, 100, 0, 102, 0, 103, 0, 104, 0, 105, 0, 105, 0, 104, 0, 106, 0, 107, 0, 108, 0, 109, 0, 109, 0, 108, 0, 110, 0, 111, 0, 112, 0, 113, 0, 113, 0, 112, 0, 114, 0, 115, 0, 116, 0, 117, 0, 117, 0, 116, 0, 118, 0, 63, 0, 62, 0, 119, 0, 120, 0, 121, 0, 122, 0, 122, 0, 121, 0, 123, 0, 124, 0, 125, 0, 126, 0, 126, 0, 125, 0, 127, 0, 128, 0, 129, 0, 130, 0, 130, 0, 129, 0, 131, 0, 132, 0, 133, 0, 134, 0, 134, 0, 133, 0, 135, 0, 136, 0, 137, 0, 138, 0, 138, 0, 137, 0, 139, 0, 140, 0, 141, 0, 142, 0, 142, 0, 141, 0, 143, 0, 144, 0, 145, 0, 146, 0, 146, 0, 145, 0, 147, 0, 148, 0, 149, 0, 150, 0, 150, 0, 149, 0, 151, 0, 152, 0, 153, 0, 154, 0, 154, 0, 153, 0, 155, 0, 156, 0, 157, 0, 158, 0, 158, 0, 157, 0, 159, 0, 160, 0, 161, 0, 162, 0, 162, 0, 161, 0, 163, 0, 164, 0, 165, 0, 166, 0, 166, 0, 165, 0, 167, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("b6wJOtnfBDxWfS49UvuEOp+NATxWfS49wVJGJdcBBjxWfS49b6wJutnfBDxWfS49UvuEup+NATxWfS496BC8uiqK+DtWfS49NFXmusXE6jtWfS49g3MAu3i72jtWfS49ffsEu/CFyTtWfS49g3MAu2lQuDtWfS49NFXmuhxHqDtWfS496BC8uraBmjtWfS49UvuEuqPwjztWfS49b6wJui9MiTtWfS49wVJGJTIIhztWfS49b6wJOi9MiTtWfS49UvuEOqPwjztWfS496BC8OraBmjtWfS49NFXmOhxHqDtWfS49g3MAO2lQuDtWfS49ffsEO/CFyTtWfS49g3MAO3i72jtWfS49NFXmOsXE6jtWfS496BC8OiqK+DtWfS49AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA//9+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/")
+}, {
+"aabb": AABB(-0.00255, 0.0036, 0.0426, 0.00457915, 0.0051, 0.0042),
+"attribute_data": PackedByteArray("AGCHQQAgfMAAYJ1BACB8wABgh0EA4GXAAGCdQQDgZcAAYIdBAKDFPwBgh0EAIJk/AGCdQQCgxT8AYJ1BACCZPwCAckAAQKDBAABTQADgnsEA4DxAAECfwQBAhEAAIJ7BAIBnQADgncEAIHlAACCcwQBgh0EAAAzBAGCdQQAADMEAYIdBAIAGwQBgnUEAgAbBAGCdQQCgTsEAYJ1BAABJwQBgh0EAoE7BAGCHQQAAScEAYIdBAACBwQBgnUEAAIHBAGCHQQCgfMEAYJ1BAKB8wQBgh0EAoJHBAGCdQQCgkcEAYIdBAOCOwQBgnUEA4I7BAGCHQQDAl8EAYJ1BAMCXwQBgh0EAAJXBAGCdQQAAlcEAYIdBACCTwQBgnUEAIJPBAGCHQQBgkMEAYJ1BAGCQwQBgnUEAAITBAGCdQQBAgcEAYIdBAACEwQBgh0EAQIHBAGCdQQAAV8EAYJ1BAGBRwQBgh0EAAFfBAGCHQQBgUcEAYJ1BAEAWwQBgnUEAwBDBAGCHQQBAFsEAYIdBAMAQwQBgnUEA4InAAGCHQQDgicAAYJ1BAACVwABgh0EAAJXAAGCdwQDABcEAYJ3BAMAMwQBgh8EAwAXBAGCHwQDADMEAYJ3BACBjwABgncEAAH/AAGCHwQAgY8AAYIfBAAB/wABAIUAAgKHBAKBYQACAocEAYAdAAECgwQDgJkAA4J7BAIDiPwAgnsEAQBJAAOCdwQCgAEAAIJzBAGDAPwBgm8EAQOY/AACawQAAqz8AIJjBAEDVPwBgl8EAwKM/AKCUwQCAzz8AoJTBAEDVPwDgkcEAAKs/ACCRwQBA5j8AQI/BAGDAPwAAjsEAoABAACCNwQBAEkAAYIvBAIDiPwAgi8EA4CZAAGCKwQBgh0EAQE/BAGCdQQBAT8EAYIdBAEBIwQBgnUEAQEjBAGCHQQBggcEAYJ1BAGCBwQBgh0EA4HvBAGCdQQDge8EAYIdBAACSwQBgnUEAAJLBAGCHQQCAjsEAYJ1BAICOwQBgh0EAIJjBAGCdQQAgmMEAYIdBAKCUwQBgnUEAoJTBAGCdQQCAk8EAYJ1BAACQwQBgh0EAgJPBAGCHQQAAkMEAYIdBAGCEwQBgnUEAYITBAGCHQQDggMEAYJ1BAOCAwQBgnUEAwFDBAGCHQQDAUMEAYJ1BAMBXwQBgh0EAwFfBAGCdQQAAEMEAYIdBAAAQwQBgnUEAABfBAGCHQQAAF8EAYJ1BAICIwABgh0EAgIjAAGCdQQBglsAAYIdBAGCWwADgPEAAAKLBAGCdwQCAkz8AYIfBAICTPwBgncEAYMs/AGCHwQBgyz8AYIdBAMAFwQBgh0EAwAzBAGCdQQDABcEAYJ1BAMAMwQBgh0EAIGPAAGCHQQAAf8AAYJ1BACBjwABgnUEAAH/AAGCHQQBgyz8AYIdBAICTPwBgnUEAYMs/AGCdQQCAkz8AYJ3BAKB8wQBgncEAAIHBAGCHwQCgfMEAYIfBAACBwQBgh8EA4I7BAGCdwQDgjsEAYIfBAKCRwQBgncEAoJHBAGCHwQAAlcEAYJ3BAACVwQBgh8EAwJfBAGCdwQDAl8EAYIfBAGCQwQBgncEAYJDBAGCHwQAgk8EAYJ3BACCTwQBgh8EAQIHBAGCdwQBAgcEAYIfBAACEwQBgncEAAITBAGCHwQAAV8EAYIfBAGBRwQBgncEAAFfBAGCdwQBgUcEAYIfBAEAWwQBgh8EAwBDBAGCdwQBAFsEAYJ3BAMAQwQBgh8EAAJXAAGCHwQDgicAAYJ3BAACVwABgncEA4InA"),
+"format": 34359742487,
 "index_count": 288,
-"material": ExtResource( 4 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACwAJAAgACwAMAAkACwANAAwADgAPABAAEAAPABEAEgATABQAFAATABUAFgAXABgAGAAXABkAGgAbABwAHAAbAB0AHgAfACAAIAAfACEAIgAjACQAJAAjACUAJgAnACgAKAAnACkAKgArACwALAArAC0ALgAvADAAMAAvADEAMgAzADQANAAzADUANgA3ADgAOAA3ADkAOgA7ADwAPAA7AD0ACAA+AD8ACABAAD4ACAAKAEAAQQBAAAoAQQBCAEAAQwBCAEEARABCAEMARABFAEIARgBFAEQARgBHAEUASABHAEYASABJAEcASgBJAEgASwBJAEoASwBMAEkATQBMAEsATQBOAEwATwBOAE0AUABOAE8AUABRAE4AUgBRAFAAUwBUAFUAVQBUAFYAVwBYAFkAWQBYAFoAWwBcAF0AXQBcAF4AXwBgAGEAYQBgAGIAYwBkAGUAZQBkAGYAZwBoAGkAaQBoAGoAawBsAG0AbQBsAG4AbwBwAHEAcQBwAHIAcwB0AHUAdQB0AHYAPwA+AHcAeAB5AHoAegB5AHsAfAB9AH4AfgB9AH8AgACBAIIAggCBAIMAhACFAIYAhgCFAIcAiACJAIoAigCJAIsAjACNAI4AjgCNAI8AkACRAJIAkgCRAJMAlACVAJYAlgCVAJcAmACZAJoAmgCZAJsAnACdAJ4AngCdAJ8AoAChAKIAogChAKMApAClAKYApgClAKcA"),
+"material": ExtResource("4"),
 "name": "Gray5",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 168
-}
-surfaces/19 = {
-"aabb": AABB( -0.0045, -0.0009, -0.0228, 0.009, 0.0114, 0.03841 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 156, 51, 34, 60, 36, 151, 127, 60, 127, 129, 129, 63, 131, 197, 67, 205, 188, 116, 147, 59, 49, 8, 44, 60, 36, 151, 127, 60, 127, 129, 129, 63, 231, 197, 92, 205, 188, 116, 147, 187, 49, 8, 44, 60, 36, 151, 127, 60, 127, 129, 130, 63, 0, 0, 92, 205, 36, 151, 127, 187, 156, 51, 34, 60, 36, 151, 127, 60, 127, 129, 130, 63, 76, 182, 67, 205, 36, 151, 127, 187, 82, 73, 157, 185, 36, 151, 127, 60, 127, 129, 130, 63, 76, 182, 45, 203, 188, 116, 147, 59, 49, 8, 44, 60, 250, 237, 107, 60, 0, 0, 126, 63, 231, 69, 92, 205, 36, 151, 127, 59, 82, 73, 157, 185, 250, 237, 107, 60, 0, 0, 126, 63, 131, 69, 45, 203, 36, 151, 127, 59, 156, 51, 34, 60, 250, 237, 107, 60, 0, 0, 126, 63, 131, 69, 67, 205, 36, 151, 127, 187, 156, 51, 34, 60, 250, 237, 107, 60, 0, 0, 127, 63, 76, 54, 67, 205, 188, 116, 147, 187, 49, 8, 44, 60, 250, 237, 107, 60, 0, 0, 127, 63, 0, 0, 92, 205, 208, 68, 88, 59, 49, 8, 44, 60, 250, 237, 107, 60, 0, 0, 127, 193, 30, 69, 92, 205, 188, 116, 147, 59, 49, 8, 44, 60, 17, 199, 186, 188, 0, 127, 127, 63, 231, 69, 62, 206, 188, 116, 147, 59, 49, 8, 44, 60, 250, 237, 107, 60, 0, 127, 126, 63, 231, 69, 153, 184, 208, 68, 88, 59, 49, 8, 44, 60, 17, 199, 186, 188, 0, 127, 126, 63, 30, 69, 62, 206, 208, 68, 88, 59, 49, 8, 44, 60, 221, 181, 132, 188, 0, 127, 126, 63, 30, 69, 41, 205, 208, 68, 88, 187, 49, 8, 44, 60, 221, 181, 132, 188, 0, 127, 127, 63, 76, 58, 41, 205, 208, 68, 88, 187, 49, 8, 44, 60, 221, 181, 132, 188, 0, 127, 126, 63, 76, 58, 41, 205, 188, 116, 147, 59, 49, 8, 44, 60, 250, 237, 107, 60, 0, 127, 126, 63, 231, 69, 153, 184, 208, 68, 88, 187, 49, 8, 44, 60, 17, 199, 186, 188, 0, 127, 126, 63, 76, 58, 62, 206, 208, 68, 88, 187, 49, 8, 44, 60, 17, 199, 186, 188, 0, 127, 127, 63, 76, 58, 62, 206, 188, 116, 147, 59, 49, 8, 44, 60, 250, 237, 107, 60, 0, 127, 127, 63, 231, 69, 153, 184, 188, 116, 147, 187, 49, 8, 44, 60, 17, 199, 186, 188, 0, 127, 127, 63, 0, 0, 62, 206, 188, 116, 147, 187, 49, 8, 44, 60, 250, 237, 107, 60, 0, 127, 127, 63, 0, 0, 153, 184, 208, 68, 88, 187, 49, 8, 44, 60, 250, 237, 107, 60, 0, 127, 127, 63, 76, 58, 153, 184, 208, 68, 88, 187, 49, 8, 44, 60, 250, 237, 107, 60, 0, 127, 127, 63, 76, 58, 153, 184, 188, 116, 147, 59, 49, 8, 44, 60, 250, 237, 107, 60, 0, 127, 127, 63, 231, 69, 153, 184, 208, 68, 88, 187, 49, 8, 44, 60, 36, 151, 255, 59, 0, 127, 127, 63, 76, 58, 231, 196, 208, 68, 88, 59, 49, 8, 44, 60, 36, 151, 255, 59, 0, 127, 127, 63, 30, 69, 231, 196, 208, 68, 88, 59, 49, 8, 44, 60, 36, 151, 255, 59, 0, 127, 127, 63, 30, 69, 231, 196, 188, 116, 147, 59, 49, 8, 44, 60, 250, 237, 107, 60, 0, 127, 127, 63, 231, 69, 153, 184, 208, 68, 88, 59, 49, 8, 44, 60, 250, 237, 107, 60, 0, 127, 127, 63, 30, 69, 153, 184, 208, 68, 88, 59, 250, 237, 107, 186, 17, 199, 186, 188, 127, 127, 129, 63, 30, 197, 250, 202, 188, 116, 147, 59, 250, 237, 107, 186, 17, 199, 186, 188, 127, 127, 129, 63, 231, 197, 250, 202, 208, 68, 88, 59, 49, 8, 44, 60, 17, 199, 186, 188, 127, 127, 129, 63, 30, 197, 92, 205, 188, 116, 147, 59, 49, 8, 44, 60, 17, 199, 186, 188, 127, 127, 129, 63, 231, 197, 92, 205 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 3, 0, 0, 0, 2, 0, 4, 0, 3, 0, 5, 0, 6, 0, 7, 0, 5, 0, 7, 0, 8, 0, 8, 0, 9, 0, 5, 0, 5, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 13, 0, 12, 0, 14, 0, 14, 0, 12, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 21, 0, 20, 0, 22, 0, 22, 0, 20, 0, 23, 0, 24, 0, 25, 0, 26, 0, 26, 0, 25, 0, 27, 0, 28, 0, 29, 0, 30, 0, 31, 0, 32, 0, 33, 0, 33, 0, 32, 0, 34, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 168,
+"vertex_data": PackedByteArray("b6wJOtnfBDxWfS49b6wJOtnfBDxbsT89UvuEOp+NATxWfS49UvuEOp+NATxbsT89b6wJOtnfBDxWfS49wVJGJdcBBjxWfS49b6wJOtnfBDxbsT89jx/5JdcBBjxbsT895x2nOoHxCDxbsT89b6wJOtnfBDxbsT89jx/5JdcBBjxbsT89q1bsOs5NAjxbsT89UvuEOp+NATxbsT896BC8OiqK+DtbsT89UvuEOp+NATxWfS49UvuEOp+NATxbsT896BC8OiqK+DtWfS496BC8OiqK+DtbsT896BC8OiqK+DtbsT89NFXmOsXE6jtbsT896BC8OiqK+DtWfS49NFXmOsXE6jtWfS49NFXmOsXE6jtWfS49NFXmOsXE6jtbsT89g3MAO3i72jtWfS49g3MAO3i72jtbsT89g3MAO3i72jtWfS49g3MAO3i72jtbsT89ffsEO/CFyTtWfS49ffsEO/CFyTtbsT89ffsEO/CFyTtWfS49ffsEO/CFyTtbsT89g3MAO2lQuDtWfS49g3MAO2lQuDtbsT89g3MAO2lQuDtWfS49g3MAO2lQuDtbsT89NFXmOhxHqDtWfS49NFXmOhxHqDtbsT89NFXmOhxHqDtbsT896BC8OraBmjtbsT89NFXmOhxHqDtWfS496BC8OraBmjtWfS496BC8OraBmjtbsT89UvuEOqPwjztbsT896BC8OraBmjtWfS49UvuEOqPwjztWfS49UvuEOqPwjztbsT89b6wJOi9MiTtbsT89UvuEOqPwjztWfS49b6wJOi9MiTtWfS49jx/5JTIIhztbsT89wVJGJTIIhztWfS49b6wJOi9MiTtbsT89b6wJOi9MiTtWfS49q1bsOs5NAjxbsT895x2nOoHxCDxbsT89q1bsOs5NAjxWfS495x2nOoHxCDxWfS495x2nOoHxCDxbsT89HQMtOgAeDTxbsT895x2nOoHxCDxWfS49HQMtOgAeDTxWfS49HQMtugAeDTxbsT89HQMtOgAeDTxbsT895x2nuoHxCDxbsT89b6wJutnfBDxbsT89q1bsus5NAjxbsT89UvuEup+NATxbsT896BC8uiqK+DtbsT89IroQu2pN8ztbsT89NFXmusXE6jtbsT89IWwhu1Ym3ztbsT89g3MAu3i72jtbsT895x0nu/CFyTtbsT89ffsEu/CFyTtbsT89g3MAu2lQuDtbsT89IWwhu4vlsztbsT89NFXmuhxHqDtbsT89IroQu3e+nztbsT896BC8uraBmjtbsT89UvuEuqPwjztbsT89q1bsukZwjjtbsT89b6wJui9MiTtbsT89IroQu3e+nztWfS49IroQu3e+nztbsT89q1bsukZwjjtWfS49q1bsukZwjjtbsT89IWwhu4vlsztWfS49IWwhu4vlsztbsT89IroQu3e+nztWfS49IroQu3e+nztbsT895x0nu/CFyTtWfS495x0nu/CFyTtbsT89IWwhu4vlsztWfS49IWwhu4vlsztbsT89IWwhu1Ym3ztWfS49IWwhu1Ym3ztbsT895x0nu/CFyTtWfS495x0nu/CFyTtbsT89IroQu2pN8ztbsT89IWwhu1Ym3ztbsT89IroQu2pN8ztWfS49IWwhu1Ym3ztWfS49q1bsus5NAjxWfS49q1bsus5NAjxbsT89IroQu2pN8ztWfS49IroQu2pN8ztbsT89q1bsus5NAjxbsT89q1bsus5NAjxWfS495x2nuoHxCDxbsT895x2nuoHxCDxWfS495x2nuoHxCDxbsT895x2nuoHxCDxWfS49HQMtugAeDTxbsT89HQMtugAeDTxWfS49HQMtugAeDTxbsT89HQMtugAeDTxWfS49jx/5JXKKDjxbsT89wVJGJXKKDjxWfS49jx/5JXKKDjxbsT89jx/5JXKKDjxbsT89wVJGJXKKDjxWfS49HQMtOgAeDTxbsT89HQMtOgAeDTxWfS495x2nut8ogTtWfS49q1bsukZwjjtWfS495x2nut8ogTtbsT89q1bsukZwjjtbsT89HQMtusCfcTtWfS495x2nut8ogTtWfS49HQMtusCfcTtbsT895x2nut8ogTtbsT89wVJGJfrtaztWfS49HQMtusCfcTtWfS49jx/5JfrtaztbsT89HQMtusCfcTtbsT89NFXmuhxHqDtbsT89g3MAu2lQuDtbsT89NFXmuhxHqDtWfS49g3MAu2lQuDtWfS49g3MAu2lQuDtWfS49g3MAu2lQuDtbsT89ffsEu/CFyTtWfS49ffsEu/CFyTtbsT89ffsEu/CFyTtWfS49ffsEu/CFyTtbsT89g3MAu3i72jtWfS49g3MAu3i72jtbsT89g3MAu3i72jtWfS49g3MAu3i72jtbsT89NFXmusXE6jtWfS49NFXmusXE6jtbsT89NFXmusXE6jtWfS49NFXmusXE6jtbsT896BC8uiqK+DtWfS496BC8uiqK+DtbsT89UvuEup+NATxWfS496BC8uiqK+DtWfS49UvuEup+NATxbsT896BC8uiqK+DtbsT89b6wJutnfBDxWfS49UvuEup+NATxWfS49b6wJutnfBDxbsT89UvuEup+NATxbsT89wVJGJdcBBjxWfS49b6wJutnfBDxWfS49jx/5JdcBBjxbsT89b6wJutnfBDxbsT89zOU4m/9/fr/M5Tib/39+v6TRYK//f36/pNFgr/9/fr/M5Tib/39+vwAAAYD/f36/zOU4m/9/fr8AAAGA/39+vwAAAAD8/n6/AAAAAPz+fr8AAAAA//9+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+v6TRYK//f36/pNFgr/9/fr+CwILA/39+v4LAgsD/f36/gsCCwP9/fr9gr6TR/39+v4LAgsD/f36/YK+k0f9/fr9gr6TR/39+v2CvpNH/f36/OJvM5f9/fr84m8zl/39+vzibzOX/f36/OJvM5f9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vzibNBr/f36/OJs0Gv9/fr84mzQa/39+vzibNBr/f36/YK9cLv9/fr9gr1wu/39+v2CvXC7/f36/gsB+P/9/fr9gr1wu/39+v4LAfj//f36/gsB+P/9/fr+k0aBQ/39+v4LAfj//f36/pNGgUP9/fr+k0aBQ/39+v8zlyGT/f36/pNGgUP9/fr/M5chk/39+vwAA/3//f36/AAD/f/9/fr/M5chk/39+v8zlyGT/f36/fj9+PwAAAYFcLqBQAAABgX4/fj8AAAGBXC6gUAAAAYFcLqBQAAABgTQayGQAAAGBXC6gUAAAAYE0GshkAAABgQAAAAD//36/AAAAAP//fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD//36/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+v2CvpNH/f36/YK+k0f9/fr+CwILA/39+v4LAgsD/f36/OJvM5f9/fr84m8zl/39+v2CvpNH/f36/YK+k0f9/fr8BgAAA/39+vwGAAAD/f36/OJvM5f9/fr84m8zl/39+vzibNBr/f36/OJs0Gv9/fr8BgAAA/39+vwGAAAD/f36/YK9cLv9/fr84mzQa/39+v2CvXC7/f36/OJs0Gv9/fr+CwH4//39+v4LAfj//f36/YK9cLv9/fr9gr1wu/39+v4LAfj//f36/gsB+P/9/fr+k0aBQ/39+v6TRoFD/f36/pNGgUP9/fr+k0aBQ/39+v8zlyGT/f36/zOXIZP9/fr/M5chk/39+v8zlyGT/f36/AAD/f/9/fr8AAP9//39+vwAAAAD//36/AAD/fwAA//8AAP9/AAD//zQayGQAAP//NBrIZAAAAYGk0WCv/39+v4LAgsD/f36/pNFgr/9/fr+CwILA/39+v8zlOJv/f36/pNFgr/9/fr/M5Tib/39+v6TRYK//f36/AAABgP9/fr/M5Tib/39+vwAAAYD/f36/zOU4m/9/fr+gUFwuAAABgchkNBoAAAGBoFBcLgAAAYHIZDQaAAABgchkNBoAAAGByGQ0GgAAAYH/fwAAAAD///9/AAAAAP///38AAAAA////fwAAAAD//8hkzOUAAP//yGTM5QAA///IZMzlAAD//8hkzOUAAP//oFCk0QAA//+gUKTRAAD//6BQpNEAAP//oFCk0QAA//9+P4LAAAD//34/gsAAAP//XC5grwAA//9+P4LAAAD//1wuYK8AAP//fj+CwAAA//80GjibAAD//1wuYK8AAP//NBo4mwAA//9cLmCvAAD//wAAAYAAAP//NBo4mwAA//8AAAGAAAD//zQaOJsAAP//")
+}, {
+"aabb": AABB(-0.0045, -0.0009, -0.0228, 0.009, 0.0114, 0.03841),
+"attribute_data": PackedByteArray("AGCwwABgqMEA4LzAAICrwQAAAAAAgKvBAIDJvgBgqMEAgMm+AKBlwQDgvEAAgKvBAGCwQACgZcEAYLBAAGCowQCAyT4AYKjBAAAAAACAq8EAwKNAAICrwQDgvEAAwMfBAOC8QAAgE78AwKNAAMDHwQDAo0AAIKXBAIBJPwAgpcEAgEk/ACClwQDgvEAAIBO/AIBJPwDAx8EAgEk/AMDHwQDgvEAAIBO/AAAAAADAx8EAAAAAACATvwCAST8AIBO/AIBJPwAgE78A4LxAACATvwCAST8A4JzAAMCjQADgnMAAwKNAAOCcwADgvEAAIBO/AMCjQAAgE78AwKPAAEBfwQDgvMAAQF/BAMCjwACAq8EA4LzAAICrwQ=="),
+"format": 34359742487,
 "index_count": 57,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAgAEAAMABQAGAAcABQAHAAgACAAJAAUABQAJAAoACwAMAA0ADQAMAA4ADgAMAA8AEAARABIAEwAUABUAFQAUABYAFgAUABcAGAAZABoAGgAZABsAHAAdAB4AHwAgACEAIQAgACIA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 35
-}
-surfaces/20 = {
-"aabb": AABB( -0.0045, -0.0147, -0.0468, 0.009, 0.0252, 0.02401 ),
-"array_data": PackedByteArray( 208, 68, 88, 59, 250, 237, 107, 186, 17, 199, 186, 188, 120, 0, 126, 3, 141, 78, 250, 202, 208, 68, 88, 59, 49, 8, 44, 60, 17, 199, 186, 188, 120, 0, 126, 3, 141, 78, 92, 205, 188, 116, 147, 59, 69, 216, 112, 188, 91, 177, 63, 189, 120, 0, 126, 3, 63, 81, 231, 196, 188, 116, 147, 59, 49, 8, 44, 60, 91, 177, 63, 189, 120, 0, 127, 3, 63, 81, 92, 205, 208, 68, 88, 187, 250, 237, 107, 186, 17, 199, 186, 188, 0, 176, 127, 63, 76, 58, 4, 76, 208, 68, 88, 59, 250, 237, 107, 186, 17, 199, 186, 188, 0, 176, 127, 63, 30, 69, 4, 76, 188, 116, 147, 187, 69, 216, 112, 188, 91, 177, 63, 189, 0, 176, 127, 63, 0, 0, 71, 80, 188, 116, 147, 59, 69, 216, 112, 188, 91, 177, 63, 189, 0, 176, 127, 63, 231, 69, 71, 80, 208, 68, 88, 187, 49, 8, 44, 60, 17, 199, 186, 188, 136, 0, 6, 63, 122, 206, 92, 205, 208, 68, 88, 187, 250, 237, 107, 186, 17, 199, 186, 188, 136, 0, 6, 63, 122, 206, 250, 202, 188, 116, 147, 187, 49, 8, 44, 60, 91, 177, 63, 189, 136, 0, 6, 63, 53, 209, 92, 205, 188, 116, 147, 187, 69, 216, 112, 188, 91, 177, 63, 189, 136, 0, 6, 63, 53, 209, 231, 196 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 35,
+"vertex_data": PackedByteArray("JJd/O5wzIjwkl388vHSTOzEILDwkl388vHSTuzEILDwkl388JJd/u5wzIjwkl388JJd/u1JJnbkkl388vHSTOzEILDz67Ws8JJd/O1JJnbn67Ws8JJd/O5wzIjz67Ws8JJd/u5wzIjz67Ws8vHSTuzEILDz67Ws80ERYOzEILDz67Ws8vHSTOzEILDwRx7q8vHSTOzEILDz67Ws80ERYOzEILDwRx7q80ERYOzEILDzdtYS80ERYuzEILDzdtYS80ERYuzEILDzdtYS8vHSTOzEILDz67Ws80ERYuzEILDwRx7q80ERYuzEILDwRx7q8vHSTOzEILDz67Ws8vHSTuzEILDwRx7q8vHSTuzEILDz67Ws80ERYuzEILDz67Ws80ERYuzEILDz67Ws8vHSTOzEILDz67Ws80ERYuzEILDwkl/870ERYOzEILDwkl/870ERYOzEILDwkl/87vHSTOzEILDz67Ws80ERYOzEILDz67Ws80ERYO/rta7oRx7q8vHSTO/rta7oRx7q80ERYOzEILDwRx7q8vHSTOzEILDwRx7q8/38BgAAAfr//fwGAAAB+v/9/AYACAX6//38BgAIBfr//fwGAAgF+vwAAAAD8/n6/AAAAAPz+fr8AAAAA/P5+vwAAAAD//36/AAAAAP//fr8AAAAA//+AQAAA/3///36/AAD/f/z+fr8AAP9//P5+vwAA/3/8/n6/AAD/f///fr8AAP9//P5+vwAA/3/8/n6/AAD/f/z+fr8AAP9///9+vwAA/3///36/AAD/f///fr8AAP9///9+vwAA/3///36/AAD/f///fr8AAP9///9+vwAA/3///36/AAD/f///fr8AAP9///9+vwAA/3///36/AAD/f///fr//f/9/AAB+v/9//38AAH6//3//fwAAfr//f/9/AAB+vw==")
+}, {
+"aabb": AABB(-0.0045, -0.0147, -0.0468, 0.009, 0.0252, 0.02401),
+"attribute_data": PackedByteArray("AKDRQQBAX8EAoNFBAICrwQDgJ0IA4JzAAOAnQgCAq8EAgEk/AICAQQDAo0AAgIBBAAAAAADgCEIA4LxAAOAIQgBAz8EAgKvBAEDPwQBAX8EAoCbCAICrwQCgJsIA4JzA"),
+"format": 34359742487,
 "index_count": 18,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 12
-}
-surfaces/21 = {
-"aabb": AABB( -0.0045, -0.0009, -0.0228, 0.00121, 0.0114, 1.00005e-05 ),
-"array_data": PackedByteArray( 208, 68, 88, 187, 250, 237, 107, 186, 17, 199, 186, 188, 127, 127, 129, 63, 76, 186, 250, 202, 208, 68, 88, 187, 49, 8, 44, 60, 17, 199, 186, 188, 127, 127, 129, 63, 76, 186, 92, 205, 188, 116, 147, 187, 250, 237, 107, 186, 17, 199, 186, 188, 127, 127, 129, 63, 0, 0, 250, 202, 188, 116, 147, 187, 49, 8, 44, 60, 17, 199, 186, 188, 127, 127, 129, 63, 0, 0, 92, 205 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("0ERYO/rta7oRx7q80ERYOzEILDwRx7q8vHSTO0XYcLxbsT+9vHSTOzEILDxbsT+90ERYu/rta7oRx7q80ERYO/rta7oRx7q8vHSTu0XYcLxbsT+9vHSTO0XYcLxbsT+90ERYuzEILDwRx7q80ERYu/rta7oRx7q8vHSTuzEILDxbsT+9vHSTu0XYcLxbsT+98HgAAPz+BYPweAAA/P4Fg/B4AAD8/gWD8HgAAP//BYMAAGCv//9+vwAAYK///36/AABgr///fr8AAGCv//9+vxCHAAALhn6/EIcAAAuGfr8QhwAAC4Z+vxCHAAALhn6/")
+}, {
+"aabb": AABB(-0.0045, -0.0009, -0.0228, 0.00121, 0.0114, 1.00005e-05),
+"attribute_data": PackedByteArray("AIBJvwBAX8EAgEm/AICrwQAAAAAAQF/BAAAAAACAq8E="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/22 = {
-"aabb": AABB( -0.0045, 0.0105, -0.0468, 0.009, 9.99961e-06, 0.02401 ),
-"array_data": PackedByteArray( 208, 68, 88, 59, 49, 8, 44, 60, 17, 199, 186, 188, 0, 127, 127, 63, 30, 69, 62, 206, 208, 68, 88, 187, 49, 8, 44, 60, 17, 199, 186, 188, 0, 127, 127, 63, 76, 58, 62, 206, 188, 116, 147, 59, 49, 8, 44, 60, 91, 177, 63, 189, 0, 127, 127, 63, 231, 69, 23, 209, 188, 116, 147, 187, 49, 8, 44, 60, 91, 177, 63, 189, 0, 127, 127, 63, 0, 0, 23, 209 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("0ERYu/rta7oRx7q80ERYuzEILDwRx7q8vHSTu/rta7oRx7q8vHSTuzEILDwRx7q8/3//fwAAfr//f/9/AAB+v/9//38AAH6//3//fwAAfr8=")
+}, {
+"aabb": AABB(-0.0045, 0.0105, -0.0468, 0.009, 9.99961e-06, 0.02401),
+"attribute_data": PackedByteArray("AMCjQADAx8EAgEk/AMDHwQDgvEAA4CLCAAAAAADgIsI="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/23 = {
-"aabb": AABB( -0.0045, 0.0105, -0.0228, 0.0078, 0.0102, 0.0372 ),
-"array_data": PackedByteArray( 208, 68, 88, 187, 49, 8, 44, 60, 17, 199, 186, 188, 0, 127, 127, 63, 76, 58, 62, 206, 208, 68, 88, 59, 49, 8, 44, 60, 17, 199, 186, 188, 0, 127, 127, 63, 30, 69, 62, 206, 208, 68, 88, 187, 49, 8, 44, 60, 221, 181, 132, 188, 0, 127, 127, 63, 76, 58, 41, 205, 208, 68, 88, 59, 49, 8, 44, 60, 221, 181, 132, 188, 0, 127, 127, 63, 30, 69, 41, 205, 208, 68, 88, 187, 49, 8, 44, 60, 17, 199, 186, 188, 86, 127, 129, 63, 76, 186, 30, 200, 208, 68, 88, 59, 49, 8, 44, 60, 17, 199, 186, 188, 86, 127, 129, 63, 30, 197, 30, 200, 208, 68, 88, 187, 12, 147, 169, 60, 188, 116, 147, 188, 86, 127, 129, 63, 76, 186, 209, 203, 208, 68, 88, 59, 12, 147, 169, 60, 188, 116, 147, 188, 86, 127, 129, 63, 30, 197, 209, 203, 208, 68, 88, 187, 230, 117, 132, 60, 252, 119, 88, 188, 129, 0, 0, 63, 236, 204, 74, 206, 208, 68, 88, 187, 49, 8, 44, 60, 221, 181, 132, 188, 129, 0, 0, 63, 105, 205, 92, 205, 208, 68, 88, 187, 230, 117, 132, 60, 163, 236, 169, 59, 129, 0, 0, 63, 158, 199, 74, 206, 208, 68, 88, 187, 49, 8, 44, 60, 36, 151, 255, 59, 129, 0, 0, 63, 231, 197, 92, 205, 208, 68, 88, 187, 49, 8, 44, 60, 250, 237, 107, 60, 129, 0, 127, 193, 76, 190, 92, 205, 208, 68, 88, 187, 49, 8, 44, 60, 250, 237, 107, 60, 129, 0, 0, 63, 76, 190, 92, 205, 208, 68, 88, 187, 49, 8, 44, 60, 221, 181, 132, 188, 129, 0, 0, 63, 105, 205, 92, 205, 208, 68, 88, 187, 12, 147, 169, 60, 231, 29, 39, 60, 129, 0, 0, 63, 84, 196, 8, 207, 208, 68, 88, 187, 12, 147, 169, 60, 188, 116, 147, 188, 129, 0, 0, 63, 181, 205, 8, 207, 208, 68, 88, 187, 49, 8, 44, 60, 17, 199, 186, 188, 129, 0, 0, 63, 126, 206, 92, 205, 208, 68, 88, 187, 49, 8, 44, 60, 221, 181, 132, 188, 0, 213, 127, 63, 76, 58, 96, 200, 208, 68, 88, 187, 230, 117, 132, 60, 252, 119, 88, 188, 0, 213, 127, 63, 76, 58, 123, 202, 208, 68, 88, 59, 49, 8, 44, 60, 221, 181, 132, 188, 0, 213, 127, 63, 30, 69, 96, 200, 208, 68, 88, 59, 230, 117, 132, 60, 252, 119, 88, 188, 0, 213, 127, 63, 30, 69, 123, 202, 208, 68, 88, 59, 12, 147, 169, 60, 231, 29, 39, 60, 127, 0, 127, 127, 84, 68, 8, 207, 208, 68, 88, 59, 12, 147, 169, 60, 188, 116, 147, 188, 127, 0, 127, 127, 181, 77, 8, 207, 208, 68, 88, 59, 49, 8, 44, 60, 250, 237, 107, 60, 127, 0, 127, 127, 76, 62, 92, 205, 208, 68, 88, 59, 49, 8, 44, 60, 36, 151, 255, 59, 127, 0, 127, 127, 231, 69, 92, 205, 208, 68, 88, 59, 49, 8, 44, 60, 36, 151, 255, 59, 127, 0, 126, 127, 231, 69, 92, 205, 208, 68, 88, 59, 12, 147, 169, 60, 188, 116, 147, 188, 127, 0, 126, 127, 181, 77, 8, 207, 208, 68, 88, 59, 230, 117, 132, 60, 163, 236, 169, 59, 127, 0, 126, 127, 158, 71, 74, 206, 208, 68, 88, 59, 230, 117, 132, 60, 163, 236, 169, 59, 127, 0, 127, 127, 158, 71, 74, 206, 208, 68, 88, 59, 12, 147, 169, 60, 188, 116, 147, 188, 127, 0, 126, 127, 181, 77, 8, 207, 208, 68, 88, 59, 230, 117, 132, 60, 252, 119, 88, 188, 127, 0, 126, 127, 236, 76, 74, 206, 208, 68, 88, 59, 49, 8, 44, 60, 221, 181, 132, 188, 127, 0, 126, 127, 105, 77, 92, 205, 208, 68, 88, 59, 49, 8, 44, 60, 17, 199, 186, 188, 127, 0, 127, 127, 126, 78, 92, 205, 208, 68, 88, 187, 12, 147, 169, 60, 188, 116, 147, 188, 0, 127, 127, 63, 76, 58, 117, 205, 208, 68, 88, 59, 12, 147, 169, 60, 188, 116, 147, 188, 0, 127, 127, 63, 30, 69, 117, 205, 208, 68, 88, 187, 12, 147, 169, 60, 231, 29, 39, 60, 0, 127, 127, 63, 76, 58, 169, 194, 208, 68, 88, 59, 12, 147, 169, 60, 231, 29, 39, 60, 0, 127, 127, 63, 30, 69, 169, 194, 208, 68, 88, 187, 49, 8, 44, 60, 250, 237, 107, 60, 0, 37, 127, 63, 76, 58, 22, 205, 208, 68, 88, 187, 12, 147, 169, 60, 231, 29, 39, 60, 0, 37, 127, 63, 76, 58, 229, 206, 208, 68, 88, 59, 49, 8, 44, 60, 250, 237, 107, 60, 0, 37, 127, 63, 30, 69, 22, 205, 208, 68, 88, 59, 12, 147, 169, 60, 231, 29, 39, 60, 0, 37, 127, 63, 30, 69, 229, 206, 208, 68, 88, 187, 49, 8, 44, 60, 36, 151, 255, 59, 0, 127, 127, 63, 76, 58, 231, 196, 208, 68, 88, 59, 49, 8, 44, 60, 36, 151, 255, 59, 0, 127, 127, 63, 30, 69, 231, 196, 208, 68, 88, 187, 49, 8, 44, 60, 250, 237, 107, 60, 0, 127, 127, 63, 76, 58, 153, 184, 208, 68, 88, 59, 49, 8, 44, 60, 250, 237, 107, 60, 0, 127, 127, 63, 30, 69, 153, 184, 208, 68, 88, 187, 49, 8, 44, 60, 36, 151, 255, 59, 86, 129, 129, 63, 76, 186, 118, 205, 208, 68, 88, 59, 49, 8, 44, 60, 36, 151, 255, 59, 86, 129, 129, 63, 30, 197, 118, 205, 208, 68, 88, 187, 230, 117, 132, 60, 163, 236, 169, 59, 86, 129, 129, 63, 76, 186, 124, 206, 208, 68, 88, 59, 230, 117, 132, 60, 163, 236, 169, 59, 86, 129, 129, 63, 30, 197, 124, 206, 208, 68, 88, 187, 230, 117, 132, 60, 163, 236, 169, 59, 0, 129, 129, 63, 76, 186, 158, 198, 208, 68, 88, 59, 230, 117, 132, 60, 163, 236, 169, 59, 0, 129, 129, 63, 30, 197, 158, 198, 208, 68, 88, 187, 230, 117, 132, 60, 252, 119, 88, 188, 0, 129, 129, 63, 76, 186, 172, 204, 208, 68, 88, 59, 230, 117, 132, 60, 252, 119, 88, 188, 0, 129, 129, 63, 30, 197, 172, 204, 208, 68, 88, 59, 49, 8, 44, 60, 250, 237, 107, 60, 0, 0, 127, 193, 30, 69, 92, 205, 188, 116, 147, 187, 49, 8, 44, 60, 250, 237, 107, 60, 0, 0, 127, 193, 0, 0, 92, 205, 208, 68, 88, 187, 49, 8, 44, 60, 250, 237, 107, 60, 0, 0, 127, 193, 76, 58, 92, 205 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 11, 0, 9, 0, 12, 0, 13, 0, 14, 0, 15, 0, 15, 0, 14, 0, 16, 0, 16, 0, 14, 0, 17, 0, 18, 0, 19, 0, 20, 0, 20, 0, 19, 0, 21, 0, 22, 0, 23, 0, 24, 0, 24, 0, 23, 0, 25, 0, 26, 0, 27, 0, 28, 0, 29, 0, 30, 0, 31, 0, 31, 0, 30, 0, 32, 0, 32, 0, 30, 0, 33, 0, 34, 0, 35, 0, 36, 0, 36, 0, 35, 0, 37, 0, 38, 0, 39, 0, 40, 0, 40, 0, 39, 0, 41, 0, 42, 0, 43, 0, 44, 0, 44, 0, 43, 0, 45, 0, 46, 0, 47, 0, 48, 0, 48, 0, 47, 0, 49, 0, 50, 0, 51, 0, 52, 0, 52, 0, 51, 0, 53, 0, 54, 0, 55, 0, 56, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("0ERYOzEILDwRx7q80ERYuzEILDwRx7q8vHSTOzEILDxbsT+9vHSTuzEILDxbsT+9AAD/f///fr8AAP9///9+vwAA/3///36/AAD/f///fr8=")
+}, {
+"aabb": AABB(-0.0045, 0.0105, -0.0228, 0.0078, 0.0102, 0.0372),
+"attribute_data": PackedByteArray("AIBJPwDAx8EAwKNAAMDHwQCAST8AIKXBAMCjQAAgpcEAgEm/AMADwQDAo8AAwAPBAIBJvwAgesEAwKPAACB6wQCAncEAQMnBACCtwQCAq8EAwPPAAEDJwQDgvMAAgKvBAIDJvwCAq8EAgMm/AICrwQAgrcEAgKvBAICKwAAA4cEAoLbBAADhwQDAz8EAgKvBAIBJPwAADMEAgEk/AGBPwQDAo0AAAAzBAMCjQABgT8EAgIpAAADhwQCgtkEAAOHBAIDJPwCAq8EA4LxAAICrwQDgvEAAgKvBAKC2QQAA4cEAwPNAAEDJwQDA80AAQMnBAKC2QQAA4cEAgJ1BAEDJwQAgrUEAgKvBAMDPQQCAq8EAgEk/AKCuwQDAo0AAoK7BAIBJPwAgVcAAwKNAACBVwACAST8AwKLBAIBJPwCg3MEAwKNAAMCiwQDAo0AAoNzBAIBJPwDgnMAAwKNAAOCcwACAST8AIBO/AMCjQAAgE78AgEm/AMCuwQDAo8AAwK7BAIBJvwCAz8EAwKPAAIDPwQCASb8AwNPAAMCjwADA08AAgEm/AICVwQDAo8AAgJXBAMCjQACAq8EAAAAAAICrwQCAST8AgKvB"),
+"format": 34359742487,
 "index_count": 87,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsACwAJAAwADQAOAA8ADwAOABAAEAAOABEAEgATABQAFAATABUAFgAXABgAGAAXABkAGgAbABwAHQAeAB8AHwAeACAAIAAeACEAIgAjACQAJAAjACUAJgAnACgAKAAnACkAKgArACwALAArAC0ALgAvADAAMAAvADEAMgAzADQANAAzADUANgA3ADgA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 57
-}
-surfaces/24 = {
-"aabb": AABB( -0.0045, -0.0147, -0.0468, 0.009, 0.02521, 9.99868e-06 ),
-"array_data": PackedByteArray( 188, 116, 147, 187, 49, 8, 44, 60, 91, 177, 63, 189, 127, 127, 129, 63, 0, 0, 92, 205, 188, 116, 147, 187, 69, 216, 112, 188, 91, 177, 63, 189, 127, 127, 129, 63, 0, 0, 231, 196, 188, 116, 147, 59, 49, 8, 44, 60, 91, 177, 63, 189, 127, 127, 129, 63, 231, 197, 92, 205, 188, 116, 147, 59, 69, 216, 112, 188, 91, 177, 63, 189, 127, 127, 129, 63, 231, 197, 231, 196 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 57,
+"vertex_data": PackedByteArray("0ERYuzEILDwRx7q80ERYOzEILDwRx7q80ERYuzEILDzdtYS80ERYOzEILDzdtYS80ERYuzEILDwRx7q80ERYOzEILDwRx7q80ERYuwyTqTy8dJO80ERYOwyTqTy8dJO80ERYu+Z1hDz8d1i80ERYuzEILDzdtYS80ERYu+Z1hDyj7Kk70ERYuzEILDwkl/870ERYuzEILDz67Ws80ERYuzEILDz67Ws80ERYuzEILDzdtYS80ERYuwyTqTznHSc80ERYuwyTqTy8dJO80ERYuzEILDwRx7q80ERYuzEILDzdtYS80ERYu+Z1hDz8d1i80ERYOzEILDzdtYS80ERYO+Z1hDz8d1i80ERYOwyTqTznHSc80ERYOwyTqTy8dJO80ERYOzEILDz67Ws80ERYOzEILDwkl/870ERYOzEILDwkl/870ERYOwyTqTy8dJO80ERYO+Z1hDyj7Kk70ERYO+Z1hDyj7Kk70ERYOwyTqTy8dJO80ERYO+Z1hDz8d1i80ERYOzEILDzdtYS80ERYOzEILDwRx7q80ERYuwyTqTy8dJO80ERYOwyTqTy8dJO80ERYuwyTqTznHSc80ERYOwyTqTznHSc80ERYuzEILDz67Ws80ERYuwyTqTznHSc80ERYOzEILDz67Ws80ERYOwyTqTznHSc80ERYuzEILDwkl/870ERYOzEILDwkl/870ERYuzEILDz67Ws80ERYOzEILDz67Ws80ERYuzEILDwkl/870ERYOzEILDwkl/870ERYu+Z1hDyj7Kk70ERYO+Z1hDyj7Kk70ERYu+Z1hDyj7Kk70ERYO+Z1hDyj7Kk70ERYu+Z1hDz8d1i80ERYO+Z1hDz8d1i80ERYOzEILDz67Ws8vHSTuzEILDz67Ws80ERYuzEILDz67Ws8AAD/f///fr8AAP9///9+vwAA/3///36/AAD/f///fr+sVv9/AAB+v6xW/38AAH6/rFb/fwAAfr+sVv9/AAB+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP//gEABgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AACq1P//fr8AAKrU//9+vwAAqtT//36/AACq1P//fr//fwAA//////9/AAD//////38AAP//////fwAA//////9/AAD8/v///38AAPz+////fwAA/P7///9/AAD//////38AAPz+////fwAA/P7///9/AAD8/v///38AAP////8AAP9///9+vwAA/3///36/AAD/f///fr8AAP9///9+vwAASiX//36/AABKJf//fr8AAEol//9+vwAASiX//36/AAD/f///fr8AAP9///9+vwAA/3///36/AAD/f///fr+sVgGAAAB+v6xWAYAAAH6/rFYBgAAAfr+sVgGAAAB+vwAAAYAAAH6/AAABgAAAfr8AAAGAAAB+vwAAAYAAAH6/AAAAAP//gEAAAAAA//+AQAAAAAD//4BA")
+}, {
+"aabb": AABB(-0.0045, -0.0147, -0.0468, 0.009, 0.02521, 9.99868e-06),
+"attribute_data": PackedByteArray("AAAAAACAq8EAAAAAAOCcwADgvMAAgKvBAOC8wADgnMA="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/25 = {
-"aabb": AABB( -0.0045, -0.0045, -0.00174201, 0.009, 0.0036, 0.016142 ),
-"array_data": PackedByteArray( 36, 151, 127, 187, 188, 116, 147, 187, 101, 25, 98, 60, 0, 129, 130, 63, 76, 182, 191, 187, 188, 116, 147, 187, 188, 116, 147, 187, 250, 237, 107, 60, 0, 129, 130, 63, 0, 0, 153, 184, 188, 116, 147, 59, 188, 116, 147, 187, 250, 237, 107, 60, 0, 129, 129, 63, 231, 197, 153, 184, 36, 151, 127, 187, 188, 116, 147, 187, 127, 175, 149, 186, 0, 129, 129, 63, 76, 182, 98, 201, 188, 116, 147, 187, 188, 116, 147, 187, 40, 84, 228, 186, 0, 129, 129, 63, 0, 0, 149, 201, 188, 116, 147, 59, 188, 116, 147, 187, 40, 84, 228, 186, 0, 129, 130, 63, 231, 197, 149, 201, 36, 151, 127, 59, 188, 116, 147, 187, 127, 175, 149, 186, 0, 129, 130, 63, 131, 197, 98, 201, 36, 151, 127, 59, 188, 116, 147, 187, 101, 25, 98, 60, 0, 129, 129, 63, 131, 197, 191, 187, 36, 151, 127, 187, 188, 116, 147, 187, 101, 25, 98, 60, 127, 127, 129, 63, 76, 182, 204, 201, 36, 151, 127, 59, 188, 116, 147, 187, 101, 25, 98, 60, 127, 127, 129, 63, 131, 197, 204, 201, 36, 151, 127, 187, 250, 237, 107, 186, 101, 25, 98, 60, 127, 127, 129, 63, 76, 182, 250, 202, 36, 151, 127, 59, 250, 237, 107, 186, 101, 25, 98, 60, 127, 127, 129, 63, 131, 197, 250, 202, 36, 151, 127, 187, 188, 116, 147, 187, 127, 175, 149, 186, 127, 0, 127, 127, 226, 73, 204, 201, 36, 151, 127, 187, 188, 116, 147, 187, 101, 25, 98, 60, 127, 0, 127, 127, 223, 63, 204, 201, 36, 151, 127, 187, 250, 237, 107, 186, 127, 175, 149, 186, 127, 0, 127, 127, 226, 73, 250, 202, 36, 151, 127, 187, 250, 237, 107, 186, 101, 25, 98, 60, 127, 0, 127, 127, 223, 63, 250, 202, 36, 151, 127, 59, 188, 116, 147, 187, 127, 175, 149, 186, 0, 0, 127, 63, 131, 69, 204, 201, 36, 151, 127, 187, 188, 116, 147, 187, 127, 175, 149, 186, 0, 0, 127, 63, 76, 54, 204, 201, 36, 151, 127, 59, 250, 237, 107, 186, 127, 175, 149, 186, 0, 0, 127, 63, 131, 69, 250, 202, 36, 151, 127, 187, 250, 237, 107, 186, 127, 175, 149, 186, 0, 0, 127, 63, 76, 54, 250, 202, 36, 151, 127, 59, 188, 116, 147, 187, 101, 25, 98, 60, 129, 0, 0, 63, 223, 191, 204, 201, 36, 151, 127, 59, 188, 116, 147, 187, 127, 175, 149, 186, 129, 0, 0, 63, 226, 201, 204, 201, 36, 151, 127, 59, 250, 237, 107, 186, 101, 25, 98, 60, 129, 0, 0, 63, 223, 191, 250, 202, 36, 151, 127, 59, 250, 237, 107, 186, 127, 175, 149, 186, 129, 0, 0, 63, 226, 201, 250, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 3, 0, 3, 0, 4, 0, 1, 0, 4, 0, 3, 0, 5, 0, 5, 0, 3, 0, 6, 0, 5, 0, 6, 0, 7, 0, 7, 0, 2, 0, 5, 0, 0, 0, 2, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("vHSTuzEILDxbsT+9vHSTu0XYcLxbsT+9vHSTOzEILDxbsT+9vHSTO0XYcLxbsT+9/3//fwAAfr//f/9/AAB+v/9//38AAH6//3//fwAAfr8=")
+}, {
+"aabb": AABB(-0.0045, -0.0045, -0.00174201, 0.009, 0.0036, 0.016142),
+"attribute_data": PackedByteArray("AIDJvgDgd78AAAAAACATvwDgvMAAIBO/AIDJvgBALMEAAAAAAKAywQDgvMAAoDLBAGCwwABALMEAYLDAAOB3vwCAyb4AgDnBAGCwwACAOcEAgMm+AEBfwQBgsMAAQF/BAEA8QQCAOcEA4Ps/AIA5wQBAPEEAQF/BAOD7PwBAX8EAYLBAAIA5wQCAyT4AgDnBAGCwQABAX8EAgMk+AEBfwQDg+78AgDnBAEA8wQCAOcEA4Pu/AEBfwQBAPMEAQF/B"),
+"format": 34359742487,
 "index_count": 48,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAQAAAAMAAwAEAAEABAADAAUABQADAAYABQAGAAcABwACAAUAAAACAAcACAAJAAoACgAJAAsADAANAA4ADgANAA8AEAARABIAEgARABMAFAAVABYAFgAVABcA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 24
-}
-surfaces/26 = {
-"aabb": AABB( -0.0039, -0.0009, -0.00114201, 0.00781, 0.0096, 0.014952 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 250, 237, 107, 186, 101, 25, 98, 60, 0, 129, 129, 63, 131, 197, 191, 187, 36, 151, 127, 59, 250, 237, 107, 186, 127, 175, 149, 186, 0, 129, 129, 63, 131, 197, 98, 201, 36, 151, 127, 187, 250, 237, 107, 186, 101, 25, 98, 60, 0, 129, 129, 63, 76, 182, 191, 187, 36, 151, 127, 187, 250, 237, 107, 186, 127, 175, 149, 186, 0, 129, 129, 63, 76, 182, 98, 201, 36, 151, 127, 187, 114, 138, 14, 60, 101, 25, 98, 60, 129, 0, 0, 63, 223, 191, 16, 205, 36, 151, 127, 187, 250, 237, 107, 59, 101, 25, 98, 60, 129, 0, 0, 63, 223, 191, 58, 204, 36, 151, 127, 187, 114, 138, 14, 60, 177, 124, 44, 58, 129, 0, 0, 63, 75, 201, 16, 205, 36, 151, 127, 187, 250, 237, 107, 59, 177, 124, 44, 58, 129, 0, 0, 63, 75, 201, 58, 204 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("JJd/u7x0k7tlGWI8vHSTu7x0k7v67Ws8vHSTO7x0k7v67Ws8JJd/u7x0k7t/r5W6vHSTu7x0k7soVOS6vHSTO7x0k7soVOS6JJd/O7x0k7t/r5W6JJd/O7x0k7tlGWI8JJd/u7x0k7tlGWI8JJd/O7x0k7tlGWI8JJd/u/rta7plGWI8JJd/O/rta7plGWI8JJd/u7x0k7t/r5W6JJd/u7x0k7tlGWI8JJd/u/rta7p/r5W6JJd/u/rta7plGWI8JJd/O7x0k7t/r5W6JJd/u7x0k7t/r5W6JJd/O/rta7p/r5W6JJd/u/rta7p/r5W6JJd/O7x0k7tlGWI8JJd/O7x0k7t/r5W6JJd/O/rta7plGWI8JJd/O/rta7p/r5W6AAABgAIBfr8AAAGAAgF+vwAAAYAAAH6/AAABgAAAfr8AAAGAAAB+vwAAAYACAX6/AAABgAIBfr8AAAGAAAB+v/9//38AAH6//3//fwAAfr//f/9/AAB+v/9//38AAH6//38AAP//////fwAA//////9/AAD//////38AAP////8AAAAA//9+vwAAAAD//36/AAAAAP//fr8AAAAA//9+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/")
+}, {
+"aabb": AABB(-0.0039, -0.0009, -0.00114201, 0.00781, 0.0096, 0.014952),
+"attribute_data": PackedByteArray("AGCwwADgd78AYLDAAEAswQCAyb4A4He/AIDJvgBALMEA4Pu/AACiwQDg+78AQIfBAGApwQAAosEAYCnBAECHwQ=="),
+"format": 34359742487,
 "index_count": 12,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 8
-}
-surfaces/27 = {
-"aabb": AABB( -0.0024, -0.0063, -0.00414201, 0.00481, 0.0054, 1.00001e-05 ),
-"array_data": PackedByteArray( 82, 73, 29, 59, 59, 112, 206, 187, 179, 185, 135, 187, 127, 127, 129, 63, 135, 196, 53, 201, 82, 73, 29, 59, 250, 237, 107, 186, 179, 185, 135, 187, 127, 127, 129, 63, 135, 196, 250, 202, 82, 73, 29, 187, 59, 112, 206, 187, 179, 185, 135, 187, 127, 127, 129, 63, 131, 189, 53, 201, 82, 73, 29, 187, 250, 237, 107, 186, 179, 185, 135, 187, 127, 127, 129, 63, 131, 189, 250, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("JJd/O/rta7plGWI8JJd/O/rta7p/r5W6JJd/u/rta7plGWI8JJd/u/rta7p/r5W6JJd/u3KKDjxlGWI8JJd/u/rtaztlGWI8JJd/u3KKDjyxfCw6JJd/u/rtazuxfCw6AAABgAAAfr8AAAGAAAB+vwAAAYAAAH6/AAABgAAAfr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vw==")
+}, {
+"aabb": AABB(-0.0024, -0.0063, -0.00414201, 0.00481, 0.0054, 1.00001e-05),
+"attribute_data": PackedByteArray("AOCQwACgJsEA4JDAAEBfwQBgsL8AoCbBAGCwvwBAX8E="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 4 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("4"),
 "name": "Gray5",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/28 = {
-"aabb": AABB( -0.0039, -0.0009, -0.0102, 0.0015, 1e-05, 0.00785799 ),
-"array_data": PackedByteArray( 36, 151, 127, 187, 250, 237, 107, 186, 231, 29, 39, 188, 0, 129, 129, 63, 76, 182, 45, 204, 82, 73, 29, 187, 250, 237, 107, 186, 104, 124, 25, 187, 0, 129, 129, 63, 131, 189, 199, 201, 82, 73, 29, 187, 250, 237, 107, 186, 179, 185, 135, 187, 0, 129, 129, 63, 131, 189, 94, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("UkkdOztwzruzuYe7UkkdO/rta7qzuYe7UkkduztwzruzuYe7Ukkdu/rta7qzuYe7/3//fwAAfr//f/9/AAB+v/9//38AAH6//3//fwAAfr8=")
+}, {
+"aabb": AABB(-0.0039, -0.0009, -0.0102, 0.0015, 1e-05, 0.00785799),
+"attribute_data": PackedByteArray("AIDJvgCghcEAYLC/AOA4wQBgsL8AwEvB"),
+"format": 34359742487,
 "index_count": 3,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 3
-}
-surfaces/29 = {
-"aabb": AABB( -0.0039, -0.0195, -0.00114201, 0.00781, 0.01861, 0.014942 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 250, 237, 107, 186, 127, 175, 149, 186, 127, 127, 129, 63, 131, 197, 250, 202, 36, 151, 127, 187, 250, 237, 107, 186, 127, 175, 149, 186, 127, 127, 129, 63, 76, 182, 250, 202, 36, 151, 127, 59, 119, 190, 159, 188, 127, 175, 149, 186, 127, 127, 129, 63, 131, 197, 6, 191, 36, 151, 127, 187, 119, 190, 159, 188, 127, 175, 149, 186, 127, 127, 129, 63, 76, 182, 6, 191, 208, 68, 88, 187, 250, 237, 107, 186, 242, 21, 14, 186, 0, 127, 127, 63, 76, 58, 48, 201, 36, 151, 127, 187, 250, 237, 107, 186, 127, 175, 149, 186, 0, 127, 127, 63, 76, 54, 98, 201, 36, 151, 127, 59, 250, 237, 107, 186, 127, 175, 149, 186, 0, 127, 127, 63, 131, 69, 98, 201, 208, 68, 88, 187, 250, 237, 107, 186, 208, 68, 88, 60, 0, 127, 127, 63, 76, 58, 114, 189, 36, 151, 127, 187, 250, 237, 107, 186, 37, 2, 80, 58, 0, 127, 127, 63, 76, 54, 192, 200, 36, 151, 127, 187, 250, 237, 107, 186, 223, 73, 81, 59, 0, 127, 126, 63, 76, 54, 237, 199, 36, 151, 127, 187, 250, 237, 107, 186, 22, 17, 168, 59, 0, 127, 126, 63, 76, 54, 168, 198, 36, 151, 127, 187, 250, 237, 107, 186, 191, 181, 246, 59, 0, 127, 127, 63, 76, 54, 21, 197, 36, 151, 127, 187, 250, 237, 107, 186, 253, 16, 27, 60, 0, 127, 127, 63, 76, 54, 160, 195, 36, 151, 127, 187, 250, 237, 107, 186, 82, 99, 66, 60, 0, 127, 127, 63, 76, 54, 122, 192, 36, 151, 127, 187, 250, 237, 107, 186, 101, 25, 98, 60, 0, 127, 127, 63, 76, 54, 191, 187, 36, 151, 127, 59, 250, 237, 107, 186, 101, 25, 98, 60, 0, 127, 127, 63, 131, 69, 191, 187, 36, 151, 127, 187, 250, 237, 107, 186, 101, 25, 98, 60, 0, 0, 127, 63, 76, 54, 250, 202, 36, 151, 127, 59, 250, 237, 107, 186, 101, 25, 98, 60, 0, 0, 127, 63, 131, 69, 250, 202, 36, 151, 127, 187, 218, 172, 122, 188, 101, 25, 98, 60, 0, 0, 127, 63, 76, 54, 131, 196, 36, 151, 127, 59, 218, 172, 122, 188, 101, 25, 98, 60, 0, 0, 127, 63, 131, 69, 131, 196, 36, 151, 127, 187, 71, 203, 129, 188, 82, 99, 66, 60, 129, 0, 0, 63, 122, 194, 39, 196, 36, 151, 127, 187, 250, 237, 107, 186, 82, 99, 66, 60, 129, 0, 0, 63, 122, 194, 250, 202, 36, 151, 127, 187, 218, 172, 122, 188, 101, 25, 98, 60, 129, 0, 0, 63, 223, 191, 131, 196, 36, 151, 127, 187, 250, 237, 107, 186, 101, 25, 98, 60, 129, 0, 0, 63, 223, 191, 250, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 5, 0, 4, 0, 7, 0, 7, 0, 8, 0, 5, 0, 7, 0, 9, 0, 8, 0, 7, 0, 10, 0, 9, 0, 7, 0, 11, 0, 10, 0, 7, 0, 12, 0, 11, 0, 7, 0, 13, 0, 12, 0, 7, 0, 14, 0, 13, 0, 14, 0, 7, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 3,
+"vertex_data": PackedByteArray("JJd/u/rta7rnHSe8Ukkdu/rta7pofBm7Ukkdu/rta7qzuYe7AAABgAAAfr8AAAGAAAB+vwAAAYAAAH6/")
+}, {
+"aabb": AABB(-0.0039, -0.0195, -0.00114201, 0.00781, 0.01861, 0.014942),
+"attribute_data": PackedByteArray("AGCwwABAX8EAgMm+AEBfwQBgsMAAwOC/AIDJvgDA4L8AgEk/AAAmwQCAyT4AQCzBAGCwQABALMEAgEk/AECuvwCAyT4AABjBAIDJPgCg/cAAgMk+AADVwACAyT4AoKLAAIDJPgAAdMAAgMk+AEAPwACAyT4A4He/AGCwQADgd78AgMk+AEBfwQBgsEAAQF/BAIDJPgBgkMAAYLBAAGCQwABAT8AA4ITAAEBPwABAX8EA4Pu/AGCQwADg+78AQF/B"),
+"format": 34359742487,
 "index_count": 48,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABQAEAAcABwAIAAUABwAJAAgABwAKAAkABwALAAoABwAMAAsABwANAAwABwAOAA0ADgAHAA8AEAARABIAEgARABMAFAAVABYAFgAVABcA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 24
-}
-surfaces/30 = {
-"aabb": AABB( -0.0039, -0.0165187, 0.0094645, 1.00001e-05, 0.0156287, 0.00241 ),
-"array_data": PackedByteArray( 36, 151, 127, 187, 250, 237, 107, 186, 82, 99, 66, 60, 129, 0, 0, 63, 122, 194, 250, 202, 36, 151, 127, 187, 71, 203, 129, 188, 82, 99, 66, 60, 129, 0, 0, 63, 122, 194, 39, 196, 36, 151, 127, 187, 250, 237, 107, 186, 253, 16, 27, 60, 129, 0, 0, 63, 208, 196, 250, 202, 36, 151, 127, 187, 58, 82, 135, 188, 253, 16, 27, 60, 129, 0, 0, 63, 208, 196, 108, 195 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("JJd/O/rta7p/r5W6JJd/u/rta7p/r5W6JJd/O3e+n7x/r5W6JJd/u3e+n7x/r5W60ERYu/rta7ryFQ66JJd/u/rta7p/r5W6JJd/O/rta7p/r5W60ERYu/rta7rQRFg8JJd/u/rta7olAlA6JJd/u/rta7rfSVE7JJd/u/rta7oWEag7JJd/u/rta7q/tfY7JJd/u/rta7r9EBs8JJd/u/rta7pSY0I8JJd/u/rta7plGWI8JJd/O/rta7plGWI8JJd/u/rta7plGWI8JJd/O/rta7plGWI8JJd/u9qserxlGWI8JJd/O9qserxlGWI8JJd/u0fLgbxSY0I8JJd/u/rta7pSY0I8JJd/u9qserxlGWI8JJd/u/rta7plGWI8/3//fwAAfr//f/9/AAB+v/9//38AAH6//3//fwAAfr8AAP9///9+vwAA/3///36/AAD/f///fr8AAP9///9+vwAA/3///36/AAD/f/z+fr8AAP9//P5+vwAA/3///36/AAD/f///fr8AAP9///9+vwAA/3///36/AAD/f///fr8AAAAA//9+vwAAAAD//36/AAAAAP//fr8AAAAA//9+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/")
+}, {
+"aabb": AABB(-0.0039, -0.0165187, 0.0094645, 1.00001e-05, 0.0156287, 0.00241),
+"attribute_data": PackedByteArray("AEBPwABAX8EAQE/AAOCEwAAAmsAAQF/BAACawACAbcA="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/31 = {
-"aabb": AABB( -0.0039, -0.0170627, 0.00752899, 1.00001e-05, 0.0161627, 0.00193551 ),
-"array_data": PackedByteArray( 36, 151, 127, 187, 19, 199, 139, 188, 191, 181, 246, 59, 129, 0, 0, 63, 21, 198, 181, 194, 36, 151, 127, 187, 250, 237, 107, 186, 191, 181, 246, 59, 129, 0, 0, 63, 21, 198, 250, 202, 36, 151, 127, 187, 58, 82, 135, 188, 253, 16, 27, 60, 129, 0, 0, 63, 208, 196, 108, 195, 36, 151, 127, 187, 250, 237, 107, 186, 253, 16, 27, 60, 129, 0, 0, 63, 208, 196, 250, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/u/rta7pSY0I8JJd/u0fLgbxSY0I8JJd/u/rta7r9EBs8JJd/uzpSh7z9EBs8AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8=")
+}, {
+"aabb": AABB(-0.0039, -0.0170627, 0.00752899, 1.00001e-05, 0.0161627, 0.00193551),
+"attribute_data": PackedByteArray("AKDCwACgVsAAoMLAAEBfwQAAmsAAgG3AAACawABAX8E="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/32 = {
-"aabb": AABB( -0.0039, -0.0177373, 0.00512899, 1.00001e-05, 0.0168473, 0.00241 ),
-"array_data": PackedByteArray( 36, 151, 127, 187, 250, 237, 107, 186, 191, 181, 246, 59, 129, 0, 0, 63, 21, 198, 250, 202, 36, 151, 127, 187, 19, 199, 139, 188, 191, 181, 246, 59, 129, 0, 0, 63, 21, 198, 181, 194, 36, 151, 127, 187, 250, 237, 107, 186, 22, 17, 168, 59, 129, 0, 0, 63, 168, 199, 250, 202, 36, 151, 127, 187, 208, 77, 145, 188, 22, 17, 168, 59, 129, 0, 0, 63, 168, 199, 211, 193 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/uxPHi7y/tfY7JJd/u/rta7q/tfY7JJd/uzpSh7z9EBs8JJd/u/rta7r9EBs8AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8=")
+}, {
+"aabb": AABB(-0.0039, -0.0177373, 0.00512899, 1.00001e-05, 0.0168473, 0.00241),
+"attribute_data": PackedByteArray("AKDCwABAX8EAoMLAAKBWwAAA9cAAQF/BAAD1wABgOsA="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/33 = {
-"aabb": AABB( -0.0039, -0.0182813, 0.00319349, 1.00001e-05, 0.0173813, 0.0019355 ),
-"array_data": PackedByteArray( 36, 151, 127, 187, 170, 194, 149, 188, 223, 73, 81, 59, 129, 0, 0, 63, 118, 200, 28, 193, 36, 151, 127, 187, 250, 237, 107, 186, 223, 73, 81, 59, 129, 0, 0, 63, 118, 200, 250, 202, 36, 151, 127, 187, 208, 77, 145, 188, 22, 17, 168, 59, 129, 0, 0, 63, 168, 199, 211, 193, 36, 151, 127, 187, 250, 237, 107, 186, 22, 17, 168, 59, 129, 0, 0, 63, 168, 199, 250, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/u/rta7q/tfY7JJd/uxPHi7y/tfY7JJd/u/rta7oWEag7JJd/u9BNkbwWEag7AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8=")
+}, {
+"aabb": AABB(-0.0039, -0.0182813, 0.00319349, 1.00001e-05, 0.0173813, 0.0019355),
+"attribute_data": PackedByteArray("AMAOwQCAI8AAwA7BAEBfwQAA9cAAYDrAAAD1wABAX8E="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/34 = {
-"aabb": AABB( -0.0039, -0.018956, 0.000793489, 1.00001e-05, 0.018066, 0.00241 ),
-"array_data": PackedByteArray( 36, 151, 127, 187, 250, 237, 107, 186, 223, 73, 81, 59, 129, 0, 0, 63, 118, 200, 250, 202, 36, 151, 127, 187, 170, 194, 149, 188, 223, 73, 81, 59, 129, 0, 0, 63, 118, 200, 28, 193, 36, 151, 127, 187, 250, 237, 107, 186, 37, 2, 80, 58, 129, 0, 0, 63, 64, 201, 250, 202, 36, 151, 127, 187, 157, 73, 155, 188, 37, 2, 80, 58, 129, 0, 0, 63, 64, 201, 57, 192 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/u6rClbzfSVE7JJd/u/rta7rfSVE7JJd/u9BNkbwWEag7JJd/u/rta7oWEag7AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8=")
+}, {
+"aabb": AABB(-0.0039, -0.018956, 0.000793489, 1.00001e-05, 0.018066, 0.00241),
+"attribute_data": PackedByteArray("AMAOwQBAX8EAwA7BAIAjwAAAKMEAQF/BAAAowQAgB8A="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/35 = {
-"aabb": AABB( -0.0039, -0.0195, -0.00114201, 0.0078, 0.0186, 0.014942 ),
-"array_data": PackedByteArray( 36, 151, 127, 187, 119, 190, 159, 188, 127, 175, 149, 186, 129, 0, 0, 63, 226, 201, 6, 191, 36, 151, 127, 187, 250, 237, 107, 186, 127, 175, 149, 186, 129, 0, 0, 63, 226, 201, 250, 202, 36, 151, 127, 187, 157, 73, 155, 188, 37, 2, 80, 58, 129, 0, 0, 63, 64, 201, 57, 192, 36, 151, 127, 187, 250, 237, 107, 186, 37, 2, 80, 58, 129, 0, 0, 63, 64, 201, 250, 202, 36, 151, 127, 187, 58, 82, 135, 188, 253, 16, 27, 60, 0, 157, 127, 193, 76, 54, 91, 68, 36, 151, 127, 187, 71, 203, 129, 188, 82, 99, 66, 60, 0, 157, 126, 63, 76, 54, 114, 65, 36, 151, 127, 187, 19, 199, 139, 188, 191, 181, 246, 59, 0, 157, 127, 193, 76, 54, 173, 69, 36, 151, 127, 187, 208, 77, 145, 188, 22, 17, 168, 59, 0, 157, 127, 193, 76, 54, 80, 71, 36, 151, 127, 187, 170, 194, 149, 188, 223, 73, 81, 59, 0, 157, 127, 193, 76, 54, 81, 72, 36, 151, 127, 187, 157, 73, 155, 188, 37, 2, 80, 58, 0, 157, 127, 193, 76, 54, 34, 73, 36, 151, 127, 187, 119, 190, 159, 188, 127, 175, 149, 186, 0, 157, 127, 63, 76, 54, 203, 73, 36, 151, 127, 59, 119, 190, 159, 188, 127, 175, 149, 186, 0, 157, 126, 63, 131, 69, 203, 73, 36, 151, 127, 59, 157, 73, 155, 188, 37, 2, 80, 58, 0, 157, 126, 63, 131, 69, 34, 73, 36, 151, 127, 59, 170, 194, 149, 188, 223, 73, 81, 59, 0, 157, 126, 63, 131, 69, 81, 72, 36, 151, 127, 59, 208, 77, 145, 188, 22, 17, 168, 59, 0, 157, 126, 63, 131, 69, 80, 71, 36, 151, 127, 59, 19, 199, 139, 188, 191, 181, 246, 59, 0, 157, 126, 63, 131, 69, 173, 69, 36, 151, 127, 59, 58, 82, 135, 188, 253, 16, 27, 60, 0, 157, 126, 63, 131, 69, 91, 68, 36, 151, 127, 59, 71, 203, 129, 188, 82, 99, 66, 60, 0, 157, 127, 63, 131, 69, 114, 65, 36, 151, 127, 59, 218, 172, 122, 188, 101, 25, 98, 60, 0, 157, 127, 63, 131, 69, 157, 61, 36, 151, 127, 187, 218, 172, 122, 188, 101, 25, 98, 60, 0, 157, 127, 63, 76, 54, 157, 61, 36, 151, 127, 59, 157, 73, 155, 188, 37, 2, 80, 58, 127, 0, 126, 127, 64, 73, 57, 192, 36, 151, 127, 59, 250, 237, 107, 186, 37, 2, 80, 58, 127, 0, 126, 127, 64, 73, 250, 202, 36, 151, 127, 59, 119, 190, 159, 188, 127, 175, 149, 186, 127, 0, 126, 127, 226, 73, 6, 191, 36, 151, 127, 59, 250, 237, 107, 186, 127, 175, 149, 186, 127, 0, 127, 127, 226, 73, 250, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 7, 0, 5, 0, 8, 0, 8, 0, 5, 0, 9, 0, 9, 0, 5, 0, 10, 0, 10, 0, 5, 0, 11, 0, 11, 0, 5, 0, 12, 0, 12, 0, 5, 0, 13, 0, 13, 0, 5, 0, 14, 0, 14, 0, 5, 0, 15, 0, 15, 0, 5, 0, 16, 0, 16, 0, 5, 0, 17, 0, 17, 0, 5, 0, 18, 0, 18, 0, 5, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/u/rta7rfSVE7JJd/u6rClbzfSVE7JJd/u/rta7olAlA6JJd/u51Jm7wlAlA6AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8=")
+}, {
+"aabb": AABB(-0.0039, -0.0195, -0.00114201, 0.0078, 0.0186, 0.014942),
+"attribute_data": PackedByteArray("AEA8wQDA4L8AQDzBAEBfwQAAKMEAIAfAAAAowQBAX8EAgMk+AGCLQACAyT4AQC5AAIDJPgCgtUAAgMk+AADqQACAyT4AIApBAIDJPgBAJEEAgMk+AGA5QQBgsEAAYDlBAGCwQABAJEEAYLBAACAKQQBgsEAAAOpAAGCwQACgtUAAYLBAAGCLQABgsEAAQC5AAGCwQACgsz8AgMk+AKCzPwAAKEEAIAfAAAAoQQBAX8EAQDxBAMDgvwBAPEEAQF/B"),
+"format": 34359742487,
 "index_count": 54,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcABwAFAAgACAAFAAkACQAFAAoACgAFAAsACwAFAAwADAAFAA0ADQAFAA4ADgAFAA8ADwAFABAAEAAFABEAEQAFABIAEgAFABMAFAAVABYAFgAVABcA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 24
-}
-surfaces/36 = {
-"aabb": AABB( 0.0039, -0.018956, 0.000793489, 1.00001e-05, 0.018056, 0.00241 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 170, 194, 149, 188, 223, 73, 81, 59, 127, 0, 126, 1, 118, 72, 28, 193, 36, 151, 127, 59, 250, 237, 107, 186, 223, 73, 81, 59, 127, 0, 126, 1, 118, 72, 250, 202, 36, 151, 127, 59, 157, 73, 155, 188, 37, 2, 80, 58, 127, 0, 126, 1, 64, 73, 57, 192, 36, 151, 127, 59, 250, 237, 107, 186, 37, 2, 80, 58, 127, 0, 127, 127, 64, 73, 250, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("JJd/u3e+n7x/r5W6JJd/u/rta7p/r5W6JJd/u51Jm7wlAlA6JJd/u/rta7olAlA6JJd/uzpSh7z9EBs8JJd/u0fLgbxSY0I8JJd/uxPHi7y/tfY7JJd/u9BNkbwWEag7JJd/u6rClbzfSVE7JJd/u51Jm7wlAlA6JJd/u3e+n7x/r5W6JJd/O3e+n7x/r5W6JJd/O51Jm7wlAlA6JJd/O6rClbzfSVE7JJd/O9BNkbwWEag7JJd/OxPHi7y/tfY7JJd/OzpSh7z9EBs8JJd/O0fLgbxSY0I8JJd/O9qserxlGWI8JJd/u9qserxlGWI8JJd/O51Jm7wlAlA6JJd/O/rta7olAlA6JJd/O3e+n7x/r5W6JJd/O/rta7p/r5W6AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8AADqc//+AQAAAOpz8/n6/AAA6nP//gEAAADqc//+AQAAAOpz//4BAAAA6nP//gEAAADqc//9+vwAAOpz8/n6/AAA6nPz+fr8AADqc/P5+vwAAOpz8/n6/AAA6nPz+fr8AADqc/P5+vwAAOpz//36/AAA6nP//fr8AADqc//9+v/9/AAD8/v///38AAPz+////fwAA/P7///9/AAD/////")
+}, {
+"aabb": AABB(0.0039, -0.018956, 0.000793489, 1.00001e-05, 0.018056, 0.00241),
+"attribute_data": PackedByteArray("AMAOQQCAI8AAwA5BAEBfwQAAKEEAIAfAAAAoQQBAX8E="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/37 = {
-"aabb": AABB( 0.0039, -0.0182813, 0.00319349, 1.00001e-05, 0.0173813, 0.0019455 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 208, 77, 145, 188, 22, 17, 168, 59, 127, 0, 126, 127, 168, 71, 211, 193, 36, 151, 127, 59, 250, 237, 107, 186, 22, 17, 168, 59, 127, 0, 126, 127, 168, 71, 250, 202, 36, 151, 127, 59, 170, 194, 149, 188, 223, 73, 81, 59, 127, 0, 126, 127, 118, 72, 28, 193, 36, 151, 127, 59, 250, 237, 107, 186, 223, 73, 81, 59, 127, 0, 127, 127, 118, 72, 250, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/O6rClbzfSVE7JJd/O/rta7rfSVE7JJd/O51Jm7wlAlA6JJd/O/rta7olAlA6/38AAPz+AYH/fwAA/P4Bgf9/AAD8/gGB/38AAP////8=")
+}, {
+"aabb": AABB(0.0039, -0.0182813, 0.00319349, 1.00001e-05, 0.0173813, 0.0019455),
+"attribute_data": PackedByteArray("AAD1QABgOsAAAPVAAEBfwQDADkEAgCPAAMAOQQBAX8E="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/38 = {
-"aabb": AABB( 0.0039, -0.0177373, 0.00512899, 1.00001e-05, 0.0168373, 0.00241 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 19, 199, 139, 188, 191, 181, 246, 59, 127, 0, 126, 127, 21, 70, 181, 194, 36, 151, 127, 59, 250, 237, 107, 186, 191, 181, 246, 59, 127, 0, 126, 127, 21, 70, 250, 202, 36, 151, 127, 59, 208, 77, 145, 188, 22, 17, 168, 59, 127, 0, 126, 127, 168, 71, 211, 193, 36, 151, 127, 59, 250, 237, 107, 186, 22, 17, 168, 59, 127, 0, 127, 127, 168, 71, 250, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/O9BNkbwWEag7JJd/O/rta7oWEag7JJd/O6rClbzfSVE7JJd/O/rta7rfSVE7/38AAPz+////fwAA/P7///9/AAD8/v///38AAP////8=")
+}, {
+"aabb": AABB(0.0039, -0.0177373, 0.00512899, 1.00001e-05, 0.0168373, 0.00241),
+"attribute_data": PackedByteArray("AKDCQACgVsAAoMJAAEBfwQAA9UAAYDrAAAD1QABAX8E="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/39 = {
-"aabb": AABB( 0.0039, -0.0170627, 0.00752899, 1.00001e-05, 0.0161627, 0.00194551 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 58, 82, 135, 188, 253, 16, 27, 60, 127, 0, 126, 127, 208, 68, 108, 195, 36, 151, 127, 59, 250, 237, 107, 186, 253, 16, 27, 60, 127, 0, 126, 127, 208, 68, 250, 202, 36, 151, 127, 59, 19, 199, 139, 188, 191, 181, 246, 59, 127, 0, 126, 127, 21, 70, 181, 194, 36, 151, 127, 59, 250, 237, 107, 186, 191, 181, 246, 59, 127, 0, 127, 127, 21, 70, 250, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/OxPHi7y/tfY7JJd/O/rta7q/tfY7JJd/O9BNkbwWEag7JJd/O/rta7oWEag7/38AAPz+////fwAA/P7///9/AAD8/v///38AAP////8=")
+}, {
+"aabb": AABB(0.0039, -0.0170627, 0.00752899, 1.00001e-05, 0.0161627, 0.00194551),
+"attribute_data": PackedByteArray("AACaQACAbcAAAJpAAEBfwQCgwkAAoFbAAKDCQABAX8E="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/40 = {
-"aabb": AABB( 0.0039, -0.0165187, 0.0094645, 1.00001e-05, 0.0156187, 0.00241 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 71, 203, 129, 188, 82, 99, 66, 60, 127, 0, 126, 1, 122, 66, 39, 196, 36, 151, 127, 59, 250, 237, 107, 186, 82, 99, 66, 60, 127, 0, 126, 1, 122, 66, 250, 202, 36, 151, 127, 59, 58, 82, 135, 188, 253, 16, 27, 60, 127, 0, 126, 1, 208, 68, 108, 195, 36, 151, 127, 59, 250, 237, 107, 186, 253, 16, 27, 60, 127, 0, 127, 127, 208, 68, 250, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/OzpSh7z9EBs8JJd/O/rta7r9EBs8JJd/OxPHi7y/tfY7JJd/O/rta7q/tfY7/38AAPz+////fwAA/P7///9/AAD8/v///38AAP////8=")
+}, {
+"aabb": AABB(0.0039, -0.0165187, 0.0094645, 1.00001e-05, 0.0156187, 0.00241),
+"attribute_data": PackedByteArray("AEBPQADghMAAQE9AAEBfwQAAmkAAgG3AAACaQABAX8E="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/41 = {
-"aabb": AABB( -0.0033, -0.015844, -0.00114201, 0.00721, 0.014944, 0.014952 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 218, 172, 122, 188, 101, 25, 98, 60, 127, 0, 126, 127, 223, 63, 131, 196, 36, 151, 127, 59, 250, 237, 107, 186, 101, 25, 98, 60, 127, 0, 126, 127, 223, 63, 250, 202, 36, 151, 127, 59, 71, 203, 129, 188, 82, 99, 66, 60, 127, 0, 126, 127, 122, 66, 39, 196, 36, 151, 127, 59, 250, 237, 107, 186, 82, 99, 66, 60, 127, 0, 127, 127, 122, 66, 250, 202, 36, 151, 127, 59, 250, 237, 107, 186, 101, 25, 98, 60, 0, 127, 126, 63, 131, 69, 191, 187, 36, 151, 127, 59, 250, 237, 107, 186, 127, 175, 149, 186, 0, 127, 126, 63, 131, 69, 98, 201, 36, 151, 127, 59, 250, 237, 107, 186, 82, 99, 66, 60, 0, 127, 127, 63, 131, 69, 122, 192, 208, 68, 88, 59, 250, 237, 107, 186, 242, 21, 14, 186, 0, 127, 126, 63, 30, 69, 48, 201, 208, 68, 88, 187, 250, 237, 107, 186, 242, 21, 14, 186, 0, 127, 127, 63, 76, 58, 48, 201, 208, 68, 88, 187, 250, 237, 107, 186, 242, 21, 14, 186, 0, 0, 127, 63, 76, 58, 250, 202, 208, 68, 88, 59, 250, 237, 107, 186, 242, 21, 14, 186, 0, 0, 127, 63, 30, 69, 250, 202, 208, 68, 88, 187, 166, 155, 196, 186, 242, 21, 14, 186, 0, 0, 127, 63, 76, 58, 200, 202, 208, 68, 88, 59, 166, 155, 196, 186, 242, 21, 14, 186, 0, 0, 127, 63, 30, 69, 200, 202, 208, 68, 88, 187, 250, 237, 107, 186, 208, 68, 88, 60, 127, 0, 127, 127, 185, 64, 250, 202, 208, 68, 88, 187, 250, 237, 107, 186, 242, 21, 14, 186, 127, 0, 127, 127, 176, 73, 250, 202, 208, 68, 88, 187, 166, 155, 196, 186, 208, 68, 88, 60, 127, 0, 127, 127, 185, 64, 200, 202, 208, 68, 88, 187, 166, 155, 196, 186, 242, 21, 14, 186, 127, 0, 127, 127, 176, 73, 200, 202, 208, 68, 88, 59, 250, 237, 107, 186, 208, 68, 88, 60, 127, 127, 129, 63, 30, 197, 250, 202, 208, 68, 88, 187, 250, 237, 107, 186, 208, 68, 88, 60, 127, 127, 129, 63, 76, 186, 250, 202, 208, 68, 88, 59, 166, 155, 196, 186, 208, 68, 88, 60, 127, 127, 129, 63, 30, 197, 200, 202, 208, 68, 88, 187, 166, 155, 196, 186, 208, 68, 88, 60, 127, 127, 129, 63, 76, 186, 200, 202, 208, 68, 88, 187, 250, 237, 107, 186, 208, 68, 88, 60, 0, 127, 127, 63, 76, 58, 114, 189, 208, 68, 88, 59, 250, 237, 107, 186, 208, 68, 88, 60, 0, 127, 126, 63, 30, 69, 114, 189, 208, 68, 88, 59, 250, 237, 107, 186, 242, 21, 14, 186, 129, 0, 0, 63, 176, 201, 250, 202, 208, 68, 88, 59, 250, 237, 107, 186, 208, 68, 88, 60, 129, 0, 0, 63, 185, 192, 250, 202, 208, 68, 88, 59, 166, 155, 196, 186, 242, 21, 14, 186, 129, 0, 0, 63, 176, 201, 200, 202, 208, 68, 88, 59, 166, 155, 196, 186, 208, 68, 88, 60, 129, 0, 0, 63, 185, 192, 200, 202 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0, 8, 0, 5, 0, 7, 0, 9, 0, 10, 0, 11, 0, 11, 0, 10, 0, 12, 0, 13, 0, 14, 0, 15, 0, 15, 0, 14, 0, 16, 0, 17, 0, 18, 0, 19, 0, 19, 0, 18, 0, 20, 0, 4, 0, 21, 0, 22, 0, 4, 0, 22, 0, 7, 0, 23, 0, 24, 0, 25, 0, 25, 0, 24, 0, 26, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("JJd/O0fLgbxSY0I8JJd/O/rta7pSY0I8JJd/OzpSh7z9EBs8JJd/O/rta7r9EBs8/38AAPz+AYH/fwAA/P4Bgf9/AAD8/gGB/38AAP////8=")
+}, {
+"aabb": AABB(-0.0033, -0.015844, -0.00114201, 0.00721, 0.014944, 0.014952),
+"attribute_data": PackedByteArray("AOD7PwBgkMAA4Ps/AEBfwQBAT0AA4ITAAEBPQABAX8EAYLBAAOB3vwBgsEAAQCzBAGCwQABAD8AAwKNAAAAmwQCAST8AACbBAIBJPwBAX8EAwKNAAEBfwQCAST8AAFnBAMCjQAAAWcEAIBdAAEBfwQAANkEAQF/BACAXQAAAWcEAADZBAABZwQDAo8AAQF/BAIBJvwBAX8EAwKPAAABZwQCASb8AAFnBAIBJPwBArr8AwKNAAECuvwAANsEAQF/BACAXwABAX8EAADbBAABZwQAgF8AAAFnB"),
+"format": 34359742487,
 "index_count": 45,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABwAFAAQACAAFAAcACQAKAAsACwAKAAwADQAOAA8ADwAOABAAEQASABMAEwASABQABAAVABYABAAWAAcAFwAYABkAGQAYABoA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 27
-}
-surfaces/42 = {
-"aabb": AABB( -0.0033, -0.0015, -0.000542014, 0.0066, 9.99996e-06, 0.013752 ),
-"array_data": PackedByteArray( 208, 68, 88, 187, 166, 155, 196, 186, 208, 68, 88, 60, 0, 127, 127, 63, 76, 58, 114, 189, 208, 68, 88, 187, 166, 155, 196, 186, 242, 21, 14, 186, 0, 127, 127, 63, 76, 58, 48, 201, 208, 68, 88, 59, 166, 155, 196, 186, 208, 68, 88, 60, 0, 127, 127, 63, 30, 69, 114, 189, 208, 68, 88, 59, 166, 155, 196, 186, 242, 21, 14, 186, 0, 127, 127, 63, 30, 69, 48, 201 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 27,
+"vertex_data": PackedByteArray("JJd/O9qserxlGWI8JJd/O/rta7plGWI8JJd/O0fLgbxSY0I8JJd/O/rta7pSY0I8JJd/O/rta7plGWI8JJd/O/rta7p/r5W6JJd/O/rta7pSY0I80ERYO/rta7ryFQ660ERYu/rta7ryFQ660ERYu/rta7ryFQ660ERYO/rta7ryFQ660ERYu6abxLryFQ660ERYO6abxLryFQ660ERYu/rta7rQRFg80ERYu/rta7ryFQ660ERYu6abxLrQRFg80ERYu6abxLryFQ660ERYO/rta7rQRFg80ERYu/rta7rQRFg80ERYO6abxLrQRFg80ERYu6abxLrQRFg80ERYu/rta7rQRFg80ERYO/rta7rQRFg80ERYO/rta7ryFQ660ERYO/rta7rQRFg80ERYO6abxLryFQ660ERYO6abxLrQRFg8/38AAPz+////fwAA/P7///9/AAD8/v///38AAP////8AAP9//P5+vwAA/3/8/n6/AAD/f///fr8AAP9//P5+vwAA/3///36/AAAAAP//fr8AAAAA//9+vwAAAAD//36/AAAAAP//fr//fwAA//////9/AAD//////38AAP//////fwAA//////9//38AAH6//3//fwAAfr//f/9/AAB+v/9//38AAH6/AAD/f///fr8AAP9//P5+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/")
+}, {
+"aabb": AABB(-0.0033, -0.0015, -0.000542014, 0.0066, 9.99996e-06, 0.013752),
+"attribute_data": PackedByteArray("AIBJPwBArr8AgEk/AAAmwQDAo0AAQK6/AMCjQAAAJsE="),
+"format": 34359742487,
 "index_count": 6,
-"material": ExtResource( 2 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("2"),
 "name": "Gray6",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 4
-}
-surfaces/43 = {
-"aabb": AABB( 0.0039, -0.0009, -0.00114201, 1.00001e-05, 1e-05, 0.0130165 ),
-"array_data": PackedByteArray( 36, 151, 127, 59, 250, 237, 107, 186, 82, 99, 66, 60, 0, 127, 127, 63, 131, 69, 122, 192, 36, 151, 127, 59, 250, 237, 107, 186, 127, 175, 149, 186, 0, 127, 127, 63, 131, 69, 98, 201, 36, 151, 127, 59, 250, 237, 107, 186, 253, 16, 27, 60, 0, 127, 127, 63, 131, 69, 160, 195, 36, 151, 127, 59, 250, 237, 107, 186, 191, 181, 246, 59, 0, 127, 127, 63, 131, 69, 21, 197, 36, 151, 127, 59, 250, 237, 107, 186, 22, 17, 168, 59, 0, 127, 127, 63, 131, 69, 168, 198, 36, 151, 127, 59, 250, 237, 107, 186, 223, 73, 81, 59, 0, 127, 127, 63, 131, 69, 237, 199, 36, 151, 127, 59, 250, 237, 107, 186, 37, 2, 80, 58, 0, 127, 127, 63, 131, 69, 192, 200 ),
-"array_index_data": PackedByteArray( 0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 3, 0, 1, 0, 4, 0, 4, 0, 1, 0, 5, 0, 5, 0, 1, 0, 6, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("0ERYu6abxLrQRFg80ERYu6abxLryFQ660ERYO6abxLrQRFg80ERYO6abxLryFQ66AAD/f///fr8AAP9///9+vwAA/3///36/AAD/f///fr8=")
+}, {
+"aabb": AABB(0.0039, -0.0009, -0.00114201, 1.00001e-05, 1e-05, 0.0130165),
+"attribute_data": PackedByteArray("AGCwQABAD8AAYLBAAEAswQBgsEAAAHTAAGCwQACgosAAYLBAAADVwABgsEAAoP3AAGCwQAAAGME="),
+"format": 34359742487,
 "index_count": 15,
-"material": ExtResource( 3 ),
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAwABAAQABAABAAUABQABAAYA"),
+"material": ExtResource("3"),
 "name": "Gray8",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 7
-}
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 7,
+"vertex_data": PackedByteArray("JJd/O/rta7pSY0I8JJd/O/rta7p/r5W6JJd/O/rta7r9EBs8JJd/O/rta7q/tfY7JJd/O/rta7oWEag7JJd/O/rta7rfSVE7JJd/O/rta7olAlA6AAD/f///fr8AAP9///9+vwAA/3///36/AAD/f///fr8AAP9///9+vwAA/3///36/AAD/f///fr8=")
+}]
 
-[sub_resource type="ParticleProcessMaterial" id=2]
-direction = Vector3( 0, 0.3, 0 )
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 0.5
+[sub_resource type="ParticleProcessMaterial" id="2"]
+direction = Vector3(0, 0.3, 0)
+gravity = Vector3(0, 0, 0)
 
-[sub_resource type="StandardMaterial3D" id=3]
-flags_transparent = true
-params_billboard_mode = 3
+[sub_resource type="StandardMaterial3D" id="3"]
+transparency = 1
+albedo_texture = ExtResource("6")
+emission_enabled = true
+emission_energy_multiplier = 3.0
+emission_texture = ExtResource("6")
+billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-albedo_texture = ExtResource( 6 )
-emission_enabled = true
-emission = Color( 0, 0, 0, 1 )
-emission_energy = 3.0
-emission_operator = 0
-emission_on_uv2 = false
-emission_texture = ExtResource( 6 )
 
-[sub_resource type="QuadMesh" id=4]
-material = SubResource( 3 )
-size = Vector2( 0.3, 0.22 )
+[sub_resource type="QuadMesh" id="4"]
+material = SubResource("3")
+size = Vector2(0.3, 0.22)
 
 [node name="MachineGun" type="Node3D"]
-script = ExtResource( 5 )
-RayCastPath = "Gun/RayCast3D"
-AnimPath = "Node3D/AnimationPlayer"
-gun_path = "Gun"
-decal_path = "res://Scenes/Decal.tscn"
 
 [node name="Gun" type="MeshInstance3D" parent="."]
-transform = Transform3D( -10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, 0, 0 )
-mesh = SubResource( 1 )
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, 0, 0)
+mesh = SubResource("1")
 
 [node name="RayCast3D" type="RayCast3D" parent="Gun"]
-transform = Transform3D( -0.1, 0, 8.74228e-09, 0, 0.1, 0, -8.74228e-09, 0, -0.1, -3.9674e-09, 0.006716, 0.0453817 )
-target_position = Vector3( 0, 0, -8 )
+transform = Transform3D(-0.1, 0, 8.74228e-09, 0, 0.1, 0, -8.74228e-09, 0, -0.1, -3.9674e-09, 0.006716, 0.0453817)
+target_position = Vector3(0, 0, -8)
 collision_mask = 6
 collide_with_areas = true
 
 [node name="Marker" type="Node3D" parent="Gun"]
-transform = Transform3D( -0.1, 0, 8.74228e-09, 0, 0.1, 0, -8.74228e-09, 0, -0.1, -4.24016e-09, 0.00588375, 0.0485018 )
+transform = Transform3D(-0.1, 0, 8.74228e-09, 0, 0.1, 0, -8.74228e-09, 0, -0.1, -4.24016e-09, 0.00588375, 0.0485018)
 
-[node name="Particles" type="Particles" parent="Gun/Marker"]
+[node name="Particles" type="GPUParticles3D" parent="Gun/Marker"]
 emitting = false
 lifetime = 0.05
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource( 2 )
-draw_pass_1 = SubResource( 4 )
+process_material = SubResource("2")
+draw_pass_1 = SubResource("4")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Gun/Marker/Particles"]
 visible = false
-light_color = Color( 0.956863, 0.803922, 0.2, 1 )
+light_color = Color(0.956863, 0.803922, 0.2, 1)
 light_energy = 5.0
 shadow_enabled = true
 omni_range = 10.0
