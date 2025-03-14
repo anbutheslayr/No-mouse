@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/Materials/Yellow.png" type="Texture2D" id=1]
-[ext_resource path="res://Assets/Materials/Red.png" type="Texture2D" id=2]
-[ext_resource path="res://Scripts/Healthbar3d_enemy.cs" type="Script" id=3]
-[ext_resource path="res://Assets/Materials/pngegg.png" type="Texture2D" id=4]
+[ext_resource type="Texture2D" uid="uid://bh1khyvxmvn1h" path="res://Assets/Materials/Yellow.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bitf5qc7gqw0k" path="res://Assets/Materials/Red.png" id="2"]
+[ext_resource type="Script" uid="uid://w85v6wit44s6" path="res://Scripts/Ported scripts/Healthbar3d_enemy.cs" id="3"]
+[ext_resource type="Texture2D" uid="uid://k5br2fmv350f" path="res://Assets/Materials/pngegg.png" id="4"]
 
 [sub_resource type="ViewportTexture" id=18]
 viewport_path = NodePath("SubViewport")

@@ -1,17 +1,12 @@
+res://Scripts/GDscript/Healthbar3d.gd
+res://Scripts/GDscript/Healthbar3d_enemy.gd
+res://Scripts/GDscript/Movement.gd
 res://default_env.tres
-res://Interface/Start.tscn
+res://Scenes/taxi.tscn
 res://Scenes/Theme.tres
 res://Assets/Materials/particle mat/Debris.tres
 res://Assets/Materials/particle mat/fire.tres
 res://Assets/Materials/particle mat/ghost smoke.tres
 res://Assets/Materials/particle mat/Smoke.tres
 res://Assets/Materials/particle mat/Rocket particles.tres
-res://addons/dreadpon.spatial_gardener/utility/globals.gd
 res://taxi.tres
-res://Assets/gardener/toolshed.tres
-res://Assets/gardener/greenhouse.tres
-res://Scenes/Worlds/Cutscene.tscn
-res://Scripts/GDscript/settings.gd
-res://Scripts/GDscript/resolution.gd
-res://Scenes/Worlds/World.tscn
-res://Scripts/GDscript/Menu.gd
