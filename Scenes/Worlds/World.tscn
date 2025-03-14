@@ -1,28 +1,23 @@
-[gd_scene load_steps=239 format=3 uid="uid://c4sgpvheluqba"]
+[gd_scene load_steps=234 format=3 uid="uid://c4sgpvheluqba"]
 
 [ext_resource type="NavigationMesh" path="res://Scenes/Worlds/navmesh.tres" id="1"]
 [ext_resource type="Script" uid="uid://b8bhb6lkex73b" path="res://Scripts/GDscript/Follow.gd" id="1_acygn"]
 [ext_resource type="PackedScene" uid="uid://lx4qg1vxck7g" path="res://Assets/Models/Tracks/New/road.glb" id="2"]
 [ext_resource type="Script" uid="uid://co23g8nixu3cm" path="res://Scripts/GDscript/Enemyplane.gd" id="3_bbtet"]
 [ext_resource type="PackedScene" path="res://Interface/Death_screen.tscn" id="4"]
-[ext_resource type="Texture2D" uid="uid://bwk2pm26puqjj" path="res://Interface/Textures/Right.png" id="4_u030t"]
 [ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype21.tscn" id="5"]
-[ext_resource type="Texture2D" uid="uid://bysr1tpbd3eob" path="res://Interface/Textures/Right pressed.png" id="5_yi8pj"]
 [ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype20.tscn" id="6"]
-[ext_resource type="Texture2D" uid="uid://b0ege7rhvfh2b" path="res://Interface/Textures/Accelerate.png" id="6_81qvq"]
 [ext_resource type="PackedScene" path="res://Interface/Pause menu.tscn" id="7"]
-[ext_resource type="Texture2D" uid="uid://vwmolt5di2p" path="res://Interface/Textures/Acceleerate pressed.png" id="7_kyoyl"]
 [ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype19.tscn" id="8"]
-[ext_resource type="Texture2D" uid="uid://cyupnyl086dlt" path="res://Interface/Textures/Brake.png" id="8_ofvpi"]
 [ext_resource type="Material" path="res://Assets/Materials/Ground.material" id="9"]
-[ext_resource type="Texture2D" uid="uid://im27g3igcxgn" path="res://Interface/Textures/Brake pressed.png" id="9_5ku77"]
 [ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype17.tscn" id="10"]
 [ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype18.tscn" id="11"]
 [ext_resource type="PackedScene" path="res://Scenes/Enemy_Plane.tscn" id="13"]
-[ext_resource type="PackedScene" path="res://Scenes/taxi.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://gqjf08qmj56a" path="res://Scenes/taxi.tscn" id="15"]
 [ext_resource type="Script" uid="uid://bc7pailucq83t" path="res://addons/dreadpon.spatial_gardener/gardener/gardener.gd" id="17"]
 [ext_resource type="Script" uid="uid://dieiojnt518h" path="res://addons/dreadpon.spatial_gardener/arborist/mmi_octree/mmi_octree_node.gd" id="18"]
 [ext_resource type="Script" uid="uid://c4s4x5b27vdf6" path="res://addons/dreadpon.spatial_gardener/arborist/mmi_octree/mmi_octree_manager.gd" id="19"]
+[ext_resource type="Script" uid="uid://c2wqjrj1uronn" path="res://Scripts/GDscript/Deathscreen.gd" id="19_1o63k"]
 [ext_resource type="Script" uid="uid://d1pavk3gl4atd" path="res://addons/dreadpon.spatial_gardener/arborist/arborist.gd" id="20"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t2des"]
@@ -860,10 +855,10 @@ min_leaf_extent = 1.0
 octant = 0
 is_leaf = true
 center_pos = Vector3(-133.065, -120.849, -144.939)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-173.364, -161.149, -185.239, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -878,10 +873,10 @@ min_leaf_extent = 1.0
 octant = 1
 is_leaf = true
 center_pos = Vector3(-133.065, -120.849, -64.3398)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-173.364, -161.149, -104.64, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -1040,10 +1035,10 @@ min_leaf_extent = 1.0
 octant = 2
 is_leaf = false
 center_pos = Vector3(-133.065, -40.2497, -144.939)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-173.364, -80.5494, -185.239, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
@@ -1202,10 +1197,10 @@ min_leaf_extent = 1.0
 octant = 3
 is_leaf = false
 center_pos = Vector3(-133.065, -40.2497, -64.3398)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-173.364, -80.5494, -104.64, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
@@ -1220,10 +1215,10 @@ min_leaf_extent = 1.0
 octant = 4
 is_leaf = true
 center_pos = Vector3(-52.4651, -120.849, -144.939)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-92.7648, -161.149, -185.239, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -1238,10 +1233,10 @@ min_leaf_extent = 1.0
 octant = 5
 is_leaf = true
 center_pos = Vector3(-52.4651, -120.849, -64.3398)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-92.7648, -161.149, -104.64, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -1400,10 +1395,10 @@ min_leaf_extent = 1.0
 octant = 6
 is_leaf = false
 center_pos = Vector3(-52.4651, -40.2497, -144.939)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-92.7648, -80.5494, -185.239, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
@@ -1562,10 +1557,10 @@ min_leaf_extent = 1.0
 octant = 7
 is_leaf = false
 center_pos = Vector3(-52.4651, -40.2497, -64.3398)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-92.7648, -80.5494, -104.64, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
@@ -1580,10 +1575,10 @@ min_leaf_extent = 1.0
 octant = 0
 is_leaf = false
 center_pos = Vector3(-92.7648, -80.5494, -104.64)
-extent = 80.5994
+extent = 80.5995
 bounds = AABB(-173.364, -161.149, -185.239, 161.199, 161.199, 161.199)
 max_bounds_to_center_dist = 139.602
-min_bounds_to_center_dist = 80.5994
+min_bounds_to_center_dist = 80.5995
 active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
@@ -1598,10 +1593,10 @@ min_leaf_extent = 1.0
 octant = 0
 is_leaf = true
 center_pos = Vector3(-133.065, -120.849, 16.2596)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-173.364, -161.149, -24.0401, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -1616,10 +1611,10 @@ min_leaf_extent = 1.0
 octant = 1
 is_leaf = true
 center_pos = Vector3(-133.065, -120.849, 96.859)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-173.364, -161.149, 56.5593, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -1922,10 +1917,10 @@ min_leaf_extent = 1.0
 octant = 2
 is_leaf = false
 center_pos = Vector3(-133.065, -40.2497, 16.2596)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-173.364, -80.5494, -24.0401, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
@@ -1940,10 +1935,10 @@ min_leaf_extent = 1.0
 octant = 3
 is_leaf = true
 center_pos = Vector3(-133.065, -40.2497, 96.859)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-173.364, -80.5494, 56.5593, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -1958,10 +1953,10 @@ min_leaf_extent = 1.0
 octant = 4
 is_leaf = true
 center_pos = Vector3(-52.4651, -120.849, 16.2596)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-92.7648, -161.149, -24.0401, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -1976,10 +1971,10 @@ min_leaf_extent = 1.0
 octant = 5
 is_leaf = true
 center_pos = Vector3(-52.4651, -120.849, 96.859)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-92.7648, -161.149, 56.5593, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -2138,10 +2133,10 @@ min_leaf_extent = 1.0
 octant = 6
 is_leaf = false
 center_pos = Vector3(-52.4651, -40.2497, 16.2596)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-92.7648, -80.5494, -24.0401, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
@@ -2300,10 +2295,10 @@ min_leaf_extent = 1.0
 octant = 7
 is_leaf = false
 center_pos = Vector3(-52.4651, -40.2497, 96.859)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-92.7648, -80.5494, 56.5593, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -2318,10 +2313,10 @@ min_leaf_extent = 1.0
 octant = 1
 is_leaf = false
 center_pos = Vector3(-92.7648, -80.5494, 56.5593)
-extent = 80.5994
+extent = 80.5995
 bounds = AABB(-173.364, -161.149, -24.0401, 161.199, 161.199, 161.199)
 max_bounds_to_center_dist = 139.602
-min_bounds_to_center_dist = 80.5994
+min_bounds_to_center_dist = 80.5995
 active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
@@ -2336,10 +2331,10 @@ min_leaf_extent = 1.0
 octant = 2
 is_leaf = true
 center_pos = Vector3(-92.7648, 80.6494, -104.64)
-extent = 80.5994
+extent = 80.5995
 bounds = AABB(-173.364, 0.0500031, -185.239, 161.199, 161.199, 161.199)
 max_bounds_to_center_dist = 139.602
-min_bounds_to_center_dist = 80.5994
+min_bounds_to_center_dist = 80.5995
 active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
@@ -2354,10 +2349,10 @@ min_leaf_extent = 1.0
 octant = 3
 is_leaf = true
 center_pos = Vector3(-92.7648, 80.6494, 56.5593)
-extent = 80.5994
+extent = 80.5995
 bounds = AABB(-173.364, 0.0500031, -24.0401, 161.199, 161.199, 161.199)
 max_bounds_to_center_dist = 139.602
-min_bounds_to_center_dist = 80.5994
+min_bounds_to_center_dist = 80.5995
 active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
@@ -2372,10 +2367,10 @@ min_leaf_extent = 1.0
 octant = 0
 is_leaf = true
 center_pos = Vector3(28.1343, -120.849, -144.939)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-12.1654, -161.149, -185.239, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -2390,10 +2385,10 @@ min_leaf_extent = 1.0
 octant = 1
 is_leaf = true
 center_pos = Vector3(28.1343, -120.849, -64.3398)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-12.1654, -161.149, -104.64, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -2696,10 +2691,10 @@ min_leaf_extent = 1.0
 octant = 2
 is_leaf = false
 center_pos = Vector3(28.1343, -40.2497, -144.939)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-12.1654, -80.5494, -185.239, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3002,10 +2997,10 @@ min_leaf_extent = 1.0
 octant = 3
 is_leaf = false
 center_pos = Vector3(28.1343, -40.2497, -64.3398)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-12.1654, -80.5494, -104.64, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3020,10 +3015,10 @@ min_leaf_extent = 1.0
 octant = 4
 is_leaf = true
 center_pos = Vector3(108.734, -120.849, -144.939)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(68.434, -161.149, -185.239, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3038,10 +3033,10 @@ min_leaf_extent = 1.0
 octant = 5
 is_leaf = true
 center_pos = Vector3(108.734, -120.849, -64.3398)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(68.434, -161.149, -104.64, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3200,10 +3195,10 @@ min_leaf_extent = 1.0
 octant = 6
 is_leaf = false
 center_pos = Vector3(108.734, -40.2497, -144.939)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(68.434, -80.5494, -185.239, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3362,10 +3357,10 @@ min_leaf_extent = 1.0
 octant = 7
 is_leaf = false
 center_pos = Vector3(108.734, -40.2497, -64.3398)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(68.434, -80.5494, -104.64, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3380,10 +3375,10 @@ min_leaf_extent = 1.0
 octant = 4
 is_leaf = false
 center_pos = Vector3(68.434, -80.5494, -104.64)
-extent = 80.5994
+extent = 80.5995
 bounds = AABB(-12.1654, -161.149, -185.239, 161.199, 161.199, 161.199)
 max_bounds_to_center_dist = 139.602
-min_bounds_to_center_dist = 80.5994
+min_bounds_to_center_dist = 80.5995
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3398,10 +3393,10 @@ min_leaf_extent = 1.0
 octant = 0
 is_leaf = true
 center_pos = Vector3(28.1343, -120.849, 16.2596)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-12.1654, -161.149, -24.0401, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3416,10 +3411,10 @@ min_leaf_extent = 1.0
 octant = 1
 is_leaf = true
 center_pos = Vector3(28.1343, -120.849, 96.859)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-12.1654, -161.149, 56.5593, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3578,10 +3573,10 @@ min_leaf_extent = 1.0
 octant = 2
 is_leaf = false
 center_pos = Vector3(28.1343, -40.2497, 16.2596)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-12.1654, -80.5494, -24.0401, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3740,10 +3735,10 @@ min_leaf_extent = 1.0
 octant = 3
 is_leaf = false
 center_pos = Vector3(28.1343, -40.2497, 96.859)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(-12.1654, -80.5494, 56.5593, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3758,10 +3753,10 @@ min_leaf_extent = 1.0
 octant = 4
 is_leaf = true
 center_pos = Vector3(108.734, -120.849, 16.2596)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(68.434, -161.149, -24.0401, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3776,10 +3771,10 @@ min_leaf_extent = 1.0
 octant = 5
 is_leaf = true
 center_pos = Vector3(108.734, -120.849, 96.859)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(68.434, -161.149, 56.5593, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3938,10 +3933,10 @@ min_leaf_extent = 1.0
 octant = 6
 is_leaf = false
 center_pos = Vector3(108.734, -40.2497, 16.2596)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(68.434, -80.5494, -24.0401, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3956,10 +3951,10 @@ min_leaf_extent = 1.0
 octant = 7
 is_leaf = true
 center_pos = Vector3(108.734, -40.2497, 96.859)
-extent = 40.2997
+extent = 40.2998
 bounds = AABB(68.434, -80.5494, 56.5593, 80.5994, 80.5994, 80.5994)
-max_bounds_to_center_dist = 69.8011
-min_bounds_to_center_dist = 40.2997
+max_bounds_to_center_dist = 69.8012
+min_bounds_to_center_dist = 40.2998
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3974,10 +3969,10 @@ min_leaf_extent = 1.0
 octant = 5
 is_leaf = false
 center_pos = Vector3(68.434, -80.5494, 56.5593)
-extent = 80.5994
+extent = 80.5995
 bounds = AABB(-12.1654, -161.149, -24.0401, 161.199, 161.199, 161.199)
 max_bounds_to_center_dist = 139.602
-min_bounds_to_center_dist = 80.5994
+min_bounds_to_center_dist = 80.5995
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -3992,10 +3987,10 @@ min_leaf_extent = 1.0
 octant = 6
 is_leaf = true
 center_pos = Vector3(68.434, 80.6494, -104.64)
-extent = 80.5994
+extent = 80.5995
 bounds = AABB(-12.1654, 0.0500031, -185.239, 161.199, 161.199, 161.199)
 max_bounds_to_center_dist = 139.602
-min_bounds_to_center_dist = 80.5994
+min_bounds_to_center_dist = 80.5995
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -4010,10 +4005,10 @@ min_leaf_extent = 1.0
 octant = 7
 is_leaf = true
 center_pos = Vector3(68.434, 80.6494, 56.5593)
-extent = 80.5994
+extent = 80.5995
 bounds = AABB(-12.1654, 0.0500031, -24.0401, 161.199, 161.199, 161.199)
 max_bounds_to_center_dist = 139.602
-min_bounds_to_center_dist = 80.5994
+min_bounds_to_center_dist = 80.5995
 active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
@@ -4090,9 +4085,6 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
 [node name="Gun" parent="taxi/Node3D/body/MachineGun" index="0"]
 transform = Transform3D(-10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07)
 
-[node name="Particles" parent="taxi/Node3D/body/MachineGun/Gun/Marker" index="0"]
-emitting = false
-
 [node name="Stand" parent="taxi/Node3D/body/MachineGun" index="1"]
 mesh = SubResource("20")
 
@@ -4111,49 +4103,20 @@ libraries = {
 }
 
 [node name="Interface" parent="taxi" index="2"]
-layout_mode = 3
-anchors_preset = 15
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Ammo_text" parent="taxi/Interface" index="0"]
-layout_mode = 0
-
-[node name="Steering" parent="taxi/Interface" index="1"]
-anchors_preset = 0
-
-[node name="Left" parent="taxi/Interface/Steering" index="0"]
-texture_normal = ExtResource("4_u030t")
-texture_pressed = ExtResource("5_yi8pj")
-
-[node name="Right" parent="taxi/Interface/Steering" index="1"]
-texture_normal = ExtResource("4_u030t")
-texture_pressed = ExtResource("5_yi8pj")
-
-[node name="Acceleration" parent="taxi/Interface" index="2"]
-anchors_preset = 0
-
-[node name="Accelerate" parent="taxi/Interface/Acceleration" index="0"]
-texture_normal = ExtResource("6_81qvq")
-texture_pressed = ExtResource("7_kyoyl")
-
-[node name="Brake" parent="taxi/Interface/Acceleration" index="1"]
-texture_normal = ExtResource("8_ofvpi")
-texture_pressed = ExtResource("9_5ku77")
-
 [node name="Esc" parent="taxi/Interface" index="3"]
-layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 
 [node name="Enemy_spawntext" parent="taxi/Interface" index="4"]
-layout_mode = 0
 anchor_right = 0.0
 offset_top = 0.0
 offset_right = 1.0
 offset_bottom = 23.0
-horizontal_alignment = 1
 
 [node name="Drift_points" parent="taxi/Interface" index="5"]
-layout_mode = 0
 anchor_left = 0.0
 anchor_right = 0.0
 offset_left = 0.0
@@ -4162,20 +4125,17 @@ offset_right = 650.0
 offset_bottom = 63.0
 
 [node name="PanelContainer" parent="taxi/Interface" index="6"]
-layout_mode = 0
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 
-[node name="SubViewportContainer" parent="taxi/Interface/PanelContainer" index="0"]
-layout_mode = 2
-
 [node name="SubViewport" parent="taxi/Interface/PanelContainer/SubViewportContainer" index="0"]
-size = Vector2i(490, 242)
+size = Vector2i(2, 2)
 
 [node name="Rocket_button" parent="taxi/Interface" index="7"]
 layout_mode = 0
+anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -4334,8 +4294,8 @@ gardening/gardening_collision_mask = 4.0
 arborist = SubResource("Resource_jxt08")
 plugin_version = "1.4.1"
 storage_version = 4
-metadata/_custom_type_script = "uid://bc7pailucq83t"
 metadata/class = "Gardener"
+metadata/_custom_type_script = "uid://bc7pailucq83t"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.976682, 0.198491, -0.0818137, 0.065038, 0.63672, 0.768348, 0.204602, 0.74511, -0.634782, 37.7649, 5.43877, 0)
@@ -4363,6 +4323,7 @@ layout_mode = 3
 anchors_preset = 15
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("19_1o63k")
 
 [editable path="taxi"]
 [editable path="taxi/Node3D/Backright"]

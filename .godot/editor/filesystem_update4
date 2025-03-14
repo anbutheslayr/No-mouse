@@ -11,3 +11,7 @@ res://taxi.tres
 res://Assets/gardener/toolshed.tres
 res://Assets/gardener/greenhouse.tres
 res://Scenes/Worlds/Cutscene.tscn
+res://Scripts/GDscript/settings.gd
+res://Scripts/GDscript/resolution.gd
+res://Scenes/Worlds/World.tscn
+res://Scripts/GDscript/Menu.gd

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Interface/Textures/inst.png" type="Texture2D" id=2]
-[ext_resource path="res://Scripts/Menu.cs" type="Script" id=3]
-[ext_resource path="res://Scenes/FONT.tres" type="FontFile" id=4]
+[ext_resource type="Theme" uid="uid://6wasy10nsxp0" path="res://Scenes/Theme.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://ir2t6k5rugxb" path="res://Interface/Textures/inst.png" id="2"]
+[ext_resource type="Script" uid="uid://dq7o4wvxov4hc" path="res://Scripts/Ported scripts/Menu.cs" id="3"]
+[ext_resource type="FontFile" path="res://Scenes/FONT.tres" id="4"]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
