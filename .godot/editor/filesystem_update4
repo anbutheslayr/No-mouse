@@ -1,21 +1,13 @@
-res://Scenes/Worlds/World.tscn
 res://default_env.tres
-res://Scenes/Theme.tres
-res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
-res://taxi.tres
 res://Interface/Start.tscn
-res://Scripts/GDscript/Particle_loader.gd
+res://Scenes/Theme.tres
 res://Assets/Materials/particle mat/Debris.tres
 res://Assets/Materials/particle mat/fire.tres
 res://Assets/Materials/particle mat/ghost smoke.tres
 res://Assets/Materials/particle mat/Smoke.tres
 res://Assets/Materials/particle mat/Rocket particles.tres
-res://Scripts/GDscript/Start.gd
-res://Scripts/GDscript/Loading_screen.gd
-res://Scripts/GDscript/Ammo.gd
-res://Scripts/GDscript/Audioplayer.gd
-res://Scripts/GDscript/Deathscreen.gd
-res://Scripts/GDscript/resolution.gd
-res://Scripts/GDscript/Enemyplane.gd
-res://Scripts/GDscript/Explosion.gd
-res://Scripts/GDscript/Popuptext.gd
+res://addons/dreadpon.spatial_gardener/utility/globals.gd
+res://taxi.tres
+res://Assets/gardener/toolshed.tres
+res://Assets/gardener/greenhouse.tres
+res://Scenes/Worlds/Cutscene.tscn

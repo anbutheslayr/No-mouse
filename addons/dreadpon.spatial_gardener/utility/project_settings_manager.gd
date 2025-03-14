@@ -46,16 +46,16 @@ static func add_plugin_project_settings():
 		TYPE_FLOAT)
 	add_project_setting_globals_enum(
 		"dreadpons_spatial_gardener/input_and_ui/brush_prop_edit_button",
-		Globals.ButtonList.MOUSE_BUTTON_RIGHT, Globals.ButtonList)
+		Globals.MouseButton.MOUSE_BUTTON_XBUTTON1, Globals.MouseButton)
 	add_project_setting_globals_enum(
 		"dreadpons_spatial_gardener/input_and_ui/brush_prop_edit_modifier",
-		Globals.KeyList.KEY_SHIFT, Globals.KeyList)
+		Globals.KeyboardKey.KEY_SHIFT, Globals.KeyboardKey)
 	add_project_setting_globals_enum(
 		"dreadpons_spatial_gardener/input_and_ui/brush_overlap_mode_button",
-		Globals.KeyList.KEY_QUOTELEFT, Globals.KeyList)
+		Globals.KeyboardKey.KEY_QUOTELEFT, Globals.KeyboardKey)
 	add_project_setting_globals_enum(
 		"dreadpons_spatial_gardener/input_and_ui/focus_painter_key",
-		Globals.KeyList.KEY_Q, Globals.KeyList)
+		Globals.KeyboardKey.KEY_Q, Globals.KeyboardKey)
 	add_project_setting(
 		"dreadpons_spatial_gardener/input_and_ui/brush_volume_size_slider_max_value",
 		100.0,
@@ -86,14 +86,29 @@ static func add_plugin_project_settings():
 		"dreadpons_spatial_gardener/plugin/scan_for_outdated_scenes",
 		true,
 		TYPE_BOOL)
+	add_project_setting(
+		"dreadpons_spatial_gardener/plugin/is_threaded_LOD_update",
+		true,
+		TYPE_BOOL)
+	add_project_setting(
+		"dreadpons_spatial_gardener/plugin/use_precise_LOD_distances",
+		true,
+		TYPE_BOOL)
+	add_project_setting(
+		"dreadpons_spatial_gardener/plugin/use_precise_camera_frustum",
+		true,
+		TYPE_BOOL)
+	ProjectSettings.set_restart_if_changed("dreadpons_spatial_gardener/plugin/is_threaded_LOD_update", true)
+	ProjectSettings.set_restart_if_changed("dreadpons_spatial_gardener/plugin/use_precise_LOD_distances", true)
+	ProjectSettings.set_restart_if_changed("dreadpons_spatial_gardener/plugin/use_precise_camera_frustum", true)
 	
 	# Debug
 	add_project_setting_globals_enum(
 		"dreadpons_spatial_gardener/debug/dump_editor_tree_key",
-		Globals.KeyList.KEY_UNSET, Globals.KeyList)
+		Globals.KeyboardKey.KEY_NONE, Globals.KeyboardKey)
 	add_project_setting_globals_enum(
 		"dreadpons_spatial_gardener/debug/dump_all_octrees_key",
-		Globals.KeyList.KEY_UNSET, Globals.KeyList)
+		Globals.KeyboardKey.KEY_NONE, Globals.KeyboardKey)
 	add_project_setting(
 		"dreadpons_spatial_gardener/debug/arborist_log_lifecycle",
 		false,
@@ -118,6 +133,12 @@ static func add_plugin_project_settings():
 		"dreadpons_spatial_gardener/debug/stroke_handler_debug_draw",
 		false,
 		TYPE_BOOL)
+	# NOTE: this was removed because users shouldn't need acces to this variable, it's for internal and testing use only
+	#add_project_setting(
+		#"dreadpons_spatial_gardener/debug/force_readable_node_names",
+		#false,
+		#TYPE_BOOL)
+	#ProjectSettings.set_restart_if_changed("dreadpons_spatial_gardener/debug/force_readable_node_names", true)
 	
 	# Saving settings
 	var err: int = ProjectSettings.save()

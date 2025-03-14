@@ -22,12 +22,16 @@ var _thumb = null
 func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", settings:Dictionary = {}):
 	super(__init_val, __labelText, __prop_name, settings)
 	set_meta("class", "UI_IF_ThumbnailObject")
-
-
-func _ready():
+	
 	_thumb = _generate_thumbnail()
-	value_container.add_child(_thumb)
-	_init_ui()
+	_thumb.size_flags_horizontal = SIZE_EXPAND
+	container_box.add_child(_thumb)
+
+
+func _cleanup():
+	super()
+	if is_instance_valid(_thumb):
+		_thumb.queue_free()
 
 
 
@@ -38,12 +42,15 @@ func _ready():
 
 
 func _update_ui_to_prop_action(prop_action:PropAction, final_val):
-	if prop_action is PA_PropSet || prop_action is PA_PropEdit:
+	if is_instance_of(prop_action, PA_PropSet) || is_instance_of(prop_action, PA_PropEdit):
 		_update_ui_to_val(final_val)
 
 
 func _update_ui_to_val(val):
+	if !_thumb || !_thumb.is_node_ready():
+		await ready
 	_queue_thumbnail(val, _thumb)
+	super(val)
 
 
 func set_thumb_interaction_feature_with_data(interaction_flag:int, val, data:Dictionary):
@@ -62,15 +69,15 @@ func on_requested_clear(thumb):
 
 
 func on_check(state, thumb):
-	emit_signal("requested_check", 0, state)
+	requested_check.emit(0, state)
 
 
 func on_label_edit(label_text, thumb):
-	emit_signal("requested_label_edit", 0, label_text)
+	requested_label_edit.emit(0, label_text)
 
 
 func on_press(thumb):
-	emit_signal("requested_press", 0)
+	requested_press.emit(0)
 
 
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Assets/Materials/FrontColor.material" type="Material" id=1]
-[ext_resource path="res://Assets/Materials/Gray6.material" type="Material" id=2]
-[ext_resource path="res://Assets/Materials/Gray8.material" type="Material" id=3]
-[ext_resource path="res://Assets/Materials/Gray5.material" type="Material" id=4]
-[ext_resource path="res://Scripts/Gun.cs" type="Script" id=5]
-[ext_resource path="res://Assets/Materials/Muzzle.png" type="Texture2D" id=6]
+[ext_resource type="Material" path="res://Assets/Materials/FrontColor.material" id="1"]
+[ext_resource type="Material" path="res://Assets/Materials/Gray6.material" id="2"]
+[ext_resource type="Material" path="res://Assets/Materials/Gray8.material" id="3"]
+[ext_resource type="Material" path="res://Assets/Materials/Gray5.material" id="4"]
+[ext_resource type="Script" uid="uid://8etmv7hm332l" path="res://Scripts/Ported scripts/Gun.cs" id="5"]
+[ext_resource type="Texture2D" uid="uid://c3aqtnqlerqjt" path="res://Assets/Materials/Muzzle.png" id="6"]
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {

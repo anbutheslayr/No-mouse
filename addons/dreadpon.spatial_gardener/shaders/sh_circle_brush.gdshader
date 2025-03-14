@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode blend_mix,cull_disabled,unshaded,depth_draw_opaque,depth_test_disable;
+render_mode blend_mix,cull_disabled,unshaded,depth_draw_opaque,depth_test_disabled;
 
 
 // Base color + opacity

@@ -1,5 +1,5 @@
 @tool
-extends Node
+extends RefCounted
 
 #-------------------------------------------------------------------------------
 # A base object that gathers plant positions/overlaps
@@ -9,7 +9,7 @@ extends Node
 
 const Logger = preload("../../utility/logger.gd")
 const FunLib = preload("../../utility/fun_lib.gd")
-const DebugDraw = preload("../../utility/debug_draw.gd")
+const DponDebugDraw = preload("../../utility/debug_draw.gd")
 const Greenhouse_Plant = preload("../../greenhouse/greenhouse_plant.gd")
 const Placeform = preload("../placeform.gd")
 const Toolshed_Brush = preload("../../toolshed/toolshed_brush.gd")
@@ -145,7 +145,7 @@ func handle_plant_stroke(brush_data:Dictionary, container_transform:Transform3D,
 
 func volume_modify_brush_data_to_container(brush_data:Dictionary, container_transform:Transform3D):
 	brush_data = brush_data.duplicate()
-	brush_data.brush_pos = container_transform.affine_inverse() * (brush_data.brush_pos)
+	brush_data.brush_pos = container_transform.affine_inverse() * brush_data.brush_pos
 	return brush_data
 
 
@@ -171,20 +171,20 @@ func volume_get_stroke_update_changes(brush_data:Dictionary, plant:Greenhouse_Pl
 
 func proj_filter_placeforms_to_brush_circle(placeforms_data_in_frustum: Array, container_transform:Transform3D):
 	var brush_radius_squared: float = pow(brush.shape_projection_size * 0.5, 2.0)
-	var viewport_size := camera.get_viewport().size
+	var viewport_size: Vector2i = camera.get_viewport().size
 	
 	for i in range(placeforms_data_in_frustum.size() -1, -1, -1):
 		var placeform_data = placeforms_data_in_frustum[i]
-		var placement = container_transform * (placeform_data.placeform[0])
+		var placement = container_transform * placeform_data.placeform[0]
 		var screen_space_pos := camera.unproject_position(placement)
 		var dist_squared = (screen_space_pos - _cached_mouse_pos).length_squared()
 		
 		# Remove those outside brush radius
 		if dist_squared > brush_radius_squared:
-			placeforms_data_in_frustum.remove(i)
+			placeforms_data_in_frustum.remove_at(i)
 		# Remove those outside viewport
 		elif screen_space_pos.x < 0 || screen_space_pos.y < 0 || screen_space_pos.x > viewport_size.x || screen_space_pos.y > viewport_size.y:
-			placeforms_data_in_frustum.remove(i)
+			placeforms_data_in_frustum.remove_at(i)
 
 
 func proj_define_frustum(brush_data:Dictionary, frustum_planes: Array) -> Array:
@@ -211,12 +211,14 @@ func proj_filter_obstructed_placeforms(placeforms_data_in_frustum: Array, contai
 	for i in range(placeforms_data_in_frustum.size() -1, -1, -1):
 		var placeform_data = placeforms_data_in_frustum[i]
 		var ray_start: Vector3 = camera.global_transform.origin
-		var ray_vector = container_transform * (placeform_data.placeform[0]) - ray_start
+		var ray_vector = container_transform * placeform_data.placeform[0] - ray_start
 		var ray_end: Vector3 = ray_start + ray_vector.normalized() * (ray_vector.length() - raycast_margin)
-		var ray_result = space_state.intersect_ray(ray_start, ray_end)
 		
-		if !ray_result.is_empty() && ray_result.collider.collision_layer & collision_mask:
-			placeforms_data_in_frustum.remove(i)
+		var params = PhysicsRayQueryParameters3D.create(ray_start, ray_end, collision_mask)
+		var ray_result = space_state.intersect_ray(params)
+		
+		if !ray_result.is_empty():# && ray_result.collider.collision_layer & collision_mask:
+			placeforms_data_in_frustum.remove_at(i)
 
 
 # Called when the Painter brush stroke is updated (moved)
@@ -234,14 +236,14 @@ func proj_get_stroke_update_changes(placeforms_in_brush: Array, plant:Greenhouse
 
 # Recursively iterate over octree nodes to find nodes and members within brush frustum
 func proj_get_placeforms_data_in_frustum(frustum_planes: Array, placeforms_data_in_frustum: Array, octree_node: MMIOctreeNode, container_transform:Transform3D):
-	var octree_node_transform := Transform3D(container_transform.basis, container_transform * (octree_node.center_pos))
+	var octree_node_transform := Transform3D(container_transform.basis, container_transform * octree_node.center_pos)
 	var octree_node_extents := Vector3(octree_node.extent, octree_node.extent, octree_node.extent)
-	debug_draw_cube(octree_node_transform.origin, octree_node_extents, octree_node_transform.basis.get_rotation_quaternion(), octree_node_transform.basis)
+	debug_draw_cube(octree_node_transform.origin, octree_node_extents * 2.0, octree_node_transform.basis.get_rotation_quaternion(), octree_node_transform.basis)
 	
 	if is_box_intersecting_frustum(frustum_planes, octree_node_transform, octree_node_extents):
 		if octree_node.is_leaf:
 			var node_address = octree_node.get_address()
-			for member_idx in range(0, octree_node.member_count()):
+			for member_idx in range(0, octree_node.get_member_count()):
 				var placeform = octree_node.get_placeform(member_idx)
 				placeforms_data_in_frustum.append({"node_address": node_address, "member_idx": member_idx, "placeform": placeform})
 		else:
@@ -377,11 +379,11 @@ func debug_print_lifecycle(string:String):
 
 
 func debug_mk_debug_draw():
-	var context = camera.get_tree().edited_scene_root.find_child('Gardener').get_parent()
-	if !context.has_node('DebugDraw'):
-		var debug_draw := DebugDraw.new()
-		debug_draw.name = 'DebugDraw'
-		context.add_child(debug_draw)
+	var context = camera.get_tree().edited_scene_root#.find_child('Gardener').get_parent()
+	if !context.has_node('DponDebugDraw'):
+		var debug_draw := DponDebugDraw.new()
+		debug_draw.name = 'DponDebugDraw'
+		context.add_child(debug_draw, true)
 
 
 func debug_draw_plane_array(planes: Array, origin_points: Array, color: Color = Color.RED):
@@ -399,17 +401,17 @@ func debug_draw_point_array(points: Array, color: Color = Color.GREEN):
 func debug_draw_plane(draw_origin: Vector3, plane: Plane, color: Color = Color.RED):
 	if !debug_draw_enabled: return
 	var context = camera.get_tree().edited_scene_root.find_child('Gardener').get_parent()
-	context.get_node('DebugDraw').draw_plane(draw_origin, camera.far * 0.25, plane.normal, color, context, 2.0, camera.global_transform.basis.y, 10.0)
+	context.get_node('DponDebugDraw').draw_plane(draw_origin, camera.far * 0.5, plane.normal, color, context, 2.0, camera.global_transform.basis.y, 10.0)
 
 
 func debug_draw_point(draw_origin: Vector3, color: Color = Color.GREEN):
 	if !debug_draw_enabled: return
 	var context = camera.get_tree().edited_scene_root.find_child('Gardener').get_parent()
-	context.get_node('DebugDraw').draw_cube(draw_origin, Vector3.ONE, Quaternion(), color, context, 10.0)
+	context.get_node('DponDebugDraw').draw_cube(draw_origin, Vector3.ONE, Quaternion(), color, context, 10.0)
 
 
-func debug_draw_cube(draw_origin: Vector3, extents: Vector3, rotation: Quaternion, basis: Basis = Basis(), color: Color = Color.BLUE):
+func debug_draw_cube(draw_origin: Vector3, size: Vector3, rotation: Quaternion, basis: Basis = Basis(), color: Color = Color.BLUE):
 	if !debug_draw_enabled: return
 	var context = camera.get_tree().edited_scene_root.find_child('Gardener').get_parent()
-	extents = Vector3(extents.x * basis.x.length(), extents.y * basis.y.length(), extents.z * basis.z.length())
-	context.get_node('DebugDraw').draw_cube(draw_origin, extents, rotation, color, context, 10.0)
+	size = Vector3(size.x * basis.x.length(), size.y * basis.y.length(), size.z * basis.z.length())
+	context.get_node('DponDebugDraw').draw_cube(draw_origin, size, rotation, color, context, 10.0)

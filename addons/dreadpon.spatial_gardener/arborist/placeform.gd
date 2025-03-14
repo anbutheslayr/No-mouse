@@ -5,7 +5,7 @@ extends RefCounted
 #-------------------------------------------------------------------------------
 # PLACEment transFORM
 # A pseudo-struct meant to store a placement (initial position), surface normal
-# Final Transform and an occupied octree octant (what part of the 2x2x2 cube it's in)
+# Final Transform3D and an occupied octree octant (what part of the 2x2x2 cube it's in)
 #
 # Originally was a resource, but after some quick tests, the overhead of having 
 # Thousands of Resources as simple containers became apparent

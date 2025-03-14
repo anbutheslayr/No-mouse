@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bxinedchewcd1"
+uid="uid://btvadi4yk0a3y"
 path="res://.godot/imported/Urbanist-Regular.ttf-43977583ef0eb0baed07360c77f30dfb.fontdata"
 
 [deps]
@@ -22,7 +22,7 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 hinting=1
-subpixel_positioning=4
+subpixel_positioning=1
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null

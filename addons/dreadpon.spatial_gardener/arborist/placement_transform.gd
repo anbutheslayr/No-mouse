@@ -4,7 +4,7 @@ extends Resource
 
 #-------------------------------------------------------------------------------
 # A resource that stores a placement (initial position), surface normal
-# Final Transform and an occupied octree octant (what part of the 2x2x2 cube it's in)
+# Final Transform3D and an occupied octree octant (what part of the 2x2x2 cube it's in)
 # Ideally this should be a struct to avoid the overhead of saving/loading thousands of small resources
 #-------------------------------------------------------------------------------
 

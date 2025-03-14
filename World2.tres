@@ -1,25 +1,15 @@
-[gd_resource type="Environment" load_steps=2 format=2]
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://bgf5j778jifvk"]
 
-[sub_resource type="Sky" id=1]
-sky_top_color = Color( 0.968627, 0.458824, 0.698039, 1 )
-sky_horizon_color = Color( 0.0627451, 0.211765, 0.329412, 1 )
-sky_energy = 4.0
-ground_bottom_color = Color( 0.0627451, 0.211765, 0.329412, 1 )
-ground_horizon_color = Color( 0.968627, 0.458824, 0.545098, 1 )
-sun_color = Color( 0.972549, 0.054902, 0.827451, 1 )
-sun_angle_min = 3.59
+[sub_resource type="Sky" id="1"]
 
 [resource]
 background_mode = 2
-background_sky = SubResource( 1 )
+sky = SubResource("1")
 ambient_light_sky_contribution = 0.1
-fog_color = Color( 0.713726, 0.462745, 0.8, 1 )
-fog_sun_color = Color( 1, 1, 1, 1 )
-fog_depth_begin = 25.1
-fog_depth_end = 73.5
 tonemap_mode = 2
 tonemap_white = 16.0
-auto_exposure_scale = 1.0
 glow_enabled = true
 glow_intensity = 0.53
 glow_bloom = 1.0
+fog_depth_begin = 25.1
+fog_depth_end = 73.5

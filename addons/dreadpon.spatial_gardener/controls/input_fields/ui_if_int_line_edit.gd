@@ -25,21 +25,23 @@ func _init(__init_val, __labelText:String = "NONE", __prop_name:String = "", set
 	value_input = LineEdit.new()
 	value_input.name = "value_input"
 	value_input.size_flags_horizontal = SIZE_EXPAND_FILL
-	value_input.size_flags_stretch_ratio = 0.5
 	value_input.custom_minimum_size.x = 25.0
 	value_input.size_flags_vertical = SIZE_SHRINK_CENTER
-	value_input.connect("focus_entered", Callable(self, "select_line_edit").bind(value_input, true))
-	value_input.connect("focus_exited", Callable(self, "select_line_edit").bind(value_input, false))
+	value_input.focus_entered.connect(select_line_edit.bind(value_input, true))
+	value_input.focus_exited.connect(select_line_edit.bind(value_input, false))
 	# focus_exited is our main signal to commit the value in LineEdit
 	# release_focus() is expected to be called when pressing enter and only then we commit the value
-	value_input.connect("focus_exited", Callable(self, "focus_lost").bind(value_input))
-	value_input.connect("gui_input", Callable(self, "on_node_received_input").bind(value_input))
-	ThemeAdapter.assign_node_type(value_input, 'IF_LineEdit')
+	value_input.focus_exited.connect(focus_lost.bind(value_input))
+	value_input.gui_input.connect(on_node_received_input.bind(value_input))
+	value_input.theme_type_variation = "IF_LineEdit"
+	
+	container_box.add_child(value_input)
 
 
-func _ready():
-	value_container.add_child(value_input)
-	_init_ui()
+func _cleanup():
+	super()
+	if is_instance_valid(value_input):
+		value_input.queue_free()
 
 
 
@@ -50,13 +52,13 @@ func _ready():
 
 
 func _update_ui_to_prop_action(prop_action:PropAction, final_val):
-	if prop_action is PA_PropSet || prop_action is PA_PropEdit:
+	if is_instance_of(prop_action, PA_PropSet) || is_instance_of(prop_action, PA_PropEdit):
 		_update_ui_to_val(final_val)
 
 
 func _update_ui_to_val(val):
 	val = _string_to_val(val)
-	value_input.text = String(val)
+	value_input.text = str(val)
 	super._update_ui_to_val(val)
 
 
@@ -69,7 +71,7 @@ func _string_to_val(string) -> int:
 	elif string is int:
 		return string
 	else:
-		logger.warn("Passed variable is not a string!")
+		logger.warn("Passed variable is not a string or int!")
 	return 0
 
 
