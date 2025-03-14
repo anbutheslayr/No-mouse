@@ -1,7 +1,7 @@
 [gd_scene load_steps=47 format=4 uid="uid://gqjf08qmj56a"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Healthbar3d.tscn" id="1"]
-[ext_resource type="Script" uid="uid://c0pn6sieqx4iw" path="res://Scripts/Movement.cs" id="2"]
+[ext_resource type="Script" uid="uid://c0pn6sieqx4iw" path="res://Scripts/Ported scripts/Movement.cs" id="2"]
 [ext_resource type="ArrayMesh" uid="uid://cdhyjuk3j3inm" path="res://taxi.tres" id="3"]
 [ext_resource type="PackedScene" path="res://Scenes/Smoke.tscn" id="4"]
 [ext_resource type="PackedScene" path="res://Assets/Models/Guns/Machine gun.tscn" id="5"]
@@ -942,6 +942,8 @@ pitch_scale = 3.0
 [node name="Interface" parent="." instance=ExtResource("10")]
 layout_mode = 3
 anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Ammo_text" parent="Interface" index="0"]
 layout_mode = 0
@@ -987,10 +989,20 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Enemy_spawntext" parent="Interface" index="4"]
 layout_mode = 0
+anchor_right = 0.0
+offset_top = 0.0
+offset_right = 1.0
+offset_bottom = 23.0
 horizontal_alignment = 1
 
 [node name="Drift_points" parent="Interface" index="5"]
 layout_mode = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 650.0
+offset_bottom = 63.0
 
 [node name="PanelContainer" type="PanelContainer" parent="Interface"]
 visible = false
@@ -1007,7 +1019,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="Interface/PanelContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(490, 242)
+size = Vector2i(2, 2)
 size_2d_override_stretch = true
 render_target_update_mode = 0
 

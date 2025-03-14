@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dd8yuun8686c1" path="res://Assets/Materials/Switch.png" id="20"]
 [ext_resource type="Texture2D" uid="uid://b5w67jnupauvc" path="res://Assets/Materials/player.png" id="21"]
 [ext_resource type="Texture2D" uid="uid://dnmx0rluldc8b" path="res://Assets/Materials/Switch Selected.png" id="22"]
-[ext_resource type="Script" uid="uid://c0pn6sieqx4iw" path="res://Scripts/Movement.cs" id="23"]
+[ext_resource type="Script" uid="uid://c0pn6sieqx4iw" path="res://Scripts/Ported scripts/Movement.cs" id="23"]
 [ext_resource type="PackedScene" uid="uid://lx4qg1vxck7g" path="res://Assets/Models/Tracks/New/road.glb" id="24"]
 
 [sub_resource type="Sky" id=1]
