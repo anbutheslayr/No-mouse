@@ -30,7 +30,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var targetpos : Transform3D = target.global_transform.translated(offset)
+	var targetpos : Transform3D = target.global_transform.translated_local(offset)
 	targetpos.origin.y = max(targetpos.origin.y, target.global_transform.origin.y + offset.y)
 	raycast.global_position = rayp.global_position
 	var dir = global_position - raycast.global_position
