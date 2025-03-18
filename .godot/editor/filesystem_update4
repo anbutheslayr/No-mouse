@@ -1,13 +1,3 @@
-res://default_env.tres
-res://Interface/Start.tscn
-res://Scenes/Theme.tres
-res://Assets/Materials/particle mat/Debris.tres
-res://Assets/Materials/particle mat/fire.tres
-res://Assets/Materials/particle mat/ghost smoke.tres
-res://Assets/Materials/particle mat/Smoke.tres
-res://Assets/Materials/particle mat/Rocket particles.tres
-res://taxi.tres
-res://Scenes/Worlds/test.tscn
-res://Scenes/taxi.tscn
-res://Scripts/GDscript/Movement.gd
 res://Scripts/GDscript/Follow.gd
+res://Scripts/GDscript/Movement.gd
+res://Scripts/GDscript/Enemy_taxi.gd
