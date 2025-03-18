@@ -22,7 +22,6 @@ extends Node3D
 @export var right_path: NodePath
 @export var damage_multiplier: float = 1.0
 @export var health: float = 100.0
-@export var ramp_speed: float = 3.0
 @export var jump_ht: float = 2.5
 @export var drift_multiplier: int = 1
 @export var im: int = 0
@@ -59,7 +58,6 @@ var expl = preload("res://Scenes/Explosion.tscn")
 @onready var grav = ProjectSettings.get_setting("physics/3d/default_gravity")
 var speed_input: float = 0.0
 var steering_input: float = 0.0
-var is_on_ramp: bool = false
 var col_time: float = 0.0
 var col: bool = false
 var rc_iscol
@@ -116,7 +114,7 @@ func _process(delta: float) -> void:
 		b_l.emitting = true
 		b_r.emitting = true
 		var points = ball_vel.length()/60*(1-dot_pr)*drift_multiplier
-		# interface.add_drift_points(points)
+		interface.add_drift_points(points)
 		if(!drift.playing):
 			drift.playing = true
 	else:

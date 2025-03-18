@@ -1,27 +1,25 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://dn2ifqeeaevsw"]
 
-[sub_resource type="StandardMaterial3D" id=4]
-albedo_color = Color( 0.0666667, 0.0627451, 0.0627451, 1 )
+[sub_resource type="StandardMaterial3D" id="4"]
+albedo_color = Color(0.0666667, 0.0627451, 0.0627451, 1)
 emission_enabled = true
-emission = Color( 0.333333, 0.32549, 0.32549, 1 )
-emission_energy = 1.0
-emission_operator = 0
-emission_on_uv2 = false
+emission = Color(0.333333, 0.32549, 0.32549, 1)
 
-[sub_resource type="SphereMesh" id=1]
-material = SubResource( 4 )
+[sub_resource type="SphereMesh" id="1"]
+material = SubResource("4")
 radius = 0.2
 height = 0.4
 radial_segments = 9
 rings = 9
 
-[sub_resource type="Curve" id=2]
-max_value = 2.0
-_data = [ Vector2( 0.011745, 0.190184 ), 0.0, 0.461866, 0, 0, Vector2( 0.360738, 0.95092 ), 1.10086, 0.0, 0, 0 ]
+[sub_resource type="Curve" id="2"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0.011745, 0.190184), 0.0, 0.461866, 0, 0, Vector2(0.360738, 0.95092), 1.10086, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="Gradient" id=3]
-offsets = PackedFloat32Array( 0, 0.537879, 1 )
-colors = PackedColorArray( 0, 0, 0, 1, 0.529412, 0.529412, 0.529412, 1, 1, 1, 1, 1 )
+[sub_resource type="Gradient" id="3"]
+offsets = PackedFloat32Array(0, 0.537879, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.529412, 0.529412, 0.529412, 1, 1, 1, 1, 1)
 
 [node name="Node3D" type="Node3D"]
 
@@ -29,15 +27,10 @@ colors = PackedColorArray( 0, 0, 0, 1, 0.529412, 0.529412, 0.529412, 1, 1, 1, 1,
 emitting = false
 amount = 25
 lifetime = 0.3
-local_coords = false
-mesh = SubResource( 1 )
+mesh = SubResource("1")
 spread = 50.0
-gravity = Vector3( 0, 10, 0 )
-initial_velocity = 3.0
-initial_velocity_random = 1.0
-angular_velocity = 1.0
-angular_velocity_random = 0.15
-scale_amount = 1.5
-scale_amount_random = 1.0
-scale_amount_curve = SubResource( 2 )
-color_ramp = SubResource( 3 )
+gravity = Vector3(0, 10, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.85
+scale_amount_curve = SubResource("2")
+color_ramp = SubResource("3")

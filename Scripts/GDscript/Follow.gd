@@ -14,7 +14,7 @@ extends Camera3D
 
 @onready var target : MeshInstance3D = get_node(target_path)
 @onready var rayp : Node3D = target.get_node("Raycol")
-# @onready var gun : Gun = target.get_node("body/MachineGun")
+@onready var gun : Gun = target.get_node("body/MachineGun")
 var raycast : RayCast3D
 var trauma = 0
 var time=0
@@ -36,10 +36,10 @@ func _physics_process(delta: float) -> void:
 	var dir = global_position - raycast.global_position
 	raycast.target_position = dir
 	raycast.force_raycast_update()
-	# if(gun.closest_enemy != null ||raycast.get_collider() is StaticBody3D):
-		# global_position = global_position.lerp(Vector3(targetpos.x, 25, targetpos.z),col_lerp_speed*delta)
-	# else:
-	global_position = global_position.lerp(targetpos.origin, lerp_speed*delta)
+	if(gun.closest_enemy ||raycast.get_collider() is StaticBody3D):
+		global_position = global_position.lerp(Vector3(targetpos.origin.x, 25, targetpos.origin.z),col_lerp_speed*delta)
+	else:
+		global_position = global_position.lerp(targetpos.origin, lerp_speed*delta)
 	look_at(target.global_transform.origin, Vector3.UP)
 	trauma = max(trauma - trauma_red_rate*delta, 0)
 	time += delta
