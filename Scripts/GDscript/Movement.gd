@@ -114,7 +114,7 @@ func _process(delta: float) -> void:
 		b_l.emitting = true
 		b_r.emitting = true
 		var points = ball_vel.length()/60*(1-dot_pr)*drift_multiplier
-		interface.add_drift_points(points)
+		# interface.add_drift_points(points)
 		if(!drift.playing):
 			drift.playing = true
 	else:

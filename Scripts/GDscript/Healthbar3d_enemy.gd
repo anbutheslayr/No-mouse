@@ -6,10 +6,10 @@ extends Node3D
 @onready var texture_progress : TextureProgressBar = get_node(texture_progress_path)
 @onready var texture_progress_under : TextureProgressBar = get_node(texture_progress_under_path)
 
-var tween : Tween = Tween.new()
+
 
 func change_health(health : int):
     
-    tween.tween_property(texture_progress, "value", health, 0.15).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_IN)
-    tween.tween_property(texture_progress_under, "value", health, 0.7).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+    create_tween().tween_property(texture_progress, "value", health, 0.15).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_IN)
+    create_tween().tween_property(texture_progress_under, "value", health, 0.7).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 
