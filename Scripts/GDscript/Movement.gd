@@ -70,7 +70,7 @@ func _ready():
 	part_change()
 
 func _physics_process(_delta: float) -> void:
-	rc_iscol = (fr.is_colliding() and fl.is_colliding() and bl.is_colliding())
+	rc_iscol = (fr.is_colliding() or fl.is_colliding() or bl.is_colliding())
 	# Align mesh with sphere
 	
 	car_mesh.transform.origin = ball.transform.origin + sphere_offset  
@@ -109,7 +109,7 @@ func _process(delta: float) -> void:
 	var ball_vel = ball.linear_velocity
 	var car_forward = car_mesh.global_transform.basis.z.normalized()
 	var dot_pr = ball_vel.normalized().dot(car_forward)
-	print(dot_pr)
+
 	if bl.is_colliding() and ball_vel.length() > 13 and dot_pr > -.85 and dot_pr < 0:
 		b_l.emitting = true
 		b_r.emitting = true

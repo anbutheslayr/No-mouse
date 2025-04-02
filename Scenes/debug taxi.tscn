@@ -1,52 +1,14 @@
-[gd_scene load_steps=51 format=4 uid="uid://c6r5lrpplp4rw"]
+[gd_scene load_steps=20 format=4 uid="uid://dy7p05afv8ia6"]
 
-[ext_resource type="Script" uid="uid://b8bhb6lkex73b" path="res://Scripts/GDscript/Follow.gd" id="1_al5em"]
-[ext_resource type="Material" path="res://Assets/Materials/Ground.material" id="1_nukgt"]
-[ext_resource type="Script" uid="uid://ciwkt07qufcgw" path="res://Scripts/GDscript/Movement.gd" id="4_r321y"]
-[ext_resource type="NavigationMesh" uid="uid://ctggdgq25evi4" path="res://Scenes/Worlds/navmesh.tres" id="5_at387"]
-[ext_resource type="PackedScene" path="res://Scenes/Smoke_graveyard.tscn" id="5_nbs6v"]
-[ext_resource type="PackedScene" uid="uid://dn2ifqeeaevsw" path="res://Scenes/Smoke.tscn" id="6_qs6pn"]
-[ext_resource type="AudioStream" uid="uid://dyoldkhjja8x1" path="res://Assets/Audio/drift.mp3" id="7_al5em"]
-[ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype21.tscn" id="7_gjajs"]
-[ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype20.tscn" id="8_4xv5r"]
-[ext_resource type="ArrayMesh" uid="uid://cdhyjuk3j3inm" path="res://taxi.tres" id="8_dnpvv"]
-[ext_resource type="PackedScene" uid="uid://jpi7seohr20e" path="res://Assets/Models/Guns/Machine gun.tscn" id="8_g50ho"]
-[ext_resource type="AudioStream" uid="uid://dwjbwg6ej0fr" path="res://Assets/Audio/Rifle.mp3" id="9_eqmx8"]
-[ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype19.tscn" id="9_wpte4"]
-[ext_resource type="PackedScene" path="res://Assets/Models/Guns/Rocket Launcher.tscn" id="10_1ftn1"]
-[ext_resource type="PackedScene" uid="uid://dy7p05afv8ia6" path="res://Scenes/debug taxi.tscn" id="10_7wb15"]
-[ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype18.tscn" id="10_eah8x"]
-[ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype17.tscn" id="11_rj01l"]
-[ext_resource type="PackedScene" uid="uid://lx4qg1vxck7g" path="res://Assets/Models/Tracks/New/road.glb" id="12_0flx4"]
-[ext_resource type="PackedScene" uid="uid://p67cldlwo417" path="res://Scenes/Healthbar3d.tscn" id="12_r0ccd"]
-[ext_resource type="Texture2D" uid="uid://b5w67jnupauvc" path="res://Assets/Materials/player.png" id="13_gjepw"]
-[ext_resource type="AudioStream" uid="uid://xwpaac22ka33" path="res://Assets/Audio/clank-car-crash-collision-6206.mp3" id="14_akdms"]
+[ext_resource type="Script" uid="uid://dfkkqo5nnnbas" path="res://Scenes/Worlds/debug_taxi.gd" id="1_pqxrf"]
+[ext_resource type="PackedScene" path="res://Scenes/Smoke_graveyard.tscn" id="2_pp025"]
+[ext_resource type="PackedScene" uid="uid://dn2ifqeeaevsw" path="res://Scenes/Smoke.tscn" id="3_t6pfl"]
+[ext_resource type="AudioStream" uid="uid://dyoldkhjja8x1" path="res://Assets/Audio/drift.mp3" id="4_khxlk"]
+[ext_resource type="ArrayMesh" uid="uid://cdhyjuk3j3inm" path="res://taxi.tres" id="5_4x5ad"]
+[ext_resource type="PackedScene" uid="uid://btfo473jchvpv" path="res://Scenes/EnemyHealthbar.tscn" id="6_kki3i"]
+[ext_resource type="Texture2D" uid="uid://ceixi42wyqtay" path="res://Assets/Materials/enemy.png" id="7_4lhns"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t2des"]
-sky_top_color = Color(0.850239, 0.877928, 0.916642, 1)
-sky_horizon_color = Color(0.284834, 0.697366, 0.940076, 1)
-sky_curve = 0.90943
-
-[sub_resource type="Sky" id="1"]
-sky_material = SubResource("ProceduralSkyMaterial_t2des")
-
-[sub_resource type="Environment" id="17"]
-background_mode = 2
-sky = SubResource("1")
-ambient_light_sky_contribution = 0.1
-tonemap_mode = 2
-tonemap_white = 16.0
-glow_enabled = true
-glow_intensity = 1.12
-glow_strength = 0.69
-glow_bloom = 1.0
-glow_blend_mode = 1
-fog_depth_begin = 25.1
-fog_depth_end = 73.5
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_bbtet"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_738rb"]
+[sub_resource type="StandardMaterial3D" id="1"]
 resource_name = "plastic"
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.376471, 0.376471, 0.376471, 1)
@@ -67,18 +29,18 @@ emission_energy_multiplier = 0.2
 [sub_resource type="StandardMaterial3D" id="13"]
 resource_name = "paintYellow"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.740017, 0.259434, 1)
+albedo_color = Color(0.835294, 0.0980392, 0.286275, 1)
 metallic = 1.0
 emission_enabled = true
-emission = Color(0.752941, 0.639216, 0.121569, 1)
+emission = Color(0.752941, 0.121569, 0.121569, 1)
 
 [sub_resource type="StandardMaterial3D" id="14"]
 resource_name = "lightFront"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.740017, 0.259434, 1)
+albedo_color = Color(0.960784, 0.72549, 0.258824, 1)
 metallic = 1.0
 emission_enabled = true
-emission = Color(0.752941, 0.639216, 0.121569, 1)
+emission = Color(0.960784, 0.72549, 0.258824, 1)
 
 [sub_resource type="StandardMaterial3D" id="15"]
 resource_name = "_defaultMat"
@@ -104,7 +66,6 @@ albedo_color = Color(1, 0.34902, 0.227451, 1)
 metallic = 1.0
 emission_enabled = true
 emission = Color(1, 0.34902, 0.227451, 1)
-emission_energy_multiplier = 0.2
 
 [sub_resource type="StandardMaterial3D" id="8"]
 resource_name = "wheelInside"
@@ -123,7 +84,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 996,
 "index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYABwAIAAYACAAJAAYACQAKAAYACQALAAoACwAMAAoACwANAAwACwAOAA0ADgAPAA0ADgAQAA8ADgARABAAEQASABAAEQATABIAEwAUABIAEwAVABQAEwAWABUAFgAXABUAFgAYABcAGAAZABcAGAAaABkAGgAbABkAGgAcABsAGgAdABwAHQAeABwAHQAfAB4AHQAgAB8AHQAhACAAIAAiAB8AIAAjACIAIwAkACIAJAAlACIAJQAmACIAJQAnACYAJwAoACYAJwApACgAJwAqACkAKgArACkAKgAsACsAKgAtACwALQAuACwALQAvAC4ALwAwAC4ALwAxADAALwAyADEAMgAzADEAMgA0ADMANAA1ADMANAA2ADUANgA3ADUANgA4ADcANgA5ADgAOQA6ADgAOQA7ADoAOQA8ADsAOQA9ADwAOQA+AD0APQA/ADwAQgBAAEEAQwBCAEEAQwBEAEIARQBDAEEARgBFAEEARwBGAEEARwBBAEgASQBHAEgASgBJAEgASgBIAEsATABKAEsATABLAE0ATgBMAE0ATwBOAE0ATwBNAFAAUQBPAFAAUQBQAFIAUwBRAFIAUwBSAFQAVQBTAFQAVgBVAFQAVgBUAFcAWABWAFcAWQBYAFcAVwBaAFkAWwBZAFoAWwBaAFwAWwBcAF0AWwBdAF4AXwBbAF4AXwBeAGAAXgBhAGAAYgBfAGAAYwBiAGAAYwBgAGQAZQBjAGQAZgBlAGQAZgBkAGcAaABmAGcAaABnAGkAagBoAGkAawBqAGkAawBpAGwAbQBrAGwAbQBsAG4AbwBtAG4AbwBuAHAAcQBvAHAAcgBxAHAAcgBwAHMAdAByAHMAdQB0AHMAcwB2AHUAdwB1AHYAdwB2AHgAdwB4AHkAegB3AHkAeQB7AHoAfgB8AH0AfQB/AH4AfwCAAH4AgACBAH4AhACCAIMAgwCFAIQAhQCGAIQAhgCHAIQAhwCIAIQAiwCJAIoAigCMAIsAjwCNAI4AjgCQAI8AkwCRAJIAkgCUAJMAlwCVAJYAlgCYAJcAmwCZAJoAmgCcAJsAnwCdAJ4AngCgAJ8AowChAKIAogCkAKMAogClAKQAqACmAKcApwCpAKgArACqAKsAqwCtAKwAsACuAK8ArwCxALAAtACyALMAswC1ALQAuAC2ALcAtwC5ALgAvAC6ALsAuwC9ALwAwAC+AL8AvwDBAMAAxADCAMMAwwDFAMQAyADGAMcAxwDJAMgAzADKAMsAywDNAMwA0ADOAM8AzwDRANAAzwDSANEAzwDTANIAzwDUANMA1wDVANYA1gDYANcA2wDZANoA2gDcANsA2gDdANwA2gDeAN0A2gDfAN4A3wDgAN4A3wDhAOAA3wDiAOEA5QDjAOQA5ADmAOUA6QDnAOgA6ADqAOkA6gDrAOkA6wDsAOkA7ADtAOkA7ADuAO0A7gDvAO0A7wDwAO0A8wDxAPIA8gD0APMA9wD1APYA9gD4APcA+wD5APoA+gD8APsA/wD9AP4A/gAAAf8AAwEBAQIBAgEEAQMBBwEFAQYBBgEIAQcBCwEJAQoBCgEMAQsBDAENAQsBEAEOAQ8BDwERARABFAESARMBEwEVARQBGAEWARcBFwEZARgBFwEaARkBHQEbARwBHAEeAR0BHgEfAR0BIgEgASEBIQEjASIBJgEkASUBJQEnASYBKgEoASkBKQErASoBKwEsASoBLwEtAS4BLgEwAS8BMAExAS8BNAEyATMBMwE1ATQBOAE2ATcBNwE5ATgBPAE6ATsBOwE9ATwBQAE+AT8BPwFBAUABRAFCAUMBQwFFAUQBSAFGAUcBRwFJAUgBTAFKAUsBSwFNAUwBUAFOAU8BTwFRAVABTwFSAVEBVQFTAVQBVAFWAVUBWQFXAVgBWAFaAVkBWAFbAVoBXgFcAV0BXQFfAV4BYgFgAWEBYQFjAWIBZgFkAWUBZQFnAWYBagFoAWkBaQFrAWoBbgFsAW0BbQFvAW4BbQFwAW8BbQFxAXABdAFyAXMBcwF1AXQBeAF2AXcBeAF3AXkBegF4AXkBewF6AXkBfAF7AXkBeQF9AXwBfgF8AX0BfgF9AX8BgAF+AX8BfwGBAYABhAGCAYMBgwGFAYQBiAGGAYcBhwGJAYgBjAGKAYsBiwGNAYwBkAGOAY8BjwGRAZABlAGSAZMBkwGVAZQBmAGWAZcBlwGZAZgBnAGaAZsBmwGdAZwBoAGeAZ8BnwGhAaABpAGiAaMBowGlAaQBpQGjAaYBpQGmAacBpQGnAagBpQGpAaQBqQGqAaQBqwGlAagBqwGoAawBrQGrAawBrgGtAawBrAGvAa4BsgGwAbEBsQGzAbIBtgG0AbUBtQG3AbYBugG4AbkBuQG7AboBvgG8Ab0BvQG/Ab4BwgHAAcEBwQHDAcIBxgHEAcUBxQHHAcYBxQHIAccByQHHAcgBygHJAcgBywHKAcgBzAHLAcgByAHNAcwByQHOAccByQHPAc4ByQHQAc8B0AHRAc8BzgHSAccBxwHSAdMB1AHTAdIB0gHVAdQB1QHWAdQBxwHTAdcB0wHYAdcB2QHHAdcB2AHaAdcB2AHbAdoB2QHXAdwB2QHcAd0B2QHdAd4B3gHfAdkB"),
-"material": SubResource("StandardMaterial3D_738rb"),
+"material": SubResource("1"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 1018,
@@ -207,620 +168,23 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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zcwMv5qZmT7NzEy+zcwMv2Zm5j7NzEy+zcwMv5qZmT7NzMw+zczMvc3MjD/NzEw9zczMPc3MjD/NzEw9zcxMvWZmpj/NzEw9zcxMPWZmpj/NzEw9zcxMvWZmpj/NzEw9zczMPc3MjD/NzEw9zcxMvWZmpj/NzAw/zczMvc3MjD/NzAw/zcxMvWZmpj/NzEw9zczMvc3MjD/NzEw9zcxMvWZmpj/NzEw9zczMvc3MjD/NzAw/zczMPc3MjD/NzAw/zczMvc3MjD/NzAw/zcxMPWZmpj/NzAw/zcxMvWZmpj/NzAw/zcxMPWZmpj/NzAw/zczMvc3MjD/NzAw/zcxMvWZmpj/NzAw/zcxMvWZmpj/NzEw9zcxMPWZmpj/NzAw/zcxMPWZmpj/NzEw9zcxMPWZmpj/NzAw/zcxMvWZmpj/NzEw9zczMPc3MjD/NzAw/zcxMPWZmpj/NzAw/zczMPc3MjD/NzEw9zcxMPWZmpj/NzEw9zczMPc3MjD/NzEw9zcxMPWZmpj/NzAw/zcyMvpqZGT/NzAy/zcyMPpqZGT/NzAy/zcwMv5qZGT9wU6W+zcwMP5qZGT9wU6W+zcwMPwAAAD+Zmbk/zcwMvwAAAD+Zmbk/zcyMvpqZmT4zM5O/zcyMPpqZmT4zM5O/zcyMvpqZmT4zM5O/zcyMPpqZmT4zM5O/AAAcDv9/fr8AABwO/39+vwAANBr/f36/AAAwGP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr9CoMLg/39+v0KgwuD/f36/QqDC4P9/fr9CoMLg/39+v0KgwuD/f36/QqDC4P9/fr9CoMLg/39+v0KgwuD/f36/QqDC4P9/fr9CoMLg/39+v0KgwuD/f36/QqDC4P9/fr9CoMLg/39+v1wu/3//f36/fj//f/9/fr9cLv9//39+v34//3//f36/NBr/f/9/fr9cLv9//39+vzQa/3//f36/XC7/f/9/fr8AAKBQ/39+vwAAyGT/f36/AACgUP9/fr8AAMhk/39+vzQa/3//f36/XC7/f/9/fr80Gv9//39+v1wu/3//f36/AAB+P/9/fr8AAKBQ/39+vwAAfj//f36/AACgUP9/fr8AADQa/39+vwAAXC7/f36/AAAwGP9/fr8AAFgs/39+v6RS/3//f36/jkf/f/9/fr+gUP9//39+v34//3//f36/fj//f/9/fr9cLv9//39+v34//3//f36/XC7/f/9/fr9+P/9//39+vwAAfj//f36/AACgUP9/fr8AAH4//39+vwAAoFD/f36/XC7/f/9/fr9+P/9//39+v1wu/3//f36/fj//f/9/fr8AAMhk/39+vwAA/3//f36/AADIZP9/fr8AAP9//39+vwAA/3//f36/NBr/f/9/fr8AAP9//39+vzQa/3//f36/XC7/f/9/fr9+P/9//39+v1wu/3//f36/fj//f/9/fr8AAP9//39+vzQa/3//f36/AAD/f/9/fr80Gv9//39+vwAA/3//f36/NBr/f/9/fr8AAP9//39+vzQa/3//f36/AAA0Gv9/fr8AADAY/39+vwAAXC7/f36/AABYLP9/fr8AAKBQ/39+vwAAyGT/f36/AACgUP9/fr8AAMhk/39+v75fwuD/f36/vl/C4P9/fr++X8Lg/39+v75fwuD/f36/vl/C4P9/fr++X8Lg/39+v75fwuD/f36/zGb/f/9/fr/IZP9//39+v6RS/3//f36/oFD/f/9/fr++X8Lg/39+v75fwuD/f36/vl/C4P9/fr++X8Lg/39+v75fwuD/f36/vl/C4P9/fr++X8Lg/39+v75fwuD/f36/vl/C4P9/fr++X8Lg/39+v8hk/3//f36/zGb/f/9/fr+gUP9//39+v6RS/3//f36/QqDC4P9/fr9CoMLg/39+v0KgwuD/f36/QqDC4P9/fr9CoMLg/39+v0KgwuD/f36/QqDC4P9/fr9CoMLg/39+v0KgwuD/f36/QqDC4P9/fr/IZP9//39+v6BQ/3//f36/zGb/f/9/fr+kUv9//39+vwAAfj//f36/AACgUP9/fr8AAH4//39+vwAAoFD/f36/AADIZP9/fr8AAP9//39+vwAAyGT/f36/AAD/f/9/fr8AADQa/39+vwAAMBj/f36/AABcLv9/fr8AAFgs/39+vwAAHA7/f36/AAAcDv9/fr8AADQa/39+vwAAMBj/f36/zGb/f/9/fr+kUv9//39+v8hk/3//f36/oFD/f/9/fr8AAFwu/39+vwAAWCz/f36/AAB+P/9/fr8AAG43/39+vwAAfj//f36/4HD/f/9/fr/MZv9//39+v+Bw/3//f36/yGT/f/9/fr8AAMhk/39+vwAA/3//f36/AADIZP9/fr8AAP9//39+v6RS/3//f36/jkf/f/9/fr+gUP9//39+v34//3//f36/fj//f/9/fr8AAFgs/39+vwAAXC7/f36/AABuN/9/fr8AAH4//39+vwAAfj//f36/AAAcDv9/fr8AABwO/39+vwAAMBj/f36/AAA0Gv9/fr80Gv9//39+v1wu/3//f36/NBr/f/9/fr9cLv9//39+v6RS/3//f36/oFD/f/9/fr+OR/9//39+v34//3//f36/fj//f/9/fr+kUv9//39+v6BQ/3//f36/jkf/f/9/fr9+P/9//39+v34//3//f36/AADIZP9/fr8AAP9//39+vwAAyGT/f36/AAD/f/9/fr8AAP9//39+vzQa/3//f36/AAD/f/9/fr80Gv9//39+vwAAHA7/f36/AAAcDv9/fr8AADAY/39+vwAANBr/f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr8AAKBQ/39+vwAAyGT/f36/AACgUP9/fr8AAMhk/39+vwAANBr/f36/AABcLv9/fr8AADAY/39+vwAAWCz/f36/4HD/f/9/fr/gcP9//39+v8xm/3//f36/yGT/f/9/fr8AAFgs/39+vwAAbjf/f36/AABcLv9/fr8AAH4//39+vwAAfj//f36/AACgUP9/fr8AAMhk/39+vwAAoFD/f36/AADIZP9/fr8AAFwu/39+vwAAfj//f36/AABYLP9/fr8AAG43/39+vwAAfj//f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr80Gv9//39+v1wu/3//f36/NBr/f/9/fr9cLv9//39+v+Bw/3//f36/4HD/f/9/fr/MZv9//39+v8hk/3//f36/AAB+P/9/fr8AAKBQ/39+vwAAfj//f36/AACgUP9/fr++X8Lg/39+v75fwuD/f36/vl/C4P9/fr++X8Lg/39+v75fwuD/f36/vl/C4P9/fr/gcP9//39+v+Bw/3//f36/yGT/f/9/fr/MZv9//39+vwAA/3//f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr8AAP9//39+vwAAnM3/f36/AACczf9/fr8AAJzN/39+vwAAnM3/f36/vl8BgP9/fr++XwGAAAB+v75fAYD/f36/vl8BgP9/fr++XwGAAAB+v75fAYD/f36/vl8BgP9/fr++XwGA/39+v/9/sln/f36//39+P/9/fr//f7JZ/39+v/9/fj//f36/AYBKJf9/fr8BgEol/39+vwGAfj//f36/AYB+P/9/fr//f/9//39+v/9//3//f36//3//f/9/fr//f/9//39+vwGAfj//f36/AYCyWf9/fr8BgH4//39+vwGAsln/f36//39KJf9/fr//f0ol/39+v/9/fj//f36//39+P/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/ttoAAP9/fr+CwAAA/39+v7baAAD/f36/gsAAAP9/fr9+PwAA/39+v34/AAD/f36/slkAAP9/fr+yWQAA/39+v4LAAAD/f36/gsAAAP9/fr9OpgAA/39+v06mAAD/f36/AAAAAP9/fr8AAAAA/39+vwAAAAD/f36/AAAAAP9/fr9+PwAA/39+v0olAAD/f36/fj8AAP9/fr9KJQAA/39+vwAAAYD/f36/AAABgP9/fr8AAAGA/39+vwAAAYD/f36/AAABgP9/fr8AAAGA/39+vwAAAYD/f36/AAABgP9/fr8AAAGA/39+vwAAAYD/f36/AAABgP9/fr8AAAGA/39+vwAAAYD/f36/AAABgP9/fr8AAAGA/39+vwAAAYD/f36/AAABgP9/fr8AAAGA/39+vwAAAYD/f36/AAABgP9/fr8AAAGA/39+vwAAAYD/f36/AAABgP9/fr8AAAGA/39+vwAAAYD/f36/AAABgP9/fr8AAAGA/39+vwAAAYD/f36/AACk0f9/fr8AAILA/39+vwAApNH/f36/AACCwP9/fr8AAGCv/39+vwAAOJv/f36/AABgr/9/fr8AADib/39+v8hkAYD/f36/yGQBgP9/fr+gUAGA/39+v6BQAYD/f36/AABgr/9/fr8AADib/39+vwAAYK//f36/AAA4m/9/fr8AAKTR/39+vwAAgsD/f36/AACk0f9/fr8AAILA/39+vwAAAAD/f36/AAAAAP9/fr8AAPL4/39+vwAA8vj/f36/AAABgP9/fr80GgGA/39+vwAAAYD/f36/NBoBgP9/fr//f/9//39+v/9//3//f36/7ncBgP9/fr/udwGA/39+v/9//3//f36//3//f/9/fr/udwGA/39+v+53AYD/f36/AACCwP9/fr8AAGCv/39+vwAAgsD/f36/AABgr/9/fr9cLgGA/39+v34/AYD/f36/XC4BgP9/fr9+PwGA/39+v1wuAYD/f36/fj8BgP9/fr9cLgGA/39+v34/AYD/f36/AAA4m/9/fr8AAAGA/39+vwAAOJv/f36/AAABgP9/fr80GgGA/39+v1wuAYD/f36/NBoBgP9/fr9cLgGA/39+v6BQAYD/f36/oFABgP9/fr9+PwGA/39+v34/AYD/f36/AACCwP9/fr8AAGCv/39+vwAAgsD/f36/AABgr/9/fr/udwGA/39+v+53AYD/f36/yGQBgP9/fr/IZAGA/39+vwAAzOX/f36/AACk0f9/fr8AAMzl/39+vwAApNH/f36/AADy+P9/fr8AAMzl/39+vwAA8vj/f36/AADM5f9/fr/udwGA/39+v+53AYD/f36/yGQBgP9/fr/IZAGA/39+vzQaAYD/f36/XC4BgP9/fr80GgGA/39+v1wuAYD/f36/yGQBgP9/fr/IZAGA/39+v6BQAYD/f36/oFABgP9/fr8AAPL4/39+vwAAzOX/f36/AADy+P9/fr8AAMzl/39+v6BQAYD/f36/oFABgP9/fr9+PwGA/39+v34/AYD/f36/AADM5f9/fr8AAKTR/39+vwAAzOX/f36/AACk0f9/fr8AADib/39+vwAAAYD/f36/AAA4m/9/fr8AAAGA/39+vwAAAAD/f36/AAAAAP9/fr8AAPL4/39+vwAA8vj/f36/AAABgP9/fr80GgGA/39+vwAAAYD/f36/NBoBgP9/fr8AAPL4/39+vwAA8vj/f36/AADM5f9/fr8AAMzl/39+v/9//3//f36//3//f/9/fr/udwGA/39+v+53AYD/f36/AAABgP9/fr80GgGA/39+vwAAAYD/f36/NBoBgP9/fr80GgGA/39+v1wuAYD/f36/NBoBgP9/fr9cLgGA/39+vwAApNH/f36/AACk0f9/fr8AAILA/39+vwAAgsD/f36/7ncBgP9/fr/udwGA/39+v8hkAYD/f36/yGQBgP9/fr+gUAGA/39+v6BQAYD/f36/fj8BgP9/fr9+PwGA/39+v8hkAYD/f36/yGQBgP9/fr+gUAGA/39+v6BQAYD/f36/XC4BgP9/fr9+PwGA/39+v1wuAYD/f36/fj8BgP9/fr8AAILA/39+vwAAYK//f36/AACCwP9/fr8AAGCv/39+vwAAOJv/f36/AAABgP9/fr8AADib/39+vwAAAYD/f36/AADM5f9/fr8AAMzl/39+vwAApNH/f36/AACk0f9/fr8AAGCv/39+vwAAOJv/f36/AABgr/9/fr8AADib/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwAAAAD/f36/AAAAAP9/fr8AAPL4/39+vwAA8vj/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36/AAAAAP9/fr8AAAAA/39+vwAA8vj/f36/AADy+P9/fr8AAPL4/39+vwAA8vj/f36/AADM5f9/fr8AAMzl/39+v/9//3//f36//3//f/9/fr/udwGA/39+v+53AYD/f36/AAABgP9/fr80GgGA/39+vwAAAYD/f36/NBoBgP9/fr80GgGA/39+v1wuAYD/f36/NBoBgP9/fr9cLgGA/39+vwAApNH/f36/AACCwP9/fr8AAKTR/39+vwAAgsD/f36/7ncBgP9/fr/udwGA/39+v8hkAYD/f36/yGQBgP9/fr+gUAGA/39+v6BQAYD/f36/fj8BgP9/fr9+PwGA/39+v8hkAYD/f36/yGQBgP9/fr+gUAGA/39+v6BQAYD/f36/AACCwP9/fr8AAGCv/39+vwAAgsD/f36/AABgr/9/fr8AADib/39+vwAAAYD/f36/AAA4m/9/fr8AAAGA/39+v1wuAYD/f36/fj8BgP9/fr9cLgGA/39+v34/AYD/f36/AADM5f9/fr8AAMzl/39+vwAApNH/f36/AACk0f9/fr8AAGCv/39+vwAAOJv/f36/AABgr/9/fr8AADib/39+v4JBjkf/f36/NhvodP9/fr//fwAA/39+vwGAAAD/f36/yuTodP9/fr9+vo5H/39+v/9//3//f36//3//f/9/fr//f/9//39+v/9//3//f36/gsB+P/9/fr+CwH4//39+vwAA/3//f36/AAD/f/9/fr8AAAGA/39+vwAAAYD/f36/AAABgP9/fr8AAAGA/39+vwAA0mn/f36/AACOR/9/fr8AANJp/39+vwAAjkf/f36/AADSaf9/fr8AANJp/39+vwAAAYD/f36/AAABgP9/fr8AAAGA/39+vwAAAYD/f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr9+P34//39+v34/fj//f36/AAAAAP9/fr8AAAAA/39+vwAAAAD/f36/AAAAAP9/fr8AAAAA/39+vwAAAAD/f36/AAAAAP9/fr8AAAAA/39+v/9//3//f36//3//f/9/fr//f/9//39+v/9//3//f36//38AAP9/fr9+P34//39+v/9/AAD/f36/fj9+P/9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr+CwH4//39+vwGAAAD/f36/gsB+P/9/fr8BgAAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+vwAA/3//f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr//f/9//39+v/9//3//f36//3//f/9/fr//f/9/AAB+vzYb6HT/f36/gkGOR/9/fr/K5Oh0/39+v36+jkf/f36/LpYqFf9/fr8ulioV/39+vy6WKhX/f36/LpYqFf9/fr8ulioV/39+vy6WKhX/f36/LpYqFf9/fr8ulioV/39+v4xG/3//f36/jEb/f/9/fr9UKv9//39+v4xG/3//f36/jEb/f/9/fr9UKv9//39+v4xG/3//f36/jEb/f/9/fr/SaSoV/39+v9JpKhX/f36/0mkqFf9/fr/SaSoV/39+v9JpKhX/f36/0mkqFf9/fr/SaSoV/39+v9JpKhX/f36//3//f/9/fr//f/9//39+v/9//38AAH6//3//f/9/fr9UKv9//39+vwAA/3//f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr9UKv9//39+vwAA/3//f36/AACOR/9/fr8AAEgk/39+vwAAjkf/f36/AABIJP9/fr8AAEgk/39+vwAASCT/f36/AABIJP9/fr8AAEgk/39+v/9//3//f36//3//f/9/fr//f/9//39+v/9//3//f36/AAAAAP9/fr8AAAAA/39+vwAAAAD/f36/AAAAAP9/fr8AAAAA/39+vwAAAAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36//38AAP9/fr//fwAA/39+v/9/AAD/f36/AAAAAP9/fr8AAAAA/39+vwAAAAD/f36/AAAAAP9/fr8AAAAA/39+vwAAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36/AYAAAP9/fr8BgAAA/39+vwGAAAD/f36//3//f/9/fr//f/9//39+v/9//3//f36//3//f/9/fr//f/9//39+v/9//3//f36/NpoyGf9/fr82mjIZ/39+vzaaMhn/f36/NpoyGf9/fr82mjIZ/39+vzaaMhn/f36/AAAAAP9/fr8AAAAA/39+vwAAAAD/f36/AAAAAP9/fr8AAAAA/39+vwAAAAD/f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/AAD/f/9/fr8AAP9//39+vwAA/3//f36/ymUyGf9/fr/KZTIZ/39+v8plMhn/f36/ymUyGf9/fr/KZTIZ/39+v8plMhn/f36/jEb/f/9/fr+MRv9//39+vy6WKhX/f36/0mkqFf9/fr8AAAAA/39+vwAAAAD/f36/2m0BgAAAfr/abQGAAAB+v9ptAYAAAH6/2m0BgAAAfr8=")
 }]
 
-[sub_resource type="BoxMesh" id="20"]
-size = Vector3(0.005, 0.087, 0.007)
-
-[sub_resource type="BoxMesh" id="21"]
-size = Vector3(-0.012, 0.087, -0.018)
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_afyqv"]
-height = 3.59778
-radius = 10.0
-
-[sub_resource type="Animation" id="23"]
-resource_name = "Gun_descend"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/MachineGun/Gun:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.00407523, 0.908774),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.146015, 4.76837e-07), Vector3(0, -0.970469, 4.76837e-07)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/MachineGun/Gun:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.00407523, 0.201724, 0.625547, 0.908774),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -180, 0), Vector3(-38.1986, -159.914, -30.5963), Vector3(-90, -179.999, 0), Vector3(-90, -179.999, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body/MachineGun/Stand:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0030297, 0.908774),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.172817, 0.0648999), Vector3(0, -1.3908, 0.0648999)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("body/MachineGun/Base:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.000640213, 0.91285),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.62009, 0.0648999), Vector3(0, -1.62987, 0.0648999)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight3D:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="22"]
-resource_name = "Gun_rise"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/MachineGun/Gun:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.939339),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.970469, 4.76837e-07), Vector3(0, 0, 0.0546631)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/MachineGun/Gun:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.256739, 0.615359, 0.935263),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-90, -179.999, 0), Vector3(-90, -179.999, 0), Vector3(-38.1986, -159.914, -30.5963), Vector3(0, -180, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body/MachineGun/Stand:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.941376),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -1.3908, 0.0648999), Vector3(0, -0.3439, 0.0648999)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("body/MachineGun/Base:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.903302),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -1.62987, 0.0648999), Vector3(0, -0.62009, 0.0648999)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight3D:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="18"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/MachineGun/AudioStreamPlayer:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/MachineGun/Gun:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.970469, 4.76837e-07)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body/MachineGun/Gun:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-90, 180, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("body/MachineGun/Gun/Marker/Particles:emitting")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.001),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight3D:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("body/MachineGun/Stand:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -1.3908, 0.0648999)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("body/MachineGun/Base:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -1.62987, 0.0648999)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("body/Rocket Launcher:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.0892019, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("body/Rocket Launcher:rotation_degrees")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -90, 0)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("body/MachineGun/Stand:mesh")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [SubResource("20")]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("body/MachineGun/Base:mesh")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [SubResource("21")]
-}
-
-[sub_resource type="Animation" id="24"]
-resource_name = "Reload"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/MachineGun/Gun:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0163009, 0.458857, 0.649365, 0.8386, 1.27103),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -180, 0), Vector3(-180, -180, 0), Vector3(-154.615, -180, 0), Vector3(-180, -180, 0), Vector3(0, -180, 0)]
-}
-
-[sub_resource type="Animation" id="27"]
-resource_name = "Rocket_reload"
-length = 1.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/Rocket Launcher:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.0892019, 0), Vector3(0, 2, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/Rocket Launcher:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 1, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -90, 0), Vector3(0, -90, -90), Vector3(0, -90, -90), Vector3(0, -90, -53.531)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body/MachineGun/Stand:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -1.3908, 0.0648999), Vector3(0, 0.0207081, 0.0648999)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("body/MachineGun/Base:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -1.30323, 0.0648999), Vector3(0, -0.631757, 0.0648999)]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("body/MachineGun")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"Rocket_reload"
-}]
-}
-
-[sub_resource type="Animation" id="26"]
-resource_name = "Rocket_rise"
-length = 1.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/Rocket Launcher:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.0892019, 0), Vector3(0, 2, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/Rocket Launcher:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 1, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -90, 0), Vector3(0, -90, -90), Vector3(0, -90, -90), Vector3(0, -90, -53.531)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body/MachineGun/Stand:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -1.3908, 0.0648999), Vector3(0, 0.0207081, 0.0648999)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("body/MachineGun/Base:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -1.30323, 0.0648999), Vector3(0, -0.631757, 0.0648999)]
-}
-
-[sub_resource type="Animation" id="19"]
-resource_name = "Shoot"
-length = 0.15
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/MachineGun")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"OnShoot"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/MachineGun/AudioStreamPlayer:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.00047946),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body/MachineGun/Gun:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0026065, 0.029532, 0.040353),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0935564), Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("body/MachineGun/Gun:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.0026065, 0.0291666, 0.0407526),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -180, 0), Vector3(-26.162, -180, 0), Vector3(0, -180, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles:emitting")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight3D:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.001166, 0.0256039),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_37yd7"]
-_data = {
-&"Gun_descend": SubResource("23"),
-&"Gun_rise": SubResource("22"),
-&"RESET": SubResource("18"),
-&"Reload": SubResource("24"),
-&"Rocket_reload": SubResource("27"),
-&"Rocket_rise": SubResource("26"),
-&"Shoot": SubResource("19")
-}
+[sub_resource type="ConcavePolygonShape3D" id="17"]
+data = PackedVector3Array(0.65, 0.2009, 1.2367, 0.65, 0.2, 1.2368, 0.5167, 0.2, 1.2368, 0.5167, 0.2, 1.2368, 0.517, 0.2009, 1.2367, 0.65, 0.2009, 1.2367, 0.65, 0, 1.16, 0.65, 0, 1.35, 0.65, 0.2, 1.35, 0.65, 0.2, 1.35, 0.65, 0.2, 1.2368, 0.65, 0, 1.16, 0.65, 0.2, 1.2368, 0.65, 0.2009, 1.2367, 0.65, 0, 1.16, 0.65, 0.2009, 1.2367, 0.65, 0.295, 1.1978, 0.65, 0, 1.16, 0.65, 0.295, 1.1978, 0.65, 0.1, 1.16, 0.65, 0, 1.16, 0.65, 0.295, 1.1978, 0.65, 0.3758, 1.1358, 0.65, 0.1, 1.16, 0.65, 0.3758, 1.1358, 0.65, 0.1776, 1.1498, 0.65, 0.1, 1.16, 0.65, 0.3758, 1.1358, 0.65, 0.25, 1.1198, 0.65, 0.1776, 1.1498, 0.65, 0.3758, 1.1358, 0.65, 0.4377, 1.055, 0.65, 0.25, 1.1198, 0.65, 0.4377, 1.055, 0.65, 0.3121, 1.0721, 0.65, 0.25, 1.1198, 0.65, 0.4377, 1.055, 0.65, 0.3598, 1.01, 0.65, 0.3121, 1.0721, 0.65, 0.4377, 1.055, 0.65, 0.4767, 0.9609, 0.65, 0.3598, 1.01, 0.65, 0.4767, 0.9609, 0.65, 0.3898, 0.9376, 0.65, 0.3598, 1.01, 0.65, 0.4767, 0.9609, 0.65, 0.49, 0.86, 0.65, 0.3898, 0.9376, 0.65, 0.49, 0.86, 0.65, 0.4, 0.86, 0.65, 0.3898, 0.9376, 0.65, 0.49, 0.86, 0.65, 0.3898, 0.7824, 0.65, 0.4, 0.86, 0.65, 0.49, 0.86, 0.65, 0.4767, 0.7591, 0.65, 0.3898, 0.7824, 0.65, 0.4767, 0.7591, 0.65, 0.3598, 0.71, 0.65, 0.3898, 0.7824, 0.65, 0.4767, 0.7591, 0.65, 0.4377, 0.665, 0.65, 0.3598, 0.71, 0.65, 0.4377, 0.665, 0.65, 0.3121, 0.6479, 0.65, 0.3598, 0.71, 0.65, 0.4377, 0.665, 0.65, 0.3758, 0.5842, 0.65, 0.3121, 0.6479, 0.65, 0.3758, 0.5842, 0.65, 0.25, 0.6002, 0.65, 0.3121, 0.6479, 0.65, 0.3758, 0.5842, 0.65, 0.1776, 0.5702, 0.65, 0.25, 0.6002, 0.65, 0.3758, 0.5842, 0.65, 0.295, 0.5223, 0.65, 0.1776, 0.5702, 0.65, 0.295, 0.5223, 0.65, 0.1, 0.56, 0.65, 0.1776, 0.5702, 0.65, 0.295, 0.5223, 0.65, 0, 0.56, 0.65, 0.1, 0.56, 0.65, 0.295, 0.5223, 0.65, 0.1, 0.47, 0.65, 0, 0.56, 0.65, 0.295, 0.5223, 0.65, 0.2009, 0.4833, 0.65, 0.1, 0.47, 0.65, 0.1, 0.47, 0.65, 0, -0.36, 0.65, 0, 0.56, 0.65, 0.1, 0.47, 0.65, 0.1, -0.27, 0.65, 0, -0.36, 0.65, 0.1, -0.27, 0.65, 0.2009, -0.2833, 0.65, 0, -0.36, 0.65, 0.2009, -0.2833, 0.65, 0.295, -0.3223, 0.65, 0, -0.36, 0.65, 0.295, -0.3223, 0.65, 0.1, -0.36, 0.65, 0, -0.36, 0.65, 0.295, -0.3223, 0.65, 0.3758, -0.3842, 0.65, 0.1, -0.36, 0.65, 0.3758, -0.3842, 0.65, 0.1776, -0.3702, 0.65, 0.1, -0.36, 0.65, 0.3758, -0.3842, 0.65, 0.25, -0.4002, 0.65, 0.1776, -0.3702, 0.65, 0.3758, -0.3842, 0.65, 0.4377, -0.465, 0.65, 0.25, -0.4002, 0.65, 0.4377, -0.465, 0.65, 0.3121, -0.4479, 0.65, 0.25, -0.4002, 0.65, 0.4377, -0.465, 0.65, 0.3598, -0.51, 0.65, 0.3121, -0.4479, 0.65, 0.4377, -0.465, 0.65, 0.4767, -0.5591, 0.65, 0.3598, -0.51, 0.65, 0.4767, -0.5591, 0.65, 0.3898, -0.5824, 0.65, 0.3598, -0.51, 0.65, 0.4767, -0.5591, 0.65, 0.49, -0.66, 0.65, 0.3898, -0.5824, 0.65, 0.49, -0.66, 0.65, 0.4, -0.66, 0.65, 0.3898, -0.5824, 0.65, 0.49, -0.66, 0.65, 0.3898, -0.7376, 0.65, 0.4, -0.66, 0.65, 0.49, -0.66, 0.65, 0.4767, -0.7609, 0.65, 0.3898, -0.7376, 0.65, 0.4767, -0.7609, 0.65, 0.3598, -0.81, 0.65, 0.3898, -0.7376, 0.65, 0.4767, -0.7609, 0.65, 0.4377, -0.855, 0.65, 0.3598, -0.81, 0.65, 0.4377, -0.855, 0.65, 0.3121, -0.8721, 0.65, 0.3598, -0.81, 0.65, 0.4377, -0.855, 0.65, 0.3758, -0.9358, 0.65, 0.3121, -0.8721, 0.65, 0.3758, -0.9358, 0.65, 0.25, -0.9198, 0.65, 0.3121, -0.8721, 0.65, 0.3758, -0.9358, 0.65, 0.1776, -0.9498, 0.65, 0.25, -0.9198, 0.65, 0.3758, -0.9358, 0.65, 0.295, -0.9977, 0.65, 0.1776, -0.9498, 0.65, 0.295, -0.9977, 0.65, 0.1, -0.96, 0.65, 0.1776, -0.9498, 0.65, 0.295, -0.9977, 0.65, 0, -0.96, 0.65, 0.1, -0.96, 0.65, 0.295, -0.9977, 0.65, 0, -1.1, 0.65, 0, -0.96, 0.65, 0.295, -0.9977, 0.65, 0.2, -1.0368, 0.65, 0, -1.1, 0.65, 0.295, -0.9977, 0.65, 0.2009, -1.0367, 0.65, 0.2, -1.0368, 0.65, 0.2, -1.0368, 0.65, 0.2, -1.1, 0.65, 0, -1.1, -0.65, 0.2, -1.0368, -0.65, 0.2009, -1.0367, -0.65, 0.295, -0.9977, -0.65, 0, -1.1, -0.65, 0.2, -1.0368, -0.65, 0.295, -0.9977, -0.65, 0, -1.1, -0.65, 0.2, -1.1, -0.65, 0.2, -1.0368, -0.65, 0, -0.96, -0.65, 0, -1.1, -0.65, 0.295, -0.9977, -0.65, 0.1, -0.96, -0.65, 0, -0.96, -0.65, 0.295, -0.9977, -0.65, 0.1776, -0.9498, -0.65, 0.1, -0.96, -0.65, 0.295, -0.9977, -0.65, 0.1776, -0.9498, -0.65, 0.295, -0.9977, -0.65, 0.3758, -0.9358, -0.65, 0.25, -0.9198, -0.65, 0.1776, -0.9498, -0.65, 0.3758, -0.9358, -0.65, 0.3121, -0.8721, -0.65, 0.25, -0.9198, -0.65, 0.3758, -0.9358, -0.65, 0.3121, -0.8721, -0.65, 0.3758, -0.9358, -0.65, 0.4377, -0.855, -0.65, 0.3598, -0.81, -0.65, 0.3121, -0.8721, -0.65, 0.4377, -0.855, -0.65, 0.3598, -0.81, -0.65, 0.4377, -0.855, -0.65, 0.4767, -0.7609, -0.65, 0.3898, -0.7376, -0.65, 0.3598, -0.81, -0.65, 0.4767, -0.7609, -0.65, 0.4, -0.66, -0.65, 0.3898, -0.7376, -0.65, 0.4767, -0.7609, -0.65, 0.4, -0.66, -0.65, 0.4767, -0.7609, -0.65, 0.49, -0.66, -0.65, 0.3898, -0.5824, -0.65, 0.4, -0.66, -0.65, 0.49, -0.66, -0.65, 0.3898, -0.5824, -0.65, 0.49, -0.66, -0.65, 0.4767, -0.5591, -0.65, 0.3598, -0.51, -0.65, 0.3898, -0.5824, -0.65, 0.4767, -0.5591, -0.65, 0.3598, -0.51, -0.65, 0.4767, -0.5591, -0.65, 0.4377, -0.465, -0.65, 0.3121, -0.4479, -0.65, 0.3598, -0.51, -0.65, 0.4377, -0.465, -0.65, 0.25, -0.4002, -0.65, 0.3121, -0.4479, -0.65, 0.4377, -0.465, -0.65, 0.25, -0.4002, -0.65, 0.4377, -0.465, -0.65, 0.3758, -0.3842, -0.65, 0.1776, -0.3702, -0.65, 0.25, -0.4002, -0.65, 0.3758, -0.3842, -0.65, 0.1, -0.36, -0.65, 0.1776, -0.3702, -0.65, 0.3758, -0.3842, -0.65, 0.3758, -0.3842, -0.65, 0.295, -0.3223, -0.65, 0.1, -0.36, -0.65, 0, -0.36, -0.65, 0.1, -0.36, -0.65, 0.295, -0.3223, -0.65, 0, -0.36, -0.65, 0.295, -0.3223, -0.65, 0.2009, -0.2833, -0.65, 0, -0.36, -0.65, 0.2009, -0.2833, -0.65, 0.1, -0.27, -0.65, 0, -0.36, -0.65, 0.1, -0.27, -0.65, 0.1, 0.47, -0.65, 0, 0.56, -0.65, 0, -0.36, -0.65, 0.1, 0.47, -0.65, 0, 0.56, -0.65, 0.1, 0.47, -0.65, 0.295, 0.5223, -0.65, 0.1, 0.47, -0.65, 0.2009, 0.4833, -0.65, 0.295, 0.5223, -0.65, 0.1, 0.56, -0.65, 0, 0.56, -0.65, 0.295, 0.5223, -0.65, 0.1776, 0.5702, -0.65, 0.1, 0.56, -0.65, 0.295, 0.5223, -0.65, 0.1776, 0.5702, -0.65, 0.295, 0.5223, -0.65, 0.3758, 0.5842, -0.65, 0.25, 0.6002, -0.65, 0.1776, 0.5702, -0.65, 0.3758, 0.5842, -0.65, 0.3121, 0.6479, -0.65, 0.25, 0.6002, -0.65, 0.3758, 0.5842, -0.65, 0.3121, 0.6479, -0.65, 0.3758, 0.5842, -0.65, 0.4377, 0.665, -0.65, 0.3598, 0.71, -0.65, 0.3121, 0.6479, -0.65, 0.4377, 0.665, -0.65, 0.3598, 0.71, -0.65, 0.4377, 0.665, -0.65, 0.4767, 0.7591, -0.65, 0.3898, 0.7824, -0.65, 0.3598, 0.71, -0.65, 0.4767, 0.7591, -0.65, 0.4, 0.86, -0.65, 0.3898, 0.7824, -0.65, 0.4767, 0.7591, -0.65, 0.4, 0.86, -0.65, 0.4767, 0.7591, -0.65, 0.49, 0.86, -0.65, 0.3898, 0.9376, -0.65, 0.4, 0.86, -0.65, 0.49, 0.86, -0.65, 0.3898, 0.9376, -0.65, 0.49, 0.86, -0.65, 0.4767, 0.9609, -0.65, 0.3598, 1.01, -0.65, 0.3898, 0.9376, -0.65, 0.4767, 0.9609, -0.65, 0.3598, 1.01, -0.65, 0.4767, 0.9609, -0.65, 0.4377, 1.055, -0.65, 0.3121, 1.0721, -0.65, 0.3598, 1.01, -0.65, 0.4377, 1.055, -0.65, 0.25, 1.1198, -0.65, 0.3121, 1.0721, -0.65, 0.4377, 1.055, -0.65, 0.25, 1.1198, -0.65, 0.4377, 1.055, -0.65, 0.3758, 1.1358, -0.65, 0.1776, 1.1498, -0.65, 0.25, 1.1198, -0.65, 0.3758, 1.1358, -0.65, 0.1, 1.16, -0.65, 0.1776, 1.1498, -0.65, 0.3758, 1.1358, -0.65, 0.3758, 1.1358, -0.65, 0.295, 1.1978, -0.65, 0.1, 1.16, -0.65, 0, 1.16, -0.65, 0.1, 1.16, -0.65, 0.295, 1.1978, -0.65, 0, 1.16, -0.65, 0.295, 1.1978, -0.65, 0.2009, 1.2367, -0.65, 0, 1.16, -0.65, 0.2009, 1.2367, -0.65, 0.2, 1.2368, -0.65, 0, 1.35, -0.65, 0, 1.16, -0.65, 0.2, 1.2368, -0.65, 0.2, 1.2368, -0.65, 0.2, 1.35, -0.65, 0, 1.35, -0.55, 0.3, -1.15, -0.55, 0.3, -0.9939, -0.5483, 0.295, -0.9977, -0.5483, 0.295, -0.9977, -0.517, 0.2009, -1.0367, -0.55, 0.3, -1.15, -0.517, 0.2009, -1.0367, -0.5167, 0.2, -1.0368, -0.55, 0.3, -1.15, -0.5167, 0.2, -1.0368, -0.5167, 0.2, -1.1167, -0.55, 0.3, -1.15, -0.55, 0.3, 1.35, -0.55, 0.3, 1.45, -0.5167, 0.2, 1.3833, -0.5167, 0.2, 1.3833, -0.5167, 0.2, 1.2368, -0.55, 0.3, 1.35, -0.5167, 0.2, 1.2368, -0.517, 0.2009, 1.2367, -0.55, 0.3, 1.35, -0.517, 0.2009, 1.2367, -0.5483, 0.295, 1.1978, -0.55, 0.3, 1.35, -0.5483, 0.295, 1.1978, -0.55, 0.3, 1.1939, -0.55, 0.3, 1.35, 0.65, 0.4377, -0.855, 0.55, 0.4377, -0.855, 0.55, 0.3758, -0.9358, 0.55, 0.3758, -0.9358, 0.65, 0.3758, -0.9358, 0.65, 0.4377, -0.855, 0.65, 0.4767, 0.7591, 0.55, 0.4767, 0.7591, 0.55, 0.4377, 0.665, 0.55, 0.4377, 0.665, 0.65, 0.4377, 0.665, 0.65, 0.4767, 0.7591, -0.55, 0.4377, -0.465, -0.65, 0.4377, -0.465, -0.65, 0.4767, -0.5591, -0.65, 0.4767, -0.5591, -0.55, 0.4767, -0.5591, -0.55, 0.4377, -0.465, -0.55, 0.4767, 0.7591, -0.65, 0.4767, 0.7591, -0.65, 0.4377, 0.665, -0.65, 0.4377, 0.665, -0.55, 0.4377, 0.665, -0.55, 0.4767, 0.7591, -0.55, 0.3758, 1.1358, -0.65, 0.3758, 1.1358, -0.65, 0.4377, 1.055, -0.65, 0.4377, 1.055, -0.55, 0.4377, 1.055, -0.55, 0.3758, 1.1358, -0.517, 0.2009, -0.2833, -0.65, 0.2009, -0.2833, -0.65, 0.295, -0.3223, -0.65, 0.295, -0.3223, -0.5483, 0.295, -0.3223, -0.517, 0.2009, -0.2833, -0.65, 0.295, 0.5223, -0.5483, 0.295, 0.5223, -0.55, 0.3, 0.5261, -0.55, 0.3, 0.5261, -0.65, 0.3758, 0.5842, -0.65, 0.295, 0.5223, -0.55, 0.3, 0.5261, -0.55, 0.3758, 0.5842, -0.65, 0.3758, 0.5842, 0.65, 0.4377, 0.665, 0.55, 0.4377, 0.665, 0.55, 0.3758, 0.5842, 0.55, 0.3758, 0.5842, 0.65, 0.3758, 0.5842, 0.65, 0.4377, 0.665, -0.55, 0.3758, -0.3842, -0.65, 0.3758, -0.3842, -0.65, 0.4377, -0.465, -0.65, 0.4377, -0.465, -0.55, 0.4377, -0.465, -0.55, 0.3758, -0.3842, -0.55, 0.4377, 0.665, -0.65, 0.4377, 0.665, -0.65, 0.3758, 0.5842, -0.65, 0.3758, 0.5842, -0.55, 0.3758, 0.5842, -0.55, 0.4377, 0.665, -0.55, 0.4767, -0.5591, -0.65, 0.4767, -0.5591, -0.65, 0.49, -0.66, -0.65, 0.49, -0.66, -0.55, 0.49, -0.66, -0.55, 0.4767, -0.5591, -0.55, 0.49, -0.66, -0.65, 0.49, -0.66, -0.65, 0.4767, -0.7609, -0.65, 0.4767, -0.7609, -0.55, 0.4767, -0.7609, -0.55, 0.49, -0.66, -0.55, 0.4377, -0.855, -0.65, 0.4377, -0.855, -0.65, 0.3758, -0.9358, -0.65, 0.3758, -0.9358, -0.55, 0.3758, -0.9358, -0.55, 0.4377, -0.855, 0.65, 0.49, 0.86, 0.55, 0.49, 0.86, 0.55, 0.4767, 0.7591, 0.55, 0.4767, 0.7591, 0.65, 0.4767, 0.7591, 0.65, 0.49, 0.86, -0.55, 0.49, 0.86, -0.65, 0.49, 0.86, -0.65, 0.4767, 0.7591, -0.65, 0.4767, 0.7591, -0.55, 0.4767, 0.7591, -0.55, 0.49, 0.86, 0.65, 0.295, -0.3223, 0.65, 0.2009, -0.2833, 0.517, 0.2009, -0.2833, 0.517, 0.2009, -0.2833, 0.5483, 0.295, -0.3223, 0.65, 0.295, -0.3223, -0.55, 0.4377, 1.055, -0.65, 0.4377, 1.055, -0.65, 0.4767, 0.9609, -0.65, 0.4767, 0.9609, -0.55, 0.4767, 0.9609, -0.55, 0.4377, 1.055, 0.5167, 0.2, 1.3833, 0.55, 0.3, 1.45, 0.55, 0.3, 1.35, 0.55, 0.3, 1.35, 0.5167, 0.2, 1.2368, 0.5167, 0.2, 1.3833, 0.55, 0.3, 1.35, 0.517, 0.2009, 1.2367, 0.5167, 0.2, 1.2368, 0.55, 0.3, 1.35, 0.5483, 0.295, 1.1978, 0.517, 0.2009, 1.2367, 0.55, 0.3, 1.35, 0.55, 0.3, 1.1939, 0.5483, 0.295, 1.1978, 0.5483, 0.295, 0.5223, 0.517, 0.2009, 0.4833, 0.65, 0.2009, 0.4833, 0.65, 0.2009, 0.4833, 0.65, 0.295, 0.5223, 0.5483, 0.295, 0.5223, 0.5483, 0.295, 0.5223, 0.55, 0.3, 0.5261, 0.55, 0.3, 0.4, 0.55, 0.3, 0.4, 0.517, 0.2009, 0.4833, 0.5483, 0.295, 0.5223, 0.55, 0.3, 0.4, 0.4833, 0.1, 0.47, 0.517, 0.2009, 0.4833, 0.55, 0.3, 0.4, 0.4833, 0.1, -0.27, 0.4833, 0.1, 0.47, 0.55, 0.3, 0.4, 0.55, 0.3, -0.2, 0.4833, 0.1, -0.27, 0.55, 0.3, -0.2, 0.517, 0.2009, -0.2833, 0.4833, 0.1, -0.27, 0.55, 0.3, -0.2, 0.5483, 0.295, -0.3223, 0.517, 0.2009, -0.2833, 0.55, 0.3, -0.2, 0.55, 0.3, -0.3261, 0.5483, 0.295, -0.3223, -0.65, 0.295, -0.9977, -0.65, 0.2009, -1.0367, -0.517, 0.2009, -1.0367, -0.517, 0.2009, -1.0367, -0.5483, 0.295, -0.9977, -0.65, 0.295, -0.9977, -0.55, 0.3, 0.4, -0.55, 0.3, 0.5261, -0.5483, 0.295, 0.5223, -0.5483, 0.295, 0.5223, -0.517, 0.2009, 0.4833, -0.55, 0.3, 0.4, -0.517, 0.2009, 0.4833, -0.4833, 0.1, 0.47, -0.55, 0.3, 0.4, -0.4833, 0.1, 0.47, -0.4833, 0.1, -0.27, -0.55, 0.3, 0.4, -0.4833, 0.1, -0.27, -0.55, 0.3, -0.2, -0.55, 0.3, 0.4, -0.4833, 0.1, -0.27, -0.517, 0.2009, -0.2833, -0.55, 0.3, -0.2, -0.517, 0.2009, -0.2833, -0.5483, 0.295, -0.3223, -0.55, 0.3, -0.2, -0.5483, 0.295, -0.3223, -0.55, 0.3, -0.3261, -0.55, 0.3, -0.2, 0.517, 0.2009, -1.0367, 0.65, 0.2009, -1.0367, 0.65, 0.295, -0.9977, 0.65, 0.295, -0.9977, 0.5483, 0.295, -0.9977, 0.517, 0.2009, -1.0367, 0.65, 0.3758, -0.3842, 0.55, 0.3758, -0.3842, 0.55, 0.4377, -0.465, 0.55, 0.4377, -0.465, 0.65, 0.4377, -0.465, 0.65, 0.3758, -0.3842, 0.65, 0.4767, 0.9609, 0.55, 0.4767, 0.9609, 0.55, 0.49, 0.86, 0.55, 0.49, 0.86, 0.65, 0.49, 0.86, 0.65, 0.4767, 0.9609, 0.65, 0.295, 1.1978, 0.65, 0.2009, 1.2367, 0.517, 0.2009, 1.2367, 0.517, 0.2009, 1.2367, 0.5483, 0.295, 1.1978, 0.65, 0.295, 1.1978, 0.65, 0.2009, -0.2833, 0.65, 0.1, -0.27, 0.4833, 0.1, -0.27, 0.4833, 0.1, -0.27, 0.517, 0.2009, -0.2833, 0.65, 0.2009, -0.2833, -0.65, 0.2009, 0.4833, -0.517, 0.2009, 0.4833, -0.5483, 0.295, 0.5223, -0.5483, 0.295, 0.5223, -0.65, 0.295, 0.5223, -0.65, 0.2009, 0.4833, 0.65, 0.3758, 1.1358, 0.65, 0.295, 1.1978, 0.5483, 0.295, 1.1978, 0.5483, 0.295, 1.1978, 0.55, 0.3, 1.1939, 0.65, 0.3758, 1.1358, 0.55, 0.3, 1.1939, 0.55, 0.3758, 1.1358, 0.65, 0.3758, 1.1358, -0.65, 0.1, 0.47, -0.4833, 0.1, 0.47, -0.517, 0.2009, 0.4833, -0.517, 0.2009, 0.4833, -0.65, 0.2009, 0.4833, -0.65, 0.1, 0.47, 0.65, 0.4767, -0.5591, 0.55, 0.4767, -0.5591, 0.55, 0.49, -0.66, 0.55, 0.49, -0.66, 0.65, 0.49, -0.66, 0.65, 0.4767, -0.5591, -0.65, 0.295, -0.9977, -0.5483, 0.295, -0.9977, -0.55, 0.3, -0.9939, -0.55, 0.3, -0.9939, -0.65, 0.3758, -0.9358, -0.65, 0.295, -0.9977, -0.55, 0.3, -0.9939, -0.55, 0.3758, -0.9358, -0.65, 0.3758, -0.9358, -0.55, 0.3, -0.3261, -0.5483, 0.295, -0.3223, -0.65, 0.295, -0.3223, -0.65, 0.295, -0.3223, -0.65, 0.3758, -0.3842, -0.55, 0.3, -0.3261, -0.65, 0.3758, -0.3842, -0.55, 0.3758, -0.3842, -0.55, 0.3, -0.3261, -0.517, 0.2009, -0.2833, -0.4833, 0.1, -0.27, -0.65, 0.1, -0.27, -0.65, 0.1, -0.27, -0.65, 0.2009, -0.2833, -0.517, 0.2009, -0.2833, 0.65, 0.4767, -0.7609, 0.55, 0.4767, -0.7609, 0.55, 0.4377, -0.855, 0.55, 0.4377, -0.855, 0.65, 0.4377, -0.855, 0.65, 0.4767, -0.7609, 0.55, 0.3, 0.5261, 0.5483, 0.295, 0.5223, 0.65, 0.295, 0.5223, 0.65, 0.295, 0.5223, 0.65, 0.3758, 0.5842, 0.55, 0.3, 0.5261, 0.65, 0.3758, 0.5842, 0.55, 0.3758, 0.5842, 0.55, 0.3, 0.5261, 0.55, 0.3, -0.9939, 0.5483, 0.295, -0.9977, 0.65, 0.295, -0.9977, 0.65, 0.295, -0.9977, 0.65, 0.3758, -0.9358, 0.55, 0.3, -0.9939, 0.65, 0.3758, -0.9358, 0.55, 0.3758, -0.9358, 0.55, 0.3, -0.9939, -0.55, 0.4767, 0.9609, -0.65, 0.4767, 0.9609, -0.65, 0.49, 0.86, -0.65, 0.49, 0.86, -0.55, 0.49, 0.86, -0.55, 0.4767, 0.9609, 0.65, 0.49, -0.66, 0.55, 0.49, -0.66, 0.55, 0.4767, -0.7609, 0.55, 0.4767, -0.7609, 0.65, 0.4767, -0.7609, 0.65, 0.49, -0.66, -0.517, 0.2009, 1.2367, -0.5167, 0.2, 1.2368, -0.65, 0.2, 1.2368, -0.65, 0.2, 1.2368, -0.65, 0.2009, 1.2367, -0.517, 0.2009, 1.2367, 0.4833, 0.1, 0.47, 0.4833, 0.1, -0.27, 0.65, 0.1, -0.27, 0.65, 0.1, -0.27, 0.65, 0.1, 0.47, 0.4833, 0.1, 0.47, 0.65, 0.4377, 1.055, 0.55, 0.4377, 1.055, 0.55, 0.4767, 0.9609, 0.55, 0.4767, 0.9609, 0.65, 0.4767, 0.9609, 0.65, 0.4377, 1.055, -0.517, 0.2009, 1.2367, -0.65, 0.2009, 1.2367, -0.65, 0.295, 1.1978, -0.65, 0.295, 1.1978, -0.5483, 0.295, 1.1978, -0.517, 0.2009, 1.2367, 0.517, 0.2009, 0.4833, 0.4833, 0.1, 0.47, 0.65, 0.1, 0.47, 0.65, 0.1, 0.47, 0.65, 0.2009, 0.4833, 0.517, 0.2009, 0.4833, 0.65, 0.295, -0.3223, 0.5483, 0.295, -0.3223, 0.55, 0.3, -0.3261, 0.55, 0.3, -0.3261, 0.65, 0.3758, -0.3842, 0.65, 0.295, -0.3223, 0.55, 0.3, -0.3261, 0.55, 0.3758, -0.3842, 0.65, 0.3758, -0.3842, 0.65, 0.4377, -0.465, 0.55, 0.4377, -0.465, 0.55, 0.4767, -0.5591, 0.55, 0.4767, -0.5591, 0.65, 0.4767, -0.5591, 0.65, 0.4377, -0.465, -0.5483, 0.295, 1.1978, -0.65, 0.295, 1.1978, -0.65, 0.3758, 1.1358, -0.65, 0.3758, 1.1358, -0.55, 0.3, 1.1939, -0.5483, 0.295, 1.1978, -0.65, 0.3758, 1.1358, -0.55, 0.3758, 1.1358, -0.55, 0.3, 1.1939, -0.4833, 0.1, 0.47, -0.65, 0.1, 0.47, -0.65, 0.1, -0.27, -0.65, 0.1, -0.27, -0.4833, 0.1, -0.27, -0.4833, 0.1, 0.47, -0.55, 0.4767, -0.7609, -0.65, 0.4767, -0.7609, -0.65, 0.4377, -0.855, -0.65, 0.4377, -0.855, -0.55, 0.4377, -0.855, -0.55, 0.4767, -0.7609, 0.517, 0.2009, -1.0367, 0.5167, 0.2, -1.0368, 0.65, 0.2, -1.0368, 0.65, 0.2, -1.0368, 0.65, 0.2009, -1.0367, 0.517, 0.2009, -1.0367, 0.65, 0.3758, 1.1358, 0.55, 0.3758, 1.1358, 0.55, 0.4377, 1.055, 0.55, 0.4377, 1.055, 0.65, 0.4377, 1.055, 0.65, 0.3758, 1.1358, 0.5483, 0.295, -0.9977, 0.55, 0.3, -0.9939, 0.55, 0.3, -1.15, 0.55, 0.3, -1.15, 0.517, 0.2009, -1.0367, 0.5483, 0.295, -0.9977, 0.55, 0.3, -1.15, 0.5167, 0.2, -1.0368, 0.517, 0.2009, -1.0367, 0.55, 0.3, -1.15, 0.5167, 0.2, -1.1167, 0.5167, 0.2, -1.0368, -0.65, 0.2009, -1.0367, -0.65, 0.2, -1.0368, -0.5167, 0.2, -1.0368, -0.5167, 0.2, -1.0368, -0.517, 0.2009, -1.0367, -0.65, 0.2009, -1.0367, 0.65, 0.2, 1.2368, 0.65, 0.2, 1.35, 0.6207, 0.2, 1.4207, 0.65, 0.2, 1.2368, 0.6207, 0.2, 1.4207, 0.55, 0.2, 1.45, 0.5167, 0.2, 1.2368, 0.65, 0.2, 1.2368, 0.55, 0.2, 1.45, 0.5167, 0.2, 1.3833, 0.5167, 0.2, 1.2368, 0.55, 0.2, 1.45, -0.5167, 0.2, 1.3833, 0.5167, 0.2, 1.3833, 0.55, 0.2, 1.45, 0.55, 0.2, 1.45, -0.55, 0.2, 1.45, -0.5167, 0.2, 1.3833, -0.5167, 0.2, 1.2368, -0.5167, 0.2, 1.3833, -0.55, 0.2, 1.45, -0.5167, 0.2, 1.2368, -0.55, 0.2, 1.45, -0.6207, 0.2, 1.4207, -0.65, 0.2, 1.2368, -0.5167, 0.2, 1.2368, -0.6207, 0.2, 1.4207, -0.6207, 0.2, 1.4207, -0.65, 0.2, 1.35, -0.65, 0.2, 1.2368, 0.55, 0.3, 1.45, 0.5167, 0.2, 1.3833, -0.5167, 0.2, 1.3833, -0.5167, 0.2, 1.3833, -0.55, 0.3, 1.45, 0.55, 0.3, 1.45, -0.55, 0.3, -1.15, -0.5167, 0.2, -1.1167, -0.275, 0.2, -1.1167, -0.275, 0.2, -1.1167, -0.275, 0.3, -1.15, -0.55, 0.3, -1.15, 0.275, 0.3, -1.15, 0.275, 0.2, -1.1167, 0.5167, 0.2, -1.1167, 0.5167, 0.2, -1.1167, 0.55, 0.3, -1.15, 0.275, 0.3, -1.15, 0.55, 0.2, -1.2, 0.55, 0, -1.2, 0.6207, 0, -1.1707, 0.6207, 0, -1.1707, 0.6207, 0.2, -1.1707, 0.55, 0.2, -1.2, -0.6207, 0.2, -1.1707, -0.65, 0.2, -1.1, -0.65, 0, -1.1, -0.65, 0, -1.1, -0.6207, 0, -1.1707, -0.6207, 0.2, -1.1707, -0.55, 0.2, -1.2, -0.55, 0, -1.2, 0.55, 0, -1.2, 0.55, 0, -1.2, 0.55, 0.2, -1.2, -0.55, 0.2, -1.2, -0.6207, 0.2, -1.1707, -0.6207, 0, -1.1707, -0.55, 0, -1.2, -0.55, 0, -1.2, -0.55, 0.2, -1.2, -0.6207, 0.2, -1.1707, 0.6207, 0, -1.1707, 0.65, 0, -1.1, 0.65, 0.2, -1.1, 0.65, 0.2, -1.1, 0.6207, 0.2, -1.1707, 0.6207, 0, -1.1707, 0.65, 0.2, -1.0368, 0.5167, 0.2, -1.0368, 0.5167, 0.2, -1.1167, 0.5167, 0.2, -1.1167, 0.55, 0.2, -1.2, 0.65, 0.2, -1.0368, 0.55, 0.2, -1.2, 0.5167, 0.2, -1.1167, 0.275, 0.2, -1.1167, 0.55, 0.2, -1.2, 0.275, 0.2, -1.1167, -0.275, 0.2, -1.1167, 0.55, 0.2, -1.2, -0.275, 0.2, -1.1167, -0.5167, 0.2, -1.1167, 0.55, 0.2, -1.2, 0.6207, 0.2, -1.1707, 0.65, 0.2, -1.0368, 0.6207, 0.2, -1.1707, 0.65, 0.2, -1.1, 0.65, 0.2, -1.0368, -0.55, 0.2, -1.2, 0.55, 0.2, -1.2, -0.5167, 0.2, -1.1167, -0.55, 0.2, -1.2, -0.5167, 0.2, -1.1167, -0.5167, 0.2, -1.0368, -0.6207, 0.2, -1.1707, -0.55, 0.2, -1.2, -0.5167, 0.2, -1.0368, -0.65, 0.2, -1.1, -0.6207, 0.2, -1.1707, -0.5167, 0.2, -1.0368, -0.5167, 0.2, -1.0368, -0.65, 0.2, -1.0368, -0.65, 0.2, -1.1, -0.55, 0.2, 1.45, -0.55, 0, 1.45, -0.6207, 0, 1.4207, -0.6207, 0, 1.4207, -0.6207, 0.2, 1.4207, -0.55, 0.2, 1.45, 0.65, 0, 1.35, 0.6207, 0, 1.4207, 0.6207, 0.2, 1.4207, 0.6207, 0.2, 1.4207, 0.65, 0.2, 1.35, 0.65, 0, 1.35, -0.65, 0.2, 1.35, -0.6207, 0.2, 1.4207, -0.6207, 0, 1.4207, -0.6207, 0, 1.4207, -0.65, 0, 1.35, -0.65, 0.2, 1.35, 0.55, 0.2, 1.45, 0.55, 0, 1.45, -0.55, 0, 1.45, -0.55, 0, 1.45, -0.55, 0.2, 1.45, 0.55, 0.2, 1.45, 0.6207, 0.2, 1.4207, 0.6207, 0, 1.4207, 0.55, 0, 1.45, 0.55, 0, 1.45, 0.55, 0.2, 1.45, 0.6207, 0.2, 1.4207, -0.65, 0, -0.36, -0.65, 0, 0.56, -0.4, 0, 0.56, -0.4, 0, 0.56, -0.4, 0, -0.36, -0.65, 0, -0.36, -0.4, 0, 0.56, -0.4, 0, 1.16, -0.4, 0, -0.36, 0.55, 0, 1.45, -0.4, 0, -0.36, -0.4, 0, 1.16, -0.55, 0, 1.45, 0.55, 0, 1.45, -0.4, 0, 1.16, -0.6207, 0, 1.4207, -0.55, 0, 1.45, -0.4, 0, 1.16, -0.65, 0, 1.35, -0.6207, 0, 1.4207, -0.4, 0, 1.16, -0.4, 0, 1.16, -0.65, 0, 1.16, -0.65, 0, 1.35, 0.55, 0, 1.45, 0.4, 0, 1.16, -0.4, 0, -0.36, 0.55, 0, 1.45, 0.65, 0, 1.16, 0.4, 0, 1.16, 0.55, 0, 1.45, 0.6207, 0, 1.4207, 0.65, 0, 1.16, 0.6207, 0, 1.4207, 0.65, 0, 1.35, 0.65, 0, 1.16, 0.4, 0, 1.16, 0.4, 0, 0.56, -0.4, 0, -0.36, -0.4, 0, -0.36, 0.4, 0, 0.56, 0.4, 0, -0.96, 0.4, 0, -0.36, 0.4, 0, -0.96, 0.4, 0, 0.56, 0.4, 0, 0.56, 0.65, 0, 0.56, 0.4, 0, -0.36, 0.65, 0, 0.56, 0.65, 0, -0.36, 0.4, 0, -0.36, -0.4, 0, -0.36, 0.4, 0, -0.96, 0.55, 0, -1.2, 0.4, 0, -0.96, 0.65, 0, -0.96, 0.55, 0, -1.2, -0.4, 0, -0.96, -0.4, 0, -0.36, 0.55, 0, -1.2, 0.65, 0, -0.96, 0.6207, 0, -1.1707, 0.55, 0, -1.2, 0.65, 0, -0.96, 0.65, 0, -1.1, 0.6207, 0, -1.1707, -0.4, 0, -0.96, 0.55, 0, -1.2, -0.55, 0, -1.2, -0.4, 0, -0.96, -0.55, 0, -1.2, -0.6207, 0, -1.1707, -0.4, 0, -0.96, -0.6207, 0, -1.1707, -0.65, 0, -1.1, -0.65, 0, -1.1, -0.65, 0, -0.96, -0.4, 0, -0.96, -0.4, 0.25, 0.6002, -0.65, 0.25, 0.6002, -0.65, 0.3121, 0.6479, -0.65, 0.3121, 0.6479, -0.4, 0.3121, 0.6479, -0.4, 0.25, 0.6002, -0.4, 0.3598, 0.71, -0.65, 0.3598, 0.71, -0.65, 0.3898, 0.7824, -0.65, 0.3898, 0.7824, -0.4, 0.3898, 0.7824, -0.4, 0.3598, 0.71, -0.65, 0.25, 1.1198, -0.65, 0.1776, 1.1498, -0.4, 0.1776, 1.1498, -0.4, 0.1776, 1.1498, -0.4, 0.25, 1.1198, -0.65, 0.25, 1.1198, -0.4, 0.3598, -0.81, -0.65, 0.3598, -0.81, -0.65, 0.3898, -0.7376, -0.65, 0.3898, -0.7376, -0.4, 0.3898, -0.7376, -0.4, 0.3598, -0.81, -0.4, 0.25, -0.9198, -0.65, 0.25, -0.9198, -0.65, 0.3121, -0.8721, -0.65, 0.3121, -0.8721, -0.4, 0.3121, -0.8721, -0.4, 0.25, -0.9198, 0.65, 0.1, 0.56, 0.65, 0, 0.56, 0.4, 0, 0.56, 0.4, 0, 0.56, 0.4, 0.1, 0.56, 0.65, 0.1, 0.56, -0.4, 0.4, 0.86, -0.65, 0.4, 0.86, -0.65, 0.3898, 0.9376, -0.65, 0.3898, 0.9376, -0.4, 0.3898, 0.9376, -0.4, 0.4, 0.86, -0.65, 0.1, -0.36, -0.65, 0, -0.36, -0.4, 0, -0.36, -0.4, 0, -0.36, -0.4, 0.1, -0.36, -0.65, 0.1, -0.36, -0.65, 0.1, 1.16, -0.65, 0, 1.16, -0.4, 0, 1.16, -0.4, 0, 1.16, -0.4, 0.1, 1.16, -0.65, 0.1, 1.16, -0.4, 0.3121, -0.8721, -0.65, 0.3121, -0.8721, -0.65, 0.3598, -0.81, -0.65, 0.3598, -0.81, -0.4, 0.3598, -0.81, -0.4, 0.3121, -0.8721, -0.4, 0.3598, -0.51, -0.65, 0.3598, -0.51, -0.65, 0.3121, -0.4479, -0.65, 0.3121, -0.4479, -0.4, 0.3121, -0.4479, -0.4, 0.3598, -0.51, -0.4, 0.3598, 1.01, -0.65, 0.3598, 1.01, -0.65, 0.3121, 1.0721, -0.65, 0.3121, 1.0721, -0.4, 0.3121, 1.0721, -0.4, 0.3598, 1.01, -0.4, 0.3898, -0.7376, -0.65, 0.3898, -0.7376, -0.65, 0.4, -0.66, -0.65, 0.4, -0.66, -0.4, 0.4, -0.66, -0.4, 0.3898, -0.7376, -0.4, 0.3898, -0.5824, -0.65, 0.3898, -0.5824, -0.65, 0.3598, -0.51, -0.65, 0.3598, -0.51, -0.4, 0.3598, -0.51, -0.4, 0.3898, -0.5824, -0.65, 0.3121, 1.0721, -0.65, 0.25, 1.1198, -0.4, 0.25, 1.1198, -0.4, 0.25, 1.1198, -0.4, 0.3121, 1.0721, -0.65, 0.3121, 1.0721, -0.4, 0.3121, 0.6479, -0.65, 0.3121, 0.6479, -0.65, 0.3598, 0.71, -0.65, 0.3598, 0.71, -0.4, 0.3598, 0.71, -0.4, 0.3121, 0.6479, -0.65, 0.1776, -0.3702, -0.65, 0.1, -0.36, -0.4, 0.1, -0.36, -0.4, 0.1, -0.36, -0.4, 0.1776, -0.3702, -0.65, 0.1776, -0.3702, -0.4, 0.1776, 0.5702, -0.65, 0.1776, 0.5702, -0.65, 0.25, 0.6002, -0.65, 0.25, 0.6002, -0.4, 0.25, 0.6002, -0.4, 0.1776, 0.5702, -0.4, 0.1, 0.56, -0.65, 0.1, 0.56, -0.65, 0.1776, 0.5702, -0.65, 0.1776, 0.5702, -0.4, 0.1776, 0.5702, -0.4, 0.1, 0.56, -0.65, 0.1776, 1.1498, -0.65, 0.1, 1.16, -0.4, 0.1, 1.16, -0.4, 0.1, 1.16, -0.4, 0.1776, 1.1498, -0.65, 0.1776, 1.1498, -0.4, 0.3898, 0.9376, -0.65, 0.3898, 0.9376, -0.65, 0.3598, 1.01, -0.65, 0.3598, 1.01, -0.4, 0.3598, 1.01, -0.4, 0.3898, 0.9376, -0.65, 0.25, -0.4002, -0.65, 0.1776, -0.3702, -0.4, 0.1776, -0.3702, -0.4, 0.1776, -0.3702, -0.4, 0.25, -0.4002, -0.65, 0.25, -0.4002, -0.4, 0.1, -0.96, -0.65, 0.1, -0.96, -0.65, 0.1776, -0.9498, -0.65, 0.1776, -0.9498, -0.4, 0.1776, -0.9498, -0.4, 0.1, -0.96, -0.65, 0.3121, -0.4479, -0.65, 0.25, -0.4002, -0.4, 0.25, -0.4002, -0.4, 0.25, -0.4002, -0.4, 0.3121, -0.4479, -0.65, 0.3121, -0.4479, -0.4, 0.1776, -0.9498, -0.65, 0.1776, -0.9498, -0.65, 0.25, -0.9198, -0.65, 0.25, -0.9198, -0.4, 0.25, -0.9198, -0.4, 0.1776, -0.9498, -0.4, 0.3898, 0.7824, -0.65, 0.3898, 0.7824, -0.65, 0.4, 0.86, -0.65, 0.4, 0.86, -0.4, 0.4, 0.86, -0.4, 0.3898, 0.7824, 0.65, 0.1, -0.96, 0.65, 0, -0.96, 0.4, 0, -0.96, 0.4, 0, -0.96, 0.4, 0.1, -0.96, 0.65, 0.1, -0.96, -0.4, 0.4, -0.66, -0.65, 0.4, -0.66, -0.65, 0.3898, -0.5824, -0.65, 0.3898, -0.5824, -0.4, 0.3898, -0.5824, -0.4, 0.4, -0.66, 0.65, 0.1776, -0.9498, 0.65, 0.1, -0.96, 0.4, 0.1, -0.96, 0.4, 0.1, -0.96, 0.4, 0.1776, -0.9498, 0.65, 0.1776, -0.9498, 0.4, 0.1, -0.36, 0.4, 0, -0.36, 0.65, 0, -0.36, 0.65, 0, -0.36, 0.65, 0.1, -0.36, 0.4, 0.1, -0.36, 0.65, 0.4, -0.66, 0.4, 0.4, -0.66, 0.4, 0.3898, -0.5824, 0.4, 0.3898, -0.5824, 0.65, 0.3898, -0.5824, 0.65, 0.4, -0.66, 0.65, 0.3898, -0.5824, 0.4, 0.3898, -0.5824, 0.4, 0.3598, -0.51, 0.4, 0.3598, -0.51, 0.65, 0.3598, -0.51, 0.65, 0.3898, -0.5824, 0.65, 0.3121, -0.8721, 0.65, 0.25, -0.9198, 0.4, 0.25, -0.9198, 0.4, 0.25, -0.9198, 0.4, 0.3121, -0.8721, 0.65, 0.3121, -0.8721, 0.4, 0.1776, -0.3702, 0.4, 0.1, -0.36, 0.65, 0.1, -0.36, 0.65, 0.1, -0.36, 0.65, 0.1776, -0.3702, 0.4, 0.1776, -0.3702, 0.4, 0.3121, -0.4479, 0.4, 0.25, -0.4002, 0.65, 0.25, -0.4002, 0.65, 0.25, -0.4002, 0.65, 0.3121, -0.4479, 0.4, 0.3121, -0.4479, 0.4, 0.25, -0.4002, 0.4, 0.1776, -0.3702, 0.65, 0.1776, -0.3702, 0.65, 0.1776, -0.3702, 0.65, 0.25, -0.4002, 0.4, 0.25, -0.4002, 0.65, 0.3598, -0.51, 0.4, 0.3598, -0.51, 0.4, 0.3121, -0.4479, 0.4, 0.3121, -0.4479, 0.65, 0.3121, -0.4479, 0.65, 0.3598, -0.51, 0.65, 0.3121, -0.8721, 0.4, 0.3121, -0.8721, 0.4, 0.3598, -0.81, 0.4, 0.3598, -0.81, 0.65, 0.3598, -0.81, 0.65, 0.3121, -0.8721, 0.65, 0.3898, -0.7376, 0.4, 0.3898, -0.7376, 0.4, 0.4, -0.66, 0.4, 0.4, -0.66, 0.65, 0.4, -0.66, 0.65, 0.3898, -0.7376, 0.65, 0.25, -0.9198, 0.65, 0.1776, -0.9498, 0.4, 0.1776, -0.9498, 0.4, 0.1776, -0.9498, 0.4, 0.25, -0.9198, 0.65, 0.25, -0.9198, 0.65, 0.3598, -0.81, 0.4, 0.3598, -0.81, 0.4, 0.3898, -0.7376, 0.4, 0.3898, -0.7376, 0.65, 0.3898, -0.7376, 0.65, 0.3598, -0.81, 0.4, 0, -0.96, 0.4, 0, -0.36, 0.4, 0.1, -0.36, 0.4, 0.1, -0.36, 0.4, 0.1776, -0.3702, 0.4, 0, -0.96, 0.4, 0.1776, -0.3702, 0.4, 0.25, -0.4002, 0.4, 0, -0.96, 0.4, 0.25, -0.4002, 0.4, 0.3121, -0.4479, 0.4, 0, -0.96, 0.4, 0.3121, -0.4479, 0.4, 0.3598, -0.51, 0.4, 0, -0.96, 0.4, 0.3598, -0.51, 0.4, 0.3898, -0.5824, 0.4, 0, -0.96, 0.4, 0.3898, -0.5824, 0.4, 0.4, -0.66, 0.4, 0, -0.96, 0.4, 0.4, -0.66, 0.4, 0.3898, -0.7376, 0.4, 0, -0.96, 0.4, 0.3898, -0.7376, 0.4, 0.3598, -0.81, 0.4, 0, -0.96, 0.4, 0.3598, -0.81, 0.4, 0.3121, -0.8721, 0.4, 0, -0.96, 0.4, 0.3121, -0.8721, 0.4, 0.25, -0.9198, 0.4, 0, -0.96, 0.4, 0.25, -0.9198, 0.4, 0.1776, -0.9498, 0.4, 0, -0.96, 0.4, 0.1776, -0.9498, 0.4, 0.1, -0.96, 0.4, 0, -0.96, -0.4, 0.1776, -0.3702, -0.4, 0.1, -0.36, -0.4, 0, -0.36, -0.4, 0, -0.36, -0.4, 0, -0.96, -0.4, 0.1776, -0.3702, -0.4, 0, -0.96, -0.4, 0.25, -0.4002, -0.4, 0.1776, -0.3702, -0.4, 0, -0.96, -0.4, 0.3121, -0.4479, -0.4, 0.25, -0.4002, -0.4, 0, -0.96, -0.4, 0.3598, -0.51, -0.4, 0.3121, -0.4479, -0.4, 0, -0.96, -0.4, 0.3898, -0.5824, -0.4, 0.3598, -0.51, -0.4, 0, -0.96, -0.4, 0.4, -0.66, -0.4, 0.3898, -0.5824, -0.4, 0, -0.96, -0.4, 0.3898, -0.7376, -0.4, 0.4, -0.66, -0.4, 0, -0.96, -0.4, 0.3598, -0.81, -0.4, 0.3898, -0.7376, -0.4, 0, -0.96, -0.4, 0.3121, -0.8721, -0.4, 0.3598, -0.81, -0.4, 0, -0.96, -0.4, 0.25, -0.9198, -0.4, 0.3121, -0.8721, -0.4, 0, -0.96, -0.4, 0.1776, -0.9498, -0.4, 0.25, -0.9198, -0.4, 0, -0.96, -0.4, 0.1, -0.96, -0.4, 0.1776, -0.9498, -0.4, 0.1, -0.96, -0.4, 0, -0.96, -0.65, 0, -0.96, -0.65, 0, -0.96, -0.65, 0.1, -0.96, -0.4, 0.1, -0.96, -0.4, 0.1776, 1.1498, -0.4, 0.1, 1.16, -0.4, 0, 1.16, -0.4, 0, 1.16, -0.4, 0, 0.56, -0.4, 0.1776, 1.1498, -0.4, 0, 0.56, -0.4, 0.25, 1.1198, -0.4, 0.1776, 1.1498, -0.4, 0, 0.56, -0.4, 0.3121, 1.0721, -0.4, 0.25, 1.1198, -0.4, 0, 0.56, -0.4, 0.3598, 1.01, -0.4, 0.3121, 1.0721, -0.4, 0, 0.56, -0.4, 0.3898, 0.9376, -0.4, 0.3598, 1.01, -0.4, 0, 0.56, -0.4, 0.4, 0.86, -0.4, 0.3898, 0.9376, -0.4, 0, 0.56, -0.4, 0.3898, 0.7824, -0.4, 0.4, 0.86, -0.4, 0, 0.56, -0.4, 0.3598, 0.71, -0.4, 0.3898, 0.7824, -0.4, 0, 0.56, -0.4, 0.3121, 0.6479, -0.4, 0.3598, 0.71, -0.4, 0, 0.56, -0.4, 0.25, 0.6002, -0.4, 0.3121, 0.6479, -0.4, 0, 0.56, -0.4, 0.1776, 0.5702, -0.4, 0.25, 0.6002, -0.4, 0, 0.56, -0.4, 0.1, 0.56, -0.4, 0.1776, 0.5702, 0.4, 0, 0.56, 0.4, 0, 1.16, 0.4, 0.1, 1.16, 0.4, 0.1, 1.16, 0.4, 0.1776, 1.1498, 0.4, 0, 0.56, 0.4, 0.1776, 1.1498, 0.4, 0.25, 1.1198, 0.4, 0, 0.56, 0.4, 0.25, 1.1198, 0.4, 0.3121, 1.0721, 0.4, 0, 0.56, 0.4, 0.3121, 1.0721, 0.4, 0.3598, 1.01, 0.4, 0, 0.56, 0.4, 0.3598, 1.01, 0.4, 0.3898, 0.9376, 0.4, 0, 0.56, 0.4, 0.3898, 0.9376, 0.4, 0.4, 0.86, 0.4, 0, 0.56, 0.4, 0.4, 0.86, 0.4, 0.3898, 0.7824, 0.4, 0, 0.56, 0.4, 0.3898, 0.7824, 0.4, 0.3598, 0.71, 0.4, 0, 0.56, 0.4, 0.3598, 0.71, 0.4, 0.3121, 0.6479, 0.4, 0, 0.56, 0.4, 0.3121, 0.6479, 0.4, 0.25, 0.6002, 0.4, 0, 0.56, 0.4, 0.25, 0.6002, 0.4, 0.1776, 0.5702, 0.4, 0, 0.56, 0.4, 0.1776, 0.5702, 0.4, 0.1, 0.56, 0.4, 0, 0.56, -0.4, 0.1, 0.56, -0.4, 0, 0.56, -0.65, 0, 0.56, -0.65, 0, 0.56, -0.65, 0.1, 0.56, -0.4, 0.1, 0.56, 0.65, 0.1776, 0.5702, 0.65, 0.1, 0.56, 0.4, 0.1, 0.56, 0.4, 0.1, 0.56, 0.4, 0.1776, 0.5702, 0.65, 0.1776, 0.5702, 0.4, 0.1, 1.16, 0.4, 0, 1.16, 0.65, 0, 1.16, 0.65, 0, 1.16, 0.65, 0.1, 1.16, 0.4, 0.1, 1.16, 0.65, 0.4, 0.86, 0.4, 0.4, 0.86, 0.4, 0.3898, 0.9376, 0.4, 0.3898, 0.9376, 0.65, 0.3898, 0.9376, 0.65, 0.4, 0.86, 0.65, 0.3898, 0.9376, 0.4, 0.3898, 0.9376, 0.4, 0.3598, 1.01, 0.4, 0.3598, 1.01, 0.65, 0.3598, 1.01, 0.65, 0.3898, 0.9376, 0.65, 0.25, 0.6002, 0.4, 0.25, 0.6002, 0.4, 0.3121, 0.6479, 0.4, 0.3121, 0.6479, 0.65, 0.3121, 0.6479, 0.65, 0.25, 0.6002, 0.4, 0.1776, 1.1498, 0.4, 0.1, 1.16, 0.65, 0.1, 1.16, 0.65, 0.1, 1.16, 0.65, 0.1776, 1.1498, 0.4, 0.1776, 1.1498, 0.4, 0.3121, 1.0721, 0.4, 0.25, 1.1198, 0.65, 0.25, 1.1198, 0.65, 0.25, 1.1198, 0.65, 0.3121, 1.0721, 0.4, 0.3121, 1.0721, 0.4, 0.25, 1.1198, 0.4, 0.1776, 1.1498, 0.65, 0.1776, 1.1498, 0.65, 0.1776, 1.1498, 0.65, 0.25, 1.1198, 0.4, 0.25, 1.1198, 0.65, 0.3121, 0.6479, 0.4, 0.3121, 0.6479, 0.4, 0.3598, 0.71, 0.4, 0.3598, 0.71, 0.65, 0.3598, 0.71, 0.65, 0.3121, 0.6479, 0.65, 0.3898, 0.7824, 0.4, 0.3898, 0.7824, 0.4, 0.4, 0.86, 0.4, 0.4, 0.86, 0.65, 0.4, 0.86, 0.65, 0.3898, 0.7824, 0.65, 0.3598, 1.01, 0.4, 0.3598, 1.01, 0.4, 0.3121, 1.0721, 0.4, 0.3121, 1.0721, 0.65, 0.3121, 1.0721, 0.65, 0.3598, 1.01, 0.65, 0.25, 0.6002, 0.65, 0.1776, 0.5702, 0.4, 0.1776, 0.5702, 0.4, 0.1776, 0.5702, 0.4, 0.25, 0.6002, 0.65, 0.25, 0.6002, 0.65, 0.3598, 0.71, 0.4, 0.3598, 0.71, 0.4, 0.3898, 0.7824, 0.4, 0.3898, 0.7824, 0.65, 0.3898, 0.7824, 0.65, 0.3598, 0.71, -0.275, 0.6, -1.15, -0.275, 0.5, -1.15, -0.275, 0.6, -0.55, 0.275, 0.5, -1.15, 0.275, 0.6, -1.15, 0.275, 0.6, -0.55, -0.75, 0.6, -0.4229, -0.75, 0.5, -0.4229, -0.55, 0.5, -0.4229, -0.55, 0.5, -0.4229, -0.55, 0.6, -0.4229, -0.75, 0.6, -0.4229, -0.55, 0.6, -0.3229, -0.75, 0.6, -0.3229, -0.75, 0.6, -0.4229, -0.75, 0.6, -0.4229, -0.55, 0.6, -0.4229, -0.55, 0.6, -0.3229, -0.55, 0.5, -0.4229, -0.75, 0.5, -0.4229, -0.75, 0.5, -0.3229, -0.75, 0.5, -0.3229, -0.55, 0.5, -0.3229, -0.55, 0.5, -0.4229, -0.275, 0.5, 1.45, -0.55, 0.5, 1.45, -0.55, 0.6, 0.95, -0.55, 0.6, 0.95, 0.55, 0.6, 0.95, -0.275, 0.5, 1.45, 0.55, 0.6, 0.95, 0.275, 0.5, 1.45, -0.275, 0.5, 1.45, 0.55, 0.6, 0.95, 0.55, 0.5, 1.45, 0.275, 0.5, 1.45, 0.75, 0.5, -0.4229, 0.55, 0.5, -0.4229, 0.55, 0.5, -0.3229, 0.55, 0.5, -0.3229, 0.75, 0.5, -0.3229, 0.75, 0.5, -0.4229, 0.4488, 0.6, -0.55, 0.275, 0.6, -0.55, 0.275, 0.6, -1.15, 0.275, 0.6, -1.15, 0.55, 0.6, -1.15, 0.4488, 0.6, -0.55, 0.55, 0.6, -1.15, 0.55, 0.6, -0.55, 0.4488, 0.6, -0.55, 0.75, 0.6, -0.3229, 0.55, 0.6, -0.3229, 0.55, 0.6, -0.4229, 0.55, 0.6, -0.4229, 0.75, 0.6, -0.4229, 0.75, 0.6, -0.3229, -0.275, 0.4, 1.45, -0.275, 0.5, 1.45, 0.275, 0.5, 1.45, 0.275, 0.5, 1.45, 0.275, 0.4, 1.45, -0.275, 0.4, 1.45, -0.55, 0.4, 1.45, -0.275, 0.4, 1.45, 0.275, 0.4, 1.45, -0.55, 0.4, 1.45, 0.275, 0.4, 1.45, 0.55, 0.4, 1.45, -0.55, 0.3, 1.45, -0.55, 0.4, 1.45, 0.55, 0.4, 1.45, 0.55, 0.4, 1.45, 0.55, 0.3, 1.45, -0.55, 0.3, 1.45, 0.55, 0.6, -0.4229, 0.55, 0.5, -0.4229, 0.75, 0.5, -0.4229, 0.75, 0.5, -0.4229, 0.75, 0.6, -0.4229, 0.55, 0.6, -0.4229, 0.75, 0.5, -0.4229, 0.75, 0.5, -0.3229, 0.75, 0.6, -0.3229, 0.75, 0.6, -0.3229, 0.75, 0.6, -0.4229, 0.75, 0.5, -0.4229, -0.55, 0.6, -0.55, -0.55, 0.6, -0.4229, -0.55, 0.5, -0.4229, -0.55, 0.5, -0.4229, -0.55, 0.4377, -0.465, -0.55, 0.6, -0.55, -0.55, 0.4377, -0.465, -0.55, 0.4767, -0.5591, -0.55, 0.6, -0.55, -0.55, 0.4767, -0.5591, -0.55, 0.6, -1.15, -0.55, 0.6, -0.55, -0.55, 0.3758, -0.3842, -0.55, 0.4377, -0.465, -0.55, 0.5, -0.4229, -0.55, 0.3, -0.3261, -0.55, 0.3758, -0.3842, -0.55, 0.5, -0.4229, -0.55, 0.3, -0.3261, -0.55, 0.5, -0.4229, -0.55, 0.5, -0.3229, -0.55, 0.3, -0.2, -0.55, 0.3, -0.3261, -0.55, 0.5, -0.3229, -0.55, 0.3, -0.2, -0.55, 0.5, -0.3229, -0.55, 0.6, -0.3229, -0.55, 0.45, -0.2, -0.55, 0.3, -0.2, -0.55, 0.6, -0.3229, -0.55, 0.4767, -0.5591, -0.55, 0.49, -0.66, -0.55, 0.6, -1.15, -0.55, 0.45, -0.2, -0.55, 0.6, -0.3229, -0.55, 0.6, 0.1402, -0.55, 0.49, -0.66, -0.55, 0.4767, -0.7609, -0.55, 0.6, -1.15, -0.55, 0.4767, -0.7609, -0.55, 0.4377, -0.855, -0.55, 0.6, -1.15, -0.55, 0.4377, -0.855, -0.55, 0.3758, -0.9358, -0.55, 0.6, -1.15, -0.55, 0.3758, -0.9358, -0.55, 0.3, -0.9939, -0.55, 0.6, -1.15, -0.55, 0.3, -0.9939, -0.55, 0.3, -1.15, -0.55, 0.6, -1.15, -0.55, 0.3, -1.15, -0.55, 0.5, -1.15, -0.55, 0.6, -1.15, -0.55, 0.45, 0.4, -0.55, 0.45, -0.2, -0.55, 0.6, 0.1402, -0.55, 0.3758, 0.5842, -0.55, 0.45, 0.4, -0.55, 0.6, 0.1402, -0.55, 0.3758, 0.5842, -0.55, 0.3, 0.5261, -0.55, 0.45, 0.4, -0.55, 0.3, 0.4, -0.55, 0.45, 0.4, -0.55, 0.3, 0.5261, -0.55, 0.4377, 0.665, -0.55, 0.3758, 0.5842, -0.55, 0.6, 0.1402, -0.55, 0.4767, 0.7591, -0.55, 0.4377, 0.665, -0.55, 0.6, 0.1402, -0.55, 0.49, 0.86, -0.55, 0.4767, 0.7591, -0.55, 0.6, 0.1402, -0.55, 0.49, 0.86, -0.55, 0.6, 0.1402, -0.55, 0.6, 0.95, -0.55, 0.4767, 0.9609, -0.55, 0.49, 0.86, -0.55, 0.6, 0.95, -0.55, 0.4377, 1.055, -0.55, 0.4767, 0.9609, -0.55, 0.6, 0.95, -0.55, 0.3758, 1.1358, -0.55, 0.4377, 1.055, -0.55, 0.6, 0.95, -0.55, 0.3, 1.35, -0.55, 0.3758, 1.1358, -0.55, 0.6, 0.95, -0.55, 0.3, 1.35, -0.55, 0.3, 1.1939, -0.55, 0.3758, 1.1358, -0.55, 0.3, 1.45, -0.55, 0.3, 1.35, -0.55, 0.6, 0.95, -0.55, 0.4, 1.45, -0.55, 0.3, 1.45, -0.55, 0.6, 0.95, -0.55, 0.6, 0.95, -0.55, 0.5, 1.45, -0.55, 0.4, 1.45, -0.75, 0.6, -0.4229, -0.75, 0.6, -0.3229, -0.75, 0.5, -0.3229, -0.75, 0.5, -0.3229, -0.75, 0.5, -0.4229, -0.75, 0.6, -0.4229, 0.55, 0.3, -0.3261, 0.55, 0.3, -0.2, 0.55, 0.45, -0.2, 0.55, 0.45, -0.2, 0.55, 0.5, -0.3229, 0.55, 0.3, -0.3261, 0.55, 0.6, -0.3229, 0.55, 0.5, -0.3229, 0.55, 0.45, -0.2, 0.55, 0.5, -0.3229, 0.55, 0.5, -0.4229, 0.55, 0.3, -0.3261, 0.55, 0.5, -0.4229, 0.55, 0.3758, -0.3842, 0.55, 0.3, -0.3261, 0.55, 0.6, 0.1402, 0.55, 0.6, -0.3229, 0.55, 0.45, -0.2, 0.55, 0.5, -0.4229, 0.55, 0.4377, -0.465, 0.55, 0.3758, -0.3842, 0.55, 0.5, -0.4229, 0.55, 0.6, -0.4229, 0.55, 0.4377, -0.465, 0.55, 0.6, -0.4229, 0.55, 0.6, -0.55, 0.55, 0.4377, -0.465, 0.55, 0.6, -0.55, 0.55, 0.4767, -0.5591, 0.55, 0.4377, -0.465, 0.55, 0.6, -0.55, 0.55, 0.6, -1.15, 0.55, 0.4767, -0.5591, 0.55, 0.6, -1.15, 0.55, 0.49, -0.66, 0.55, 0.4767, -0.5591, 0.55, 0.6, -1.15, 0.55, 0.4767, -0.7609, 0.55, 0.49, -0.66, 0.55, 0.6, -1.15, 0.55, 0.4377, -0.855, 0.55, 0.4767, -0.7609, 0.55, 0.6, -1.15, 0.55, 0.3758, -0.9358, 0.55, 0.4377, -0.855, 0.55, 0.6, -1.15, 0.55, 0.3, -0.9939, 0.55, 0.3758, -0.9358, 0.55, 0.6, -1.15, 0.55, 0.3, -1.15, 0.55, 0.3, -0.9939, 0.55, 0.6, -1.15, 0.55, 0.5, -1.15, 0.55, 0.3, -1.15, 0.55, 0.6, 0.1402, 0.55, 0.45, -0.2, 0.55, 0.45, 0.4, 0.55, 0.6, 0.1402, 0.55, 0.45, 0.4, 0.55, 0.3758, 0.5842, 0.55, 0.45, 0.4, 0.55, 0.3, 0.5261, 0.55, 0.3758, 0.5842, 0.55, 0.45, 0.4, 0.55, 0.3, 0.4, 0.55, 0.3, 0.5261, 0.55, 0.6, 0.1402, 0.55, 0.3758, 0.5842, 0.55, 0.4377, 0.665, 0.55, 0.6, 0.1402, 0.55, 0.4377, 0.665, 0.55, 0.4767, 0.7591, 0.55, 0.6, 0.1402, 0.55, 0.4767, 0.7591, 0.55, 0.49, 0.86, 0.55, 0.6, 0.95, 0.55, 0.6, 0.1402, 0.55, 0.49, 0.86, 0.55, 0.6, 0.95, 0.55, 0.49, 0.86, 0.55, 0.4767, 0.9609, 0.55, 0.6, 0.95, 0.55, 0.4767, 0.9609, 0.55, 0.4377, 1.055, 0.55, 0.6, 0.95, 0.55, 0.4377, 1.055, 0.55, 0.3758, 1.1358, 0.55, 0.6, 0.95, 0.55, 0.3758, 1.1358, 0.55, 0.3, 1.35, 0.55, 0.3758, 1.1358, 0.55, 0.3, 1.1939, 0.55, 0.3, 1.35, 0.55, 0.5, 1.45, 0.55, 0.6, 0.95, 0.55, 0.3, 1.35, 0.55, 0.4, 1.45, 0.55, 0.5, 1.45, 0.55, 0.3, 1.35, 0.55, 0.3, 1.35, 0.55, 0.3, 1.45, 0.55, 0.4, 1.45, -0.4488, 0.6, -0.55, -0.55, 0.6, -0.55, -0.55, 0.6, -1.15, -0.55, 0.6, -1.15, -0.275, 0.6, -1.15, -0.4488, 0.6, -0.55, -0.275, 0.6, -1.15, -0.275, 0.6, -0.55, -0.4488, 0.6, -0.55, -0.55, 0.5, -1.15, -0.55, 0.3, -1.15, -0.275, 0.3, -1.15, -0.275, 0.3, -1.15, -0.275, 0.5, -1.15, -0.55, 0.5, -1.15, 0.275, 0.6, -0.55, -0.275, 0.6, -0.55, -0.275, 0.5, -1.15, -0.275, 0.5, -1.15, 0.275, 0.5, -1.15, 0.275, 0.6, -0.55, -0.55, 0.6, -0.4229, -0.55, 0.6, -0.55, -0.45, 1.1, -0.15, -0.4696, 1.0019, -0.1013, -0.55, 0.6, -0.4229, -0.45, 1.1, -0.15, -0.4696, 1.0019, 0.1402, -0.4696, 1.0019, -0.1013, -0.45, 1.1, -0.15, -0.45, 1.1, -0.15, -0.45, 1.1, 0.75, -0.4696, 1.0019, 0.1402, -0.55, 0.6, 0.1402, -0.4696, 1.0019, 0.1402, -0.45, 1.1, 0.75, -0.45, 1.1, 0.75, -0.55, 0.6, 0.95, -0.55, 0.6, 0.1402, -0.45, 1.1, -0.15, -0.55, 0.6, -0.55, -0.4488, 0.6, -0.55, -0.4488, 0.6, -0.55, -0.3644, 1.0219, -0.2125, -0.45, 1.1, -0.15, -0.3644, 1.0219, -0.2125, 0.3644, 1.0219, -0.2125, -0.45, 1.1, -0.15, 0.45, 1.1, -0.15, -0.45, 1.1, -0.15, 0.3644, 1.0219, -0.2125, 0.55, 0.6, -0.55, 0.45, 1.1, -0.15, 0.3644, 1.0219, -0.2125, 0.3644, 1.0219, -0.2125, 0.4488, 0.6, -0.55, 0.55, 0.6, -0.55, 0.55, 0.6, 0.1402, 0.55, 0.6, 0.95, 0.45, 1.1, 0.75, 0.45, 1.1, 0.75, 0.4696, 1.0019, 0.1402, 0.55, 0.6, 0.1402, 0.45, 1.1, 0.75, 0.45, 1.1, -0.15, 0.4696, 1.0019, 0.1402, 0.45, 1.1, -0.15, 0.4696, 1.0019, -0.1013, 0.4696, 1.0019, 0.1402, 0.45, 1.1, -0.15, 0.55, 0.6, -0.4229, 0.4696, 1.0019, -0.1013, 0.45, 1.1, -0.15, 0.55, 0.6, -0.55, 0.55, 0.6, -0.4229, 0.275, 0.5, -1.15, 0.275, 0.3, -1.15, 0.55, 0.3, -1.15, 0.55, 0.3, -1.15, 0.55, 0.5, -1.15, 0.275, 0.5, -1.15, -0.45, 1.1, 0.75, -0.45, 1.1, -0.15, -0.1, 1.1, 0.55, -0.1, 1.1, 0.55, 0.45, 1.1, 0.75, -0.45, 1.1, 0.75, -0.1, 1.1, 0.05, -0.1, 1.1, 0.55, -0.45, 1.1, -0.15, -0.1, 1.1, 0.55, 0.1, 1.1, 0.55, 0.45, 1.1, 0.75, -0.45, 1.1, -0.15, 0.45, 1.1, -0.15, -0.1, 1.1, 0.05, 0.1, 1.1, 0.55, 0.1, 1.1, 0.05, 0.45, 1.1, 0.75, 0.1, 1.1, 0.05, 0.45, 1.1, -0.15, 0.45, 1.1, 0.75, 0.45, 1.1, -0.15, 0.1, 1.1, 0.05, -0.1, 1.1, 0.05, 0.55, 0.6, 0.95, -0.55, 0.6, 0.95, 0.4297, 0.6928, 0.9129, 0.4297, 0.6928, 0.9129, 0.45, 1.1, 0.75, 0.55, 0.6, 0.95, -0.4297, 0.6928, 0.9129, 0.4297, 0.6928, 0.9129, -0.55, 0.6, 0.95, 0.4297, 0.6928, 0.9129, 0.3669, 1.0072, 0.7871, 0.45, 1.1, 0.75, -0.55, 0.6, 0.95, -0.45, 1.1, 0.75, -0.4297, 0.6928, 0.9129, 0.3669, 1.0072, 0.7871, -0.3669, 1.0072, 0.7871, 0.45, 1.1, 0.75, -0.45, 1.1, 0.75, -0.3669, 1.0072, 0.7871, -0.4297, 0.6928, 0.9129, -0.45, 1.1, 0.75, 0.45, 1.1, 0.75, -0.3669, 1.0072, 0.7871, -0.55, 0.6, -1.15, -0.55, 0.5, -1.15, -0.275, 0.5, -1.15, -0.275, 0.5, -1.15, -0.275, 0.6, -1.15, -0.55, 0.6, -1.15, 0.275, 0.6, -1.15, 0.275, 0.5, -1.15, 0.55, 0.5, -1.15, 0.55, 0.5, -1.15, 0.55, 0.6, -1.15, 0.275, 0.6, -1.15, -0.55, 0.6, -0.3229, -0.55, 0.5, -0.3229, -0.75, 0.5, -0.3229, -0.75, 0.5, -0.3229, -0.75, 0.6, -0.3229, -0.55, 0.6, -0.3229, 0.55, 0.3, -0.2, 0.55, 0.3, 0.4, 0.55, 0.45, 0.4, 0.55, 0.45, 0.4, 0.55, 0.45, -0.2, 0.55, 0.3, -0.2, 0.75, 0.6, -0.3229, 0.75, 0.5, -0.3229, 0.55, 0.5, -0.3229, 0.55, 0.5, -0.3229, 0.55, 0.6, -0.3229, 0.75, 0.6, -0.3229, -0.55, 0.45, -0.2, -0.55, 0.45, 0.4, -0.55, 0.3, 0.4, -0.55, 0.3, 0.4, -0.55, 0.3, -0.2, -0.55, 0.45, -0.2, -0.05, 1.3, 0.05, -0.1, 1.1, 0.05, 0.1, 1.1, 0.05, 0.1, 1.1, 0.05, 0.05, 1.3, 0.05, -0.05, 1.3, 0.05, -0.05, 1.3, 0.05, -0.05, 1.3, 0.55, -0.1, 1.1, 0.55, -0.1, 1.1, 0.55, -0.1, 1.1, 0.05, -0.05, 1.3, 0.05, 0.05, 1.3, 0.55, 0.1, 1.1, 0.55, -0.1, 1.1, 0.55, -0.1, 1.1, 0.55, -0.05, 1.3, 0.55, 0.05, 1.3, 0.55, 0.05, 1.3, 0.55, -0.05, 1.3, 0.55, -0.05, 1.3, 0.05, -0.05, 1.3, 0.05, 0.05, 1.3, 0.05, 0.05, 1.3, 0.55, 0.1, 1.1, 0.05, 0.1, 1.1, 0.55, 0.05, 1.3, 0.55, 0.05, 1.3, 0.55, 0.05, 1.3, 0.05, 0.1, 1.1, 0.05, -0.3644, 1.0219, -0.2125, -0.4488, 0.6, -0.55, -0.275, 0.6, -0.55, -0.275, 0.6, -0.55, 0.275, 0.6, -0.55, -0.3644, 1.0219, -0.2125, 0.275, 0.6, -0.55, 0.4488, 0.6, -0.55, -0.3644, 1.0219, -0.2125, 0.4488, 0.6, -0.55, 0.3644, 1.0219, -0.2125, -0.3644, 1.0219, -0.2125, -0.4696, 1.0019, -0.1013, -0.4696, 1.0019, 0.1402, -0.55, 0.6, 0.1402, -0.55, 0.6, 0.1402, -0.55, 0.6, -0.3229, -0.4696, 1.0019, -0.1013, -0.55, 0.6, -0.3229, -0.55, 0.6, -0.4229, -0.4696, 1.0019, -0.1013, 0.55, 0.6, -0.3229, 0.55, 0.6, 0.1402, 0.4696, 1.0019, 0.1402, 0.4696, 1.0019, 0.1402, 0.4696, 1.0019, -0.1013, 0.55, 0.6, -0.3229, 0.4696, 1.0019, -0.1013, 0.55, 0.6, -0.4229, 0.55, 0.6, -0.3229, 0.3669, 1.0072, 0.7871, 0.4297, 0.6928, 0.9129, -0.4297, 0.6928, 0.9129, -0.4297, 0.6928, 0.9129, -0.3669, 1.0072, 0.7871, 0.3669, 1.0072, 0.7871, 0.55, 0.5, 1.45, 0.55, 0.4, 1.45, 0.275, 0.4, 1.45, 0.275, 0.4, 1.45, 0.275, 0.5, 1.45, 0.55, 0.5, 1.45, -0.275, 0.5, 1.45, -0.275, 0.4, 1.45, -0.55, 0.4, 1.45, -0.55, 0.4, 1.45, -0.55, 0.5, 1.45, -0.275, 0.5, 1.45, -0.275, 0.3, -1.15, -0.275, 0.2, -1.1167, 0.275, 0.2, -1.1167, 0.275, 0.2, -1.1167, 0.275, 0.3, -1.15, -0.275, 0.3, -1.15, -0.275, 0.5, -1.15, -0.275, 0.3, -1.15, 0.275, 0.3, -1.15, 0.275, 0.3, -1.15, 0.275, 0.5, -1.15, -0.275, 0.5, -1.15)
 
 [sub_resource type="PhysicsMaterial" id="12"]
+bounce = 0.1
 absorbent = true
 
 [sub_resource type="SphereShape3D" id="11"]
 
-[sub_resource type="Animation" id="28"]
-resource_name = "Hit"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D/body:mesh:surface_3/material:emission")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.394984),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.898039, 0.0431373, 0.0431373, 1), Color(0.752941, 0.639216, 0.121569, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node3D/body:mesh:surface_3/material:emission_energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.394984),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [2.0, 1.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node3D/body:mesh:surface_3/material:albedo_color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.394984),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.458824, 0.0666667, 0.0666667, 1), Color(1, 0.740017, 0.259434, 1)]
-}
-
-[sub_resource type="Animation" id="29"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D/body:mesh:surface_3/material:emission")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.752941, 0.639216, 0.121569, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node3D/body:mesh:surface_3/material:emission_energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node3D/body:mesh:surface_3/material:albedo_color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0.740017, 0.259434, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2mmrq"]
-_data = {
-&"Hit": SubResource("28"),
-&"RESET": SubResource("29")
-}
-
-[node name="World" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("17")
-
-[node name="Camera3D" type="Camera3D" parent="." groups=["Cam"]]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 29.6168, 13.9851, 2.37051)
-keep_aspect = 0
-cull_mask = 1
-far = 200.0
-script = ExtResource("1_al5em")
-lerp_speed = 2.0
-target_path = NodePath("../taxi/Node3D")
-offset = Vector3(0, 6, 18)
-fastnoiselite = SubResource("FastNoiseLite_bbtet")
-noise_speed = 100
-col_lerp_speed = 1
-
-[node name="taxi" type="Node3D" parent="."]
-transform = Transform3D(0.674778, 0, 0.738019, 0, 1, 0, -0.738019, 0, 0.674778, -19.288, 1.203, -38.4211)
-script = ExtResource("4_r321y")
-close_miss_bonus = 7
+[node name="taxi" type="Node3D" groups=["Enemy_Control"]]
+script = ExtResource("1_pqxrf")
 ball_path = NodePath("Ball")
 car_mesh_body_path = NodePath("Node3D/body")
 car_mesh_path = NodePath("Node3D")
 sphere_offset = Vector3(0, -0.5, 0)
-acceleration = 150.0
-steering = 30.0
-turn_speed = 4.0
-turn_stop_limit = 1.25
+acceleration = 140.0
+steering = 60.0
 tilt = 65.0
 left_wheel_path = NodePath("Node3D/wheel_frontLeft")
 right_wheel_path = NodePath("Node3D/wheel_frontRight")
@@ -828,143 +192,97 @@ b_l_particles = NodePath("Node3D/Backleft/CPUParticles3D")
 b_r_particles = NodePath("Node3D/Backright/CPUParticles3D")
 b_l2_particles = NodePath("Node3D/Backleft2/CPUParticles3D")
 b_r2_particles = NodePath("Node3D/Backright2/CPUParticles3D")
-damage_multiplier = 0.7
 jump_ht = 1.0
-cam_pos_path = NodePath("Node3D/body/cam_pos")
 fl_path = NodePath("Node3D/Fl")
 fr_path = NodePath("Node3D/Fr")
 bl_path = NodePath("Node3D/Bl")
 health_bar_path = NodePath("Node3D/Healthbar")
+nav_agent_path = NodePath("Node3D/NavigationAgent3D")
 
-[node name="Node3D" type="MeshInstance3D" parent="taxi"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
+[node name="Node3D" type="MeshInstance3D" parent="."]
 
-[node name="Backright2" parent="taxi/Node3D" instance=ExtResource("5_nbs6v")]
+[node name="Backright2" parent="Node3D" instance=ExtResource("2_pp025")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428421, 0.0363879, 0.811293)
 
-[node name="Backleft2" parent="taxi/Node3D" instance=ExtResource("5_nbs6v")]
+[node name="Backleft2" parent="Node3D" instance=ExtResource("2_pp025")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546473, 0.0306792, 0.851717)
 
-[node name="Backright" parent="taxi/Node3D" instance=ExtResource("6_qs6pn")]
+[node name="Backright" parent="Node3D" instance=ExtResource("3_t6pfl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428421, 0.0363879, 0.811293)
 
-[node name="Backleft" parent="taxi/Node3D" instance=ExtResource("6_qs6pn")]
+[node name="Backleft" parent="Node3D" instance=ExtResource("3_t6pfl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546473, 0.0306792, 0.851717)
 
-[node name="CPUParticles3D" parent="taxi/Node3D/Backleft" index="0"]
+[node name="CPUParticles3D" parent="Node3D/Backleft" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.143636, 0, 0)
 
-[node name="Drift" type="AudioStreamPlayer3D" parent="taxi/Node3D"]
+[node name="Drift" type="AudioStreamPlayer3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17042, 1)
-stream = ExtResource("7_al5em")
+stream = ExtResource("4_khxlk")
 unit_size = 8.0
 max_distance = 30.0
 
-[node name="body" type="MeshInstance3D" parent="taxi/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.1)
+[node name="body" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.0999999)
 mesh = SubResource("9")
 skeleton = NodePath("../..")
 
-[node name="MachineGun" parent="taxi/Node3D/body" instance=ExtResource("8_g50ho")]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.000339031, 1.71628, 0.38334)
+[node name="Area3D" type="Area3D" parent="Node3D/body" groups=["Enemy_Body"]]
+collision_layer = 2
+collision_mask = 2
 
-[node name="Gun" parent="taxi/Node3D/body/MachineGun" index="0"]
-transform = Transform3D(-10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/body/Area3D"]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
+shape = SubResource("17")
 
-[node name="OmniLight3D" parent="taxi/Node3D/body/MachineGun/Gun/Marker/Particles" index="0"]
-omni_range = 7.0
-
-[node name="Stand" type="MeshInstance3D" parent="taxi/Node3D/body/MachineGun"]
-transform = Transform3D(-10, 0, 1.50996e-06, 0, 10, 0, -1.50996e-06, 0, -10, 0, -1.3908, 0.0648999)
-mesh = SubResource("20")
-skeleton = NodePath("../Gun")
-
-[node name="Base" type="MeshInstance3D" parent="taxi/Node3D/body/MachineGun"]
-transform = Transform3D(-7.34807, 0, 1.10953e-06, 0, 10, 0, -1.10953e-06, 0, -7.34807, 0, -1.62987, 0.0648999)
-mesh = SubResource("21")
-skeleton = NodePath("../Gun")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="taxi/Node3D/body/MachineGun"]
-stream = ExtResource("9_eqmx8")
-volume_db = -10.0
-pitch_scale = 3.5
-
-[node name="Rocket Launcher" parent="taxi/Node3D/body" instance=ExtResource("10_1ftn1")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0892019, 0)
-
-[node name="Rocket Ammo" parent="taxi/Node3D/body/Rocket Launcher/Gun" index="0"]
-script = null
-
-[node name="Rocket Ammo3" parent="taxi/Node3D/body/Rocket Launcher/Gun" index="1"]
-script = null
-
-[node name="Rocket Ammo2" parent="taxi/Node3D/body/Rocket Launcher/Gun" index="2"]
-script = null
-
-[node name="cam_pos" type="Node3D" parent="taxi/Node3D/body"]
-transform = Transform3D(-1, 1.77636e-15, 8.74228e-08, 1.73575e-08, 0.980091, 0.198547, -8.56823e-08, 0.198547, -0.980091, -0.0262446, 1.57004, 0.997644)
-
-[node name="wheel_backRight" type="MeshInstance3D" parent="taxi/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.25, 0.76)
-mesh = ExtResource("8_dnpvv")
+[node name="wheel_backRight" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, 0.76)
+mesh = ExtResource("5_4x5ad")
 skeleton = NodePath("../..")
 
-[node name="wheel_frontLeft" type="MeshInstance3D" parent="taxi/Node3D"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.341157, 0.25, -0.746651)
-mesh = ExtResource("8_dnpvv")
+[node name="wheel_frontLeft" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.341157, 0.3, -0.746651)
+mesh = ExtResource("5_4x5ad")
 skeleton = NodePath("../..")
 
-[node name="wheel_frontRight" type="MeshInstance3D" parent="taxi/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.25, -0.76)
-mesh = ExtResource("8_dnpvv")
+[node name="wheel_frontRight" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, -0.76)
+mesh = ExtResource("5_4x5ad")
 skeleton = NodePath("../..")
 
-[node name="wheel_backLeft" type="MeshInstance3D" parent="taxi/Node3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.3, 0.25, 0.76)
-mesh = ExtResource("8_dnpvv")
+[node name="wheel_backLeft" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.3, 0.3, 0.76)
+mesh = ExtResource("5_4x5ad")
 skeleton = NodePath("../..")
 
-[node name="Fl" type="RayCast3D" parent="taxi/Node3D"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Node3D"]
+path_desired_distance = 0.5
+
+[node name="Healthbar" parent="Node3D" groups=["Enemy_Healthbar"] instance=ExtResource("6_kki3i")]
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10634, 0)
+layers = 2
+pixel_size = 0.015
+billboard = 1
+texture = ExtResource("7_4lhns")
+
+[node name="Fl" type="RayCast3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.545909, 0.5, -1.27291)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
-[node name="Fr" type="RayCast3D" parent="taxi/Node3D"]
+[node name="Fr" type="RayCast3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.631004, 0.5, -1.21737)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
-[node name="Bl" type="RayCast3D" parent="taxi/Node3D"]
+[node name="Bl" type="RayCast3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603789, 0.5, 1.44533)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
-[node name="Healthbar" parent="taxi/Node3D" instance=ExtResource("12_r0ccd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239)
-
-[node name="DetectionArea" type="Area3D" parent="taxi/Node3D" groups=["Player_body"]]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="taxi/Node3D/DetectionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764219, 0)
-shape = SubResource("CylinderShape3D_afyqv")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="taxi/Node3D"]
-libraries = {
-&"": SubResource("AnimationLibrary_37yd7")
-}
-
-[node name="Sprite3D" type="Sprite3D" parent="taxi/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10634, 0)
-visible = false
-layers = 2
-pixel_size = 0.015
-billboard = 1
-texture = ExtResource("13_gjepw")
-
-[node name="Raycol" type="Node3D" parent="taxi/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13508, 0.805907)
-
-[node name="Ball" type="RigidBody3D" parent="taxi" groups=["Ball"]]
+[node name="Ball" type="RigidBody3D" parent="." groups=["Enemy"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 physics_material_override = SubResource("12")
 gravity_scale = 10.0
@@ -972,173 +290,13 @@ contact_monitor = true
 max_contacts_reported = 3
 angular_damp = 10.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="taxi/Ball"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
 shape = SubResource("11")
 
-[node name="Oncollision" type="AudioStreamPlayer" parent="taxi/Ball"]
-stream = ExtResource("14_akdms")
-volume_db = -5.0
-pitch_scale = 3.0
+[connection signal="body_entered" from="Ball" to="." method="OnCollision"]
+[connection signal="body_exited" from="Ball" to="." method="OnLeaving"]
 
-[node name="Hit Anim" type="AnimationPlayer" parent="taxi"]
-libraries = {
-&"": SubResource("AnimationLibrary_2mmrq")
-}
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = ExtResource("5_at387")
-
-[node name="Ground" type="CSGBox3D" parent="NavigationRegion3D" groups=["2d", "Ground"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7114, 0, -16.5029)
-layers = 3
-cast_shadow = 0
-use_collision = true
-collision_layer = 13
-collision_mask = 13
-size = Vector3(320, 0.1, 250)
-material = ExtResource("1_nukgt")
-
-[node name="Htype22" parent="NavigationRegion3D" instance=ExtResource("7_gjajs")]
-transform = Transform3D(-0.965722, 0, -0.259578, 0, 1, 0, 0.259578, 0, -0.965722, -3.08601, 4.76837e-07, 59.8758)
-
-[node name="Htype46" parent="NavigationRegion3D" instance=ExtResource("7_gjajs")]
-transform = Transform3D(-0.766986, 0, -0.641664, 0, 1, 0, 0.641664, 0, -0.766986, 43.3298, 0, 19.1115)
-
-[node name="Htype20" parent="NavigationRegion3D" instance=ExtResource("8_4xv5r")]
-transform = Transform3D(-0.933699, 0, -0.358058, 0, 1, 0, 0.358058, 0, -0.933699, 67.1709, 0.0499992, -9.39246)
-
-[node name="Htype23" parent="NavigationRegion3D" instance=ExtResource("8_4xv5r")]
-transform = Transform3D(-0.20195, 0, 0.979396, 0, 1, 0, -0.979396, 0, -0.20195, -44.7025, 0.050005, 72.1819)
-
-[node name="Htype47" parent="NavigationRegion3D" instance=ExtResource("8_4xv5r")]
-transform = Transform3D(-0.654121, 0, 0.75639, 0, 1, 0, -0.75639, 0, -0.654121, 47.9052, 0.050005, 13.8393)
-
-[node name="Htype24" parent="NavigationRegion3D" instance=ExtResource("7_gjajs")]
-transform = Transform3D(0.545912, 0, 0.837843, 0, 1, 0, -0.837843, 0, 0.545912, 32.4953, 0.0499973, 35.3839)
-
-[node name="Htype25" parent="NavigationRegion3D" instance=ExtResource("8_4xv5r")]
-transform = Transform3D(0.864161, 0, -0.503216, 0, 1, 0, 0.503216, 0, 0.864161, -99.132, 0.0499869, -12.4394)
-
-[node name="Htype19" parent="NavigationRegion3D" instance=ExtResource("9_wpte4")]
-transform = Transform3D(-0.905139, 0, -0.425116, 0, 1, 0, 0.425116, 0, -0.905139, -87.4939, 0, 15.7036)
-
-[node name="Htype27" parent="NavigationRegion3D" instance=ExtResource("9_wpte4")]
-transform = Transform3D(0.995974, 0, -0.0896412, 0, 1, 0, 0.0896412, 0, 0.995974, 10.1704, 0, -37.2096)
-
-[node name="Htype18" parent="NavigationRegion3D" instance=ExtResource("10_eah8x")]
-transform = Transform3D(-0.656019, 0, 0.754744, 0, 1, 0, -0.754744, 0, -0.656019, -73.6716, 0.0499964, 47.8428)
-
-[node name="Htype17" parent="NavigationRegion3D" instance=ExtResource("11_rj01l")]
-transform = Transform3D(0.708919, 0, -0.70529, 0, 1, 0, 0.70529, 0, 0.708919, -65.3613, 0.0500002, 54.6593)
-
-[node name="Htype29" parent="NavigationRegion3D" instance=ExtResource("8_4xv5r")]
-transform = Transform3D(0.931545, 0, 0.363625, 0, 1, 0, -0.363625, 0, 0.931545, -33.3029, 0.0500002, 69.2558)
-
-[node name="Htype30" parent="NavigationRegion3D" instance=ExtResource("10_eah8x")]
-transform = Transform3D(0.715022, 0, 0.699102, 0, 1, 0, -0.699102, 0, 0.715022, -10.978, 0.0500031, -9.8928)
-
-[node name="Htype31" parent="NavigationRegion3D" instance=ExtResource("8_4xv5r")]
-transform = Transform3D(0.825143, 0, -0.564924, 0, 1, 0, 0.564924, 0, 0.825143, -5.41371, 0.0500041, -17.0168)
-
-[node name="Htype32" parent="NavigationRegion3D" instance=ExtResource("11_rj01l")]
-transform = Transform3D(-0.668573, 0, -0.743646, 0, 1, 0, 0.743646, 0, -0.668573, 14.6033, 0.0499992, -22.7517)
-
-[node name="Htype45" parent="NavigationRegion3D" instance=ExtResource("11_rj01l")]
-transform = Transform3D(-0.524194, 0, -0.851598, 0, 1, 0, 0.851598, 0, -0.524194, 36.5218, 0.0499992, 25.7407)
-
-[node name="Htype33" parent="NavigationRegion3D" instance=ExtResource("7_gjajs")]
-transform = Transform3D(0.305114, 0, 0.952316, 0, 1, 0, -0.952316, 0, 0.305114, -2.76385, 0.0499954, -26.3174)
-
-[node name="Htype34" parent="NavigationRegion3D" instance=ExtResource("10_eah8x")]
-transform = Transform3D(-0.965368, 0, -0.260892, 0, 1, 0, 0.260892, 0, -0.965368, -21.321, 0.0499992, 65.9277)
-
-[node name="Htype44" parent="NavigationRegion3D" instance=ExtResource("10_eah8x")]
-transform = Transform3D(-0.511908, 0, -0.85904, 0, 1, 0, 0.85904, 0, -0.511908, 25.7735, 0.0499992, 44.0936)
-
-[node name="Htype48" parent="NavigationRegion3D" instance=ExtResource("7_gjajs")]
-transform = Transform3D(0.963942, 0, 0.266111, 0, 1, 0, -0.266111, 0, 0.963942, -57.2714, 0, -30.6777)
-
-[node name="Htype49" parent="NavigationRegion3D" instance=ExtResource("8_4xv5r")]
-transform = Transform3D(0.281839, 0, -0.959462, 0, 1, 0, 0.959462, 0, 0.281839, -63.6796, 0.050005, -27.1834)
-
-[node name="Htype50" parent="NavigationRegion3D" instance=ExtResource("7_gjajs")]
-transform = Transform3D(-0.844047, 0, -0.536269, 0, 1, 0, 0.536269, 0, -0.844047, -40.6674, 0.0499973, -40.9969)
-
-[node name="Htype51" parent="NavigationRegion3D" instance=ExtResource("11_rj01l")]
-transform = Transform3D(0.829983, 0, 0.557788, 0, 1, 0, -0.557788, 0, 0.829983, -48.3282, 0.0499992, -33.8895)
-
-[node name="Htype52" parent="NavigationRegion3D" instance=ExtResource("10_eah8x")]
-transform = Transform3D(0.821886, 0, 0.569653, 0, 1, 0, -0.569653, 0, 0.821886, -30.9405, 0.0499992, -46.1378)
-
-[node name="Htype53" parent="NavigationRegion3D" instance=ExtResource("8_4xv5r")]
-transform = Transform3D(-0.565974, 0, -0.824423, 0, 1, 0, 0.824423, 0, -0.565974, -91.3582, 0.050005, -40.0985)
-
-[node name="Htype54" parent="NavigationRegion3D" instance=ExtResource("7_gjajs")]
-transform = Transform3D(-0.537093, 0, -0.843523, 0, 1, 0, 0.843523, 0, -0.537093, -81.9907, 0.0499973, -59.7901)
-
-[node name="Htype55" parent="NavigationRegion3D" instance=ExtResource("11_rj01l")]
-transform = Transform3D(0.515233, 0, 0.85705, 0, 1, 0, -0.85705, 0, 0.515233, -85.9158, 0.0499992, -50.1053)
-
-[node name="Htype57" parent="NavigationRegion3D" instance=ExtResource("7_gjajs")]
-transform = Transform3D(0.815229, 0, -0.579139, 0, 1, 0, 0.579139, 0, 0.815229, -86.3491, 0.0499973, -32.5739)
-
-[node name="Htype58" parent="NavigationRegion3D" instance=ExtResource("11_rj01l")]
-transform = Transform3D(-0.829846, 0, 0.557992, 0, 1, 0, -0.557992, 0, -0.829846, -76.8755, 0.0499992, -28.1632)
-
-[node name="Htype56" parent="NavigationRegion3D" instance=ExtResource("10_eah8x")]
-transform = Transform3D(0.502869, 0, 0.864363, 0, 1, 0, -0.864363, 0, 0.502869, -76.9993, 0.0499992, -67.8677)
-
-[node name="Htype59" parent="NavigationRegion3D" instance=ExtResource("8_4xv5r")]
-transform = Transform3D(0.559077, 0, 0.829116, 0, 1, 0, -0.829116, 0, 0.559077, -102.385, 0.050005, -70.1398)
-
-[node name="Htype60" parent="NavigationRegion3D" instance=ExtResource("7_gjajs")]
-transform = Transform3D(0.530038, 0, 0.847974, 0, 1, 0, -0.847974, 0, 0.530038, -111.588, 0.0499973, -50.3707)
-
-[node name="Htype61" parent="NavigationRegion3D" instance=ExtResource("11_rj01l")]
-transform = Transform3D(-0.508065, 0, -0.861318, 0, 1, 0, 0.861318, 0, -0.508065, -107.743, 0.0499992, -60.0879)
-
-[node name="Htype62" parent="NavigationRegion3D" instance=ExtResource("10_eah8x")]
-transform = Transform3D(-0.703022, 0, 0.711168, 0, 1, 0, -0.711168, 0, -0.703022, -118.672, 0.0499992, -54.985)
-
-[node name="Htype35" parent="NavigationRegion3D" instance=ExtResource("11_rj01l")]
-transform = Transform3D(0.818029, 0, -0.575177, 0, 1, 0, 0.575177, 0, 0.818029, -9.83493, 0.0500021, 52.5527)
-
-[node name="Htype36" parent="NavigationRegion3D" instance=ExtResource("8_4xv5r")]
-transform = Transform3D(0.388063, 0, -0.921633, 0, 1, 0, 0.921633, 0, 0.388063, 1.34147, 0.0499992, -35.597)
-
-[node name="Htype37" parent="NavigationRegion3D" instance=ExtResource("10_eah8x")]
-transform = Transform3D(-0.957586, 0, -0.288146, 0, 1, 0, 0.288146, 0, -0.957586, 104.655, 0.0500043, -43.2597)
-
-[node name="Htype43" parent="NavigationRegion3D" instance=ExtResource("10_eah8x")]
-transform = Transform3D(-0.692974, 0, 0.720962, 0, 1, 0, -0.720962, 0, -0.692974, -57.3244, 0.0499992, 63.3404)
-
-[node name="road" parent="NavigationRegion3D" instance=ExtResource("12_0flx4")]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.976682, 0.198491, -0.0818137, 0.065038, 0.63672, 0.768348, 0.204602, 0.74511, -0.634782, 37.7649, 5.43877, 0)
-light_color = Color(0.960784, 0.741176, 0.956863, 1)
-shadow_enabled = true
-shadow_bias = 0.0
-directional_shadow_split_2 = 0.138
-directional_shadow_split_3 = 0.426
-directional_shadow_blend_splits = true
-directional_shadow_max_distance = 70.0
-
-[node name="Enemy_spawner" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -57.6567, 20.2893, -20.9285)
-
-[node name="taxi2" parent="." instance=ExtResource("10_7wb15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5861, 0.0739691, -48.1361)
-acceleration = 180.0
-
-[connection signal="body_entered" from="taxi/Node3D/DetectionArea" to="taxi/Node3D/body/MachineGun" method="OnDetection"]
-[connection signal="body_exited" from="taxi/Node3D/DetectionArea" to="taxi/Node3D/body/MachineGun" method="OnExit"]
-[connection signal="body_entered" from="taxi/Ball" to="taxi" method="On_collision"]
-[connection signal="body_exited" from="taxi/Ball" to="taxi" method="On_leaving"]
-
-[editable path="taxi/Node3D/Backright2"]
-[editable path="taxi/Node3D/Backleft2"]
-[editable path="taxi/Node3D/Backright"]
-[editable path="taxi/Node3D/Backleft"]
-[editable path="taxi/Node3D/body/MachineGun"]
-[editable path="taxi/Node3D/body/Rocket Launcher"]
+[editable path="Node3D/Backright2"]
+[editable path="Node3D/Backleft2"]
+[editable path="Node3D/Backright"]
+[editable path="Node3D/Backleft"]
