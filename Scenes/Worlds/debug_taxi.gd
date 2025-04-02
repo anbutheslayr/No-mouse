@@ -43,7 +43,7 @@ var expl = preload("res://Scenes/Explosion.tscn")
 var wait_time 
 var next_point : Vector3
 var speed_input: float = 1
-var steering_input= 0
+var steering_input= 0.0
 var rc_iscol: bool
 
 func _ready():
@@ -53,7 +53,6 @@ func _ready():
 	update_path_timer.one_shot = true
 	update_path_timer.wait_time = .1
 	update_path_timer.start()
-
 
 func set_difficulty():
 	match reso.difficulty:
@@ -69,9 +68,6 @@ func set_difficulty():
 			wait_time = .1
 			acceleration = 130
 			turn_speed = 5
-		
-
-
 
 func part_change():
 	if reso.cur_world == 1:
@@ -81,9 +77,8 @@ func part_change():
 		b_l = get_node(b_l2_particles)
 		b_r = get_node(b_r2_particles)
 
-
 func  _physics_process(_delta: float) -> void:
-	rc_iscol = (fr.is_colliding() and fl.is_colliding() and bl.is_colliding())
+	rc_iscol = (fr.is_colliding() or fl.is_colliding() or bl.is_colliding())
 	# Align mesh with sphere
 	
 	car_mesh.transform.origin = ball.transform.origin + sphere_offset  
@@ -94,9 +89,7 @@ func  _physics_process(_delta: float) -> void:
 	# else:
 	# 	add = Vector3.ZERO
 	if rc_iscol:
-		ball.add_constant_force(-car_mesh.global_transform.basis.z*speed_input + add)
-	
-	
+		ball.apply_central_force(-car_mesh.global_transform.basis.z*acceleration+ add)
 
 func align_with_surface(xform: Transform3D) -> Transform3D:
 
@@ -124,41 +117,40 @@ func calculate_health(damage):
 		queue_free()
 	health_bar_3d.change_health(health)
 
-
-
 func _process(delta: float) -> void:
 	if Engine.time_scale != 1:
-		steering_input = 0
+		steering_input = 0.0
 	# AI
 	if update_path_timer.time_left ==0:
 		nav_agent.target_position = player_mesh.global_position
 		update_path_timer.start(wait_time)
 		next_point = nav_agent.get_next_path_position()
-	var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point,Vector3.UP))
-	if angle > 10:
-		steering_input = lerp(steering_input,1.0,delta*10)
-	elif angle<-10:
-		steering_input= lerp(steering_input,-1.0,delta*10)
-	else: 
-		steering_input =0
-	steering_input *= rad_to_deg(steering)
+	# var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point,Vector3.UP))
+	var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point - ball.global_position,Vector3.UP))
 
-	
+	if angle > 20:
+		steering_input = lerp(steering_input,deg_to_rad(steering),delta*10)
+	elif angle<-20:
+		steering_input = lerp(steering_input,-deg_to_rad(steering),delta*10)
+	 
+	print(angle)
+
+	# print(steering_input)
 	# turning wheels
-	left_wheel.rotation.y = PI + steering_input
-	right_wheel.rotation.y = steering_input
+	left_wheel.rotation.y = lerp(left_wheel.rotation.y,PI + steering_input,delta*40)
+	right_wheel.rotation.y = lerp(right_wheel.rotation.y,steering_input - .3,delta*40)
 
 	if b_l.emitting:
 		left_wheel.rotation.y = -(PI + steering_input)
 		right_wheel.rotation.y = -(steering_input - .3)
 	if ball.linear_velocity.length() > turn_stop_limit:
 		# turning mesh
-		var new_basis : Basis= car_mesh.global_transform.basis.rotated(car_mesh.global_transform.basis.y.normalized(), steering_input)
+		var new_basis : Basis= car_mesh.global_transform.basis.rotated(car_mesh.global_transform.basis.y, steering_input)
 		car_mesh.global_transform.basis = car_mesh.global_transform.basis.orthonormalized().slerp(new_basis.orthonormalized(), delta * turn_speed)
 		car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
-		# applying tilt
-		var t =-steering_input*ball.linear_velocity.length()/tilt
-		car_mesh_body.rotation.z = lerp(car_mesh_body.rotation.z, t, delta * 10)
+		# # applying tilt
+		# var t =-steering_input*ball.linear_velocity.length()/tilt
+		# car_mesh_body.rotation.z = lerp(car_mesh_body.rotation.z, t, delta * 10)
 
 
 	# speed_input = lerp(speed_input,speed_input*acceleration,delta*25)
@@ -168,4 +160,3 @@ func _process(delta: float) -> void:
 	
 	var xform = align_with_surface(car_mesh.global_transform)
 	car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform,.5)
-	
