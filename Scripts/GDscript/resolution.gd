@@ -1,7 +1,7 @@
 extends Resource
 class_name Resolution
 
-@export var res : Vector2i = Vector2i(1920, 1080)
+@export var res : Vector2i = Vector2i(1280, 768)
 @export var res_int : int = 0
 @export var shadows : bool = true
 @export var shadow_quality : int = 0
