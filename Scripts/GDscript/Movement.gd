@@ -53,7 +53,7 @@ var expl = preload("res://Scenes/Explosion.tscn")
 @onready var audio_stream_player : AudioStreamPlayer = get_node("Ball/Oncollision")
 @onready var drift : AudioStreamPlayer3D = get_node("Node3D/Drift")
 @onready var hit_animation : AnimationPlayer = get_node("Hit Anim")
-@onready var interface : Control = get_node("Interface")
+@onready var interface : Control = $Interface
 @onready var health_bar_3d : Node3D = get_node(health_bar_path)
 @onready var grav = ProjectSettings.get_setting("physics/3d/default_gravity")
 var speed_input: float = 0.0
@@ -102,9 +102,21 @@ func _process(delta: float) -> void:
 	# Acceleration
 	speed_input = Input.get_axis( "Down","Up") * acceleration
 	# print(speed_input)
+	if accelerate_button.is_pressed():
+		speed_input = acceleration
+	elif brake.is_pressed():
+		speed_input = -acceleration
+	else:
+		speed_input = 0.0
 	#Steering 
 	steering_input = Input.get_axis("Right", "Left") * deg_to_rad(steering)
 	# print(steering_input) 
+	if left.is_pressed():
+		steering_input = deg_to_rad(steering)
+	elif right.is_pressed():
+		steering_input = -deg_to_rad(steering)
+	else:
+		steering_input = 0.0
 	# smoke
 	var ball_vel = ball.linear_velocity
 	var car_forward = car_mesh.global_transform.basis.z.normalized()
@@ -114,7 +126,7 @@ func _process(delta: float) -> void:
 		b_l.emitting = true
 		b_r.emitting = true
 		var points = ball_vel.length()/60*(1-dot_pr)*drift_multiplier
-		# interface.add_drift_points(points)
+		interface.add_drift_points(points)
 		if(!drift.playing):
 			drift.playing = true
 	else:

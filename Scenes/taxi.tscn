@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://gqjf08qmj56a"]
+[gd_scene load_steps=41 format=4 uid="uid://gqjf08qmj56a"]
 
 [ext_resource type="PackedScene" uid="uid://p67cldlwo417" path="res://Scenes/Healthbar3d.tscn" id="1"]
 [ext_resource type="Script" uid="uid://ciwkt07qufcgw" path="res://Scripts/GDscript/Movement.gd" id="1_dn7ac"]
@@ -8,18 +8,12 @@
 [ext_resource type="AudioStream" uid="uid://xwpaac22ka33" path="res://Assets/Audio/clank-car-crash-collision-6206.mp3" id="6"]
 [ext_resource type="AudioStream" uid="uid://dwjbwg6ej0fr" path="res://Assets/Audio/Rifle.mp3" id="8"]
 [ext_resource type="AudioStream" uid="uid://dyoldkhjja8x1" path="res://Assets/Audio/drift.mp3" id="9"]
-[ext_resource type="PackedScene" path="res://Interface/Interface.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://cebdtfevwvob" path="res://Interface/Interface.tscn" id="10"]
 [ext_resource type="Texture2D" uid="uid://b5w67jnupauvc" path="res://Assets/Materials/player.png" id="11"]
 [ext_resource type="PackedScene" path="res://Assets/Models/Guns/Rocket Launcher.tscn" id="12"]
 [ext_resource type="PackedScene" path="res://Scenes/Smoke_graveyard.tscn" id="13"]
-[ext_resource type="Texture2D" uid="uid://bwk2pm26puqjj" path="res://Interface/Textures/Right.png" id="13_dn7ac"]
 [ext_resource type="Texture2D" uid="uid://dnmx0rluldc8b" path="res://Assets/Materials/Switch Selected.png" id="14"]
-[ext_resource type="Texture2D" uid="uid://bysr1tpbd3eob" path="res://Interface/Textures/Right pressed.png" id="14_dr802"]
 [ext_resource type="Texture2D" uid="uid://dd8yuun8686c1" path="res://Assets/Materials/Switch.png" id="15"]
-[ext_resource type="Texture2D" uid="uid://b0ege7rhvfh2b" path="res://Interface/Textures/Accelerate.png" id="15_tqw51"]
-[ext_resource type="Texture2D" uid="uid://vwmolt5di2p" path="res://Interface/Textures/Acceleerate pressed.png" id="16_yqk81"]
-[ext_resource type="Texture2D" uid="uid://cyupnyl086dlt" path="res://Interface/Textures/Brake.png" id="17_467mi"]
-[ext_resource type="Texture2D" uid="uid://im27g3igcxgn" path="res://Interface/Textures/Brake pressed.png" id="18_xgpia"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_738rb"]
 resource_name = "plastic"
@@ -944,69 +938,50 @@ volume_db = -5.0
 pitch_scale = 3.0
 
 [node name="Interface" parent="." instance=ExtResource("10")]
-layout_mode = 3
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Ammo_text" parent="Interface" index="0"]
-layout_mode = 0
 
 [node name="Steering" parent="Interface" index="1"]
-anchors_preset = 0
+anchors_preset = -1
 anchor_top = 0.933333
 anchor_right = 0.0390625
+anchor_bottom = 0.933333
 offset_top = 0.0
 offset_right = 0.0
-
-[node name="Left" parent="Interface/Steering" index="0"]
-texture_normal = ExtResource("13_dn7ac")
-texture_pressed = ExtResource("14_dr802")
-
-[node name="Right" parent="Interface/Steering" index="1"]
-texture_normal = ExtResource("13_dn7ac")
-texture_pressed = ExtResource("14_dr802")
+offset_bottom = 40.0
+grow_vertical = 0
 
 [node name="Acceleration" parent="Interface" index="2"]
-anchors_preset = 0
+anchors_preset = -1
 anchor_left = 0.960938
 anchor_top = 0.933333
+anchor_right = 0.960938
+anchor_bottom = 0.933333
 offset_left = 0.0
 offset_top = 0.0
-
-[node name="Accelerate" parent="Interface/Acceleration" index="0"]
-texture_normal = ExtResource("15_tqw51")
-texture_pressed = ExtResource("16_yqk81")
-
-[node name="Brake" parent="Interface/Acceleration" index="1"]
-texture_normal = ExtResource("17_467mi")
-texture_pressed = ExtResource("18_xgpia")
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="Esc" parent="Interface" index="3"]
-layout_mode = 0
 anchor_right = 0.075
 anchor_bottom = 0.131944
-offset_right = 0.0
-offset_bottom = 0.0
-ignore_texture_size = true
-metadata/_edit_use_anchors_ = true
 
 [node name="Enemy_spawntext" parent="Interface" index="4"]
-layout_mode = 0
+anchor_top = 0.0
 anchor_right = 0.0
-offset_top = 0.0
+anchor_bottom = 0.0
 offset_right = 1.0
 offset_bottom = 23.0
-horizontal_alignment = 1
 
 [node name="Drift_points" parent="Interface" index="5"]
 layout_mode = 0
+anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
 offset_left = 0.0
-offset_top = 0.0
 offset_right = 650.0
 offset_bottom = 63.0
+grow_horizontal = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="Interface"]
 visible = false
