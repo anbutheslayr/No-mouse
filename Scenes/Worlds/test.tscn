@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://c6r5lrpplp4rw"]
+[gd_scene load_steps=52 format=4 uid="uid://c6r5lrpplp4rw"]
 
 [ext_resource type="Script" uid="uid://b8bhb6lkex73b" path="res://Scripts/GDscript/Follow.gd" id="1_al5em"]
 [ext_resource type="Material" path="res://Assets/Materials/Ground.material" id="1_nukgt"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype17.tscn" id="11_rj01l"]
 [ext_resource type="PackedScene" uid="uid://lx4qg1vxck7g" path="res://Assets/Models/Tracks/New/road.glb" id="12_0flx4"]
 [ext_resource type="PackedScene" uid="uid://p67cldlwo417" path="res://Scenes/Healthbar3d.tscn" id="12_r0ccd"]
+[ext_resource type="PackedScene" uid="uid://cebdtfevwvob" path="res://Interface/Interface.tscn" id="12_u1ot7"]
 [ext_resource type="Texture2D" uid="uid://b5w67jnupauvc" path="res://Assets/Materials/player.png" id="13_gjepw"]
 [ext_resource type="AudioStream" uid="uid://xwpaac22ka33" path="res://Assets/Audio/clank-car-crash-collision-6206.mp3" id="14_akdms"]
 
@@ -828,6 +829,10 @@ b_l_particles = NodePath("Node3D/Backleft/CPUParticles3D")
 b_r_particles = NodePath("Node3D/Backright/CPUParticles3D")
 b_l2_particles = NodePath("Node3D/Backleft2/CPUParticles3D")
 b_r2_particles = NodePath("Node3D/Backright2/CPUParticles3D")
+accelerate_button_path = NodePath("Interface/Acceleration/Accelerate")
+brake_path = NodePath("Interface/Acceleration/Brake")
+left_path = NodePath("Interface/Steering/Left")
+right_path = NodePath("Interface/Steering/Right")
 damage_multiplier = 0.7
 jump_ht = 1.0
 cam_pos_path = NodePath("Node3D/body/cam_pos")
@@ -963,6 +968,15 @@ texture = ExtResource("13_gjepw")
 
 [node name="Raycol" type="Node3D" parent="taxi/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13508, 0.805907)
+
+[node name="Interface" parent="taxi" instance=ExtResource("12_u1ot7")]
+
+[node name="Steering" parent="taxi/Interface" index="1"]
+grow_vertical = 0
+
+[node name="Acceleration" parent="taxi/Interface" index="2"]
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="Ball" type="RigidBody3D" parent="taxi" groups=["Ball"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -1124,7 +1138,7 @@ directional_shadow_split_3 = 0.426
 directional_shadow_blend_splits = true
 directional_shadow_max_distance = 70.0
 
-[node name="Enemy_spawner" type="Node3D" parent="."]
+[node name="Enemy_spawner" type="Node3D" parent="." groups=["Enemy_spawner"]]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -57.6567, 20.2893, -20.9285)
 
 [node name="taxi2" parent="." instance=ExtResource("10_7wb15")]
@@ -1142,3 +1156,4 @@ acceleration = 180.0
 [editable path="taxi/Node3D/Backleft"]
 [editable path="taxi/Node3D/body/MachineGun"]
 [editable path="taxi/Node3D/body/Rocket Launcher"]
+[editable path="taxi/Interface"]
