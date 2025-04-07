@@ -1,200 +1,169 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://clet5ehvqy5yk"]
 
-[ext_resource path="res://Scenes/FONT.tres" type="FontFile" id=1]
-[ext_resource path="res://Assets/Materials/World1.png" type="Texture2D" id=2]
-[ext_resource path="res://Scripts/Select_level.cs" type="Script" id=3]
-[ext_resource path="res://Assets/Materials/World1 selected.png" type="Texture2D" id=4]
-[ext_resource path="res://Assets/Materials/World2.png" type="Texture2D" id=5]
-[ext_resource path="res://Assets/Materials/World2 selected.png" type="Texture2D" id=6]
-[ext_resource path="res://Assets/Materials/Locked.png" type="Texture2D" id=7]
+[ext_resource type="FontFile" path="res://Scenes/FONT.tres" id="1"]
+[ext_resource type="Script" uid="uid://q3gn8ywpyend" path="res://Scripts/GDscript/select_level.gd" id="1_yt18p"]
+[ext_resource type="Texture2D" uid="uid://chcyuptbn1d01" path="res://Assets/Materials/World1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bnlhh8hrd1a0v" path="res://Assets/Materials/World1 selected.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://c6orjn3u3h0e4" path="res://Assets/Materials/World2.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://brxpqv6sfxul" path="res://Assets/Materials/World2 selected.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://ciwemfqdueww2" path="res://Assets/Materials/Locked.png" id="7"]
 
 [node name="Select level" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
+script = ExtResource("1_yt18p")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_top = 12
 theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 1908.0
-offset_bottom = 1068.0
+layout_mode = 2
 theme_override_constants/separation = 70
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
-offset_right = 1896.0
-offset_bottom = 1056.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control"]
+layout_mode = 0
 anchor_left = -0.00580169
 anchor_top = 0.0748106
 anchor_right = 0.994198
 anchor_bottom = 0.126894
-theme_override_colors/font_color = Color( 1, 1, 1, 1 )
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 7
 theme_override_constants/shadow_offset_y = 7
-theme_override_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource("1")
 text = "Select world"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ScrollContainer" type="Control" parent="."]
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 0
 anchor_top = 0.168519
 anchor_right = 1.0
 anchor_bottom = 0.867593
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
-offset_right = 1920.0
-offset_bottom = 754.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control3" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
-offset_right = 1920.0
-offset_bottom = 754.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.18675
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer"]
-offset_right = 1920.0
-offset_bottom = 894.81
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 30
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
-offset_bottom = 894.0
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
-offset_left = 30.0
-offset_right = 430.0
-offset_bottom = 894.0
-custom_minimum_size = Vector2( 400, 0 )
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 
 [node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer"]
-offset_right = 400.0
-offset_bottom = 894.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer/Control"]
-anchor_left = 0.0575
-anchor_top = 0.184106
-anchor_right = 1.0325
-anchor_bottom = 0.675497
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.192393
+anchor_right = 1.0975
+anchor_bottom = 0.706935
 mouse_filter = 1
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 4 )
-expand = true
+texture_normal = ExtResource("2")
+texture_pressed = ExtResource("4")
+ignore_texture_size = true
 stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": true
-}
+metadata/_edit_use_anchors_ = true
 
 [node name="Control2" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
-offset_left = 460.0
-offset_right = 460.0
-offset_bottom = 894.0
+layout_mode = 2
 
 [node name="Control3" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
-offset_left = 490.0
-offset_right = 490.0
-offset_bottom = 894.0
+layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
-offset_left = 520.0
-offset_right = 920.0
-offset_bottom = 894.0
-custom_minimum_size = Vector2( 400, 0 )
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 
 [node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer2"]
-offset_right = 400.0
-offset_bottom = 894.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer2/Control"]
+layout_mode = 0
 anchor_left = 0.0025
 anchor_top = 0.17351
 anchor_right = 0.92
 anchor_bottom = 0.707242
 offset_bottom = 0.0319824
 mouse_filter = 1
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 6 )
-expand = true
+texture_normal = ExtResource("5")
+texture_pressed = ExtResource("6")
+ignore_texture_size = true
 stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="VBoxContainer6" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
-offset_left = 950.0
-offset_right = 1350.0
-offset_bottom = 894.0
-custom_minimum_size = Vector2( 400, 0 )
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 
 [node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer6"]
-offset_right = 400.0
-offset_bottom = 894.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer6/Control"]
+layout_mode = 0
 anchor_left = 0.0575
 anchor_top = 0.184106
 anchor_right = 1.0325
 anchor_bottom = 0.675497
 mouse_filter = 1
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 4 )
-expand = true
+texture_normal = ExtResource("2")
+texture_pressed = ExtResource("4")
+ignore_texture_size = true
 stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
-offset_left = 1380.0
-offset_right = 1780.0
-offset_bottom = 894.0
-custom_minimum_size = Vector2( 400, 0 )
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 
 [node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer3"]
-offset_right = 400.0
-offset_bottom = 894.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer3/Control"]
+layout_mode = 0
 anchor_left = -0.0325
 anchor_top = 0.169944
 anchor_right = 0.825
@@ -202,108 +171,84 @@ anchor_bottom = 0.716157
 offset_bottom = 0.0959473
 mouse_filter = 1
 disabled = true
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 4 )
-texture_disabled = ExtResource( 7 )
-expand = true
+texture_normal = ExtResource("2")
+texture_pressed = ExtResource("4")
+texture_disabled = ExtResource("7")
+ignore_texture_size = true
 stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
 visible = false
-offset_left = 1212.0
-offset_right = 1612.0
-offset_bottom = 882.0
-custom_minimum_size = Vector2( 400, 0 )
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 
 [node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer4"]
-offset_right = 400.0
-offset_bottom = 882.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer4/Control"]
+layout_mode = 0
 anchor_right = 0.7825
 anchor_bottom = 0.82612
 offset_bottom = 0.0319824
 mouse_filter = 1
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 4 )
-expand = true
+texture_normal = ExtResource("2")
+texture_pressed = ExtResource("4")
 stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer"]
 visible = false
-offset_left = 1616.0
-offset_right = 2016.0
-offset_bottom = 882.0
-custom_minimum_size = Vector2( 400, 0 )
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 
 [node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer5"]
-offset_right = 400.0
-offset_bottom = 882.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer5/Control"]
+layout_mode = 0
 anchor_right = 0.7825
 anchor_bottom = 0.82612
 offset_bottom = 0.0319824
 mouse_filter = 1
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 4 )
-expand = true
+texture_normal = ExtResource("2")
+texture_pressed = ExtResource("4")
 stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Control2" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 visible = false
-offset_top = 407.0
-offset_right = 1920.0
-offset_bottom = 810.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control2"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 0.851191
 offset_top = -8.0
 offset_bottom = -0.0299988
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control2/HBoxContainer"]
-offset_right = 400.0
-offset_bottom = 351.0
-custom_minimum_size = Vector2( 400, 0 )
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 
 [node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/VBoxContainer"]
-offset_right = 400.0
-offset_bottom = 351.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 0
 anchor_right = 0.7825
 anchor_bottom = 0.82612
 offset_bottom = 0.0319824
 mouse_filter = 1
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 4 )
-expand = true
+texture_normal = ExtResource("2")
+texture_pressed = ExtResource("4")
 stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
-[connection signal="pressed" from="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer/Control/TextureButton" to="." method="On_World1"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer/Control/TextureButton" to="." method="on_world1"]
 [connection signal="pressed" from="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer2/Control/TextureButton" to="." method="On_World2"]
 [connection signal="pressed" from="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer6/Control/TextureButton" to="." method="On_Cutscene"]
 [connection signal="pressed" from="ScrollContainer/HBoxContainer/VBoxContainer/Control3/ScrollContainer/HBoxContainer/VBoxContainer3/Control/TextureButton" to="." method="On_World1"]

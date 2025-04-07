@@ -1,113 +1,92 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://bgl23vdj8g1r7"]
 
 [ext_resource type="Theme" uid="uid://6wasy10nsxp0" path="res://Scenes/Theme.tres" id="1"]
+[ext_resource type="Script" uid="uid://cjjf76lxnakfh" path="res://Scripts/GDscript/Menu.gd" id="1_s2c3o"]
 [ext_resource type="Texture2D" uid="uid://ir2t6k5rugxb" path="res://Interface/Textures/inst.png" id="2"]
-[ext_resource type="Script" uid="uid://dq7o4wvxov4hc" path="res://Scripts/Ported scripts/Menu.cs" id="3"]
 [ext_resource type="FontFile" path="res://Scenes/FONT.tres" id="4"]
 
 [node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s2c3o")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_top = 12
 theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 1908.0
-offset_bottom = 1068.0
+layout_mode = 2
 theme_override_constants/separation = 70
 
 [node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
-offset_right = 1896.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-offset_top = 70.0
-offset_right = 1896.0
-offset_bottom = 170.0
-theme_override_colors/font_color = Color( 0.905882, 0.709804, 0.85098, 1 )
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.709804, 0.85098, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 7
 theme_override_constants/shadow_offset_y = 7
-theme_override_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource("4")
 text = "Rogue drifters"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 1908.0
-offset_bottom = 1068.0
+layout_mode = 2
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-offset_left = 875.0
-offset_right = 1020.0
-offset_bottom = 1056.0
+layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 375.0
-offset_right = 145.0
-offset_bottom = 375.0
+layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 395.0
-offset_right = 145.0
-offset_bottom = 431.0
-theme = ExtResource( 1 )
+layout_mode = 2
+theme = ExtResource("1")
 keep_pressed_outside = true
 text = "PLAY"
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 451.0
-offset_right = 145.0
-offset_bottom = 451.0
+layout_mode = 2
 
 [node name="Settings" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 471.0
-offset_right = 145.0
-offset_bottom = 507.0
-theme = ExtResource( 1 )
+layout_mode = 2
+theme = ExtResource("1")
 keep_pressed_outside = true
 text = "SETTINGS"
 
 [node name="Control3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 527.0
-offset_right = 145.0
-offset_bottom = 527.0
+layout_mode = 2
 
 [node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 547.0
-offset_right = 145.0
-offset_bottom = 583.0
-theme = ExtResource( 1 )
+layout_mode = 2
+theme = ExtResource("1")
 keep_pressed_outside = true
 text = "QUIT"
 
 [node name="Control5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 603.0
-offset_right = 145.0
-offset_bottom = 603.0
+layout_mode = 2
 
 [node name="insta" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 623.0
-offset_right = 145.0
-offset_bottom = 681.0
-theme = ExtResource( 1 )
+layout_mode = 2
+theme = ExtResource("1")
 text = "contact"
-icon = ExtResource( 2 )
+icon = ExtResource("2")
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Play" to="." method="OnPlayPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Play" to="." method="on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Settings" to="." method="OnSettingsPressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="OnQuitPressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/insta" to="." method="On_insta_pressed"]
