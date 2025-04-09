@@ -177,7 +177,6 @@ func align_with_surface(xform: Transform3D) -> Transform3D:
 	return xform.orthonormalized()
 
 func on_collision(body : Node):
-	print("Collision with: ", body.name)
 	if body is RigidBody3D:
 		var col_body = body as RigidBody3D
 		var rel_vel = col_body.linear_velocity - ball.linear_velocity

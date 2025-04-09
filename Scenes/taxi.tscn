@@ -49,7 +49,6 @@ albedo_color = Color(1, 0.740017, 0.259434, 1)
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.752941, 0.639216, 0.121569, 1)
-emission_energy_multiplier = 0.0
 
 [sub_resource type="StandardMaterial3D" id="15"]
 resource_name = "_defaultMat"
@@ -593,12 +592,9 @@ tracks/0/path = NodePath("body/MachineGun")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"OnShoot"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -764,7 +760,7 @@ _data = {
 }
 
 [node name="taxi" type="Node3D"]
-transform = Transform3D(0.674778, 0, 0.738019, 0, 1, 0, -0.738019, 0, 0.674778, 0, 0, 0)
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 script = ExtResource("1_dn7ac")
 close_miss_bonus = 7
 ball_path = NodePath("Ball")
@@ -854,6 +850,7 @@ transform = Transform3D(-1, 1.77636e-15, 8.74228e-08, 1.73575e-08, 0.980091, 0.1
 
 [node name="Weapon_state_machine" type="Node" parent="Node3D/body" node_paths=PackedStringArray("inital_state")]
 script = ExtResource("8_srmxw")
+player_path = NodePath("../MachineGun")
 inital_state = NodePath("Idle")
 
 [node name="Machine_gun" type="Node" parent="Node3D/body/Weapon_state_machine"]
@@ -861,6 +858,10 @@ script = ExtResource("9_hod1a")
 raycastpath = NodePath("../../MachineGun/Gun/RayCast3D")
 animpath = NodePath("../../../AnimationPlayer")
 gun_path = NodePath("../../MachineGun/Gun")
+marker_path = NodePath("../../MachineGun/Gun/Marker")
+ammo_text_path = NodePath("../../../../Interface/Ammo_text")
+rocket_launcher_path = NodePath("../../Rocket Launcher")
+audio_player_path = NodePath("../../MachineGun/AudioStreamPlayer")
 ammo = 30
 start_magazines = 10
 
@@ -868,11 +869,6 @@ start_magazines = 10
 
 [node name="Idle" type="Node" parent="Node3D/body/Weapon_state_machine"]
 script = ExtResource("10_hod1a")
-raycastpath = NodePath("../../MachineGun/Gun/RayCast3D")
-animpath = NodePath("../../../AnimationPlayer")
-gun_path = NodePath("../../MachineGun/Gun")
-ammo = 30
-start_magazines = 10
 
 [node name="wheel_backRight" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.25, 0.76)
@@ -956,8 +952,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_2mmrq")
 }
 
-[connection signal="body_entered" from="Node3D/DetectionArea" to="Node3D/body/MachineGun" method="OnDetection"]
-[connection signal="body_exited" from="Node3D/DetectionArea" to="Node3D/body/MachineGun" method="OnExit"]
+[connection signal="body_entered" from="Node3D/DetectionArea" to="Node3D/body/Weapon_state_machine" method="on_detection"]
+[connection signal="body_exited" from="Node3D/DetectionArea" to="Node3D/body/Weapon_state_machine" method="on_exit"]
 [connection signal="body_entered" from="Ball" to="." method="on_collision"]
 
 [editable path="Node3D/Backright2"]
