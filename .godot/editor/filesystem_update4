@@ -24,3 +24,9 @@ res://Assets/Models/Guns/Machine gun.tscn
 res://Assets/Models/Guns/Rocket Ammo.tscn
 res://Scripts/GDscript/Popuptext.gd
 res://Interface/Popup text.tscn
+res://Scripts/GDscript/Healthbar3d.gd
+res://Scripts/GDscript/state.gd
+res://Scripts/weapon_state_machine.gd
+res://Scripts/GDscript/select_level.gd
+res://Scripts/GDscript/machine_gun.gd
+res://Scripts/idle.gd
