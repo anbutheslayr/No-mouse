@@ -3,7 +3,6 @@ class_name Popuptext
 
 @onready var label : Label3D = get_node("Label3D")
 @onready var anim : AnimationPlayer = get_node("AnimationPlayer")
-@onready var tween : Tween =  self.create_tween()
 var tweenlength
 
 func play_anim(damage : String,spread : int,height : int,pos : Vector3, an : int):
@@ -24,6 +23,6 @@ func play_anim(damage : String,spread : int,height : int,pos : Vector3, an : int
 			anim.play("Close miss +10")
 	var rand = RandomNumberGenerator.new()
 	var end_pos = Vector3(rand.randi_range(-spread,spread),height,rand.randi_range(-spread, spread)) + global_position
-	tween.tween_property(self, "global_position" ,end_pos , tweenlength).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	create_tween().tween_property(self, "global_position" ,end_pos , tweenlength).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 	
 		

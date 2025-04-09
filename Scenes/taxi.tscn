@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://gqjf08qmj56a"]
+[gd_scene load_steps=41 format=4 uid="uid://b7ea02s6whtbx"]
 
 [ext_resource type="PackedScene" uid="uid://p67cldlwo417" path="res://Scenes/Healthbar3d.tscn" id="1"]
 [ext_resource type="Script" uid="uid://ciwkt07qufcgw" path="res://Scripts/GDscript/Movement.gd" id="1_dn7ac"]
@@ -7,13 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://jpi7seohr20e" path="res://Assets/Models/Guns/Machine gun.tscn" id="5"]
 [ext_resource type="AudioStream" uid="uid://xwpaac22ka33" path="res://Assets/Audio/clank-car-crash-collision-6206.mp3" id="6"]
 [ext_resource type="AudioStream" uid="uid://dwjbwg6ej0fr" path="res://Assets/Audio/Rifle.mp3" id="8"]
+[ext_resource type="Script" uid="uid://da1fgjcrfvrk3" path="res://Scripts/weapon_state_machine.gd" id="8_srmxw"]
 [ext_resource type="AudioStream" uid="uid://dyoldkhjja8x1" path="res://Assets/Audio/drift.mp3" id="9"]
+[ext_resource type="Script" uid="uid://cn60h7ktkaytw" path="res://Scripts/GDscript/machine_gun.gd" id="9_hod1a"]
 [ext_resource type="PackedScene" uid="uid://cebdtfevwvob" path="res://Interface/Interface.tscn" id="10"]
+[ext_resource type="Script" uid="uid://c4o76l2i2y5uo" path="res://Scripts/idle.gd" id="10_hod1a"]
 [ext_resource type="Texture2D" uid="uid://b5w67jnupauvc" path="res://Assets/Materials/player.png" id="11"]
 [ext_resource type="PackedScene" path="res://Assets/Models/Guns/Rocket Launcher.tscn" id="12"]
 [ext_resource type="PackedScene" path="res://Scenes/Smoke_graveyard.tscn" id="13"]
-[ext_resource type="Texture2D" uid="uid://dnmx0rluldc8b" path="res://Assets/Materials/Switch Selected.png" id="14"]
-[ext_resource type="Texture2D" uid="uid://dd8yuun8686c1" path="res://Assets/Materials/Switch.png" id="15"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_738rb"]
 resource_name = "plastic"
@@ -48,6 +49,7 @@ albedo_color = Color(1, 0.740017, 0.259434, 1)
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.752941, 0.639216, 0.121569, 1)
+emission_energy_multiplier = 0.0
 
 [sub_resource type="StandardMaterial3D" id="15"]
 resource_name = "_defaultMat"
@@ -182,7 +184,7 @@ size = Vector3(0.005, 0.087, 0.007)
 [sub_resource type="BoxMesh" id="21"]
 size = Vector3(-0.012, 0.087, -0.018)
 
-[sub_resource type="CylinderShape3D" id="17"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_afyqv"]
 height = 3.59778
 radius = 10.0
 
@@ -551,7 +553,7 @@ tracks/1/path = NodePath("body/Rocket Launcher:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 1, 1.6),
+"times": PackedFloat32Array(0, 0.013719, 1, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, -90, 0), Vector3(0, -90, -90), Vector3(0, -90, -90), Vector3(0, -90, -53.531)]
@@ -659,7 +661,7 @@ tracks/5/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5c55"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_37yd7"]
 _data = {
 &"Gun_descend": SubResource("23"),
 &"Gun_rise": SubResource("22"),
@@ -675,20 +677,6 @@ absorbent = true
 
 [sub_resource type="SphereShape3D" id="11"]
 radius = 1.0
-
-[sub_resource type="StyleBoxFlat" id="25"]
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.12549, 0.0862745, 0.0862745, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-corner_detail = 20
-shadow_color = Color(0.0509804, 0.0470588, 0.0470588, 0.6)
-shadow_size = 5
 
 [sub_resource type="Animation" id="28"]
 resource_name = "Hit"
@@ -769,19 +757,20 @@ tracks/2/keys = {
 "values": [Color(1, 0.740017, 0.259434, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fj548"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2mmrq"]
 _data = {
 &"Hit": SubResource("28"),
 &"RESET": SubResource("29")
 }
 
 [node name="taxi" type="Node3D"]
+transform = Transform3D(0.674778, 0, 0.738019, 0, 1, 0, -0.738019, 0, 0.674778, 0, 0, 0)
 script = ExtResource("1_dn7ac")
 close_miss_bonus = 7
 ball_path = NodePath("Ball")
 car_mesh_body_path = NodePath("Node3D/body")
 car_mesh_path = NodePath("Node3D")
-acceleration = 155.0
+acceleration = 150.0
 steering = 30.0
 turn_speed = 4.0
 turn_stop_limit = 1.25
@@ -805,6 +794,7 @@ bl_path = NodePath("Node3D/Bl")
 health_bar_path = NodePath("Node3D/Healthbar")
 
 [node name="Node3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
 
 [node name="Backright2" parent="Node3D" instance=ExtResource("13")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428421, 0.0363879, 0.811293)
@@ -862,6 +852,28 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.
 [node name="cam_pos" type="Node3D" parent="Node3D/body"]
 transform = Transform3D(-1, 1.77636e-15, 8.74228e-08, 1.73575e-08, 0.980091, 0.198547, -8.56823e-08, 0.198547, -0.980091, -0.0262446, 1.57004, 0.997644)
 
+[node name="Weapon_state_machine" type="Node" parent="Node3D/body" node_paths=PackedStringArray("inital_state")]
+script = ExtResource("8_srmxw")
+inital_state = NodePath("Idle")
+
+[node name="Machine_gun" type="Node" parent="Node3D/body/Weapon_state_machine"]
+script = ExtResource("9_hod1a")
+raycastpath = NodePath("../../MachineGun/Gun/RayCast3D")
+animpath = NodePath("../../../AnimationPlayer")
+gun_path = NodePath("../../MachineGun/Gun")
+ammo = 30
+start_magazines = 10
+
+[node name="Rocket_launcher" type="Node" parent="Node3D/body/Weapon_state_machine"]
+
+[node name="Idle" type="Node" parent="Node3D/body/Weapon_state_machine"]
+script = ExtResource("10_hod1a")
+raycastpath = NodePath("../../MachineGun/Gun/RayCast3D")
+animpath = NodePath("../../../AnimationPlayer")
+gun_path = NodePath("../../MachineGun/Gun")
+ammo = 30
+start_magazines = 10
+
 [node name="wheel_backRight" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.25, 0.76)
 mesh = ExtResource("3")
@@ -904,11 +916,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87562, -1.00239)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/DetectionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764219, 0)
-shape = SubResource("17")
+shape = SubResource("CylinderShape3D_afyqv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
 libraries = {
-&"": SubResource("AnimationLibrary_i5c55")
+&"": SubResource("AnimationLibrary_37yd7")
 }
 
 [node name="Sprite3D" type="Sprite3D" parent="Node3D"]
@@ -922,11 +934,13 @@ texture = ExtResource("11")
 [node name="Raycol" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13508, 0.805907)
 
+[node name="Interface" parent="." instance=ExtResource("10")]
+
 [node name="Ball" type="RigidBody3D" parent="." groups=["Ball"]]
 physics_material_override = SubResource("12")
 gravity_scale = 10.0
 contact_monitor = true
-max_contacts_reported = 3
+max_contacts_reported = 5
 angular_damp = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
@@ -937,91 +951,14 @@ stream = ExtResource("6")
 volume_db = -5.0
 pitch_scale = 3.0
 
-[node name="Interface" parent="." instance=ExtResource("10")]
-
-[node name="Steering" parent="Interface" index="1"]
-anchors_preset = -1
-anchor_top = 0.933333
-anchor_right = 0.0390625
-anchor_bottom = 0.933333
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 40.0
-
-[node name="Acceleration" parent="Interface" index="2"]
-anchors_preset = -1
-anchor_left = 0.960938
-anchor_top = 0.933333
-anchor_right = 0.960938
-anchor_bottom = 0.933333
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Esc" parent="Interface" index="3"]
-anchor_right = 0.075
-anchor_bottom = 0.131944
-
-[node name="Enemy_spawntext" parent="Interface" index="4"]
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 1.0
-offset_bottom = 23.0
-
-[node name="Drift_points" parent="Interface" index="5"]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 650.0
-offset_bottom = 63.0
-grow_horizontal = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="Interface"]
-visible = false
-layout_mode = 0
-anchor_left = 0.728125
-anchor_top = 0.0601852
-anchor_right = 0.988542
-anchor_bottom = 0.294444
-theme_override_styles/panel = SubResource("25")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Interface/PanelContainer"]
-layout_mode = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="Interface/PanelContainer/SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(2, 2)
-size_2d_override_stretch = true
-render_target_update_mode = 0
-
-[node name="Rocket_button" type="TextureButton" parent="Interface"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.00078125
-anchor_top = 0.433333
-anchor_right = 0.133594
-anchor_bottom = 0.601389
-texture_normal = ExtResource("15")
-texture_pressed = ExtResource("14")
-texture_disabled = ExtResource("14")
-ignore_texture_size = true
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
-
 [node name="Hit Anim" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_fj548")
+&"": SubResource("AnimationLibrary_2mmrq")
 }
 
 [connection signal="body_entered" from="Node3D/DetectionArea" to="Node3D/body/MachineGun" method="OnDetection"]
 [connection signal="body_exited" from="Node3D/DetectionArea" to="Node3D/body/MachineGun" method="OnExit"]
 [connection signal="body_entered" from="Ball" to="." method="on_collision"]
-[connection signal="pressed" from="Interface/Rocket_button" to="Node3D/body/MachineGun" method="gun_switch"]
 
 [editable path="Node3D/Backright2"]
 [editable path="Node3D/Backleft2"]
