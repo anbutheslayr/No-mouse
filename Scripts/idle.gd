@@ -2,13 +2,14 @@ extends Gun_state
 class_name IdleState
 # This is the idle state for the weapon
 # It handles the idle animation and input for the weapon
-
+@onready var weapon_state_machine : WeaponStateMachine = get_parent()
 func state_enter():
-    pass
+	print("Idle State")
 func state_exit():
-    pass
+	print("Exit Idle State")
 func state_update(delta):
-    if enemies.size() > 0 and get_closest_enemy() != null and cur_ammo > 0:
-        state_changed.emit(self, "Machine_gun")
+	pass
 func state_process(delta):
-    pass
+	if weapon_state_machine.enemies.size() > 0:
+		state_changed.emit(self, "Machine_gun")
+		print("Switching to Machine Gun State")
