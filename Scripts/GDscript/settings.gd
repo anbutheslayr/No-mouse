@@ -143,3 +143,6 @@ func on_esc():
 	get_parent().backed()
 	hide()
 	get_parent().get_node("Menu").show()
+
+func on_number_select(index:int):
+	reso.no_of_enemies = index+1

@@ -87,6 +87,6 @@ text = "contact"
 icon = ExtResource("2")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Play" to="." method="on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Settings" to="." method="OnSettingsPressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="OnQuitPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Settings" to="." method="on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/insta" to="." method="On_insta_pressed"]

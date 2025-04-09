@@ -946,15 +946,11 @@ script = ExtResource("1_nv4gm")
 
 [node name="Settings" parent="." instance=ExtResource("2")]
 visible = false
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Menu" parent="." instance=ExtResource("12")]
 
 [node name="Select level" parent="." instance=ExtResource("15")]
 visible = false
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13")

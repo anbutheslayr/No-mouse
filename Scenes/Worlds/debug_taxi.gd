@@ -128,12 +128,12 @@ func _process(delta: float) -> void:
 	# var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point,Vector3.UP))
 	var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point - ball.global_position,Vector3.UP))
 
-	if angle > 20:
+	if angle > 10:
 		steering_input = lerp(steering_input,deg_to_rad(steering),delta*10)
-	elif angle<-20:
+	elif angle<-10:
 		steering_input = lerp(steering_input,-deg_to_rad(steering),delta*10)
 	 
-	print(angle)
+
 
 	# print(steering_input)
 	# turning wheels

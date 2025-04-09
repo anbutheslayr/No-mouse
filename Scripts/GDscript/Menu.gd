@@ -3,12 +3,12 @@ extends Control
 @onready var level_select : Control = get_parent().get_node("Select level")
 
 func on_play_pressed():
-	# get_parent().click()
+	get_parent().clicked()
 	hide()
 	level_select.show()
 
 func on_settings_pressed():
-	get_parent().click()
+	get_parent().clicked()
 	hide()
 	get_parent().settings.show()
 

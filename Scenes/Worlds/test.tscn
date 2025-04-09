@@ -706,6 +706,7 @@ _data = {
 absorbent = true
 
 [sub_resource type="SphereShape3D" id="11"]
+radius = 1.0
 
 [sub_resource type="Animation" id="28"]
 resource_name = "Hit"
@@ -817,7 +818,6 @@ close_miss_bonus = 7
 ball_path = NodePath("Ball")
 car_mesh_body_path = NodePath("Node3D/body")
 car_mesh_path = NodePath("Node3D")
-sphere_offset = Vector3(0, -0.5, 0)
 acceleration = 150.0
 steering = 30.0
 turn_speed = 4.0
@@ -971,19 +971,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13508, 0.805907)
 
 [node name="Interface" parent="taxi" instance=ExtResource("12_u1ot7")]
 
-[node name="Steering" parent="taxi/Interface" index="1"]
-grow_vertical = 0
-
-[node name="Acceleration" parent="taxi/Interface" index="2"]
-grow_horizontal = 0
-grow_vertical = 0
-
 [node name="Ball" type="RigidBody3D" parent="taxi" groups=["Ball"]]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 physics_material_override = SubResource("12")
 gravity_scale = 10.0
 contact_monitor = true
-max_contacts_reported = 3
+max_contacts_reported = 5
 angular_damp = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="taxi/Ball"]
@@ -1142,13 +1134,13 @@ directional_shadow_max_distance = 70.0
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -57.6567, 20.2893, -20.9285)
 
 [node name="taxi2" parent="." instance=ExtResource("10_7wb15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5861, 0.0739691, -48.1361)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5861, 1.36105, -48.1361)
+sphere_offset = Vector3(0, -1, 0)
 acceleration = 180.0
 
 [connection signal="body_entered" from="taxi/Node3D/DetectionArea" to="taxi/Node3D/body/MachineGun" method="OnDetection"]
 [connection signal="body_exited" from="taxi/Node3D/DetectionArea" to="taxi/Node3D/body/MachineGun" method="OnExit"]
-[connection signal="body_entered" from="taxi/Ball" to="taxi" method="On_collision"]
-[connection signal="body_exited" from="taxi/Ball" to="taxi" method="On_leaving"]
+[connection signal="body_entered" from="taxi/Ball" to="taxi" method="on_collision"]
 
 [editable path="taxi/Node3D/Backright2"]
 [editable path="taxi/Node3D/Backleft2"]
@@ -1157,3 +1149,8 @@ acceleration = 180.0
 [editable path="taxi/Node3D/body/MachineGun"]
 [editable path="taxi/Node3D/body/Rocket Launcher"]
 [editable path="taxi/Interface"]
+[editable path="taxi2"]
+[editable path="taxi2/Node3D/Backright2"]
+[editable path="taxi2/Node3D/Backleft2"]
+[editable path="taxi2/Node3D/Backright"]
+[editable path="taxi2/Node3D/Backleft"]

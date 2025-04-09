@@ -1,5 +1,4 @@
-res://Scripts/GDscript/resolution.gd
-res://Interface/Interface.tscn
+res://Scenes/Menu.tscn
 res://Scenes/Theme.tres
 res://Assets/Materials/particle mat/Debris.tres
 res://Assets/Materials/particle mat/fire.tres
@@ -8,14 +7,20 @@ res://Assets/Materials/particle mat/Smoke.tres
 res://Assets/Materials/particle mat/Rocket particles.tres
 res://Scenes/Worlds/navmesh.tres
 res://taxi.tres
+res://World2.tres
+res://Interface/Interface.tscn
 res://Scenes/Worlds/test.tscn
 res://Scenes/taxi.tscn
-res://Scenes/Settings.tscn
-res://World2.tres
-res://Scenes/Menu.tscn
 res://Scenes/Main_menu.tscn
 res://Interface/Select level.tscn
-res://Scripts/GDscript/select_level.gd
-res://Scripts/GDscript/MainMenu.gd
+res://Scenes/debug taxi.tscn
+res://Scenes/Worlds/debug_taxi.gd
 res://Scripts/GDscript/settings.gd
+res://Scenes/Settings.tscn
 res://Scripts/GDscript/Menu.gd
+res://Scripts/GDscript/Movement.gd
+res://Scripts/GDscript/interface.gd
+res://Assets/Models/Guns/Machine gun.tscn
+res://Assets/Models/Guns/Rocket Ammo.tscn
+res://Scripts/GDscript/Popuptext.gd
+res://Interface/Popup text.tscn
