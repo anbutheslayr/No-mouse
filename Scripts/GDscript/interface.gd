@@ -16,7 +16,7 @@ class_name interface
 # @onready var plane : RigidBody3D = get_tree().get_nodes_in_group("Plane")[0]
 @onready var drift_points : RichTextLabel = $Drift_points
 @onready var change_world_timer : Timer = Timer.new()
-@onready var skeleton : PackedScene = ResourceLoader.load("res://Assets/Models/World2/Scenes/character-skeleton.tscn")
+# @onready var skeleton : PackedScene = ResourceLoader.load("res://Assets/Models/World2/Scenes/character-skeleton.tscn")
 @export var min_kills = 1
 @onready var cur_enemies = 0
 @onready var dead = false

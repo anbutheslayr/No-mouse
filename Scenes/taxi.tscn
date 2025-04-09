@@ -674,6 +674,7 @@ _data = {
 absorbent = true
 
 [sub_resource type="SphereShape3D" id="11"]
+radius = 1.0
 
 [sub_resource type="StyleBoxFlat" id="25"]
 border_width_left = 5
@@ -922,7 +923,6 @@ texture = ExtResource("11")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13508, 0.805907)
 
 [node name="Ball" type="RigidBody3D" parent="." groups=["Ball"]]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 physics_material_override = SubResource("12")
 gravity_scale = 10.0
 contact_monitor = true
@@ -947,7 +947,6 @@ anchor_bottom = 0.933333
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 40.0
-grow_vertical = 0
 
 [node name="Acceleration" parent="Interface" index="2"]
 anchors_preset = -1
@@ -959,8 +958,6 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 40.0
 offset_bottom = 40.0
-grow_horizontal = 0
-grow_vertical = 0
 
 [node name="Esc" parent="Interface" index="3"]
 anchor_right = 0.075
@@ -1023,8 +1020,7 @@ libraries = {
 
 [connection signal="body_entered" from="Node3D/DetectionArea" to="Node3D/body/MachineGun" method="OnDetection"]
 [connection signal="body_exited" from="Node3D/DetectionArea" to="Node3D/body/MachineGun" method="OnExit"]
-[connection signal="body_entered" from="Ball" to="." method="On_collision"]
-[connection signal="body_exited" from="Ball" to="." method="On_leaving"]
+[connection signal="body_entered" from="Ball" to="." method="on_collision"]
 [connection signal="pressed" from="Interface/Rocket_button" to="Node3D/body/MachineGun" method="gun_switch"]
 
 [editable path="Node3D/Backright2"]

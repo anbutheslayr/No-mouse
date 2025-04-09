@@ -100,23 +100,21 @@ func _process(delta: float) -> void:
 		return
 	
 	# Acceleration
+	speed_input = 0
 	speed_input = Input.get_axis( "Down","Up") * acceleration
 	# print(speed_input)
 	if accelerate_button.is_pressed():
 		speed_input = acceleration
 	elif brake.is_pressed():
 		speed_input = -acceleration
-	else:
-		speed_input = 0.0
 	#Steering 
+	steering_input = 0
 	steering_input = Input.get_axis("Right", "Left") * deg_to_rad(steering)
 	# print(steering_input) 
 	if left.is_pressed():
 		steering_input = deg_to_rad(steering)
 	elif right.is_pressed():
 		steering_input = -deg_to_rad(steering)
-	else:
-		steering_input = 0.0
 	# smoke
 	var ball_vel = ball.linear_velocity
 	var car_forward = car_mesh.global_transform.basis.z.normalized()
@@ -179,6 +177,7 @@ func align_with_surface(xform: Transform3D) -> Transform3D:
 	return xform.orthonormalized()
 
 func on_collision(body : Node):
+	print("Collision with: ", body.name)
 	if body is RigidBody3D:
 		var col_body = body as RigidBody3D
 		var rel_vel = col_body.linear_velocity - ball.linear_velocity
@@ -203,22 +202,22 @@ func apply_damage(damage, body):
 	health -= damage
 	if damage != 0:
 		hit_animation.play("Hit")
-		var d = popuptext.instance() as Node3D
+		var d = popuptext.instantiate() as Node3D
 		get_tree().root.add_child(d)
-		(d as Popuptext).play_anim(damage.toString(), 20, 3, car_mesh.global_transform.origin + Vector3(0, 2, 0), 1)
+		(d as Popuptext).play_anim(str(damage), 20, 3, car_mesh.global_transform.origin + Vector3(0, 2, 0), 1)
 	if health <= 0:
 		visible = false
-		var e = expl.instance() as Node3D
+		var e = expl.instantiate() as Node3D
 		get_tree().root.add_child(e)
 		e.global_position = ball.global_position
-	health_bar_3d.change_health(health)
+	health_bar_3d.change_health(health,true)
 	body.get_parent().calculate_health(damage)
 
 func revive_car():
 	health = 100
 	visible = true
 	interface.show()
-	health_bar_3d.change_health(health)
+	health_bar_3d.change_health(health,true)
 
 func enable_col():
 	col = true

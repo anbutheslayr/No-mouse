@@ -109,4 +109,4 @@ theme = ExtResource("3")
 text = "Drift points : "
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Esc" to="." method="OnEscPressed"]
+[connection signal="pressed" from="Esc" to="." method="on_esc_pressed"]
