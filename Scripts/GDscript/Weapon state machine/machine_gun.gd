@@ -5,12 +5,10 @@ class_name MachineGunState
 # It also handles the input and animation for the machine gun
 
 func state_enter():
-	anim.play("Gun_rise")
-	await anim.animation_finished
+	pass
 
 func state_exit():
-	anim.play("Gun_descend")
-	await anim.animation_finished
+	pass
 
 
 @export var raycastpath : NodePath
@@ -65,12 +63,16 @@ func  _ready() -> void:
 
 
 func state_process(delta):
+	pass
 	# Called to update the state logic (e.g., AI or game logic)  
 	
+
+func state_update(delta):
+	direction = Vector3.ZERO
 	if weapon_state_machine.closest_enemy != null:
 		direction = weapon_state_machine.closest_enemy.global_position - raycast.global_position
 
-	direction = Vector3.ZERO
+	
 	ammo_text.text = "       Ammo = " + str(cur_ammo) + "/" + str(ammo) + "(" + str(cur_magazines) + ") \n       " + str(DisplayServer.screen_get_size()) + "\n       FPS : " + str(Engine.get_frames_per_second()) + "\n       Enemies Alive : " + str(get_tree().get_nodes_in_group("Enemy").size())
 	
 	if weapon_state_machine.enemies.size() > 0 and cur_ammo > 0:
@@ -78,18 +80,21 @@ func state_process(delta):
 			var aimspd = aim_speed
 			if weapon_state_machine.closest_enemy.is_in_group("Runnable"):
 				aimspd = .95
-			gun.look_at(marker.global_position.lerp(raycast.global_position - direction, aimspd), Vector3.UP)
+			gun.look_at(marker.global_position.lerp( raycast.global_position-direction, aimspd), Vector3.UP)
 			anim.play("Shoot")
-			on_shoot()
+			
+			
+			
+			
+			
+			
 	elif cur_ammo <= 0 and cur_magazines > 0:
-		anim.play("Reload")
-		await anim.animation_finished
+		# anim.play("Reload")
+		# await anim.animation_finished
 		cur_ammo = ammo
 		cur_magazines -= 1
 	else:
-		state_changed.emit(self, "Idle")
-
-func state_update(delta):
+		state_changed.emit(self, "Machine_gun_descend")
 	pass
 	
 func on_shoot():
@@ -105,7 +110,7 @@ func on_shoot():
 			b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
 		if raycast.get_collider().is_in_group("Enemy_Body"):
 			var enemy = raycast.get_collider().get_parent().get_parent().get_parent() as Node3D
-			enemy.call("Calculate_Health" , gun_damage)
+			enemy.call("calculate_health" , gun_damage)
 			var d = popuptext.instantiate()
 			get_tree().root.get_node("World").add_child(d)
 			(d as Popuptext).play_anim( "Hit" , 10 , 5 , raycast.get_collision_point() + Vector3(0,1,0),1)
@@ -116,6 +121,3 @@ func on_shoot():
 	elif cur_ammo <= 0:
 		cur_ammo = 1
 	cur_ammo -= 1
-
-
-
