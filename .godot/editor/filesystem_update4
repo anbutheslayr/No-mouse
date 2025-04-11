@@ -1,5 +1,4 @@
-res://Scripts/GDscript/state.gd
-res://Scenes/taxi.tscn
+res://Scenes/Worlds/test.tscn
 res://Scenes/Theme.tres
 res://Assets/Materials/particle mat/Debris.tres
 res://Assets/Materials/particle mat/fire.tres
@@ -8,11 +7,9 @@ res://Assets/Materials/particle mat/Smoke.tres
 res://Assets/Materials/particle mat/Rocket particles.tres
 res://taxi.tres
 res://Scenes/Worlds/navmesh.tres
-res://World2.tres
-res://Scenes/Worlds/test.tscn
-res://Scenes/Main_menu.tscn
-res://Scripts/GDscript/machine_gun.gd
-res://Scripts/idle.gd
-res://Scripts/GDscript/Movement.gd
+res://Scenes/taxi.tscn
+res://Scripts/GDscript/Weapon state machine/idle.gd
+res://Scripts/GDscript/Weapon state machine/machine_gun.gd
+res://Scripts/GDscript/Weapon state machine/machine_gun_rise.gd
+res://Scripts/GDscript/Weapon state machine/machine_gun_descend.gd
 res://Scenes/debug taxi.tscn
-res://Scripts/weapon_state_machine.gd
