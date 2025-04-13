@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=4 uid="uid://dy7p05afv8ia6"]
 
-[ext_resource type="Script" uid="uid://dfkkqo5nnnbas" path="res://Scenes/Worlds/debug_taxi.gd" id="1_pqxrf"]
+[ext_resource type="Script" uid="uid://dfkkqo5nnnbas" path="res://Scripts/GDscript/debug_taxi.gd" id="1_pqxrf"]
 [ext_resource type="PackedScene" path="res://Scenes/Smoke_graveyard.tscn" id="2_pp025"]
 [ext_resource type="PackedScene" uid="uid://dn2ifqeeaevsw" path="res://Scenes/Smoke.tscn" id="3_t6pfl"]
 [ext_resource type="AudioStream" uid="uid://dyoldkhjja8x1" path="res://Assets/Audio/drift.mp3" id="4_khxlk"]

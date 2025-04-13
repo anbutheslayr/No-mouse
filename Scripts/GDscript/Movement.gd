@@ -231,7 +231,7 @@ func disable_col():
 	col = false
 
 func close_miss(body : RigidBody3D):
-	if body.linear_velocity.length() > 27:
+	if body.linear_velocity.length() > 27 and Engine.time_scale > 0.5:
 		var p = popuptext.instantiate() as Node3D
 		get_tree().root.add_child(p)
 		p.play_anim("Close miss +10", 20, 3, car_mesh.global_transform.origin + Vector3(0, 2, 0), 1)

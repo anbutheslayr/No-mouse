@@ -32,7 +32,7 @@ func _ready():
 	change_world_timer.connect("timeout", Callable.create(self,"change_world"))
 	add_child(change_world_timer)
 	drift_points.text = "Drift Points " + str(reso.drift_points)
-	repositionandresize(DisplayServer.window_get_size())
+	repositionandresize(reso.res)
 
 func _process(_delta):
 	drift_points.text = "Drift Points : " + str(int(reso.drift_points))
@@ -67,6 +67,7 @@ func repositionandresize(res:Vector2i):
 	accelerate_button.scale = Vector2(res.y/1080.0*1.576, res.y/1080.0*1.358)
 	brake.position = Vector2(res.y/1080.0*-708.0, res.y/1080.0*-223.0)
 	brake.scale = accelerate_button.scale
+	print("Rezised")
 	# esc.scale = Vector2(res.y/1080.0, res.y/1080.0)
 	# enemy_spawntext.offset_top = res.y/1080.0*100
 	# drift_points.offset_top = res.y/1080.0*10

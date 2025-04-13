@@ -81,6 +81,7 @@ func state_update(delta):
 			if weapon_state_machine.closest_enemy.is_in_group("Runnable"):
 				aimspd = .95
 			gun.look_at(marker.global_position.lerp( raycast.global_position-direction, aimspd), Vector3.UP)
+			
 			anim.play("Shoot")
 			
 			
