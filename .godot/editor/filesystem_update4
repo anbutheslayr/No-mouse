@@ -1,3 +1,4 @@
+res://Scripts/GDscript/InputRecorder.gd
 res://Scenes/Worlds/test.tscn
 res://Scenes/Theme.tres
 res://Assets/Materials/particle mat/Debris.tres
@@ -7,7 +8,6 @@ res://Assets/Materials/particle mat/Smoke.tres
 res://Assets/Materials/particle mat/Rocket particles.tres
 res://taxi.tres
 res://Scenes/Worlds/navmesh.tres
-res://Scripts/GDscript/InputRecorder.gd
 res://Scenes/taxi.tscn
 res://Scenes/debug taxi.tscn
 res://Interface/Interface.tscn

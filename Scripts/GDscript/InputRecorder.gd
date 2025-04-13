@@ -33,7 +33,7 @@ func stop_replay():
 func save_recording(file_path: String):
 	# Save recorded inputs to a file
 	
-		
+	
 	var file = FileAccess.open(file_path, FileAccess.WRITE)
 	
 	file.store_var(recorded_inputs,true)
@@ -77,5 +77,5 @@ func _physics_process(delta: float) -> void:
 			for event in recorded_inputs[replay_frame]:
 				Input.parse_input_event(event)
 		replay_frame += 1
-		if replay_frame > recorded_inputs.keys().size():
+		if replay_frame > recorded_inputs.keys().max():
 			stop_replay()
