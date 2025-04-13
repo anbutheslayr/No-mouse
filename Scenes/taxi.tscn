@@ -680,7 +680,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0.000339031, 1.71628, 0.38334)
 
 [node name="Gun" parent="Node3D/body/MachineGun" index="0"]
-transform = Transform3D(-10, 0, 8.74228e-07, 0, 10, 0, -8.74228e-07, 0, -10, 0, 0.146015, 4.76837e-07)
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, 0.146015, 4.76837e-07)
 
 [node name="OmniLight3D" parent="Node3D/body/MachineGun/Gun/Marker/Particles" index="0"]
 omni_range = 7.0
