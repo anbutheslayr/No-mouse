@@ -1,9 +1,10 @@
 extends Control
+class_name SettingsMenu
 
 
 @onready var esc : TextureButton = get_node("TextureButton")
 var title_font : FontFile = preload("res://Scenes/FONT.tres")
-var gtheme = preload("res://Scenes/Theme.tres")
+var gtheme : Theme = preload("res://Scenes/Theme.tres")
 @onready var volume : HSlider =  get_node("MarginContainer/HBoxContainer2/VBoxContainer/Hslider")
 @onready var resolution_button : OptionButton = get_node("MarginContainer/HBoxContainer2/VBoxContainer/OptionButton")
 @onready var no_of_enemies : OptionButton = get_node("MarginContainer/HBoxContainer2/VBoxContainer/NoOfEnemies")
@@ -110,21 +111,21 @@ func on_resolution_changed(index):
 		4:
 			reso.res = Vector2i(640,360)
 			reso.res_int = 4
-
-
-	get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
-	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
-	get_window().content_scale_size = reso.res
 	reso.res_int = index
+	# get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
+	# get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
+	get_window().content_scale_size = reso.res
+	
 	resize(reso.res)
 	reposition(reso.res)
 
 func resize(res):
-	# gtheme.default_font.size = (int)(res.x/1920*50)
+	gtheme.default_font_size = (int)(res.x/1920*20)
 	# gtheme.default_font.outline_size = (int)(res.x/1920*3)
 	# title_font.size = (int)(res.x/1920*120)
 	# title_font.outline_size = (int)(res.x/1920*3)
-	esc.size = Vector2(res.x/1920*96 , res.y/1080*96)
+	# esc.size = Vector2(res.x/1920*96 , res.y/1080*96)
+	pass
 
 func reposition(res):
 	var vb1 : VBoxContainer = get_node("MarginContainer/VBoxContainer")

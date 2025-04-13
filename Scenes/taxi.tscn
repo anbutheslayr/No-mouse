@@ -327,127 +327,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/MachineGun/Gun:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.970469, 4.76837e-07)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body/MachineGun/Gun:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-90, 180, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("body/MachineGun/Gun/Marker/Particles:emitting")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.001),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight3D:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("body/MachineGun/Stand:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -1.3908, 0.0648999)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("body/MachineGun/Base:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -1.62987, 0.0648999)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("body/Rocket Launcher:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.0892019, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("body/Rocket Launcher:rotation_degrees")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -90, 0)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("body/MachineGun/Stand:mesh")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [SubResource("20")]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("body/MachineGun/Base:mesh")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [SubResource("21")]
+"values": [Vector3(0, 3.14159, 0), Vector3(1.5708, 3.14159, 0)]
 }
 
 [sub_resource type="Animation" id="24"]
@@ -629,34 +509,27 @@ tracks/3/path = NodePath("body/MachineGun/Gun:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.0026065, 0.0291666, 0.0407526),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -180, 0), Vector3(-26.162, -180, 0), Vector3(0, -180, 0)]
+"times": PackedFloat32Array(0.00338802),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_shoot"
+}]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles:emitting")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+
+[sub_resource type="Animation" id="Animation_j403w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/MachineGun:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight3D:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.001166, 0.0256039),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37yd7"]
@@ -821,7 +694,7 @@ mesh = SubResource("9")
 skeleton = NodePath("../..")
 
 [node name="MachineGun" parent="Node3D/body" instance=ExtResource("5")]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.000339031, 1.71628, 0.38334)
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0.000339031, 1.71628, 0.38334)
 
 [node name="Gun" parent="Node3D/body/MachineGun" index="0"]
 transform = Transform3D(-10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07)
@@ -871,6 +744,7 @@ start_magazines = 10
 
 [node name="Idle" type="Node" parent="Node3D/body/Weapon_state_machine"]
 script = ExtResource("10_hod1a")
+machine_gun_state_path = NodePath("../Machine_gun")
 
 [node name="Machine_gun_rise" type="Node" parent="Node3D/body/Weapon_state_machine"]
 script = ExtResource("11_j403w")
@@ -963,6 +837,7 @@ libraries = {
 }
 
 [connection signal="body_entered" from="Node3D/DetectionArea" to="Node3D/body/Weapon_state_machine" method="on_detection"]
+[connection signal="body_exited" from="Node3D/DetectionArea" to="." method="on_body_exit"]
 [connection signal="body_exited" from="Node3D/DetectionArea" to="Node3D/body/Weapon_state_machine" method="on_exit"]
 [connection signal="body_entered" from="Ball" to="." method="on_collision"]
 
