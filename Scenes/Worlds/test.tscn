@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6r5lrpplp4rw"]
+[gd_scene load_steps=17 format=3 uid="uid://c6r5lrpplp4rw"]
 
 [ext_resource type="Script" uid="uid://b8bhb6lkex73b" path="res://Scripts/GDscript/Follow.gd" id="1_al5em"]
+[ext_resource type="PackedScene" uid="uid://b34m1q65gnryr" path="res://Interface/Pause menu.tscn" id="1_cjtha"]
 [ext_resource type="Material" path="res://Assets/Materials/Ground.material" id="1_nukgt"]
 [ext_resource type="PackedScene" uid="uid://b7ea02s6whtbx" path="res://Scenes/taxi.tscn" id="2_0yom7"]
 [ext_resource type="NavigationMesh" uid="uid://ctggdgq25evi4" path="res://Scenes/Worlds/navmesh.tres" id="5_at387"]
@@ -37,6 +38,9 @@ fog_depth_end = 73.5
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_bbtet"]
 
 [node name="World" type="Node3D"]
+
+[node name="Pause menu" parent="." instance=ExtResource("1_cjtha")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("17")

@@ -84,8 +84,8 @@ ParticleLoader="*res://Scripts/GDscript/Particle_loader.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
@@ -116,6 +116,8 @@ global=false
 [global_group]
 
 Enemy_spawner=""
+Interface=""
+Pause_menu=""
 
 [gui]
 

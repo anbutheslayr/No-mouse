@@ -1,89 +1,74 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://b34m1q65gnryr"]
 
-[ext_resource path="res://Scenes/FONT.tres" type="FontFile" id=1]
-[ext_resource path="res://Scenes/Theme.tres" type="Theme" id=2]
-[ext_resource path="res://Scripts/Pause_menu.cs" type="Script" id=3]
+[ext_resource type="FontFile" path="res://Scenes/FONT.tres" id="1"]
+[ext_resource type="Script" uid="uid://i7j5w64uo5if" path="res://Scripts/GDscript/pause_menu.gd" id="1_68kqu"]
+[ext_resource type="Theme" uid="uid://6wasy10nsxp0" path="res://Scenes/Theme.tres" id="2"]
 
-[node name="Pause menu" type="Control"]
+[node name="Pause menu" type="Control" groups=["Pause_menu"]]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_68kqu")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_top = 12
 theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 1908.0
-offset_bottom = 1068.0
+layout_mode = 2
 theme_override_constants/separation = 70
 
 [node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
-offset_right = 1896.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-offset_top = 70.0
-offset_right = 1896.0
-offset_bottom = 170.0
-theme_override_colors/font_color = Color( 1, 1, 1, 1 )
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 7
 theme_override_constants/shadow_offset_y = 7
-theme_override_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource("1")
 text = "Paused"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 1908.0
-offset_bottom = 1068.0
+layout_mode = 2
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-offset_left = 845.0
-offset_right = 1047.0
-offset_bottom = 1056.0
+layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 462.0
-offset_right = 202.0
-offset_bottom = 462.0
+layout_mode = 2
 
 [node name="Resume" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 482.0
-offset_right = 202.0
-offset_bottom = 518.0
-theme = ExtResource( 2 )
+layout_mode = 2
+theme = ExtResource("2")
 keep_pressed_outside = true
 text = "resume"
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 538.0
-offset_right = 202.0
-offset_bottom = 538.0
+layout_mode = 2
 
 [node name="Quit to main menu" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 558.0
-offset_right = 202.0
-offset_bottom = 594.0
-theme = ExtResource( 2 )
+layout_mode = 2
+theme = ExtResource("2")
 keep_pressed_outside = true
 text = "QUIT to main menu"
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
-offset_left = 1051.0
-offset_right = 1051.0
-offset_bottom = 1056.0
+layout_mode = 2
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Resume" to="." method="OnResumePressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit to main menu" to="." method="OnQuitToMMPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Resume" to="." method="on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit to main menu" to="." method="on_quit_to_mm_pressed"]
