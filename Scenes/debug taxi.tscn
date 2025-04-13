@@ -183,7 +183,6 @@ script = ExtResource("1_pqxrf")
 ball_path = NodePath("Ball")
 car_mesh_body_path = NodePath("Node3D/body")
 car_mesh_path = NodePath("Node3D")
-sphere_offset = Vector3(0, -0.5, 0)
 acceleration = 140.0
 steering = 60.0
 tilt = 65.0
@@ -269,17 +268,17 @@ billboard = 1
 texture = ExtResource("7_4lhns")
 
 [node name="Fl" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.545909, 0.5, -1.27291)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.567191, 0.5, -0.708925)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
 [node name="Fr" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.631004, 0.5, -1.21737)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51395, 0.5, -0.727874)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
 [node name="Bl" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603789, 0.5, 1.44533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.508018, 0.5, 0.721727)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
