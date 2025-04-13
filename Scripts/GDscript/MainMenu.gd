@@ -2,7 +2,7 @@ extends Node3D
 
 
 
-@onready var settings : Control = get_node("Settings")
+@onready var settings : SettingsMenu = get_node("Settings")
 @onready var menu : Control = get_node("Menu")
 @onready var click : AudioStreamPlayer = get_node("Click")
 @onready var back : AudioStreamPlayer = get_node("Back")
@@ -21,10 +21,12 @@ func verify_res() -> void:
 	if !dir.dir_exists("user://Int"):
 		dir.make_dir("user://Int")
 	if !dir.file_exists("user://Int/Res.tres"):
+		print("File not found")
 		reso = ResourceLoader.load("res://Interface/Res.tres")
 		ResourceSaver.save(reso,"user://Int/Res.tres")
 		reso = ResourceLoader.load("user://Int/Res.tres")
 	else :
+		print("File found")
 		reso = ResourceLoader.load("user://Int/Res.tres")
 	
 func _process(_delta: float) -> void:

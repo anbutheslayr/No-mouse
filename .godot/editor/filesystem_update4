@@ -11,3 +11,4 @@ res://World2.tres
 res://Scenes/Worlds/test.tscn
 res://Scenes/Main_menu.tscn
 res://Scenes/debug taxi.tscn
+res://Scripts/GDscript/MainMenu.gd
