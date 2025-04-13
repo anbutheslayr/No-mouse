@@ -12,7 +12,7 @@ class_name interface
 @onready var enemy_taxi_scene : PackedScene = ResourceLoader.load("Scenes/debug taxi.tscn")
 @onready var timer : Timer = Timer.new()
 @onready var enemy_spawntext : Label = $Enemy_spawntext 
-# @onready var pausemenu : Control = get_tree().get_nodes_in_group("Pause_menu")[0]
+@onready var pausemenu : Control = get_tree().get_nodes_in_group("Pause_menu")[0]
 # @onready var plane : RigidBody3D = get_tree().get_nodes_in_group("Plane")[0]
 @onready var drift_points : RichTextLabel = $Drift_points
 @onready var change_world_timer : Timer = Timer.new()
@@ -32,7 +32,7 @@ func _ready():
 	change_world_timer.connect("timeout", Callable.create(self,"change_world"))
 	add_child(change_world_timer)
 	drift_points.text = "Drift Points " + str(reso.drift_points)
-	repositionandresize(reso.res)
+	repositionandresize(DisplayServer.window_get_size())
 
 func _process(_delta):
 	drift_points.text = "Drift Points : " + str(int(reso.drift_points))
@@ -76,8 +76,8 @@ func add_drift_points(points:float):
 	reso.drift_points += points*kill
 
 func on_esc_pressed():
-	get_tree().paused = true
-	# pausemenu.show()
+	pausemenu.pause()
+	pausemenu.show()
 	hide()
 	# plane.call("Pause")
 	if reso.volume != -15:

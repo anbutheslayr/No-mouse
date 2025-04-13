@@ -129,6 +129,7 @@ corner_radius_bottom_left = 10
 
 [resource]
 default_font = ExtResource("1")
+default_font_size = 20
 Button/colors/font_color_disabled = Color(1, 1, 1, 0.2)
 Button/styles/disabled = SubResource("49")
 Button/styles/hover = SubResource("51")

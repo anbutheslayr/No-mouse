@@ -16,4 +16,5 @@ func change_health(health : int, immediate : bool):
 		create_tween().tween_property(texture_progress_under, "value", health, 0.7).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 		
 	if health <= 0:
-		get_parent().get_parent().get_node("Interface").dead()
+		# get_parent().get_parent().get_node("Interface").dead()
+		pass

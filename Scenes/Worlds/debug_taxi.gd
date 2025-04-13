@@ -118,8 +118,7 @@ func calculate_health(damage):
 	health_bar_3d.change_health(health)
 
 func _process(delta: float) -> void:
-	if Engine.time_scale != 1:
-		steering_input = 0.0
+	
 	# AI
 	if update_path_timer.time_left ==0:
 		nav_agent.target_position = player_mesh.global_position
@@ -132,13 +131,14 @@ func _process(delta: float) -> void:
 		steering_input = lerp(steering_input,deg_to_rad(steering),delta*10)
 	elif angle<-10:
 		steering_input = lerp(steering_input,-deg_to_rad(steering),delta*10)
-	 
+	
 
 
 	# print(steering_input)
 	# turning wheels
-	left_wheel.rotation.y = lerp(left_wheel.rotation.y,PI + steering_input,delta*40)
-	right_wheel.rotation.y = lerp(right_wheel.rotation.y,steering_input - .3,delta*40)
+	if Engine.time_scale > 0.5:
+		left_wheel.rotation.y = lerp(left_wheel.rotation.y,PI + steering_input,delta*40)
+		right_wheel.rotation.y = lerp(right_wheel.rotation.y,steering_input - .3,delta*40)
 
 	if b_l.emitting:
 		left_wheel.rotation.y = -(PI + steering_input)
@@ -157,6 +157,6 @@ func _process(delta: float) -> void:
 	if ball.global_position.distance_to(player_mesh.global_position)>500:
 		ball.global_position = Vector3(0,5,0)
 	# align with surface
-	
-	var xform = align_with_surface(car_mesh.global_transform)
-	car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform,.5)
+	if Engine.time_scale > 0.5:
+		var xform = align_with_surface(car_mesh.global_transform)
+		car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform,.5)

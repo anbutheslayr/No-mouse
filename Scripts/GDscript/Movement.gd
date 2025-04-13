@@ -139,8 +139,10 @@ func _process(delta: float) -> void:
 		health -= delta*2
 		health_bar_3d.change_health(health)
 	# turning wheels
+	
 	left_wheel.rotation.y = PI + steering_input
 	right_wheel.rotation.y = steering_input
+	
 	if b_l.emitting:
 		left_wheel.rotation.y = -(PI + steering_input)
 		right_wheel.rotation.y = -(steering_input - .3)
@@ -157,9 +159,9 @@ func _process(delta: float) -> void:
 		car_mesh_body.rotation.z = lerp(car_mesh_body.rotation.z, t, delta * 10)
 
 	# align with surface
-	
-	var xform = align_with_surface(car_mesh.global_transform)
-	car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform,.5)
+	if Engine.time_scale > 0.5:
+		var xform = align_with_surface(car_mesh.global_transform)
+		car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform,.5)
 	
 
 func align_with_surface(xform: Transform3D) -> Transform3D:
@@ -187,6 +189,10 @@ func on_collision(body : Node):
 	if body.is_in_group("Obstacle") and ball.linear_velocity.length() > 6:
 		audio_stream_player.play()
 		cam.add_trauma(0.4)
+
+func on_body_exit(body : Node):
+	if body is RigidBody3D:
+		close_miss(body)
 
 func calculate_damage(imp_mag):
 	var damage = round(imp_mag * damage_multiplier)
@@ -226,12 +232,12 @@ func disable_col():
 
 func close_miss(body : RigidBody3D):
 	if body.linear_velocity.length() > 27:
-		var p = popuptext.instance() as Node3D
+		var p = popuptext.instantiate() as Node3D
 		get_tree().root.add_child(p)
-		p.play_anim("Miss", 20, 3, car_mesh.global_transform.origin + Vector3(0, 2, 0), 1)
+		p.play_anim("Close miss +10", 20, 3, car_mesh.global_transform.origin + Vector3(0, 2, 0), 1)
 		health += close_miss_bonus
 		health = clamp(health, 0, 100)
-		health_bar_3d.change_health(health)
+		health_bar_3d.change_health(health,false)
 
 		
 func part_change():

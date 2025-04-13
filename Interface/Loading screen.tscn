@@ -1,168 +1,169 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://c6x6kchcngst3"]
 
-[ext_resource path="res://okk.png" type="Texture2D" id=1]
-[ext_resource path="res://Scenes/Theme.tres" type="Theme" id=2]
-[ext_resource path="res://Interface/gun.png" type="Texture2D" id=3]
-[ext_resource path="res://Assets/Audio/Rifle.mp3" type="AudioStream" id=4]
-[ext_resource path="res://Assets/Materials/Muzzle.png" type="Texture2D" id=5]
+[ext_resource type="Texture2D" uid="uid://dqvosbt71wp32" path="res://okk.png" id="1"]
+[ext_resource type="Theme" uid="uid://6wasy10nsxp0" path="res://Scenes/Theme.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://ddht2n8hqpcf5" path="res://Interface/gun.png" id="3"]
+[ext_resource type="AudioStream" uid="uid://dwjbwg6ej0fr" path="res://Assets/Audio/Rifle.mp3" id="4"]
+[ext_resource type="Texture2D" uid="uid://c3aqtnqlerqjt" path="res://Assets/Materials/Muzzle.png" id="5"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 length = 0.5
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("ColorRect/TextureRect2:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ 0.0, -40.0 ]
+"values": [0.0, -40.0]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("AudioStreamPlayer:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ true ]
+"values": [true]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("ColorRect/TextureRect2/TextureRect:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0, 0.1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ true, false ]
+"values": [true, false]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("ColorRect/TextureRect2:pivot_offset")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 1, 400 ) ]
+"values": [Vector2(1, 400)]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "load"
 length = 0.5
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("ColorRect/TextureRect2:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.494139 ),
-"transitions": PackedFloat32Array( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.494139),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ 0.0, -22.5, 0.0 ]
+"values": [0.0, -22.5, 0.0]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("AudioStreamPlayer:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ true ]
+"values": [true]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("ColorRect/TextureRect2/TextureRect:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0, 0.0395344 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.0395344),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ true, false ]
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x47sc"]
+_data = {
+&"RESET": SubResource("1"),
+&"load": SubResource("2")
 }
 
 [node name="Loading screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": true
-}
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 1 )
-expand = true
+texture = ExtResource("1")
+expand_mode = 1
 stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
 anchor_left = -0.00364583
 anchor_top = 0.873148
 anchor_right = 0.996354
 anchor_bottom = 0.899074
-theme = ExtResource( 2 )
+theme = ExtResource("2")
 text = "Loading"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
+horizontal_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
 anchor_left = 0.0526042
 anchor_top = 0.811111
 anchor_right = 0.257807
 anchor_bottom = 0.912962
-pivot_offset = Vector2( 1, 400 )
-texture = ExtResource( 3 )
-expand = true
+pivot_offset = Vector2(1, 400)
+texture = ExtResource("3")
+expand_mode = 1
 stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/TextureRect2"]
+layout_mode = 0
 anchor_left = 0.664991
 anchor_right = 0.865444
 anchor_bottom = 0.823365
-texture = ExtResource( 5 )
-expand = true
+texture = ExtResource("5")
+expand_mode = 1
 stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x47sc")
+}
 autoplay = "load"
-anims/RESET = SubResource( 1 )
-anims/load = SubResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource("4")
 volume_db = -10.0
 pitch_scale = 3.5

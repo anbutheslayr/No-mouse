@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://btfnhm4dsqur0" path="res://Interface/Textures/esc pressed.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://im27g3igcxgn" path="res://Interface/Textures/Brake pressed.png" id="10"]
 
-[node name="Interface" type="Control"]
+[node name="Interface" type="Control" groups=["Interface"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,9 +23,10 @@ size_flags_vertical = 3
 script = ExtResource("1_rgio2")
 
 [node name="Ammo_text" type="RichTextLabel" parent="."]
-layout_mode = 0
-anchor_right = 0.611458
-anchor_bottom = 0.0518519
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6375
+anchor_bottom = 0.452778
 theme = ExtResource("3")
 text = "                   Ammo"
 metadata/_edit_use_anchors_ = true
