@@ -14,6 +14,7 @@ func _ready() -> void:
 	# menu.resize(reso.res)
 	settings.resize(reso.res)
 	settings.reposition(reso.res)
+	settings.on_resolution_changed(reso.res_int)
 
 func verify_res() -> void:
 	var dir : DirAccess = DirAccess.open("user://")
