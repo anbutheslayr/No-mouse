@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://b7ea02s6whtbx"]
+[gd_scene load_steps=43 format=4 uid="uid://b7ea02s6whtbx"]
 
 [ext_resource type="PackedScene" uid="uid://p67cldlwo417" path="res://Scenes/Healthbar3d.tscn" id="1"]
 [ext_resource type="Script" uid="uid://ciwkt07qufcgw" path="res://Scripts/GDscript/Movement.gd" id="1_dn7ac"]
@@ -7,13 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://jpi7seohr20e" path="res://Assets/Models/Guns/Machine gun.tscn" id="5"]
 [ext_resource type="AudioStream" uid="uid://xwpaac22ka33" path="res://Assets/Audio/clank-car-crash-collision-6206.mp3" id="6"]
 [ext_resource type="AudioStream" uid="uid://dwjbwg6ej0fr" path="res://Assets/Audio/Rifle.mp3" id="8"]
-[ext_resource type="Script" path="res://Scripts/weapon_state_machine.gd" id="8_srmxw"]
+[ext_resource type="Script" uid="uid://da1fgjcrfvrk3" path="res://Scripts/GDscript/Weapon state machine/weapon_state_machine.gd" id="8_srmxw"]
 [ext_resource type="AudioStream" uid="uid://dyoldkhjja8x1" path="res://Assets/Audio/drift.mp3" id="9"]
-[ext_resource type="Script" path="res://Scripts/GDscript/machine_gun.gd" id="9_hod1a"]
+[ext_resource type="Script" uid="uid://cn60h7ktkaytw" path="res://Scripts/GDscript/Weapon state machine/machine_gun.gd" id="9_hod1a"]
 [ext_resource type="PackedScene" uid="uid://cebdtfevwvob" path="res://Interface/Interface.tscn" id="10"]
-[ext_resource type="Script" path="res://Scripts/idle.gd" id="10_hod1a"]
+[ext_resource type="Script" uid="uid://c4o76l2i2y5uo" path="res://Scripts/GDscript/Weapon state machine/idle.gd" id="10_hod1a"]
 [ext_resource type="Texture2D" uid="uid://b5w67jnupauvc" path="res://Assets/Materials/player.png" id="11"]
+[ext_resource type="Script" uid="uid://dqrbc3texvlfj" path="res://Scripts/GDscript/Weapon state machine/machine_gun_rise.gd" id="11_j403w"]
 [ext_resource type="PackedScene" path="res://Assets/Models/Guns/Rocket Launcher.tscn" id="12"]
+[ext_resource type="Script" uid="uid://trodcuk4gxyh" path="res://Scripts/GDscript/Weapon state machine/machine_gun_descend.gd" id="12_8uexg"]
 [ext_resource type="PackedScene" path="res://Scenes/Smoke_graveyard.tscn" id="13"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_738rb"]
@@ -869,6 +871,14 @@ start_magazines = 10
 
 [node name="Idle" type="Node" parent="Node3D/body/Weapon_state_machine"]
 script = ExtResource("10_hod1a")
+
+[node name="Machine_gun_rise" type="Node" parent="Node3D/body/Weapon_state_machine"]
+script = ExtResource("11_j403w")
+machine_gun_state_path = NodePath("../Machine_gun")
+
+[node name="Machine_gun_descend" type="Node" parent="Node3D/body/Weapon_state_machine"]
+script = ExtResource("12_8uexg")
+machine_gun_state_path = NodePath("../Machine_gun")
 
 [node name="wheel_backRight" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.25, 0.76)
