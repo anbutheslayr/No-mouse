@@ -10,6 +10,7 @@ extends Node3D
 var reso : Resolution
 
 func _ready() -> void:
+	Engine.time_scale = 1
 	verify_res()
 	# menu.resize(reso.res)
 	settings.resize(reso.res)

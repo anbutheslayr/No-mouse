@@ -28,10 +28,9 @@ func pause():
 	paused = true
 func _process(delta):
 	if paused:
-		Engine.time_scale = lerp(Engine.time_scale, 0.0001, 50 * delta)
+		Engine.time_scale = lerp(Engine.time_scale, 0.0001, 30 * delta)
 	
 func on_quit_to_mm_pressed() -> void:
-	Engine.time_scale = 1
 	paused = false
 	LoadingScreen.load_scene("res://Scenes/Main_menu.tscn")
 	if reso.volume != -15:
