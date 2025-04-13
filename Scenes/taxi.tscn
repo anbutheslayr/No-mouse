@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://b7ea02s6whtbx"]
+[gd_scene load_steps=41 format=4 uid="uid://b7ea02s6whtbx"]
 
 [ext_resource type="PackedScene" uid="uid://p67cldlwo417" path="res://Scenes/Healthbar3d.tscn" id="1"]
 [ext_resource type="Script" uid="uid://ciwkt07qufcgw" path="res://Scripts/GDscript/Movement.gd" id="1_dn7ac"]
@@ -7,15 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://jpi7seohr20e" path="res://Assets/Models/Guns/Machine gun.tscn" id="5"]
 [ext_resource type="AudioStream" uid="uid://xwpaac22ka33" path="res://Assets/Audio/clank-car-crash-collision-6206.mp3" id="6"]
 [ext_resource type="AudioStream" uid="uid://dwjbwg6ej0fr" path="res://Assets/Audio/Rifle.mp3" id="8"]
-[ext_resource type="Script" uid="uid://da1fgjcrfvrk3" path="res://Scripts/GDscript/Weapon state machine/weapon_state_machine.gd" id="8_srmxw"]
+[ext_resource type="Script" path="res://Scripts/weapon_state_machine.gd" id="8_srmxw"]
 [ext_resource type="AudioStream" uid="uid://dyoldkhjja8x1" path="res://Assets/Audio/drift.mp3" id="9"]
-[ext_resource type="Script" uid="uid://cn60h7ktkaytw" path="res://Scripts/GDscript/Weapon state machine/machine_gun.gd" id="9_hod1a"]
+[ext_resource type="Script" path="res://Scripts/GDscript/machine_gun.gd" id="9_hod1a"]
 [ext_resource type="PackedScene" uid="uid://cebdtfevwvob" path="res://Interface/Interface.tscn" id="10"]
-[ext_resource type="Script" uid="uid://c4o76l2i2y5uo" path="res://Scripts/GDscript/Weapon state machine/idle.gd" id="10_hod1a"]
+[ext_resource type="Script" path="res://Scripts/idle.gd" id="10_hod1a"]
 [ext_resource type="Texture2D" uid="uid://b5w67jnupauvc" path="res://Assets/Materials/player.png" id="11"]
-[ext_resource type="Script" uid="uid://dqrbc3texvlfj" path="res://Scripts/GDscript/Weapon state machine/machine_gun_rise.gd" id="11_j403w"]
 [ext_resource type="PackedScene" path="res://Assets/Models/Guns/Rocket Launcher.tscn" id="12"]
-[ext_resource type="Script" uid="uid://trodcuk4gxyh" path="res://Scripts/GDscript/Weapon state machine/machine_gun_descend.gd" id="12_8uexg"]
 [ext_resource type="PackedScene" path="res://Scenes/Smoke_graveyard.tscn" id="13"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_738rb"]
@@ -194,62 +192,260 @@ resource_name = "Gun_descend"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("body/Stand:position")
+tracks/0/path = NodePath("body/MachineGun/Gun:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.00407523, 0.908774),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 1.443, 0.318), Vector3(0.000339041, 1.14075, 0.31844), Vector3(0.000339041, 0.484519, 0.31844)]
+"values": [Vector3(0, 0.146015, 4.76837e-07), Vector3(0, -0.970469, 4.76837e-07)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("body/Base:position")
+tracks/1/path = NodePath("body/MachineGun/Gun:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.23, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.00407523, 0.201724, 0.625547, 0.908774),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.000339041, 1.09619, 0.31844), Vector3(0.000339041, 0.677227, 0.31844), Vector3(0.000339041, 0.304976, 0.31844)]
+"values": [Vector3(0, -180, 0), Vector3(-38.1986, -159.914, -30.5963), Vector3(-90, -179.999, 0), Vector3(-90, -179.999, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight3D:visible")
+tracks/2/path = NodePath("body/MachineGun/Stand:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0.0030297, 0.908774),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.172817, 0.0648999), Vector3(0, -1.3908, 0.0648999)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("body/MachineGun/Base:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.000640213, 0.91285),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.62009, 0.0648999), Vector3(0, -1.62987, 0.0648999)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
+
+[sub_resource type="Animation" id="22"]
+resource_name = "Gun_rise"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/MachineGun/Gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.939339),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.970469, 4.76837e-07), Vector3(0, 0, 0.0546631)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/MachineGun/Gun:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.256739, 0.615359, 0.935263),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-90, -179.999, 0), Vector3(-90, -179.999, 0), Vector3(-38.1986, -159.914, -30.5963), Vector3(0, -180, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/MachineGun/Stand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.941376),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.3908, 0.0648999), Vector3(0, -0.3439, 0.0648999)]
+}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("body/MachineGun:position")
+tracks/3/path = NodePath("body/MachineGun/Base:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.903302),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.000339031, 1.71628, 0.38334), Vector3(0.000339031, 0.504529, 0.38334)]
+"values": [Vector3(0, -1.62987, 0.0648999), Vector3(0, -0.62009, 0.0648999)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("body/MachineGun:rotation")
+tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight3D:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="18"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/MachineGun/AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(1.5708, 3.14159, 0)]
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/MachineGun/Gun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.970469, 4.76837e-07)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/MachineGun/Gun:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-90, 180, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("body/MachineGun/Gun/Marker/Particles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("body/MachineGun/Stand:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.3908, 0.0648999)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("body/MachineGun/Base:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.62987, 0.0648999)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("body/Rocket Launcher:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.0892019, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("body/Rocket Launcher:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -90, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("body/MachineGun/Stand:mesh")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [SubResource("20")]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("body/MachineGun/Base:mesh")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [SubResource("21")]
 }
 
 [sub_resource type="Animation" id="24"]
@@ -298,7 +494,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("body/Stand:position")
+tracks/2/path = NodePath("body/MachineGun/Stand:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -310,7 +506,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("body/Base:position")
+tracks/3/path = NodePath("body/MachineGun/Base:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -364,7 +560,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("body/Stand:position")
+tracks/2/path = NodePath("body/MachineGun/Stand:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -376,7 +572,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("body/Base:position")
+tracks/3/path = NodePath("body/MachineGun/Base:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -388,28 +584,26 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="19"]
 resource_name = "Shoot"
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
+length = 0.15
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("body/MachineGun/AudioStreamPlayer:playing")
+tracks/0/path = NodePath("body/MachineGun")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.00047946),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("body/MachineGun/Gun/Marker/Particles:emitting")
+tracks/1/path = NodePath("body/MachineGun/AudioStreamPlayer:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.00047946),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -417,49 +611,57 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight3D:visible")
+tracks/2/path = NodePath("body/MachineGun/Gun:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0.0026065, 0.029532, 0.040353),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0935564), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("body/MachineGun/Gun:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0026065, 0.0291666, 0.0407526),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -180, 0), Vector3(-26.162, -180, 0), Vector3(0, -180, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("body/MachineGun/Gun/Marker/Particles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("body/MachineGun/Gun/Marker/Particles/OmniLight3D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0.001166, 0.0256039),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("body/Weapon_state_machine/Machine_gun")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.00338802),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"on_shoot"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_j403w"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/MachineGun:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37yd7"]
 _data = {
 &"Gun_descend": SubResource("23"),
-&"RESET": SubResource("Animation_j403w"),
+&"Gun_rise": SubResource("22"),
+&"RESET": SubResource("18"),
 &"Reload": SubResource("24"),
 &"Rocket_reload": SubResource("27"),
 &"Rocket_rise": SubResource("26"),
@@ -580,7 +782,6 @@ brake_path = NodePath("Interface/Acceleration/Brake")
 left_path = NodePath("Interface/Steering/Left")
 right_path = NodePath("Interface/Steering/Right")
 damage_multiplier = 0.7
-health = 10000.0
 jump_ht = 1.0
 cam_pos_path = NodePath("Node3D/body/cam_pos")
 fl_path = NodePath("Node3D/Fl")
@@ -621,10 +822,20 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.000339031, 1.71628, 0.38334)
 
 [node name="Gun" parent="Node3D/body/MachineGun" index="0"]
-transform = Transform3D(-9.99999, 0, 8.74228e-07, 0, 10, 0, -8.74227e-07, 0, -10, 0, 0.161325, 4.76837e-07)
+transform = Transform3D(-10, 8.74228e-07, 3.82137e-14, 0, -4.37114e-07, 10, 8.74228e-07, 10, 4.37114e-07, 0, -0.970469, 4.76837e-07)
 
 [node name="OmniLight3D" parent="Node3D/body/MachineGun/Gun/Marker/Particles" index="0"]
 omni_range = 7.0
+
+[node name="Stand" type="MeshInstance3D" parent="Node3D/body/MachineGun"]
+transform = Transform3D(-10, 0, 1.50996e-06, 0, 10, 0, -1.50996e-06, 0, -10, 0, -1.3908, 0.0648999)
+mesh = SubResource("20")
+skeleton = NodePath("../Gun")
+
+[node name="Base" type="MeshInstance3D" parent="Node3D/body/MachineGun"]
+transform = Transform3D(-7.34807, 0, 1.10953e-06, 0, 10, 0, -1.10953e-06, 0, -7.34807, 0, -1.62987, 0.0648999)
+mesh = SubResource("21")
+skeleton = NodePath("../Gun")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node3D/body/MachineGun"]
 stream = ExtResource("8")
@@ -640,7 +851,7 @@ transform = Transform3D(-1, 1.77636e-15, 8.74228e-08, 1.73575e-08, 0.980091, 0.1
 [node name="Weapon_state_machine" type="Node" parent="Node3D/body" node_paths=PackedStringArray("inital_state")]
 script = ExtResource("8_srmxw")
 player_path = NodePath("../MachineGun")
-inital_state = NodePath("Machine_gun_descend")
+inital_state = NodePath("Idle")
 
 [node name="Machine_gun" type="Node" parent="Node3D/body/Weapon_state_machine"]
 script = ExtResource("9_hod1a")
@@ -651,7 +862,6 @@ marker_path = NodePath("../../MachineGun/Gun/Marker")
 ammo_text_path = NodePath("../../../../Interface/Ammo_text")
 rocket_launcher_path = NodePath("../../Rocket Launcher")
 audio_player_path = NodePath("../../MachineGun/AudioStreamPlayer")
-aim_speed = 5.0
 ammo = 30
 start_magazines = 10
 
@@ -659,24 +869,6 @@ start_magazines = 10
 
 [node name="Idle" type="Node" parent="Node3D/body/Weapon_state_machine"]
 script = ExtResource("10_hod1a")
-
-[node name="Machine_gun_rise" type="Node" parent="Node3D/body/Weapon_state_machine"]
-script = ExtResource("11_j403w")
-machine_gun_state_path = NodePath("../Machine_gun")
-
-[node name="Machine_gun_descend" type="Node" parent="Node3D/body/Weapon_state_machine"]
-script = ExtResource("12_8uexg")
-machine_gun_state_path = NodePath("../Machine_gun")
-
-[node name="Stand" type="MeshInstance3D" parent="Node3D/body"]
-transform = Transform3D(10, 0, -3.01992e-06, 0, 10, 0, 3.01992e-06, 0, 10, 0, 1.443, 0.318)
-mesh = SubResource("20")
-skeleton = NodePath("../MachineGun/Gun")
-
-[node name="Base" type="MeshInstance3D" parent="Node3D/body"]
-transform = Transform3D(7.34807, 0, -2.21906e-06, 0, 10, 0, 2.21906e-06, 0, 7.34807, 0.000339041, 1.09619, 0.31844)
-mesh = SubResource("21")
-skeleton = NodePath("../MachineGun/Gun")
 
 [node name="wheel_backRight" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.25, 0.76)
@@ -699,17 +891,17 @@ mesh = ExtResource("3")
 skeleton = NodePath("../..")
 
 [node name="Fl" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -0.575313, 0.295406, -0.71423)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.545909, 0.5, -1.27291)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
 [node name="Fr" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0.513386, 0.295406, -0.737102)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.631004, 0.5, -1.21737)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
 [node name="Bl" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -0.505775, 0.295406, 0.769034)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603789, 0.5, 1.44533)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
