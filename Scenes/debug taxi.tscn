@@ -15,7 +15,7 @@ albedo_color = Color(0.376471, 0.376471, 0.376471, 1)
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.376471, 0.376471, 0.376471, 1)
-emission_energy_multiplier = 0.2
+emission_energy_multiplier = 0.4
 
 [sub_resource type="StandardMaterial3D" id="2"]
 resource_name = "carTire"
@@ -24,7 +24,7 @@ albedo_color = Color(0.239216, 0.239216, 0.239216, 1)
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.239216, 0.239216, 0.239216, 1)
-emission_energy_multiplier = 0.2
+emission_energy_multiplier = 0.75
 
 [sub_resource type="StandardMaterial3D" id="13"]
 resource_name = "paintYellow"
@@ -33,6 +33,7 @@ albedo_color = Color(0.835294, 0.0980392, 0.286275, 1)
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.752941, 0.121569, 0.121569, 1)
+emission_energy_multiplier = 1.3
 
 [sub_resource type="StandardMaterial3D" id="14"]
 resource_name = "lightFront"
@@ -48,7 +49,7 @@ vertex_color_use_as_albedo = true
 metallic = 1.0
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.2
+emission_energy_multiplier = 0.5
 
 [sub_resource type="StandardMaterial3D" id="16"]
 resource_name = "window"
@@ -57,7 +58,7 @@ albedo_color = Color(0.937255, 0.937255, 0.937255, 1)
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.921569, 0.870588, 0.870588, 1)
-emission_energy_multiplier = 0.2
+emission_energy_multiplier = 0.75
 
 [sub_resource type="StandardMaterial3D" id="7"]
 resource_name = "lightBack"

@@ -63,10 +63,10 @@ var col: bool = false
 var rc_iscol
 
 func _ready():
-	var e = load("res://Scenes/Explosion.tscn")
-	var i = e.instantiate() as Node3D
-	get_tree().root.call_deferred("add_child",i)
-	i.global_position = ball.global_position
+	# var e = load("res://Scenes/Explosion.tscn")
+	# var i = e.instantiate() as Node3D
+	# get_tree().root.call_deferred("add_child",i)
+	# i.global_position = ball.global_position
 	part_change()
 
 func _physics_process(_delta: float) -> void:

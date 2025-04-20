@@ -46,4 +46,7 @@ unit_size = 100.0
 max_db = 6.0
 max_distance = 40.0
 
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50932e-07, 0, -1.72646)
+
 [connection signal="body_entered" from="." to="." method="On_collision"]

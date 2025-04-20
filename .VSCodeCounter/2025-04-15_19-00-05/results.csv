@@ -1,0 +1,32 @@
+"filename", "language", "GDScript", "comment", "blank", "total"
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Ammo.gd", "GDScript", 5, 0, 4, 9
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Audioplayer.gd", "GDScript", 7, 0, 5, 12
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Deathscreen.gd", "GDScript", 53, 0, 24, 77
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Enemy_taxi.gd", "GDScript", 131, 12, 29, 172
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Enemyplane.gd", "GDScript", 41, 0, 7, 48
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Follow.gd", "GDScript", 46, 1, 13, 60
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Gun.gd", "GDScript", 151, 0, 27, 178
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Healthbar3d.gd", "GDScript", 14, 1, 6, 21
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Healthbar3d_enemy.gd", "GDScript", 8, 0, 8, 16
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\InputRecorder.gd", "GDScript", 55, 11, 16, 82
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Loading_screen.gd", "GDScript", 34, 14, 11, 59
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\MainMenu.gd", "GDScript", 33, 1, 10, 44
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Menu.gd", "GDScript", 15, 0, 6, 21
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Movement.gd", "GDScript", 202, 17, 32, 251
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Particle_loader.gd", "GDScript", 22, 3, 5, 30
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Popuptext.gd", "GDScript", 24, 0, 5, 29
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Start.gd", "GDScript", 11, 9, 7, 27
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Weapon state machine\idle.gd", "GDScript", 15, 2, 1, 18
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Weapon state machine\machine_gun.gd", "GDScript", 92, 7, 26, 125
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Weapon state machine\machine_gun_descend.gd", "GDScript", 15, 0, 4, 19
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Weapon state machine\machine_gun_rise.gd", "GDScript", 15, 0, 6, 21
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Weapon state machine\state.gd", "GDScript", 11, 4, 9, 24
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Weapon state machine\weapon_state_machine.gd", "GDScript", 49, 8, 22, 79
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\debug_taxi.gd", "GDScript", 126, 16, 21, 163
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\explosion.gd", "GDScript", 24, 0, 9, 33
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\interface.gd", "GDScript", 72, 8, 8, 88
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\pause_menu.gd", "GDScript", 33, 2, 6, 41
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\resolution.gd", "GDScript", 13, 0, 2, 15
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\select_level.gd", "GDScript", 14, 2, 6, 22
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\settings.gd", "GDScript", 125, 6, 19, 150
+"Total", "-", 1456, 124, 354, 1934
