@@ -1,3 +1,4 @@
+res://Scenes/Worlds
 res://Scripts/GDscript
 res://Scripts/GDscript/Weapon state machine
 res://Scenes
@@ -7,4 +8,3 @@ D:/Godot projects/New folder/No-mouse
 res://Assets
 res://Interface
 D:/Microsoft VS Code
-res://Scenes/Worlds

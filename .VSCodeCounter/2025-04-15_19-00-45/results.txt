@@ -1,0 +1,41 @@
+Date : 2025-04-15 19:00:45
+Directory : d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts
+Total : 17 files,  1560 codes, 64 comments, 143 blanks, all 1767 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C#       |         17 |      1,560 |         64 |        143 |      1,767 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                              | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                 |         17 |      1,560 |         64 |        143 |      1,767 |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                          | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Ammo.cs              | C#       |         13 |          0 |          2 |         15 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\AudioPlayer.cs       | C#       |         26 |          0 |          3 |         29 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Death_screen.cs      | C#       |        119 |          3 |          5 |        127 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Enemy_Plane.cs       | C#       |         67 |          2 |         12 |         81 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Explosion.cs         | C#       |         47 |          0 |          3 |         50 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Follow.cs            | C#       |         71 |          5 |          6 |         82 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Gun.cs               | C#       |        269 |          4 |         23 |        296 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Healthbar3d.cs       | C#       |         36 |          0 |          3 |         39 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Healthbar3d_enemy.cs | C#       |         22 |          2 |          4 |         28 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Loading_screen.cs    | C#       |         56 |          1 |          6 |         63 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Main_menu.cs         | C#       |         63 |          0 |          5 |         68 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Menu.cs              | C#       |        120 |          0 |          8 |        128 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Movement.cs          | C#       |        322 |         38 |         24 |        384 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Popuptext.cs         | C#       |         43 |          0 |          5 |         48 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Select_level.cs      | C#       |         32 |          8 |          3 |         43 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Settings.cs          | C#       |        238 |          1 |         28 |        267 |
+| d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\resolution.cs        | C#       |         16 |          0 |          3 |         19 |
+| Total                                                                             |          |      1,560 |         64 |        143 |      1,767 |
++-----------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

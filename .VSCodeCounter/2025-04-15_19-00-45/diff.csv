@@ -1,0 +1,49 @@
+"filename", "language", "C#", "GDScript", "comment", "blank", "total"
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Ammo.gd", "GDScript", 0, -5, 0, -4, -9
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Audioplayer.gd", "GDScript", 0, -7, 0, -5, -12
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Deathscreen.gd", "GDScript", 0, -53, 0, -24, -77
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Enemy_taxi.gd", "GDScript", 0, -131, -12, -29, -172
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Enemyplane.gd", "GDScript", 0, -41, 0, -7, -48
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Follow.gd", "GDScript", 0, -46, -1, -13, -60
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Gun.gd", "GDScript", 0, -151, 0, -27, -178
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Healthbar3d.gd", "GDScript", 0, -14, -1, -6, -21
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Healthbar3d_enemy.gd", "GDScript", 0, -8, 0, -8, -16
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\InputRecorder.gd", "GDScript", 0, -55, -11, -16, -82
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Loading_screen.gd", "GDScript", 0, -34, -14, -11, -59
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\MainMenu.gd", "GDScript", 0, -33, -1, -10, -44
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Menu.gd", "GDScript", 0, -15, 0, -6, -21
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Movement.gd", "GDScript", 0, -202, -17, -32, -251
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Particle_loader.gd", "GDScript", 0, -22, -3, -5, -30
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Popuptext.gd", "GDScript", 0, -24, 0, -5, -29
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Start.gd", "GDScript", 0, -11, -9, -7, -27
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Weapon state machine\idle.gd", "GDScript", 0, -15, -2, -1, -18
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Weapon state machine\machine_gun.gd", "GDScript", 0, -92, -7, -26, -125
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Weapon state machine\machine_gun_descend.gd", "GDScript", 0, -15, 0, -4, -19
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Weapon state machine\machine_gun_rise.gd", "GDScript", 0, -15, 0, -6, -21
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Weapon state machine\state.gd", "GDScript", 0, -11, -4, -9, -24
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\Weapon state machine\weapon_state_machine.gd", "GDScript", 0, -49, -8, -22, -79
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\debug_taxi.gd", "GDScript", 0, -126, -16, -21, -163
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\explosion.gd", "GDScript", 0, -24, 0, -9, -33
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\interface.gd", "GDScript", 0, -72, -8, -8, -88
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\pause_menu.gd", "GDScript", 0, -33, -2, -6, -41
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\resolution.gd", "GDScript", 0, -13, 0, -2, -15
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\select_level.gd", "GDScript", 0, -14, -2, -6, -22
+"d:\Godot projects\New folder\No-mouse\Scripts\GDscript\settings.gd", "GDScript", 0, -125, -6, -19, -150
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Ammo.cs", "C#", 13, 0, 0, 2, 15
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\AudioPlayer.cs", "C#", 26, 0, 0, 3, 29
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Death_screen.cs", "C#", 119, 0, 3, 5, 127
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Enemy_Plane.cs", "C#", 67, 0, 2, 12, 81
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Explosion.cs", "C#", 47, 0, 0, 3, 50
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Follow.cs", "C#", 71, 0, 5, 6, 82
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Gun.cs", "C#", 269, 0, 4, 23, 296
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Healthbar3d.cs", "C#", 36, 0, 0, 3, 39
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Healthbar3d_enemy.cs", "C#", 22, 0, 2, 4, 28
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Loading_screen.cs", "C#", 56, 0, 1, 6, 63
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Main_menu.cs", "C#", 63, 0, 0, 5, 68
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Menu.cs", "C#", 120, 0, 0, 8, 128
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Movement.cs", "C#", 322, 0, 38, 24, 384
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Popuptext.cs", "C#", 43, 0, 0, 5, 48
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Select_level.cs", "C#", 32, 0, 8, 3, 43
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\Settings.cs", "C#", 238, 0, 1, 28, 267
+"d:\Godot projects\New folder\No-mouse\Scripts\Ported scripts\resolution.cs", "C#", 16, 0, 0, 3, 19
+"Total", "-", 1560, -1456, -60, -211, -167

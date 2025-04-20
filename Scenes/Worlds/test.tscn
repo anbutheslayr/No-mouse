@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6r5lrpplp4rw"]
+[gd_scene load_steps=17 format=3 uid="uid://c6r5lrpplp4rw"]
 
 [ext_resource type="Script" uid="uid://b8bhb6lkex73b" path="res://Scripts/GDscript/Follow.gd" id="1_al5em"]
 [ext_resource type="PackedScene" uid="uid://b34m1q65gnryr" path="res://Interface/Pause menu.tscn" id="1_cjtha"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype18.tscn" id="10_eah8x"]
 [ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype17.tscn" id="11_rj01l"]
 [ext_resource type="PackedScene" uid="uid://lx4qg1vxck7g" path="res://Assets/Models/Tracks/New/road.glb" id="12_0flx4"]
+[ext_resource type="ArrayOccluder3D" uid="uid://bgncelsuhfols" path="res://Scenes/Worlds/test.occ" id="12_cjtha"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t2des"]
 sky_top_color = Color(0.850239, 0.877928, 0.916642, 1)
@@ -202,3 +203,8 @@ directional_shadow_max_distance = 70.0
 
 [node name="Enemy_spawner" type="Node3D" parent="." groups=["Enemy_spawner"]]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -57.6567, 20.2893, -20.9285)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+occluder = ExtResource("12_cjtha")

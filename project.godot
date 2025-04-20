@@ -82,12 +82,10 @@ AudioPlayer="*res://Scenes/AudioPlayer.tscn"
 LoadingScreen="*res://Scripts/GDscript/Loading_screen.gd"
 ParticleLoader="*res://Scripts/GDscript/Particle_loader.gd"
 InputRecorder="*res://Scripts/GDscript/InputRecorder.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
-window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/size/fullscreen=true
@@ -99,12 +97,13 @@ project/assembly_name="Rogue drifters"
 
 [editor]
 
+movie_writer/mjpeg_quality=0.9
 movie_writer/movie_file="D:/Godot projects/New folder/No-mouse/recvideo.avi"
 convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dreadpon.spatial_gardener/plugin.cfg")
+enabled=PackedStringArray("res://addons/dreadpon.spatial_gardener/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global]
 
@@ -1259,6 +1258,8 @@ lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=2
 lights_and_shadows/positional_shadow/soft_shadow_filter_quality=0
 shading/overrides/force_vertex_shading=true
 shading/overrides/force_lambert_over_burley=true
+environment/glow/upscale_mode=0
+occlusion_culling/use_occlusion_culling=true
 lights_and_shadows/positional_shadow/atlas_size=2048
 quality/intended_usage/framebuffer_allocation=3
 quality/directional_shadow/size=2048
