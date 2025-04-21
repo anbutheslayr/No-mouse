@@ -1,46 +1,45 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://ddijupurtxc0"]
 
-[ext_resource path="res://Scripts/Rocket_particles.cs" type="Script" id=1]
+[sub_resource type="Gradient" id="Gradient_7vdcp"]
+offsets = PackedFloat32Array(0, 0.0897436, 0.602564, 1)
+colors = PackedColorArray(1, 0.0588235, 0.0588235, 1, 1, 0.941176, 0.0823529, 1, 0.827451, 0.14902, 0.811765, 1, 0, 0, 0, 1)
 
-[sub_resource type="Gradient" id=8]
-offsets = PackedFloat32Array( 0, 0.0666667, 0.192982, 1 )
-colors = PackedColorArray( 1, 0.0585938, 0.0585938, 1, 1, 0.942627, 0.0820313, 1, 0.827148, 0.148628, 0.812571, 1, 0, 0, 0, 1 )
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ifg4w"]
+gradient = SubResource("Gradient_7vdcp")
+use_hdr = true
 
-[sub_resource type="GradientTexture2D" id=9]
-gradient = SubResource( 8 )
+[sub_resource type="Curve" id="Curve_rwddi"]
+_data = [Vector2(0, 0.128405), 0.0, 0.0, 0, 0, Vector2(0.373684, 1), 0.530779, 0.530779, 0, 0, Vector2(0.710526, 0.642023), 0.0, 0.0, 0, 0, Vector2(1, 0.891051), 0.0, 0.0, 0, 0]
+point_count = 4
 
-[sub_resource type="Curve" id=10]
-_data = [ Vector2( 0, 0.119632 ), 0.0, 0.876811, 0, 0, Vector2( 0.284341, 0.745399 ), 2.84217, 2.84217, 0, 0, Vector2( 0.943681, 1 ), 2.61196, 2.61196, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="CurveTexture" id="CurveTexture_yg45k"]
+width = 2048
+curve = SubResource("Curve_rwddi")
 
-[sub_resource type="CurveTexture" id=11]
-curve = SubResource( 10 )
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ifg4w"]
+particle_flag_align_y = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, 1, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_yg45k")
+color = Color(0.984314, 0.768627, 0.117647, 1)
+color_ramp = SubResource("GradientTexture1D_ifg4w")
 
-[sub_resource type="ParticleProcessMaterial" id=12]
-flag_align_y = true
-direction = Vector3( 0, -1, 0 )
-spread = 90.0
-gravity = Vector3( 0, 0.5, 0 )
-initial_velocity = 3.0
-initial_velocity_random = 0.15
-scale = 3.0
-scale_curve = SubResource( 11 )
-color = Color( 0.984314, 0.768627, 0.117647, 1 )
-color_ramp = SubResource( 9 )
-
-[sub_resource type="StandardMaterial3D" id=13]
-flags_unshaded = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4toq1"]
+shading_mode = 0
 vertex_color_use_as_albedo = true
 
-[sub_resource type="PrismMesh" id=14]
-material = SubResource( 13 )
-size = Vector3( 0.2, 0.2, 0.2 )
+[sub_resource type="PrismMesh" id="PrismMesh_rwddi"]
+material = SubResource("StandardMaterial3D_4toq1")
+size = Vector3(0.2, 0.2, 0.2)
 
-[node name="Particles" type="Particles"]
-emitting = false
+[node name="GPUParticles3D" type="GPUParticles3D"]
 amount = 700
 lifetime = 3.5
-visibility_aabb = AABB( -46.072, -26.222, -48.861, 100, 100, 100 )
-local_coords = false
-process_material = SubResource( 12 )
-draw_pass_1 = SubResource( 14 )
-script = ExtResource( 1 )
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_ifg4w")
+draw_pass_1 = SubResource("PrismMesh_rwddi")
