@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://b7ea02s6whtbx"]
+[gd_scene load_steps=45 format=4 uid="uid://b7ea02s6whtbx"]
 
 [ext_resource type="PackedScene" uid="uid://p67cldlwo417" path="res://Scenes/Healthbar3d.tscn" id="1"]
 [ext_resource type="Script" uid="uid://ciwkt07qufcgw" path="res://Scripts/GDscript/Movement.gd" id="1_dn7ac"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://r2pr6ok085p7" path="res://Assets/Models/Guns/Rocket Launcher.tscn" id="12"]
 [ext_resource type="Script" uid="uid://trodcuk4gxyh" path="res://Scripts/GDscript/Weapon state machine/machine_gun_descend.gd" id="12_8uexg"]
 [ext_resource type="PackedScene" path="res://Scenes/Smoke_graveyard.tscn" id="13"]
+[ext_resource type="Script" uid="uid://isgsewp8tbe6" path="res://Scripts/GDscript/Weapon state machine/rocket_launcher.gd" id="13_8uexg"]
+[ext_resource type="Script" uid="uid://djqe8y7nn21cc" path="res://Scripts/GDscript/rocket_launcher_rise.gd" id="14_v0s3f"]
+[ext_resource type="Script" uid="uid://bgr1r1h3r0oji" path="res://Scripts/GDscript/rocket_launcher_descend.gd" id="15_dn7ac"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_738rb"]
 resource_name = "plastic"
@@ -431,7 +434,7 @@ tracks/1/path = NodePath("body/Rocket Launcher:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.013719, 1, 1.6),
+"times": PackedFloat32Array(0, 0.266667, 1, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, -90, 0), Vector3(0, -90, -90), Vector3(0, -90, -90), Vector3(0, -90, -53.531)]
@@ -443,10 +446,10 @@ tracks/2/path = NodePath("body/Stand:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.72, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -1.3908, 0.0648999), Vector3(0, 0.0207081, 0.0648999)]
+"values": [Vector3(0.000339195, 0.816532, 0.31844), Vector3(0.000339195, 0.816532, 0.31844), Vector3(0.000339195, 1.77247, 0.31844)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -455,10 +458,10 @@ tracks/3/path = NodePath("body/Base:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.72, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -1.30323, 0.0648999), Vector3(0, -0.631757, 0.0648999)]
+"values": [Vector3(0.000339195, 0.735547, 0.31844), Vector3(0.000339195, 0.735547, 0.31844), Vector3(0.000339195, 1.17492, 0.31844)]
 }
 
 [sub_resource type="Animation" id="19"]
@@ -711,6 +714,10 @@ script = ExtResource("8_srmxw")
 player_path = NodePath("../MachineGun")
 inital_state = NodePath("Machine_gun_descend")
 
+[node name="Idle" type="Node" parent="Node3D/body/Weapon_state_machine"]
+script = ExtResource("10_hod1a")
+machine_gun_state_path = NodePath("../Machine_gun")
+
 [node name="Machine_gun" type="Node" parent="Node3D/body/Weapon_state_machine"]
 script = ExtResource("9_hod1a")
 raycastpath = NodePath("../../MachineGun/Gun/RayCast3D")
@@ -723,12 +730,6 @@ audio_player_path = NodePath("../../MachineGun/AudioStreamPlayer")
 ammo = 30
 start_magazines = 10
 
-[node name="Rocket_launcher" type="Node" parent="Node3D/body/Weapon_state_machine"]
-
-[node name="Idle" type="Node" parent="Node3D/body/Weapon_state_machine"]
-script = ExtResource("10_hod1a")
-machine_gun_state_path = NodePath("../Machine_gun")
-
 [node name="Machine_gun_rise" type="Node" parent="Node3D/body/Weapon_state_machine"]
 script = ExtResource("11_j403w")
 machine_gun_state_path = NodePath("../Machine_gun")
@@ -736,6 +737,18 @@ machine_gun_state_path = NodePath("../Machine_gun")
 [node name="Machine_gun_descend" type="Node" parent="Node3D/body/Weapon_state_machine"]
 script = ExtResource("12_8uexg")
 machine_gun_state_path = NodePath("../Machine_gun")
+
+[node name="Rocket_launcher" type="Node" parent="Node3D/body/Weapon_state_machine"]
+script = ExtResource("13_8uexg")
+machine_gun_state_path = NodePath("../Machine_gun")
+rocket_launcher_mesh_path = NodePath("../../Rocket Launcher/Gun")
+
+[node name="Rocket_launcher_rise" type="Node" parent="Node3D/body/Weapon_state_machine"]
+script = ExtResource("14_v0s3f")
+machine_gun_state_path = NodePath("../Machine_gun")
+
+[node name="Rocket_launcher_descend" type="Node" parent="Node3D/body/Weapon_state_machine"]
+script = ExtResource("15_dn7ac")
 
 [node name="wheel_backRight" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.25, 0.76)
@@ -758,17 +771,17 @@ mesh = ExtResource("3")
 skeleton = NodePath("../..")
 
 [node name="Fl" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.545909, 0.5, -1.27291)
+transform = Transform3D(1, 0, -1.77636e-15, 0, 1, 0, 1.77636e-15, 0, 1, -0.545909, 0.5, -0.773039)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
 [node name="Fr" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.631004, 0.5, -1.21737)
+transform = Transform3D(1, 0, -1.77636e-15, 0, 1, 0, 1.77636e-15, 0, 1, 0.523188, 0.5, -0.746903)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
 [node name="Bl" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603789, 0.5, 1.44533)
+transform = Transform3D(1, 0, -1.77636e-15, 0, 1, 0, 1.77636e-15, 0, 1, -0.505775, 0.5, 0.808239)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 

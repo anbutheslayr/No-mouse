@@ -22,6 +22,8 @@ func launch_rocket():
 func _physics_process(delta: float) -> void:
 	if launch:
 		global_translate(global_transform.basis.z * delta * speed)
+		if global_position.distance_to(Vector3.ZERO) > 1000:
+			queue_free()
 		target = get_closest_enemy()
 		if target != null:
 			direction = (target.global_position - global_position).normalized()
@@ -36,6 +38,7 @@ func on_collision(body: Node3D):
 		get_tree().current_scene.add_child(explosion)
 		part.reparent(get_tree().current_scene)
 		part.emitting = false
+		get_tree().create_timer(7).connect("timeout",Callable(part,"queue_free"))
 		queue_free()
 
 		if body is RigidBody3D and body.is_in_group("Enemy"):

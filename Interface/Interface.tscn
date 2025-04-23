@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cebdtfevwvob"]
+[gd_scene load_steps=14 format=3 uid="uid://cebdtfevwvob"]
 
 [ext_resource type="Texture2D" uid="uid://bysr1tpbd3eob" path="res://Interface/Textures/Right pressed.png" id="1"]
 [ext_resource type="Script" uid="uid://ciiq6ddfgkbfu" path="res://Scripts/GDscript/interface.gd" id="1_rgio2"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://d1ppy4ibabm88" path="res://Interface/Textures/esc.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://btfnhm4dsqur0" path="res://Interface/Textures/esc pressed.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://im27g3igcxgn" path="res://Interface/Textures/Brake pressed.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://dd8yuun8686c1" path="res://Assets/Materials/Switch.png" id="11_7a7m0"]
+[ext_resource type="Texture2D" uid="uid://dnmx0rluldc8b" path="res://Assets/Materials/Switch Selected.png" id="12_eba0h"]
+[ext_resource type="PackedScene" uid="uid://cqwic6ygme3qf" path="res://Interface/weapon_menu.tscn" id="13_eba0h"]
 
 [node name="Interface" type="Control" groups=["Interface"]]
 layout_mode = 3
@@ -109,5 +112,17 @@ grow_horizontal = 0
 theme = ExtResource("3")
 text = "Drift points : "
 metadata/_edit_use_anchors_ = true
+
+[node name="Weapon_select" type="TouchScreenButton" parent="."]
+position = Vector2(55, 568)
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("11_7a7m0")
+texture_pressed = ExtResource("12_eba0h")
+
+[node name="Weapon_menu" parent="." instance=ExtResource("13_eba0h")]
+visible = false
+layout_mode = 1
+bg_color = Color(0.138034, 0.138034, 0.138034, 1)
+options = []
 
 [connection signal="pressed" from="Esc" to="." method="on_esc_pressed"]
