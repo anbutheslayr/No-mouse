@@ -1,4 +1,5 @@
-res://Scenes/Rocket particles.tscn
+res://Scripts/GDscript/weapon_menu.gd
+res://Interface/weapon_menu.tscn
 res://Scenes/Theme.tres
 res://Assets/Materials/particle mat/Debris.tres
 res://Assets/Materials/particle mat/fire.tres
@@ -8,8 +9,11 @@ res://Assets/Materials/particle mat/Rocket particles.tres
 res://addons/dreadpon.spatial_gardener/utility/globals.gd
 res://addons/phantom_camera/themes/theme.tres
 res://taxi.tres
+res://Assets/Materials/Gray6.material
+res://Assets/Diffuse_Color.material
+res://Assets/Materials/pavement.material
+res://Assets/Materials/Redwood.material
 res://Assets/gardener/toolshed.tres
 res://Assets/gardener/greenhouse.tres
 res://Scenes/Worlds/navmesh.tres
-res://Assets/Models/Guns/Rocket Ammo.tscn
-res://Scripts/GDscript/rocket_ammo.gd
+res://Scripts/GDscript/weapon_option.gd

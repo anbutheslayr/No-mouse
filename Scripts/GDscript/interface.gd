@@ -13,6 +13,7 @@ class_name interface
 @onready var timer : Timer = Timer.new()
 @onready var enemy_spawntext : Label = $Enemy_spawntext 
 @onready var pausemenu : Control = get_tree().get_nodes_in_group("Pause_menu")[0]
+@onready var gun_switch : TouchScreenButton  = $Weapon_menu
 # @onready var plane : RigidBody3D = get_tree().get_nodes_in_group("Plane")[0]
 @onready var drift_points : RichTextLabel = $Drift_points
 @onready var change_world_timer : Timer = Timer.new()

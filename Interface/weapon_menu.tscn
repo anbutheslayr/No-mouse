@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://cqwic6ygme3qf"]
+
+[ext_resource type="Script" uid="uid://d1noy6c0rarqk" path="res://Scripts/GDscript/weapon_menu.gd" id="1_wum2j"]
+[ext_resource type="Script" uid="uid://cgq6iufvfktd4" path="res://Scripts/GDscript/weapon_option.gd" id="2_t7y1a"]
+[ext_resource type="Texture2D" uid="uid://dd8yuun8686c1" path="res://Assets/Materials/Switch.png" id="3_m3ayu"]
+[ext_resource type="Texture2D" uid="uid://ciwemfqdueww2" path="res://Assets/Materials/Locked.png" id="4_4vib8"]
+[ext_resource type="Texture2D" uid="uid://bavep2dgri47s" path="res://Assets/Materials/Skeleton.png" id="5_o38nm"]
+
+[sub_resource type="Texture2D" id="Texture2D_m3ayu"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("2_t7y1a")
+gun_name = "Rocket launcher"
+gun_icon = ExtResource("3_m3ayu")
+metadata/_custom_type_script = "uid://cgq6iufvfktd4"
+
+[sub_resource type="Texture2D" id="Texture2D_o38nm"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("2_t7y1a")
+gun_name = "machine gun"
+gun_icon = ExtResource("4_4vib8")
+metadata/_custom_type_script = "uid://cgq6iufvfktd4"
+
+[sub_resource type="Texture2D" id="Texture2D_1wy7l"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("2_t7y1a")
+gun_name = ""
+gun_icon = ExtResource("5_o38nm")
+metadata/_custom_type_script = "uid://cgq6iufvfktd4"
+
+[node name="Weapon_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wum2j")
+sprite_size = Vector2(80, 80)
+highlight_color = Color(0.321569, 0.321569, 0.333333, 0.752941)
+bg_color = Color(0.207843, 0.172549, 0.164706, 0.580392)
+line_color = Color(0.509804, 0.52549, 0.505882, 0.607843)
+outer_radius = 241
+inner_radius = 54
+options = Array[ExtResource("2_t7y1a")]([SubResource("Texture2D_m3ayu"), SubResource("Texture2D_o38nm"), SubResource("Texture2D_1wy7l")])
