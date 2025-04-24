@@ -122,7 +122,10 @@ texture_pressed = ExtResource("12_eba0h")
 [node name="Weapon_menu" parent="." instance=ExtResource("13_eba0h")]
 visible = false
 layout_mode = 1
-bg_color = Color(0.138034, 0.138034, 0.138034, 1)
-options = []
+
+[node name="Weapon_menu" parent="Weapon_menu" index="0"]
+weapon_state_machine_path = NodePath("")
 
 [connection signal="pressed" from="Esc" to="." method="on_esc_pressed"]
+
+[editable path="Weapon_menu"]

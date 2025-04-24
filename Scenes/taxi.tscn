@@ -18,8 +18,8 @@
 [ext_resource type="Script" uid="uid://trodcuk4gxyh" path="res://Scripts/GDscript/Weapon state machine/machine_gun_descend.gd" id="12_8uexg"]
 [ext_resource type="PackedScene" path="res://Scenes/Smoke_graveyard.tscn" id="13"]
 [ext_resource type="Script" uid="uid://isgsewp8tbe6" path="res://Scripts/GDscript/Weapon state machine/rocket_launcher.gd" id="13_8uexg"]
-[ext_resource type="Script" uid="uid://djqe8y7nn21cc" path="res://Scripts/GDscript/rocket_launcher_rise.gd" id="14_v0s3f"]
-[ext_resource type="Script" uid="uid://bgr1r1h3r0oji" path="res://Scripts/GDscript/rocket_launcher_descend.gd" id="15_dn7ac"]
+[ext_resource type="Script" uid="uid://djqe8y7nn21cc" path="res://Scripts/GDscript/Weapon state machine/rocket_launcher_rise.gd" id="14_v0s3f"]
+[ext_resource type="Script" uid="uid://bgr1r1h3r0oji" path="res://Scripts/GDscript/Weapon state machine/rocket_launcher_descend.gd" id="15_dn7ac"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_738rb"]
 resource_name = "plastic"
@@ -749,6 +749,7 @@ machine_gun_state_path = NodePath("../Machine_gun")
 
 [node name="Rocket_launcher_descend" type="Node" parent="Node3D/body/Weapon_state_machine"]
 script = ExtResource("15_dn7ac")
+machine_gun_state_path = NodePath("../Machine_gun")
 
 [node name="wheel_backRight" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.25, 0.76)
@@ -771,17 +772,17 @@ mesh = ExtResource("3")
 skeleton = NodePath("../..")
 
 [node name="Fl" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, -1.77636e-15, 0, 1, 0, 1.77636e-15, 0, 1, -0.545909, 0.5, -0.773039)
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -0.545909, 0.232894, -0.773039)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
 [node name="Fr" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, -1.77636e-15, 0, 1, 0, 1.77636e-15, 0, 1, 0.523188, 0.5, -0.746903)
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0.523188, 0.232894, -0.746903)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
 [node name="Bl" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, -1.77636e-15, 0, 1, 0, 1.77636e-15, 0, 1, -0.505775, 0.5, 0.808239)
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -0.505775, 0.232894, 0.808239)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
@@ -812,6 +813,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13508, 0.805907)
 
 [node name="Interface" parent="." instance=ExtResource("10")]
 
+[node name="Weapon_menu" parent="Interface/Weapon_menu" index="0"]
+selected_option = 1
+weapon_state_machine_path = NodePath("../../../Node3D/body/Weapon_state_machine")
+
 [node name="Ball" type="RigidBody3D" parent="." groups=["Ball"]]
 physics_material_override = SubResource("12")
 gravity_scale = 10.0
@@ -835,6 +840,7 @@ libraries = {
 [connection signal="body_entered" from="Node3D/DetectionArea" to="Node3D/body/Weapon_state_machine" method="on_detection"]
 [connection signal="body_exited" from="Node3D/DetectionArea" to="." method="on_body_exit"]
 [connection signal="body_exited" from="Node3D/DetectionArea" to="Node3D/body/Weapon_state_machine" method="on_exit"]
+[connection signal="pressed" from="Interface/Weapon_select" to="Interface/Weapon_menu" method="show"]
 [connection signal="body_entered" from="Ball" to="." method="on_collision"]
 
 [editable path="Node3D/Backright2"]
@@ -844,3 +850,4 @@ libraries = {
 [editable path="Node3D/body/MachineGun"]
 [editable path="Node3D/body/Rocket Launcher"]
 [editable path="Interface"]
+[editable path="Interface/Weapon_menu"]
