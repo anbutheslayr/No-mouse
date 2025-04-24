@@ -17,8 +17,11 @@ func _ready() -> void:
 	rock_timer.one_shot = true
 	rock_timer.connect("timeout",Callable(self,"on_timeout"))
 
+
 	
 func state_enter():
+	print("Rocket Launcher State")
+	rock_timer.start(time_between_shots)
 	pass
 
 func state_exit():
@@ -27,6 +30,7 @@ func state_exit():
 func state_process(delta):
 	machine_gun_state.ammo_text.text = "            Ammo : " + str(cur_ammo) + "/" + str(tot_ammo) + "(" + str(cur_magazines) + ") \n       " + str(DisplayServer.screen_get_size()) + "\n       FPS : " + str(Engine.get_frames_per_second()) + "\n       Enemies Alive : " + str(get_tree().get_nodes_in_group("Enemy").size())
 	if cur_ammo > 0 and rocket_launcher_mesh.get_child_count() > 0 and launch:
+		print("launching")
 		rocket_launcher_mesh.get_child(rocket_launcher_mesh.get_child_count() - 1).launch_rocket()
 		rocket_launcher_mesh.get_child(rocket_launcher_mesh.get_child_count() - 1).reparent(get_tree().current_scene)
 		launch = false
@@ -37,7 +41,8 @@ func state_process(delta):
 		cur_magazines -= 1
 	elif cur_ammo <= 0 and cur_magazines <= 0:
 		pass
-
+	if rocket_launcher_mesh.get_child_count() == 0:
+		state_changed.emit(self, "Rocket_launcher_descend")
 
 
 func state_update(delta):   

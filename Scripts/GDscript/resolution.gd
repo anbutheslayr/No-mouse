@@ -12,3 +12,5 @@ class_name Resolution
 @export var max_worlds : int = 2
 @export var cur_world : int = 1
 @export var difficulty : int = 0
+@export var weapons : Dictionary[String, int]
+@export var cur_gun : String = "Machine_gun"

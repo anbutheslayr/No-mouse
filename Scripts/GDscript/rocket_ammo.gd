@@ -6,7 +6,7 @@ var direction : Vector3
 @onready var marker : Node3D = $target
 @onready var thrust : AudioStreamPlayer3D = $Thruster
 @export var speed : float = 100
-@export var rot_speed : float = 1
+@export var rot_speed : float = 5
 var target 
 var expl = preload("res://Scenes/Explosion.tscn")
 
@@ -18,6 +18,7 @@ func launch_rocket():
 	launch = true
 	thrust.playing = true
 	part.emitting = true
+	print("launched")
 
 func _physics_process(delta: float) -> void:
 	if launch:
@@ -27,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		target = get_closest_enemy()
 		if target != null:
 			direction = (target.global_position - global_position).normalized()
-			marker.look_at(marker.global_position.lerp(global_position-direction, rot_speed*delta ), Vector3.UP)
+			look_at(marker.global_position.lerp(global_position-direction, rot_speed*delta ), Vector3.UP)
 
 
 
@@ -56,7 +57,7 @@ func on_collision(body: Node3D):
 func get_closest_enemy() -> Node3D:
 	var closest : Node3D = null
 	var distance = 9999
-	for i in get_tree().get_nodes_in_group("enemy") + get_tree().get_nodes_in_group("runnable"):
+	for i in (get_tree().get_nodes_in_group("Enemy") + get_tree().get_nodes_in_group("runnable")):
 		var dist = i.global_position.distance_to(global_position)
 		if dist < distance or closest == null:
 			closest = i

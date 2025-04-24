@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://3nbbnobeqhr3"]
 
-[ext_resource type="Material" path="res://Assets/Diffuse_Color.material" id="1"]
+[ext_resource type="Material" uid="uid://bffwbvms17ee6" path="res://Assets/Diffuse_Color.material" id="1"]
 [ext_resource type="Script" uid="uid://hdi4dm2jxw7l" path="res://Scripts/GDscript/rocket_ammo.gd" id="1_0xxho"]
 [ext_resource type="PackedScene" uid="uid://ddijupurtxc0" path="res://Scenes/Rocket particles.tscn" id="2_324gr"]
 [ext_resource type="AudioStream" uid="uid://bghvf5gmcvvjk" path="res://Assets/Audio/Thrust.wav" id="4"]

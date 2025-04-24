@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6r5lrpplp4rw"]
+[gd_scene load_steps=18 format=3 uid="uid://c6r5lrpplp4rw"]
 
 [ext_resource type="Script" uid="uid://b8bhb6lkex73b" path="res://Scripts/GDscript/Follow.gd" id="1_al5em"]
 [ext_resource type="PackedScene" uid="uid://b34m1q65gnryr" path="res://Interface/Pause menu.tscn" id="1_cjtha"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype17.tscn" id="11_rj01l"]
 [ext_resource type="PackedScene" uid="uid://lx4qg1vxck7g" path="res://Assets/Models/Tracks/New/road.glb" id="12_0flx4"]
 [ext_resource type="ArrayOccluder3D" uid="uid://bgncelsuhfols" path="res://Scenes/Worlds/test.occ" id="12_cjtha"]
+[ext_resource type="PackedScene" uid="uid://dy7p05afv8ia6" path="res://Scenes/debug taxi.tscn" id="13_nukgt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t2des"]
 sky_top_color = Color(0.850239, 0.877928, 0.916642, 1)
@@ -208,3 +209,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -57.65
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 occluder = ExtResource("12_cjtha")
+
+[node name="taxi2" parent="." instance=ExtResource("13_nukgt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0021, 0.073969, 10.9203)
+sphere_offset = Vector3(0, -1, 0)

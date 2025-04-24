@@ -76,3 +76,7 @@ func get_closest_enemy() -> Node3D:
 			closest = i
 			distance = dist
 	return closest
+
+func change_gun(gun_name : String):
+	if !gun_name == cur_state.name:
+		on_state_changed(cur_state, gun_name + "_rise") # Change the state to the new gun name
