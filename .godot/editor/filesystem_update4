@@ -1,5 +1,4 @@
-res://Scripts/GDscript/Weapon state machine/rocket_launcher.gd
-res://Assets/Models/Guns/Rocket Ammo.tscn
+res://Assets/Models/Guns/minigun.tscn
 res://Scenes/Theme.tres
 res://Assets/Materials/particle mat/Debris.tres
 res://Assets/Materials/particle mat/fire.tres
@@ -8,19 +7,25 @@ res://Assets/Materials/particle mat/Smoke.tres
 res://Assets/Materials/particle mat/Rocket particles.tres
 res://addons/dreadpon.spatial_gardener/utility/globals.gd
 res://addons/phantom_camera/themes/theme.tres
-res://Assets/Diffuse_Color.material
+res://Assets/Materials/Ground.material
 res://taxi.tres
 res://Assets/Materials/Gray6.material
+res://Assets/blend/material.tres
+res://Assets/Diffuse_Color.material
 res://Interface/Res.tres
 res://Assets/Materials/pavement.material
 res://Assets/Materials/Redwood.material
 res://Assets/gardener/toolshed.tres
 res://Assets/gardener/greenhouse.tres
 res://Scenes/Worlds/navmesh.tres
+res://Assets/Models/Guns/minigun_test.gd
+res://Scenes/taxi.tscn
+res://Scripts/GDscript/Weapon state machine/weapon_state_machine.gd
 res://Scenes/Worlds/Cutscene.tscn
 res://Scenes/Worlds/test.tscn
-res://Scenes/taxi.tscn
 res://Assets/Models/Guns/Rocket Launcher.tscn
 res://Interface/Interface.tscn
 res://Interface/weapon_menu.tscn
-res://Scripts/GDscript/rocket_ammo.gd
+res://Scripts/GDscript/Weapon state machine/minigun_rise.gd
+res://Scripts/GDscript/minigun.gd
+res://Scripts/GDscript/Weapon state machine/minigun_descend.gd
