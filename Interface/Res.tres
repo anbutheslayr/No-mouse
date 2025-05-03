@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_6jo16")
-res = Vector2i(1920, 1080)
+res = Vector2i(1280, 720)
 res_int = 0
 shadows = true
 shadow_quality = 0
@@ -17,6 +17,7 @@ cur_world = 1
 difficulty = 0
 weapons = Dictionary[String, int]({
 "Machine_gun": 1,
+"Minigun": 1,
 "Rocket_launcher": 1
 })
 cur_gun = "Machine_gun"

@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dp7yksosj8t6m"]
+
+[ext_resource type="Texture2D" uid="uid://c2bboc5w4mxsa" path="res://Assets/blend/Albedo.png" id="1_o8hln"]
+[ext_resource type="Texture2D" uid="uid://s3hdumqnqwl8" path="res://Assets/blend/Emission.png" id="2_bv2ty"]
+[ext_resource type="Texture2D" uid="uid://dnc66io271a8i" path="res://Assets/blend/Metallic.png" id="3_j3bm0"]
+[ext_resource type="Texture2D" uid="uid://bf8fxh2sbn6ml" path="res://Assets/blend/Roughness.png" id="4_jipso"]
+
+[resource]
+resource_name = "minigun"
+cull_mode = 2
+albedo_texture = ExtResource("1_o8hln")
+metallic = 1.0
+metallic_texture = ExtResource("3_j3bm0")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("4_jipso")
+roughness_texture_channel = 1
+emission_enabled = true
+emission_texture = ExtResource("2_bv2ty")
+texture_filter = 2
