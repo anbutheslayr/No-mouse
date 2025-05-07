@@ -5,6 +5,7 @@ class_name RocketLauncherRiseState
 
 
 func state_enter():
+	(get_parent() as WeaponStateMachine).locked = true
 	print("Rocket Launcher Rise State")
 	machine_gun_state.anim.play("Rocket_rise")
 	await machine_gun_state.anim.animation_finished

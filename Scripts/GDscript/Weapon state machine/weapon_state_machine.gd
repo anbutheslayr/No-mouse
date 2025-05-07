@@ -3,12 +3,14 @@ class_name WeaponStateMachine
 # This is a state machine for the weapon system
 # It handles the different states of the weapon and transitions between them
 # It also handles the input and animation for the weapon
-
+@onready var reso : Resolution = ResourceLoader.load("user://Int/Res.tres")
 var enemies : Array 
 var closest_enemy
 @export var player_path : NodePath
 @onready var player : Node3D = get_node(player_path)
-
+@export var weapon_switch_path : NodePath
+@onready var weapon_switch : TouchScreenButton = get_node(weapon_switch_path)
+var locked : bool = false
 
 @export var inital_state : Gun_state # The initial state of the weapon when the game starts
 var cur_state : Gun_state # The current active state of the weapon
@@ -44,6 +46,10 @@ func _physics_process(delta: float) -> void:
 	# Called every physics frame, updates the current state
 	if cur_state:
 		cur_state.state_update(delta)
+	if locked:
+		weapon_switch.visible = false
+	else:
+		weapon_switch.visible = true
 
 func on_state_changed(state, new_state_name):
 	# Handles the transition between states when a state change is triggered

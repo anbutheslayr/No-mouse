@@ -104,12 +104,12 @@ func _process(_delta):
 
 func resize(res: Vector2) -> void:
 	# Resize the menu based on the provided resolution
-	sprite_size = Vector2(res.y / 1080 * sprite_size.x, res.y / 1080 * sprite_size.y)  # Adjust sprite size based on resolution
-	centre_sprite_size = Vector2(res.y / 1080 * centre_sprite_size.x, res.y / 1080 * centre_sprite_size.y)  # Adjust center sprite size based on resolution
-	outer_radius = res.y / 1080.0 * outer_radius  # Adjust outer radius based on resolution
-	inner_radius = res.y / 1080.0 * inner_radius  # Adjust inner radius based on resolution
-	points_per_arc = res.y / 1080.0 * points_per_arc  # Adjust points per arc based on resolution
-	line_width = res.y / 1080.0 * line_width  # Adjust line width based on resolution
+	sprite_size = Vector2(res.y / 1080 * 80, res.y / 1080 * 80)  # Adjust sprite size based on resolution
+	centre_sprite_size = Vector2(res.y / 1080 * 150, res.y / 1080 * 150)  # Adjust center sprite size based on resolution
+	outer_radius = res.y / 1080.0 * 256  # Adjust outer radius based on resolution
+	inner_radius = res.y / 1080.0 * 144  # Adjust inner radius based on resolution
+	points_per_arc = res.y / 1080.0 * 32  # Adjust points per arc based on resolution
+	line_width = res.y / 1080.0 * 4  # Adjust line width based on resolution
 
 func on_esc():
 	reso.cur_gun = options[selected_option].gun_name  # Set the current gun in the resolution resource

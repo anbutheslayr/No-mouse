@@ -45,18 +45,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [true, false]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ColorRect/TextureRect2:pivot_offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 400)]
-}
 
 [sub_resource type="Animation" id="2"]
 resource_name = "load"
@@ -69,10 +57,10 @@ tracks/0/path = NodePath("ColorRect/TextureRect2:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.494139),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.0494057, 0.1, 0.494139),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -22.5, 0.0]
+"values": [0.0, -0.532325, 0.0, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -138,24 +126,30 @@ text = "Loading"
 horizontal_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="ColorRect"]
-layout_mode = 0
-anchor_left = 0.0526042
-anchor_top = 0.811111
-anchor_right = 0.257807
-anchor_bottom = 0.912962
-pivot_offset = Vector2(1, 400)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09875
+anchor_top = 0.810417
+anchor_right = 0.2575
+anchor_bottom = 0.90625
+pivot_offset = Vector2(0, 100)
 texture = ExtResource("3")
 expand_mode = 1
 stretch_mode = 6
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/TextureRect2"]
-layout_mode = 0
-anchor_left = 0.664991
-anchor_right = 0.865444
-anchor_bottom = 0.823365
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.888856
+anchor_top = -0.00681657
+anchor_right = 1.08931
+anchor_bottom = 0.816548
+offset_right = 1.52588e-05
 texture = ExtResource("5")
 expand_mode = 1
 stretch_mode = 6
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

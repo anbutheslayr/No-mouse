@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dixec2e6127cs"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4cw76"]
+radius = 0.01
+height = 1.0
+radial_segments = 14
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cw76"]
+shading_mode = 0
+albedo_color = Color(0.929412, 0.780392, 0, 0.4)
+
+[node name="Tracer" type="Node3D"]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, -8.37764e-15, 0, 0.786035)
+mesh = SubResource("CapsuleMesh_4cw76")
+surface_material_override/0 = SubResource("StandardMaterial3D_4cw76")

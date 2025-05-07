@@ -11,6 +11,8 @@ func state_enter():
 
 func state_exit():
 	print("Exit Machine Gun Descend State")
+	(get_parent() as WeaponStateMachine).locked = false
+
 
 func state_update(delta):
 	pass

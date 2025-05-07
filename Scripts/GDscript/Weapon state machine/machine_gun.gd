@@ -96,7 +96,6 @@ func state_update(delta):
 		cur_magazines -= 1
 	else:
 		state_changed.emit(self, "Machine_gun_descend")
-	pass
 	
 func on_shoot():
 	
