@@ -4,6 +4,7 @@ class_name MinigunRiseState
 @onready var machine_gun_state : MachineGunState = get_node(machine_gun_state_path)
 
 func state_enter():
+	(get_parent() as WeaponStateMachine).locked = true
 	print("Minigun Rise State")
 	machine_gun_state.anim.play("Minigun_rise")
 	await machine_gun_state.anim.animation_finished

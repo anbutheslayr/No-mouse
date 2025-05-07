@@ -124,10 +124,10 @@ visible = false
 layout_mode = 1
 
 [node name="Weapon_menu" parent="Weapon_menu" index="0"]
-sprite_size = Vector2(60, 60)
-centre_sprite_size = Vector2(85.3333, 85.3333)
-outer_radius = 170
-inner_radius = 82
+sprite_size = Vector2(33.3333, 33.3333)
+centre_sprite_size = Vector2(60, 60)
+outer_radius = 97
+inner_radius = 46
 points_per_arc = 21
 line_width = 2
 

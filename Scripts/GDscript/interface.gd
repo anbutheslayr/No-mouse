@@ -24,7 +24,7 @@ class_name interface
 @onready var won = false
 @onready var spawntime =26
 @onready var kill = 1
-
+@onready var weapon_switch : TouchScreenButton = $Weapon_select
 func _ready():
 	timer.one_shot = true
 	timer.connect("timeout", Callable.create(self,"change_world"))
@@ -68,6 +68,8 @@ func repositionandresize(res:Vector2i):
 	accelerate_button.scale = Vector2(res.y/1080.0*1.576, res.y/1080.0*1.358)
 	brake.position = Vector2(res.y/1080.0*-708.0, res.y/1080.0*-223.0)
 	brake.scale = accelerate_button.scale
+	weapon_switch.position = Vector2(res.y/1080.0*55.0, res.y/1080.0*568.0)
+	weapon_switch.scale = Vector2(res.y/1080.0*0.35, res.y/1080.0*0.35)
 	print("Rezised")
 	# esc.scale = Vector2(res.y/1080.0, res.y/1080.0)
 	# enemy_spawntext.offset_top = res.y/1080.0*100

@@ -9268,28 +9268,16 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="taxi" parent="." instance=ExtResource("11_pbqt0")]
 transform = Transform3D(-0.479764, 0, 0.877397, 0, 1, 0, -0.877397, 0, -0.479764, 5.39328, 0.978636, -16.0503)
-acceleration = 100.0
-
-[node name="MachineGun" parent="taxi/Node3D/body" index="0"]
-transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0.000339031, 1.71628, 0.38334)
+acceleration = 120.0
 
 [node name="Gun" parent="taxi/Node3D/body/MachineGun" index="0"]
 transform = Transform3D(-10, 0, 8.74228e-07, 0, 10, 0, -8.74228e-07, 0, -10, 0, 0.146015, 4.76837e-07)
-
-[node name="Rocket Launcher" parent="taxi/Node3D/body" index="3"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0892019, 0)
 
 [node name="Minigun" parent="taxi/Node3D/body" index="4"]
 transform = Transform3D(-4.37113e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -4.37113e-08, 0.294274, 0.762, 0.105413)
 
 [node name="Minigun2" parent="taxi/Node3D/body" index="5"]
-transform = Transform3D(-4.37113e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -4.37113e-08, -0.261, 0.762, 0.105)
-
-[node name="m11" parent="taxi/Node3D/body" index="6"]
-transform = Transform3D(-0.680151, 2.14302, 4.36101e-07, 0, -9.38916e-08, 9.99999, 9.97682, 0.146096, 2.97304e-08, -0.019, 0.78, -0.028)
-
-[node name="m12" parent="taxi/Node3D/body" index="7"]
-transform = Transform3D(-4.37113e-07, 4.44599, 4.37113e-07, 0, -1.9434e-07, 9.99999, 9.99997, 1.9434e-07, 1.91068e-14, -0.061, 0.78, -0.028)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.261, 0.762, 0.105)
 
 [node name="m21" parent="taxi/Node3D/body" index="8"]
 transform = Transform3D(-0.6805, -2.14301, -4.361e-07, 0, -9.38916e-08, 9.99999, -9.9768, 0.146171, 2.97456e-08, 0.019162, 0.78, -0.0281094)
@@ -9301,6 +9289,11 @@ transform = Transform3D(-4.37113e-07, 4.44599, 4.37113e-07, 0, -1.9434e-07, 9.99
 visible = false
 
 [node name="Weapon_menu" parent="taxi/Interface/Weapon_menu" index="0"]
+sprite_size = Vector2(7.90124, 7.90124)
+centre_sprite_size = Vector2(11.2373, 11.2373)
+outer_radius = 22
+inner_radius = 10
+points_per_arc = 2
 selected_option = 0
 
 [node name="Pause menu" parent="." instance=ExtResource("16_m7pd4")]
@@ -9312,6 +9305,8 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -57.65
 [editable path="taxi"]
 [editable path="taxi/Node3D/body/MachineGun"]
 [editable path="taxi/Node3D/body/Rocket Launcher"]
+[editable path="taxi/Node3D/body/Minigun"]
+[editable path="taxi/Node3D/body/Minigun2"]
 [editable path="taxi/Node3D/Backright2"]
 [editable path="taxi/Node3D/Backleft2"]
 [editable path="taxi/Node3D/Backright"]

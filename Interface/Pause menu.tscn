@@ -53,6 +53,7 @@ alignment = 1
 layout_mode = 2
 
 [node name="Resume" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+process_mode = 2
 layout_mode = 2
 theme = ExtResource("2")
 keep_pressed_outside = true
@@ -62,6 +63,7 @@ text = "resume"
 layout_mode = 2
 
 [node name="Quit to main menu" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+process_mode = 2
 layout_mode = 2
 theme = ExtResource("2")
 keep_pressed_outside = true

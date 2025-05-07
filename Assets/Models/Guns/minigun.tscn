@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://c1d521451p675"]
+[gd_scene load_steps=14 format=4 uid="uid://c1d521451p675"]
 
 [ext_resource type="Script" uid="uid://djoj5lqsbt3xd" path="res://Assets/Models/Guns/minigun_test.gd" id="2_8ri6b"]
 [ext_resource type="Material" uid="uid://dp7yksosj8t6m" path="res://Assets/blend/material.tres" id="2_luq7y"]
 [ext_resource type="Texture2D" uid="uid://c3aqtnqlerqjt" path="res://Assets/Materials/Muzzle.png" id="3_luq7y"]
+[ext_resource type="PackedScene" uid="uid://ch6asidx625nl" path="res://Global/tracer_pool.tscn" id="4_3sdof"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_thtd4"]
 _surfaces = [{
@@ -127,10 +128,10 @@ shadow_mesh = SubResource("ArrayMesh_5iox0")
 
 [node name="Minigun" type="Node3D"]
 script = ExtResource("2_8ri6b")
-target_speed = 0
+speed = 4994
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.394609, -2.64625e-08, -0.918849, -0.918849, -4.01642e-08, -0.394609, -2.64625e-08, 1, -4.01642e-08, 0, 0, 0)
+transform = Transform3D(0.308895, 3.02092e-08, 0.951096, 0.951096, -4.15737e-08, -0.308895, 3.02091e-08, 1, -4.15737e-08, 0, 0, 0)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_3sdof")
 skeleton = NodePath("")
@@ -144,6 +145,9 @@ skeleton = NodePath("")
 [node name="RayCast3D" type="RayCast3D" parent="Cylinder"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.169528, 0.0768429)
 target_position = Vector3(0, 0, 20)
+
+[node name="endpos" type="Node3D" parent="Cylinder/RayCast3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
 
 [node name="Particles" type="GPUParticles3D" parent="Cylinder"]
 transform = Transform3D(1, 0, 2.98023e-08, 3.73035e-14, 1, 2.4869e-14, -2.98023e-08, 3.55271e-15, 1, 0.00127107, 0.15166, 0.0724238)
@@ -168,3 +172,5 @@ transform = Transform3D(3.31759, 0, 0, 0, 1.97744e-07, -3.31759, 0, 3.31759, 1.9
 gi_mode = 0
 mesh = SubResource("ArrayMesh_ggqb6")
 skeleton = NodePath("")
+
+[node name="Tracer_pool" parent="." instance=ExtResource("4_3sdof")]

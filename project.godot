@@ -72,6 +72,7 @@ config={
 config/name="Rogue drifters"
 run/main_scene="res://Interface/Start.tscn"
 config/features=PackedStringArray("4.4", "C#")
+run/max_fps=60
 boot_splash/show_image=false
 boot_splash/image="res://okk.png"
 config/windows_native_icon="res://ICO.ico"
@@ -83,12 +84,12 @@ LoadingScreen="*res://Scripts/GDscript/Loading_screen.gd"
 ParticleLoader="*res://Scripts/GDscript/Particle_loader.gd"
 InputRecorder="*res://Scripts/GDscript/InputRecorder.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+TracerPool="*res://Global/tracer_pool.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/size/fullscreen=true

@@ -51,17 +51,15 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wum2j")
-sprite_size = Vector2(60, 60)
-centre_sprite_size = Vector2(85.3333, 85.3333)
+sprite_size = Vector2(80, 80)
+centre_sprite_size = Vector2(150, 150)
 highlight_color = Color(0.321569, 0.321569, 0.333333, 0.752941)
 bg_color = Color(0.207843, 0.172549, 0.164706, 0.580392)
 line_color = Color(0.509804, 0.52549, 0.505882, 0.607843)
 lock_color = Color(0.121569, 0.121569, 0.121569, 0.654902)
-outer_radius = 170
-inner_radius = 82
-points_per_arc = 21
-line_width = 2
+inner_radius = 144
 options = Array[ExtResource("2_t7y1a")]([SubResource("Texture2D_m3ayu"), SubResource("Texture2D_o38nm"), SubResource("Texture2D_1wy7l")])
+selected_option = 2
 lock_texture = ExtResource("6_1wy7l")
 
 [node name="Esc" type="TextureButton" parent="."]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch6asidx625nl"]
+
+[ext_resource type="Script" uid="uid://bsou3sfxygbho" path="res://Scripts/GDscript/ObjectPool.gd" id="1_eyp5n"]
+
+[node name="Tracer_pool" type="Node3D"]
+script = ExtResource("1_eyp5n")
+initial_size = 500
