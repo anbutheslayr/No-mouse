@@ -211,5 +211,5 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -57.65
 occluder = ExtResource("12_cjtha")
 
 [node name="taxi2" parent="." instance=ExtResource("13_nukgt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0021, 0.073969, 10.9203)
-sphere_offset = Vector3(0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0021, 1.54434, 10.9203)
+sphere_offset = Vector3(0, -1.5, 0)

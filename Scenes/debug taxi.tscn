@@ -183,7 +183,6 @@ script = ExtResource("1_pqxrf")
 ball_path = NodePath("Ball")
 car_mesh_body_path = NodePath("Node3D/body")
 car_mesh_path = NodePath("Node3D")
-sphere_offset = Vector3(0, -0.5, 0)
 acceleration = 140.0
 steering = 60.0
 tilt = 65.0

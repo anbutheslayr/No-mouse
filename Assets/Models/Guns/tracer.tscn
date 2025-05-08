@@ -6,8 +6,10 @@ height = 1.0
 radial_segments = 14
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cw76"]
-shading_mode = 0
-albedo_color = Color(0.929412, 0.780392, 0, 0.4)
+albedo_color = Color(0.929674, 0.781749, 0, 1)
+emission_enabled = true
+emission = Color(0.900028, 0.800519, 0.0542101, 1)
+emission_energy_multiplier = 15.0
 
 [node name="Tracer" type="Node3D"]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 0, 0)

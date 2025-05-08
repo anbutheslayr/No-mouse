@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://b7ea02s6whtbx"]
+[gd_scene load_steps=54 format=4 uid="uid://b7ea02s6whtbx"]
 
 [ext_resource type="PackedScene" uid="uid://p67cldlwo417" path="res://Scenes/Healthbar3d.tscn" id="1"]
 [ext_resource type="Script" uid="uid://ciwkt07qufcgw" path="res://Scripts/GDscript/Movement.gd" id="1_dn7ac"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c1d521451p675" path="res://Assets/Models/Guns/minigun.tscn" id="5_tqw51"]
 [ext_resource type="AudioStream" uid="uid://xwpaac22ka33" path="res://Assets/Audio/clank-car-crash-collision-6206.mp3" id="6"]
 [ext_resource type="AudioStream" uid="uid://dlndqoy12cioc" path="res://Assets/Audio/minigun_rise.wav" id="6_xgpia"]
+[ext_resource type="AudioStream" uid="uid://c82ir1isx5k4g" path="res://Assets/Audio/minigun_descend.wav" id="7_fj548"]
 [ext_resource type="AudioStream" uid="uid://c1b4g1ilgk34a" path="res://Assets/Audio/minigun_shoot.wav" id="7_i5c55"]
 [ext_resource type="AudioStream" uid="uid://dwjbwg6ej0fr" path="res://Assets/Audio/Rifle.mp3" id="8"]
 [ext_resource type="Script" uid="uid://da1fgjcrfvrk3" path="res://Scripts/GDscript/Weapon state machine/weapon_state_machine.gd" id="8_srmxw"]
@@ -443,35 +444,6 @@ tracks/14/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_467mi"]
-resource_name = "Minigun_shoot"
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/Minigun/Cylinder/Particles:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/Minigun2/Cylinder/Particles:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_j403w"]
@@ -954,11 +926,159 @@ tracks/3/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_i5c55"]
+resource_name = "Minigun_rise_without_audio"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/m22:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0612491, 0.78, -0.028), Vector3(0.697, 0.78, -0.028)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/m21:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.45, 0.71, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.019162, 0.78, -0.0281094), Vector3(0.558939, 0.78, -0.0281094), Vector3(0.745049, 0.78, 0.0296363), Vector3(0.867, 0.78, 0.05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/m12:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.02, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.061, 0.78, -0.028), Vector3(-0.697314, 0.780455, -0.0281341)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("body/m11:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.46, 0.71, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.019, 0.78, -0.028), Vector3(-0.559, 0.78, -0.028), Vector3(-0.745, 0.78, 0.03), Vector3(-0.866976, 0.780455, 0.0502155)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("body/Minigun2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.47, 0.71, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.261, 0.762, 0.105), Vector3(-1.185, 0.762, 0.12), Vector3(-1.003, 0.762, 0.647), Vector3(-0.889423, 0.762065, 0.720101)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("body/Minigun:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.45, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.294274, 0.762, 0.105413), Vector3(1.19542, 0.762, 0.105413), Vector3(1.00317, 0.762, 0.64668), Vector3(0.854378, 0.762, 0.685881)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("body/Minigun:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.45, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 1.35214, 0), Vector3(0, 0.401007, 0), Vector3(0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("body/m21:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.45, 0.71, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 1.6389, 0), Vector3(-1.5708, 1.46531, 0), Vector3(-1.5708, 0.682406, 0), Vector3(-1.5708, 0.0643676, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("body/m12:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5708, -1.5708, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("body/m11:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.46, 0.71, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, -1.63886, 0), Vector3(-1.5708, -1.46608, 0), Vector3(-1.5708, -0.682424, 0), Vector3(-1.5708, -2.98023e-08, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("body/m22:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5708, -1.5708, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("body/Minigun2:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.47, 0.71, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -1.35263, 0), Vector3(0, -0.401426, 0), Vector3(0, -8.88179e-15, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37yd7"]
 _data = {
 &"Gun_descend": SubResource("23"),
 &"Minigun_rise": SubResource("Animation_tqw51"),
-&"Minigun_shoot": SubResource("Animation_467mi"),
+&"Minigun_rise_without_audio": SubResource("Animation_i5c55"),
 &"RESET": SubResource("Animation_j403w"),
 &"Reload": SubResource("24"),
 &"Rocket_reload": SubResource("27"),
@@ -1124,14 +1244,17 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.
 
 [node name="Minigun" parent="Node3D/body" instance=ExtResource("5_tqw51")]
 transform = Transform3D(-3.61999e-06, 0, 0.999999, 0, 1, 0, -0.999999, 0, -3.61999e-06, 0.294274, 0.762, 0.105413)
-target_speed = 0
-speed = 0
 
 [node name="Cylinder" parent="Node3D/body/Minigun" index="0"]
 transform = Transform3D(-0.530012, 6.6879e-08, 0.84799, 0.84799, -3.70668e-08, 0.530012, 6.68789e-08, 1, -3.70668e-08, 0, 0, 0)
 
 [node name="rise" type="AudioStreamPlayer3D" parent="Node3D/body/Minigun"]
 stream = ExtResource("6_xgpia")
+volume_db = 3.0
+unit_size = 20.0
+
+[node name="Descend" type="AudioStreamPlayer3D" parent="Node3D/body/Minigun"]
+stream = ExtResource("7_fj548")
 volume_db = 3.0
 unit_size = 20.0
 
@@ -1142,11 +1265,9 @@ unit_size = 20.0
 
 [node name="Minigun2" parent="Node3D/body" instance=ExtResource("5_tqw51")]
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, -0.261, 0.762, 0.105)
-target_speed = 0
-speed = 0
 
 [node name="Cylinder" parent="Node3D/body/Minigun2" index="0"]
-transform = Transform3D(-0.324955, -5.79156e-08, -0.94573, -0.94573, -4.13391e-08, 0.324955, -5.79156e-08, 1, -4.13392e-08, 0, 0, 0)
+transform = Transform3D(-0.324955, -5.79156e-08, -0.94573, -0.94573, -4.13392e-08, 0.324955, -5.79156e-08, 1, -4.13392e-08, 0, 0, 0)
 
 [node name="rise" type="AudioStreamPlayer3D" parent="Node3D/body/Minigun2"]
 stream = ExtResource("6_xgpia")
@@ -1155,6 +1276,11 @@ unit_size = 20.0
 
 [node name="Shoot" type="AudioStreamPlayer3D" parent="Node3D/body/Minigun2"]
 stream = ExtResource("7_i5c55")
+volume_db = 3.0
+unit_size = 20.0
+
+[node name="Descend" type="AudioStreamPlayer3D" parent="Node3D/body/Minigun2"]
+stream = ExtResource("7_fj548")
 volume_db = 3.0
 unit_size = 20.0
 
@@ -1235,9 +1361,13 @@ minigun1_path = NodePath("../../Minigun")
 minigun2_path = NodePath("../../Minigun2")
 minigun1_shoot_audio_path = NodePath("../../Minigun/Shoot")
 minigun2_shoot_audio_path = NodePath("../../Minigun2/Shoot")
+machine_gun1_descend_audio_path = NodePath("../../Minigun/Descend")
+machine_gun2_descend_audio_path = NodePath("../../Minigun2/Descend")
 
 [node name="Minigun_descend" type="Node" parent="Node3D/body/Weapon_state_machine"]
 script = ExtResource("16_xgpia")
+machine_gun_state_path = NodePath("../Machine_gun")
+minigun_state_path = NodePath("../Minigun")
 
 [node name="wheel_backRight" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.25, 0.76)
@@ -1326,6 +1456,7 @@ sprite_size = Vector2(53.3333, 53.3333)
 centre_sprite_size = Vector2(100, 100)
 outer_radius = 170
 inner_radius = 96
+selected_option = 0
 weapon_state_machine_path = NodePath("../../../Node3D/body/Weapon_state_machine")
 
 [node name="Ball" type="RigidBody3D" parent="." groups=["Ball"]]

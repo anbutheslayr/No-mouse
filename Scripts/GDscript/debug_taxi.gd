@@ -109,7 +109,7 @@ func calculate_health(damage):
 	health -=damage
 	if health < 0:
 		get_parent().get_node("Camera3D").add_trauma(0.8)
-		player_mesh.get_parent().get_node("Interface").killed()
+		# player_mesh.get_parent().get_node("Interface").killed()
 		health = 0
 		var exp_inst = expl.instantiate() as Node3D
 		exp_inst.global_position = ball.global_position

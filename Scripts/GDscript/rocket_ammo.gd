@@ -35,8 +35,8 @@ func _physics_process(delta: float) -> void:
 func on_collision(body: Node3D):
 	if launch:
 		var explosion = expl.instantiate()
-		explosion.global_position = global_position
 		get_tree().current_scene.add_child(explosion)
+		explosion.global_position = global_position
 		part.reparent(get_tree().current_scene)
 		part.emitting = false
 		get_tree().create_timer(7).connect("timeout",Callable(part,"queue_free"))

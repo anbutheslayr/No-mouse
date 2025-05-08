@@ -24,7 +24,6 @@ func state_exit():
 @export var min_range : float = 2
 @export var ammo : int
 @export var start_magazines : int
-@export var rocket_ammo : int = 15
 
 @onready var raycast : RayCast3D = get_node(raycastpath)
 @onready var anim : AnimationPlayer = get_node(animpath)
@@ -100,24 +99,30 @@ func state_update(delta):
 func on_shoot():
 	
 	if raycast.is_colliding() and cur_ammo > 0:
-		var a = particle.instantiate() as Node3D;
-		var b = decal.instantiate() as Node3D;
-		get_tree().root.get_node("World").add_child(a)
-		raycast.get_collider().add_child(b)
-		a.global_position = raycast.get_collision_point()
-		b.global_position = raycast.get_collision_point()
-		if raycast.get_collision_normal() != Vector3.UP:
-			b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
-		if raycast.get_collider().is_in_group("Enemy_Body"):
-			var enemy = raycast.get_collider().get_parent().get_parent().get_parent() as Node3D
-			enemy.call("calculate_health" , gun_damage)
-			var d = popuptext.instantiate()
-			get_tree().root.get_node("World").add_child(d)
-			(d as Popuptext).play_anim( "Hit" , 10 , 5 , raycast.get_collision_point() + Vector3(0,1,0),1)
-			
-		if raycast.get_collider().is_in_group("Runnable"):
-			raycast.get_collider().get_parent().get_parent().get_parent().call("Calculate_Health")
+		particles(raycast)
+		apply_damage(raycast, gun_damage)
 		audiostreamplayer.play()
 	elif cur_ammo <= 0:
 		cur_ammo = 1
 	cur_ammo -= 1
+
+func particles(raycst: RayCast3D):
+	var a = particle.instantiate() as Node3D;
+	var b = decal.instantiate() as Node3D;
+	get_tree().root.get_node("World").add_child(a)
+	raycst.get_collider().add_child(b)
+	a.global_position = raycst.get_collision_point()
+	b.global_position = raycst.get_collision_point()
+	if raycst.get_collision_normal() != Vector3.UP:
+		b.look_at(raycst.get_collision_point() + raycst.get_collision_normal(), Vector3.UP)
+	
+func apply_damage(raycst: RayCast3D,damage: int):
+	if raycst.get_collider().is_in_group("Enemy_Body"):
+		var enemy = raycst.get_collider().get_parent().get_parent().get_parent() as Node3D
+		enemy.call("calculate_health" , damage)
+		var d = popuptext.instantiate()
+		get_tree().root.get_node("World").add_child(d)
+		(d as Popuptext).play_anim( "Hit" , 10 , 5 , raycst.get_collision_point() + Vector3(0,1,0),1)	
+		if raycst.get_collider().is_in_group("Runnable"):
+			raycst.get_collider().get_parent().get_parent().get_parent().call("Calculate_Health")
+	
