@@ -11,14 +11,16 @@ point_count = 3
 curve = SubResource("1")
 
 [sub_resource type="ParticleProcessMaterial" id="3"]
+particle_flag_align_y = true
 spread = 180.0
+initial_velocity_min = 12.0
+initial_velocity_max = 14.0
 scale_curve = SubResource("2")
 
 [sub_resource type="StandardMaterial3D" id="4"]
 albedo_color = Color(0.980392, 0.670588, 0.137255, 1)
 emission_enabled = true
 emission = Color(0.972549, 0.419608, 0.0823529, 1)
-emission_energy_multiplier = 2.0
 
 [sub_resource type="CylinderMesh" id="5"]
 material = SubResource("4")
@@ -51,7 +53,11 @@ emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector3(0, -1, 0)
 spread = 90.0
+initial_velocity_min = 1.0
+initial_velocity_max = 4.0
 gravity = Vector3(0, 5, 0)
+scale_min = 3.0
+scale_max = 3.0
 scale_curve = SubResource("11")
 color = Color(0.945098, 0.831373, 0.368627, 1)
 color_ramp = SubResource("9")
@@ -71,6 +77,8 @@ emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector3(0, -1, 0)
 gravity = Vector3(0, 5, 0)
+scale_min = 3.0
+scale_max = 3.0
 scale_curve = SubResource("11")
 color = Color(0.105882, 0.101961, 0.0901961, 1)
 
@@ -169,7 +177,7 @@ amount = 24
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-fract_delta = false
+fixed_fps = 0
 process_material = SubResource("3")
 draw_pass_1 = SubResource("5")
 
@@ -178,15 +186,16 @@ emitting = false
 amount = 12
 one_shot = true
 explosiveness = 1.0
+fixed_fps = 0
 process_material = SubResource("12")
 draw_pass_1 = SubResource("14")
 
 [node name="Smoke" type="GPUParticles3D" parent="."]
-emitting = false
 amount = 12
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
+fixed_fps = 0
 process_material = SubResource("16")
 draw_pass_1 = SubResource("18")
 

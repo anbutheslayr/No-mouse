@@ -1,4 +1,4 @@
-@tool
+
 extends Node3D
 
 class_name ObjectPool
@@ -9,7 +9,7 @@ var tracer_scene: PackedScene = preload("res://Assets/Models/Guns/tracer.tscn")
 func _ready():
 	for i in range(initial_size):
 		var instance = tracer_scene.instantiate()
-		get_tree().root.add_child(instance) # Add the instance to the scene tree
+		get_tree().root.call_deferred("add_child", instance) # Add the instance to the scene tree
 		pool.append(instance)
 		instance.visible = false # Hide the instance initially
 		print("Instance added to pool: ", instance.name) # Debug print to check instance names
