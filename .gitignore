@@ -13,3 +13,5 @@ data_*/
 
 #android build
 android/
+
+*.cfg   

@@ -14,9 +14,9 @@
 [ext_resource type="PackedScene" path="res://Assets/Models/World2/Scenes/rocks-tall.tscn" id="12"]
 [ext_resource type="PackedScene" path="res://Assets/Models/World2/Scenes/crypt-small.tscn" id="13"]
 [ext_resource type="ArrayMesh" path="res://Assets/Models/Trees/Tree2 lowpoly.tres" id="15"]
-[ext_resource type="ArrayMesh" path="res://Assets/Models/Trees/tree2mesh.tres" id="16"]
+[ext_resource type="ArrayMesh" uid="uid://cq415sq1iuhqu" path="res://Assets/Models/Trees/tree2mesh.tres" id="16"]
 [ext_resource type="ArrayMesh" path="res://Assets/Models/Trees/Tree2 lowpoly xt.tres" id="17"]
-[ext_resource type="PackedScene" path="res://Assets/Models/Trees/Tree2col.tscn" id="18"]
+[ext_resource type="PackedScene" uid="uid://ua2801c82q35" path="res://Assets/Models/Trees/Tree2col.tscn" id="18"]
 
 [sub_resource type="Resource" id="41792"]
 resource_name = "Greenhouse_LODVariant"

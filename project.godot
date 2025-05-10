@@ -85,6 +85,12 @@ ParticleLoader="*res://Scripts/GDscript/Particle_loader.gd"
 InputRecorder="*res://Scripts/GDscript/InputRecorder.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 TracerPool="*res://Global/tracer_pool.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+
+[dialogic]
+
+directories/dch_directory={}
+directories/dtl_directory={}
 
 [display]
 
@@ -103,11 +109,12 @@ project/assembly_name="Rogue drifters"
 
 movie_writer/mjpeg_quality=0.9
 movie_writer/movie_file="D:/Godot projects/New folder/No-mouse/recvideo.avi"
+movie_writer/fps=30
 convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dreadpon.spatial_gardener/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/dreadpon.spatial_gardener/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global]
 
