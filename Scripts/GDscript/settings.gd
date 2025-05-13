@@ -94,6 +94,9 @@ func set_shadows(index):
 			ProjectSettings.set_setting("rendering/quality/directional_shadow/size", 4864)
 			ProjectSettings.set_setting("rendering/quality/directional_shadow/size.mobile", 4864)
 	reso.shadow_quality = index
+	print("Shadow quality: ", index)
+	print("Shadow size: ", ProjectSettings.get_setting("rendering/quality/directional_shadow/size"))
+	ProjectSettings.save_custom("res://override.cfg")
 func on_resolution_changed(index):
 	match index:
 		0:
@@ -112,38 +115,34 @@ func on_resolution_changed(index):
 			reso.res = Vector2i(640,360)
 			reso.res_int = 4
 	reso.res_int = index
-	# get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
-	# get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
+	get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
+	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
 	get_window().content_scale_size = reso.res
 	
 	resize(reso.res)
 	reposition(reso.res)
 
 func resize(res):
-	gtheme.default_font_size = (int)(res.x/1920*20)
-	# gtheme.default_font.outline_size = (int)(res.x/1920*3)
-	# title_font.size = (int)(res.x/1920*120)
-	# title_font.outline_size = (int)(res.x/1920*3)
-	# esc.size = Vector2(res.x/1920*96 , res.y/1080*96)
-	pass
+	gtheme.default_font_size = res.y/1080.0*40
 
-func reposition(res):
+func reposition(res : Vector2i):
 	var vb1 : VBoxContainer = get_node("MarginContainer/VBoxContainer")
-	vb1.add_theme_constant_override("separation", (int)(res.y/1080*70))
+	vb1.add_theme_constant_override("separation", res.y/1080.0*(70))
 	var vb2 = get_node("MarginContainer/HBoxContainer/VBoxContainer")
-	vb2.add_theme_constant_override("separation", (int)(res.y/1080*20))
+	vb2.add_theme_constant_override("separation", res.y/1080.0*(20))
 	var vb3 = get_node("MarginContainer/HBoxContainer2/VBoxContainer")
-	vb3.add_theme_constant_override("separation", (int)(res.y/1080*20))
+	vb3.add_theme_constant_override("separation", res.y/1080.0*20)
 	var hb1 = get_node("MarginContainer/HBoxContainer")
-	hb1.add_theme_constant_override("separation", (int)(res.x/1920*150))
+	hb1.add_theme_constant_override("separation", (res.y/1080.0*150))
 	var hb2 = get_node("MarginContainer/HBoxContainer2")
-	hb2.add_theme_constant_override("separation", (int)(res.x/1920*300))
+	hb2.add_theme_constant_override("separation", (res.y/1080.0*300))
 
 func on_esc():
 	ResourceSaver.save(reso, "user://Int/Res.tres")
 	get_parent().backed()
 	hide()
 	get_parent().get_node("Menu").show()
+	get_parent().get_node("Menu").resize(reso)
 
 func on_number_select(index:int):
 	reso.no_of_enemies = index+1

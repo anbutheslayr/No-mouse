@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=6 format=3 uid="uid://dqxpjte2ge0uq"]
+
+[ext_resource type="Script" uid="uid://6adoda6ftrww" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_d3ilr"]
+[ext_resource type="PackedScene" uid="uid://yoatmxs67uad" path="res://dialogic/Style/TextboxWithPortrait/custom_textbox_with_portrait_.tscn" id="2_1hovi"]
+[ext_resource type="Script" uid="uid://djyayegj320xr" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_xailg"]
+
+[sub_resource type="Resource" id="Resource_kw1nv"]
+script = ExtResource("1_d3ilr")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_61xcc"]
+script = ExtResource("1_d3ilr")
+scene = ExtResource("2_1hovi")
+overrides = {
+"box_distance": "100.0",
+"box_modulate_custom_color": "Color(0.929688, 0.348065, 0.0217896, 1)",
+"box_modulate_global_color": "false",
+"box_size": "Vector2(1200, 320)",
+"custom_normal_font": "\"res://Extra Beige.ttf\"",
+"name_label_color_mode": "1",
+"text_custom_color": "Color(0, 0, 0, 1)",
+"text_use_global_color": "false"
+}
+
+[resource]
+script = ExtResource("10_xailg")
+name = "style"
+layer_list = Array[String](["18"])
+layer_info = {
+"": SubResource("Resource_kw1nv"),
+"18": SubResource("Resource_61xcc")
+}
+base_overrides = {}
+layers = Array[ExtResource("1_d3ilr")]([])
+metadata/_latest_layer = "18"

@@ -1,7 +1,7 @@
 [gd_resource type="ArrayMesh" load_steps=3 format=4 uid="uid://cq415sq1iuhqu"]
 
 [ext_resource type="Material" uid="uid://bgbans5kypadm" path="res://Assets/Models/Trees/Green1.material" id="1"]
-[ext_resource type="Material" path="res://Assets/Models/Trees/Brown1.material" id="2"]
+[ext_resource type="Material" uid="uid://c31l41qpy8s1h" path="res://Assets/Models/Trees/Brown1.material" id="2"]
 
 [resource]
 resource_name = "Tree2 - Copy_Cylinder"

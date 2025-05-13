@@ -106,41 +106,46 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="Control/TextureRect"]
-layout_mode = 0
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -813.0
-offset_top = 528.0
-offset_right = -369.999
-offset_bottom = -444.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0859375
+anchor_top = 0.733333
+anchor_right = 0.385938
+anchor_bottom = 0.775
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3")
 theme_override_styles/normal = SubResource("3")
 text = "A game by"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Control/TextureRect"]
-layout_mode = 0
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 338.001
-offset_top = 527.0
-offset_right = 932.001
-offset_bottom = -449.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.680469
+anchor_top = 0.731944
+anchor_right = 0.964063
+anchor_bottom = 0.773611
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3")
 theme_override_styles/normal = SubResource("3")
 text = "Anbuthecoder"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]

@@ -37,6 +37,8 @@ glow_intensity = 0.84
 glow_strength = 0.69
 glow_bloom = 1.0
 glow_blend_mode = 1
+glow_hdr_scale = 4.0
+glow_hdr_luminance_cap = 256.0
 fog_depth_begin = 25.1
 fog_depth_end = 73.5
 
@@ -57,7 +59,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_u030t"]
@@ -588,7 +590,7 @@ extent = 20.1499
 bounds = AABB(-133.065, -40.2497, -104.64, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_esx6v"]
@@ -606,7 +608,7 @@ extent = 20.1499
 bounds = AABB(-133.065, -40.2497, -64.3398, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_7o3pn"]
@@ -624,7 +626,7 @@ extent = 40.2998
 bounds = AABB(-173.364, -80.5494, -104.64, 80.5994, 80.5994, 80.5994)
 max_bounds_to_center_dist = 69.8012
 min_bounds_to_center_dist = 40.2998
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_p0u04"]
@@ -696,7 +698,7 @@ extent = 20.1499
 bounds = AABB(-92.7648, -80.5494, -144.939, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_rml4k"]
@@ -732,7 +734,7 @@ extent = 20.1499
 bounds = AABB(-92.7648, -40.2497, -144.939, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_pajt4"]
@@ -768,7 +770,7 @@ extent = 20.1499
 bounds = AABB(-52.4651, -80.5494, -144.939, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_m73qh"]
@@ -804,7 +806,7 @@ extent = 20.1499
 bounds = AABB(-52.4651, -40.2497, -144.939, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 1
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_6esp3"]
@@ -822,7 +824,7 @@ extent = 40.2998
 bounds = AABB(-92.7648, -80.5494, -185.239, 80.5994, 80.5994, 80.5994)
 max_bounds_to_center_dist = 69.8012
 min_bounds_to_center_dist = 40.2998
-active_LOD_index = 1
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_wmgcf"]
@@ -840,7 +842,7 @@ extent = 20.1499
 bounds = AABB(-92.7648, -80.5494, -104.64, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_n3acf"]
@@ -858,7 +860,7 @@ extent = 20.1499
 bounds = AABB(-92.7648, -80.5494, -64.3398, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_3ftrh"]
@@ -876,7 +878,7 @@ extent = 20.1499
 bounds = AABB(-92.7648, -40.2497, -104.64, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 1
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_il2os"]
@@ -912,7 +914,7 @@ extent = 20.1499
 bounds = AABB(-52.4651, -80.5494, -104.64, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 1
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_6wrlr"]
@@ -930,7 +932,7 @@ extent = 20.1499
 bounds = AABB(-52.4651, -80.5494, -64.3398, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 1
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_ujsbj"]
@@ -1416,7 +1418,7 @@ extent = 20.1499
 bounds = AABB(-92.7648, -80.5494, -24.0401, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_iehl8"]
@@ -1452,7 +1454,7 @@ extent = 20.1499
 bounds = AABB(-92.7648, -40.2497, -24.0401, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 1
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_vshaw"]
@@ -1848,7 +1850,7 @@ extent = 20.1499
 bounds = AABB(-12.1654, -80.5494, -144.939, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_h7o50"]
@@ -1884,7 +1886,7 @@ extent = 20.1499
 bounds = AABB(-12.1654, -40.2497, -144.939, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 1
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_1nooh"]
@@ -1920,7 +1922,7 @@ extent = 20.1499
 bounds = AABB(28.1343, -80.5494, -144.939, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_pmjvp"]
@@ -1974,7 +1976,7 @@ extent = 10.0749
 bounds = AABB(28.1343, -40.2497, -124.789, 20.1499, 20.1499, 20.1499)
 max_bounds_to_center_dist = 17.4503
 min_bounds_to_center_dist = 10.0749
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_snryi"]
@@ -1992,7 +1994,7 @@ extent = 10.0749
 bounds = AABB(28.1343, -20.0998, -144.939, 20.1499, 20.1499, 20.1499)
 max_bounds_to_center_dist = 17.4503
 min_bounds_to_center_dist = 10.0749
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_6xck2"]
@@ -2082,7 +2084,7 @@ extent = 10.0749
 bounds = AABB(48.2842, -20.0998, -124.789, 20.1499, 20.1499, 20.1499)
 max_bounds_to_center_dist = 17.4503
 min_bounds_to_center_dist = 10.0749
-active_LOD_index = 2
+active_LOD_index = 1
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_jttj4"]
@@ -2118,7 +2120,7 @@ extent = 40.2998
 bounds = AABB(-12.1654, -80.5494, -185.239, 80.5994, 80.5994, 80.5994)
 max_bounds_to_center_dist = 69.8012
 min_bounds_to_center_dist = 40.2998
-active_LOD_index = 1
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_aebv7"]
@@ -2136,7 +2138,7 @@ extent = 20.1499
 bounds = AABB(-12.1654, -80.5494, -104.64, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 1
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_15qfe"]
@@ -2154,7 +2156,7 @@ extent = 20.1499
 bounds = AABB(-12.1654, -80.5494, -64.3398, 40.2997, 40.2997, 40.2997)
 max_bounds_to_center_dist = 34.9006
 min_bounds_to_center_dist = 20.1499
-active_LOD_index = 1
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_t2hnn"]
@@ -3638,7 +3640,6 @@ shadow_bias = 0.0
 directional_shadow_split_2 = 0.138
 directional_shadow_split_3 = 0.426
 directional_shadow_blend_splits = true
-directional_shadow_max_distance = 70.0
 
 [node name="Enemy_spawner" type="Node3D" parent="." groups=["Enemy_spawner"]]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -57.6567, 20.2893, -20.9285)

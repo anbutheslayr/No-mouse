@@ -1,0 +1,71 @@
+res://Scenes/Settings.tscn
+res://Scenes/Theme.tres
+res://Assets/Materials/particle mat/Debris.tres
+res://Assets/Materials/particle mat/fire.tres
+res://Assets/Materials/particle mat/ghost smoke.tres
+res://Assets/Materials/particle mat/Smoke.tres
+res://Assets/Materials/particle mat/Rocket particles.tres
+res://dialogic/Style/style.tres
+res://addons/phantom_camera/themes/theme.tres
+res://Assets/blend/material.tres
+res://taxi.tres
+res://Assets/Materials/Gray6.material
+res://Assets/Diffuse_Color.material
+res://Interface/Res.tres
+res://Assets/Materials/pavement.material
+res://Assets/Materials/Redwood.material
+res://World2.tres
+res://Scenes/FONT.tres
+res://Assets/Materials/Leaves1.material
+res://Assets/Materials/Branch.material
+res://Assets/Materials/Leaves2.material
+res://Assets/Models/Guns/minigun.tscn
+res://Scenes/taxi.tscn
+res://Scenes/dia test.tscn
+res://Scenes/Main_menu.tscn
+res://Scenes/debug taxi.tscn
+res://Assets/Models/Trees/Tree1.tscn
+res://Scripts/GDscript/settings.gd
+res://Scenes/Worlds/test.tscn
+res://addons/dreadpon.spatial_gardener/utility/globals.gd
+res://Assets/Materials/Ground.material
+res://Scenes/Worlds/navmesh.tres
+res://Assets/gardener/toolshed.tres
+res://Assets/Models/Trees/Green1.material
+res://Assets/Models/Trees/Brown1.material
+res://Assets/Models/Trees/tree2mesh.tres
+res://Assets/gardener/greenhouse.tres
+res://dialogic/Timelines/Intro.dtl
+res://dialogic/characters/Enemy.dch
+res://dialogic/characters/player.dch
+res://addons/phantom_camera/plugin.gd
+res://addons/phantom_camera/panel/editor.tscn
+res://addons/phantom_camera/panel/updater/download_update_panel.tscn
+res://addons/phantom_camera/panel/updater/update_button.tscn
+res://addons/phantom_camera/panel/viewfinder/deadzone_style_box.tres
+res://addons/phantom_camera/panel/viewfinder/viewfinder_panel.tscn
+res://addons/phantom_camera/panel/viewfinder/host_list/host_list_item.tscn
+res://addons/phantom_camera/panel/viewfinder/host_list/host_list_item_group.tres
+res://addons/phantom_camera/scripts/gizmos/custom_gizmo.gd
+res://addons/phantom_camera/scripts/gizmos/phantom_camera_gizmo_plugin_3d.gd
+res://addons/phantom_camera/scripts/gizmos/phantom_camera_noise_emitter_gizmo_plugin_3d.gd
+res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd
+res://addons/phantom_camera/scripts/panel/editor.gd
+res://addons/phantom_camera/scripts/panel/updater/download_update_panel.gd
+res://addons/phantom_camera/scripts/panel/updater/updater_constants.gd
+res://addons/phantom_camera/scripts/panel/updater/update_button.gd
+res://addons/phantom_camera/scripts/panel/viewfinder/host_list.gd
+res://addons/phantom_camera/scripts/panel/viewfinder/host_list_item.gd
+res://addons/phantom_camera/scripts/panel/viewfinder/viewfinder.gd
+res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd
+res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd
+res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_constants.gd
+res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd
+res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_3d.gd
+res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd
+res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd
+res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd
+res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd
+res://addons/phantom_camera/scripts/resources/tween_resource.gd
+res://addons/phantom_camera/themes/button_hover.tres
+res://addons/phantom_camera/themes/button_normal.tres

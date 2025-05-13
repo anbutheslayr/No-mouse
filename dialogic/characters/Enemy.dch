@@ -1,0 +1,41 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 0, 0, 1),
+&"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {
+"Mood 1": {
+"mode": 0,
+"name": "Mood 1",
+"pitch_base": 1.0,
+"pitch_variance": 0.0,
+"skip_characters": 0.0,
+"sound_path": "",
+"volume_base": 20.0,
+"volume_variance": 0.0
+}
+},
+"style": "style"
+},
+&"default_portrait": "Main",
+&"description": "",
+&"display_name": "Enemy",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"Main": {
+"export_overrides": {
+"image": "\"res://Screenshot 2025-02-08 131259.png\""
+},
+"ignore_char_scale": false,
+"mirror": true,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

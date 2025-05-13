@@ -1,3 +1,9 @@
+res://
+res://dialogic/characters
+res://Scenes
+res://Scripts/Cutscene
+res://dialogic
+res://dialogic/Style
 res://Interface
 res://Global
 res://Assets/Models/Guns
@@ -6,9 +12,7 @@ res://Scripts/GDscript
 D:/Blender3.6
 res://Assets/blend
 res://Scenes/Worlds
-res://Scenes
 res://Scripts
-res://
 D:/Godot projects/New folder/No-mouse
 res://Assets
 D:/Microsoft VS Code

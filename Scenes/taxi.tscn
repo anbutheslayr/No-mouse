@@ -48,6 +48,7 @@ emission_energy_multiplier = 0.6
 
 [sub_resource type="StandardMaterial3D" id="13"]
 resource_name = "paintYellow"
+shading_mode = 2
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0.740017, 0.259434, 1)
 metallic = 1.0
@@ -1219,7 +1220,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0.000339031, 1.71628, 0.38334)
 
 [node name="Gun" parent="Node3D/body/MachineGun" index="0"]
-transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, 0.146015, 4.76837e-07)
+transform = Transform3D(-10, 0, 8.74228e-07, 0, 10, 0, -8.74228e-07, 0, -10, 0, 0.146015, 4.76837e-07)
 
 [node name="OmniLight3D" parent="Node3D/body/MachineGun/Gun/Marker/Particles" index="0"]
 omni_range = 7.0
@@ -1453,20 +1454,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13508, 0.805907)
 
 [node name="Interface" parent="." instance=ExtResource("10")]
 
-[node name="Ammo_text" parent="Interface" index="0"]
-visible = false
-
-[node name="Steering" parent="Interface" index="1"]
-visible = false
-
-[node name="Acceleration" parent="Interface" index="2"]
-visible = false
-
-[node name="Esc" parent="Interface" index="3"]
-visible = false
-
-[node name="Enemy_spawntext" parent="Interface" index="4"]
-visible = false
+[node name="Weapon_menu" parent="Interface" index="7"]
+visible = true
 
 [node name="Weapon_menu" parent="Interface/Weapon_menu" index="0"]
 sprite_size = Vector2(53.3333, 53.3333)
