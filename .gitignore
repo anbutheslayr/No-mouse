@@ -12,6 +12,10 @@ data_*/
 
 
 #android build
+<<<<<<< HEAD
 android/
 
 *.cfg   
+=======
+android/
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300

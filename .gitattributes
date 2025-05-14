@@ -1,5 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 *.aab filter=lfs diff=lfs merge=lfs -text
+<<<<<<< HEAD
 *.avi filter=lfs diff=lfs merge=lfs -text
 
+=======
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_resource type="FontFile" load_steps=2 format=3 uid="uid://c4o1fg7bafdkv"]
 
 [ext_resource type="FontFile" uid="uid://26jgbfigbuyv" path="res://Scenes/DirtyBrush.ttf" id="1"]
@@ -109,3 +110,15 @@ cache/0/120/0/descent = 0.0
 cache/0/120/0/underline_position = 0.0
 cache/0/120/0/underline_thickness = 0.0
 cache/0/120/0/scale = 1.0
+=======
+[gd_resource type="FontFile" load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/DirtyBrush.ttf" type="FontFile" id=1]
+
+[resource]
+size = 100
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 5
+font_data = ExtResource( 1 )
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300

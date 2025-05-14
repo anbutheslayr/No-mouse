@@ -36,6 +36,10 @@ var expl = preload("res://Scenes/Explosion.tscn")
 @onready var drift : AudioStreamPlayer3D = get_node("Node3D/Drift")
 @onready var health_bar_3d : Node3D = get_node(health_bar_path)
 @onready var grav = ProjectSettings.get_setting("physics/3d/default_gravity")
+<<<<<<< HEAD
+=======
+@onready var reso : Resolution = preload("user://Int/Res.tres")
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 @onready var nav_agent : NavigationAgent3D = get_node(nav_agent_path)
 @onready var update_path_timer : Timer = Timer.new()
 @onready var player_mesh : MeshInstance3D = get_parent().get_node("taxi/Node3D")
@@ -54,7 +58,11 @@ func _ready():
 	update_path_timer.start()
 
 func set_difficulty():
+<<<<<<< HEAD
 	match Global.reso.difficulty:
+=======
+	match reso.difficulty:
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 		0:
 			wait_time = .1
 			acceleration = 95
@@ -69,10 +77,17 @@ func set_difficulty():
 			turn_speed = 5
 
 func part_change():
+<<<<<<< HEAD
 	if Global.reso.cur_world == 1:
 		b_l = get_node(b_l_particles)
 		b_r = get_node(b_r_particles)
 	elif Global.reso.cur_world == 2:
+=======
+	if reso.cur_world == 1:
+		b_l = get_node(b_l_particles)
+		b_r = get_node(b_r_particles)
+	elif reso.cur_world == 2:
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 		b_l = get_node(b_l2_particles)
 		b_r = get_node(b_r2_particles)
 

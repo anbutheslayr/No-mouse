@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 [gd_scene load_steps=220 format=3 uid="uid://c6r5lrpplp4rw"]
+=======
+[gd_scene load_steps=18 format=3 uid="uid://c6r5lrpplp4rw"]
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 [ext_resource type="Script" uid="uid://b8bhb6lkex73b" path="res://Scripts/GDscript/Follow.gd" id="1_al5em"]
 [ext_resource type="PackedScene" uid="uid://b34m1q65gnryr" path="res://Interface/Pause menu.tscn" id="1_cjtha"]
 [ext_resource type="Material" uid="uid://dyfsy5nsp6w1h" path="res://Assets/Materials/Ground.material" id="1_nukgt"]
 [ext_resource type="PackedScene" uid="uid://b7ea02s6whtbx" path="res://Scenes/taxi.tscn" id="2_0yom7"]
 [ext_resource type="NavigationMesh" uid="uid://ctggdgq25evi4" path="res://Scenes/Worlds/navmesh.tres" id="5_at387"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://d4ki2p6qnbnfy" path="res://Assets/Models/Buildings/Scenes/Htype21.tscn" id="7_gjajs"]
 [ext_resource type="PackedScene" uid="uid://5oapt8pj7xk3" path="res://Assets/Models/Buildings/Scenes/Htype20.tscn" id="8_4xv5r"]
 [ext_resource type="PackedScene" uid="uid://0ctpca4b3pde" path="res://Assets/Models/Buildings/Scenes/Htype19.tscn" id="9_wpte4"]
@@ -18,14 +23,27 @@
 [ext_resource type="Script" uid="uid://c4s4x5b27vdf6" path="res://addons/dreadpon.spatial_gardener/arborist/mmi_octree/mmi_octree_manager.gd" id="14_al5em"]
 [ext_resource type="Script" uid="uid://d1pavk3gl4atd" path="res://addons/dreadpon.spatial_gardener/arborist/arborist.gd" id="15_dnpvv"]
 [ext_resource type="Script" uid="uid://c75tbba22td6" path="res://Scripts/GDscript/test.gd" id="16_qs6pn"]
+=======
+[ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype21.tscn" id="7_gjajs"]
+[ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype20.tscn" id="8_4xv5r"]
+[ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype19.tscn" id="9_wpte4"]
+[ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype18.tscn" id="10_eah8x"]
+[ext_resource type="PackedScene" path="res://Assets/Models/Buildings/Scenes/Htype17.tscn" id="11_rj01l"]
+[ext_resource type="PackedScene" uid="uid://lx4qg1vxck7g" path="res://Assets/Models/Tracks/New/road.glb" id="12_0flx4"]
+[ext_resource type="ArrayOccluder3D" uid="uid://bgncelsuhfols" path="res://Scenes/Worlds/test.occ" id="12_cjtha"]
+[ext_resource type="PackedScene" uid="uid://dy7p05afv8ia6" path="res://Scenes/debug taxi.tscn" id="13_nukgt"]
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t2des"]
 sky_top_color = Color(0.850239, 0.877928, 0.916642, 1)
 sky_horizon_color = Color(0.284834, 0.697366, 0.940076, 1)
 sky_curve = 0.90943
+<<<<<<< HEAD
 ground_bottom_color = Color(0.85098, 0.878431, 0.917647, 1)
 ground_horizon_color = Color(0.286275, 0.698039, 0.941176, 1)
 ground_energy_multiplier = 2.95
+=======
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 [sub_resource type="Sky" id="1"]
 sky_material = SubResource("ProceduralSkyMaterial_t2des")
@@ -37,17 +55,25 @@ ambient_light_sky_contribution = 0.1
 tonemap_mode = 2
 tonemap_white = 16.0
 glow_enabled = true
+<<<<<<< HEAD
 glow_intensity = 0.84
 glow_strength = 0.69
 glow_bloom = 1.0
 glow_blend_mode = 1
 glow_hdr_scale = 4.0
 glow_hdr_luminance_cap = 256.0
+=======
+glow_intensity = 1.12
+glow_strength = 0.69
+glow_bloom = 1.0
+glow_blend_mode = 1
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 fog_depth_begin = 25.1
 fog_depth_end = 73.5
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_bbtet"]
 
+<<<<<<< HEAD
 [sub_resource type="Resource" id="Resource_ddl21"]
 resource_local_to_scene = true
 resource_name = "MMIOctreeNode"
@@ -3472,6 +3498,8 @@ script = ExtResource("15_dnpvv")
 octree_managers = [SubResource("Resource_u030t"), SubResource("Resource_81qvq"), SubResource("Resource_ofvpi"), SubResource("Resource_t2des"), SubResource("Resource_2mmrq"), SubResource("Resource_qdigb"), SubResource("Resource_27wi5"), SubResource("Resource_dobfq"), SubResource("Resource_1p3fc"), SubResource("Resource_xyn1g")]
 metadata/class = "Arborist"
 
+=======
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 [node name="World" type="Node3D"]
 
 [node name="Pause menu" parent="." instance=ExtResource("1_cjtha")]
@@ -3626,6 +3654,7 @@ transform = Transform3D(-0.692974, 0, 0.720962, 0, 1, 0, -0.720962, 0, -0.692974
 
 [node name="road" parent="NavigationRegion3D" instance=ExtResource("12_0flx4")]
 
+<<<<<<< HEAD
 [node name="Gardener" type="Node3D" parent="NavigationRegion3D"]
 script = ExtResource("12_nbs6v")
 file_management/garden_work_directory = "res://Assets/gardener/"
@@ -3636,6 +3665,8 @@ storage_version = 4
 metadata/class = "Gardener"
 metadata/_custom_type_script = "uid://bc7pailucq83t"
 
+=======
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.976682, 0.198491, -0.0818137, 0.065038, 0.63672, 0.768348, 0.204602, 0.74511, -0.634782, 37.7649, 5.43877, 0)
 light_color = Color(0.960784, 0.741176, 0.956863, 1)
@@ -3644,15 +3675,27 @@ shadow_bias = 0.0
 directional_shadow_split_2 = 0.138
 directional_shadow_split_3 = 0.426
 directional_shadow_blend_splits = true
+<<<<<<< HEAD
+=======
+directional_shadow_max_distance = 70.0
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 [node name="Enemy_spawner" type="Node3D" parent="." groups=["Enemy_spawner"]]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -57.6567, 20.2893, -20.9285)
 
 [node name="Node3D" type="Node3D" parent="."]
+<<<<<<< HEAD
 script = ExtResource("16_qs6pn")
+=======
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 occluder = ExtResource("12_cjtha")
 
 [node name="taxi2" parent="." instance=ExtResource("13_nukgt")]
+<<<<<<< HEAD
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0021, 0.30388, 10.9203)
+=======
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0021, 1.54434, 10.9203)
+sphere_offset = Vector3(0, -1.5, 0)
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300

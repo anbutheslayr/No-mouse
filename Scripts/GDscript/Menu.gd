@@ -1,12 +1,16 @@
 extends Control
 
 @onready var level_select : Control = get_parent().get_node("Select level")
+<<<<<<< HEAD
 @onready var title_label : Label = $MarginContainer/VBoxContainer/Label
 @onready var vb1 : VBoxContainer = $MarginContainer/VBoxContainer
 @onready var vb2 : VBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer
 var title_theme : Theme = preload("res://Scenes/title_theme.tres")
 func _ready():
 	resize(Global.reso)
+=======
+
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 func on_play_pressed():
 	get_parent().clicked()
 	hide()
@@ -23,6 +27,7 @@ func on_quit_pressed():
 
 func on_insta_pressed():
 	OS.shell_open("https://www.instagram.com/anbu_the_coder/profilecard/?igsh=MTBmbm83Z3hwcjI3bw%3D%3D")
+<<<<<<< HEAD
 
 func resize(resol : Resolution):
 	title_label.add_theme_constant_override("shadow_offset_x", resol.res.y/1080.0*7)
@@ -37,3 +42,5 @@ func resize(resol : Resolution):
 	print("menu resized")
 	print("title label size: ", title_label.get_theme_constant("font_size"))
 	
+=======
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300

@@ -1,8 +1,14 @@
 [gd_scene load_steps=13 format=4 uid="uid://cttv8pcisnund"]
 
+<<<<<<< HEAD
 [ext_resource type="Material" uid="uid://mw2pt0ubdfk8" path="res://Assets/Materials/Leaves1.material" id="1"]
 [ext_resource type="Material" uid="uid://cluv5amn1vh4y" path="res://Assets/Materials/Branch.material" id="2"]
 [ext_resource type="Material" uid="uid://clnvgssu7jkyi" path="res://Assets/Materials/Leaves2.material" id="3"]
+=======
+[ext_resource type="Material" path="res://Assets/Materials/Leaves1.material" id="1"]
+[ext_resource type="Material" path="res://Assets/Materials/Branch.material" id="2"]
+[ext_resource type="Material" path="res://Assets/Materials/Leaves2.material" id="3"]
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 [sub_resource type="ArrayMesh" id="1"]
 resource_name = "Tree1_Cube"

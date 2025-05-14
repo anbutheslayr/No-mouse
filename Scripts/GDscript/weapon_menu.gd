@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+@tool
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 extends Control
 
 # Exported variables for customization in the editor
@@ -17,10 +21,18 @@ extends Control
 @export var weapon_state_machine_path : NodePath  # Path to the weapon state machine node
 @onready var weapon_state_machine : WeaponStateMachine = get_node(weapon_state_machine_path)  # Reference to the weapon state machine
 
+<<<<<<< HEAD
 @export var lock_texture : Texture2D  # Texture for the lock icon
 
 func _ready():
 	resize(Global.reso.res)
+=======
+@onready var reso : Resolution = preload("res://Interface/Res.tres")
+@export var lock_texture : Texture2D  # Texture for the lock icon
+
+func _ready():
+	resize(reso.res)
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 # Function to draw the weapon menu
 func _draw():
@@ -29,7 +41,11 @@ func _draw():
 	var locked
 	# Loop through each option to draw its segment and icon
 	for i in range(options.size()):
+<<<<<<< HEAD
 		if Global.reso.weapons.get(options[i].gun_name) == 0 or !Global.reso.weapons.has(options[i].gun_name):
+=======
+		if reso.weapons.get(options[i].gun_name) == 0 or !reso.weapons.has(options[i].gun_name):
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 			locked = true  # Mark the option as locked if it is not available
 		else:
 			locked = false # Mark the option as unlocked if it is available
@@ -96,12 +112,17 @@ func _process(_delta):
 	if mouse_radius > inner_radius and mouse_radius < outer_radius:
 		var mouse_rad = fposmod(mouse_pos.angle() + (PI / 2), TAU)  # Angle of the mouse position
 		var sel_temp = ceil((mouse_rad / TAU) * options.size()) - 1  # Determine the selected option
+<<<<<<< HEAD
 		if !(Global.reso.weapons.get(options[sel_temp].gun_name) == 0 or !Global.reso.weapons.has(options[sel_temp].gun_name)):
+=======
+		if !(reso.weapons.get(options[sel_temp].gun_name) == 0 or !reso.weapons.has(options[sel_temp].gun_name)):
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 			selected_option = sel_temp
 	
 
 
 func resize(res: Vector2) -> void:
+<<<<<<< HEAD
 	# Resize the menu based on the provided Global.resolution
 	sprite_size = Vector2(res.y / 1080 * 80, res.y / 1080 * 80)  # Adjust sprite size based on Global.resolution
 	centre_sprite_size = Vector2(res.y / 1080 * 150, res.y / 1080 * 150)  # Adjust center sprite size based on Global.resolution
@@ -114,4 +135,18 @@ func on_esc():
 	Global.reso.cur_gun = options[selected_option].gun_name  # Set the current gun in the Global.resolution Global.resource
 	ResourceSaver.save(Global.reso, "user://Int/Res.tres")
 	weapon_state_machine.change_gun(Global.reso.cur_gun)  # Change the gun in the weapon state machine
+=======
+	# Resize the menu based on the provided resolution
+	sprite_size = Vector2(res.y / 1080 * 80, res.y / 1080 * 80)  # Adjust sprite size based on resolution
+	centre_sprite_size = Vector2(res.y / 1080 * 150, res.y / 1080 * 150)  # Adjust center sprite size based on resolution
+	outer_radius = res.y / 1080.0 * 256  # Adjust outer radius based on resolution
+	inner_radius = res.y / 1080.0 * 144  # Adjust inner radius based on resolution
+	points_per_arc = res.y / 1080.0 * 32  # Adjust points per arc based on resolution
+	line_width = res.y / 1080.0 * 4  # Adjust line width based on resolution
+
+func on_esc():
+	reso.cur_gun = options[selected_option].gun_name  # Set the current gun in the resolution resource
+	ResourceSaver.save(reso, "user://Int/Res.tres")
+	weapon_state_machine.change_gun(reso.cur_gun)  # Change the gun in the weapon state machine
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 	get_parent().hide()

@@ -47,6 +47,10 @@ var expl = preload("res://Scenes/Explosion.tscn")
 @onready var fr: RayCast3D = get_node(fr_path)
 @onready var bl: RayCast3D = get_node(bl_path)
 @onready var cam : Camera3D = get_parent().get_node("Camera3D")
+<<<<<<< HEAD
+=======
+@onready var reso : Resolution = preload("user://Int/Res.tres")
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 @onready var b_l : CPUParticles3D
 @onready var b_r : CPUParticles3D
 @onready var audio_stream_player : AudioStreamPlayer = get_node("Ball/Oncollision")
@@ -240,10 +244,17 @@ func close_miss(body : RigidBody3D):
 
 		
 func part_change():
+<<<<<<< HEAD
 	if Global.reso.cur_world == 1:
 		b_l = get_node(b_l_particles)
 		b_r = get_node(b_r_particles)
 	elif Global.reso.cur_world == 2:
+=======
+	if reso.cur_world == 1:
+		b_l = get_node(b_l_particles)
+		b_r = get_node(b_r_particles)
+	elif reso.cur_world == 2:
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 		b_l = get_node(b_l2_particles)
 		b_r = get_node(b_r2_particles)
 		

@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 Node
 LightmapGI
+=======
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 CSGBox3D
 AudioStreamPlayer3D
 Node3D
 MeshInstance3D
+<<<<<<< HEAD
+=======
+Node
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 VehicleWheel3D
 RayCast3D
 Node2D
@@ -12,3 +19,7 @@ Control
 TouchScreenButton
 GPUParticles3D
 PhantomCamera3D
+<<<<<<< HEAD
+=======
+Path3D
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300

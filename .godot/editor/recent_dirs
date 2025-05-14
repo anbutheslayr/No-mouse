@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 res://dialogic/chars
 res://dialogic/styles
 res://dialogic/Timelines
@@ -5,14 +6,26 @@ res://Scripts/GDscript
 res://
 res://Scenes
 res://Scripts/Cutscene
+=======
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 res://Interface
 res://Global
 res://Assets/Models/Guns
 res://Scripts/GDscript/Weapon state machine
+<<<<<<< HEAD
 D:/Blender3.6
 res://Assets/blend
 res://Scenes/Worlds
 res://Scripts
+=======
+res://Scripts/GDscript
+D:/Blender3.6
+res://Assets/blend
+res://Scenes/Worlds
+res://Scenes
+res://Scripts
+res://
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 D:/Godot projects/New folder/No-mouse
 res://Assets
 D:/Microsoft VS Code

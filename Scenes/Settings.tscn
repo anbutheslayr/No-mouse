@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://dscgqcs22m4d5" path="res://Scripts/GDscript/settings.gd" id="1_ppjuv"]
 [ext_resource type="Theme" uid="uid://6wasy10nsxp0" path="res://Scenes/Theme.tres" id="2"]
 [ext_resource type="FontFile" path="res://Scenes/Theme_font.tres" id="3"]
+<<<<<<< HEAD
 [ext_resource type="FontFile" uid="uid://c4o1fg7bafdkv" path="res://Scenes/FONT.tres" id="4"]
+=======
+[ext_resource type="FontFile" path="res://Scenes/FONT.tres" id="4"]
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 [ext_resource type="Texture2D" uid="uid://btfnhm4dsqur0" path="res://Interface/Textures/esc pressed.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://d1ppy4ibabm88" path="res://Interface/Textures/esc.png" id="6"]
 
@@ -173,7 +177,11 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/OptionButton" to="." method="on_resolution_changed"]
+<<<<<<< HEAD
 [connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/Shadow" to="." method="set_shadows"]
+=======
+[connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/Shadow" to="." method="OnShadowSelect"]
+>>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 [connection signal="toggled" from="MarginContainer/HBoxContainer2/VBoxContainer/Glow" to="." method="OnGlowToggled"]
 [connection signal="item_selected" from="MarginContainer/HBoxContainer2/VBoxContainer/NoOfEnemies" to="." method="on_number_select"]
 [connection signal="value_changed" from="MarginContainer/HBoxContainer2/VBoxContainer/Hslider" to="." method="on_volume_changed"]
