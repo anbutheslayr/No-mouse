@@ -90,3 +90,6 @@ func get_leave_animation_suggestions(search_text:String) -> Dictionary:
 
 func get_crossfade_animation_suggestions(search_text:String) -> Dictionary:
 	return DialogicPortraitAnimationUtil.get_suggestions(search_text, %CrossFadeDefault.current_value, "", DialogicPortraitAnimationUtil.AnimationType.CROSSFADE)
+
+
+

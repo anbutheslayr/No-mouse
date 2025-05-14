@@ -4,10 +4,9 @@ extends Control
 @onready var title_label : Label = $MarginContainer/VBoxContainer/Label
 @onready var vb1 : VBoxContainer = $MarginContainer/VBoxContainer
 @onready var vb2 : VBoxContainer = $MarginContainer/HBoxContainer/VBoxContainer
-@onready var reso : Resolution = ResourceLoader.load("user://Int/Res.tres")
 var title_theme : Theme = preload("res://Scenes/title_theme.tres")
 func _ready():
-	resize(reso)
+	resize(Global.reso)
 func on_play_pressed():
 	get_parent().clicked()
 	hide()

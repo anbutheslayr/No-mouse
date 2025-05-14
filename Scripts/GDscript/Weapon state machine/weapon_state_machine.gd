@@ -3,7 +3,6 @@ class_name WeaponStateMachine
 # This is a state machine for the weapon system
 # It handles the different states of the weapon and transitions between them
 # It also handles the input and animation for the weapon
-@onready var reso : Resolution = ResourceLoader.load("user://Int/Res.tres")
 var enemies : Array 
 var closest_enemy
 @export var player_path : NodePath

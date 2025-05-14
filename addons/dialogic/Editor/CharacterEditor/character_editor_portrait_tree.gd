@@ -80,26 +80,22 @@ func _on_item_mouse_selected(pos: Vector2, mouse_button_index: int) -> void:
 ##					DRAG AND DROP
 ################################################################################
 
-func _get_drag_data(at_position: Vector2) -> Variant:
-	var drag_item := get_item_at_position(at_position)
-	if not drag_item:
-		return null
-	
+func _get_drag_data(position: Vector2) -> Variant:
 	drop_mode_flags = DROP_MODE_INBETWEEN
 	var preview := Label.new()
-	preview.text = "     "+drag_item.get_text(0)
+	preview.text = "     "+get_selected().get_text(0)
 	preview.add_theme_stylebox_override('normal', get_theme_stylebox("Background", "EditorStyles"))
 	set_drag_preview(preview)
 
-	return drag_item
+	return get_selected()
 
 
-func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(position: Vector2, data: Variant) -> bool:
 	return data is TreeItem
 
 
-func _drop_data(at_position: Vector2, item: Variant) -> void:
-	var to_item := get_item_at_position(at_position)
+func _drop_data(position: Vector2, item: Variant) -> void:
+	var to_item := get_item_at_position(position)
 	if to_item:
 		var test_item := to_item
 		while true:
@@ -109,7 +105,7 @@ func _drop_data(at_position: Vector2, item: Variant) -> void:
 			if test_item == get_root():
 				break
 
-	var drop_section := get_drop_section_at_position(at_position)
+	var drop_section := get_drop_section_at_position(position)
 	var parent := get_root()
 	if to_item:
 		parent = to_item.get_parent()

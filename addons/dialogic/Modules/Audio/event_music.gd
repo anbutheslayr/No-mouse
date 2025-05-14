@@ -8,13 +8,7 @@ extends DialogicEvent
 ### Settings
 
 ## The file to play. If empty, the previous music will be faded out.
-var file_path := "":
-	set(value):
-		if file_path != value:
-			file_path = value
-			ui_update_needed.emit()
-## The channel to use.
-var channel_id: int = 0
+var file_path := ""
 ## The length of the fade. If 0 (by default) it's an instant change.
 var fade_length: float = 0
 ## The volume the music will be played at.
@@ -30,8 +24,8 @@ var loop := true
 ################################################################################
 
 func _execute() -> void:
-	if not dialogic.Audio.is_music_playing_resource(file_path, channel_id):
-		dialogic.Audio.update_music(file_path, volume, audio_bus, fade_length, loop, channel_id)
+	if not dialogic.Audio.is_music_playing_resource(file_path):
+		dialogic.Audio.update_music(file_path, volume, audio_bus, fade_length, loop)
 
 	finish()
 
@@ -61,7 +55,6 @@ func get_shortcode_parameters() -> Dictionary:
 	return {
 		#param_name : property_info
 		"path"		: {"property": "file_path", 	"default": ""},
-		"channel"	: {"property": "channel_id", 	"default": 0},
 		"fade"		: {"property": "fade_length", 	"default": 0},
 		"volume"	: {"property": "volume", 		"default": 0},
 		"bus"		: {"property": "audio_bus", 	"default": "",
@@ -80,8 +73,6 @@ func build_event_editor() -> void:
 			'file_filter' 	: "*.mp3, *.ogg, *.wav; Supported Audio Files",
 			'placeholder' 	: "No music",
 			'editor_icon' 	: ["AudioStreamPlayer", "EditorIcons"]})
-	add_header_edit('channel_id', ValueType.FIXED_OPTIONS, {'left_text':'on:', 'options': get_channel_list()})
-	add_header_edit('file_path', ValueType.AUDIO_PREVIEW)
 	add_body_edit('fade_length', ValueType.NUMBER, {'left_text':'Fade Time:'})
 	add_body_edit('volume', ValueType.NUMBER, {'left_text':'Volume:', 'mode':2}, '!file_path.is_empty()')
 	add_body_edit('audio_bus', ValueType.SINGLELINE_TEXT, {'left_text':'Audio Bus:'}, '!file_path.is_empty()')
@@ -93,13 +84,3 @@ func get_bus_suggestions() -> Dictionary:
 	for i in range(AudioServer.bus_count):
 		bus_name_list[AudioServer.get_bus_name(i)] = {'value':AudioServer.get_bus_name(i)}
 	return bus_name_list
-
-
-func get_channel_list() -> Array:
-	var channel_name_list := []
-	for i in ProjectSettings.get_setting('dialogic/audio/max_channels', 4):
-		channel_name_list.append({
-			'label': 'Channel %s' % (i + 1),
-			'value': i,
-		})
-	return channel_name_list

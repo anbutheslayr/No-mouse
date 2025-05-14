@@ -7,29 +7,14 @@ extends Node3D
 @onready var click : AudioStreamPlayer = get_node("Click")
 @onready var back : AudioStreamPlayer = get_node("Back")
 
-var reso : Resolution
 
 func _ready() -> void:
 	Engine.time_scale = 1
-	verify_res()
-	# menu.resize(reso.res)
-	settings.resize(reso.res)
-	settings.reposition(reso.res)
-	settings.on_resolution_changed(reso.res_int)
+	# menu.resize(Global.reso.res)
+	settings.resize(Global.reso.res)
+	settings.reposition(Global.reso.res)
+	settings.on_resolution_changed(Global.reso.res_int)
 
-func verify_res() -> void:
-	var dir : DirAccess = DirAccess.open("user://")
-	if !dir.dir_exists("user://Int"):
-		dir.make_dir("user://Int")
-	if !dir.file_exists("user://Int/Res.tres"):
-		print("File not found")
-		reso = ResourceLoader.load("res://Interface/Res.tres")
-		ResourceSaver.save(reso,"user://Int/Res.tres")
-		reso = ResourceLoader.load("user://Int/Res.tres")
-	else :
-		print("File found")
-		reso = ResourceLoader.load("user://Int/Res.tres")
-	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Save"):
 		var image = get_viewport().get_texture().get_image()

@@ -1,21 +1,17 @@
 extends Control
 
-var reso : Resolution
-
-func _ready():
-	reso = ResourceLoader.load("user://Int/Res.tres")
 	
 
 func on_world1():
-	reso.cur_world = 1
-	ResourceSaver.save(reso, "user://Int/Res.tres")
+	Global.reso.cur_world = 1
+	ResourceSaver.save(Global.reso, "user://Int/Res.tres")
 	# var lod = get_tree().get_root().get_node("LoadingScreen")
 	# lod.call("load_scene", get_tree().get_root().get_node("Main_menu"), "res://Scenes/Worlds/World.tscn")
 	LoadingScreen.load_scene("res://Scenes/Worlds/test.tscn")
 	# get_tree().unload_current_scene()
 func on_world2():
-	reso.cur_world = 2
-	ResourceSaver.save(reso, "user://Int/Res.tres")
+	Global.reso.cur_world = 2
+	ResourceSaver.save(Global.reso, "user://Int/Res.tres")
 	LoadingScreen.load_scene("res://Scenes/Worlds/World2.tscn")
 
 func on_cutscene():

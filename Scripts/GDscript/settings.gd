@@ -11,10 +11,9 @@ var gtheme : Theme = preload("res://Scenes/Theme.tres")
 @onready var glow : CheckBox = get_node("MarginContainer/HBoxContainer2/VBoxContainer/Glow")
 @onready var shadows : OptionButton = get_node("MarginContainer/HBoxContainer2/VBoxContainer/Shadow")
 @onready var difficulty_selector : OptionButton = get_node("MarginContainer/HBoxContainer2/VBoxContainer/Difficulty")
-var reso : Resolution = ResourceLoader.load("user://Int/Res.tres")
 
 func _ready() -> void:
-	if(reso.glow):
+	if(Global.reso.glow):
 		glow.set_pressed_no_signal(true)
 	
 
@@ -23,7 +22,7 @@ func _ready() -> void:
 	resolution_button.add_item("1024x576",2)
 	resolution_button.add_item("800x480",3)
 	resolution_button.add_item("640x360",4)
-	resolution_button.selected = reso.res_int
+	resolution_button.selected = Global.reso.res_int
 
 	no_of_enemies.add_item("1",0)
 	no_of_enemies.add_item("2",1)
@@ -35,31 +34,31 @@ func _ready() -> void:
 	no_of_enemies.add_item("8",7)
 	no_of_enemies.add_item("9",8)
 	no_of_enemies.add_item("10",9)
-	no_of_enemies.selected = reso.no_of_enemies-1
+	no_of_enemies.selected = Global.reso.no_of_enemies-1
 
 	shadows.add_item("Ultra low quality",0)
 	shadows.add_item("Low quality",1)
 	shadows.add_item("Medium quality",2)
 	shadows.add_item("High quality",3)
 	shadows.add_item("Ultra high quality",4)
-	shadows.selected = reso.shadow_quality
+	shadows.selected = Global.reso.shadow_quality
 
 	difficulty_selector.add_item("Easy",0)
 	difficulty_selector.add_item("Normal",1)
 	difficulty_selector.add_item("Hard",2)
-	difficulty_selector.selected = reso.difficulty
+	difficulty_selector.selected = Global.reso.difficulty
 
-	volume.set_value(reso.volume)
+	volume.set_value(Global.reso.volume)
 
 
 func on_difficulty_changed(index):
 	match index:
 		0:
-			reso.difficulty = 0
+			Global.reso.difficulty = 0
 		1:
-			reso.difficulty = 1
+			Global.reso.difficulty = 1
 		2:
-			reso.difficulty = 2
+			Global.reso.difficulty = 2
 
 func on_volume_changed(value):
 	var audio_bus = AudioServer.get_bus_index("Master")
@@ -68,10 +67,10 @@ func on_volume_changed(value):
 		AudioServer.set_bus_mute(audio_bus, true)
 	else:    
 		AudioServer.set_bus_mute(audio_bus, false)
-	reso.volume = value
+	Global.reso.volume = value
 
 func on_glow_toggled(button_pressed):
-	reso.glow = button_pressed
+	Global.reso.glow = button_pressed
 	if button_pressed:
 		get_tree().root.get_node("Main_menu/WorldEnvironment").environment.glow_enabled = true
 	else:
@@ -93,34 +92,34 @@ func set_shadows(index):
 		4:
 			ProjectSettings.set_setting("rendering/quality/directional_shadow/size", 4864)
 			ProjectSettings.set_setting("rendering/quality/directional_shadow/size.mobile", 4864)
-	reso.shadow_quality = index
+	Global.reso.shadow_quality = index
 	print("Shadow quality: ", index)
 	print("Shadow size: ", ProjectSettings.get_setting("rendering/quality/directional_shadow/size"))
 	ProjectSettings.save_custom("res://override.cfg")
 func on_resolution_changed(index):
 	match index:
 		0:
-			reso.res = Vector2i(1920,1080)
-			reso.res_int = 0
+			Global.reso.res = Vector2i(1920,1080)
+			Global.reso.res_int = 0
 		1:
-			reso.res = Vector2i(1280,720)
-			reso.res_int = 1
+			Global.reso.res = Vector2i(1280,720)
+			Global.reso.res_int = 1
 		2:
-			reso.res = Vector2i(1024,576)
-			reso.res_int = 2
+			Global.reso.res = Vector2i(1024,576)
+			Global.reso.res_int = 2
 		3:
-			reso.res = Vector2i(800,480)
-			reso.res_int = 3
+			Global.reso.res = Vector2i(800,480)
+			Global.reso.res_int = 3
 		4:
-			reso.res = Vector2i(640,360)
-			reso.res_int = 4
-	reso.res_int = index
+			Global.reso.res = Vector2i(640,360)
+			Global.reso.res_int = 4
+	Global.reso.res_int = index
 	get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
 	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
-	get_window().content_scale_size = reso.res
+	get_window().content_scale_size = Global.reso.res
 	
-	resize(reso.res)
-	reposition(reso.res)
+	resize(Global.reso.res)
+	reposition(Global.reso.res)
 
 func resize(res):
 	gtheme.default_font_size = res.y/1080.0*40
@@ -138,11 +137,11 @@ func reposition(res : Vector2i):
 	hb2.add_theme_constant_override("separation", (res.y/1080.0*300))
 
 func on_esc():
-	ResourceSaver.save(reso, "user://Int/Res.tres")
+	ResourceSaver.save(Global.reso, "user://Int/Res.tres")
 	get_parent().backed()
 	hide()
 	get_parent().get_node("Menu").show()
-	get_parent().get_node("Menu").resize(reso)
+	get_parent().get_node("Menu").resize(Global.reso)
 
 func on_number_select(index:int):
-	reso.no_of_enemies = index+1
+	Global.reso.no_of_enemies = index+1

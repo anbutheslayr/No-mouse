@@ -86,19 +86,19 @@ InputRecorder="*res://Scripts/GDscript/InputRecorder.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 TracerPool="*res://Global/tracer_pool.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Global="*res://Scripts/GDscript/Global.gd"
 
 [dialogic]
 
 directories/dch_directory={
-"Enemy": "res://dialogic/characters/Enemy.dch",
-"player": "res://dialogic/characters/player.dch"
+"character": "res://dialogic/chars/character.dch"
 }
 directories/dtl_directory={
 "Intro": "res://dialogic/Timelines/Intro.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://dialogic/Style/style.tres"]
-layout/default_style="res://dialogic/Style/style.tres"
+layout/style_list=["res://dialogic/styles/style.tres"]
+layout/default_style="res://dialogic/styles/style.tres"
 variables={}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

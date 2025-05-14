@@ -43,3 +43,4 @@ func set_choice_text(new_text: String) -> void:
 		text_node.text = new_text
 	else:
 		text = new_text
+
