@@ -21,6 +21,5 @@ func state_process(delta):
 		minigun_state.machine_gun1_descend_audio.play()
 		minigun_state.machine_gun2_descend_audio.play()
 		print("minigun descend audio")
-	print(minigun_state.minigun1.cur_speed <1500 and !minigun_state.machine_gun1_descend_audio.is_playing())
 func state_update(delta):
 	pass

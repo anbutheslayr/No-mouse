@@ -1,3 +1,4 @@
+res://Scripts/GDscript
 res://
 res://dialogic/characters
 res://Scenes
@@ -8,7 +9,6 @@ res://Interface
 res://Global
 res://Assets/Models/Guns
 res://Scripts/GDscript/Weapon state machine
-res://Scripts/GDscript
 D:/Blender3.6
 res://Assets/blend
 res://Scenes/Worlds

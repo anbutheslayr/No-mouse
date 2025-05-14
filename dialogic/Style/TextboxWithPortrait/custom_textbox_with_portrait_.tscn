@@ -23,6 +23,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_7jt4d")
+text_custom_size = 20
+name_label_custom_size = 20
 box_panel = "res://addons/dialogic/Modules/DefaultLayoutParts/Layer_SpeakerPortraitTextbox/default_stylebox.tres"
 
 [node name="Anchor" type="Control" parent="."]

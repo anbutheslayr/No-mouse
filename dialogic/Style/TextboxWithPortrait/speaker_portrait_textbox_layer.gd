@@ -47,10 +47,21 @@ enum NameLabelColorModes {GLOBAL_COLOR, CHARACTER_COLOR, CUSTOM_COLOR}
 @export var portrait_stretch_factor: float = 0.3
 @export var portrait_position: LimitedAlignments = LimitedAlignments.LEFT
 @export var portrait_bg_modulate: Color = Color(0, 0, 0, 0.5137255191803)
-
+var reso : Resolution = preload("user://Int/Res.tres")
+	
+	
 
 ## Called by dialogic whenever export overrides might change
 func _apply_export_overrides() -> void:
+	box_size.x = reso.res.x/1920.0*1600
+	box_size.y = reso.res.y/1080.0*320
+	box_distance = reso.res.y/1080.0*25
+	text_custom_size = reso.res.y/1080.0*30
+	name_label_custom_size = reso.res.y/1080.0*30
+	print("box_size: ", box_size)
+	print("box_distance: ", box_distance)
+	print("text_custom_size: ", text_custom_size)
+	print("name_label_custom_size: ", name_label_custom_size)
 	## FONT SETTINGS
 	var dialog_text: DialogicNode_DialogText = %DialogicNode_DialogText
 	dialog_text.alignment = text_alignment as DialogicNode_DialogText.Alignment

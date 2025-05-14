@@ -17,7 +17,8 @@ var new_scene : PackedScene
 func load_scene(next_scene):
 	called = true
 	lod_inst = lodscrn.instantiate()
-	get_tree().unload_current_scene()
+	# get_tree().unload_current_scene()
+	get_tree().change_scene_to_file("res://Scenes/Worlds/null.tscn")
 	get_tree().root.call_deferred("add_child",lod_inst)
 	ResourceLoader.load_threaded_request(next_scene)
 	label = lod_inst.get_node("ColorRect/Label") as Label
