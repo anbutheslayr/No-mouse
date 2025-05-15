@@ -1,0 +1,15 @@
+AnimationPlayer
+CSGPolygon3D
+MeshInstance3D
+NavigationRegion3D
+CSGBox3D
+Node
+LightmapGI
+AudioStreamPlayer3D
+Node3D
+Node
+VehicleWheel3D
+RayCast3D
+Node2D
+WorldEnvironment
+Control

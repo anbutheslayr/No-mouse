@@ -4,11 +4,7 @@
 [ext_resource type="Script" uid="uid://ckbn4ojt28lop" path="res://Scripts/GDscript/MainMenu.gd" id="1_nv4gm"]
 [ext_resource type="PackedScene" uid="uid://qkuutuxhglqw" path="res://Scenes/Settings.tscn" id="2"]
 [ext_resource type="Material" path="res://Assets/Materials/FrontColor.material" id="3"]
-<<<<<<< HEAD
 [ext_resource type="Material" uid="uid://q8spaeb3662t" path="res://Assets/Materials/Gray6.material" id="4"]
-=======
-[ext_resource type="Material" path="res://Assets/Materials/Gray6.material" id="4"]
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 [ext_resource type="Material" path="res://Assets/Materials/Gray5.material" id="5"]
 [ext_resource type="Material" path="res://Assets/Materials/Gray8.material" id="6"]
 [ext_resource type="ArrayMesh" uid="uid://cdhyjuk3j3inm" path="res://taxi.tres" id="7"]
@@ -20,28 +16,19 @@
 [ext_resource type="AudioStream" uid="uid://dfjlm5k5o2j4s" path="res://Assets/Audio/No.wav" id="14"]
 [ext_resource type="PackedScene" uid="uid://clet5ehvqy5yk" path="res://Interface/Select level.tscn" id="15"]
 
-<<<<<<< HEAD
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_738rb"]
-=======
-[sub_resource type="StandardMaterial3D" id="1"]
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 resource_name = "plastic"
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.376471, 0.376471, 0.376471, 1)
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.376471, 0.376471, 0.376471, 1)
-<<<<<<< HEAD
 emission_energy_multiplier = 0.5
-=======
-emission_energy_multiplier = 0.1
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 [sub_resource type="StandardMaterial3D" id="2"]
 resource_name = "carTire"
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.239216, 0.239216, 0.239216, 1)
-<<<<<<< HEAD
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.239216, 0.239216, 0.239216, 1)
@@ -64,27 +51,6 @@ metallic = 1.0
 emission_enabled = true
 emission = Color(0.898039, 0.0431373, 0.0431373, 1)
 emission_energy_multiplier = 0.0
-=======
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="13"]
-resource_name = "paintYellow"
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.740017, 0.259434, 1)
-metallic = 1.0
-emission_enabled = true
-emission = Color(0.752941, 0.639216, 0.121569, 1)
-emission_energy_multiplier = 1.3
-
-[sub_resource type="StandardMaterial3D" id="14"]
-resource_name = "lightFront"
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.960784, 0.72549, 0.258824, 1)
-metallic = 1.0
-emission_enabled = true
-emission = Color(0.960784, 0.72549, 0.258824, 1)
-emission_energy_multiplier = 0.1
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 [sub_resource type="StandardMaterial3D" id="15"]
 resource_name = "_defaultMat"
@@ -101,16 +67,12 @@ albedo_color = Color(0.937255, 0.937255, 0.937255, 1)
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.921569, 0.870588, 0.870588, 1)
-<<<<<<< HEAD
 emission_energy_multiplier = 0.75
-=======
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 [sub_resource type="StandardMaterial3D" id="7"]
 resource_name = "lightBack"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0.34902, 0.227451, 1)
-<<<<<<< HEAD
 metallic = 1.0
 emission_enabled = true
 emission = Color(1, 0.34902, 0.227451, 1)
@@ -126,19 +88,6 @@ emission = Color(0.937255, 0.87451, 0.87451, 1)
 emission_energy_multiplier = 1.3
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nv4gm"]
-=======
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="8"]
-resource_name = "wheelInside"
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.796057, 0.80477, 0.839623, 1)
-metallic = 1.0
-emission_enabled = true
-emission = Color(0.937255, 0.87451, 0.87451, 1)
-
-[sub_resource type="ArrayMesh" id="9"]
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 resource_name = "taxi_Mesh body"
 _surfaces = [{
 "aabb": AABB(-0.75, 0, -1.2, 1.5, 1.3, 2.65),
@@ -146,11 +95,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 996,
 "index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYABwAIAAYACAAJAAYACQAKAAYACQALAAoACwAMAAoACwANAAwACwAOAA0ADgAPAA0ADgAQAA8ADgARABAAEQASABAAEQATABIAEwAUABIAEwAVABQAEwAWABUAFgAXABUAFgAYABcAGAAZABcAGAAaABkAGgAbABkAGgAcABsAGgAdABwAHQAeABwAHQAfAB4AHQAgAB8AHQAhACAAIAAiAB8AIAAjACIAIwAkACIAJAAlACIAJQAmACIAJQAnACYAJwAoACYAJwApACgAJwAqACkAKgArACkAKgAsACsAKgAtACwALQAuACwALQAvAC4ALwAwAC4ALwAxADAALwAyADEAMgAzADEAMgA0ADMANAA1ADMANAA2ADUANgA3ADUANgA4ADcANgA5ADgAOQA6ADgAOQA7ADoAOQA8ADsAOQA9ADwAOQA+AD0APQA/ADwAQgBAAEEAQwBCAEEAQwBEAEIARQBDAEEARgBFAEEARwBGAEEARwBBAEgASQBHAEgASgBJAEgASgBIAEsATABKAEsATABLAE0ATgBMAE0ATwBOAE0ATwBNAFAAUQBPAFAAUQBQAFIAUwBRAFIAUwBSAFQAVQBTAFQAVgBVAFQAVgBUAFcAWABWAFcAWQBYAFcAVwBaAFkAWwBZAFoAWwBaAFwAWwBcAF0AWwBdAF4AXwBbAF4AXwBeAGAAXgBhAGAAYgBfAGAAYwBiAGAAYwBgAGQAZQBjAGQAZgBlAGQAZgBkAGcAaABmAGcAaABnAGkAagBoAGkAawBqAGkAawBpAGwAbQBrAGwAbQBsAG4AbwBtAG4AbwBuAHAAcQBvAHAAcgBxAHAAcgBwAHMAdAByAHMAdQB0AHMAcwB2AHUAdwB1AHYAdwB2AHgAdwB4AHkAegB3AHkAeQB7AHoAfgB8AH0AfQB/AH4AfwCAAH4AgACBAH4AhACCAIMAgwCFAIQAhQCGAIQAhgCHAIQAhwCIAIQAiwCJAIoAigCMAIsAjwCNAI4AjgCQAI8AkwCRAJIAkgCUAJMAlwCVAJYAlgCYAJcAmwCZAJoAmgCcAJsAnwCdAJ4AngCgAJ8AowChAKIAogCkAKMAogClAKQAqACmAKcApwCpAKgArACqAKsAqwCtAKwAsACuAK8ArwCxALAAtACyALMAswC1ALQAuAC2ALcAtwC5ALgAvAC6ALsAuwC9ALwAwAC+AL8AvwDBAMAAxADCAMMAwwDFAMQAyADGAMcAxwDJAMgAzADKAMsAywDNAMwA0ADOAM8AzwDRANAAzwDSANEAzwDTANIAzwDUANMA1wDVANYA1gDYANcA2wDZANoA2gDcANsA2gDdANwA2gDeAN0A2gDfAN4A3wDgAN4A3wDhAOAA3wDiAOEA5QDjAOQA5ADmAOUA6QDnAOgA6ADqAOkA6gDrAOkA6wDsAOkA7ADtAOkA7ADuAO0A7gDvAO0A7wDwAO0A8wDxAPIA8gD0APMA9wD1APYA9gD4APcA+wD5APoA+gD8APsA/wD9AP4A/gAAAf8AAwEBAQIBAgEEAQMBBwEFAQYBBgEIAQcBCwEJAQoBCgEMAQsBDAENAQsBEAEOAQ8BDwERARABFAESARMBEwEVARQBGAEWARcBFwEZARgBFwEaARkBHQEbARwBHAEeAR0BHgEfAR0BIgEgASEBIQEjASIBJgEkASUBJQEnASYBKgEoASkBKQErASoBKwEsASoBLwEtAS4BLgEwAS8BMAExAS8BNAEyATMBMwE1ATQBOAE2ATcBNwE5ATgBPAE6ATsBOwE9ATwBQAE+AT8BPwFBAUABRAFCAUMBQwFFAUQBSAFGAUcBRwFJAUgBTAFKAUsBSwFNAUwBUAFOAU8BTwFRAVABTwFSAVEBVQFTAVQBVAFWAVUBWQFXAVgBWAFaAVkBWAFbAVoBXgFcAV0BXQFfAV4BYgFgAWEBYQFjAWIBZgFkAWUBZQFnAWYBagFoAWkBaQFrAWoBbgFsAW0BbQFvAW4BbQFwAW8BbQFxAXABdAFyAXMBcwF1AXQBeAF2AXcBeAF3AXkBegF4AXkBewF6AXkBfAF7AXkBeQF9AXwBfgF8AX0BfgF9AX8BgAF+AX8BfwGBAYABhAGCAYMBgwGFAYQBiAGGAYcBhwGJAYgBjAGKAYsBiwGNAYwBkAGOAY8BjwGRAZABlAGSAZMBkwGVAZQBmAGWAZcBlwGZAZgBnAGaAZsBmwGdAZwBoAGeAZ8BnwGhAaABpAGiAaMBowGlAaQBpQGjAaYBpQGmAacBpQGnAagBpQGpAaQBqQGqAaQBqwGlAagBqwGoAawBrQGrAawBrgGtAawBrAGvAa4BsgGwAbEBsQGzAbIBtgG0AbUBtQG3AbYBugG4AbkBuQG7AboBvgG8Ab0BvQG/Ab4BwgHAAcEBwQHDAcIBxgHEAcUBxQHHAcYBxQHIAccByQHHAcgBygHJAcgBywHKAcgBzAHLAcgByAHNAcwByQHOAccByQHPAc4ByQHQAc8B0AHRAc8BzgHSAccBxwHSAdMB1AHTAdIB0gHVAdQB1QHWAdQBxwHTAdcB0wHYAdcB2QHHAdcB2AHaAdcB2AHbAdoB2QHXAdwB2QHcAd0B2QHdAd4B3gHfAdkB"),
-<<<<<<< HEAD
 "material": SubResource("StandardMaterial3D_738rb"),
-=======
-"material": SubResource("1"),
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 1018,
@@ -771,7 +716,6 @@ size = Vector3(0.005, 0.087, 0.007)
 [sub_resource type="BoxMesh" id="21"]
 size = Vector3(-0.012, 0.087, -0.018)
 
-<<<<<<< HEAD
 [sub_resource type="StandardMaterial3D" id="1"]
 resource_name = "plastic"
 vertex_color_use_as_albedo = true
@@ -800,30 +744,6 @@ emission = Color(0.752941, 0.121569, 0.121569, 1)
 emission_energy_multiplier = 1.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jn1t5"]
-=======
-[sub_resource type="StandardMaterial3D" id="25"]
-resource_name = "plastic"
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.376471, 0.376471, 0.376471, 1)
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="26"]
-resource_name = "carTire"
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.239216, 0.239216, 0.239216, 1)
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="27"]
-resource_name = "paintYellow"
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.835294, 0.0980392, 0.286275, 1)
-metallic = 1.0
-emission_enabled = true
-emission = Color(0.752941, 0.121569, 0.121569, 1)
-emission_energy_multiplier = 1.3
-
-[sub_resource type="StandardMaterial3D" id="28"]
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 resource_name = "lightFront"
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.960784, 0.72549, 0.258824, 1)
@@ -831,11 +751,7 @@ metallic = 1.0
 emission_enabled = true
 emission = Color(0.960784, 0.72549, 0.258824, 1)
 
-<<<<<<< HEAD
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x34pm"]
-=======
-[sub_resource type="StandardMaterial3D" id="29"]
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 resource_name = "_defaultMat"
 vertex_color_use_as_albedo = true
 metallic = 1.0
@@ -843,18 +759,13 @@ emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.5
 
-<<<<<<< HEAD
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5fqo"]
-=======
-[sub_resource type="StandardMaterial3D" id="30"]
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 resource_name = "window"
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.937255, 0.937255, 0.937255, 1)
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.921569, 0.870588, 0.870588, 1)
-<<<<<<< HEAD
 emission_energy_multiplier = 0.75
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gns88"]
@@ -875,24 +786,6 @@ emission = Color(0.937255, 0.87451, 0.87451, 1)
 emission_energy_multiplier = 0.2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tyf1b"]
-=======
-
-[sub_resource type="StandardMaterial3D" id="31"]
-resource_name = "lightBack"
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.34902, 0.227451, 1)
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="32"]
-resource_name = "wheelInside"
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.796057, 0.80477, 0.839623, 1)
-metallic = 1.0
-emission_enabled = true
-emission = Color(0.937255, 0.87451, 0.87451, 1)
-
-[sub_resource type="ArrayMesh" id="33"]
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 resource_name = "taxi_Mesh body"
 _surfaces = [{
 "aabb": AABB(-0.75, 0, -1.2, 1.5, 1.3, 2.65),
@@ -900,11 +793,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 996,
 "index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYABwAIAAYACAAJAAYACQAKAAYACQALAAoACwAMAAoACwANAAwACwAOAA0ADgAPAA0ADgAQAA8ADgARABAAEQASABAAEQATABIAEwAUABIAEwAVABQAEwAWABUAFgAXABUAFgAYABcAGAAZABcAGAAaABkAGgAbABkAGgAcABsAGgAdABwAHQAeABwAHQAfAB4AHQAgAB8AHQAhACAAIAAiAB8AIAAjACIAIwAkACIAJAAlACIAJQAmACIAJQAnACYAJwAoACYAJwApACgAJwAqACkAKgArACkAKgAsACsAKgAtACwALQAuACwALQAvAC4ALwAwAC4ALwAxADAALwAyADEAMgAzADEAMgA0ADMANAA1ADMANAA2ADUANgA3ADUANgA4ADcANgA5ADgAOQA6ADgAOQA7ADoAOQA8ADsAOQA9ADwAOQA+AD0APQA/ADwAQgBAAEEAQwBCAEEAQwBEAEIARQBDAEEARgBFAEEARwBGAEEARwBBAEgASQBHAEgASgBJAEgASgBIAEsATABKAEsATABLAE0ATgBMAE0ATwBOAE0ATwBNAFAAUQBPAFAAUQBQAFIAUwBRAFIAUwBSAFQAVQBTAFQAVgBVAFQAVgBUAFcAWABWAFcAWQBYAFcAVwBaAFkAWwBZAFoAWwBaAFwAWwBcAF0AWwBdAF4AXwBbAF4AXwBeAGAAXgBhAGAAYgBfAGAAYwBiAGAAYwBgAGQAZQBjAGQAZgBlAGQAZgBkAGcAaABmAGcAaABnAGkAagBoAGkAawBqAGkAawBpAGwAbQBrAGwAbQBsAG4AbwBtAG4AbwBuAHAAcQBvAHAAcgBxAHAAcgBwAHMAdAByAHMAdQB0AHMAcwB2AHUAdwB1AHYAdwB2AHgAdwB4AHkAegB3AHkAeQB7AHoAfgB8AH0AfQB/AH4AfwCAAH4AgACBAH4AhACCAIMAgwCFAIQAhQCGAIQAhgCHAIQAhwCIAIQAiwCJAIoAigCMAIsAjwCNAI4AjgCQAI8AkwCRAJIAkgCUAJMAlwCVAJYAlgCYAJcAmwCZAJoAmgCcAJsAnwCdAJ4AngCgAJ8AowChAKIAogCkAKMAogClAKQAqACmAKcApwCpAKgArACqAKsAqwCtAKwAsACuAK8ArwCxALAAtACyALMAswC1ALQAuAC2ALcAtwC5ALgAvAC6ALsAuwC9ALwAwAC+AL8AvwDBAMAAxADCAMMAwwDFAMQAyADGAMcAxwDJAMgAzADKAMsAywDNAMwA0ADOAM8AzwDRANAAzwDSANEAzwDTANIAzwDUANMA1wDVANYA1gDYANcA2wDZANoA2gDcANsA2gDdANwA2gDeAN0A2gDfAN4A3wDgAN4A3wDhAOAA3wDiAOEA5QDjAOQA5ADmAOUA6QDnAOgA6ADqAOkA6gDrAOkA6wDsAOkA7ADtAOkA7ADuAO0A7gDvAO0A7wDwAO0A8wDxAPIA8gD0APMA9wD1APYA9gD4APcA+wD5APoA+gD8APsA/wD9AP4A/gAAAf8AAwEBAQIBAgEEAQMBBwEFAQYBBgEIAQcBCwEJAQoBCgEMAQsBDAENAQsBEAEOAQ8BDwERARABFAESARMBEwEVARQBGAEWARcBFwEZARgBFwEaARkBHQEbARwBHAEeAR0BHgEfAR0BIgEgASEBIQEjASIBJgEkASUBJQEnASYBKgEoASkBKQErASoBKwEsASoBLwEtAS4BLgEwAS8BMAExAS8BNAEyATMBMwE1ATQBOAE2ATcBNwE5ATgBPAE6ATsBOwE9ATwBQAE+AT8BPwFBAUABRAFCAUMBQwFFAUQBSAFGAUcBRwFJAUgBTAFKAUsBSwFNAUwBUAFOAU8BTwFRAVABTwFSAVEBVQFTAVQBVAFWAVUBWQFXAVgBWAFaAVkBWAFbAVoBXgFcAV0BXQFfAV4BYgFgAWEBYQFjAWIBZgFkAWUBZQFnAWYBagFoAWkBaQFrAWoBbgFsAW0BbQFvAW4BbQFwAW8BbQFxAXABdAFyAXMBcwF1AXQBeAF2AXcBeAF3AXkBegF4AXkBewF6AXkBfAF7AXkBeQF9AXwBfgF8AX0BfgF9AX8BgAF+AX8BfwGBAYABhAGCAYMBgwGFAYQBiAGGAYcBhwGJAYgBjAGKAYsBiwGNAYwBkAGOAY8BjwGRAZABlAGSAZMBkwGVAZQBmAGWAZcBlwGZAZgBnAGaAZsBmwGdAZwBoAGeAZ8BnwGhAaABpAGiAaMBowGlAaQBpQGjAaYBpQGmAacBpQGnAagBpQGpAaQBqQGqAaQBqwGlAagBqwGoAawBrQGrAawBrgGtAawBrAGvAa4BsgGwAbEBsQGzAbIBtgG0AbUBtQG3AbYBugG4AbkBuQG7AboBvgG8Ab0BvQG/Ab4BwgHAAcEBwQHDAcIBxgHEAcUBxQHHAcYBxQHIAccByQHHAcgBygHJAcgBywHKAcgBzAHLAcgByAHNAcwByQHOAccByQHPAc4ByQHQAc8B0AHRAc8BzgHSAccBxwHSAdMB1AHTAdIB0gHVAdQB1QHWAdQBxwHTAdcB0wHYAdcB2QHHAdcB2AHaAdcB2AHbAdoB2QHXAdwB2QHcAd0B2QHdAd4B3gHfAdkB"),
-<<<<<<< HEAD
 "material": SubResource("1"),
-=======
-"material": SubResource("25"),
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 1018,
@@ -915,11 +804,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 492,
 "index_data": PackedByteArray("4gHgAeEB4QHjAeIB5gHkAeUB5QHnAeYB6gHoAekB6QHrAeoB7gHsAe0B7QHvAe4B8gHwAfEB8QHzAfIB9gH0AfUB9QH3AfYB+gH4AfkB+QH7AfoB/gH8Af0B/QH/Af4BAgIAAgECAQIDAgICBgIEAgUCBQIHAgYCCgIIAgkCCQILAgoCDgIMAg0CDQIPAg4CEgIQAhECEQITAhICFgIUAhUCFQIXAhYCGgIYAhkCGQIbAhoCHgIcAh0CHQIfAh4CIgIgAiECIQIjAiICJgIkAiUCJQInAiYCKgIoAikCKQIrAioCLgIsAi0CLQIvAi4CMgIwAjECMQIzAjICNgI0AjUCNQI3AjYCOgI4AjkCOQI7AjoCPgI8Aj0CPQI/Aj4CQgJAAkECQQJDAkICRgJEAkUCRQJHAkYCSgJIAkkCSQJLAkoCTgJMAk0CTQJPAk4CUgJQAlECUQJTAlICVgJUAlUCVQJXAlYCWgJYAlkCWQJbAloCXgJcAl0CXQJfAl4CYgJgAmECYQJjAmICZgJkAmUCZQJnAmYCagJoAmkCaQJrAmoCbgJsAm0CbQJvAm4CcgJwAnECcQJzAnICdgJ0AnUCdQJ3AnYCegJ4AnkCeQJ7AnoCfgJ8An0CfQJ/An4CggKAAoECgQKDAoIChgKEAoUChQKHAoYChwKIAoYCiAKJAoYCiQKKAoYCigKLAoYCiwKMAoYCjAKNAoYCjQKOAoYCjgKPAoYCjwKQAoYCkAKRAoYCkQKSAoYClQKTApQClAKWApUClgKXApUClgKYApcClgKZApgClgKaApkClgKbApoClgKcApsClgKdApwClgKeAp0ClgKfAp4ClgKgAp8ClgKhAqACpAKiAqMCowKlAqQCqAKmAqcCpwKpAqgCqQKqAqgCqQKrAqoCqQKsAqsCqQKtAqwCqQKuAq0CqQKvAq4CqQKwAq8CqQKxArACqQKyArECqQKzArICqQK0ArMCtwK1ArYCtgK4ArcCuAK5ArcCuQK6ArcCugK7ArcCuwK8ArcCvAK9ArcCvQK+ArcCvgK/ArcCvwLAArcCwALBArcCwQLCArcCwgLDArcCxgLEAsUCxQLHAsYCygLIAskCyQLLAsoCzgLMAs0CzQLPAs4C0gLQAtEC0QLTAtIC1gLUAtUC1QLXAtYC2gLYAtkC2QLbAtoC3gLcAt0C3QLfAt4C4gLgAuEC4QLjAuIC5gLkAuUC5QLnAuYC6gLoAukC6QLrAuoC7gLsAu0C7QLvAu4C8gLwAvEC8QLzAvIC9gL0AvUC9QL3AvYC+gL4AvkC+QL7AvoC"),
-<<<<<<< HEAD
 "material": SubResource("StandardMaterial3D_nv4gm"),
-=======
-"material": SubResource("26"),
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 1018,
@@ -930,11 +815,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 426,
 "index_data": PackedByteArray("/gL8Av0CAQP/AgADBAMCAwMDAwMFAwQDCAMGAwcDBwMJAwgDDAMKAwsDCwMNAwwDEAMOAw8DDwMRAxADEQMSAxADEQMTAxIDFgMUAxUDFQMXAxYDGgMYAxkDGQMbAxoDGwMcAxoDHwMdAx4DHgMgAx8DIwMhAyIDIgMkAyMDJQMjAyQDJQMkAyYDJwMlAyYDJgMoAycDKwMpAyoDKgMsAysDLwMtAy4DLgMwAy8DMwMxAzIDMgM0AzMDNAM1AzMDNQM2AzMDNwM0AzIDOAM3AzIDOAMyAzkDOgM4AzkDOgM5AzsDPAM6AzsDNQM9AzYDPAM7Az4DPQM/AzYDPwNAAzYDQANBAzYDQQNCAzYDQgNDAzYDQwNEAzYDRQM8Az4DRgNFAz4DRgNHA0UDSANFA0cDSQNGAz4DSgNJAz4DSwNKAz4DSwM+A0wDTQNLA0wDTgNNA0wDTwNOA0wDUANPA0wDUANRA08DUgNQA0wDUwNSA0wDTANUA1MDVwNVA1YDVgNYA1cDWwNZA1oDWgNcA1sDXQNcA1oDXANeA1sDXgNfA1sDYANdA1oDXgNhA18DXgNiA2EDYgNjA2EDYwNkA2EDYwNlA2QDZQNmA2QDZQNnA2YDZQNoA2cDZQNpA2gDZQNqA2kDZQNrA2oDZQNsA2sDYANaA20DYANtA24DbQNvA24DbQNwA28DYANuA3EDYANxA3IDYANyA3MDdANgA3MDdANzA3UDdAN1A3YDdAN2A3cDdAN3A3gDdwN5A3gDegN0A3gDewN6A3gDeAN8A3sDfwN9A34DfgOAA38DgAOBA38DhAOCA4MDgwOFA4QDiAOGA4cDhwOJA4gDjAOKA4sDjQOMA4sDjgONA4sDiwOPA44DkAOOA48DjwORA5ADlAOSA5MDkwOVA5QDlQOWA5QDlwOUA5YDmAOXA5YDlgOZA5gDnAOaA5sDmwOdA5wDmwOeA50DngOfA50DngOgA58DngOhA6ADpAOiA6MDowOlA6QDqAOmA6cDpwOpA6gDqgOnA6YDpwOrA6kDpgOsA6oDqwOtA6kDrQOsA6kDrAOtA6oDsAOuA68DrwOxA7ADsgOvA64DrwOzA7EDrgO0A7IDswO1A7EDtAO1A7IDtAOxA7UD"),
-<<<<<<< HEAD
 "material": SubResource("StandardMaterial3D_1jq03"),
-=======
-"material": SubResource("27"),
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 1018,
@@ -945,11 +826,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("tgOEA4UDhQO3A7YDuAOkA6UDpQO5A7gD"),
-<<<<<<< HEAD
 "material": SubResource("StandardMaterial3D_jn1t5"),
-=======
-"material": SubResource("28"),
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 1018,
@@ -960,11 +837,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 54,
 "index_data": PackedByteArray("vAO6A7sDvwO9A74DwgPAA8EDxQPDA8QDyAPGA8cDywPJA8oDzgPMA80D0QPPA9AD1APSA9MD1wPVA9YD2gPYA9kD3QPbA9wD4APeA98D4wPhA+ID5gPkA+UD6QPnA+gD7APqA+sD7wPtA+4D"),
-<<<<<<< HEAD
 "material": SubResource("StandardMaterial3D_x34pm"),
-=======
-"material": SubResource("29"),
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 1018,
@@ -975,11 +848,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 36,
 "index_data": PackedByteArray("lQOTA/AD8APxA5UD8QOZA5UDmQOWA5UDjQOOA5ADkAPyA40D8gOMA40D8wOcA50DnQOfA/MDnwOgA/MDswOvA7IDsgO1A7MD"),
-<<<<<<< HEAD
 "material": SubResource("StandardMaterial3D_w5fqo"),
-=======
-"material": SubResource("30"),
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 1018,
@@ -990,11 +859,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("9AMmAyQDJAMiA/QDIQMjAyUDJQP1AyED"),
-<<<<<<< HEAD
 "material": SubResource("StandardMaterial3D_gns88"),
-=======
-"material": SubResource("31"),
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 1018,
@@ -1005,11 +870,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("9gOHAYoBigH3A/YDhQP4A/kD+QOkA4UD"),
-<<<<<<< HEAD
 "material": SubResource("StandardMaterial3D_cxakn"),
-=======
-"material": SubResource("32"),
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 1018,
@@ -1160,11 +1021,7 @@ transform = Transform3D(0.116289, 0, 0.993215, 0, 1, 0, -0.993215, 0, 0.116289, 
 
 [node name="body" type="MeshInstance3D" parent="taxi/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.1)
-<<<<<<< HEAD
 mesh = SubResource("ArrayMesh_nv4gm")
-=======
-mesh = SubResource("9")
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 skeleton = NodePath("../..")
 
 [node name="MachineGun" type="Node3D" parent="taxi/Node3D/body"]
@@ -1211,11 +1068,7 @@ transform = Transform3D(0.312385, 0, 0.949956, 0, 1, 0, -0.949956, 0, 0.312385, 
 
 [node name="body" type="MeshInstance3D" parent="taxi2/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.0999999)
-<<<<<<< HEAD
 mesh = SubResource("ArrayMesh_tyf1b")
-=======
-mesh = SubResource("33")
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 skeleton = NodePath("../..")
 
 [node name="wheel_backRight" type="MeshInstance3D" parent="taxi2/Node3D"]
@@ -1245,11 +1098,7 @@ transform = Transform3D(0.864231, 0, 0.503095, 0, 1, 0, -0.503095, 0, 0.864231, 
 
 [node name="body" type="MeshInstance3D" parent="taxi3/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.0999999)
-<<<<<<< HEAD
 mesh = SubResource("ArrayMesh_tyf1b")
-=======
-mesh = SubResource("33")
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 skeleton = NodePath("../..")
 
 [node name="wheel_backRight" type="MeshInstance3D" parent="taxi3/Node3D"]
@@ -1279,11 +1128,7 @@ transform = Transform3D(-0.397773, 0, 0.917484, 0, 1, 0, -0.917484, 0, -0.397773
 
 [node name="body" type="MeshInstance3D" parent="taxi4/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.0999999)
-<<<<<<< HEAD
 mesh = SubResource("ArrayMesh_tyf1b")
-=======
-mesh = SubResource("33")
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 skeleton = NodePath("../..")
 
 [node name="wheel_backRight" type="MeshInstance3D" parent="taxi4/Node3D"]
@@ -1313,11 +1158,7 @@ transform = Transform3D(-0.464703, 0, 0.885467, 0, 1, 0, -0.885467, 0, -0.464703
 
 [node name="body" type="MeshInstance3D" parent="taxi5/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.0999999)
-<<<<<<< HEAD
 mesh = SubResource("ArrayMesh_tyf1b")
-=======
-mesh = SubResource("33")
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 skeleton = NodePath("../..")
 
 [node name="wheel_backRight" type="MeshInstance3D" parent="taxi5/Node3D"]

@@ -83,20 +83,15 @@ AudioPlayer="*res://Scenes/AudioPlayer.tscn"
 LoadingScreen="*res://Scripts/GDscript/Loading_screen.gd"
 ParticleLoader="*res://Scripts/GDscript/Particle_loader.gd"
 InputRecorder="*res://Scripts/GDscript/InputRecorder.gd"
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 TracerPool="*res://Global/tracer_pool.tscn"
-<<<<<<< HEAD
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Global="*res://Scripts/GDscript/Global.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"character": "res://dialogic/chars/character.dch"
-}
-directories/dtl_directory={
-"Intro": "res://dialogic/Timelines/Intro.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 glossary/default_case_sensitive=true
 layout/style_list=["res://dialogic/styles/style.tres"]
 layout/default_style="res://dialogic/styles/style.tres"
@@ -121,17 +116,12 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
-=======
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-<<<<<<< HEAD
 window/size/mode=3
-=======
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/size/fullscreen=true
@@ -145,19 +135,12 @@ project/assembly_name="Rogue drifters"
 
 movie_writer/mjpeg_quality=0.9
 movie_writer/movie_file="D:/Godot projects/New folder/No-mouse/recvideo.avi"
-<<<<<<< HEAD
 movie_writer/fps=30
-=======
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-<<<<<<< HEAD
 enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/dreadpon.spatial_gardener/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
-=======
-enabled=PackedStringArray("res://addons/dreadpon.spatial_gardener/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 [global]
 
@@ -1307,13 +1290,9 @@ common/enable_pause_aware_picking=true
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-<<<<<<< HEAD
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality=4
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=4
-=======
 lights_and_shadows/directional_shadow/size=2048
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=4
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=2
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 lights_and_shadows/positional_shadow/soft_shadow_filter_quality=0
 shading/overrides/force_vertex_shading=true
 shading/overrides/force_lambert_over_burley=true
@@ -1322,10 +1301,7 @@ occlusion_culling/use_occlusion_culling=true
 lights_and_shadows/positional_shadow/atlas_size=2048
 quality/intended_usage/framebuffer_allocation=3
 quality/directional_shadow/size=2048
-<<<<<<< HEAD
-=======
 lights_and_shadows/shadow_atlas/size=2048
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 quality/shadows/filter_mode=2
 quality/shadows/filter_mode.mobile=2
 quality/reflections/texture_array_reflections=false

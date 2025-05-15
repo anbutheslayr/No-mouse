@@ -295,13 +295,8 @@ enum FollowLockAxis {
 	get = get_inactive_update_mode
 
 
-<<<<<<< HEAD
 ## Determines which layers this [param PhantomCamera3D] should be able to communicate with [PhantomCameraHost] nodes.[br]
 ## A corresponding layer needs to be set on the [PhantomCameraHost] node.
-=======
-## Determines which layers this [PhantomCamera2D] should be able to find [PhantomCamera2D] / [PhantomCamera3D].
-## A corresponding layer needs to be set on the PhantomCamera node.
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 @export_flags_3d_render var host_layers: int = 1:
 	set = set_host_layers,
 	get = get_host_layers
@@ -525,10 +520,7 @@ var _follow_axis_lock_value: Vector3 = Vector3.ZERO
 var _is_active: bool = false
 
 var _is_third_person_follow: bool = false
-<<<<<<< HEAD
 var _camera_target: Node3D = self # Calculates the position of the camera in the editor, uses instantiated SpringArm3D node when running the scene
-=======
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 var _should_follow: bool = false
 var _follow_target_physics_based: bool = false
@@ -711,13 +703,9 @@ func _validate_property(property: Dictionary) -> void:
 			"look_at_target", \
 			"look_at_offset" , \
 			"look_at_damping", \
-<<<<<<< HEAD
 			"look_at_damping_value", \
 			"up", \
 			"up_target":
-=======
-			"look_at_damping_value":
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 				property.usage = PROPERTY_USAGE_NO_EDITOR
 	elif look_at_mode == LookAtMode.GROUP:
 		match property.name:
@@ -787,11 +775,7 @@ func _ready():
 	match follow_mode:
 		FollowMode.THIRD_PERSON:
 			_is_third_person_follow = true
-<<<<<<< HEAD
 			_transform_output.origin = _get_target_position_offset_distance()
-=======
-			_transform_output.origin = _get_position_offset_distance()
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 			if not Engine.is_editor_hint():
 				if not is_instance_valid(_follow_spring_arm):
 					_follow_spring_arm = SpringArm3D.new()
@@ -808,16 +792,12 @@ func _ready():
 					# Waits for the SpringArm3D to be ready and then apply rotation
 					# Resolves an issue most prominent in Godot 4.4
 					await _follow_spring_arm.ready
-<<<<<<< HEAD
 					_camera_target = _follow_spring_arm
-=======
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 					_follow_spring_arm.position = _get_target_position_offset() if is_instance_valid(follow_target) else global_position
 					_follow_spring_arm.global_rotation = global_rotation
 					_has_follow_spring_arm = true
 		FollowMode.FRAMED:
 			if not Engine.is_editor_hint():
-<<<<<<< HEAD
 				if is_instance_valid(follow_target):
 					_follow_framed_offset = global_position - _get_target_position_offset()
 				_current_rotation = global_rotation
@@ -828,12 +808,6 @@ func _ready():
 				_transform_output.origin = _get_target_position_offset()
 			else:
 				_transform_output.origin = global_transform.origin
-=======
-				_follow_framed_offset = global_position - _get_target_position_offset()
-				_current_rotation = global_rotation
-		FollowMode.GROUP:
-			_follow_targets_size_check()
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 	if not Engine.is_editor_hint():
 		_preview_noise = true
@@ -899,16 +873,11 @@ func process_logic(delta: float) -> void:
 
 
 func _follow(delta: float) -> void:
-<<<<<<< HEAD
 	_set_follow_position()
 	_interpolate_position(delta)
 
 
 func _set_follow_position() -> void:
-=======
-	var follow_target_node: Node3D = self # TODO - Think this can be removed
-
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 	match follow_mode:
 		FollowMode.GLUED:
 			_target_transform.origin = follow_target.global_position
@@ -950,7 +919,6 @@ func _set_follow_position() -> void:
 		FollowMode.FRAMED:
 			if not Engine.is_editor_hint():
 				if not _is_active:
-<<<<<<< HEAD
 					_target_transform.origin = _get_target_position_offset_distance()
 				else:
 					viewport_position = get_viewport().get_camera_3d().unproject_position(_get_target_position_offset())
@@ -994,53 +962,6 @@ func _set_follow_position() -> void:
 						return
 			else:
 				_target_transform.origin = _get_target_position_offset_distance()
-=======
-					_target_transform.origin = _get_position_offset_distance()
-					_interpolate_position(_target_transform.origin, delta)
-					return
-
-				viewport_position = get_viewport().get_camera_3d().unproject_position(_get_target_position_offset())
-				var visible_rect_size: Vector2 = get_viewport().get_visible_rect().size
-				viewport_position = viewport_position / visible_rect_size
-				_current_rotation = global_rotation
-
-				if _current_rotation != global_rotation:
-					_target_transform.origin = _get_position_offset_distance()
-
-				if _get_framed_side_offset() != Vector2.ZERO:
-					var target_position: Vector3 = _get_target_position_offset() + _follow_framed_offset
-					var glo_pos: Vector3
-
-					if dead_zone_width == 0 || dead_zone_height == 0:
-						if dead_zone_width == 0 && dead_zone_height != 0:
-							glo_pos = _get_position_offset_distance()
-							glo_pos.z = target_position.z
-							_target_transform.origin = glo_pos
-						elif dead_zone_width != 0 && dead_zone_height == 0:
-							glo_pos = _get_position_offset_distance()
-							glo_pos.x = target_position.x
-							_target_transform.origin = glo_pos
-						else:
-							_target_transform.origin = _get_position_offset_distance()
-					else:
-						if _current_rotation != global_rotation:
-							var opposite: float = sin(-global_rotation.x) * follow_distance + _get_target_position_offset().y
-							glo_pos.y = _get_target_position_offset().y + opposite
-							glo_pos.z = sqrt(pow(follow_distance, 2) - pow(opposite, 2)) + _get_target_position_offset().z
-							glo_pos.x = global_position.x
-
-							_target_transform.origin = glo_pos
-							_current_rotation = global_rotation
-						else:
-							dead_zone_reached.emit()
-							_target_transform.origin = target_position
-				else:
-					_follow_framed_offset = global_position - _get_target_position_offset()
-					_current_rotation = global_rotation
-					return
-			else:
-				_target_transform.origin = _get_position_offset_distance()
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 				var unprojected_position: Vector2 = _get_raw_unprojected_position()
 				var viewport_width: float = get_viewport().size.x
 				var viewport_height: float = get_viewport().size.y
@@ -1065,16 +986,8 @@ func _set_follow_position() -> void:
 			if not Engine.is_editor_hint():
 				if not _has_follow_spring_arm: return
 				_target_transform.origin = _get_target_position_offset()
-<<<<<<< HEAD
 			else:
 				_target_transform.origin = _get_target_position_offset_distance()
-=======
-				follow_target_node = _follow_spring_arm
-			else:
-				_target_transform.origin = _get_position_offset_distance()
-
-	_interpolate_position(_target_transform.origin, delta, follow_target_node)
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 
 func _look_at(delta: float) -> void:
@@ -1111,11 +1024,7 @@ func _get_target_position_offset() -> Vector3:
 	return follow_target.global_position + follow_offset
 
 
-<<<<<<< HEAD
 func _get_target_position_offset_distance() -> Vector3:
-=======
-func _get_position_offset_distance() -> Vector3:
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 	return _get_target_position_offset() + \
 	transform.basis.z * Vector3(follow_distance, follow_distance, follow_distance)
 
@@ -1124,17 +1033,10 @@ func _set_follow_velocity(index: int, value: float) -> void:
 	_follow_velocity_ref[index] = value
 
 
-<<<<<<< HEAD
 func _interpolate_position(delta: float) -> void:
 	if follow_damping:
 		if not _is_third_person_follow:
 			global_position = _target_transform.origin
-=======
-func _interpolate_position(target_position: Vector3, delta: float, camera_target: Node3D = self) -> void:
-	if follow_damping:
-		if not _is_third_person_follow:
-			global_position = target_position
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 			for i in 3:
 				_transform_output.origin[i] = _smooth_damp(
 					global_position[i],
@@ -1147,7 +1049,6 @@ func _interpolate_position(target_position: Vector3, delta: float, camera_target
 				)
 		else:
 			for i in 3:
-<<<<<<< HEAD
 				_camera_target.global_position[i] = _smooth_damp(
 					_target_transform.origin[i],
 					_camera_target.global_position[i],
@@ -1161,22 +1062,6 @@ func _interpolate_position(target_position: Vector3, delta: float, camera_target
 			_transform_output.basis = global_basis
 	else:
 		_camera_target.global_position = _target_transform.origin
-=======
-				if _is_third_person_follow:
-					camera_target.global_position[i] = _smooth_damp(
-						target_position[i],
-						camera_target.global_position[i],
-						i,
-						_follow_velocity_ref[i],
-						_set_follow_velocity,
-						follow_damping_value[i],
-						delta
-					)
-					_transform_output.origin = global_position
-					_transform_output.basis = global_basis
-	else:
-		camera_target.global_position = target_position
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 		_transform_output.origin = global_position
 
 
@@ -1264,11 +1149,7 @@ func _get_raw_unprojected_position() -> Vector2:
 
 
 func _on_dead_zone_changed() -> void:
-<<<<<<< HEAD
 	global_position = _get_target_position_offset_distance()
-=======
-	global_position = _get_position_offset_distance()
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 
 func _get_framed_side_offset() -> Vector2:
@@ -1489,17 +1370,12 @@ func emit_noise(value: Transform3D) -> void:
 ## bypassing the damping process.
 func teleport_position() -> void:
 	_follow_velocity_ref = Vector3.ZERO
-<<<<<<< HEAD
 	_set_follow_position()
 	_transform_output.origin = _target_transform.origin
 	_phantom_camera_manager.pcam_teleport.emit(self)
 
 #endregion
 
-=======
-	_transform_output.origin = _target_transform.origin
-	_phantom_camera_manager.pcam_teleport.emit()
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 #region Setter & Getter Functions
 

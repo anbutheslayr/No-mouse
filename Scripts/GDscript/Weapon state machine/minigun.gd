@@ -24,13 +24,8 @@ class_name MinigunState
 
 func state_enter():
 	print("Minigun State")
-<<<<<<< HEAD
 	# minigun1.target_speed = 4000
 	# minigun2.target_speed = 4000
-=======
-	minigun1.target_speed = 4000
-	minigun2.target_speed = 4000
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 	# machine_gun_state.anim.play("Minigun_shoot")
 	minigun1.particle.emitting = true
 	minigun2.particle.emitting = true

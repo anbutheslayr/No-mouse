@@ -2,7 +2,7 @@ extends Node
 
 # Load the Resolution resource once and make it globally accessible
 @onready var reso: Resolution = preload("user://Int/Res.tres")
-
+var in_cutscene: bool = false
 func _ready():
 	# Ensure the resource exists, or create a new one
 	var dir: DirAccess = DirAccess.open("user://")

@@ -1,18 +1,10 @@
-<<<<<<< HEAD
 [gd_scene load_steps=6 format=3 uid="uid://bgl23vdj8g1r7"]
-=======
-[gd_scene load_steps=5 format=3 uid="uid://bgl23vdj8g1r7"]
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 [ext_resource type="Theme" uid="uid://6wasy10nsxp0" path="res://Scenes/Theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://cjjf76lxnakfh" path="res://Scripts/GDscript/Menu.gd" id="1_s2c3o"]
 [ext_resource type="Texture2D" uid="uid://ir2t6k5rugxb" path="res://Interface/Textures/inst.png" id="2"]
-<<<<<<< HEAD
 [ext_resource type="Theme" uid="uid://df5t0gtj4p8xo" path="res://Scenes/title_theme.tres" id="2_ma218"]
 [ext_resource type="FontFile" uid="uid://c4o1fg7bafdkv" path="res://Scenes/FONT.tres" id="4"]
-=======
-[ext_resource type="FontFile" path="res://Scenes/FONT.tres" id="4"]
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -41,19 +33,13 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-<<<<<<< HEAD
 theme = ExtResource("2_ma218")
-=======
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 theme_override_colors/font_color = Color(0.905882, 0.709804, 0.85098, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 7
 theme_override_constants/shadow_offset_y = 7
-<<<<<<< HEAD
 theme_override_constants/outline_size = 12
 theme_override_constants/shadow_outline_size = 12
-=======
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 theme_override_fonts/font = ExtResource("4")
 text = "Rogue drifters"
 horizontal_alignment = 1
@@ -65,11 +51,7 @@ alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-<<<<<<< HEAD
 theme_override_constants/separation = 30
-=======
-theme_override_constants/separation = 20
->>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
