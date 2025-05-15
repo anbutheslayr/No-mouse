@@ -1,12 +1,10 @@
+res://Scripts/Cutscene
+res://Dialogic/Characters
 res://Scripts/GDscript
 res://Scenes
 res://Assets/gardener
 <<<<<<< HEAD
-res://dialogic/chars
-res://dialogic/styles
-res://dialogic/Timelines
 res://
-res://Scripts/Cutscene
 =======
 >>>>>>> d22ba05983e933ea4e4e4164f1b84b644234d300
 res://Interface

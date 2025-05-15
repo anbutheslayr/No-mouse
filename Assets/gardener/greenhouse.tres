@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=13 format=3 uid="uid://6wo566ljpeif"]
+[gd_resource type="Resource" load_steps=14 format=3 uid="uid://6wo566ljpeif"]
 
 [ext_resource type="Script" uid="uid://cjsirac1827tg" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse.gd" id="1_51gbg"]
 [ext_resource type="ArrayMesh" uid="uid://bgevpytbqkpue" path="res://Assets/Models/Trees/tree2mesh.tres" id="1_dio7n"]
@@ -6,12 +6,14 @@
 [ext_resource type="Script" uid="uid://bnsd2fyntembv" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant.gd" id="2_twpqq"]
 [ext_resource type="Script" uid="uid://ckg16wf0ebcts" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant_state.gd" id="3_3cvtl"]
 [ext_resource type="ArrayMesh" uid="uid://cccxv7ni7611" path="res://Assets/Models/Trees/Tree2 lowpoly.tres" id="3_dio7n"]
+[ext_resource type="PackedScene" uid="uid://ua2801c82q35" path="res://Assets/Models/Trees/Tree2col.tscn" id="3_x8ja1"]
 [ext_resource type="ArrayMesh" path="res://Assets/Models/Trees/Tree2 lowpoly xt.tres" id="4_x8ja1"]
 
 [sub_resource type="Resource" id="Resource_3cvtl"]
 resource_name = "Greenhouse_LODVariant"
 script = ExtResource("1_ylydg")
 mesh = ExtResource("1_dio7n")
+spawned_spatial = ExtResource("3_x8ja1")
 cast_shadow = 1
 metadata/class = "Greenhouse_LODVariant"
 
@@ -34,8 +36,8 @@ resource_name = "Greenhouse_Plant"
 script = ExtResource("2_twpqq")
 mesh/mesh_LOD_variants = [SubResource("Resource_3cvtl"), SubResource("Resource_11dh2"), SubResource("Resource_6130q")]
 mesh/selected_for_edit_resource = SubResource("Resource_3cvtl")
-mesh/mesh_LOD_max_distance = 100.0
-mesh/mesh_LOD_kill_distance = 299.99
+mesh/mesh_LOD_max_distance = 99.99
+mesh/mesh_LOD_kill_distance = 299.98
 mesh/mesh_LOD_max_capacity = 500
 mesh/mesh_LOD_min_size = 1.0
 octree/octree_reconfigure_button = false

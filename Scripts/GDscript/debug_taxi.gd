@@ -52,8 +52,7 @@ func _ready():
 	update_path_timer.one_shot = true
 	update_path_timer.wait_time = .1
 	update_path_timer.start()
-	set_process(false)
-	set_physics_process(false)
+	
 
 func set_difficulty():
 	match Global.reso.difficulty:
@@ -84,13 +83,12 @@ func  _physics_process(_delta: float) -> void:
 	
 	car_mesh.transform.origin = ball.transform.origin + sphere_offset  
 	# Accelerate
-	var add = Vector3.ZERO
+	# var add = Vector3.ZERO
 	# if car_mesh.rotation.x>0 :
 	# 	add = -car_mesh.global_transform.basis.z*speed_input*sin(car_mesh.rotation.x)*ball.mass*grav
 	# else:
 	# 	add = Vector3.ZERO
-	if rc_iscol:
-		ball.apply_central_force(-car_mesh.global_transform.basis.z*acceleration+ add)
+	set_process(!Global.in_cutscene)
 
 func align_with_surface(xform: Transform3D) -> Transform3D:
 
@@ -119,7 +117,8 @@ func calculate_health(damage):
 	health_bar_3d.change_health(health)
 
 func _process(delta: float) -> void:
-	
+	if rc_iscol:
+		ball.apply_central_force(-car_mesh.global_transform.basis.z*acceleration)
 	# AI
 	if update_path_timer.time_left ==0:
 		nav_agent.target_position = player_mesh.global_position

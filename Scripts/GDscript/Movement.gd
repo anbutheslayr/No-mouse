@@ -55,17 +55,21 @@ var expl = preload("res://Scenes/Explosion.tscn")
 @onready var interface : Control = $Interface
 @onready var health_bar_3d : Node3D = get_node(health_bar_path)
 @onready var grav = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var update_path_timer : Timer = Timer.new()
+@onready var nav_agent : NavigationAgent3D = $Node3D/NavigationAgent3D
 var speed_input: float = 0.0
 var steering_input: float = 0.0
 var col_time: float = 0.0
 var col: bool = false
 var rc_iscol
+var wait_time = .1
+var next_point : Vector3
 
 func _ready():
-	# var e = load("res://Scenes/Explosion.tscn")
-	# var i = e.instantiate() as Node3D
-	# get_tree().root.call_deferred("add_child",i)
-	# i.global_position = ball.global_position
+	add_child(update_path_timer)
+	update_path_timer.one_shot = true
+	update_path_timer.wait_time = .1
+	update_path_timer.start()
 	part_change()
 
 func _physics_process(_delta: float) -> void:
@@ -145,7 +149,21 @@ func _process(delta: float) -> void:
 	if b_l.emitting:
 		left_wheel.rotation.y = -(PI + steering_input)
 		right_wheel.rotation.y = -(steering_input - .3)
+	if Global.use_nav_for_player:
+		# AI
+		ball.apply_central_force(-car_mesh.global_transform.basis.z*(acceleration+100))
+		if update_path_timer.time_left ==0:
+			nav_agent.target_position = Global.player_nav_targ
+			update_path_timer.start(wait_time)
+			next_point = nav_agent.get_next_path_position()
+		# var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point,Vector3.UP))
+		var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point - ball.global_position,Vector3.UP))
 
+		if angle > 10:
+			steering_input = lerp(steering_input,deg_to_rad(steering+20),delta*15)
+		elif angle<-10:
+			steering_input = lerp(steering_input,-deg_to_rad(steering+20),delta*15)
+		print("steering input : ",steering_input)
 	if ball.linear_velocity.length() > turn_stop_limit:
 		if speed_input < 0:
 			steering_input = -steering_input

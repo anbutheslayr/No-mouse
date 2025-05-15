@@ -1,4 +1,8 @@
 Node3D
+NavigationAgent3D
+CollisionShape3D
+Area3D
+PhantomCamera3D
 RigidBody3D
 AnimationPlayer
 CSGPolygon3D
@@ -8,7 +12,3 @@ CSGBox3D
 Node
 LightmapGI
 AudioStreamPlayer3D
-Node
-VehicleWheel3D
-RayCast3D
-Node2D

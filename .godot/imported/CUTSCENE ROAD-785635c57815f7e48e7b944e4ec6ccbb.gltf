@@ -93,15 +93,15 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":30792,
+			"count":31794,
 			"max":[
 				456.5183410644531,
-				1.1054151058197021,
+				371.426513671875,
 				468.499755859375
 			],
 			"min":[
 				-131.40769958496094,
-				-1.0000274181365967,
+				-1.0126408338546753,
 				-155.30947875976562
 			],
 			"type":"VEC3"
@@ -109,39 +109,39 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":30792,
+			"count":31794,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":30792,
+			"count":31794,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5126,
-			"count":30792,
+			"count":31794,
 			"type":"VEC4"
 		},
 		{
 			"bufferView":4,
 			"componentType":5123,
-			"count":47736,
+			"count":49140,
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":4896,
+			"count":5040,
 			"max":[
 				455.7171936035156,
-				1.1054151058197021,
+				371.426513671875,
 				460.82958984375
 			],
 			"min":[
 				-123.73759460449219,
-				-1.0000011920928955,
+				-1.000522494316101,
 				-147.66903686523438
 			],
 			"type":"VEC3"
@@ -149,93 +149,93 @@
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":4896,
+			"count":5040,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":7,
 			"componentType":5126,
-			"count":4896,
+			"count":5040,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":8,
 			"componentType":5126,
-			"count":4896,
+			"count":5040,
 			"type":"VEC4"
 		},
 		{
 			"bufferView":9,
 			"componentType":5123,
-			"count":7344,
+			"count":7560,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":369504,
+			"byteLength":381528,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":369504,
-			"byteOffset":369504,
+			"byteLength":381528,
+			"byteOffset":381528,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":246336,
-			"byteOffset":739008,
+			"byteLength":254352,
+			"byteOffset":763056,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":492672,
-			"byteOffset":985344,
+			"byteLength":508704,
+			"byteOffset":1017408,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":95472,
-			"byteOffset":1478016,
+			"byteLength":98280,
+			"byteOffset":1526112,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":58752,
-			"byteOffset":1573488,
+			"byteLength":60480,
+			"byteOffset":1624392,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":58752,
-			"byteOffset":1632240,
+			"byteLength":60480,
+			"byteOffset":1684872,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":39168,
-			"byteOffset":1690992,
+			"byteLength":40320,
+			"byteOffset":1745352,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":78336,
-			"byteOffset":1730160,
+			"byteLength":80640,
+			"byteOffset":1785672,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":14688,
-			"byteOffset":1808496,
+			"byteLength":15120,
+			"byteOffset":1866312,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":1823184,
+			"byteLength":1881432,
 			"uri":"CUTSCENE%20ROAD-785635c57815f7e48e7b944e4ec6ccbb.bin"
 		}
 	]

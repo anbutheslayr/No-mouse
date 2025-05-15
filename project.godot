@@ -90,8 +90,13 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"Enemy": "res://Dialogic/Characters/Enemy.dch",
+"pl1": "res://Dialogic/Characters/pl1.dch"
+}
+directories/dtl_directory={
+"First cutscene": "res://Dialogic/Characters/First cutscene.dtl"
+}
 glossary/default_case_sensitive=true
 layout/style_list=["res://dialogic/styles/style.tres"]
 layout/default_style="res://dialogic/styles/style.tres"
