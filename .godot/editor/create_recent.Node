@@ -1,14 +1,14 @@
+CSGPolygon3D
+Path3D
 Node3D
+Decal
 NavigationAgent3D
 CollisionShape3D
 Area3D
 PhantomCamera3D
 RigidBody3D
 AnimationPlayer
-CSGPolygon3D
 MeshInstance3D
 NavigationRegion3D
 CSGBox3D
 Node
-LightmapGI
-AudioStreamPlayer3D

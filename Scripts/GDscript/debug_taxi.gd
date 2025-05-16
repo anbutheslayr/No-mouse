@@ -59,15 +59,15 @@ func set_difficulty():
 		0:
 			wait_time = .1
 			acceleration = 95
-			turn_speed = 3
+			turn_speed = 3.0
 		1:
-			wait_time = .1
-			acceleration = 110
-			turn_speed = 4
+			wait_time = 0
+			acceleration = 120
+			turn_speed = 4.0
 		2:
-			wait_time = .1
+			wait_time = 0
 			acceleration = 130
-			turn_speed = 5
+			turn_speed = 5.0
 
 func part_change():
 	if Global.reso.cur_world == 1:
@@ -89,7 +89,8 @@ func  _physics_process(_delta: float) -> void:
 	# else:
 	# 	add = Vector3.ZERO
 	set_process(!Global.in_cutscene)
-
+	if rc_iscol and !Global.in_cutscene:
+			ball.apply_central_force(-car_mesh.global_transform.basis.z*acceleration)
 func align_with_surface(xform: Transform3D) -> Transform3D:
 
 	var front_left_col = fl.get_collision_point() if fl.is_colliding() else fl.global_position
@@ -117,20 +118,21 @@ func calculate_health(damage):
 	health_bar_3d.change_health(health)
 
 func _process(delta: float) -> void:
-	if rc_iscol:
-		ball.apply_central_force(-car_mesh.global_transform.basis.z*acceleration)
+	
 	# AI
 	if update_path_timer.time_left ==0:
 		nav_agent.target_position = player_mesh.global_position
 		update_path_timer.start(wait_time)
 		next_point = nav_agent.get_next_path_position()
 	# var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point,Vector3.UP))
-	var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point - ball.global_position,Vector3.UP))
+	var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point - car_mesh.global_position,Vector3.UP))
 
-	if angle > 10:
+	if angle > 7:
 		steering_input = lerp(steering_input,deg_to_rad(steering),delta*10)
-	elif angle<-10:
-		steering_input = lerp(steering_input,-deg_to_rad(steering),delta*10)
+	elif angle<-7:
+		steering_input = lerp(steering_input,deg_to_rad(steering)*-1,delta*10)
+	else:
+		steering_input = 0.0
 	
 
 
@@ -148,9 +150,9 @@ func _process(delta: float) -> void:
 		var new_basis : Basis= car_mesh.global_transform.basis.rotated(car_mesh.global_transform.basis.y, steering_input)
 		car_mesh.global_transform.basis = car_mesh.global_transform.basis.orthonormalized().slerp(new_basis.orthonormalized(), delta * turn_speed)
 		car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
-		# # applying tilt
-		# var t =-steering_input*ball.linear_velocity.length()/tilt
-		# car_mesh_body.rotation.z = lerp(car_mesh_body.rotation.z, t, delta * 10)
+		# applying tilt
+		var t =-steering_input*ball.linear_velocity.length()/tilt
+		car_mesh_body.rotation.z = lerp(car_mesh_body.rotation.z, t, delta * 10)
 
 
 	# speed_input = lerp(speed_input,speed_input*acceleration,delta*25)

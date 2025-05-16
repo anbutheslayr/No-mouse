@@ -13,5 +13,6 @@ func state_update(delta):
 	pass
 func state_process(delta):
 	if weapon_state_machine.enemies.size() > 0 and machine_gun_state.cur_ammo > 0 and weapon_state_machine.weapon_switch.visible: 
-		state_changed.emit(self, "Machine_gun_rise")
+		# state_changed.emit(self, "Machine_gun_rise")
+		pass
 

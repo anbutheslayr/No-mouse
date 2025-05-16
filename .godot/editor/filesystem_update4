@@ -22,15 +22,13 @@ res://Assets/Models/Trees/Brown1.material
 res://Assets/Models/Trees/tree2mesh.tres
 res://Assets/Models/Trees/Tree2 lowpoly.tres
 res://Assets/gardener/greenhouse.tres
-res://Scripts/Cutscene/first_cutscene.gd
-res://Dialogic/Characters/First cutscene.dtl
+res://Scripts/GDscript/Follow.gd
 res://Scenes/dia test.tscn
-res://Scenes/Explosion.tscn
 res://Scenes/Bomb.tscn
-res://Scenes/debug taxi.tscn
-res://Scripts/GDscript/bomb.gd
 res://Scenes/taxi.tscn
 res://Scripts/GDscript/debug_taxi.gd
-res://Scenes/Worlds/Cutscene.tscn
-res://Scripts/GDscript/Movement.gd
-res://Scripts/GDscript/Global.gd
+res://Assets/Models/Trees/Tree2col.tscn
+res://Scenes/Worlds/test.tscn
+res://Scripts/GDscript/Weapon state machine/idle.gd
+res://Scripts/GDscript/test.gd
+res://Scenes/debug taxi.tscn

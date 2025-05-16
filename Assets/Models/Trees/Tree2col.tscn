@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://ua2801c82q35"]
 
 [sub_resource type="BoxShape3D" id="1"]
-size = Vector3(2, 6.5778, 2)
+size = Vector3(2.81324, 6.5778, 2.81384)
 
 [node name="Tree2col" type="StaticBody3D"]
 collision_layer = 3
 
 [node name="CollisionShape2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.31022, 0.228292)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0105343, 3.31022, 0.00795567)
 shape = SubResource("1")

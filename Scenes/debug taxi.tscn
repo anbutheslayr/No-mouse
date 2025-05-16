@@ -269,17 +269,17 @@ billboard = 1
 texture = ExtResource("7_4lhns")
 
 [node name="Fl" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.545909, 0.5, -1.27291)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.545909, 0.0541448, -0.787231)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
 [node name="Fr" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.631004, 0.5, -1.21737)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.529822, 0.0541448, -0.741809)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 
 [node name="Bl" type="RayCast3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603789, 0.5, 1.44533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.492488, 0.0541448, 0.716812)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 

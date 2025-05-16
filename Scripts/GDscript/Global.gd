@@ -2,7 +2,7 @@ extends Node
 
 # Load the Resolution resource once and make it globally accessible
 @onready var reso: Resolution = preload("user://Int/Res.tres")
-var in_cutscene: bool = false
+var in_cutscene: bool = true
 var use_nav_for_player: bool = false
 var player_nav_targ : Vector3
 func _ready():

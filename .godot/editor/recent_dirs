@@ -1,3 +1,4 @@
+res://Scenes/Worlds
 res://Scripts/Cutscene
 res://Dialogic/Characters
 res://Scripts/GDscript
@@ -14,7 +15,6 @@ res://Scripts/GDscript/Weapon state machine
 <<<<<<< HEAD
 D:/Blender3.6
 res://Assets/blend
-res://Scenes/Worlds
 res://Scripts
 =======
 D:/Blender3.6

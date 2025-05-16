@@ -35,6 +35,7 @@ func _ready():
 	repositionandresize(Global.reso.res)
 
 func _process(_delta):
+	visible = !Global.in_cutscene
 	drift_points.text = "Drift Points : " + str(int(Global.reso.drift_points))
 	enemy_spawntext.text = "Enemy " + str(cur_enemies) + "/" + str(Global.reso.no_of_enemies) + " Spawning in " + str(int(timer.time_left))
 	if cur_enemies == Global.reso.no_of_enemies and get_tree().get_nodes_in_group("Enemy").size() != 0:

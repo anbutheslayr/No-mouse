@@ -8,6 +8,7 @@ extends Node3D
 @onready var bomb_target : Node3D = $Bombtarg
 @onready var main_cam : Camera3D = $Camera3D
 @onready var player_nav_target : Node3D = $player_nav_target
+@onready var cutscn_nav_target : Node3D = $cutscene_nav_path
 func _ready():
 	Dialogic.signal_event.connect(on_dialogic_event)
 	Dialogic.preload_timeline("res://Dialogic/Characters/First cutscene.dtl")
@@ -43,13 +44,13 @@ func throw_bomb():
 	var bomb_instance1 = bomb.instantiate() as RigidBody3D
 	add_child(bomb_instance1)
 	bomb_instance1.global_position = bomb_start_pos.global_position
-	bomb_instance1.apply_central_impulse((bomb_target.global_position - bomb_instance1.global_position).normalized() * 13)
+	bomb_instance1.apply_central_impulse((bomb_target.global_position - bomb_instance1.global_position).normalized() * 15)
 	await get_tree().create_timer(1.5).timeout
-	Global.player_nav_targ = player_nav_target.global_position
+	Global.player_nav_targ = cutscn_nav_target.global_position
 	Global.use_nav_for_player = true
 	third_pcam.set_priority(0)
 	follow_pcam.set_priority(1)
-	await get_tree().create_timer(30).timeout
+	await get_tree().create_timer(5).timeout
 	delete_pcams()
 	Global.use_nav_for_player = false
 
@@ -62,5 +63,5 @@ func delete_pcams():
 	main_cam.set_physics_process(true)
 	Dialogic.signal_event.disconnect(on_dialogic_event)
 	Dialogic.end_timeline()
-	# Global.in_cutscene = false
+	Global.in_cutscene = false
 	
