@@ -11,7 +11,7 @@ extends Node3D
 func on_body_entered(body : Node):
 	if body is RigidBody3D:
 		var ball = body as RigidBody3D
-		ball.apply_central_impulse(((ball.global_position - global_position).normalized()+Vector3(0,0.5,0))*20)
+		ball.apply_central_impulse(((ball.global_position - global_position).normalized()+Vector3(0,0.5,0))*40)
 		cam.add_trauma(0.9)
 
 	if body is RigidBody3D and body.is_in_group("Enemy"):

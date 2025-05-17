@@ -39,7 +39,6 @@ var expl = preload("res://Scenes/Explosion.tscn")
 @onready var nav_agent : NavigationAgent3D = get_node(nav_agent_path)
 @onready var update_path_timer : Timer = Timer.new()
 @onready var player_mesh : MeshInstance3D = get_parent().get_node("taxi/Node3D")
-@export var max_speed: float = 100
 var wait_time 
 var next_point : Vector3
 var speed_input: float = 1
@@ -47,8 +46,8 @@ var steering_input : float = 0.0
 var rc_iscol: bool
 var still_timer: float = 0.0
 var was_moving: bool = true
-
-
+var in_trap: bool = true
+var max_speed: float = 100
 func _ready():
 	part_change()
 	set_difficulty()
@@ -56,7 +55,11 @@ func _ready():
 	update_path_timer.one_shot = true
 	update_path_timer.wait_time = .1
 	update_path_timer.start()
-	
+
+func start_trap(body : Node3D):
+	if body.is_in_group("Ball"):
+		in_trap = false
+		print("trap")
 func set_difficulty():
 	match Global.reso.difficulty:
 		0:
@@ -94,8 +97,8 @@ func  _physics_process(delta: float) -> void:
 	# 	add = -car_mesh.global_transform.basis.z*speed_input*sin(car_mesh.rotation.x)*ball.mass*grav
 	# else:
 	# 	add = Vector3.ZERO
-	set_process(!Global.in_cutscene)
-	if rc_iscol and !Global.in_cutscene:
+	set_process(!in_trap)
+	if rc_iscol and !in_trap:
 		ball.apply_central_force(-car_mesh.global_transform.basis.z*acceleration)
 		if ball.linear_velocity.length() < 2: # Threshold for "still"
 			still_timer += delta
@@ -105,6 +108,7 @@ func  _physics_process(delta: float) -> void:
 				still_timer = 0.0 # Reset timer after moving
 		else:
 			still_timer = 0.0
+			print("velocity: ",ball.linear_velocity.length())
 	# --- Clamp max speed ---
 	if ball.linear_velocity.length() > max_speed:
 		ball.linear_velocity = ball.linear_velocity.normalized() * max_speed

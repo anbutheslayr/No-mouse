@@ -57,6 +57,7 @@ var expl = preload("res://Scenes/Explosion.tscn")
 @onready var grav = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var update_path_timer : Timer = Timer.new()
 @onready var nav_agent : NavigationAgent3D = $Node3D/NavigationAgent3D
+@export var max_speed: float = 50
 var speed_input: float = 0.0
 var steering_input: float = 0.0
 var col_time: float = 0.0
@@ -86,7 +87,8 @@ func _physics_process(_delta: float) -> void:
 	if rc_iscol:
 		ball.apply_central_force(-car_mesh.global_transform.basis.z*speed_input + add)
 
-	
+	if ball.linear_velocity.length() > max_speed:
+		ball.linear_velocity = ball.linear_velocity.normalized() * max_speed
 
 func jump():
 	ball.linear_velocity.y = jump_ht*40
@@ -151,19 +153,19 @@ func _process(delta: float) -> void:
 		right_wheel.rotation.y = -(steering_input - .3)
 	if Global.use_nav_for_player:
 		# AI
-		ball.apply_central_force(-car_mesh.global_transform.basis.z*(acceleration+100))
+		ball.apply_central_force(-car_mesh.global_transform.basis.z*(acceleration+50))
 		if update_path_timer.time_left ==0:
 			nav_agent.target_position = Global.player_nav_targ
 			update_path_timer.start(wait_time)
 			next_point = nav_agent.get_next_path_position()
 		# var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point,Vector3.UP))
 		var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point - ball.global_position,Vector3.UP))
-
-		if angle > 10:
-			steering_input = lerp(steering_input,deg_to_rad(steering+20),delta*18)
-		elif angle<-10:
-			steering_input = lerp(steering_input,-deg_to_rad(steering+20),delta*18)
-		print("steering input : ",steering_input)
+		if angle > 5:
+			steering_input = deg_to_rad(steering)
+		elif angle<-5:
+			steering_input = -deg_to_rad(steering)
+		else :
+			steering_input = 0.0
 	if ball.linear_velocity.length() > turn_stop_limit:
 		if speed_input < 0:
 			steering_input = -steering_input
@@ -203,6 +205,7 @@ func on_collision(body : Node):
 		# Apply damage
 		var damage = calculate_damage(imp_mag)
 		apply_damage(damage, body)
+		(body as RigidBody3D).linear_velocity.y = 0
 	if body.is_in_group("Obstacle") and ball.linear_velocity.length() > 6:
 		audio_stream_player.play()
 		cam.add_trauma(0.4)

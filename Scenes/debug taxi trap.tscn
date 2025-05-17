@@ -1,12 +1,12 @@
-[gd_scene load_steps=20 format=4 uid="uid://dy7p05afv8ia6"]
+[gd_scene load_steps=20 format=4 uid="uid://c0mpkka1s7uhc"]
 
-[ext_resource type="Script" uid="uid://dfkkqo5nnnbas" path="res://Scripts/GDscript/debug_taxi.gd" id="1_pqxrf"]
-[ext_resource type="PackedScene" path="res://Scenes/Smoke_graveyard.tscn" id="2_pp025"]
-[ext_resource type="PackedScene" uid="uid://dn2ifqeeaevsw" path="res://Scenes/Smoke.tscn" id="3_t6pfl"]
-[ext_resource type="AudioStream" uid="uid://dyoldkhjja8x1" path="res://Assets/Audio/drift.mp3" id="4_khxlk"]
-[ext_resource type="ArrayMesh" uid="uid://cdhyjuk3j3inm" path="res://taxi.tres" id="5_4x5ad"]
-[ext_resource type="PackedScene" uid="uid://btfo473jchvpv" path="res://Scenes/EnemyHealthbar.tscn" id="6_kki3i"]
-[ext_resource type="Texture2D" uid="uid://ceixi42wyqtay" path="res://Assets/Materials/enemy.png" id="7_4lhns"]
+[ext_resource type="Script" uid="uid://bpylu3dvnwc7l" path="res://Scripts/GDscript/debug_taxi_trap.gd" id="1_v6apj"]
+[ext_resource type="PackedScene" path="res://Scenes/Smoke_graveyard.tscn" id="2_mu5yb"]
+[ext_resource type="PackedScene" uid="uid://dn2ifqeeaevsw" path="res://Scenes/Smoke.tscn" id="3_h1ne8"]
+[ext_resource type="AudioStream" uid="uid://dyoldkhjja8x1" path="res://Assets/Audio/drift.mp3" id="4_gqmge"]
+[ext_resource type="ArrayMesh" uid="uid://cdhyjuk3j3inm" path="res://taxi.tres" id="5_ouhk3"]
+[ext_resource type="PackedScene" uid="uid://btfo473jchvpv" path="res://Scenes/EnemyHealthbar.tscn" id="6_n18qm"]
+[ext_resource type="Texture2D" uid="uid://ceixi42wyqtay" path="res://Assets/Materials/enemy.png" id="7_nv43n"]
 
 [sub_resource type="StandardMaterial3D" id="1"]
 resource_name = "plastic"
@@ -178,8 +178,8 @@ absorbent = true
 [sub_resource type="SphereShape3D" id="11"]
 radius = 1.0
 
-[node name="taxi" type="Node3D" groups=["Enemy_Control"]]
-script = ExtResource("1_pqxrf")
+[node name="Trap" type="Node3D" groups=["Enemy_Control"]]
+script = ExtResource("1_v6apj")
 ball_path = NodePath("Ball")
 car_mesh_body_path = NodePath("Node3D/body")
 car_mesh_path = NodePath("Node3D")
@@ -201,16 +201,16 @@ nav_agent_path = NodePath("Node3D/NavigationAgent3D")
 
 [node name="Node3D" type="MeshInstance3D" parent="."]
 
-[node name="Backright2" parent="Node3D" instance=ExtResource("2_pp025")]
+[node name="Backright2" parent="Node3D" instance=ExtResource("2_mu5yb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428421, 0.0363879, 0.811293)
 
-[node name="Backleft2" parent="Node3D" instance=ExtResource("2_pp025")]
+[node name="Backleft2" parent="Node3D" instance=ExtResource("2_mu5yb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546473, 0.0306792, 0.851717)
 
-[node name="Backright" parent="Node3D" instance=ExtResource("3_t6pfl")]
+[node name="Backright" parent="Node3D" instance=ExtResource("3_h1ne8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428421, 0.0363879, 0.811293)
 
-[node name="Backleft" parent="Node3D" instance=ExtResource("3_t6pfl")]
+[node name="Backleft" parent="Node3D" instance=ExtResource("3_h1ne8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546473, 0.0306792, 0.851717)
 
 [node name="CPUParticles3D" parent="Node3D/Backleft" index="0"]
@@ -218,7 +218,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.143636, 0, 0)
 
 [node name="Drift" type="AudioStreamPlayer3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17042, 1)
-stream = ExtResource("4_khxlk")
+stream = ExtResource("4_gqmge")
 unit_size = 8.0
 max_distance = 30.0
 
@@ -237,28 +237,28 @@ shape = SubResource("17")
 
 [node name="wheel_backRight" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, 0.76)
-mesh = ExtResource("5_4x5ad")
+mesh = ExtResource("5_ouhk3")
 skeleton = NodePath("../..")
 
 [node name="wheel_frontLeft" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.341157, 0.3, -0.746651)
-mesh = ExtResource("5_4x5ad")
+mesh = ExtResource("5_ouhk3")
 skeleton = NodePath("../..")
 
 [node name="wheel_frontRight" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, -0.76)
-mesh = ExtResource("5_4x5ad")
+mesh = ExtResource("5_ouhk3")
 skeleton = NodePath("../..")
 
 [node name="wheel_backLeft" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.3, 0.3, 0.76)
-mesh = ExtResource("5_4x5ad")
+mesh = ExtResource("5_ouhk3")
 skeleton = NodePath("../..")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Node3D"]
 path_desired_distance = 0.5
 
-[node name="Healthbar" parent="Node3D" groups=["Enemy_Healthbar"] instance=ExtResource("6_kki3i")]
+[node name="Healthbar" parent="Node3D" groups=["Enemy_Healthbar"] instance=ExtResource("6_n18qm")]
 
 [node name="Sprite3D" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10634, 0)
@@ -266,7 +266,7 @@ visible = false
 layers = 2
 pixel_size = 0.015
 billboard = 1
-texture = ExtResource("7_4lhns")
+texture = ExtResource("7_nv43n")
 
 [node name="Fl" type="RayCast3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.545909, 0.0541448, -0.787231)

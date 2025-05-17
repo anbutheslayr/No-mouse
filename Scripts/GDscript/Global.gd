@@ -5,6 +5,8 @@ extends Node
 var in_cutscene: bool = true
 var use_nav_for_player: bool = false
 var player_nav_targ : Vector3
+var show_obj: bool = false
+var cur_objective : String = ""
 func _ready():
 	# Ensure the resource exists, or create a new one
 	var dir: DirAccess = DirAccess.open("user://")

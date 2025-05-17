@@ -101,6 +101,33 @@ material = ExtResource("7_nukgt")
 transform = Transform3D(0.150484, 0, 0.988611, 0, 1, 0, -0.988611, 0, 0.150484, 423.046, 0.209404, 477.789)
 acceleration = 120.0
 
+[node name="MachineGun" parent="taxi/Node3D/body" index="0"]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0.000339031, 1.71628, 0.38334)
+
+[node name="Gun" parent="taxi/Node3D/body/MachineGun" index="0"]
+transform = Transform3D(-10, 0, 8.74228e-07, 0, 10, 0, -8.74228e-07, 0, -10, 0, 0.146015, 4.76837e-07)
+
+[node name="Rocket Launcher" parent="taxi/Node3D/body" index="3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0892019, 0)
+
+[node name="Minigun" parent="taxi/Node3D/body" index="4"]
+transform = Transform3D(-3.61999e-06, 0, 0.999999, 0, 1, 0, -0.999999, 0, -3.61999e-06, 0.294274, 0.762, 0.105413)
+
+[node name="Minigun2" parent="taxi/Node3D/body" index="5"]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, -0.261, 0.762, 0.105)
+
+[node name="m11" parent="taxi/Node3D/body" index="6"]
+transform = Transform3D(-0.680109, 2.14302, 3.6116e-05, 0, -7.77572e-06, 9.99999, 9.97682, 0.146087, 2.46199e-06, -0.019, 0.78, -0.028)
+
+[node name="m12" parent="taxi/Node3D/body" index="7"]
+transform = Transform3D(-3.61998e-05, 4.44599, 3.61999e-05, 0, -1.60944e-05, 9.99999, 9.99997, 1.60944e-05, 1.31043e-10, -0.061, 0.78, -0.028)
+
+[node name="m21" parent="taxi/Node3D/body" index="8"]
+transform = Transform3D(-0.680509, -2.14301, -3.6116e-05, 0, -7.7757e-06, 9.99999, -9.97679, 0.146173, 2.46344e-06, 0.019162, 0.78, -0.0281094)
+
+[node name="m22" parent="taxi/Node3D/body" index="9"]
+transform = Transform3D(-3.61998e-05, 4.44599, 3.61999e-05, 0, -1.60944e-05, 9.99999, 9.99997, 1.60944e-05, 1.31043e-10, 0.0612491, 0.78, -0.028)
+
 [node name="taxi3" parent="." instance=ExtResource("6_cjtha")]
 transform = Transform3D(-0.216116, 0, 0.976368, 0, 1, 0, -0.976368, 0, -0.216116, 454.863, 0.198109, 475.271)
 

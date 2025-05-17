@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	# 	global_position = global_position.lerp(Vector3(targetpos.origin.x, 25, targetpos.origin.z),col_lerp_speed*delta)
 	# else:
 	# global_position = global_position.lerp(targetpos.origin, lerp_speed*delta)
-	global_position = global_position.lerp(Vector3(targetpos.origin.x, 25, targetpos.origin.z),col_lerp_speed*delta)
+	global_position = global_position.lerp(Vector3(targetpos.origin.x, 25, targetpos.origin.z),lerp_speed*delta)
 		
 	look_at(target.global_transform.origin, Vector3.UP)
 	trauma = max(trauma - trauma_red_rate*delta, 0)
