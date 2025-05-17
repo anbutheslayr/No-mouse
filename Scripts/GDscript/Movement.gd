@@ -58,13 +58,14 @@ var expl = preload("res://Scenes/Explosion.tscn")
 @onready var update_path_timer : Timer = Timer.new()
 @onready var nav_agent : NavigationAgent3D = $Node3D/NavigationAgent3D
 @export var max_speed: float = 50
+@onready var arrow : Node3D = $Node3D/Arrow
 var speed_input: float = 0.0
 var steering_input: float = 0.0
 var col_time: float = 0.0
 var col: bool = false
 var rc_iscol
 var wait_time = .1
-var next_point : Vector3
+var next_point : Vector3 = Vector3.ZERO
 
 func _ready():
 	add_child(update_path_timer)
@@ -73,7 +74,10 @@ func _ready():
 	update_path_timer.start()
 	part_change()
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	arrow.visible = !Global.in_cutscene
+	var arrow_targ = lerp(arrow.global_position, Vector3(next_point.x,arrow.global_position.y,next_point.z), delta/10.0)
+	arrow.look_at(arrow_targ, Vector3.UP)
 	rc_iscol = (fr.is_colliding() or fl.is_colliding() or bl.is_colliding())
 	# Align mesh with sphere
 	
@@ -151,13 +155,14 @@ func _process(delta: float) -> void:
 	if b_l.emitting:
 		left_wheel.rotation.y = -(PI + steering_input)
 		right_wheel.rotation.y = -(steering_input - .3)
+	if update_path_timer.time_left ==0 and Global.player_nav_targ:
+		nav_agent.target_position = Global.player_nav_targ
+		update_path_timer.start(wait_time)
+		next_point = nav_agent.get_next_path_position()
 	if Global.use_nav_for_player:
 		# AI
 		ball.apply_central_force(-car_mesh.global_transform.basis.z*(acceleration+50))
-		if update_path_timer.time_left ==0:
-			nav_agent.target_position = Global.player_nav_targ
-			update_path_timer.start(wait_time)
-			next_point = nav_agent.get_next_path_position()
+		
 		# var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point,Vector3.UP))
 		var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point - ball.global_position,Vector3.UP))
 		if angle > 5:

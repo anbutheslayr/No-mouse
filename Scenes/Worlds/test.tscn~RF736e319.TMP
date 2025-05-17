@@ -1,0 +1,120 @@
+[gd_scene load_steps=14 format=3 uid="uid://c6r5lrpplp4rw"]
+
+[ext_resource type="Script" uid="uid://b8bhb6lkex73b" path="res://Scripts/GDscript/Follow.gd" id="1_5htnw"]
+[ext_resource type="Script" uid="uid://c75tbba22td6" path="res://Scripts/GDscript/test.gd" id="1_bobf2"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_bobf2"]
+[ext_resource type="PackedScene" uid="uid://b34m1q65gnryr" path="res://Interface/Pause menu.tscn" id="3_av77p"]
+[ext_resource type="PackedScene" uid="uid://dwehk00acoihh" path="res://Assets/blend/CUTSCENE ROAD.blend" id="4_7wb15"]
+[ext_resource type="PackedScene" uid="uid://b7ea02s6whtbx" path="res://Scenes/taxi.tscn" id="5_0yom7"]
+[ext_resource type="PackedScene" uid="uid://dy7p05afv8ia6" path="res://Scenes/debug taxi.tscn" id="6_cjtha"]
+[ext_resource type="Material" uid="uid://dyfsy5nsp6w1h" path="res://Assets/Materials/Ground.material" id="7_nukgt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lhhj5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1chrt"]
+sky_top_color = Color(0.850239, 0.877928, 0.916642, 1)
+sky_horizon_color = Color(0.284834, 0.697366, 0.940076, 1)
+sky_curve = 0.90943
+ground_bottom_color = Color(0.85098, 0.878431, 0.917647, 1)
+ground_horizon_color = Color(0.247059, 0.878431, 0.917647, 1)
+
+[sub_resource type="Sky" id="1"]
+sky_material = SubResource("ProceduralSkyMaterial_1chrt")
+
+[sub_resource type="Environment" id="Environment_u3v1j"]
+background_mode = 2
+sky = SubResource("1")
+ambient_light_sky_contribution = 0.1
+tonemap_mode = 2
+tonemap_white = 16.0
+glow_enabled = true
+glow_intensity = 0.85
+glow_strength = 0.69
+glow_bloom = 1.0
+glow_blend_mode = 1
+fog_mode = 1
+fog_density = 1.1975
+fog_depth_begin = 25.1
+fog_depth_end = 73.5
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_nbs6v"]
+vertices = PackedVector3Array(-295.951, 0.45, -263.175, -295.951, 0.45, 602.075, 627.799, 0.45, 602.075, 627.799, 0.45, -263.175)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+agent_radius = 0.85
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_bobf2")
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["Cam"]]
+transform = Transform3D(-0.696541, -0.198842, 0.689414, 0.0406274, 0.948362, 0.314576, -0.716366, 0.247124, -0.652495, 443.98, 2.24103, 474.862)
+keep_aspect = 0
+cull_mask = 1
+far = 200.0
+script = ExtResource("1_5htnw")
+target_path = NodePath("../taxi/Node3D")
+offset = Vector3(0, 5, 15)
+fastnoiselite = SubResource("FastNoiseLite_lhhj5")
+noise_speed = 100
+col_lerp_speed = 1
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_bobf2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u3v1j")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0192244, 0.682945, -0.730217, 0.108935, 0.727435, 0.677474, 0.993863, -0.0665218, -0.0883807, 37.7649, 5.43877, 0)
+light_color = Color(0.960784, 0.741176, 0.956863, 1)
+shadow_enabled = true
+shadow_bias = 0.0
+directional_shadow_split_2 = 0.138
+directional_shadow_split_3 = 0.426
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 70.0
+
+[node name="Pause menu" parent="." instance=ExtResource("3_av77p")]
+visible = false
+
+[node name="Enemy_spawner" type="Node3D" parent="." groups=["Enemy_spawner"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -57.6567, 20.2893, -20.9285)
+
+[node name="CUTSCENE ROAD" parent="." instance=ExtResource("4_7wb15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6899, 0.124141, 17.9213)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_nbs6v")
+
+[node name="Ground" type="CSGBox3D" parent="NavigationRegion3D" groups=["2d", "Ground"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.944, 0, 169.455)
+layers = 3
+cast_shadow = 0
+use_collision = true
+collision_layer = 13
+collision_mask = 13
+size = Vector3(925.789, 0.1, 867.261)
+material = ExtResource("7_nukgt")
+
+[node name="taxi" parent="." instance=ExtResource("5_0yom7")]
+transform = Transform3D(0.150484, 0, 0.988611, 0, 1, 0, -0.988611, 0, 0.150484, 423.046, 0.209404, 477.789)
+acceleration = 120.0
+
+[node name="Gun" parent="taxi/Node3D/body/MachineGun" index="0"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, 0.146015, 4.76837e-07)
+
+[node name="taxi3" parent="." instance=ExtResource("6_cjtha")]
+transform = Transform3D(-0.216116, 0, 0.976368, 0, 1, 0, -0.976368, 0, -0.216116, 454.863, 0.198109, 475.271)
+
+[editable path="taxi"]
+[editable path="taxi/Node3D/body/MachineGun"]
+[editable path="taxi/Node3D/body/Rocket Launcher"]
+[editable path="taxi/Node3D/body/Minigun"]
+[editable path="taxi/Node3D/body/Minigun2"]
+[editable path="taxi/Node3D/Backright2"]
+[editable path="taxi/Node3D/Backleft2"]
+[editable path="taxi/Node3D/Backright"]
+[editable path="taxi/Node3D/Backleft"]
+[editable path="taxi/Interface"]
+[editable path="taxi/Interface/Weapon_menu"]

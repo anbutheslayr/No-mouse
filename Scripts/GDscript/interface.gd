@@ -10,7 +10,7 @@ class_name interface
 @onready var enemyspawner : Node3D = get_tree().get_nodes_in_group("Enemy_spawner")[0]
 @onready var enemy_taxi_scene : PackedScene = ResourceLoader.load("Scenes/debug taxi.tscn")
 @onready var timer : Timer = Timer.new()
-@onready var enemy_spawntext : Label = $Enemy_spawntext 
+@onready var cur_objective : Label = $Enemy_spawntext
 @onready var pausemenu : Control = get_tree().get_nodes_in_group("Pause_menu")[0]
 @onready var gun_switch : TouchScreenButton  = $Weapon_select
 # @onready var plane : RigidBody3D = get_tree().get_nodes_in_group("Plane")[0]
@@ -37,25 +37,10 @@ func _ready():
 func _process(_delta):
 	visible = !Global.in_cutscene
 	drift_points.text = "Drift Points : " + str(int(Global.reso.drift_points))
-	enemy_spawntext.text = "Enemy " + str(cur_enemies) + "/" + str(Global.reso.no_of_enemies) + " Spawning in " + str(int(timer.time_left))
-	if cur_enemies == Global.reso.no_of_enemies and get_tree().get_nodes_in_group("Enemy").size() != 0:
-		enemy_spawntext.text = "All " + str(Global.reso.no_of_enemies) + "/" + str(Global.reso.no_of_enemies) + " enemies spawned"
-		if Global.reso.no_of_enemies >= min_kills and Global.reso.cur_world < Global.reso.max_worlds:
-			change_world_timer.start(10)
-	if cur_enemies == Global.reso.no_of_enemies and get_tree().get_nodes_in_group("Enemy").size() == 0 and not dead and Global.reso.no_of_enemies >= min_kills:
-		if Global.reso.cur_world < Global.reso.max_worlds:
-			enemy_spawntext.text = "\n\n Teleporting to next world in " + str(int(change_world_timer.time_left))
-		else:
-			enemy_spawntext.text = "You won against " + str(Global.reso.no_of_enemies) + " enemies"
-		won = true
-	elif cur_enemies == Global.reso.no_of_enemies and get_tree().get_nodes_in_group("Enemy").size() == 0 and not dead and Global.reso.no_of_enemies < min_kills:
-		enemy_spawntext.text = "\n\n\nAtleast defeat " + str(min_kills) + " enemies to get to next world \n You can change the number of enemies in settings"
-		won = true
-	if dead and not won:
-		hide()
-		get_parent().get_parent().get_node("Death_screen").show()
-		get_parent().get_parent().get_node("Death_screen").call("Start")
-		# plane.call("Pause")
+	if Global.show_obj:
+		cur_objective.text = Global.cur_objective
+	else:
+		cur_objective.text = ""
 	if Input.is_action_just_pressed("ui_cancel"):
 		on_esc_pressed()
 
@@ -72,7 +57,7 @@ func repositionandresize(res:Vector2i):
 	weapon_switch.scale = Vector2(res.y/1080.0*0.35, res.y/1080.0*0.35)
 	print("Rezised")
 	# esc.scale = Vector2(res.y/1080.0, res.y/1080.0)
-	# enemy_spawntext.offset_top = res.y/1080.0*100
+	# cur_objective.offset_top = res.y/1080.0*100
 	# drift_points.offset_top = res.y/1080.0*10
 	# drift_points.offset_left = res.y/1080.0*-600
 

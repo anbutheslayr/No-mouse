@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://b7ea02s6whtbx"]
+[gd_scene load_steps=55 format=4 uid="uid://b7ea02s6whtbx"]
 
 [ext_resource type="PackedScene" uid="uid://p67cldlwo417" path="res://Scenes/Healthbar3d.tscn" id="1"]
 [ext_resource type="Script" uid="uid://ciwkt07qufcgw" path="res://Scripts/GDscript/Movement.gd" id="1_dn7ac"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://dhp0jaonnf6qn" path="res://Scripts/GDscript/Weapon state machine/minigun.gd" id="15_467mi"]
 [ext_resource type="Script" uid="uid://bgr1r1h3r0oji" path="res://Scripts/GDscript/Weapon state machine/rocket_launcher_descend.gd" id="15_dn7ac"]
 [ext_resource type="Script" uid="uid://dkwld38wclrmh" path="res://Scripts/GDscript/Weapon state machine/minigun_descend.gd" id="16_xgpia"]
+[ext_resource type="PackedScene" uid="uid://bcb87iwngivb5" path="res://Scenes/arrow.tscn" id="26_f61k1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_738rb"]
 resource_name = "plastic"
@@ -631,7 +632,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.000339195, 1.54346, 0.31844)]
+"values": [Vector3(0, 0.448, 0.318)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -643,7 +644,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.000339195, 1.09619, 0.31844)]
+"values": [Vector3(0, 0.326, 0.318)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -655,7 +656,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.000339031, 1.71628, 0.38334)]
+"values": [Vector3(0, 0.266, 0.383)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -667,7 +668,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 3.14159, 0)]
+"values": [Vector3(1.5708, 3.14159, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -871,7 +872,7 @@ tracks/22/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/23/type = "value"
 tracks/23/imported = false
@@ -1217,7 +1218,7 @@ mesh = SubResource("9")
 skeleton = NodePath("../..")
 
 [node name="MachineGun" parent="Node3D/body" instance=ExtResource("5")]
-transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0.000339031, 1.71628, 0.38334)
+transform = Transform3D(-1, 2.53518e-06, -9.17733e-12, 0, -3.61999e-06, -1, -2.53518e-06, -1, 3.61999e-06, 0, 0.266, 0.383)
 
 [node name="Gun" parent="Node3D/body/MachineGun" index="0"]
 transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0, 0.146015, 4.76837e-07)
@@ -1231,12 +1232,12 @@ volume_db = -10.0
 pitch_scale = 3.5
 
 [node name="Stand" type="MeshInstance3D" parent="Node3D/body"]
-transform = Transform3D(9.99999, 0, -2.68617e-05, 0, 10, 0, 2.68617e-05, 0, 9.99999, 0.000339195, 1.54346, 0.31844)
+transform = Transform3D(9.99999, 0, -2.68617e-05, 0, 10, 0, 2.68617e-05, 0, 9.99999, 0, 0.448, 0.318)
 mesh = SubResource("20")
 skeleton = NodePath("../MachineGun/Gun")
 
 [node name="Base" type="MeshInstance3D" parent="Node3D/body"]
-transform = Transform3D(7.34807, 0, -1.97382e-05, 0, 10, 0, 1.97382e-05, 0, 7.34807, 0.000339195, 1.09619, 0.31844)
+transform = Transform3D(7.34807, 0, -1.97382e-05, 0, 10, 0, 1.97382e-05, 0, 7.34807, 0, 0.326, 0.318)
 mesh = SubResource("21")
 skeleton = NodePath("../MachineGun/Gun")
 
@@ -1312,7 +1313,7 @@ transform = Transform3D(-1, 1.77636e-15, 8.74228e-08, 1.73575e-08, 0.980091, 0.1
 script = ExtResource("8_srmxw")
 player_path = NodePath("../MachineGun")
 weapon_switch_path = NodePath("../../../Interface/Weapon_select")
-inital_state = NodePath("Machine_gun_descend")
+inital_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="Node3D/body/Weapon_state_machine"]
 script = ExtResource("10_hod1a")
@@ -1453,6 +1454,10 @@ texture = ExtResource("11")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13508, 0.805907)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Node3D"]
+path_desired_distance = 10.0
+
+[node name="Arrow" parent="Node3D" instance=ExtResource("26_f61k1")]
+transform = Transform3D(1, 0, -1.77636e-15, 0, 1.185, 0, 7.10543e-15, 0, 0.515, 0, 1.63806, 0)
 
 [node name="Interface" parent="." instance=ExtResource("10")]
 visible = false

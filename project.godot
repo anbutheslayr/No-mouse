@@ -79,27 +79,28 @@ config/windows_native_icon="res://ICO.ico"
 
 [autoload]
 
-AudioPlayer="*res://Scenes/AudioPlayer.tscn"
 LoadingScreen="*res://Scripts/GDscript/Loading_screen.gd"
 ParticleLoader="*res://Scripts/GDscript/Particle_loader.gd"
 InputRecorder="*res://Scripts/GDscript/InputRecorder.gd"
 TracerPool="*res://Global/tracer_pool.tscn"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Global="*res://Scripts/GDscript/Global.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+BgAudioPlayer="*res://Scenes/bg_audio_player.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
 directories/dch_directory={
 "Enemy": "res://Dialogic/Characters/Enemy.dch",
-"pl1": "res://Dialogic/Characters/pl1.dch"
+"pl1": "res://Dialogic/Characters/pl1.dch",
+"player": "res://Dialogic/Characters/player.dch"
 }
 directories/dtl_directory={
 "First cutscene": "res://Dialogic/Characters/First cutscene.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://dialogic/styles/style.tres"]
-layout/default_style="res://dialogic/styles/style.tres"
+layout/style_list=["res://Dialogic/sTYLES/New_File.tres"]
+layout/default_style="res://Dialogic/sTYLES/New_File.tres"
 variables={}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -126,6 +127,7 @@ text/autopauses={}
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/size/fullscreen=true

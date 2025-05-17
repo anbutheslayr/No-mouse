@@ -1,0 +1,43 @@
+[res://Assets/Models/Trees/Tree1.tscn]
+
+groups=[&"Obstacle", &"Leaves"]
+
+[res://Scenes/Worlds/World0.tscn]
+
+groups=[&"Cam", &"Player_body", &"Ball", &"2d", &"Ground"]
+
+[res://Scenes/Worlds/World.tscn]
+
+groups=[&"Cam", &"2d", &"Ground"]
+
+[res://Scenes/Main_menu.tscn]
+
+groups=[&"Ground", &"Enemy_Control"]
+
+[res://Scenes/Worlds/Cutscene.tscn]
+
+groups=[&"Cam", &"2d", &"Ground", &"Enemy_spawner"]
+
+[res://Scenes/debug taxi.tscn]
+
+groups=[&"Enemy_Control", &"Enemy_Body", &"Enemy_Healthbar", &"Enemy"]
+
+[res://Scenes/Worlds/First_cutscene.tscn]
+
+groups=[&"Cam", &"Enemy_spawner", &"2d", &"Ground"]
+
+[res://Scenes/Worlds/test.tscn]
+
+groups=[&"Cam", &"Enemy_spawner", &"2d", &"Ground"]
+
+[res://Scenes/taxi.tscn]
+
+groups=[&"Player_body", &"Ball"]
+
+[res://Scenes/debug taxi trap.tscn]
+
+groups=[&"Enemy_Control", &"Enemy_Body", &"Enemy_Healthbar", &"Enemy"]
+
+[res://Scenes/Worlds/First cutscene.tscn]
+
+groups=[&"Cam", &"Enemy_spawner", &"2d", &"Ground"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://rav5psms4va4"]
+
+[ext_resource type="AudioStream" uid="uid://bcsy8j73ai88o" path="res://Assets/Audio/Hybrid.wav" id="1"]
+[ext_resource type="Script" uid="uid://ydd6na0iia43" path="res://Scripts/GDscript/bg_audio.gd" id="1_of6a1"]
+
+[node name="bg_audio_player" type="Node"]
+script = ExtResource("1_of6a1")
+
+[node name="bg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1")
+volume_db = 3.0

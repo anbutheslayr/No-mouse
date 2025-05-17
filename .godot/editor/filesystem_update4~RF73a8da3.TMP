@@ -1,0 +1,47 @@
+res://Scripts/GDscript/interface.gd
+res://Scenes/Worlds/First cutscene.tscn
+res://addons/dreadpon.spatial_gardener/utility/globals.gd
+res://addons/phantom_camera/themes/theme.tres
+res://Interface/Res.tres
+res://Assets/Diffuse_Color.material
+res://Scenes/Theme.tres
+res://Assets/Materials/particle mat/Debris.tres
+res://Assets/Materials/particle mat/fire.tres
+res://Assets/Materials/particle mat/ghost smoke.tres
+res://Assets/Materials/particle mat/Smoke.tres
+res://Assets/Materials/particle mat/Rocket particles.tres
+res://Scenes/FONT.tres
+res://taxi.tres
+res://Assets/Materials/Gray6.material
+res://Assets/blend/material.tres
+res://Assets/Materials/pavement.material
+res://Assets/Materials/Redwood.material
+res://Assets/Materials/Ground.material
+res://Assets/gardener/toolshed.tres
+res://Assets/Models/Trees/Green1.material
+res://Assets/Models/Trees/Brown1.material
+res://Assets/Models/Trees/tree2mesh.tres
+res://Assets/Models/Trees/Tree2 lowpoly.tres
+res://Assets/gardener/greenhouse.tres
+res://Scripts/Cutscene/first_cutscene.gd
+res://Scenes/dia test.tscn
+res://Scenes/Bomb.tscn
+res://Scenes/taxi.tscn
+res://Scenes/debug taxi trap.tscn
+res://Scenes/Worlds/test.tscn
+res://Scripts/GDscript/debug_taxi.gd
+res://Scripts/GDscript/debug_taxi_trap.gd
+res://Scripts/GDscript/Audioplayer.gd
+res://Scenes/AudioPlayer.tscn
+res://Scenes/bg_audio_player.tscn
+res://Scripts/GDscript/bg_audio.gd
+res://Scenes/arrow.tscn
+res://Scripts/GDscript/Movement.gd
+res://Dialogic/Characters/Enemy.dch
+res://Dialogic/sTYLES/basic.tres
+res://Dialogic/custom/VisualNovelTextbox/custom_vn_textbox_layer.tscn
+res://Dialogic/Characters/pl1.dch
+res://Dialogic/Characters/First cutscene.dtl
+res://Dialogic/Characters/player.dch
+res://Dialogic/custom/VisualNovelTextbox/vn_textbox_layer.gd
+res://Dialogic/sTYLES/player.tres

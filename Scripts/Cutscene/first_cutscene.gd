@@ -9,6 +9,7 @@ extends Node3D
 @onready var main_cam : Camera3D = $Camera3D
 @onready var player_nav_target : Node3D = $player_nav_target
 @onready var cutscn_nav_target : Node3D = $cutscene_nav_path
+@onready var level_end : Node3D = $level_end
 func _ready():
 	Dialogic.signal_event.connect(on_dialogic_event)
 	Dialogic.preload_timeline("res://Dialogic/Characters/First cutscene.dtl")
@@ -51,6 +52,8 @@ func throw_bomb():
 	Global.use_nav_for_player = true
 	third_pcam.set_priority(0)
 	follow_pcam.set_priority(1)
+	# BgAudioPlayer.playing = true
+	print("call play")
 	await get_tree().create_timer(3).timeout
 	delete_pcams()
 	Global.use_nav_for_player = false
@@ -65,4 +68,7 @@ func delete_pcams():
 	Dialogic.signal_event.disconnect(on_dialogic_event)
 	Dialogic.end_timeline()
 	Global.in_cutscene = false
+	Global.show_obj = true
+	Global.cur_objective = "ESCAPE"
+	Global.player_nav_targ = level_end.global_position
 	

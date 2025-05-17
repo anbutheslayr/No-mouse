@@ -66,17 +66,17 @@ func set_difficulty():
 			wait_time = .1
 			acceleration = 95
 			turn_speed = 3.0
-			max_speed = 35
+			max_speed = 20
 		1:
 			wait_time = 0
 			acceleration = 120
 			turn_speed = 4.0
-			max_speed = 50
+			max_speed = 30
 		2:
 			wait_time = 0
 			acceleration = 130
 			turn_speed = 5.0
-			max_speed = 65
+			max_speed = 45
 
 func part_change():
 	if Global.reso.cur_world == 1:
@@ -104,7 +104,7 @@ func  _physics_process(delta: float) -> void:
 			still_timer += delta
 			if still_timer > 3.0:
 				# Move backwards
-				ball.apply_central_impulse(car_mesh.global_transform.basis.z * (acceleration+50))
+				ball.apply_central_impulse(car_mesh.global_transform.basis.z * acceleration)
 				still_timer = 0.0 # Reset timer after moving
 		else:
 			still_timer = 0.0

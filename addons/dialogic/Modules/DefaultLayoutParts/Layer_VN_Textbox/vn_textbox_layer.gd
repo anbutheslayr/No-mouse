@@ -17,7 +17,10 @@ extends DialogicLayoutLayer
 ## If you want to change a specific part inside the scene, you can simply
 ## remove or add # (commenting) to the method line.
 
-
+var box__size: Vector2 = Vector2(1250, 280)
+var box__margin_bottom: int = 40
+var text__size : int = 30
+var label__size: int =40
 
 enum Alignments {LEFT, CENTER, RIGHT}
 
@@ -158,7 +161,9 @@ func _apply_box_settings() -> void:
 		dialog_text_panel.self_modulate = box_color_custom
 
 	var sizer: Control = %Sizer
+	box_size = Global.reso.res.y/1080.0*box__size
 	sizer.size = box_size
+	box_margin_bottom = Global.reso.res.y/1080.0*box__margin_bottom
 	sizer.position = box_size * Vector2(-0.5, -1)+Vector2(0, -box_margin_bottom)
 
 
@@ -173,9 +178,11 @@ func _apply_box_animations_settings() -> void:
 ## Applies all name label settings to the scene.
 func _apply_name_label_settings() -> void:
 	var name_label: DialogicNode_NameLabel = %DialogicNode_NameLabel
+	name_label_custom_font_size = Global.reso.res.y/1080.0*label__size
 
 	if name_label_use_global_font_size:
-		name_label.add_theme_font_size_override(&"font_size", get_global_setting(&'font_size', name_label_custom_font_size) as int)
+		# name_label.add_theme_font_size_override(&"font_size", get_global_setting(&'font_size', name_label_custom_font_size) as int)
+		name_label.add_theme_font_size_override(&"font_size", name_label_custom_font_size)
 	else:
 		name_label.add_theme_font_size_override(&"font_size", name_label_custom_font_size)
 
@@ -202,7 +209,7 @@ func _apply_name_label_settings() -> void:
 	else:
 		name_label_panel.self_modulate = name_label_box_modulate
 	var dialog_text_panel: PanelContainer = %DialogTextPanel
-	name_label_panel.position = name_label_box_offset+Vector2(0, -40)
+	name_label_panel.position = name_label_box_offset+Vector2(0, -80*Global.reso.res.y/1080.0)
 	name_label_panel.position -= Vector2(
 		dialog_text_panel.get_theme_stylebox(&'panel', &'PanelContainer').content_margin_left,
 		dialog_text_panel.get_theme_stylebox(&'panel', &'PanelContainer').content_margin_top)
@@ -218,6 +225,7 @@ func _apply_text_settings() -> void:
 
 	if text_use_global_size:
 		text_size = get_global_setting(&'font_size', text_size)
+	text_size = Global.reso.res.y/1080.0*text__size
 	dialog_text.add_theme_font_size_override(&"normal_font_size", text_size)
 	dialog_text.add_theme_font_size_override(&"bold_font_size", text_size)
 	dialog_text.add_theme_font_size_override(&"italics_font_size", text_size)

@@ -1,4 +1,4 @@
-res://Scenes/Worlds/First cutscene.tscn
+res://Scenes/arrow.tscn
 res://Scenes/Theme.tres
 res://Assets/Materials/particle mat/Debris.tres
 res://Assets/Materials/particle mat/fire.tres
@@ -6,29 +6,32 @@ res://Assets/Materials/particle mat/ghost smoke.tres
 res://Assets/Materials/particle mat/Smoke.tres
 res://Assets/Materials/particle mat/Rocket particles.tres
 res://Interface/Res.tres
+res://Dialogic/sTYLES/New_File.tres
 res://addons/dreadpon.spatial_gardener/utility/globals.gd
 res://addons/phantom_camera/themes/theme.tres
 res://taxi.tres
+res://Assets/Materials/Ground.material
+res://Scenes/FONT.tres
 res://Assets/Materials/Gray6.material
 res://Assets/blend/material.tres
 res://Assets/Diffuse_Color.material
 res://Assets/Materials/pavement.material
 res://Assets/Materials/Redwood.material
-res://Assets/Materials/Ground.material
-res://Scenes/FONT.tres
 res://Assets/gardener/toolshed.tres
 res://Assets/Models/Trees/Green1.material
 res://Assets/Models/Trees/Brown1.material
 res://Assets/Models/Trees/tree2mesh.tres
 res://Assets/Models/Trees/Tree2 lowpoly.tres
 res://Assets/gardener/greenhouse.tres
-res://Scripts/Cutscene/first_cutscene.gd
+res://Dialogic/Characters/First cutscene.dtl
+res://Dialogic/Characters/pl1.dch
+res://Dialogic/Characters/Enemy.dch
 res://Scenes/dia test.tscn
 res://Scenes/Bomb.tscn
-res://Scenes/taxi.tscn
 res://Scenes/debug taxi trap.tscn
-res://Scripts/GDscript/debug_taxi.gd
-res://Scripts/GDscript/debug_taxi_trap.gd
-res://Scripts/GDscript/Movement.gd
-res://Scripts/GDscript/explosion.gd
+res://Scenes/Worlds/First cutscene.tscn
 res://Scenes/Worlds/test.tscn
+res://Scenes/taxi.tscn
+res://Scripts/GDscript/Movement.gd
+res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.gd
+res://Scripts/GDscript/debug_taxi_trap.gd
