@@ -7,15 +7,17 @@ var use_nav_for_player: bool = false
 var player_nav_targ : Vector3
 var show_obj: bool = false
 var cur_objective : String = ""
+var player_nav_speed :int = 0
+var max_nav_angle :int = 10
 func _ready():
 	# Ensure the resource exists, or create a new one
 	var dir: DirAccess = DirAccess.open("user://")
 	if !dir.dir_exists("user://Int"):
 		dir.make_dir("user://Int")
-	if !dir.file_exists("user://Int/Res.tres"):
+	if !dir.file_exists("user://Res.tres"):
 		print("Resolution resource not found. Creating a new one.")
 		reso = preload("res://Interface/Res.tres").duplicate()
-		ResourceSaver.save(reso, "user://Int/Res.tres")
+		ResourceSaver.save(reso, "user://Res.tres")
 	else:
 		reso = ResourceLoader.load("user://Int/Res.tres")
 		print("Resolution resource loaded.")

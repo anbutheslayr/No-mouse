@@ -76,23 +76,22 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	arrow.visible = !Global.in_cutscene
-	var arrow_targ = lerp(arrow.global_position, Vector3(next_point.x,arrow.global_position.y,next_point.z), delta/10.0)
+	var arrow_targ = lerp(arrow.global_position, Vector3(next_point.x,arrow.global_position.y,next_point.z), delta)
 	arrow.look_at(arrow_targ, Vector3.UP)
 	rc_iscol = (fr.is_colliding() or fl.is_colliding() or bl.is_colliding())
 	# Align mesh with sphere
 	
 	car_mesh.transform.origin = ball.transform.origin + sphere_offset  
 	# Accelerate
-	var add = Vector3.ZERO
-	# if car_mesh.rotation.x>0 :
-	# 	add = -car_mesh.global_transform.basis.z*speed_input*sin(car_mesh.rotation.x)*ball.mass*grav
-	# else:
-	# 	add = Vector3.ZERO
+	var add
+	if car_mesh.rotation.x>0 :
+		add = -car_mesh.global_transform.basis.z*speed_input*sin(car_mesh.rotation.x)*ball.mass*grav
+		print("inclination")
+	else:
+		add = Vector3.ZERO
 	if rc_iscol:
 		ball.apply_central_force(-car_mesh.global_transform.basis.z*speed_input + add)
-
-	if ball.linear_velocity.length() > max_speed:
-		ball.linear_velocity = ball.linear_velocity.normalized() * max_speed
+		print("speed input : ", speed_input)
 
 func jump():
 	ball.linear_velocity.y = jump_ht*40
@@ -161,13 +160,21 @@ func _process(delta: float) -> void:
 		next_point = nav_agent.get_next_path_position()
 	if Global.use_nav_for_player:
 		# AI
-		ball.apply_central_force(-car_mesh.global_transform.basis.z*(acceleration+50))
+		var add
+		speed_input = Global.player_nav_speed
+		if car_mesh.rotation.x>0 :
+			add = -(car_mesh.global_transform.basis.z*speed_input*sin(car_mesh.rotation.x)*ball.mass*grav)/100
+			print("inclination")
+		else:
+			add = Vector3.ZERO
+		ball.apply_central_force(-car_mesh.global_transform.basis.z*speed_input + add)
+		
 		
 		# var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point,Vector3.UP))
 		var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point - ball.global_position,Vector3.UP))
-		if angle > 5:
+		if angle > Global.max_nav_angle:
 			steering_input = deg_to_rad(steering)
-		elif angle<-5:
+		elif angle<-Global.max_nav_angle:
 			steering_input = -deg_to_rad(steering)
 		else :
 			steering_input = 0.0

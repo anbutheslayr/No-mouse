@@ -47,7 +47,7 @@ var rc_iscol: bool
 var still_timer: float = 0.0
 var was_moving: bool = true
 var in_trap: bool = true
-var max_speed: float = 100
+var max_speed: float = 30
 func _ready():
 	part_change()
 	set_difficulty()
@@ -66,17 +66,17 @@ func set_difficulty():
 			wait_time = .1
 			acceleration = 95
 			turn_speed = 3.0
-			max_speed = 20
+			max_speed = 30
 		1:
 			wait_time = 0
 			acceleration = 120
 			turn_speed = 4.0
-			max_speed = 30
+			max_speed = 45
 		2:
 			wait_time = 0
 			acceleration = 130
 			turn_speed = 5.0
-			max_speed = 45
+			max_speed = 60
 
 func part_change():
 	if Global.reso.cur_world == 1:
@@ -98,7 +98,7 @@ func  _physics_process(delta: float) -> void:
 	# else:
 	# 	add = Vector3.ZERO
 	set_process(!in_trap)
-	if rc_iscol and !in_trap:
+	if rc_iscol and !in_trap and ball.linear_velocity.length() < max_speed:
 		ball.apply_central_force(-car_mesh.global_transform.basis.z*acceleration)
 		if ball.linear_velocity.length() < 2: # Threshold for "still"
 			still_timer += delta
@@ -109,9 +109,6 @@ func  _physics_process(delta: float) -> void:
 		else:
 			still_timer = 0.0
 			print("velocity: ",ball.linear_velocity.length())
-	# --- Clamp max speed ---
-	if ball.linear_velocity.length() > max_speed:
-		ball.linear_velocity = ball.linear_velocity.normalized() * max_speed
 func align_with_surface(xform: Transform3D) -> Transform3D:
 
 	var front_left_col = fl.get_collision_point() if fl.is_colliding() else fl.global_position

@@ -1,7 +1,9 @@
-CSGCylinder3D
 Node3D
-CSGPolygon3D
 AudioStreamPlayer
+CSGBox3D
+PhantomCamera3D
+CSGCylinder3D
+CSGPolygon3D
 Node
 Camera3D
 CollisionShape3D
@@ -9,7 +11,4 @@ Area3D
 Path3D
 Decal
 NavigationAgent3D
-PhantomCamera3D
 RigidBody3D
-AnimationPlayer
-MeshInstance3D

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://tsxxyucyqdm5"
 path.s3tc="res://.godot/imported/Decal.png-8b0dc9551a52cfc0bb000b14b40ebcb1.s3tc.ctex"
+path.etc2="res://.godot/imported/Decal.png-8b0dc9551a52cfc0bb000b14b40ebcb1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Materials/Decal.png"
-dest_files=["res://.godot/imported/Decal.png-8b0dc9551a52cfc0bb000b14b40ebcb1.s3tc.ctex"]
+dest_files=["res://.godot/imported/Decal.png-8b0dc9551a52cfc0bb000b14b40ebcb1.s3tc.ctex", "res://.godot/imported/Decal.png-8b0dc9551a52cfc0bb000b14b40ebcb1.etc2.ctex"]
 
 [params]
 

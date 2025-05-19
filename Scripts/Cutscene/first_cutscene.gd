@@ -10,6 +10,9 @@ extends Node3D
 @onready var player_nav_target : Node3D = $player_nav_target
 @onready var cutscn_nav_target : Node3D = $cutscene_nav_path
 @onready var level_end : Node3D = $level_end
+@onready var final_pcam : PhantomCamera3D = $PhantomCamera3D5
+@onready var BgAudioPlayer : AudioStreamPlayer = $bg
+@onready var final_shot_pcam : PhantomCamera3D = $PhantomCamera3D6
 func _ready():
 	Dialogic.signal_event.connect(on_dialogic_event)
 	Dialogic.preload_timeline("res://Dialogic/Characters/First cutscene.dtl")
@@ -19,6 +22,8 @@ func _ready():
 	Global.in_cutscene = true
 	Global.reso.weapons.set("Machine_gun",0) 
 	Global.reso.weapons.set("Minigun",0)
+	main_cam.global_position = player_pcam.global_position
+	Global.max_nav_angle = 7
 
 
 func switch_pcam():
@@ -38,6 +43,7 @@ func on_dialogic_event(argument: String):
 func switch_to_3rd():
 	player_pcam.set_priority(0)
 	enemy_pcam.set_priority(0)
+	final_pcam.set_priority(0)
 	third_pcam.set_priority(1)
 	await get_tree().create_timer(1).timeout
 	throw_bomb()
@@ -50,6 +56,7 @@ func throw_bomb():
 	await get_tree().create_timer(1.5).timeout
 	Global.player_nav_targ = cutscn_nav_target.global_position
 	Global.use_nav_for_player = true
+	Global.player_nav_speed = 60
 	third_pcam.set_priority(0)
 	follow_pcam.set_priority(1)
 	# BgAudioPlayer.playing = true
@@ -71,4 +78,23 @@ func delete_pcams():
 	Global.show_obj = true
 	Global.cur_objective = "ESCAPE"
 	Global.player_nav_targ = level_end.global_position
+	main_cam.get_child(0).queue_free()
+	BgAudioPlayer.play()
 	
+func levelend(body : Node3D):
+	if body.is_in_group("Ball") and body is RigidBody3D:
+		main_cam.add_child(PhantomCameraHost.new())
+		final_pcam.set_priority(1)
+		Global.player_nav_targ = level_end.global_position
+		Global.use_nav_for_player = true
+		Global.in_cutscene = true
+		Global.player_nav_speed = 30
+		Engine.time_scale = lerp(Engine.time_scale, .5, 0.5)
+		BgAudioPlayer.stop()
+
+func final_shot(body : Node3D):
+	if body.is_in_group("Ball") and body is RigidBody3D:
+		final_pcam.set_priority(0)
+		final_shot_pcam.set_priority(1)
+		Global.max_nav_angle = 95
+		

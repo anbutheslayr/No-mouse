@@ -71,7 +71,7 @@ config={
 
 config/name="Rogue drifters"
 run/main_scene="res://Interface/Start.tscn"
-config/features=PackedStringArray("4.4", "C#")
+config/features=PackedStringArray("4.4")
 run/max_fps=60
 boot_splash/show_image=false
 boot_splash/image="res://okk.png"
@@ -127,7 +127,6 @@ text/autopauses={}
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/size/fullscreen=true
@@ -1296,6 +1295,7 @@ common/enable_pause_aware_picking=true
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/directional_shadow/size=2048
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=4
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=2

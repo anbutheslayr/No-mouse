@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://faibbxt6r8ho"
 path.s3tc="res://.godot/imported/volcanic_rock_tiles_diff_1k.jpg-e552bf580bf093eb3a478df4a79026c7.s3tc.ctex"
+path.etc2="res://.godot/imported/volcanic_rock_tiles_diff_1k.jpg-e552bf580bf093eb3a478df4a79026c7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Models/World2/Textures/volcanic_rock_tiles_diff_1k.jpg"
-dest_files=["res://.godot/imported/volcanic_rock_tiles_diff_1k.jpg-e552bf580bf093eb3a478df4a79026c7.s3tc.ctex"]
+dest_files=["res://.godot/imported/volcanic_rock_tiles_diff_1k.jpg-e552bf580bf093eb3a478df4a79026c7.s3tc.ctex", "res://.godot/imported/volcanic_rock_tiles_diff_1k.jpg-e552bf580bf093eb3a478df4a79026c7.etc2.ctex"]
 
 [params]
 

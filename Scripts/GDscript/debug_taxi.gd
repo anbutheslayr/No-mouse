@@ -95,7 +95,7 @@ func  _physics_process(delta: float) -> void:
 	# else:
 	# 	add = Vector3.ZERO
 	set_process(!Global.in_cutscene)
-	if rc_iscol and !Global.in_cutscene:
+	if rc_iscol and !Global.in_cutscene and ball.linear_velocity.length() < max_speed:
 		ball.apply_central_force(-car_mesh.global_transform.basis.z*acceleration)
 		if ball.linear_velocity.length() < 2: # Threshold for "still"
 			still_timer += delta
@@ -105,9 +105,9 @@ func  _physics_process(delta: float) -> void:
 				still_timer = 0.0 # Reset timer after moving
 		else:
 			still_timer = 0.0
-	# --- Clamp max speed ---
-	if ball.linear_velocity.length() > max_speed:
-		ball.linear_velocity = ball.linear_velocity.normalized() * max_speed
+	# # --- Clamp max speed ---
+	# if ball.linear_velocity.length() > max_speed:
+	# 	ball.linear_velocity = ball.linear_velocity.normalized() * max_speed
 func align_with_surface(xform: Transform3D) -> Transform3D:
 
 	var front_left_col = fl.get_collision_point() if fl.is_colliding() else fl.global_position
