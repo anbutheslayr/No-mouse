@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_6jo16")
-res = Vector2i(1920, 1080)
+res = Vector2i(1280, 720)
 res_int = 1
 shadows = true
 shadow_quality = 0

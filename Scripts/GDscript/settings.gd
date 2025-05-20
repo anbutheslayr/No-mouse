@@ -3,7 +3,6 @@ class_name SettingsMenu
 
 
 @onready var esc : TextureButton = get_node("TextureButton")
-var title_font : FontFile = preload("res://Scenes/FONT.tres")
 var gtheme : Theme = preload("res://Scenes/Theme.tres")
 @onready var volume : HSlider =  get_node("MarginContainer/HBoxContainer2/VBoxContainer/Hslider")
 @onready var resolution_button : OptionButton = get_node("MarginContainer/HBoxContainer2/VBoxContainer/OptionButton")

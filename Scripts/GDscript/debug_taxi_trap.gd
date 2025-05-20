@@ -56,10 +56,10 @@ func _ready():
 	update_path_timer.wait_time = .1
 	update_path_timer.start()
 
-func start_trap(body : Node3D):
-	if body.is_in_group("Ball"):
+func start_trap(area : Area3D):
+	if area.is_in_group("Player_body"):
 		in_trap = false
-		print("trap")
+		print("trap : ",self.name)
 func set_difficulty():
 	match Global.reso.difficulty:
 		0:
@@ -77,7 +77,6 @@ func set_difficulty():
 			acceleration = 130
 			turn_speed = 5.0
 			max_speed = 60
-
 func part_change():
 	if Global.reso.cur_world == 1:
 		b_l = get_node(b_l_particles)
@@ -108,7 +107,6 @@ func  _physics_process(delta: float) -> void:
 				still_timer = 0.0 # Reset timer after moving
 		else:
 			still_timer = 0.0
-			print("velocity: ",ball.linear_velocity.length())
 func align_with_surface(xform: Transform3D) -> Transform3D:
 
 	var front_left_col = fl.get_collision_point() if fl.is_colliding() else fl.global_position

@@ -7,9 +7,9 @@
 resource_name = "Toolshed_Brush"
 script = ExtResource("2")
 behavior/behavior_brush_type = 1
-shape/shape_volume_size = 23.08
+shape/shape_volume_size = 400.0
 shape/shape_projection_size = 100.0
-behavior/behavior_strength = 1.0
+behavior/behavior_strength = 0.3
 behavior/behavior_passthrough = false
 behavior/behavior_overlap_mode = 0
 behavior/behavior_no_settings_text = "This brush has no additional settings"

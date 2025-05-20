@@ -40,7 +40,7 @@ var expl = preload("res://Scenes/Explosion.tscn")
 @onready var update_path_timer : Timer = Timer.new()
 @onready var player_mesh : MeshInstance3D = get_parent().get_node("taxi/Node3D")
 @export var max_speed: float = 100
-var wait_time 
+var wait_time:float = 0.0
 var next_point : Vector3
 var speed_input: float = 1
 var steering_input : float = 0.0
@@ -65,15 +65,15 @@ func set_difficulty():
 			turn_speed = 3.0
 			max_speed = 35
 		1:
-			wait_time = 0
+			wait_time = 0.0
 			acceleration = 120
 			turn_speed = 4.0
-			max_speed = 40
+			max_speed = 45
 		2:
-			wait_time = 0
+			wait_time = 0.0
 			acceleration = 130
 			turn_speed = 5.0
-			max_speed = 65
+			max_speed = 60
 
 func part_change():
 	if Global.reso.cur_world == 1:

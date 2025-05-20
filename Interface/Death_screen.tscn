@@ -1,128 +1,101 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://bbtnxoqyfs7fi"]
 
-[ext_resource type="FontFile" path="res://Scenes/FONT.tres" id="1"]
+[ext_resource type="FontFile" uid="uid://c4o1fg7bafdkv" path="res://Scenes/FONT.tres" id="1"]
+[ext_resource type="Script" uid="uid://c2wqjrj1uronn" path="res://Scripts/GDscript/Deathscreen.gd" id="1_vo3dn"]
 [ext_resource type="Theme" uid="uid://6wasy10nsxp0" path="res://Scenes/Theme.tres" id="2"]
-[ext_resource type="Script" uid="uid://bgbka6h53cqr1" path="res://Scripts/Ported scripts/Death_screen.cs" id="3"]
-[ext_resource type="Script" uid="uid://kml2a6635xap" path="res://admob-lib/admob.gd" id="4"]
+[ext_resource type="Theme" uid="uid://df5t0gtj4p8xo" path="res://Scenes/title_theme.tres" id="2_2vwdq"]
 
-[node name="Death_screen" type="Control"]
+[node name="Death_screen" type="Control" groups=["Death_screen"]]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
+script = ExtResource("1_vo3dn")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_top = 12
 theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 1908.0
-offset_bottom = 1068.0
+layout_mode = 2
 theme_override_constants/separation = 70
 
 [node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
-offset_right = 1896.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-offset_top = 70.0
-offset_right = 1896.0
-offset_bottom = 183.0
-theme_override_colors/font_color = Color( 1, 1, 1, 1 )
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+layout_mode = 2
+theme = ExtResource("2_2vwdq")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 7
 theme_override_constants/shadow_offset_y = 7
-theme_override_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource("1")
 text = "You lost
 ¬_¬ )"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 1908.0
-offset_bottom = 1068.0
+layout_mode = 2
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-offset_left = 755.0
-offset_right = 1137.0
-offset_bottom = 1056.0
+layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 424.0
-offset_right = 382.0
-offset_bottom = 424.0
+layout_mode = 2
 
 [node name="Revive" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 444.0
-offset_right = 382.0
-offset_bottom = 480.0
-theme = ExtResource( 2 )
+process_mode = 2
+visible = false
+layout_mode = 2
+theme = ExtResource("2")
 keep_pressed_outside = true
 text = "Revive(Watch ad)"
 
 [node name="Control4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 visible = false
-offset_top = 490.0
-offset_right = 382.0
-offset_bottom = 490.0
+layout_mode = 2
 
 [node name="ReviveDebug" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-visible = false
-offset_top = 482.0
-offset_right = 382.0
-offset_bottom = 518.0
-theme = ExtResource( 2 )
+process_mode = 2
+layout_mode = 2
+theme = ExtResource("2")
 keep_pressed_outside = true
 text = "Revive Debug"
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 500.0
-offset_right = 382.0
-offset_bottom = 500.0
+layout_mode = 2
 
 [node name="Restart" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 520.0
-offset_right = 382.0
-offset_bottom = 556.0
-theme = ExtResource( 2 )
+process_mode = 2
+layout_mode = 2
+theme = ExtResource("2")
 keep_pressed_outside = true
 text = "Restart"
 
 [node name="Control3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 576.0
-offset_right = 382.0
-offset_bottom = 576.0
+layout_mode = 2
 
 [node name="Quit to main menu" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-offset_top = 596.0
-offset_right = 382.0
-offset_bottom = 632.0
-theme = ExtResource( 2 )
+process_mode = 2
+layout_mode = 2
+theme = ExtResource("2")
 keep_pressed_outside = true
 text = "QUIT to main menu"
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
-offset_left = 1141.0
-offset_right = 1141.0
-offset_bottom = 1056.0
-
-[node name="AdMob" type="Node" parent="."]
-script = ExtResource( 4 )
-rewarded_id = "ca-app-pub-5974334448635956/9410298226"
-child_directed = true
+layout_mode = 2
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Revive" to="." method="OnRevivePressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ReviveDebug" to="." method="ReviveDebug"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Restart" to="." method="OnRestartPressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit to main menu" to="." method="OnQuitToMMPressed"]
-[connection signal="rewarded" from="AdMob" to="." method="OnRewarded"]
-[connection signal="rewarded_video_loaded" from="AdMob" to="." method="OnAdLoaded"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ReviveDebug" to="." method="revive_debug"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit to main menu" to="." method="on_quittoMM_pressed"]

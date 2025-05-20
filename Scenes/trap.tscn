@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcaeksnlb22bu"]
+
+[ext_resource type="Script" uid="uid://hmmcbasa88oo" path="res://Scripts/GDscript/trap.gd" id="1_0juii"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7vatj"]
+size = Vector3(4.80682, 2.64077, 11.3685)
+
+[node name="Area3D" type="Area3D"]
+transform = Transform3D(-0.700336, 0, 0.713813, 0, 1, 0, -0.713813, 0, -0.700336, 0, 0, 0)
+input_ray_pickable = false
+monitorable = false
+script = ExtResource("1_0juii")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.99818, 0, -0.0602995, 0, 1, 0, 0.0602995, 0, 0.99818, -0.0940247, 1.22959, 2.76923)
+shape = SubResource("BoxShape3D_7vatj")
+
+[connection signal="area_entered" from="." to="." method="start_trap"]

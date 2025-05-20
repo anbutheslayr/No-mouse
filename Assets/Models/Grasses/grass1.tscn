@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmqr0yn6gacix"]
+
+[ext_resource type="ArrayMesh" uid="uid://cl7gxlekrgglv" path="res://Assets/Models/Grasses/grass1.tres" id="1_0fckj"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGMesh3D"]
+transform = Transform3D(0.981823, 0, -0.189798, 0, 1, 0, 0.189798, 0, 0.981823, 0, 0, 0)
+polygon = PackedVector2Array(0.000883341, 0.0344161, 0.137773, 0.572197, 0.502224, 0.844545, 0.822222, 0.982866, 0.743999, 0.689531, 0.42133, 0.435307)
+depth = 0.05
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="CSGMesh3D"]
+transform = Transform3D(-0.897405, 0, -0.441208, 0, 1, 0, 0.441208, 0, -0.897405, 0, 0, 0)
+polygon = PackedVector2Array(0.000883341, 0.0344161, 0.137773, 0.572197, 0.502224, 0.844545, 0.822222, 0.982866, 0.743999, 0.689531, 0.42133, 0.435307)
+depth = 0.05
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="CSGMesh3D"]
+transform = Transform3D(-0.304515, 0, 0.952507, 0, 1, 0, -0.952507, 0, -0.304515, 0, 0, 0)
+polygon = PackedVector2Array(0.000883341, 0.0344161, 0.137773, 0.572197, 0.502224, 0.844545, 0.822222, 0.982866, 0.743999, 0.689531, 0.42133, 0.435307)
+depth = 0.05
+
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.89884)
+mesh = ExtResource("1_0fckj")

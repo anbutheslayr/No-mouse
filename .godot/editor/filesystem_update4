@@ -1,4 +1,4 @@
-res://Scripts/GDscript/Movement.gd
+res://Scripts/Cutscene/first_cutscene.gd
 res://Scenes/Worlds/First cutscene.tscn
 res://Scenes/Theme.tres
 res://Assets/Materials/particle mat/Debris.tres
@@ -24,11 +24,25 @@ res://Assets/Models/Trees/Brown1.material
 res://Assets/Models/Trees/tree2mesh.tres
 res://Assets/Models/Trees/Tree2 lowpoly.tres
 res://Assets/gardener/greenhouse.tres
+res://Assets/Models/Grasses/grass1.tscn
+res://Assets/Materials/Green1.material
 res://Scenes/dia test.tscn
 res://Scenes/Bomb.tscn
 res://Scenes/debug taxi trap.tscn
 res://Scenes/Worlds/test.tscn
 res://Scenes/taxi.tscn
-res://Scripts/Cutscene/first_cutscene.gd
-res://Scripts/GDscript/debug_taxi_trap.gd
+res://Scenes/Worlds/first level.tscn
+res://Interface/Start.tscn
 res://Scripts/GDscript/Global.gd
+res://Dialogic/Characters/Enemy.dch
+res://Dialogic/Characters/pl1.dch
+res://Scripts/GDscript/Movement.gd
+res://Scripts/GDscript/debug_taxi.gd
+res://Scripts/GDscript/debug_taxi_trap.gd
+res://Scripts/GDscript/trap.gd
+res://Scenes/trap.tscn
+res://Interface/Death_screen.tscn
+res://Scripts/GDscript/Deathscreen.gd
+res://Scripts/GDscript/interface.gd
+res://Scripts/GDscript/MainMenu.gd
+res://Scripts/GDscript/settings.gd

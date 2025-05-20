@@ -86,12 +86,10 @@ func _physics_process(delta: float) -> void:
 	var add
 	if car_mesh.rotation.x>0 :
 		add = -car_mesh.global_transform.basis.z*speed_input*sin(car_mesh.rotation.x)*ball.mass*grav
-		print("inclination")
 	else:
 		add = Vector3.ZERO
 	if rc_iscol:
 		ball.apply_central_force(-car_mesh.global_transform.basis.z*speed_input + add)
-		print("speed input : ", speed_input)
 
 func jump():
 	ball.linear_velocity.y = jump_ht*40
@@ -164,7 +162,6 @@ func _process(delta: float) -> void:
 		speed_input = Global.player_nav_speed
 		if car_mesh.rotation.x>0 :
 			add = -(car_mesh.global_transform.basis.z*speed_input*sin(car_mesh.rotation.x)*ball.mass*grav)/100
-			print("inclination")
 		else:
 			add = Vector3.ZERO
 		ball.apply_central_force(-car_mesh.global_transform.basis.z*speed_input + add)
@@ -173,9 +170,9 @@ func _process(delta: float) -> void:
 		# var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point,Vector3.UP))
 		var angle = rad_to_deg(-car_mesh.global_transform.basis.z.signed_angle_to(next_point - ball.global_position,Vector3.UP))
 		if angle > Global.max_nav_angle:
-			steering_input = deg_to_rad(steering)
+			steering_input = lerp(steering_input ,deg_to_rad(steering),Global.turn_lerp_speed*delta)
 		elif angle<-Global.max_nav_angle:
-			steering_input = -deg_to_rad(steering)
+			steering_input = lerp(steering_input ,-deg_to_rad(steering),Global.turn_lerp_speed*delta)
 		else :
 			steering_input = 0.0
 	if ball.linear_velocity.length() > turn_stop_limit:
@@ -247,6 +244,7 @@ func apply_damage(damage, body):
 		var e = expl.instantiate() as Node3D
 		get_tree().root.add_child(e)
 		e.global_position = ball.global_position
+		get_tree().get_nodes_in_group("Death_screen")[0].start()
 	health_bar_3d.change_health(health,true)
 	body.get_parent().calculate_health(damage)
 

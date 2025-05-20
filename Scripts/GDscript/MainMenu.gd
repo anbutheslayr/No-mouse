@@ -10,7 +10,7 @@ extends Node3D
 
 func _ready() -> void:
 	Engine.time_scale = 1
-	# menu.resize(Global.reso.res)
+	menu.resize(Global.reso)
 	settings.resize(Global.reso.res)
 	settings.reposition(Global.reso.res)
 	settings.on_resolution_changed(Global.reso.res_int)

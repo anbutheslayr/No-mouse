@@ -13,17 +13,21 @@ extends Node3D
 @onready var final_pcam : PhantomCamera3D = $PhantomCamera3D5
 @onready var BgAudioPlayer : AudioStreamPlayer = $bg
 @onready var final_shot_pcam : PhantomCamera3D = $PhantomCamera3D6
+@onready var anim : AnimationPlayer = $AnimationPlayer
+@onready var end_label : Label = $Control/Label
 func _ready():
+	Global.in_cutscene = true
+	await get_tree().create_timer(.2).timeout
 	Dialogic.signal_event.connect(on_dialogic_event)
 	Dialogic.preload_timeline("res://Dialogic/Characters/First cutscene.dtl")
 	Dialogic.start("res://Dialogic/Characters/First cutscene.dtl")
 	main_cam.set_process(false)
 	main_cam.set_physics_process(false)
-	Global.in_cutscene = true
 	Global.reso.weapons.set("Machine_gun",0) 
 	Global.reso.weapons.set("Minigun",0)
 	main_cam.global_position = player_pcam.global_position
 	Global.max_nav_angle = 7
+	Global.turn_lerp_speed = 30
 
 
 func switch_pcam():
@@ -84,17 +88,43 @@ func delete_pcams():
 func levelend(body : Node3D):
 	if body.is_in_group("Ball") and body is RigidBody3D:
 		main_cam.add_child(PhantomCameraHost.new())
-		final_pcam.set_priority(1)
-		Global.player_nav_targ = level_end.global_position
 		Global.use_nav_for_player = true
 		Global.in_cutscene = true
-		Global.player_nav_speed = 30
-		Engine.time_scale = lerp(Engine.time_scale, .5, 0.5)
+		final_pcam.set_priority(1)
+		Global.player_nav_speed = 50
+		Engine.time_scale = lerp(Engine.time_scale, .8, 0.5)
+		Global.max_nav_angle = 10
+		Global.turn_lerp_speed = 7
 		BgAudioPlayer.stop()
 
 func final_shot(body : Node3D):
 	if body.is_in_group("Ball") and body is RigidBody3D:
 		final_pcam.set_priority(0)
 		final_shot_pcam.set_priority(1)
-		Global.max_nav_angle = 95
+		Engine.time_scale = lerp(Engine.time_scale, .000000001, 0.9)
+		await get_tree().create_timer(.3).timeout
+		Engine.time_scale = 1
+		match Global.reso.difficulty:
+			0:
+				end_label.text = "NOOB LOL \n try beating at medium diff loser"
+			1:
+				end_label.text = "MID LOL \n try beating at hard diff loser"
+			2:
+				end_label.text = "that's it for now nigga"
+		anim.play("end")
+
 		
+
+		
+
+
+func next_level():
+	Engine.time_scale = 1
+	Global.max_nav_angle = 10
+	Global.turn_lerp_speed = 10
+	Global.in_cutscene = true
+	LoadingScreen.load_scene("res://Scenes/Main_menu.tscn")
+	# Global.show_obj = true
+	# Global.cur_objective = "ESCAPE"
+	# Global.player_nav_targ = level_end.global_position
+	# main_cam.get_child(0).queue_free()

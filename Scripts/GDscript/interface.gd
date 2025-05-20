@@ -43,7 +43,13 @@ func _process(_delta):
 		cur_objective.text = ""
 	if Input.is_action_just_pressed("ui_cancel"):
 		on_esc_pressed()
-
+func revive():
+	Global.in_cutscene = false
+	Global.show_obj = true
+	get_parent().health = 100
+	get_parent().visible = true
+	get_parent().health_bar_3d.change_health(100,true)
+	
 func repositionandresize(res:Vector2i):
 	left.position = Vector2(res.y/1080.0*370.43, res.y/1080.0*10.0)
 	left.scale = Vector2(res.y/1080.0*1.444, res.y/1080.0*1.393)
